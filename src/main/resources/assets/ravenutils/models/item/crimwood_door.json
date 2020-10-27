@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ravenutils:item/crimwood_door"
+    "layer0": "ravenutils:models/items/crimwood_door"
   }
 }

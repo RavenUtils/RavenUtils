@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "ravenutils:models/block/crimwood_planks",
-    "top": "ravenutils:models/block/crimwood_planks",
-    "side": "ravenutils:models/block/crimwood_planks"
+    "bottom": "ravenutils:models/blocks/crimwood_planks",
+    "top": "ravenutils:models/blocks/crimwood_planks",
+    "side": "ravenutils:models/blocks/crimwood_planks"
   }
 }

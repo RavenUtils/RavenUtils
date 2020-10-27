@@ -9,11 +9,13 @@
   "block.ravenutils.salt_ore": "Salt Ore",
   "block.ravenutils.salt_block": "Block of Salt",
   "block.ravenutils.crimleaf": "Crimleaf",
+  "block.ravenutils.crimwood_sapling": "Crimwood Sapling",
   "block.ravenutils.crimwood_leaves": "Crimwood Leaves",
   "block.ravenutils.crimwood_log": "Crimwood Log",
   "block.ravenutils.crimwood_planks": "Crimwood Planks",
   "block.ravenutils.crimwood_stairs": "Crimwood Stairs",
   "block.ravenutils.crimwood_slab": "Crimwood Slab",
+  "block.ravenutils.crimwood_pressure_plate": "Crimwood Pressure Plate",
   "block.ravenutils.crimwood_trapdoor": "Crimwood Trapdoor",
   "block.ravenutils.crimwood_door": "Crimwood Door",
 
@@ -47,12 +49,13 @@
   "item.ravenutils.stone_salt": "Stone Salt",
   "item.ravenutils.raven_eye_gem": "Raven Eye",
   "item.ravenutils.crimleaf_item": "Crimleaf",
+  "item.ravenutils.crimwood_sapling_item": "Crimwood Sapling",
   "item.ravenutils.crimwood_leaves_item": "Crimwood Leaves",
   "item.ravenutils.crimwood_log_item": "Crimwood Log",
   "item.ravenutils.crimwood_planks_item": "Crimwood Planks",
   "item.ravenutils.crimwood_stairs_item": "Crimwood Stairs",
   "item.ravenutils.crimwood_slab_item": "Crimwood Slab",
+  "item.ravenutils.crimwood_pressure_plate_item": "Crimwood Pressure Plate",
   "item.ravenutils.crimwood_trapdoor_item": "Crimwood Trapdoor",
-  "item.ravenutils.crimwood_door_item": "Crimwood Door",
-  "item.ravenutils.crimwood_pressure_plate_item": "Crimwood Pressure Plate"
+  "item.ravenutils.crimwood_door_item": "Crimwood Door"
 }
