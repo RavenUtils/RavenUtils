@@ -4,7 +4,8 @@ import com.sasnos.ravenutils.util.enums.ModOreFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
-import static net.minecraft.world.biome.Biome.Category.*;
+import static net.minecraft.world.biome.Biome.Category.NETHER;
+import static net.minecraft.world.biome.Biome.Category.THEEND;
 
 public class FeatureGen {
 
