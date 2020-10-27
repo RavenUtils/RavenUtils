@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "ravenutils:models/blocks/raven_eye_ore"
+  }
+}

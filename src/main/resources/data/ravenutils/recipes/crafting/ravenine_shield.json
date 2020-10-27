@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oxo",
+    "xtx",
+    "oxo"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:ravenine_ingot"
+    },
+    "t": {
+      "item": "minecraft:shield"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "ravenutils:ravenine_shield",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oxo",
+    "xtx",
+    "oxo"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:ravenine_ingot"
+    },
+    "t": {
+      "item": "minecraft:netherite_chestplate"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "ravenutils:ravenine_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ravenutils:block/crimwood_slab"
+    },
+    "type=double": {
+      "model": "ravenutils:block/crimwood_planks"
+    },
+    "type=top": {
+      "model": "ravenutils:block/crimwood_slab_top"
+    }
+  }
+}

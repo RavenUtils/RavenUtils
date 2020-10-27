@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:crimwood_log"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:crimwood_planks",
+    "count": 4
+  }
+}

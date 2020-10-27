@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "ravenutils:models/block/crimwood_planks",
+    "top": "ravenutils:models/block/crimwood_planks",
+    "side": "ravenutils:models/block/crimwood_planks"
+  }
+}

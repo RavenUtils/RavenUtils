@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:salt_block"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:stone_salt",
+    "count": 9
+  }
+}

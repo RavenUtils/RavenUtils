@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "ravenutils:models/block/crimwood_door_top",
+    "bottom": "ravenutils:models/block/crimwood_door_bottom"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:paper"
+  },
+  "result": {
+    "item": "ravenutils:ashes",
+    "count": 1
+  },
+  "experience": 0.1,
+  "cookingtime": 60
+}
