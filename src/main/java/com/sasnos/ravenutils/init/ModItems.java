@@ -49,9 +49,8 @@ public class ModItems {
 
   public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer", Hammer::new);
   public static final RegistryObject<Item> OBSIDIAN_HAMMER = ITEMS.register("obsidian_hammer", Hammer::new);
-
-  // fix textures
-  // public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield", RavenineShield::new);
+  public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield",
+      () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
 
   // Armor
   public static final RegistryObject<ArmorItem> RAVENINE_HELMET = ITEMS.register("ravenine_helmet",
@@ -83,6 +82,11 @@ public class ModItems {
   public static final RegistryObject<Item> CRIMLEAF_ITEM = ITEMS.register("crimleaf",
       () -> new BlockItemBase(ModBlocks.CRIMLEAF.get()));
 
+  /*
+  public static final RegistryObject<Item> CRIMWOOD_SIGN_ITEM = ITEMS.register("crimwood_sign",
+      () -> new SignItem((new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+   */
+
   public static final RegistryObject<Item> CRIMWOOD_SAPLING_ITEM = ITEMS.register("crimwood_sapling",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_SAPLING.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_ITEM = ITEMS.register("crimwood_log",
@@ -101,4 +105,8 @@ public class ModItems {
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_TRAPDOOR.get()));
   public static final RegistryObject<Item> CRIMWOOD_PRESSURE_PLATE_ITEM = ITEMS.register("crimwood_pressure_plate",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get()));
+  public static final RegistryObject<Item> CRIMWOOD_FENCE_ITEM = ITEMS.register("crimwood_fence",
+      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE.get()));
+  public static final RegistryObject<Item> CRIMWOOD_FENCE_GATE_ITEM = ITEMS.register("crimwood_fence_gate",
+      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE_GATE.get()));
 }
