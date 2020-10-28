@@ -22,7 +22,7 @@ public enum ModArmorMaterial implements IArmorMaterial {
       4.0F, () -> {
     return Ingredient.fromItems(ModItems.RAVENINE_INGOT.get());
   },
-      2);
+      0.5F);
 
   private static final int[] MAX_DAMAGE_ARRAY = new int[]{11, 16, 15, 13};
   private final String name;
