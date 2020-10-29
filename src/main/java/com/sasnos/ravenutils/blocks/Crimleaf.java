@@ -13,6 +13,9 @@ public class Crimleaf extends FlowerBlock {
         .sound(SoundType.CROP)
         .zeroHardnessAndResistance()
         .doesNotBlockMovement()
+        .setLightLevel((state) -> {
+          return 5;
+        })
     );
   }
 }
