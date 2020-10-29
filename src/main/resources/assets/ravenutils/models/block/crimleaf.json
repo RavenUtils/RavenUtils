@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "ravenutils:models/blocks/crimleaf"
+    "cross": "ravenutils:blocks/crimleaf"
   }
 }

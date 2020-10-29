@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:models/items/raven_eye_gem"
+    "layer0": "ravenutils:items/raven_eye_gem"
   }
 }

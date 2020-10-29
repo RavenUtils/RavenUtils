@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:models/items/ravenine_nugget"
+    "layer0": "ravenutils:items/ravenine_nugget"
   }
 }

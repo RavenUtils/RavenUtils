@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "ravenutils:models/blocks/crimwood_leaves"
+    "all": "ravenutils:blocks/crimwood_leaves"
   }
 }

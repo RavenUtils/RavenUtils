@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ravenutils:crimwood_sign"
+          "name": "ravenutils:crimwood_button"
         }
       ],
       "conditions": [

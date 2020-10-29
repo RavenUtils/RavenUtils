@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "ravenutils:models/blocks/crimwood_planks"
+    "texture": "ravenutils:blocks/crimwood_planks"
   }
 }

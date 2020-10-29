@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "end": "ravenutils:models/blocks/crimwood_log_top",
-    "side": "ravenutils:models/blocks/crimwood_log"
+    "end": "ravenutils:blocks/crimwood_log_top",
+    "side": "ravenutils:blocks/crimwood_log"
   }
 }

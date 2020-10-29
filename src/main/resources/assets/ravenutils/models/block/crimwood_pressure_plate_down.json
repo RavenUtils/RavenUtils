@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_down",
   "textures": {
-    "texture": "ravenutils:models/blocks/crimwood_planks"
+    "texture": "ravenutils:blocks/crimwood_planks"
   }
 }

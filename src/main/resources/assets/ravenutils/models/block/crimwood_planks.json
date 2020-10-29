@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "ravenutils:models/blocks/crimwood_planks"
+    "all": "ravenutils:blocks/crimwood_planks"
   }
 }

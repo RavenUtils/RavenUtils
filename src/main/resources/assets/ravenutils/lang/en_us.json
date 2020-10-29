@@ -10,8 +10,9 @@
   "block.ravenutils.salt_block": "Block of Salt",
   "block.ravenutils.crimleaf": "Crimleaf",
   "block.ravenutils.crimwood_sapling": "Crimwood Sapling",
-  "block.ravenutils.crimwood_leaves": "Crimwood Leaves",
+  "block.ravenutils.crimwood": "Crimwood",
   "block.ravenutils.crimwood_log": "Crimwood Log",
+  "block.ravenutils.crimwood_leaves": "Crimwood Leaves",
   "block.ravenutils.crimwood_planks": "Crimwood Planks",
   "block.ravenutils.crimwood_stairs": "Crimwood Stairs",
   "block.ravenutils.crimwood_slab": "Crimwood Slab",
@@ -20,6 +21,7 @@
   "block.ravenutils.crimwood_door": "Crimwood Door",
   "block.ravenutils.crimwood_fence": "Crimwood Fence",
   "block.ravenutils.crimwood_fence_gate": "Crimwood Fence Gate",
+  "block.ravenutils.crimwood_button": "Crimwood Button",
 
   "item.ravenutils.ink_bottle": "Ink Bottle",
   "item.ravenutils.ashes": "Ashes",
@@ -41,5 +43,6 @@
   "item.ravenutils.resin_drop": "Resin Drop",
   "item.ravenutils.resin_ball": "Ball of Resin",
   "item.ravenutils.stone_salt": "Stone Salt",
-  "item.ravenutils.raven_eye_gem": "Raven Eye"
+  "item.ravenutils.raven_eye_gem": "Raven Eye",
+  "item.ravenutils.crimwood_boat": "Crimwood Boat"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ravenutils:models/blocks/ravenine_ore"
+    "all": "ravenutils:blocks/ravenine_ore"
   }
 }

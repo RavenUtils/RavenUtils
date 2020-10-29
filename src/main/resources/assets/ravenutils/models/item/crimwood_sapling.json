@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ravenutils:models/blocks/crimwood_sapling"
+    "layer0": "ravenutils:blocks/crimwood_sapling"
   }
 }

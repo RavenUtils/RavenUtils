@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ravenutils:models/blocks/salt_ore"
+    "all": "ravenutils:blocks/salt_ore"
   }
 }

@@ -7,6 +7,9 @@ import com.sasnos.ravenutils.items.Hammer;
 import com.sasnos.ravenutils.items.ItemBase;
 import com.sasnos.ravenutils.util.enums.ModArmorMaterial;
 import com.sasnos.ravenutils.util.enums.ModItemTier;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -29,6 +32,9 @@ public class ModItems {
   public static final RegistryObject<Item> RESIN_BALL = ITEMS.register("resin_ball", ItemBase::new);
   public static final RegistryObject<Item> RAVEN_EYE_GEM = ITEMS.register("raven_eye_gem", ItemBase::new);
 
+  public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
+      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
+
   // Foods
   // public static final RegistryObject<PoisonApple> POISON_APPLE = ITEMS.register("poison_apple", PoisonApple::new);
 
@@ -49,8 +55,10 @@ public class ModItems {
 
   public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer", Hammer::new);
   public static final RegistryObject<Item> OBSIDIAN_HAMMER = ITEMS.register("obsidian_hammer", Hammer::new);
+  /*
   public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
+  */
 
   // Armor
   public static final RegistryObject<ArmorItem> RAVENINE_HELMET = ITEMS.register("ravenine_helmet",
@@ -89,6 +97,8 @@ public class ModItems {
 
   public static final RegistryObject<Item> CRIMWOOD_SAPLING_ITEM = ITEMS.register("crimwood_sapling",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_SAPLING.get()));
+  public static final RegistryObject<Item> CRIMWOOD_ITEM = ITEMS.register("crimwood",
+      () -> new BlockItemBase(ModBlocks.CRIMWOOD.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_ITEM = ITEMS.register("crimwood_log",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_LOG.get()));
   public static final RegistryObject<Item> CRIMWOOD_LEAVES_ITEM = ITEMS.register("crimwood_leaves",
@@ -109,4 +119,6 @@ public class ModItems {
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE.get()));
   public static final RegistryObject<Item> CRIMWOOD_FENCE_GATE_ITEM = ITEMS.register("crimwood_fence_gate",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE_GATE.get()));
+  public static final RegistryObject<Item> CRIMWOOD_BUTTON = ITEMS.register("crimwood_button",
+      () -> new BlockItemBase(ModBlocks.CRIMWOOD_BUTTON.get()));
 }
