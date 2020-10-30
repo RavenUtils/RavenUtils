@@ -8,6 +8,9 @@
   "block.ravenutils.raven_eye_block": "Block of Raven Eye",
   "block.ravenutils.salt_ore": "Salt Ore",
   "block.ravenutils.salt_block": "Block of Salt",
+  "block.ravenutils.black_coal_ore": "Black Coal Ore",
+  "block.ravenutils.black_coal_block": "Block of Black Coal",
+  "block.ravenutils.resin_block": "Block of Resin",
   "block.ravenutils.crimleaf": "Crimleaf",
   "block.ravenutils.crimwood_sapling": "Crimwood Sapling",
   "block.ravenutils.crimwood": "Crimwood",
@@ -44,5 +47,6 @@
   "item.ravenutils.resin_ball": "Ball of Resin",
   "item.ravenutils.stone_salt": "Stone Salt",
   "item.ravenutils.raven_eye_gem": "Raven Eye",
+  "item.ravenutils.black_coal": "Black Coal",
   "item.ravenutils.crimwood_boat": "Crimwood Boat"
 }

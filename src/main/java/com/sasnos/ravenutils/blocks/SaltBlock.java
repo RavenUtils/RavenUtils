@@ -10,7 +10,6 @@ public class SaltBlock extends Block {
     super(Properties.create(Material.SAND)
         .hardnessAndResistance(0.5F)
         .sound(SoundType.SAND)
-        .harvestLevel(0)
     );
   }
 }

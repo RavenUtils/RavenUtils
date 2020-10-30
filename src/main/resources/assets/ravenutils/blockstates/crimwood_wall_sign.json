@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "raventutils:block/crimwood_sign"
+      "model": "ravenutils:block/crimwood_sign"
     }
   }
 }

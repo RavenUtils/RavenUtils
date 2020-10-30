@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:resin_block"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:resin_ball",
+    "count": 9
+  }
+}

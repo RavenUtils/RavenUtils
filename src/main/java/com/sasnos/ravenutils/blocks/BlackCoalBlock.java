@@ -5,12 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
-public class CrimwoodPlanks extends Block {
+public class BlackCoalBlock extends Block {
 
-  public CrimwoodPlanks() {
-    super(AbstractBlock.Properties.create(Material.WOOD)
-        .hardnessAndResistance(2.0F, 3.0F)
-        .sound(SoundType.WOOD)
+  public BlackCoalBlock() {
+    super(AbstractBlock.Properties.create(Material.ROCK)
+        .hardnessAndResistance(4f, 600f)
+        .sound(SoundType.STONE)
     );
   }
 }

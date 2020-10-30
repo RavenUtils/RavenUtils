@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:ravenine_block"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:ravenine_ingot",
+    "count": 9
+  }
+}
