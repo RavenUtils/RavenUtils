@@ -11,11 +11,12 @@ import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
 public enum ModOreFeatures {
 
-  RAVENINE(ModBlocks.RAVENINE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.field_241882_a, 3,18,0,15),
-  RAVEN_EYE(ModBlocks.RAVEN_EYE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.field_241882_a,3,8,0,15),
-  FOSSIL_ORE(ModBlocks.FOSSIL_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.field_241882_a,6,32,16,30),
-  SALT_ORE(ModBlocks.SALT_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.field_241882_a,12,50,24,30),
-  BLACK_COAL_ORE(ModBlocks.BLACK_COAL_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.field_241882_a,10,30,20,30);
+  RAVENINE(ModBlocks.RAVENINE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 2,18,5,5),
+  RAVEN_EYE(ModBlocks.RAVEN_EYE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,2,8,0,5),
+  FOSSIL_ORE(ModBlocks.FOSSIL_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,4,32,16,10),
+  SALT_ORE(ModBlocks.SALT_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,10,50,24,15),
+  BLACK_COAL_ORE(ModBlocks.BLACK_COAL_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,12,30,20,15),
+  LIMESTONE(ModBlocks.LIMESTONE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,16,32,24,20);
 
   private final ConfiguredFeature<?, ?> ORE;
 
@@ -25,7 +26,7 @@ public enum ModOreFeatures {
             filler,
             defaultState,
             veinSize))
-        .withPlacement(Placement.field_242907_l.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight))).func_242728_a().func_242731_b(veinsPerChunk);
+        .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight))).square().func_242731_b(veinsPerChunk);
   }
 
   public ConfiguredFeature<?, ?> GetOre() {

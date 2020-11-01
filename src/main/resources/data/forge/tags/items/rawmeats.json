@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:red_meat",
+    "ravenutils:poultry",
+    "ravenutils:rabbit",
+    "ravenutils:mutton",
+    "ravenutils:pork"
+  ]
+}

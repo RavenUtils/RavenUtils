@@ -1,13 +1,9 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.blocks.BlackCoalBlock;
 import com.sasnos.ravenutils.blocks.BlockItemBase;
 import com.sasnos.ravenutils.blocks.blockitems.BlackCoalBlockItem;
-import com.sasnos.ravenutils.items.Ashes;
-import com.sasnos.ravenutils.items.BlackCoal;
-import com.sasnos.ravenutils.items.Hammer;
-import com.sasnos.ravenutils.items.ItemBase;
+import com.sasnos.ravenutils.items.*;
 import com.sasnos.ravenutils.util.enums.ModArmorMaterial;
 import com.sasnos.ravenutils.util.enums.ModItemTier;
 import net.minecraft.entity.item.BoatEntity;
@@ -33,6 +29,55 @@ public class ModItems {
   public static final RegistryObject<Item> RESIN_BALL = ITEMS.register("resin_ball", ItemBase::new);
   public static final RegistryObject<Item> RAVEN_EYE_GEM = ITEMS.register("raven_eye_gem", ItemBase::new);
   public static final RegistryObject<Item> BLACK_COAL = ITEMS.register("black_coal", BlackCoal::new);
+  public static final RegistryObject<Item> LIME = ITEMS.register("lime", ItemBase::new);
+  public static final RegistryObject<Item> LEATHER_STRIP = ITEMS.register("leather_strip", ItemBase::new);
+
+  // public static final RegistryObject<Item> LLAMA_PELT = ITEMS.register("llama_pelt", ItemBase::new);                 // Large pelt
+  // public static final RegistryObject<Item> PANDA_PELT = ITEMS.register("panda_pelt", ItemBase::new);                 // Large pelt
+  // public static final RegistryObject<Item> POLAR_BEAR_PELT = ITEMS.register("polar_bear_pelt", ItemBase::new);       // Large pelt
+  // public static final RegistryObject<Item> WOLF_PELT = ITEMS.register("wolf_pelt", ItemBase::new);                   // Medium pelt
+  // public static final RegistryObject<Item> RABBIT_PELT = ITEMS.register("rabbit_pelt", ItemBase::new);               // Small pelt
+  // public static final RegistryObject<Item> FOX_PELT = ITEMS.register("fox_pelt", ItemBase::new);                     // Small pelt
+  // public static final RegistryObject<Item> CAT_PELT = ITEMS.register("cat_pelt", ItemBase::new);                     // Small pelt
+  // public static final RegistryObject<Item> OCELOT_PELT = ITEMS.register("ocelot_pelt", ItemBase::new);               // Small pelt
+
+  // public static final RegistryObject<Item> COW_HIDE = ITEMS.register("cow_hide", ItemBase::new);                     // Large hide
+  // public static final RegistryObject<Item> MOOSHROOM_HIDE = ITEMS.register("mooshroom_hide", ItemBase::new);         // Large hide
+  // public static final RegistryObject<Item> HORSE_HIDE = ITEMS.register("horse_hide", ItemBase::new);                 // Large hide
+  // public static final RegistryObject<Item> MULE_HIDE = ITEMS.register("mule_hide", ItemBase::new);                   // Large hide
+  // public static final RegistryObject<Item> DONKEY_HIDE = ITEMS.register("donkey_hide", ItemBase::new);               // Large hide
+  // public static final RegistryObject<Item> PIG_HIDE = ITEMS.register("pig_hide", ItemBase::new);                     // Medium hide
+  // public static final RegistryObject<Item> SHEEP_HIDE = ITEMS.register("sheep_hide", ItemBase::new);                 // Medium hide
+
+  // Hide + knife = scraped hide + gelatin
+  // public static final RegistryObject<Item> LARGE_SCRAPED_HIDE = ITEMS.register("large_scraped_hide", ItemBase::new);
+  // public static final RegistryObject<Item> MEDIUM_SCRAPED_HIDE = ITEMS.register("medium_scraped_hide", ItemBase::new);
+  // public static final RegistryObject<Item> SMALL_SCRAPED_HIDE = ITEMS.register("small_scraped_hide", ItemBase::new);
+
+  // Scraped hide + limewater barrel
+  // public static final RegistryObject<Item> LARGE_LIMED_HIDE = ITEMS.register("large_limed_hide", ItemBase::new);
+  // public static final RegistryObject<Item> MEDIUM_LIMED_HIDE = ITEMS.register("medium_limed_hide", ItemBase::new);
+  // public static final RegistryObject<Item> SMALL_LIMED_HIDE = ITEMS.register("small_limed_hide", ItemBase::new);
+
+  // Limed hide + tannin barrel
+  // public static final RegistryObject<Item> LARGE_TANNED_HIDE = ITEMS.register("large_tanned_hide", ItemBase::new);
+  // public static final RegistryObject<Item> MEDIUM_TANNED_HIDE = ITEMS.register("medium_tanned_hide", ItemBase::new);
+  // public static final RegistryObject<Item> SMALL_TANNED_HIDE = ITEMS.register("small_tanned_hide", ItemBase::new);
+
+  // Tanned hide + drying rack
+  // public static final RegistryObject<Item> LARGE_LEATHER = ITEMS.register("large_leather", ItemBase::new); // grid -> 8 leather
+  // public static final RegistryObject<Item> MEDIUM_LEATHER = ITEMS.register("medium_leather", ItemBase::new); // grid -> 4 leather
+  // Small leather = Minecraft leather
+
+  // Axe (rmb) on oak log = stripped log + bark
+  // public static final RegistryObject<Item> OAK_BARK = ITEMS.register("oak_bark", ItemBase::new);
+
+  // public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = ITEMS.register("unfired_clay_bucket", UnfiredClayBucket::new);
+  // public static final RegistryObject<Item> CLAY_BUCKET = ITEMS.register("clay_bucket", ClayBucket::new);
+  // public static final RegistryObject<Item> WOOD_BUCKET = ITEMS.register("wood_bucket", WoodBucket::new);
+
+  // public static final RegistryObject<Item> LIMEWATER_BUCKET = ITEMS.register("limewater_bucket", LimewaterBucket::new);
+  // public static final RegistryObject<Item> TANNIN_BUCKET = ITEMS.register("tannin_bucket", TanninBucket::new);
 
   public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
       () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
@@ -40,10 +85,15 @@ public class ModItems {
       () -> new SignItem((new Item.Properties()).group(RavenUtils.TAB), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
 
   // Foods
-  // public static final RegistryObject<PoisonApple> POISON_APPLE = ITEMS.register("poison_apple", PoisonApple::new);
-
-  // do not consume container?
-  // public static final Item MILK_BUCKET = register("milk_bucket", new MilkBucketItem((new Item.Properties()).containerItem(BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+  public static final RegistryObject<Item> RED_MEAT = ITEMS.register("red_meat", RedMeat::new);
+  public static final RegistryObject<Item> COOKED_RED_MEAT = ITEMS.register("cooked_red_meat", CookedRedMeat::new);
+  public static final RegistryObject<Item> PORKCHOP = ITEMS.register("porkchop", Porkchop::new);
+  public static final RegistryObject<Item> POULTRY = ITEMS.register("poultry", Poultry::new);
+  public static final RegistryObject<Item> COOKED_POULTRY = ITEMS.register("cooked_poultry", CookedPoultry::new);
+  public static final RegistryObject<Item> MUTTON = ITEMS.register("mutton", Mutton::new);
+  public static final RegistryObject<Item> RABBIT_MEAT = ITEMS.register("rabbit", Rabbit::new);
+  public static final RegistryObject<Item> BUSHMEAT = ITEMS.register("bushmeat", Bushmeat::new);
+  public static final RegistryObject<Item> COOKED_BUSHMEAT = ITEMS.register("cooked_bushmeat", CookedBushmeat::new);
 
   // Tools
   public static final RegistryObject<SwordItem> RAVENINE_SWORD = ITEMS.register("ravenine_sword",
@@ -61,6 +111,10 @@ public class ModItems {
       () -> new Hammer(64));
   public static final RegistryObject<Item> OBSIDIAN_HAMMER = ITEMS.register("obsidian_hammer",
       () -> new Hammer(1024));
+  public static final RegistryObject<Item> IRON_KNIFE = ITEMS.register("iron_knife",
+      () -> new Knife(64));
+  public static final RegistryObject<Item> DIAMOND_KNIFE = ITEMS.register("diamond_knife",
+      () -> new Knife(1024));
   public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
 
@@ -95,6 +149,8 @@ public class ModItems {
       () -> new BlockItemBase(ModBlocks.BLACK_COAL_ORE.get()));
   public static final RegistryObject<Item> BLACK_COAL_BLOCK_ITEM = ITEMS.register("black_coal_block",
       () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<Item> LIMESTONE_ITEM = ITEMS.register("limestone",
+      () -> new BlockItemBase(ModBlocks.LIMESTONE.get()));
   public static final RegistryObject<Item> RESIN_BLOCK_ITEM = ITEMS.register("resin_block",
       () -> new BlockItemBase(ModBlocks.RESIN_BLOCK.get()));
   public static final RegistryObject<Item> CRIMLEAF_ITEM = ITEMS.register("crimleaf",

@@ -6,13 +6,13 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class FossilOre extends OreBlock {
+public class Limestone extends OreBlock {
 
-  public FossilOre() {
+  public Limestone() {
     super(AbstractBlock.Properties.create(Material.ROCK)
-        .hardnessAndResistance(2.5f, 8f)
+        .hardnessAndResistance(2f, 3f)
         .sound(SoundType.STONE)
-        .harvestLevel(2)
+        .harvestLevel(1)
         .setRequiresTool()
         .harvestTool(ToolType.PICKAXE)
     );
