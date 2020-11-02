@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils;
 
-import com.sasnos.ravenutils.init.ModBlocks;
-import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.*;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -29,6 +28,11 @@ public class RavenUtils {
 
     ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModArmorItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModBlockItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    // ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     MinecraftForge.EVENT_BUS.register(this);
   }
