@@ -1,18 +1,22 @@
 {
   "itemGroup.ravenUtilsTab": "Raven Utils",
+
   "block.ravenutils.ravenine_ore": "Ravenine Ore",
-  "block.ravenutils.ravenine_block": "Block of Ravenine",
   "block.ravenutils.fossil_ore": "Fossil Ore",
   "block.ravenutils.fossil_dirt": "Fossil Dirt",
   "block.ravenutils.raven_eye_ore": "Raven Eye Ore",
-  "block.ravenutils.raven_eye_block": "Block of Raven Eye",
   "block.ravenutils.salt_ore": "Salt Ore",
-  "block.ravenutils.salt_block": "Block of Salt",
   "block.ravenutils.black_coal_ore": "Black Coal Ore",
-  "block.ravenutils.black_coal_block": "Block of Black Coal",
   "block.ravenutils.limestone": "Limestone",
+
+  "block.ravenutils.black_coal_block": "Block of Black Coal",
+  "block.ravenutils.salt_block": "Block of Salt",
+  "block.ravenutils.raven_eye_block": "Block of Raven Eye",
+  "block.ravenutils.ravenine_block": "Block of Ravenine",
   "block.ravenutils.resin_block": "Block of Resin",
+
   "block.ravenutils.crimleaf": "Crimleaf",
+
   "block.ravenutils.crimwood_sapling": "Crimwood Sapling",
   "block.ravenutils.crimwood": "Crimwood",
   "block.ravenutils.crimwood_log": "Crimwood Log",
@@ -36,6 +40,15 @@
   "item.ravenutils.mutton": "Raw Mutton",
   "item.ravenutils.bushmeat": "Raw Bushmeat",
   "item.ravenutils.cooked_bushmeat": "Cooked Bushmeat",
+
+  "item.ravenutils.hide_fresh": "Fresh Hide",
+  "item.ravenutils.hide_scraped": "Scraped Hide",
+  "item.ravenutils.hide_limed": "Limed Hide",
+  "item.ravenutils.hide_tanned": "Tanned Hide",
+
+  "item.ravenutils.coin_copper": "Copper Coin",
+  "item.ravenutils.coin_silver": "Silver Coin",
+  "item.ravenutils.coin_gold": "Gold Coin",
 
   "item.ravenutils.ravenine_helmet": "Ravenine Helmet",
   "item.ravenutils.ravenine_chestplate": "Ravenine Chestplate",

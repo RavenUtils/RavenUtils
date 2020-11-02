@@ -10,6 +10,7 @@ public class CrimwoodLog extends RotatedPillarBlock {
   public CrimwoodLog() {
     super(AbstractBlock.Properties.create(Material.WOOD)
         .hardnessAndResistance(2.0F)
-        .sound(SoundType.WOOD));
+        .sound(SoundType.WOOD)
+    );
   }
 }
