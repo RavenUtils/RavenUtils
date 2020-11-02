@@ -23,7 +23,7 @@
               }
             }
           ],
-          "name": "minecraft:rabbit_hide"
+          "name": "minecraft:hide_fresh"
         }
       ]
     },
@@ -63,7 +63,7 @@
               }
             }
           ],
-          "name": "minecraft:rabbit"
+          "name": "ravenutils:rabbit"
         }
       ]
     },
