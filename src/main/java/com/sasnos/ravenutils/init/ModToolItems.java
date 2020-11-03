@@ -36,8 +36,11 @@ public class ModToolItems {
       () -> new Knife(64));
   public static final RegistryObject<Item> DIAMOND_KNIFE = ITEMS.register("diamond_knife",
       () -> new Knife(1024));
+
+  // @todo implement texture and item rendering (#Atlas #Stitching)
   public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
+  //
 
   // wooden buckets
   public static final RegistryObject<Item> WOOD_BUCKET = ITEMS.register("wood_bucket",
