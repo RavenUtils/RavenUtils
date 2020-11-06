@@ -42,12 +42,17 @@ public class ModToolItems {
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
   //
 
+  public static final RegistryObject<Item> LIMEWATER_BUCKET = ITEMS.register("limewater_bucket",
+      () -> new BucketItem(() -> ModFluids.LIMEWATER, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+  public static final RegistryObject<Item> TANNIN_BUCKET = ITEMS.register("tannin_bucket",
+      () -> new BucketItem(() -> ModFluids.TANNIN, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+
   // wooden buckets
   public static final RegistryObject<Item> WOOD_BUCKET = ITEMS.register("wood_bucket",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+  /*
   public static final RegistryObject<Item> WOOD_WATER_BUCKET = ITEMS.register("wood_water_bucket",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.WOOD_BUCKET.get(), 32));
-  /*
   public static final RegistryObject<Item> WOOD_LIMEWATER_BUCKET = ITEMS.register("wood_limewater_bucket",
       () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.WOOD_BUCKET.get(), 32));
   public static final RegistryObject<Item> WOOD_TANNIN_BUCKET = ITEMS.register("wood_tannin_bucket",
@@ -57,9 +62,9 @@ public class ModToolItems {
   // clay buckets
   public static final RegistryObject<Item> CLAY_BUCKET = ITEMS.register("clay_bucket",
       () -> new BucketItem(Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+  /*
   public static final RegistryObject<Item> CLAY_WATER_BUCKET = ITEMS.register("clay_water_bucket",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.CLAY_BUCKET.get(), 32));
-  /*
   public static final RegistryObject<Item> CLAY_LIMEWATER_BUCKET = ITEMS.register("clay_limewater_bucket",
       () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.CLAY_BUCKET.get(), 32));
   public static final RegistryObject<Item> CLAY_TANNIN_BUCKET = ITEMS.register("clay_tannin_bucket",

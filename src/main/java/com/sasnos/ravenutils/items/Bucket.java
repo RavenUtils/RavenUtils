@@ -87,19 +87,29 @@ public class Bucket extends BucketItem {
               playerIn.addStat(Stats.ITEM_USED.get(this));
 
               SoundEvent soundevent = this.containedBlock.getAttributes().getFillSound();
+              boolean bucketBurnable = false;
 
-              if (playerIn.getActiveItemStack().getItem() == ModToolItems.WOOD_BUCKET.get()
-                  || playerIn.getActiveItemStack().getItem() == ModToolItems.CLAY_BUCKET.get()
-                  && fluid.isIn(FluidTags.LAVA)) {
-                if (soundevent == null)
+              if (fluid.isIn(FluidTags.LAVA)) {
+                if (playerIn.getActiveItemStack().getItem() == ModToolItems.WOOD_BUCKET.get()
+                    || playerIn.getActiveItemStack().getItem() == ModToolItems.CLAY_BUCKET.get()) {
+                  bucketBurnable = true;
+                }
+              }
+
+              if (bucketBurnable) {
+                if (soundevent == null) {
                   soundevent = SoundEvents.BLOCK_LAVA_EXTINGUISH;
+                }
                 playerIn.playSound(soundevent, 1.0F, 1.0F);
                 playerIn.getActiveItemStack().shrink(1);
 
                 return ActionResult.resultFail(itemstack);
               } else {
-                if (soundevent == null)
+                Item bucket = playerIn.getActiveItemStack().getItem();
+
+                if (soundevent == null) {
                   soundevent = SoundEvents.ITEM_BUCKET_FILL;
+                }
                 playerIn.playSound(soundevent, 1.0F, 1.0F);
                 ItemStack itemstack1 = DrinkHelper.fill(itemstack, playerIn, new ItemStack(fluid.getFilledBucket()));
 

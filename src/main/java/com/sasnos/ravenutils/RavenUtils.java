@@ -32,7 +32,6 @@ public class RavenUtils {
     ModBlockItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-    // ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     MinecraftForge.EVENT_BUS.register(this);
   }
