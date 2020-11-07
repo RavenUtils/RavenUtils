@@ -7,7 +7,7 @@
   ],
   "key": {
     "x": {
-      "item": "ravenutils:ravenine_ingot"
+      "item": "ravenutils:mytherine_ingot"
     },
     "t": {
       "item": "minecraft:netherite_axe"
@@ -17,7 +17,7 @@
     }
   },
   "result": {
-    "item": "ravenutils:ravenine_axe",
+    "item": "ravenutils:mytherine_axe",
     "count": 1
   }
 }

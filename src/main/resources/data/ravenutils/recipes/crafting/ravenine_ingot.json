@@ -7,11 +7,11 @@
   ],
   "key": {
     "x": {
-      "item": "ravenutils:ravenine_nugget"
+      "item": "ravenutils:mytherine_nugget"
     }
   },
   "result": {
-    "item": "ravenutils:ravenine_ingot",
+    "item": "ravenutils:mytherine_ingot",
     "count": 1
   }
 }

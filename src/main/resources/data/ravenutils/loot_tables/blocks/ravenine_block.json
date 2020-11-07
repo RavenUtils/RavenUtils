@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ravenutils:ravenine_block"
+          "name": "ravenutils:mytherine_block"
         }
       ]
     }

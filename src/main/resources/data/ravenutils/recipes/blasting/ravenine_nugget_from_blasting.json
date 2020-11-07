@@ -1,10 +1,10 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "ravenutils:ravenine_ore"
+    "item": "ravenutils:mytherine_ore"
   },
   "result": {
-    "item": "ravenutils:ravenine_nugget",
+    "item": "ravenutils:mytherine_nugget",
     "count": 2
   },
   "experience": 0.1,

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:items/ravenine_chestplate"
+    "layer0": "ravenutils:items/mytherine_chestplate"
   }
 }

@@ -14,13 +14,13 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
-  RAVENINE(RavenUtils.MOD_ID + ":ravenine",
+  MYTHERINE(RavenUtils.MOD_ID + ":mytherine",
       14000,
       new int[]{5, 10, 8, 5},
       100,
       SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
       4.0F, () -> {
-    return Ingredient.fromItems(ModItems.RAVENINE_INGOT.get());
+    return Ingredient.fromItems(ModItems.MYTHERINE_INGOT.get());
   },
       0.5F);
 

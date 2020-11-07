@@ -13,7 +13,7 @@ public class ModBlocks {
   public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RavenUtils.MOD_ID);
 
   // ores
-  public static final RegistryObject<Block> RAVENINE_ORE = BLOCKS.register("ravenine_ore", RavenineOre::new);
+  public static final RegistryObject<Block> MYTHERINE_ORE = BLOCKS.register("mytherine_ore", MytherineOre::new);
   public static final RegistryObject<Block> FOSSIL_ORE = BLOCKS.register("fossil_ore", FossilOre::new);
   public static final RegistryObject<Block> FOSSIL_DIRT = BLOCKS.register("fossil_dirt", FossilDirt::new);
   public static final RegistryObject<Block> RAVEN_EYE_ORE = BLOCKS.register("raven_eye_ore", RavenEyeOre::new);
@@ -22,7 +22,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> LIMESTONE = BLOCKS.register("limestone", Limestone::new);
 
   // blocks
-  public static final RegistryObject<Block> RAVENINE_BLOCK = BLOCKS.register("ravenine_block", RavenineBlock::new);
+  public static final RegistryObject<Block> MYTHERINE_BLOCK = BLOCKS.register("mytherine_block", MytherineBlock::new);
   public static final RegistryObject<Block> RAVEN_EYE_BLOCK = BLOCKS.register("raven_eye_block", RavenEyeBlock::new);
   public static final RegistryObject<Block> SALT_BLOCK = BLOCKS.register("salt_block", SaltBlock::new);
   public static final RegistryObject<Block> BLACK_COAL_BLOCK = BLOCKS.register("black_coal_block", BlackCoalBlock::new);

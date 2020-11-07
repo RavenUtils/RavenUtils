@@ -6,9 +6,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class RavenineOre extends OreBlock {
+public class MytherineOre extends OreBlock {
 
-  public RavenineOre() {
+  public MytherineOre() {
     super(AbstractBlock.Properties.create(Material.ROCK)
         .hardnessAndResistance(40f, 1200f)
         .sound(SoundType.STONE)

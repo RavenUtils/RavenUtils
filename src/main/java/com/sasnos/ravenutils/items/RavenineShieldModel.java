@@ -9,11 +9,11 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class RavenineShieldModel extends Model {
+public class MytherineShieldModel extends Model {
   private final ModelRenderer plate;
   private final ModelRenderer handle;
 
-  public RavenineShieldModel() {
+  public MytherineShieldModel() {
     super(RenderType::getEntitySolid);
     this.textureWidth = 64;
     this.textureHeight = 64;

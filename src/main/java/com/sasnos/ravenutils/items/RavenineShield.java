@@ -7,8 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
 
-public class RavenineShield extends ShieldItem {
-  public RavenineShield() {
+public class MytherineShield extends ShieldItem {
+  public MytherineShield() {
     super(new Item.Properties()
         .group(RavenUtils.TAB)
         .maxStackSize(1)

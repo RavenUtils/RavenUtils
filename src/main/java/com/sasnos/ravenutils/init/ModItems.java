@@ -20,8 +20,8 @@ public class ModItems {
   public static final RegistryObject<Item> INK_BOTTLE = ITEMS.register("ink_bottle",
       () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
   public static final RegistryObject<Item> ASHES = ITEMS.register("ashes", Ashes::new);
-  public static final RegistryObject<Item> RAVENINE_INGOT = ITEMS.register("ravenine_ingot", ItemBase::new);
-  public static final RegistryObject<Item> RAVENINE_NUGGET = ITEMS.register("ravenine_nugget", ItemBase::new);
+  public static final RegistryObject<Item> MYTHERINE_INGOT = ITEMS.register("mytherine_ingot", ItemBase::new);
+  public static final RegistryObject<Item> MYTHERINE_NUGGET = ITEMS.register("mytherine_nugget", ItemBase::new);
   public static final RegistryObject<Item> SALT = ITEMS.register("stone_salt", ItemBase::new);
   public static final RegistryObject<Item> TALLOW = ITEMS.register("tallow", ItemBase::new);
   public static final RegistryObject<Item> RESIN_DROP = ITEMS.register("resin_drop", ItemBase::new);

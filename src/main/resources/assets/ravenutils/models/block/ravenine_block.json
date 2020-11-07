@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "ravenutils:blocks/ravenine_block"
+    "all": "ravenutils:blocks/mytherine_block"
   }
 }

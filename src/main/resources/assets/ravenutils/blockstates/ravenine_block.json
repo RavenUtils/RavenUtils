@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ravenutils:block/ravenine_block"
+      "model": "ravenutils:block/mytherine_block"
     }
   }
 }

@@ -16,16 +16,16 @@ public class ModToolItems {
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
   // default tools
-  public static final RegistryObject<SwordItem> RAVENINE_SWORD = ITEMS.register("ravenine_sword",
-      () -> new SwordItem(ModItemTier.RAVENINE, 9, -3.4F, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<ShovelItem> RAVENINE_SHOVEL = ITEMS.register("ravenine_shovel",
-      () -> new ShovelItem(ModItemTier.RAVENINE, 2, -2.8F, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<AxeItem> RAVENINE_AXE = ITEMS.register("ravenine_axe",
-      () -> new AxeItem(ModItemTier.RAVENINE, 5, -2.4F, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<PickaxeItem> RAVENINE_PICKAXE = ITEMS.register("ravenine_pickaxe",
-      () -> new PickaxeItem(ModItemTier.RAVENINE, 6, -2.0F, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<HoeItem> RAVENINE_HOE = ITEMS.register("ravenine_hoe",
-      () -> new HoeItem(ModItemTier.RAVENINE, 1, -2.8F, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<SwordItem> MYTHERINE_SWORD = ITEMS.register("mytherine_sword",
+      () -> new SwordItem(ModItemTier.MYTHERINE, 9, -3.4F, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<ShovelItem> MYTHERINE_SHOVEL = ITEMS.register("mytherine_shovel",
+      () -> new ShovelItem(ModItemTier.MYTHERINE, 2, -2.8F, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<AxeItem> MYTHERINE_AXE = ITEMS.register("mytherine_axe",
+      () -> new AxeItem(ModItemTier.MYTHERINE, 5, -2.4F, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<PickaxeItem> MYTHERINE_PICKAXE = ITEMS.register("mytherine_pickaxe",
+      () -> new PickaxeItem(ModItemTier.MYTHERINE, 6, -2.0F, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<HoeItem> MYTHERINE_HOE = ITEMS.register("mytherine_hoe",
+      () -> new HoeItem(ModItemTier.MYTHERINE, 1, -2.8F, new Item.Properties().group(RavenUtils.TAB)));
 
   // hammers & knives
   public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
@@ -38,7 +38,7 @@ public class ModToolItems {
       () -> new Knife(1024));
 
   // @todo implement texture and item rendering (#Atlas #Stitching)
-  public static final RegistryObject<ShieldItem> RAVENINE_SHIELD = ITEMS.register("ravenine_shield",
+  public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
   //
 

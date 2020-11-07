@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "ravenutils:ravenine_ingot"
+      "item": "ravenutils:mytherine_ingot"
     }
   ],
   "result": {
-    "item": "ravenutils:ravenine_nugget",
+    "item": "ravenutils:mytherine_nugget",
     "count": 9
   }
 }
