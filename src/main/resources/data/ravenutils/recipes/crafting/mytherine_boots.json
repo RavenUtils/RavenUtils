@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oxo",
+    "xtx",
+    "oxo"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:mytherine_ingot"
+    },
+    "t": {
+      "item": "minecraft:netherite_boots"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mytherine_boots",
+    "count": 1
+  }
+}

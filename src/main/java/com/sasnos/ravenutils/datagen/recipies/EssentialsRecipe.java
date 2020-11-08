@@ -26,12 +26,12 @@ public class EssentialsRecipe extends RecipeProvider {
                 .addCriterion("has_hammer", hasItem(EssentialItemTags.hammer))
                 .build(consumer);
 
-        ShapedRecipeBuilder.shapedRecipe(ModArmorItems.RAVENINE_CHESTPLATE.get()) //TODO: change Item for now it is a test
+        ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_CHESTPLATE.get()) //TODO: change Item for now it is a test
                 .patternLine("oxo")
                 .patternLine("xtx")
                 .patternLine("oxo")
                 .key('o', Items.OBSIDIAN)
-                .key('x', ModItems.RAVENINE_INGOT.get())
+                .key('x', ModItems.MYTHERINE_INGOT.get())
                 .key('t', Items.NETHERITE_CHESTPLATE)
                 .addCriterion("has_netherite_chestplate", hasItem(Items.NETHERITE_CHESTPLATE))
                 .build(consumer);
@@ -45,11 +45,11 @@ public class EssentialsRecipe extends RecipeProvider {
                 .build(consumer);
 
         CookingRecipeBuilder.blastingRecipe(
-                Ingredient.fromItems(ModBlockItems.RAVENINE_ORE_ITEM.get()),
-                ModItems.RAVENINE_NUGGET.get(),
+                Ingredient.fromItems(ModBlockItems.MYTHERINE_ORE_ITEM.get()),
+                ModItems.MYTHERINE_NUGGET.get(),
                 0.1f,
                 800)
-                .addCriterion("has_raven_ore", hasItem(ModBlockItems.RAVENINE_ORE_ITEM.get()))
+                .addCriterion("has_raven_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
                 .build(consumer);
 
         CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(ModFoodItems.BUSHMEAT.get()),

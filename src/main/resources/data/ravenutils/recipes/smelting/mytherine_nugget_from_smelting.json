@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ravenutils:mytherine_ore"
+  },
+  "result": {
+    "item": "ravenutils:mytherine_nugget",
+    "count": 2
+  },
+  "experience": 0.1,
+  "cookingtime": 1000
+}

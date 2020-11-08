@@ -13,12 +13,12 @@ public class ModArmorItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
-  public static final RegistryObject<ArmorItem> RAVENINE_HELMET = ITEMS.register("ravenine_helmet",
-      () -> new ArmorItem(ModArmorMaterial.RAVENINE, EquipmentSlotType.HEAD, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<ArmorItem> RAVENINE_CHESTPLATE = ITEMS.register("ravenine_chestplate",
-      () -> new ArmorItem(ModArmorMaterial.RAVENINE, EquipmentSlotType.CHEST, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<ArmorItem> RAVENINE_LEGGINGS = ITEMS.register("ravenine_leggings",
-      () -> new ArmorItem(ModArmorMaterial.RAVENINE, EquipmentSlotType.LEGS, new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<ArmorItem> RAVENINE_BOOTS = ITEMS.register("ravenine_boots",
-      () -> new ArmorItem(ModArmorMaterial.RAVENINE, EquipmentSlotType.FEET, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<ArmorItem> MYTHERINE_HELMET = ITEMS.register("mytherine_helmet",
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.HEAD, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<ArmorItem> MYTHERINE_CHESTPLATE = ITEMS.register("mytherine_chestplate",
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.CHEST, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<ArmorItem> MYTHERINE_LEGGINGS = ITEMS.register("mytherine_leggings",
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.LEGS, new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<ArmorItem> MYTHERINE_BOOTS = ITEMS.register("mytherine_boots",
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.FEET, new Item.Properties().group(RavenUtils.TAB)));
 }

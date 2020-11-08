@@ -12,10 +12,10 @@ public class ModBlockItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
-  public static final RegistryObject<Item> RAVENINE_ORE_ITEM = ITEMS.register("ravenine_ore",
-      () -> new BlockItemBase(ModBlocks.RAVENINE_ORE.get()));
-  public static final RegistryObject<Item> RAVENINE_BLOCK_ITEM = ITEMS.register("ravenine_block",
-      () -> new BlockItemBase(ModBlocks.RAVENINE_BLOCK.get()));
+  public static final RegistryObject<Item> MYTHERINE_ORE_ITEM = ITEMS.register("mytherine_ore",
+      () -> new BlockItemBase(ModBlocks.MYTHERINE_ORE.get()));
+  public static final RegistryObject<Item> MYTHERINE_BLOCK_ITEM = ITEMS.register("mytherine_block",
+      () -> new BlockItemBase(ModBlocks.MYTHERINE_BLOCK.get()));
   public static final RegistryObject<Item> FOSSIL_ORE_ITEM = ITEMS.register("fossil_ore",
       () -> new BlockItemBase(ModBlocks.FOSSIL_ORE.get()));
   public static final RegistryObject<Item> FOSSIL_DIRT_ITEM = ITEMS.register("fossil_dirt",

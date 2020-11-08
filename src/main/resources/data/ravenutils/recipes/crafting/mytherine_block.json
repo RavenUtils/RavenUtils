@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:mytherine_ingot"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mytherine_block",
+    "count": 1
+  }
+}
