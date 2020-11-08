@@ -9,20 +9,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod("ravenutils")
+@Mod(RavenUtils.MOD_ID)
 public class RavenUtils {
   public static final Logger LOGGER = LogManager.getLogger();
   public static final String MOD_ID = "ravenutils";
 
   public RavenUtils() {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
     MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureGen::AddFeaturesToBiomes);
 
@@ -33,10 +31,12 @@ public class RavenUtils {
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
+    // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);
   }
 
-  private void setup(final FMLCommonSetupEvent event) {
+  private void setup(final FMLCommonSetupEvent event)
+  {
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
@@ -46,8 +46,6 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
   }
 
-  private void doClientStuff(final FMLClientSetupEvent event) {
-  }
 
   public static final ItemGroup TAB = new ItemGroup("Raven Utils") {
     @Override
@@ -56,4 +54,5 @@ public class RavenUtils {
       return new ItemStack(ModBlocks.RAVEN_EYE_BLOCK.get());
     }
   };
+
 }

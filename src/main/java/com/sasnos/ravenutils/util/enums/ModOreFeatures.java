@@ -11,7 +11,7 @@ import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
 public enum ModOreFeatures {
 
-  MYTHERINE(ModBlocks.MYTHERINE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 2,18,5,5),
+  RAVENINE(ModBlocks.RAVENINE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, 2,18,5,5),
   RAVEN_EYE(ModBlocks.RAVEN_EYE_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,2,8,0,5),
   FOSSIL_ORE(ModBlocks.FOSSIL_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,4,32,16,10),
   SALT_ORE(ModBlocks.SALT_ORE.get().getDefaultState(), OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,10,50,24,15),

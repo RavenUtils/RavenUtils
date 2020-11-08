@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.items;
 
+
 import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -10,7 +11,7 @@ public class ItemBase extends Item {
   private int burnTime;
 
   public ItemBase() {
-    super(new Item.Properties().group(RavenUtils.TAB));
+    super(new Properties().group(RavenUtils.TAB));
     this.burnTime = -1;
   }
 

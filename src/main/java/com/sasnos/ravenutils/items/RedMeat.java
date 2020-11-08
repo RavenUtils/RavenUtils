@@ -9,7 +9,7 @@ import net.minecraft.potion.Effects;
 public class RedMeat extends Item {
 
   public RedMeat() {
-    super(new Item.Properties()
+    super(new Properties()
         .group(ItemGroup.FOOD)
         .food(new Food.Builder()
             .hunger(3)

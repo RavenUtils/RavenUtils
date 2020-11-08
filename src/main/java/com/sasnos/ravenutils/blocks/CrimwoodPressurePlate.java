@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class CrimwoodPressurePlate extends PressurePlateBlock {
 
   public CrimwoodPressurePlate() {
-    super(PressurePlateBlock.Sensitivity.EVERYTHING, Properties.create(Material.WOOD)
+    super(Sensitivity.EVERYTHING, Properties.create(Material.WOOD)
         .doesNotBlockMovement()
         .hardnessAndResistance(0.5F)
         .sound(SoundType.WOOD));

@@ -10,12 +10,12 @@ public enum ModItemTier implements IItemTier {
 
   // dmg: 1 + attackDamage (5) + addedDamage
   // spd: 4 +/- addedSpeed
-  MYTHERINE(7,
+  RAVENINE(7,
       16000,
       28.0F,
       6.0F,
       100, () -> {
-    return Ingredient.fromItems(ModItems.MYTHERINE_INGOT.get());
+    return Ingredient.fromItems(ModItems.RAVENINE_INGOT.get());
   });
 
   private final int harvestLevel;

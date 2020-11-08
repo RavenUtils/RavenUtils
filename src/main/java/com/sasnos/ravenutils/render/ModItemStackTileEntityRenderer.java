@@ -31,13 +31,13 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
     Item item = stack.getItem();
     if (item instanceof BlockItem) {
       Block block = ((BlockItem) item).getBlock();
-      if (item == ModToolItems.MYTHERINE_SHIELD.get().getItem()) {
+      if (item == ModToolItems.RAVENINE_SHIELD.get().getItem()) {
         boolean flag = stack.getChildTag("BlockEntityTag") != null;
         matrixStack.push();
         matrixStack.scale(1.0F, -1.0F, -1.0F);
         RenderMaterial rendermaterial = flag
-            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/mytherine_shield_base"))
-            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/mytherine_shield_base_nopattern"));
+            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/ravenine_shield_base"))
+            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/ravenine_shield_base_nopattern"));
         IVertexBuilder ivertexbuilder = rendermaterial.getSprite().wrapBuffer(ItemRenderer.getEntityGlintVertexBuilder(buffer, this.modelShield.getRenderType(rendermaterial.getAtlasLocation()), true, stack.hasEffect()));
         this.modelShield.func_228294_b_().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         if (flag) {

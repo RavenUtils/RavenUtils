@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.items;
 
+
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -152,7 +153,12 @@ public class Bucket extends BucketItem {
     worldIn.playSound(player, pos, soundevent, SoundCategory.BLOCKS, 1.0F, 1.0F);
   }
 
-  private final java.util.function.Supplier<? extends Fluid> fluidSupplier;
+  @Override
+  public boolean tryPlaceContainedLiquid(@Nullable PlayerEntity player, World worldIn, BlockPos posIn, @Nullable BlockRayTraceResult rayTrace) {
+    return super.tryPlaceContainedLiquid(player, worldIn, posIn, rayTrace);
+  }
+
+  private final Supplier<? extends Fluid> fluidSupplier;
 
   private boolean canBlockContainFluid(World worldIn, BlockPos posIn, BlockState blockstate) {
     return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer) blockstate.getBlock()).canContainFluid(worldIn, posIn, blockstate, this.containedBlock);

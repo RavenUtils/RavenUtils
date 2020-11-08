@@ -10,15 +10,13 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 import java.util.Random;
 
 public abstract class LimewaterFluid extends ForgeFlowingFluid {
 
-  private static final ForgeFlowingFluid.Properties properties = new ForgeFlowingFluid.Properties(() -> ModFluids.LIMEWATER, () -> ModFluids.FLOWING_LIMEWATER,
+  private static final Properties properties = new Properties(() -> ModFluids.LIMEWATER, () -> ModFluids.FLOWING_LIMEWATER,
       net.minecraftforge.fluids.FluidAttributes.builder(
           new net.minecraft.util.ResourceLocation("block/water_still"),
           new net.minecraft.util.ResourceLocation("block/water_flow"))
@@ -35,7 +33,6 @@ public abstract class LimewaterFluid extends ForgeFlowingFluid {
   }
 
   @Override
-  @OnlyIn(Dist.CLIENT)
   public void animateTick(World worldIn, BlockPos pos, FluidState state, Random random) {
     if (!state.isSource() && !state.get(FALLING)) {
       if (random.nextInt(64) == 0) {

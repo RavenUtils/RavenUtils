@@ -7,8 +7,8 @@ import net.minecraft.block.material.Material;
 public class PottedCrimleaf extends FlowerPotBlock {
 
   public PottedCrimleaf() {
-    super(ModBlocks.CRIMLEAF.get(), Properties.create(Material.MISCELLANEOUS)
-        .zeroHardnessAndResistance()
-        .notSolid());
+    super(null, ModBlocks.CRIMLEAF, Properties.create(Material.MISCELLANEOUS)
+    .zeroHardnessAndResistance()
+    .notSolid());
   }
 }

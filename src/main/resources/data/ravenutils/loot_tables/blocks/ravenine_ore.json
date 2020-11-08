@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ravenutils:mytherine_ore"
+          "name": "ravenutils:ravenine_ore"
         }
       ],
       "conditions": [
