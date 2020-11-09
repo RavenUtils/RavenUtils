@@ -14,15 +14,14 @@ import javax.annotation.Nullable;
 
 public class EssentialItemTags extends ItemTagsProvider {
 
-    public static ITag.INamedTag<Item> hammer = ItemTags.makeWrapperTag("forge:tools/hammer");
+  public static ITag.INamedTag<Item> hammer = ItemTags.makeWrapperTag("forge:tools/hammer");
 
-    public EssentialItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
-    }
+  public EssentialItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+    super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
+  }
 
-    @Override
-    protected void registerTags() {
-        getOrCreateBuilder(hammer).add(ModToolItems.OBSIDIAN_HAMMER.get(), ModToolItems.STONE_HAMMER.get());
-
-    }
+  @Override
+  protected void registerTags() {
+    getOrCreateBuilder(hammer).add(ModToolItems.OBSIDIAN_HAMMER.get(), ModToolItems.STONE_HAMMER.get());
+  }
 }

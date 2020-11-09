@@ -15,28 +15,27 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 
 public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
-    public EssentialsLootModifier(DataGenerator gen) {
-        super(gen, RavenUtils.MOD_ID);
-    }
+  public EssentialsLootModifier(DataGenerator gen) {
+    super(gen, RavenUtils.MOD_ID);
+  }
 
-    @Override
-    protected void start() {
+  @Override
+  protected void start() {
 
-        add("Fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new Passive_Entity_Modifier(
-                new ILootCondition[]{
-                        EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
-
-                },
-                0,
-                2,
-                ModFoodItems.BUSHMEAT.get(),
-                1,
-                1,
-                0,
-                1,
-                0,
-                0,
-                NonNullList.create()
-        ));
-    }
+    add("Fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new Passive_Entity_Modifier(
+        new ILootCondition[]{
+            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
+        },
+        0,
+        2,
+        ModFoodItems.BUSHMEAT.get(),
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        NonNullList.create()
+    ));
+  }
 }

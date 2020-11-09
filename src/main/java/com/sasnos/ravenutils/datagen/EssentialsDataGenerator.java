@@ -14,18 +14,18 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EssentialsDataGenerator {
 
-    @SubscribeEvent
-    public static void gatherData(GatherDataEvent event){
-        DataGenerator generator = event.getGenerator();
-        if(event.includeClient()){
+  @SubscribeEvent
+  public static void gatherData(GatherDataEvent event) {
+    DataGenerator generator = event.getGenerator();
+    if (event.includeClient()) {
 
-        }
-        if(event.includeServer()){
-            BlockTagsProvider btg = new BlockTagsProvider(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());
-            ItemTagsProvider itg = new EssentialItemTags(generator, btg, event.getExistingFileHelper());
-            generator.addProvider(new EssentialsLootModifier(generator));
-            generator.addProvider(itg);
-            generator.addProvider(new EssentialsRecipe(generator));
-        }
     }
+    if (event.includeServer()) {
+      BlockTagsProvider btg = new BlockTagsProvider(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());
+      ItemTagsProvider itg = new EssentialItemTags(generator, btg, event.getExistingFileHelper());
+      generator.addProvider(new EssentialsLootModifier(generator));
+      generator.addProvider(itg);
+      generator.addProvider(new EssentialsRecipe(generator));
+    }
+  }
 }
