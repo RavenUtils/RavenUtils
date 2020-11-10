@@ -14,7 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-public class EssentialItemTags extends ItemTagsProvider {
+public class EssentialBlockTags extends ItemTagsProvider {
 
   public static ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
   public static ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
@@ -22,7 +22,7 @@ public class EssentialItemTags extends ItemTagsProvider {
   public static ITag.INamedTag<Item> grasses_tall = ItemTags.makeWrapperTag("forge:grasses/tall");
   public static ITag.INamedTag<Item> slimeballs = ItemTags.makeWrapperTag("forge:slimeballs");
 
-  public EssentialItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+  public EssentialBlockTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
   }
 

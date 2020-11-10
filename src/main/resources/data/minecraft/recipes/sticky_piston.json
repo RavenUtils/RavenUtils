@@ -9,7 +9,7 @@
       "item": "minecraft:piston"
     },
     "S": {
-      "tag": "ravenutils:sticky_material"
+      "tag": "forge:slimeballs"
     }
   },
   "result": {

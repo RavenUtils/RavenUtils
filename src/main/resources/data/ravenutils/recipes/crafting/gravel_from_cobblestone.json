@@ -5,7 +5,7 @@
       "item": "minecraft:cobblestone"
     },
     {
-      "tag": "ravenutils:hammers"
+      "tag": "forge:tools/hammers"
     }
   ],
   "result": {
