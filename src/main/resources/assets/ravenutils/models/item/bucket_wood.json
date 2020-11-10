@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:items/wood_bucket"
+    "layer0": "ravenutils:items/bucket_wood"
   }
 }
