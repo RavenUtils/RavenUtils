@@ -24,12 +24,22 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.TIN_ORE.get()));
   public static final RegistryObject<Item> TIN_BLOCK_ITEM = ITEMS.register("tin_block",
       () -> new BlockItemBase(ModBlocks.TIN_BLOCK.get()));
+  public static final RegistryObject<Item> ZINC_ORE_ITEM = ITEMS.register("zinc_ore",
+      () -> new BlockItemBase(ModBlocks.ZINC_ORE.get()));
+  public static final RegistryObject<Item> ZINC_BLOCK_ITEM = ITEMS.register("zinc_block",
+      () -> new BlockItemBase(ModBlocks.ZINC_BLOCK.get()));
+  public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ITEMS.register("bronze_block",
+      () -> new BlockItemBase(ModBlocks.BRONZE_BLOCK.get()));
+  public static final RegistryObject<Item> BRASS_BLOCK_ITEM = ITEMS.register("brass_block",
+      () -> new BlockItemBase(ModBlocks.BRASS_BLOCK.get()));
   public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore",
       () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
   public static final RegistryObject<Item> SILVER_BLOCK_ITEM = ITEMS.register("silver_block",
       () -> new BlockItemBase(ModBlocks.SILVER_BLOCK.get()));
-  public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ITEMS.register("bronze_block",
-      () -> new BlockItemBase(ModBlocks.BRONZE_BLOCK.get()));
+  public static final RegistryObject<Item> LEAD_ORE_ITEM = ITEMS.register("lead_ore",
+      () -> new BlockItemBase(ModBlocks.LEAD_ORE.get()));
+  public static final RegistryObject<Item> LEAD_BLOCK_ITEM = ITEMS.register("lead_block",
+      () -> new BlockItemBase(ModBlocks.LEAD_BLOCK.get()));
   public static final RegistryObject<Item> STEEL_BLOCK_ITEM = ITEMS.register("steel_block",
       () -> new BlockItemBase(ModBlocks.STEEL_BLOCK.get()));
   public static final RegistryObject<Item> FOSSIL_ORE_ITEM = ITEMS.register("fossil_ore",

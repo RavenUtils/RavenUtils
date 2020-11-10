@@ -5,11 +5,11 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class SilverOre extends OreBlock {
+public class LeadOre extends OreBlock {
 
-  public SilverOre() {
+  public LeadOre() {
     super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(3f, 3f)
+        .hardnessAndResistance(5f, 10f)
         .sound(SoundType.STONE)
         .harvestLevel(2)
         .setRequiresTool()

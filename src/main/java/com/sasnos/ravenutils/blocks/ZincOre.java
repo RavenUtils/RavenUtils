@@ -5,13 +5,13 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class SilverOre extends OreBlock {
+public class ZincOre extends OreBlock {
 
-  public SilverOre() {
+  public ZincOre() {
     super(Properties.create(Material.ROCK)
         .hardnessAndResistance(3f, 3f)
         .sound(SoundType.STONE)
-        .harvestLevel(2)
+        .harvestLevel(1)
         .setRequiresTool()
         .harvestTool(ToolType.PICKAXE)
     );
