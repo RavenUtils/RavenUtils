@@ -30,6 +30,7 @@ public class RavenUtils {
     ModBlockItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);
