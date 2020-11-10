@@ -64,20 +64,20 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_LEAVES.get()));
   public static final RegistryObject<Item> CRIMWOOD_PLANKS_ITEM = ITEMS.register("crimwood_planks",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_PLANKS.get()));
-  public static final RegistryObject<Item> CRIMWOOD_STAIRS_ITEM = ITEMS.register("crimwood_stairs",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_STAIRS.get()));
-  public static final RegistryObject<Item> CRIMWOOD_SLAB_ITEM = ITEMS.register("crimwood_slab",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_SLAB.get()));
-  public static final RegistryObject<Item> CRIMWOOD_DOOR_ITEM = ITEMS.register("crimwood_door",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_DOOR.get()));
-  public static final RegistryObject<Item> CRIMWOOD_TRAPDOOR_ITEM = ITEMS.register("crimwood_trapdoor",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_TRAPDOOR.get()));
-  public static final RegistryObject<Item> CRIMWOOD_PRESSURE_PLATE_ITEM = ITEMS.register("crimwood_pressure_plate",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get()));
-  public static final RegistryObject<Item> CRIMWOOD_FENCE_ITEM = ITEMS.register("crimwood_fence",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE.get()));
-  public static final RegistryObject<Item> CRIMWOOD_FENCE_GATE_ITEM = ITEMS.register("crimwood_fence_gate",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE_GATE.get()));
-  public static final RegistryObject<Item> CRIMWOOD_BUTTON = ITEMS.register("crimwood_button",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_BUTTON.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_STAIRS_ITEM = ITEMS.register("crimwood_stairs",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_STAIRS.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_SLAB_ITEM = ITEMS.register("crimwood_slab",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_SLAB.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_DOOR_ITEM = ITEMS.register("crimwood_door",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_DOOR.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_TRAPDOOR_ITEM = ITEMS.register("crimwood_trapdoor",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_TRAPDOOR.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_PRESSURE_PLATE_ITEM = ITEMS.register("crimwood_pressure_plate",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_FENCE_ITEM = ITEMS.register("crimwood_fence",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_FENCE_GATE_ITEM = ITEMS.register("crimwood_fence_gate",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE_GATE.get()));
+//  public static final RegistryObject<Item> CRIMWOOD_BUTTON = ITEMS.register("crimwood_button",
+//      () -> new BlockItemBase(ModBlocks.CRIMWOOD_BUTTON.get()));
 }
