@@ -30,6 +30,8 @@ public class RavenUtils {
     ModBlockItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModTileEntities.TILEENTITYS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);
@@ -38,13 +40,14 @@ public class RavenUtils {
   private void setup(final FMLCommonSetupEvent event)
   {
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
-    RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
+    //RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
-    RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
-    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
-    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
+    //RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+    //RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
+    //RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
   }
+
 
 
   public static final ItemGroup TAB = new ItemGroup("Raven Utils") {
