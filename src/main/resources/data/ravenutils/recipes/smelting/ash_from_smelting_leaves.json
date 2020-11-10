@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "tag": "minecraft:leaves"
+    "tag": "forge:leaves"
   },
   "result": {
     "item": "ravenutils:ash",

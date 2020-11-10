@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.datagen.globalLootModifer.EssentialsLootModifier;
 import com.sasnos.ravenutils.datagen.recipies.EssentialsRecipe;
+import com.sasnos.ravenutils.datagen.tags.EssentialBlockTags;
 import com.sasnos.ravenutils.datagen.tags.EssentialItemTags;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -21,8 +22,7 @@ public class EssentialsDataGenerator {
 
     }
     if (event.includeServer()) {
-      //ToDO: change to own Provider
-      BlockTagsProvider btg = new BlockTagsProvider(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());
+      BlockTagsProvider btg = new EssentialBlockTags(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());
       ItemTagsProvider itg = new EssentialItemTags(generator, btg, event.getExistingFileHelper());
       generator.addProvider(new EssentialsLootModifier(generator));
       generator.addProvider(itg);
