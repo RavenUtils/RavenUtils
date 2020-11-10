@@ -91,8 +91,8 @@ public class Bucket extends BucketItem {
               boolean bucketBurnable = false;
 
               if (fluid.isIn(FluidTags.LAVA)) {
-                if (playerIn.getActiveItemStack().getItem() == ModToolItems.WOOD_BUCKET.get()
-                    || playerIn.getActiveItemStack().getItem() == ModToolItems.CLAY_BUCKET.get()) {
+                if (playerIn.getActiveItemStack().getItem() == ModToolItems.BUCKET_WOOD.get()
+                    || playerIn.getActiveItemStack().getItem() == ModToolItems.BUCKET_CLAY.get()) {
                   bucketBurnable = true;
                 }
               }

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class BlackCoal extends Item {
 
   public BlackCoal() {
-    super(new Properties().group(RavenUtils.TAB).isImmuneToFire());
+    super(new Properties().group(RavenUtils.TAB));
   }
 
   @Override

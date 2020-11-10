@@ -1,8 +1,10 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.items.Bucket;
 import com.sasnos.ravenutils.items.Hammer;
 import com.sasnos.ravenutils.items.Knife;
+import com.sasnos.ravenutils.items.MortarAndPestle;
 import com.sasnos.ravenutils.util.enums.ModItemTier;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
@@ -27,46 +29,49 @@ public class ModToolItems {
       () -> new HoeItem(ModItemTier.MYTHERINE, 1, -2.8F, new Item.Properties().group(RavenUtils.TAB)));
 
   // hammers & knives
-  public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
+  public static final RegistryObject<Item> HAMMER_STONE = ITEMS.register("hammer_stone",
       () -> new Hammer(64));
-  public static final RegistryObject<Item> OBSIDIAN_HAMMER = ITEMS.register("obsidian_hammer",
+  public static final RegistryObject<Item> HAMMER_IRON = ITEMS.register("hammer_iron",
+      () -> new Hammer(256));
+  public static final RegistryObject<Item> HAMMER_OBSIDIAN = ITEMS.register("hammer_obsidian",
       () -> new Hammer(1024));
-  public static final RegistryObject<Item> IRON_KNIFE = ITEMS.register("iron_knife",
+  public static final RegistryObject<Item> KNIFE_FLINT = ITEMS.register("knife_flint",
+      () -> new Knife(32));
+  public static final RegistryObject<Item> KNIFE_IRON = ITEMS.register("knife_iron",
       () -> new Knife(64));
-  public static final RegistryObject<Item> DIAMOND_KNIFE = ITEMS.register("diamond_knife",
+  public static final RegistryObject<Item> KNIFE_DIAMOND = ITEMS.register("knife_diamond",
       () -> new Knife(1024));
 
   // @todo implement texture and item rendering (#Atlas #Stitching)
   public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
-  //
 
-  public static final RegistryObject<Item> LIMEWATER_BUCKET = ITEMS.register("limewater_bucket",
+  // @todo make Vanilla bucket (BUCKET_IRON below) breakable!
+  public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
       () -> new BucketItem(() -> ModFluids.LIMEWATER, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
-  public static final RegistryObject<Item> TANNIN_BUCKET = ITEMS.register("tannin_bucket",
+  public static final RegistryObject<Item> BUCKET_IRON_TANNIN = ITEMS.register("bucket_iron_tannin",
       () -> new BucketItem(() -> ModFluids.TANNIN, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
 
   // wooden buckets
-  public static final RegistryObject<Item> WOOD_BUCKET = ITEMS.register("wood_bucket",
+  public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
-  /*
-  public static final RegistryObject<Item> WOOD_WATER_BUCKET = ITEMS.register("wood_water_bucket",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.WOOD_BUCKET.get(), 32));
-  public static final RegistryObject<Item> WOOD_LIMEWATER_BUCKET = ITEMS.register("wood_limewater_bucket",
-      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.WOOD_BUCKET.get(), 32));
-  public static final RegistryObject<Item> WOOD_TANNIN_BUCKET = ITEMS.register("wood_tannin_bucket",
-      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.WOOD_BUCKET.get(), 32));
-  */
+  public static final RegistryObject<Item> BUCKET_WOOD_WATER = ITEMS.register("bucket_wood_water",
+      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_WOOD.get(), 32));
+  public static final RegistryObject<Item> BUCKET_WOOD_LIMEWATER = ITEMS.register("bucket_wood_limewater",
+      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.BUCKET_WOOD.get(), 32));
+  public static final RegistryObject<Item> BUCKET_WOOD_TANNIN = ITEMS.register("bucket_wood_tannin",
+      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.BUCKET_WOOD.get(), 32));
 
   // clay buckets
-  public static final RegistryObject<Item> CLAY_BUCKET = ITEMS.register("clay_bucket",
+  public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
-  /*
-  public static final RegistryObject<Item> CLAY_WATER_BUCKET = ITEMS.register("clay_water_bucket",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.CLAY_BUCKET.get(), 32));
-  public static final RegistryObject<Item> CLAY_LIMEWATER_BUCKET = ITEMS.register("clay_limewater_bucket",
-      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.CLAY_BUCKET.get(), 32));
-  public static final RegistryObject<Item> CLAY_TANNIN_BUCKET = ITEMS.register("clay_tannin_bucket",
-      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.CLAY_BUCKET.get(), 32));
-  */
+  public static final RegistryObject<Item> BUCKET_CLAY_WATER = ITEMS.register("bucket_clay_water",
+      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 32));
+  public static final RegistryObject<Item> BUCKET_CLAY_LIMEWATER = ITEMS.register("bucket_clay_limewater",
+      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.BUCKET_CLAY.get(), 32));
+  public static final RegistryObject<Item> BUCKET_CLAY_TANNIN = ITEMS.register("bucket_clay_tannin",
+      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.BUCKET_CLAY.get(), 32));
+
+  public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_pestle",
+      () -> new MortarAndPestle(256));
 }

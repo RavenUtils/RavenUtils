@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "i  "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:knife_iron",
+    "count": 1
+  }
+}

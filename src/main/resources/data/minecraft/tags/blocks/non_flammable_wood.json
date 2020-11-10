@@ -8,10 +8,8 @@
     "ravenutils:crimwood_planks",
     "ravenutils:crimwood_pressure_plate",
     "ravenutils:crimwood_sapling",
-    "ravenutils:crimwood_sign",
     "ravenutils:crimwood_slab",
     "ravenutils:crimwood_stairs",
-    "ravenutils:crimwood_trapdoor",
-    "ravenutils:crimwood_wall_sign"
+    "ravenutils:crimwood_trapdoor"
   ]
 }

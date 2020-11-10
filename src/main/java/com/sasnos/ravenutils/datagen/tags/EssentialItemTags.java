@@ -22,6 +22,6 @@ public class EssentialItemTags extends ItemTagsProvider {
 
   @Override
   protected void registerTags() {
-    getOrCreateBuilder(hammer).add(ModToolItems.OBSIDIAN_HAMMER.get(), ModToolItems.STONE_HAMMER.get());
+    getOrCreateBuilder(hammer).add(ModToolItems.HAMMER_OBSIDIAN.get(), ModToolItems.HAMMER_STONE.get());
   }
 }

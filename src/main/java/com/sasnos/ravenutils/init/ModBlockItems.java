@@ -16,6 +16,22 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.MYTHERINE_ORE.get()));
   public static final RegistryObject<Item> MYTHERINE_BLOCK_ITEM = ITEMS.register("mytherine_block",
       () -> new BlockItemBase(ModBlocks.MYTHERINE_BLOCK.get()));
+  public static final RegistryObject<Item> COPPER_ORE_ITEM = ITEMS.register("copper_ore",
+      () -> new BlockItemBase(ModBlocks.COPPER_ORE.get()));
+  public static final RegistryObject<Item> COPPER_BLOCK_ITEM = ITEMS.register("copper_block",
+      () -> new BlockItemBase(ModBlocks.COPPER_BLOCK.get()));
+  public static final RegistryObject<Item> TIN_ORE_ITEM = ITEMS.register("tin_ore",
+      () -> new BlockItemBase(ModBlocks.TIN_ORE.get()));
+  public static final RegistryObject<Item> TIN_BLOCK_ITEM = ITEMS.register("tin_block",
+      () -> new BlockItemBase(ModBlocks.TIN_BLOCK.get()));
+  public static final RegistryObject<Item> SILVER_ORE_ITEM = ITEMS.register("silver_ore",
+      () -> new BlockItemBase(ModBlocks.SILVER_ORE.get()));
+  public static final RegistryObject<Item> SILVER_BLOCK_ITEM = ITEMS.register("silver_block",
+      () -> new BlockItemBase(ModBlocks.SILVER_BLOCK.get()));
+  public static final RegistryObject<Item> BRONZE_BLOCK_ITEM = ITEMS.register("bronze_block",
+      () -> new BlockItemBase(ModBlocks.BRONZE_BLOCK.get()));
+  public static final RegistryObject<Item> STEEL_BLOCK_ITEM = ITEMS.register("steel_block",
+      () -> new BlockItemBase(ModBlocks.STEEL_BLOCK.get()));
   public static final RegistryObject<Item> FOSSIL_ORE_ITEM = ITEMS.register("fossil_ore",
       () -> new BlockItemBase(ModBlocks.FOSSIL_ORE.get()));
   public static final RegistryObject<Item> FOSSIL_DIRT_ITEM = ITEMS.register("fossil_dirt",

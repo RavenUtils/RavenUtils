@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "NNN",
+    "NCS"
+  ],
+  "key": {
+    "N": {
+      "item": "ravenutils:niter"
+    },
+    "C": {
+      "item": "ravenutils:charcoal_dust"
+    },
+    "S": {
+      "item": "ravenutils:sulfur"
+    }
+  },
+  "result": {
+    "item": "minecraft:gunpowder",
+    "count": 9
+  }
+}

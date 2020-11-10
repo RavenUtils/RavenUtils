@@ -38,7 +38,7 @@ public class EssentialsRecipe extends RecipeProvider {
 
     CookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromItems(Items.LADDER),
-        ModItems.ASHES.get(),
+        ModItems.ASH.get(),
         0.1f,
         60)
         .addCriterion("has_ladder", hasItem(Items.LADDER))
