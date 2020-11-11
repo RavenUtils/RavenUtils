@@ -50,7 +50,7 @@ public class RavenUtils {
 
 
 
-  public static final ItemGroup TAB = new ItemGroup("Raven Utils") {
+  public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override
     public ItemStack createIcon() {
       // adjust later
