@@ -67,9 +67,10 @@ public class PassiveEntityModifier extends LootModifier {
     int looting = context.getLootingModifier();
     if (hideDropRange.getMax() > 0) {
       ItemStack item;
-      if (applyLootingHide) {
+      if(applyLootingHide){
         item = getItemStackWithLooting(context, hideDropRange, ModItems.FRESH_HIDE.get());
-      } else {
+      }
+      else{
         item = new ItemStack(ModItems.FRESH_HIDE.get(), hideDropRange.generateInt(context.getRandom()));
       }
 
@@ -86,6 +87,9 @@ public class PassiveEntityModifier extends LootModifier {
       } else {
         contextMeat = meat;
       }
+
+      generatedLoot.removeIf(itemStack -> itemStack.getItem() == contextMeat);
+
       if (applyLootingMeat) {
         item = getItemStackWithLooting(context, meatDropRange, contextMeat);
       } else {
@@ -117,6 +121,7 @@ public class PassiveEntityModifier extends LootModifier {
     }
 
     for (AdditionalItems add : additional) {
+      generatedLoot.removeIf(itemStack -> itemStack.getItem() == add.item);
       float rand = context.getRandom().nextFloat();
       if (rand <= add.change) {
         int sum = context.getRandom().ints(add.minItem, add.maxItem + 1).findFirst().getAsInt();
@@ -176,12 +181,12 @@ public class PassiveEntityModifier extends LootModifier {
       }
 
       return new PassiveEntityModifier(
-          ailootcondition,
-          hideRange, applyLootHide,
-          meat, meatRange, applyLootMeat,
-          tallowRange, applyLootTallow,
-          boneRange, applyLootBone,
-          additional);
+              ailootcondition,
+              hideRange, applyLootHide,
+              meat, meatRange, applyLootMeat,
+              tallowRange, applyLootTallow,
+              boneRange, applyLootBone,
+              additional);
     }
 
     @Override
