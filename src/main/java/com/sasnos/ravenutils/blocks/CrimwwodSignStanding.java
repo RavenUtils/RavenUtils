@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.blocks;
 
-import com.sasnos.ravenutils.tileentity.SignTileEntity;
+import com.sasnos.ravenutils.tileEntities.SignTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StandingSignBlock;
 import net.minecraft.block.WoodType;

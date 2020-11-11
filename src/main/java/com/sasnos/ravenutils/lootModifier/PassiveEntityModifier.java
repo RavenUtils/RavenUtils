@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.lootmodifier;
+package com.sasnos.ravenutils.lootModifier;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
-public class Passive_Entity_Modifier extends LootModifier {
+public class PassiveEntityModifier extends LootModifier {
 
   public int minHide;
   public int maxHide;
@@ -35,7 +35,7 @@ public class Passive_Entity_Modifier extends LootModifier {
    *
    * @param conditionsIn the ILootConditions that need to be matched before the loot is modified.
    */
-  public Passive_Entity_Modifier(
+  public PassiveEntityModifier(
       ILootCondition[] conditionsIn,
       int minHideIn, int maxHideIn,
       Item meatIn, int minMeatIn, int maxMeatIn,
@@ -92,10 +92,10 @@ public class Passive_Entity_Modifier extends LootModifier {
     return generatedLoot;
   }
 
-  public static class Serializer extends GlobalLootModifierSerializer<Passive_Entity_Modifier> {
+  public static class Serializer extends GlobalLootModifierSerializer<PassiveEntityModifier> {
 
     @Override
-    public Passive_Entity_Modifier read(ResourceLocation location, JsonObject json, ILootCondition[] ailootcondition) {
+    public PassiveEntityModifier read(ResourceLocation location, JsonObject json, ILootCondition[] ailootcondition) {
       int minHide = JSONUtils.getInt(json, "minHide");
       int maxHide = JSONUtils.getInt(json, "maxHide");
       int minTallow = JSONUtils.getInt(json, "minTallow");
@@ -123,11 +123,11 @@ public class Passive_Entity_Modifier extends LootModifier {
         );
       }
 
-      return new Passive_Entity_Modifier(ailootcondition, minHide, maxHide, meat, minMeat, maxMeat, minTallow, maxTallow, minBone, maxBone, additional);
+      return new PassiveEntityModifier(ailootcondition, minHide, maxHide, meat, minMeat, maxMeat, minTallow, maxTallow, minBone, maxBone, additional);
     }
 
     @Override
-    public JsonObject write(Passive_Entity_Modifier instance) {
+    public JsonObject write(PassiveEntityModifier instance) {
       JsonObject json = makeConditions(instance.conditions);
       json.addProperty("minHide", instance.minHide);
       json.addProperty("maxHide", instance.maxHide);

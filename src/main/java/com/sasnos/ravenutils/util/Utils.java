@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Utils {
 
-    public static ResourceLocation RL(String namespace){
-        return new ResourceLocation(RavenUtils.MOD_ID, namespace);
-    }
+  public static ResourceLocation RL(String namespace) {
+    return new ResourceLocation(RavenUtils.MOD_ID, namespace);
+  }
 }

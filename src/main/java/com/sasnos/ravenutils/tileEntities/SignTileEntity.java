@@ -1,10 +1,10 @@
-package com.sasnos.ravenutils.tileentity;
+package com.sasnos.ravenutils.tileEntities;
 
 public class SignTileEntity extends net.minecraft.tileentity.SignTileEntity {
 
-    public SignTileEntity() {
-        super();
-    }
+  public SignTileEntity() {
+    super();
+  }
 
 //    @Override
 //    public TileEntityType<?> getType() {
