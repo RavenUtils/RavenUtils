@@ -7,7 +7,9 @@ import com.sasnos.ravenutils.lootModifier.PassiveEntityModifier;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootContext;
+import net.minecraft.loot.RandomValueRange;
 import net.minecraft.loot.conditions.EntityHasProperty;
 import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.util.NonNullList;
@@ -22,20 +24,43 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
   @Override
   protected void start() {
 
-    add("fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+    add("cat_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+
         new ILootCondition[]{
-            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
+            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
+                    EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
         },
-        0,
-        2,
+        new RandomValueRange(0,2),
+        true,
         ModFoodItems.BUSHMEAT.get(),
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
+        new RandomValueRange(1),
+        false,
+        new RandomValueRange(0,1),
+        true,
+        new RandomValueRange(0),
+        true,
         NonNullList.create()
+    ));
+
+    NonNullList<PassiveEntityModifier.AdditionalItems> chicken = NonNullList.create();
+    chicken.add(
+            new PassiveEntityModifier.AdditionalItems(Items.FEATHER, 1, 3, 1f, true));
+
+    add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+            new ILootCondition[]{
+                    EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
+                            EntityPredicate.Builder.create().type(EntityType.CHICKEN).build()).build(),
+            },
+            new RandomValueRange(0),
+            false,
+            Items.CHICKEN,
+            new RandomValueRange(1),
+            false,
+            new RandomValueRange(0),
+            false,
+            new RandomValueRange(0),
+            false,
+            chicken
     ));
   }
 }
