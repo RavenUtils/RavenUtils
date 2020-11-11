@@ -81,7 +81,7 @@ public class PassiveEntityModifier extends LootModifier {
       Item contextMeat;
       Entity entity = context.get(LootParameters.THIS_ENTITY);
       if (entity.isBurning()) {
-        Item tmpmeat = meat;
+        Item tmpMeat = meat;
         contextMeat = ((Smelt) Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
       } else {
         contextMeat = meat;

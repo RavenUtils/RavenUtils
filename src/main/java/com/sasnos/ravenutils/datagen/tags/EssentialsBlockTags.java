@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 
 public class EssentialsBlockTags extends BlockTagsProvider {
 
+  public static ITag.INamedTag<Block> ores = BlockTags.makeWrapperTag("forge:ore");
   public static ITag.INamedTag<Block> non_flammable_wood = BlockTags.makeWrapperTag("forge:non_flammable_wood");
   public static ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
   public static ITag.INamedTag<Block> flower_pots = BlockTags.makeWrapperTag("forge:flower_pots");
@@ -34,6 +35,19 @@ public class EssentialsBlockTags extends BlockTagsProvider {
 
   @Override
   protected void registerTags() {
+    getOrCreateBuilder(ores).add(
+        ModBlocks.COPPER_ORE.get(),
+        ModBlocks.TIN_ORE.get(),
+        ModBlocks.ZINC_ORE.get(),
+        ModBlocks.SILVER_ORE.get(),
+        ModBlocks.LEAD_ORE.get(),
+        ModBlocks.MYTHERINE_ORE.get(),
+        ModBlocks.FOSSIL_ORE.get(),
+        ModBlocks.RAVEN_EYE_ORE.get(),
+        ModBlocks.SULFUR_ORE.get(),
+        ModBlocks.BLACK_COAL_ORE.get(),
+        ModBlocks.SALT_ORE.get()
+    );
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),
         ModBlocks.CRIMWOOD_DOOR.get(),
@@ -48,7 +62,7 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.CRIMWOOD_BUTTON.get(),
         ModBlocks.CRIMWOOD.get()
     );
-    getOrCreateBuilder(fence_gates).add( ModBlocks.CRIMWOOD_FENCE_GATE.get() );
+    getOrCreateBuilder(fence_gates).add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
     getOrCreateBuilder(flower_pots).add(
         ModBlocks.POTTED_CRIMWOOD_SAPLING.get(),
         ModBlocks.POTTED_CRIMLEAF.get()
@@ -58,16 +72,16 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.CRIMWOOD_LOG.get(),
         ModBlocks.CRIMWOOD_PLANKS.get()
     );
-    getOrCreateBuilder(leaves).add( ModBlocks.CRIMWOOD_LEAVES.get() );
-    getOrCreateBuilder(planks).add( ModBlocks.CRIMWOOD_PLANKS.get() );
-    getOrCreateBuilder(saplings).add( ModBlocks.CRIMWOOD_SAPLING.get() );
-    getOrCreateBuilder(small_flowers).add( ModBlocks.CRIMLEAF.get() );
-    getOrCreateBuilder(wooden_buttons).add( ModBlocks.CRIMWOOD_BUTTON.get() );
-    getOrCreateBuilder(wooden_doors).add( ModBlocks.CRIMWOOD_DOOR.get() );
-    getOrCreateBuilder(wooden_fences).add( ModBlocks.CRIMWOOD_FENCE.get() );
-    getOrCreateBuilder(wooden_pressure_plates).add( ModBlocks.CRIMWOOD_PRESSURE_PLATE.get() );
-    getOrCreateBuilder(wooden_slabs).add( ModBlocks.CRIMWOOD_SLAB.get() );
-    getOrCreateBuilder(wooden_stairs).add( ModBlocks.CRIMWOOD_STAIRS.get() );
-    getOrCreateBuilder(wooden_trapdoors).add( ModBlocks.CRIMWOOD_TRAPDOOR.get() );
+    getOrCreateBuilder(leaves).add(ModBlocks.CRIMWOOD_LEAVES.get());
+    getOrCreateBuilder(planks).add(ModBlocks.CRIMWOOD_PLANKS.get());
+    getOrCreateBuilder(saplings).add(ModBlocks.CRIMWOOD_SAPLING.get());
+    getOrCreateBuilder(small_flowers).add(ModBlocks.CRIMLEAF.get());
+    getOrCreateBuilder(wooden_buttons).add(ModBlocks.CRIMWOOD_BUTTON.get());
+    getOrCreateBuilder(wooden_doors).add(ModBlocks.CRIMWOOD_DOOR.get());
+    getOrCreateBuilder(wooden_fences).add(ModBlocks.CRIMWOOD_FENCE.get());
+    getOrCreateBuilder(wooden_pressure_plates).add(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get());
+    getOrCreateBuilder(wooden_slabs).add(ModBlocks.CRIMWOOD_SLAB.get());
+    getOrCreateBuilder(wooden_stairs).add(ModBlocks.CRIMWOOD_STAIRS.get());
+    getOrCreateBuilder(wooden_trapdoors).add(ModBlocks.CRIMWOOD_TRAPDOOR.get());
   }
 }
