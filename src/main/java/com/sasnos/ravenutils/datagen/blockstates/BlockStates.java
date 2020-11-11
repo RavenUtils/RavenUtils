@@ -26,20 +26,20 @@ public class BlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
-                RL("block/black_coal_block"));
+                RL("blocks/black_coal_block"));
 
         simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
 
         BlockModelBuilder blackCoalOre = models().cubeAll("black_coal_ore",
-                RL("block/black_coal_ore"));
+                RL("blocks/black_coal_ore"));
 
         simpleBlock(ModBlocks.BLACK_COAL_ORE.get(), blackCoalBlock);
 
-        BlockModelBuilder crimleaf =  models().cubeAll("crimleaf", RL("block/crimleaf"));
+        BlockModelBuilder crimleaf =  models().cubeAll("crimleaf", RL("blocks/crimleaf"));
 
         simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-        BlockModelBuilder crimwood = models().cubeAll("crimwood", RL("block/crimwood"));
+        BlockModelBuilder crimwood = models().cubeAll("crimwood", RL("blocks/crimwood_log"));
 
         simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
@@ -51,24 +51,24 @@ public class BlockStates extends BlockStateProvider {
 
         //models().fenceGate("crimwood_fence_gate", RL("crimwood_fence_gate"));
 
-        BlockModelBuilder crimLeaves = models().cubeAll("crimwood_leaves", RL("block/crimwoods_leaves"));
+        BlockModelBuilder crimLeaves = models().cubeAll("crimwood_leaves", RL("blocks/crimwood_leaves"));
 
         simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimLeaves);
 
         BlockModelBuilder crimLog = models().cubeBottomTop("crimwood_log",
-                RL("block/crimwood_log"),
-                RL("block/crimwood_log_top"),
-                RL("block/crimwood_log_top"));
+                RL("blocks/crimwood_log"),
+                RL("blocks/crimwood_log_top"),
+                RL("blocks/crimwood_log_top"));
 
         simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimLog);
 
-        BlockModelBuilder crimplanks = models().cubeAll("crimwood_planks", RL("block/crimwood_planks"));
+        BlockModelBuilder crimplanks = models().cubeAll("crimwood_planks", RL("blocks/crimwood_planks"));
 
         simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimplanks);
 
         //models().cubeAll("crimwood_pressure_plate", RL("crimwood_pressure_plate"));
 
-        BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling", RL("block/crimwood_sapling"));
+        BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling", RL("blocks/crimwood_sapling"));
 
         simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
@@ -79,79 +79,79 @@ public class BlockStates extends BlockStateProvider {
 //                RL("crimwood_slab_bottom"),
 //                RL("crimwood_slap_top"));
 
-        BlockModelBuilder fossil_dirt = models().cubeAll("fossil_dirt", RL("block/fossil_dirt"));
+        BlockModelBuilder fossil_dirt = models().cubeAll("fossil_dirt", RL("blocks/fossil_dirt"));
 
         simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossil_dirt);
 
-        BlockModelBuilder fossil_ore = models().cubeAll("fossil_ore", RL("block/fossil_ore"));
+        BlockModelBuilder fossil_ore = models().cubeAll("fossil_ore", RL("blocks/fossil_ore"));
 
         simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossil_ore);
 
-        BlockModelBuilder limestone = models().cubeAll("limestone", RL("block/limestone"));
+        BlockModelBuilder limestone = models().cubeAll("limestone", RL("blocks/limestone"));
 
         simpleBlock(ModBlocks.LIMESTONE.get(), limestone);
 
-        BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block", RL("block/mytherine_block"));
+        BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block", RL("blocks/mytherine_block"));
 
         simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
-        BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore", RL("block/mytherine_ore"));
+        BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore", RL("blocks/mytherine_ore"));
 
         simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
 
-        BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block", RL("block/raven_eye_block"));
+        BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block", RL("blocks/raven_eye_block"));
 
         simpleBlock(ModBlocks.RAVEN_EYE_BLOCK.get(), ravenEyeBlock);
 
-        BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore", RL("block/raven_eye_ore"));
+        BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore", RL("blocks/raven_eye_ore"));
 
         simpleBlock(ModBlocks.RAVEN_EYE_ORE.get(), ravenEyeOre);
 
-        BlockModelBuilder resin = models().cubeAll("resin_block", RL("block/resin_block"));
+        BlockModelBuilder resin = models().cubeAll("resin_block", RL("blocks/resin_block"));
 
         simpleBlock(ModBlocks.RESIN_BLOCK.get(), resin);
 
-        BlockModelBuilder saltBlock = models().cubeAll("salt_block", RL("block/salt_block"));
+        BlockModelBuilder saltBlock = models().cubeAll("salt_block", RL("blocks/salt_block"));
 
         simpleBlock(ModBlocks.SALT_BLOCK.get(), saltBlock);
 
-        BlockModelBuilder saltOre = models().cubeAll("salt_ore", RL("block/salt_ore"));
+        BlockModelBuilder saltOre = models().cubeAll("salt_ore", RL("blocks/salt_ore"));
 
         simpleBlock(ModBlocks.SALT_ORE.get(), saltOre);
 
-        BlockModelBuilder silverBlock = models().cubeAll("silver_block", RL("block/silver_block"));
+        BlockModelBuilder silverBlock = models().cubeAll("silver_block", RL("blocks/silver_block"));
 
         simpleBlock(ModBlocks.SILVER_BLOCK.get(), silverBlock);
 
-        BlockModelBuilder silverOre = models().cubeAll("silver_ore", RL("block/silver_ore"));
+        BlockModelBuilder silverOre = models().cubeAll("silver_ore", RL("blocks/silver_ore"));
 
         simpleBlock(ModBlocks.SILVER_ORE.get(), silverOre);
 
-        BlockModelBuilder steelBlock = models().cubeAll("steel_block", RL("block/steel_block"));
+        BlockModelBuilder steelBlock = models().cubeAll("steel_block", RL("blocks/steel_block"));
 
         simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
 
-        BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore", RL("block/sulfur_ore"));
+        BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore", RL("blocks/sulfur_ore"));
 
         simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
 
-        BlockModelBuilder tinBlock = models().cubeAll("tin_block", RL("block/tin_block"));
+        BlockModelBuilder tinBlock = models().cubeAll("tin_block", RL("blocks/tin_block"));
 
         simpleBlock(ModBlocks.TIN_BLOCK.get(), tinBlock);
 
-        BlockModelBuilder tinOre = models().cubeAll("tin_ore", RL("block/tin_ore"));
+        BlockModelBuilder tinOre = models().cubeAll("tin_ore", RL("blocks/tin_ore"));
 
         simpleBlock(ModBlocks.TIN_ORE.get(), tinOre);
 
-        BlockModelBuilder copperOre = models().cubeAll("copper_ore", RL("block/copper_ore"));
+        BlockModelBuilder copperOre = models().cubeAll("copper_ore", RL("blocks/copper_ore"));
 
         simpleBlock(ModBlocks.COPPER_ORE.get(), copperOre);
 
-        BlockModelBuilder copperBlock = models().cubeAll("copper_block", RL("block/copper_block"));
+        BlockModelBuilder copperBlock = models().cubeAll("copper_block", RL("blocks/copper_block"));
 
         simpleBlock(ModBlocks.COPPER_BLOCK.get(), copperBlock);
 
-        BlockModelBuilder bronzeBlock = models().cubeAll("bronze_block", RL("block/bronze_block"));
+        BlockModelBuilder bronzeBlock = models().cubeAll("bronze_block", RL("blocks/bronze_block"));
 
         simpleBlock(ModBlocks.BRONZE_BLOCK.get(), bronzeBlock);
     }

@@ -48,9 +48,9 @@ public class ModToolItems {
 
   // @todo make Vanilla bucket (BUCKET_IRON below) breakable!
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
-      () -> new BucketItem(() -> ModFluids.LIMEWATER, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+      () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
   public static final RegistryObject<Item> BUCKET_IRON_TANNIN = ITEMS.register("bucket_iron_tannin",
-      () -> new BucketItem(() -> ModFluids.TANNIN, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+      () -> new BucketItem(ModFluids.TANNIN::get, (new Item.Properties()).containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
@@ -58,9 +58,9 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_WOOD_WATER = ITEMS.register("bucket_wood_water",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_WOOD.get(), 32));
   public static final RegistryObject<Item> BUCKET_WOOD_LIMEWATER = ITEMS.register("bucket_wood_limewater",
-      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.BUCKET_WOOD.get(), 32));
+      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_WOOD.get(), 32));
   public static final RegistryObject<Item> BUCKET_WOOD_TANNIN = ITEMS.register("bucket_wood_tannin",
-      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.BUCKET_WOOD.get(), 32));
+      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_WOOD.get(), 32));
 
   // clay buckets
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
@@ -68,9 +68,9 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_CLAY_WATER = ITEMS.register("bucket_clay_water",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 32));
   public static final RegistryObject<Item> BUCKET_CLAY_LIMEWATER = ITEMS.register("bucket_clay_limewater",
-      () -> new Bucket(() -> ModFluids.LIMEWATER, ModToolItems.BUCKET_CLAY.get(), 32));
+      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_CLAY.get(), 32));
   public static final RegistryObject<Item> BUCKET_CLAY_TANNIN = ITEMS.register("bucket_clay_tannin",
-      () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.BUCKET_CLAY.get(), 32));
+      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_CLAY.get(), 32));
 
   public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));

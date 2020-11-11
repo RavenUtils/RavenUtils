@@ -1,15 +1,23 @@
 package com.sasnos.ravenutils.init;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.registries.ObjectHolder;
+import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.fluids.LimewaterFluid;
+import com.sasnos.ravenutils.fluids.TanninFluid;
+import net.minecraft.fluid.Fluid;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModFluids {
-  @ObjectHolder("ravenutils:flowing_limewater")
-  public static final ForgeFlowingFluid FLOWING_LIMEWATER = null;
-  @ObjectHolder("ravenutils:limewater")
-  public static final ForgeFlowingFluid LIMEWATER = null;
-  @ObjectHolder("ravenutils:flowing_tannin")
-  public static final ForgeFlowingFluid FLOWING_TANNIN = null;
-  @ObjectHolder("ravenutils:tannin")
-  public static final ForgeFlowingFluid TANNIN = null;
+
+  public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, RavenUtils.MOD_ID);
+
+
+
+  public static final RegistryObject<LimewaterFluid.Flowing> FLOWING_LIMEWATER = FLUIDS.register("flowing_limewater", LimewaterFluid.Flowing::new);
+  public static final RegistryObject<LimewaterFluid.Source> LIMEWATER = FLUIDS.register("source_limewater", LimewaterFluid.Source::new);
+
+  public static final RegistryObject<TanninFluid.Flowing> FLOWING_TANNIN = FLUIDS.register("flowing_tanning", TanninFluid.Flowing::new);
+
+  public static final RegistryObject<TanninFluid.Source> TANNIN = FLUIDS.register("source_tanning", TanninFluid.Source::new);
 }

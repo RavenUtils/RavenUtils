@@ -22,7 +22,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
   @Override
   protected void start() {
 
-    add("Fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+    add("fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
         new ILootCondition[]{
             EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
         },
