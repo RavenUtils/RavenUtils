@@ -67,7 +67,4 @@ public class ModItems {
 
 //  public static final RegistryObject<Item> CRIMWOOD_SIGN_ITEM = ITEMS.register("crimwood_sign",
 //      () -> new SignItem((new Item.Properties()).group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
-
-  public static final RegistryObject<Item> smallStone = ITEMS.register("small_stone",
-          ItemBase::new);
 }
