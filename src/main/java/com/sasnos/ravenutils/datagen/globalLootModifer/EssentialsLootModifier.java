@@ -22,19 +22,42 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
   @Override
   protected void start() {
 
-    add("Fresh_hide_cat", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+    add("loot_cat", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
         new ILootCondition[]{
-            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()).build(),
+            EntityHasProperty.func_237477_a_(
+                LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CAT).build()
+            ).build(),
         },
-        0,
-        2,
-        ModFoodItems.BUSHMEAT.get(),
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
+        0, 2,
+        ModFoodItems.BUSHMEAT.get(), 0, 2,
+        0, 1,
+        0, 0,
+        NonNullList.create()
+    ));
+
+    add("loot_ocelot", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+        new ILootCondition[]{
+            EntityHasProperty.func_237477_a_(
+                LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.OCELOT).build()
+            ).build(),
+        },
+        0, 2,
+        ModFoodItems.BUSHMEAT.get(), 0, 2,
+        0, 1,
+        0, 0,
+        NonNullList.create()
+    ));
+
+    add("loot_chicken", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+        new ILootCondition[]{
+            EntityHasProperty.func_237477_a_(
+                LootContext.EntityTarget.THIS, EntityPredicate.Builder.create().type(EntityType.CHICKEN).build()
+            ).build(),
+        },
+        0, 0,
+        ModFoodItems.POULTRY.get(), 0, 1,
+        0, 0,
+        0, 0,
         NonNullList.create()
     ));
   }
