@@ -67,10 +67,9 @@ public class PassiveEntityModifier extends LootModifier {
     int looting = context.getLootingModifier();
     if (hideDropRange.getMax() > 0) {
       ItemStack item;
-      if(applyLootingHide){
+      if (applyLootingHide) {
         item = getItemStackWithLooting(context, hideDropRange, ModItems.FRESH_HIDE.get());
-      }
-      else{
+      } else {
         item = new ItemStack(ModItems.FRESH_HIDE.get(), hideDropRange.generateInt(context.getRandom()));
       }
 
@@ -181,12 +180,12 @@ public class PassiveEntityModifier extends LootModifier {
       }
 
       return new PassiveEntityModifier(
-              ailootcondition,
-              hideRange, applyLootHide,
-              meat, meatRange, applyLootMeat,
-              tallowRange, applyLootTallow,
-              boneRange, applyLootBone,
-              additional);
+          ailootcondition,
+          hideRange, applyLootHide,
+          meat, meatRange, applyLootMeat,
+          tallowRange, applyLootTallow,
+          boneRange, applyLootBone,
+          additional);
     }
 
     @Override
