@@ -15,157 +15,184 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
 
-import static com.sasnos.ravenutils.util.Utils.RL;
+import static com.sasnos.ravenutils.util.Utils.resourceLocation;
 
 public class BlockStates extends BlockStateProvider {
 
-    public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, RavenUtils.MOD_ID, exFileHelper);
-    }
+  public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
+    super(gen, RavenUtils.MOD_ID, exFileHelper);
+  }
 
-    @Override
-    protected void registerStatesAndModels() {
-        BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
-                RL("blocks/black_coal_block"));
+  @Override
+  protected void registerStatesAndModels() {
 
-        simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
+    BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
+        resourceLocation("blocks/black_coal_block"));
+    simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
 
-        BlockModelBuilder blackCoalOre = models().cubeAll("black_coal_ore",
-                RL("blocks/black_coal_ore"));
+    BlockModelBuilder blackCoalOre = models().cubeAll("black_coal_ore",
+        resourceLocation("blocks/black_coal_ore"));
+    simpleBlock(ModBlocks.BLACK_COAL_ORE.get(), blackCoalBlock);
 
-        simpleBlock(ModBlocks.BLACK_COAL_ORE.get(), blackCoalBlock);
+    BlockModelBuilder crimleaf = models().cubeAll("crimleaf",
+        resourceLocation("blocks/crimleaf"));
+    simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-        BlockModelBuilder crimleaf =  models().cubeAll("crimleaf", RL("blocks/crimleaf"));
+    BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
+        resourceLocation("blocks/potted_crimleaf"));
+    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
 
-        simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
+    BlockModelBuilder crimwood = models().cubeAll("crimwood",
+        resourceLocation("blocks/crimwood_log"));
+    simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
-        BlockModelBuilder crimwood = models().cubeAll("crimwood", RL("blocks/crimwood_log"));
+    // models().cubeAll("crimwood_button",
+    // resourceLocation("crimwood_button"));
 
-        simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
+    // models().cubeAll("crimwood_door",
+    // resourceLocation("crimwood_door"));
 
-        //models().cubeAll("crimwood_button", RL("crimwood_button"));
+    // models().cubeAll("crimwood_fence",
+    // resourceLocation("crimwood_fence"));
 
-        //models().cubeAll("crimwood_door", RL("crimwood_door"));
+    // models().fenceGate("crimwood_fence_gate",
+    // resourceLocation("crimwood_fence_gate"));
 
-        //models().cubeAll("crimwood_fence", RL("crimwood_fence"));
+    BlockModelBuilder crimLeaves = models().cubeAll("crimwood_leaves",
+        resourceLocation("blocks/crimwood_leaves"));
+    simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimLeaves);
 
-        //models().fenceGate("crimwood_fence_gate", RL("crimwood_fence_gate"));
+    BlockModelBuilder crimLog = models().cubeBottomTop("crimwood_log",
+        resourceLocation("blocks/crimwood_log"),
+        resourceLocation("blocks/crimwood_log_top"),
+        resourceLocation("blocks/crimwood_log_top"));
+    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimLog);
 
-        BlockModelBuilder crimLeaves = models().cubeAll("crimwood_leaves", RL("blocks/crimwood_leaves"));
+    BlockModelBuilder crimplanks = models().cubeAll("crimwood_planks",
+        resourceLocation("blocks/crimwood_planks"));
+    simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimplanks);
 
-        simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimLeaves);
+    // models().cubeAll("crimwood_pressure_plate",
+    // resourceLocation("crimwood_pressure_plate"));
 
-        BlockModelBuilder crimLog = models().cubeBottomTop("crimwood_log",
-                RL("blocks/crimwood_log"),
-                RL("blocks/crimwood_log_top"),
-                RL("blocks/crimwood_log_top"));
+    BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling",
+        resourceLocation("blocks/crimwood_sapling"));
+    simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
-        simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimLog);
+    // models().cubeAll("crimwood_sign",
+    // resourceLocation("crimwood_sign"));
 
-        BlockModelBuilder crimplanks = models().cubeAll("crimwood_planks", RL("blocks/crimwood_planks"));
+    // models().slab("crimwood_slab",
+    // resourceLocation("crimwood_slab"),
+    // resourceLocation("crimwood_slab_bottom"),
+    // resourceLocation("crimwood_slap_top"));
 
-        simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimplanks);
+    BlockModelBuilder fossil_dirt = models().cubeAll("fossil_dirt",
+        resourceLocation("blocks/fossil_dirt"));
+    simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossil_dirt);
 
-        //models().cubeAll("crimwood_pressure_plate", RL("crimwood_pressure_plate"));
+    BlockModelBuilder fossil_ore = models().cubeAll("fossil_ore",
+        resourceLocation("blocks/fossil_ore"));
+    simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossil_ore);
 
-        BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling", RL("blocks/crimwood_sapling"));
+    BlockModelBuilder limestone = models().cubeAll("limestone",
+        resourceLocation("blocks/limestone"));
+    simpleBlock(ModBlocks.LIMESTONE.get(), limestone);
 
-        simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
+    BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
+        resourceLocation("blocks/mytherine_block"));
+    simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
-        //models().cubeAll("crimwood_sign", RL("crimwood_sign"));
+    BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore",
+        resourceLocation("blocks/mytherine_ore"));
+    simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
 
-//        models().slab("crimwood_slab",
-//                RL("crimwood_slab"),
-//                RL("crimwood_slab_bottom"),
-//                RL("crimwood_slap_top"));
+    BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block",
+        resourceLocation("blocks/raven_eye_block"));
+    simpleBlock(ModBlocks.RAVEN_EYE_BLOCK.get(), ravenEyeBlock);
 
-        BlockModelBuilder fossil_dirt = models().cubeAll("fossil_dirt", RL("blocks/fossil_dirt"));
+    BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore",
+        resourceLocation("blocks/raven_eye_ore"));
+    simpleBlock(ModBlocks.RAVEN_EYE_ORE.get(), ravenEyeOre);
 
-        simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossil_dirt);
+    BlockModelBuilder resin = models().cubeAll("resin_block",
+        resourceLocation("blocks/resin_block"));
+    simpleBlock(ModBlocks.RESIN_BLOCK.get(), resin);
 
-        BlockModelBuilder fossil_ore = models().cubeAll("fossil_ore", RL("blocks/fossil_ore"));
+    BlockModelBuilder saltBlock = models().cubeAll("salt_block",
+        resourceLocation("blocks/salt_block"));
+    simpleBlock(ModBlocks.SALT_BLOCK.get(), saltBlock);
 
-        simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossil_ore);
+    BlockModelBuilder saltOre = models().cubeAll("salt_ore",
+        resourceLocation("blocks/salt_ore"));
+    simpleBlock(ModBlocks.SALT_ORE.get(), saltOre);
 
-        BlockModelBuilder limestone = models().cubeAll("limestone", RL("blocks/limestone"));
+    BlockModelBuilder silverBlock = models().cubeAll("silver_block",
+        resourceLocation("blocks/silver_block"));
+    simpleBlock(ModBlocks.SILVER_BLOCK.get(), silverBlock);
 
-        simpleBlock(ModBlocks.LIMESTONE.get(), limestone);
+    BlockModelBuilder silverOre = models().cubeAll("silver_ore",
+        resourceLocation("blocks/silver_ore"));
+    simpleBlock(ModBlocks.SILVER_ORE.get(), silverOre);
 
-        BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block", RL("blocks/mytherine_block"));
+    BlockModelBuilder leadBlock = models().cubeAll("lead_block",
+        resourceLocation("blocks/lead_block"));
+    simpleBlock(ModBlocks.LEAD_BLOCK.get(), leadBlock);
 
-        simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
+    BlockModelBuilder leadOre = models().cubeAll("lead_ore",
+        resourceLocation("blocks/lead_ore"));
+    simpleBlock(ModBlocks.LEAD_ORE.get(), leadOre);
 
-        BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore", RL("blocks/mytherine_ore"));
+    BlockModelBuilder steelBlock = models().cubeAll("steel_block",
+        resourceLocation("blocks/steel_block"));
+    simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
 
-        simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
+    BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore",
+        resourceLocation("blocks/sulfur_ore"));
+    simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
 
-        BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block", RL("blocks/raven_eye_block"));
+    BlockModelBuilder tinBlock = models().cubeAll("tin_block",
+        resourceLocation("blocks/tin_block"));
+    simpleBlock(ModBlocks.TIN_BLOCK.get(), tinBlock);
 
-        simpleBlock(ModBlocks.RAVEN_EYE_BLOCK.get(), ravenEyeBlock);
+    BlockModelBuilder tinOre = models().cubeAll("tin_ore",
+        resourceLocation("blocks/tin_ore"));
+    simpleBlock(ModBlocks.TIN_ORE.get(), tinOre);
 
-        BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore", RL("blocks/raven_eye_ore"));
+    BlockModelBuilder zincBlock = models().cubeAll("zinc_block",
+        resourceLocation("blocks/zinc_block"));
+    simpleBlock(ModBlocks.ZINC_BLOCK.get(), zincBlock);
 
-        simpleBlock(ModBlocks.RAVEN_EYE_ORE.get(), ravenEyeOre);
+    BlockModelBuilder zincOre = models().cubeAll("zinc_ore",
+        resourceLocation("blocks/zinc_ore"));
+    simpleBlock(ModBlocks.ZINC_ORE.get(), zincOre);
 
-        BlockModelBuilder resin = models().cubeAll("resin_block", RL("blocks/resin_block"));
+    BlockModelBuilder copperOre = models().cubeAll("copper_ore",
+        resourceLocation("blocks/copper_ore"));
+    simpleBlock(ModBlocks.COPPER_ORE.get(), copperOre);
 
-        simpleBlock(ModBlocks.RESIN_BLOCK.get(), resin);
+    BlockModelBuilder copperBlock = models().cubeAll("copper_block",
+        resourceLocation("blocks/copper_block"));
+    simpleBlock(ModBlocks.COPPER_BLOCK.get(), copperBlock);
 
-        BlockModelBuilder saltBlock = models().cubeAll("salt_block", RL("blocks/salt_block"));
+    BlockModelBuilder bronzeBlock = models().cubeAll("bronze_block",
+        resourceLocation("blocks/bronze_block"));
+    simpleBlock(ModBlocks.BRONZE_BLOCK.get(), bronzeBlock);
 
-        simpleBlock(ModBlocks.SALT_BLOCK.get(), saltBlock);
+    BlockModelBuilder brassBlock = models().cubeAll("brass_block",
+        resourceLocation("blocks/brass_block"));
+    simpleBlock(ModBlocks.BRASS_BLOCK.get(), brassBlock);
+  }
 
-        BlockModelBuilder saltOre = models().cubeAll("salt_ore", RL("blocks/salt_ore"));
-
-        simpleBlock(ModBlocks.SALT_ORE.get(), saltOre);
-
-        BlockModelBuilder silverBlock = models().cubeAll("silver_block", RL("blocks/silver_block"));
-
-        simpleBlock(ModBlocks.SILVER_BLOCK.get(), silverBlock);
-
-        BlockModelBuilder silverOre = models().cubeAll("silver_ore", RL("blocks/silver_ore"));
-
-        simpleBlock(ModBlocks.SILVER_ORE.get(), silverOre);
-
-        BlockModelBuilder steelBlock = models().cubeAll("steel_block", RL("blocks/steel_block"));
-
-        simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
-
-        BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore", RL("blocks/sulfur_ore"));
-
-        simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
-
-        BlockModelBuilder tinBlock = models().cubeAll("tin_block", RL("blocks/tin_block"));
-
-        simpleBlock(ModBlocks.TIN_BLOCK.get(), tinBlock);
-
-        BlockModelBuilder tinOre = models().cubeAll("tin_ore", RL("blocks/tin_ore"));
-
-        simpleBlock(ModBlocks.TIN_ORE.get(), tinOre);
-
-        BlockModelBuilder copperOre = models().cubeAll("copper_ore", RL("blocks/copper_ore"));
-
-        simpleBlock(ModBlocks.COPPER_ORE.get(), copperOre);
-
-        BlockModelBuilder copperBlock = models().cubeAll("copper_block", RL("blocks/copper_block"));
-
-        simpleBlock(ModBlocks.COPPER_BLOCK.get(), copperBlock);
-
-        BlockModelBuilder bronzeBlock = models().cubeAll("bronze_block", RL("blocks/bronze_block"));
-
-        simpleBlock(ModBlocks.BRONZE_BLOCK.get(), bronzeBlock);
-    }
-
-
-    public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
-        getVariantBuilder(block)
-                .forAllStates(state -> {
-                    Direction dir = state.get(BlockStateProperties.FACING);
-                    return ConfiguredModel.builder()
-                            .modelFile(modelFunc.apply(state))
-                            .rotationX(dir.getAxis() == Direction.Axis.Y ?  dir.getAxisDirection().getOffset() * -90 : 0)
-                            .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.getHorizontalIndex() + 2) % 4) * 90 : 0)
-                            .build();
-                });
-    }
+  public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
+    getVariantBuilder(block)
+        .forAllStates(state -> {
+          Direction dir = state.get(BlockStateProperties.FACING);
+          return ConfiguredModel.builder()
+              .modelFile(modelFunc.apply(state))
+              .rotationX(dir.getAxis() == Direction.Axis.Y ? dir.getAxisDirection().getOffset() * -90 : 0)
+              .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.getHorizontalIndex() + 2) % 4) * 90 : 0)
+              .build();
+        });
+  }
 }
