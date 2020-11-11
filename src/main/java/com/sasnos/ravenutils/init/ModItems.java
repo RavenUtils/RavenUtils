@@ -47,6 +47,7 @@ public class ModItems {
   public static final RegistryObject<Item> LIME = ITEMS.register("lime", ItemBase::new);
   public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", ItemBase::new);
   public static final RegistryObject<Item> NITER = ITEMS.register("niter", ItemBase::new);
+  public static final RegistryObject<Item> SMALL_STONE = ITEMS.register("small_stone", ItemBase::new);
   public static final RegistryObject<Item> LEATHER_STRIP = ITEMS.register("leather_strip", ItemBase::new);
 
   public static final RegistryObject<Item> FRESH_HIDE = ITEMS.register("hide_fresh", ItemBase::new);

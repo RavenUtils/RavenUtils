@@ -72,6 +72,6 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_CLAY_TANNIN = ITEMS.register("bucket_clay_tannin",
       () -> new Bucket(() -> ModFluids.TANNIN, ModToolItems.BUCKET_CLAY.get(), 32));
 
-  public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_pestle",
+  public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));
 }

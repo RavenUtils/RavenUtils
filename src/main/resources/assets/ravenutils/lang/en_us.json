@@ -93,7 +93,7 @@
   "item.ravenutils.bucket_iron_limewater": "Limewater Bucket",
   "item.ravenutils.bucket_iron_tannin": "Tannin Bucket",
   "item.ravenutils.bucket_clay_unfired": "Unfired Clay Bucket",
-  "item.ravenutils.mortar_pestle": "Mortar and Pestle",
+  "item.ravenutils.mortar_and_pestle": "Mortar and Pestle",
 
   "item.ravenutils.ink_bottle": "Ink Bottle",
   "item.ravenutils.ash": "Ash",
@@ -125,5 +125,6 @@
   "item.ravenutils.lime": "Lime",
   "item.ravenutils.sulfur": "Sulfur",
   "item.ravenutils.niter": "Niter",
+  "item.ravenutils.small_stone": "Small Stone",
   "item.ravenutils.crimwood_boat": "Crimwood Boat"
 }
