@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.datagen.blockstates;
+package com.sasnos.ravenutils.datagen.blockStates;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModBlocks;
@@ -19,7 +19,7 @@ import static com.sasnos.ravenutils.util.Utils.RL;
 
 public class BlockStates extends BlockStateProvider {
 
-    public BlockStates(DataGenerator gen,  ExistingFileHelper exFileHelper) {
+    public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, RavenUtils.MOD_ID, exFileHelper);
     }
 

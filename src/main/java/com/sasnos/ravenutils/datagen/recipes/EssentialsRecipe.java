@@ -1,6 +1,6 @@
-package com.sasnos.ravenutils.datagen.recipies;
+package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.datagen.tags.EssentialItemTags;
+import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
 import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;
@@ -22,8 +22,8 @@ public class EssentialsRecipe extends RecipeProvider {
   protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)
-        .addIngredient(EssentialItemTags.hammers)
-        .addCriterion("has_hammer", hasItem(EssentialItemTags.hammers))
+        .addIngredient(EssentialsItemTags.hammers)
+        .addCriterion("has_hammer", hasItem(EssentialsItemTags.hammers))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_CHESTPLATE.get()) //TODO: change Item for now it is a test

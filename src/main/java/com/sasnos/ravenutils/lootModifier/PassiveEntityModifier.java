@@ -67,10 +67,9 @@ public class PassiveEntityModifier extends LootModifier {
     int looting = context.getLootingModifier();
     if (hideDropRange.getMax() > 0) {
       ItemStack item;
-      if(applyLootingHide){
+      if (applyLootingHide) {
         item = getItemStackWithLooting(context, hideDropRange, ModItems.FRESH_HIDE.get());
-      }
-      else{
+      } else {
         item = new ItemStack(ModItems.FRESH_HIDE.get(), hideDropRange.generateInt(context.getRandom()));
       }
 
@@ -81,17 +80,15 @@ public class PassiveEntityModifier extends LootModifier {
       ItemStack item;
       Item contextMeat;
       Entity entity = context.get(LootParameters.THIS_ENTITY);
-      if(entity.isBurning()){
+      if (entity.isBurning()) {
         Item tmpmeat = meat;
-        contextMeat = ((Smelt)Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
-      }
-      else {
+        contextMeat = ((Smelt) Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
+      } else {
         contextMeat = meat;
       }
-      if(applyLootingMeat){
-       item = getItemStackWithLooting(context, meatDropRange, contextMeat);
-      }
-      else{
+      if (applyLootingMeat) {
+        item = getItemStackWithLooting(context, meatDropRange, contextMeat);
+      } else {
         item = new ItemStack(contextMeat, meatDropRange.generateInt(context.getRandom()));
       }
       generatedLoot.add(item);
@@ -99,11 +96,9 @@ public class PassiveEntityModifier extends LootModifier {
 
     if (tallowDropRange.getMax() > 0) {
       ItemStack item;
-      if(applyLootingTallow){
+      if (applyLootingTallow) {
         item = getItemStackWithLooting(context, tallowDropRange, ModItems.TALLOW.get());
-      }
-      else
-      {
+      } else {
         item = new ItemStack(ModItems.TALLOW.get(), tallowDropRange.generateInt(context.getRandom()));
       }
 
@@ -112,11 +107,9 @@ public class PassiveEntityModifier extends LootModifier {
 
     if (boneDropRange.getMax() > 0) {
       ItemStack item;
-      if(applyLootingBone){
+      if (applyLootingBone) {
         item = getItemStackWithLooting(context, boneDropRange, Items.BONE);
-      }
-      else
-      {
+      } else {
         item = new ItemStack(Items.BONE, boneDropRange.generateInt(context.getRandom()));
       }
 
@@ -126,7 +119,7 @@ public class PassiveEntityModifier extends LootModifier {
     for (AdditionalItems add : additional) {
       float rand = context.getRandom().nextFloat();
       if (rand <= add.change) {
-        int sum = context.getRandom().ints(add.minItem, add.maxItem+1).findFirst().getAsInt();
+        int sum = context.getRandom().ints(add.minItem, add.maxItem + 1).findFirst().getAsInt();
         if (add.useLootEnchant) sum += looting;
         generatedLoot.add(new ItemStack(add.item, sum));
       }
@@ -183,12 +176,12 @@ public class PassiveEntityModifier extends LootModifier {
       }
 
       return new PassiveEntityModifier(
-              ailootcondition,
-              hideRange, applyLootHide,
-              meat, meatRange, applyLootMeat,
-              tallowRange, applyLootTallow,
-              boneRange, applyLootBone,
-              additional);
+          ailootcondition,
+          hideRange, applyLootHide,
+          meat, meatRange, applyLootMeat,
+          tallowRange, applyLootTallow,
+          boneRange, applyLootBone,
+          additional);
     }
 
     @Override
