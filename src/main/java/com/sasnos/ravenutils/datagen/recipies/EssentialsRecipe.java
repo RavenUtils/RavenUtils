@@ -22,8 +22,8 @@ public class EssentialsRecipe extends RecipeProvider {
   protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)
-        .addIngredient(EssentialItemTags.hammer)
-        .addCriterion("has_hammer", hasItem(EssentialItemTags.hammer))
+        .addIngredient(EssentialItemTags.hammers)
+        .addCriterion("has_hammer", hasItem(EssentialItemTags.hammers))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_CHESTPLATE.get()) //TODO: change Item for now it is a test

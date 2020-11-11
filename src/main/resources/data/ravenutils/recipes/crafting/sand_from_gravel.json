@@ -5,7 +5,7 @@
       "item": "minecraft:gravel"
     },
     {
-      "tag": "ravenutils:hammers"
+      "tag": "forge:tools/hammers"
     }
   ],
   "result": {

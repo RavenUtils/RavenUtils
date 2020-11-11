@@ -14,7 +14,7 @@ public class ModFoodItems {
   // meat
   public static final RegistryObject<Item> PORKCHOP = ITEMS.register("porkchop", Porkchop::new);
   public static final RegistryObject<Item> MUTTON = ITEMS.register("mutton", Mutton::new);
-  public static final RegistryObject<Item> RABBIT_MEAT = ITEMS.register("rabbit", Rabbit::new);
+  public static final RegistryObject<Item> RABBIT = ITEMS.register("rabbit", Rabbit::new);
   public static final RegistryObject<Item> POULTRY = ITEMS.register("poultry", Poultry::new);
   public static final RegistryObject<Item> RED_MEAT = ITEMS.register("red_meat", RedMeat::new);
   public static final RegistryObject<Item> BUSHMEAT = ITEMS.register("bushmeat", Bushmeat::new);

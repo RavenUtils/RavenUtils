@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "ravenutils:knives"
+      "tag": "forge:tools/knives"
     },
     {
-      "tag": "minecraft:logs_that_burn"
+      "tag": "forge:logs_that_burn"
     }
   ],
   "result": {

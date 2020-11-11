@@ -9,7 +9,7 @@
       "item": "minecraft:clay"
     },
     "k": {
-      "tag": "ravenutils:knives"
+      "tag": "forge:tools/knives"
     }
   },
   "result": {

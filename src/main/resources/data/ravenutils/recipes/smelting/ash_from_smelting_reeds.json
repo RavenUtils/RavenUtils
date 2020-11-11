@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "tag": "ravenutils:reeds"
+    "tag": "forge:grasses/tall"
   },
   "result": {
     "item": "ravenutils:ash",
