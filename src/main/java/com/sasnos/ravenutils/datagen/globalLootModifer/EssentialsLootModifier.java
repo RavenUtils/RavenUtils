@@ -89,7 +89,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityLootModifier.AdditionalItems> parrot = NonNullList.create();
     chicken.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.FEATHER, 1, 3, 1f, true)
+        Items.FEATHER, new RandomValueRange(1, 3), 1f, true)
     );
 
     add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
@@ -113,8 +113,8 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     /*
     NonNullList<PassiveEntityLootModifier.AdditionalItems> duck = NonNullList.create();
-    chicken.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.DUCK_FEATHER, 1, 3, 1f, true)
+    duck.add(new PassiveEntityLootModifier.AdditionalItems(
+        ModItems.DUCK_FEATHER, new RandomValueRange(1, 3), 1f, true)
     );
 
     add("duck_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
@@ -179,7 +179,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityLootModifier.AdditionalItems> rabbit = NonNullList.create();
     rabbit.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.RABBIT_FOOT, 0, 1, 0.03f, true)
+        Items.RABBIT_FOOT, new RandomValueRange(0, 1), 0.03f, true)
     );
 
     add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
@@ -400,7 +400,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityLootModifier.AdditionalItems> turtle = NonNullList.create();
     turtle.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.SCUTE, 0, 2, 1f, true)
+        Items.SCUTE, new RandomValueRange(0, 2), 1f, true)
     );
     add("turtle_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
@@ -423,7 +423,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityLootModifier.AdditionalItems> polar_bear = NonNullList.create();
     polar_bear.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.COD, 0, 1, 1f, true)
+        Items.COD, new RandomValueRange(0, 1), 1f, true)
     );
     /* todo add in Magic module
     polar_bear.add(new PassiveEntityLootModifier.AdditionalItems(
@@ -451,7 +451,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityLootModifier.AdditionalItems> panda = NonNullList.create();
     panda.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.BAMBOO, 0, 1, 1f, true)
+        Items.BAMBOO, new RandomValueRange(0, 1), 1f, true)
     );
     /* todo add in Magic module
     panda.add(new PassiveEntityLootModifier.AdditionalItems(
@@ -480,10 +480,10 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
     /*
     NonNullList<PassiveEntityLootModifier.AdditionalItems> black_bear = NonNullList.create();
     black_bear.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.HONEYCOMB, 0, 1, 1f, true)
+        Items.HONEYCOMB, new RandomValueRange(0, 1), 1f, true)
     );
     black_bear.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.BEAR_CLAW, 0, 2, 0.25f, true)
+        ModItems.BEAR_CLAW, new RandomValueRange(0, 2), 0.25f, true)
     );
     add("black_bear_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
@@ -508,20 +508,20 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
     NonNullList<PassiveEntityLootModifier.AdditionalItems> villager = NonNullList.create();
     /*
     villager.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.CLOTH, 0, 2, 1f, true)
+        ModItems.CLOTH, new RandomValueRange(0, 2), 1f, true)
     );
     */
     villager.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.COPPER_COIN.get(), 0, 1, 0.1f, true)
+        ModItems.COPPER_COIN.get(), new RandomValueRange(0, 1), 0.1f, true)
     );
     villager.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.BREAD, 0, 1, 0.25f, true)
+        Items.BREAD, new RandomValueRange(0, 1), 0.25f, true)
     );
     villager.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.CARROT, 0, 1, 0.25f, true)
+        Items.CARROT, new RandomValueRange(0, 1), 0.25f, true)
     );
     villager.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.APPLE, 0, 1, 0.25f, true)
+        Items.APPLE, new RandomValueRange(0, 1), 0.25f, true)
     );
     add("villager_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
@@ -545,23 +545,23 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
     NonNullList<PassiveEntityLootModifier.AdditionalItems> wandering_trader = NonNullList.create();
     /*
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.CLOTH, 0, 2, 1f, true)
+        ModItems.CLOTH, new RandomValueRange(0, 2), 1f, true)
     );
     */
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.COPPER_COIN.get(), 0, 1, 0.50f, true)
+        ModItems.COPPER_COIN.get(), new RandomValueRange(0, 1), 0.50f, true)
     );
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.SILVER_COIN.get(), 0, 1, 0.25f, true)
+        ModItems.SILVER_COIN.get(), new RandomValueRange(0, 1), 0.25f, true)
     );
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        ModItems.GOLD_COIN.get(), 0, 1, 0.15f, true)
+        ModItems.GOLD_COIN.get(), new RandomValueRange(0, 1), 0.15f, true)
     );
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.BREAD, 0, 1, 0.25f, true)
+        Items.BREAD, new RandomValueRange(0, 1), 0.25f, true)
     );
     wandering_trader.add(new PassiveEntityLootModifier.AdditionalItems(
-        Items.APPLE, 0, 1, 0.25f, true)
+        Items.APPLE, new RandomValueRange(0, 1), 0.25f, true)
     );
     add("wandering_trader_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
