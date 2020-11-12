@@ -12,6 +12,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +34,8 @@ public class RavenUtils {
   public RavenUtils() {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
-    MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureGen::AddFeaturesToBiomes);
+    FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(Feature.class, EventPriority.LOW, FeatureGen::registerFeatures);
+    MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureGen::addFeaturesToBiomes);
 
     ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());

@@ -20,6 +20,10 @@ public class EssentialsRecipe extends RecipeProvider {
 
   @Override
   protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+
+    new EssentialsCraftingRecipes(consumer);
+    new EssentialsCookingRecipes(consumer);
+
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)
         .addIngredient(EssentialsItemTags.hammers)
