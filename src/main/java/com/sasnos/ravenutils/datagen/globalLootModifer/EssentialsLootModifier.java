@@ -44,7 +44,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 
     NonNullList<PassiveEntityModifier.AdditionalItems> chicken = NonNullList.create();
     chicken.add(
-        new PassiveEntityModifier.AdditionalItems(Items.FEATHER, 1, 3, 1f, true));
+        new PassiveEntityModifier.AdditionalItems(Items.FEATHER, new RandomValueRange(1, 3), 1f, true));
 
     add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
         new ILootCondition[]{
