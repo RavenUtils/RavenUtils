@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.BlockItemBase;
-import com.sasnos.ravenutils.blocks.blockitems.BlackCoalBlockItem;
+import com.sasnos.ravenutils.blocks.blockItems.BlackCoalBlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

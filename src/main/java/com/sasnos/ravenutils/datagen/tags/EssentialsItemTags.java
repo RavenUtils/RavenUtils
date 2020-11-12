@@ -15,7 +15,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-public class EssentialItemTags extends ItemTagsProvider {
+public class EssentialsItemTags extends ItemTagsProvider {
 
   public static ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
   public static ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
@@ -29,10 +29,10 @@ public class EssentialItemTags extends ItemTagsProvider {
   public static ITag.INamedTag<Item> raw_meat = ItemTags.makeWrapperTag("forge:meat/raw");
   public static ITag.INamedTag<Item> salts = ItemTags.makeWrapperTag("forge:salts");
 
-  public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("forge:boats");
-  public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("forge:coals");
+  public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("minecraft:boats");
+  public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("minecraft:coals");
 
-  public EssentialItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
+  public EssentialsItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
   }
 
@@ -61,14 +61,15 @@ public class EssentialItemTags extends ItemTagsProvider {
 
     getOrCreateBuilder(slimeballs).add(ModItems.RESIN_BALL.get());
 
-    getOrCreateBuilder(raw_red_meat).add(ModFoodItems.RED_MEAT.get());
+    getOrCreateBuilder(raw_red_meat).add(Items.BEEF);
     getOrCreateBuilder(raw_poultry).add(ModFoodItems.POULTRY.get());
     getOrCreateBuilder(raw_meat).add(
-        ModFoodItems.RED_MEAT.get(),
+        Items.BEEF,
         ModFoodItems.POULTRY.get(),
-        ModFoodItems.RABBIT.get(),
-        ModFoodItems.MUTTON.get(),
-        ModFoodItems.PORKCHOP.get()
+        Items.RABBIT,
+        Items.MUTTON,
+        Items.PORKCHOP,
+        Items.CHICKEN
     );
     getOrCreateBuilder(salts).add(ModItems.STONE_SALT.get());
 

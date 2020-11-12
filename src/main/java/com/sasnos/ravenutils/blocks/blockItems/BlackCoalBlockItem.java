@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.blocks.blockitems;
+package com.sasnos.ravenutils.blocks.blockItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
