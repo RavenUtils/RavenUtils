@@ -11,6 +11,6 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
 
   @Override
   protected void addTables() {
-    lootTables.put(ModBlocks.BRASS_BLOCK.get(), createStandardTable("brass_blokc", ModBlocks.BRASS_BLOCK.get()));
+    lootTables.put(ModBlocks.BRASS_BLOCK.get(), createStandardTable("brass_block", ModBlocks.BRASS_BLOCK.get()));
   }
 }
