@@ -38,9 +38,9 @@ public class BlockStates extends BlockStateProvider {
         RL("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-    BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
-        RL("blocks/potted_crimleaf"));
-    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
+//    BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
+//        RL("blocks/potted_crimleaf"));
+//    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
 
     BlockModelBuilder crimwood = models().cubeAll("crimwood",
         RL("blocks/crimwood_log"));
