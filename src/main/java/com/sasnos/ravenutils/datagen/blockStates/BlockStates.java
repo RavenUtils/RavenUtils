@@ -38,9 +38,9 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-    BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
-        resourceLocation("blocks/potted_crimleaf"));
-    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
+    // BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
+    //     resourceLocation("blocks/potted_crimleaf"));
+    // simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
 
     BlockModelBuilder crimwood = models().cubeAll("crimwood",
         resourceLocation("blocks/crimwood_log"));

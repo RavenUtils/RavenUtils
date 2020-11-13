@@ -11,19 +11,16 @@ import net.minecraft.loot.LootContext;
 import net.minecraft.loot.LootParameters;
 import net.minecraft.loot.RandomValueRange;
 import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.loot.functions.LootingEnchantBonus;
 import net.minecraft.loot.functions.Smelt;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
-import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class PassiveEntityModifier extends LootModifier {
+public class PassiveEntityModifier extends MobLootModifier {
 
     public RandomValueRange hideDropRange;
     public boolean applyLootingHide;
@@ -134,12 +131,6 @@ public class PassiveEntityModifier extends LootModifier {
         return generatedLoot;
     }
 
-    @NotNull
-    private static ItemStack getItemStackWithLooting(LootContext context, RandomValueRange hideDropRange, Item loot) {
-        LootingEnchantBonus leb = (LootingEnchantBonus) new LootingEnchantBonus.Builder(hideDropRange).func_216072_a((int) hideDropRange.getMax()).build();
-        ItemStack item = leb.doApply(new ItemStack(loot), context);
-        return item;
-    }
 
     public static class Serializer extends GlobalLootModifierSerializer<PassiveEntityModifier> {
 
@@ -226,17 +217,5 @@ public class PassiveEntityModifier extends LootModifier {
 
     }
 
-    public static class AdditionalItems {
-        public Item item;
-        public RandomValueRange range;
-        public float change;
-        public boolean useLootEnchant;
 
-        public AdditionalItems(Item itemIN, RandomValueRange rangeIn, float changeIn, boolean useLootEnchantIn) {
-            this.item = itemIN;
-            this.range = rangeIn;
-            this.change = changeIn;
-            this.useLootEnchant = useLootEnchantIn;
-        }
-    }
 }
