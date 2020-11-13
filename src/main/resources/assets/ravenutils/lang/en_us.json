@@ -115,7 +115,10 @@
   "item.ravenutils.lead_nugget": "Lead Nugget",
   "item.ravenutils.steel_ingot": "Steel Ingot",
   "item.ravenutils.steel_nugget": "Steel Nugget",
+
   "item.ravenutils.tallow": "Tallow",
+  "item.ravenutils.flour": "Flour",
+  "item.ravenutils.dough": "Dough",
   "item.ravenutils.leather_strip": "Leather Strip",
   "item.ravenutils.resin_drop": "Resin Drop",
   "item.ravenutils.resin_ball": "Ball of Resin",
@@ -124,7 +127,12 @@
   "item.ravenutils.black_coal": "Black Coal",
   "item.ravenutils.lime": "Lime",
   "item.ravenutils.sulfur": "Sulfur",
+  "item.ravenutils.coal_dust": "Coal Dust",
+  "item.ravenutils.charcoal_dust": "Charcoal Dust",
   "item.ravenutils.niter": "Niter",
+  "item.ravenutils.slag": "Slag",
+  "item.ravenutils.plant_fibre": "Plant Fibre",
+  "item.ravenutils.cloth": "Cloth",
   "item.ravenutils.small_stone": "Small Stone",
   "item.ravenutils.crimwood_boat": "Crimwood Boat"
 }

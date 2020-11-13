@@ -31,6 +31,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
   public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("minecraft:boats");
   public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("minecraft:coals");
+  public static ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
 
   public EssentialsItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
@@ -61,19 +62,24 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
     getOrCreateBuilder(slimeballs).add(ModItems.RESIN_BALL.get());
 
-    getOrCreateBuilder(raw_red_meat).add(Items.BEEF);
-    getOrCreateBuilder(raw_poultry).add(ModFoodItems.POULTRY.get());
+    // getOrCreateBuilder(raw_red_meat).add(Items.BEEF);
+    // getOrCreateBuilder(raw_poultry).add(ModFoodItems.POULTRY.get());
     getOrCreateBuilder(raw_meat).add(
         Items.BEEF,
         ModFoodItems.POULTRY.get(),
         Items.RABBIT,
         Items.MUTTON,
         Items.PORKCHOP,
-        Items.CHICKEN
+        Items.CHICKEN,
+        ModFoodItems.BUSHMEAT.get()
     );
+
+    getOrCreateBuilder(strings).add(ModItems.PLANT_FIBRE.get());
+
     getOrCreateBuilder(salts).add(ModItems.STONE_SALT.get());
 
-    getOrCreateBuilder(boats).add(ModItems.CRIMWOOD_BOAT.get());
     getOrCreateBuilder(coals).add(ModItems.BLACK_COAL.get());
+
+    getOrCreateBuilder(boats).add(ModItems.CRIMWOOD_BOAT.get());
   }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:small_flower"
+    },
+    {
+      "item": "ravenutils:mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "tag": "forge:dyes",
+    "count": 2
+  }
+}
