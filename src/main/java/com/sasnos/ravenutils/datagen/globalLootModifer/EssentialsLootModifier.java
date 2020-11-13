@@ -3,7 +3,7 @@ package com.sasnos.ravenutils.datagen.globalLootModifer;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModLootTables;
-import com.sasnos.ravenutils.lootModifier.PassiveEntityModifier;
+import com.sasnos.ravenutils.lootModifier.PassiveEntityLootModifier;
 import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.entity.EntityType;
@@ -24,7 +24,7 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
   @Override
   protected void start() {
 
-    add("cat_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+    add("cat_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
 
         new ILootCondition[]{
             EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
@@ -42,11 +42,11 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
         NonNullList.create()
     ));
 
-    NonNullList<PassiveEntityModifier.AdditionalItems> chicken = NonNullList.create();
+    NonNullList<PassiveEntityLootModifier.AdditionalItems> chicken = NonNullList.create();
     chicken.add(
-        new PassiveEntityModifier.AdditionalItems(Items.FEATHER, new RandomValueRange(1, 3), 1f, true));
+        new PassiveEntityLootModifier.AdditionalItems(Items.FEATHER, new RandomValueRange(1, 3), 1f, true));
 
-    add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityModifier(
+    add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
             EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
                 EntityPredicate.Builder.create().type(EntityType.CHICKEN).build()).build(),

@@ -20,7 +20,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
-public class PassiveEntityModifier extends MobLootModifier {
+public class PassiveEntityLootModifier extends MobLootModifier {
 
     public RandomValueRange hideDropRange;
     public boolean applyLootingHide;
@@ -38,7 +38,7 @@ public class PassiveEntityModifier extends MobLootModifier {
      *
      * @param conditionsIn the ILootConditions that need to be matched before the loot is modified.
      */
-    public PassiveEntityModifier(
+    public PassiveEntityLootModifier(
             ILootCondition[] conditionsIn,
             RandomValueRange hideDropRangeIn, boolean applyLootHideIn,
             Item meatIn, RandomValueRange meatDropRangeIn, boolean applyLootMeatIn,
@@ -132,10 +132,10 @@ public class PassiveEntityModifier extends MobLootModifier {
     }
 
 
-    public static class Serializer extends GlobalLootModifierSerializer<PassiveEntityModifier> {
+    public static class Serializer extends GlobalLootModifierSerializer<PassiveEntityLootModifier> {
 
         @Override
-        public PassiveEntityModifier read(ResourceLocation location, JsonObject json, ILootCondition[] ailootcondition) {
+        public PassiveEntityLootModifier read(ResourceLocation location, JsonObject json, ILootCondition[] ailootcondition) {
             int minHide = JSONUtils.getInt(json, "minHide");
             int maxHide = JSONUtils.getInt(json, "maxHide");
             boolean applyLootHide = JSONUtils.getBoolean(json, "applyLootHide");
@@ -173,7 +173,7 @@ public class PassiveEntityModifier extends MobLootModifier {
                 );
             }
 
-            return new PassiveEntityModifier(
+            return new PassiveEntityLootModifier(
                     ailootcondition,
                     hideRange, applyLootHide,
                     meat, meatRange, applyLootMeat,
@@ -183,7 +183,7 @@ public class PassiveEntityModifier extends MobLootModifier {
         }
 
         @Override
-        public JsonObject write(PassiveEntityModifier instance) {
+        public JsonObject write(PassiveEntityLootModifier instance) {
             JsonObject json = makeConditions(instance.conditions);
 
             json.addProperty("minHide", instance.hideDropRange.getMin());
