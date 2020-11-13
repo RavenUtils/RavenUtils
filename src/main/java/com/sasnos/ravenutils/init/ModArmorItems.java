@@ -13,6 +13,16 @@ public class ModArmorItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
+  // todo remove all armor and add with Combat module
+  // copper
+
+  // bronze
+
+  // silver
+
+  // steel
+
+  // mytherine
   public static final RegistryObject<ArmorItem> MYTHERINE_HELMET = ITEMS.register("mytherine_helmet",
       () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.HEAD, new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<ArmorItem> MYTHERINE_CHESTPLATE = ITEMS.register("mytherine_chestplate",

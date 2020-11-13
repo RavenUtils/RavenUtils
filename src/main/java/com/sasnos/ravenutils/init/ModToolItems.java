@@ -17,6 +17,16 @@ public class ModToolItems {
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
   // default tools
+  // copper
+
+  // bronze
+
+  // silver
+
+  // steel
+
+  // mytherine
+  // todo remove sword and add with Combat module
   public static final RegistryObject<SwordItem> MYTHERINE_SWORD = ITEMS.register("mytherine_sword",
       () -> new SwordItem(ModItemTier.MYTHERINE, 9, -3.4F, new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<ShovelItem> MYTHERINE_SHOVEL = ITEMS.register("mytherine_shovel",
