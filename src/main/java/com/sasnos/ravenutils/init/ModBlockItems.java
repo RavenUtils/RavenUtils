@@ -62,10 +62,14 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.LIMESTONE.get()));
   public static final RegistryObject<Item> RESIN_BLOCK_ITEM = ITEMS.register("resin_block",
       () -> new BlockItemBase(ModBlocks.RESIN_BLOCK.get()));
+  public static final RegistryObject<Item> GELATIN_BLOCK_ITEM = ITEMS.register("gelatin_block",
+      () -> new BlockItemBase(ModBlocks.GELATIN_BLOCK.get()));
+
   public static final RegistryObject<Item> CRIMLEAF_ITEM = ITEMS.register("crimleaf",
       () -> new BlockItemBase(ModBlocks.CRIMLEAF.get()));
   public static final RegistryObject<Item> CRIMWOOD_SAPLING_ITEM = ITEMS.register("crimwood_sapling",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_SAPLING.get()));
+
   public static final RegistryObject<Item> CRIMWOOD_ITEM = ITEMS.register("crimwood",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_ITEM = ITEMS.register("crimwood_log",

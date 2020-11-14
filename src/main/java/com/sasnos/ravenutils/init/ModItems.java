@@ -58,6 +58,7 @@ public class ModItems {
   public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre", ItemBase::new);
   public static final RegistryObject<Item> FLOUR = ITEMS.register("flour", ItemBase::new);
   public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", ItemBase::new);
+  public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
 
   public static final RegistryObject<Item> FRESH_HIDE = ITEMS.register("hide_fresh", ItemBase::new);
   public static final RegistryObject<Item> SCRAPED_HIDE = ITEMS.register("hide_scraped", ItemBase::new);
@@ -75,5 +76,6 @@ public class ModItems {
       () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
 
   public static final RegistryObject<Item> CRIMWOOD_SIGN_ITEM = ITEMS.register("crimwood_sign",
-      () -> new SignItem((new Item.Properties()).group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+      () -> new SignItem((new Item.Properties())
+          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
 }

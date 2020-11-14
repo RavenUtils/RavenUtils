@@ -1,7 +1,10 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.*;
+import com.sasnos.ravenutils.items.Bushmeat;
+import com.sasnos.ravenutils.items.CookedBushmeat;
+import com.sasnos.ravenutils.items.CookedPoultry;
+import com.sasnos.ravenutils.items.Poultry;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

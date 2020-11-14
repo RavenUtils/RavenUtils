@@ -26,14 +26,6 @@ public class BlockStates extends BlockStateProvider {
   @Override
   protected void registerStatesAndModels() {
 
-    BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
-        resourceLocation("blocks/black_coal_block"));
-    simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
-
-    BlockModelBuilder blackCoalOre = models().cubeAll("black_coal_ore",
-        resourceLocation("blocks/black_coal_ore"));
-    simpleBlock(ModBlocks.BLACK_COAL_ORE.get(), blackCoalBlock);
-
     BlockModelBuilder crimleaf = models().cubeAll("crimleaf",
         resourceLocation("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
@@ -79,6 +71,10 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/crimwood_sapling"));
     simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
+    // BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimwood_sapling",
+    //     resourceLocation("blocks/potted_crimwood_sapling"));
+    // simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), pottedCrimwoodSapling);
+
     // models().cubeAll("crimwood_sign",
     // resourceLocation("crimwood_sign"));
 
@@ -99,73 +95,37 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/limestone"));
     simpleBlock(ModBlocks.LIMESTONE.get(), limestone);
 
-    BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
-        resourceLocation("blocks/mytherine_block"));
-    simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
-
-    BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore",
-        resourceLocation("blocks/mytherine_ore"));
-    simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
-
-    BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block",
-        resourceLocation("blocks/raven_eye_block"));
-    simpleBlock(ModBlocks.RAVEN_EYE_BLOCK.get(), ravenEyeBlock);
-
-    BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore",
-        resourceLocation("blocks/raven_eye_ore"));
-    simpleBlock(ModBlocks.RAVEN_EYE_ORE.get(), ravenEyeOre);
+    BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore",
+        resourceLocation("blocks/sulfur_ore"));
+    simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
 
     BlockModelBuilder resin = models().cubeAll("resin_block",
         resourceLocation("blocks/resin_block"));
     simpleBlock(ModBlocks.RESIN_BLOCK.get(), resin);
 
-    BlockModelBuilder saltBlock = models().cubeAll("salt_block",
-        resourceLocation("blocks/salt_block"));
-    simpleBlock(ModBlocks.SALT_BLOCK.get(), saltBlock);
-
     BlockModelBuilder saltOre = models().cubeAll("salt_ore",
         resourceLocation("blocks/salt_ore"));
     simpleBlock(ModBlocks.SALT_ORE.get(), saltOre);
 
-    BlockModelBuilder silverBlock = models().cubeAll("silver_block",
-        resourceLocation("blocks/silver_block"));
-    simpleBlock(ModBlocks.SILVER_BLOCK.get(), silverBlock);
+    BlockModelBuilder saltBlock = models().cubeAll("salt_block",
+        resourceLocation("blocks/salt_block"));
+    simpleBlock(ModBlocks.SALT_BLOCK.get(), saltBlock);
 
-    BlockModelBuilder silverOre = models().cubeAll("silver_ore",
-        resourceLocation("blocks/silver_ore"));
-    simpleBlock(ModBlocks.SILVER_ORE.get(), silverOre);
+    BlockModelBuilder blackCoalOre = models().cubeAll("black_coal_ore",
+        resourceLocation("blocks/black_coal_ore"));
+    simpleBlock(ModBlocks.BLACK_COAL_ORE.get(), blackCoalOre);
 
-    BlockModelBuilder leadBlock = models().cubeAll("lead_block",
-        resourceLocation("blocks/lead_block"));
-    simpleBlock(ModBlocks.LEAD_BLOCK.get(), leadBlock);
+    BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
+        resourceLocation("blocks/black_coal_block"));
+    simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
 
-    BlockModelBuilder leadOre = models().cubeAll("lead_ore",
-        resourceLocation("blocks/lead_ore"));
-    simpleBlock(ModBlocks.LEAD_ORE.get(), leadOre);
+    BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore",
+        resourceLocation("blocks/raven_eye_ore"));
+    simpleBlock(ModBlocks.RAVEN_EYE_ORE.get(), ravenEyeOre);
 
-    BlockModelBuilder steelBlock = models().cubeAll("steel_block",
-        resourceLocation("blocks/steel_block"));
-    simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
-
-    BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore",
-        resourceLocation("blocks/sulfur_ore"));
-    simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
-
-    BlockModelBuilder tinBlock = models().cubeAll("tin_block",
-        resourceLocation("blocks/tin_block"));
-    simpleBlock(ModBlocks.TIN_BLOCK.get(), tinBlock);
-
-    BlockModelBuilder tinOre = models().cubeAll("tin_ore",
-        resourceLocation("blocks/tin_ore"));
-    simpleBlock(ModBlocks.TIN_ORE.get(), tinOre);
-
-    BlockModelBuilder zincBlock = models().cubeAll("zinc_block",
-        resourceLocation("blocks/zinc_block"));
-    simpleBlock(ModBlocks.ZINC_BLOCK.get(), zincBlock);
-
-    BlockModelBuilder zincOre = models().cubeAll("zinc_ore",
-        resourceLocation("blocks/zinc_ore"));
-    simpleBlock(ModBlocks.ZINC_ORE.get(), zincOre);
+    BlockModelBuilder ravenEyeBlock = models().cubeAll("raven_eye_block",
+        resourceLocation("blocks/raven_eye_block"));
+    simpleBlock(ModBlocks.RAVEN_EYE_BLOCK.get(), ravenEyeBlock);
 
     BlockModelBuilder copperOre = models().cubeAll("copper_ore",
         resourceLocation("blocks/copper_ore"));
@@ -175,6 +135,22 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/copper_block"));
     simpleBlock(ModBlocks.COPPER_BLOCK.get(), copperBlock);
 
+    BlockModelBuilder tinOre = models().cubeAll("tin_ore",
+        resourceLocation("blocks/tin_ore"));
+    simpleBlock(ModBlocks.TIN_ORE.get(), tinOre);
+
+    BlockModelBuilder tinBlock = models().cubeAll("tin_block",
+        resourceLocation("blocks/tin_block"));
+    simpleBlock(ModBlocks.TIN_BLOCK.get(), tinBlock);
+
+    BlockModelBuilder zincOre = models().cubeAll("zinc_ore",
+        resourceLocation("blocks/zinc_ore"));
+    simpleBlock(ModBlocks.ZINC_ORE.get(), zincOre);
+
+    BlockModelBuilder zincBlock = models().cubeAll("zinc_block",
+        resourceLocation("blocks/zinc_block"));
+    simpleBlock(ModBlocks.ZINC_BLOCK.get(), zincBlock);
+
     BlockModelBuilder bronzeBlock = models().cubeAll("bronze_block",
         resourceLocation("blocks/bronze_block"));
     simpleBlock(ModBlocks.BRONZE_BLOCK.get(), bronzeBlock);
@@ -182,6 +158,34 @@ public class BlockStates extends BlockStateProvider {
     BlockModelBuilder brassBlock = models().cubeAll("brass_block",
         resourceLocation("blocks/brass_block"));
     simpleBlock(ModBlocks.BRASS_BLOCK.get(), brassBlock);
+
+    BlockModelBuilder silverOre = models().cubeAll("silver_ore",
+        resourceLocation("blocks/silver_ore"));
+    simpleBlock(ModBlocks.SILVER_ORE.get(), silverOre);
+
+    BlockModelBuilder silverBlock = models().cubeAll("silver_block",
+        resourceLocation("blocks/silver_block"));
+    simpleBlock(ModBlocks.SILVER_BLOCK.get(), silverBlock);
+
+    BlockModelBuilder leadOre = models().cubeAll("lead_ore",
+        resourceLocation("blocks/lead_ore"));
+    simpleBlock(ModBlocks.LEAD_ORE.get(), leadOre);
+
+    BlockModelBuilder leadBlock = models().cubeAll("lead_block",
+        resourceLocation("blocks/lead_block"));
+    simpleBlock(ModBlocks.LEAD_BLOCK.get(), leadBlock);
+
+    BlockModelBuilder steelBlock = models().cubeAll("steel_block",
+        resourceLocation("blocks/steel_block"));
+    simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
+
+    BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore",
+        resourceLocation("blocks/mytherine_ore"));
+    simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
+
+    BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
+        resourceLocation("blocks/mytherine_block"));
+    simpleBlock(ModBlocks.BRONZE_BLOCK.get(), mytherineBlock);
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

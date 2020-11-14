@@ -14,6 +14,44 @@ import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements IArmorMaterial {
 
+  /* todo move to Combat module
+  COPPER(RavenUtils.MOD_ID + ":copper",
+      14000,
+      new int[]{5, 10, 8, 5},
+      100,
+      SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+      4.0F, () -> {
+    return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
+  },
+      0.5F),
+  BRONZE(RavenUtils.MOD_ID + ":bronze",
+      14000,
+      new int[]{5, 10, 8, 5},
+      100,
+      SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+      4.0F, () -> {
+    return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
+  },
+      0.5F),
+  SILVER(RavenUtils.MOD_ID + ":silver",
+      14000,
+      new int[]{5, 10, 8, 5},
+      100,
+      SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+      4.0F, () -> {
+    return Ingredient.fromItems(ModItems.SILVER_INGOT.get());
+  },
+      0.5F),
+  STEEL(RavenUtils.MOD_ID + ":steel",
+      14000,
+      new int[]{5, 10, 8, 5},
+      100,
+      SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+      4.0F, () -> {
+    return Ingredient.fromItems(ModItems.STEEL_INGOT.get());
+  },
+      0.5F),
+   */
   MYTHERINE(RavenUtils.MOD_ID + ":mytherine",
       14000,
       new int[]{5, 10, 8, 5},

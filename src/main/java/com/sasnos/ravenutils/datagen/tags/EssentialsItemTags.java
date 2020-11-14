@@ -44,6 +44,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.HAMMER_IRON.get(),
         ModToolItems.HAMMER_STONE.get()
     );
+
     getOrCreateBuilder(knives).add(
         ModToolItems.KNIFE_FLINT.get(),
         ModToolItems.KNIFE_IRON.get(),
@@ -55,6 +56,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         Items.WRITABLE_BOOK,
         Items.WRITTEN_BOOK
     );
+
     getOrCreateBuilder(grasses_tall).add(
         Items.SUGAR_CANE,
         Items.BAMBOO

@@ -44,7 +44,7 @@ public class RavenUtils {
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
-    ModTileEntities.TILEENTITYS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModTileEntities.TILE_ENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     // Register ourselves for server and other game events we are interested in
@@ -54,9 +54,9 @@ public class RavenUtils {
   private void setup(final FMLCommonSetupEvent event)
   {
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
-    //RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
+    RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
-    //RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+    RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
     //RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
     //RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
@@ -120,7 +120,7 @@ public class RavenUtils {
   public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override
     public ItemStack createIcon() {
-      // adjust later
+      // todo adjust later
       return new ItemStack(ModBlocks.RAVEN_EYE_BLOCK.get());
     }
   };

@@ -11,7 +11,7 @@ public class SignTileEntity extends net.minecraft.tileentity.SignTileEntity {
 
     @Override
     public TileEntityType<?> getType() {
-        return ModTileEntities.SIGN_TE.get();
+        return ModTileEntities.SIGN_TILE_ENTITIES.get();
     }
 
 }

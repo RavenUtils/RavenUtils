@@ -12,6 +12,6 @@ public class ClientInit {
 
   @SubscribeEvent
   public static void clientStartup(final FMLClientSetupEvent event) {
-    ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TE.get(), SignRenderer::new);
+    ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
   }
 }

@@ -12,12 +12,13 @@ public class ModFluids {
 
   public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, RavenUtils.MOD_ID);
 
+  public static final RegistryObject<LimewaterFluid.Flowing> FLOWING_LIMEWATER = FLUIDS
+      .register("flowing_limewater", LimewaterFluid.Flowing::new);
+  public static final RegistryObject<LimewaterFluid.Source> LIMEWATER = FLUIDS
+      .register("source_limewater", LimewaterFluid.Source::new);
 
-
-  public static final RegistryObject<LimewaterFluid.Flowing> FLOWING_LIMEWATER = FLUIDS.register("flowing_limewater", LimewaterFluid.Flowing::new);
-  public static final RegistryObject<LimewaterFluid.Source> LIMEWATER = FLUIDS.register("source_limewater", LimewaterFluid.Source::new);
-
-  public static final RegistryObject<TanninFluid.Flowing> FLOWING_TANNIN = FLUIDS.register("flowing_tanning", TanninFluid.Flowing::new);
-
-  public static final RegistryObject<TanninFluid.Source> TANNIN = FLUIDS.register("source_tanning", TanninFluid.Source::new);
+  public static final RegistryObject<TanninFluid.Flowing> FLOWING_TANNIN = FLUIDS
+      .register("flowing_tanning", TanninFluid.Flowing::new);
+  public static final RegistryObject<TanninFluid.Source> TANNIN = FLUIDS
+      .register("source_tanning", TanninFluid.Source::new);
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:gelatin"
+    }
+  },
+  "result": {
+    "item": "ravenutils:gelatin_block",
+    "count": 1
+  }
+}

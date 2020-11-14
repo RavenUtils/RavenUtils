@@ -8,11 +8,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModTileEntities {
-    public static final DeferredRegister<TileEntityType<?>> TILEENTITYS =
-            DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, RavenUtils.MOD_ID);
+  public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY =
+      DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, RavenUtils.MOD_ID);
 
-    public static final RegistryObject<TileEntityType<SignTileEntity>> SIGN_TE = TILEENTITYS.register("crimwood_sign",
-            () -> TileEntityType.Builder
-                    .create(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
-                    .build(null));
+  public static final RegistryObject<TileEntityType<SignTileEntity>> SIGN_TILE_ENTITIES = TILE_ENTITY.register(
+      "crimwood_sign",
+      () -> TileEntityType.Builder
+          .create(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
+          .build(null));
 }

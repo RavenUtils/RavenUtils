@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    " I ",
+    " I "
+  ],
+  "key": {
+    "X": {
+      "item": "ravenutils:bronze_ingot"
+    },
+    "I": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:bronze_pickaxe",
+    "count": 1
+  }
+}
