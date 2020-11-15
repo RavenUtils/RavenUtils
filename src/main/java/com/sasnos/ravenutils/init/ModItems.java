@@ -48,6 +48,7 @@ public class ModItems {
   public static final RegistryObject<Item> RESIN_DROP = ITEMS.register("resin_drop", ItemBase::new);
   public static final RegistryObject<Item> RESIN_BALL = ITEMS.register("resin_ball", ItemBase::new);
   public static final RegistryObject<Item> RAVEN_EYE_GEM = ITEMS.register("raven_eye_gem", ItemBase::new);
+  public static final RegistryObject<Item> RAVEN_EYE_DUST = ITEMS.register("raven_eye_dust", ItemBase::new);
   public static final RegistryObject<Item> BLACK_COAL = ITEMS.register("black_coal", BlackCoal::new);
   public static final RegistryObject<Item> LIME = ITEMS.register("lime", ItemBase::new);
   public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", ItemBase::new);
