@@ -21,6 +21,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
   // blockitems
   public static ITag.INamedTag<Item> ores = ItemTags.makeWrapperTag("forge:ore");
   public static ITag.INamedTag<Item> non_flammable_wood = ItemTags.makeWrapperTag("forge:non_flammable_wood");
+  public static ITag.INamedTag<Item> crimwood_logs = ItemTags.makeWrapperTag("ravenutils:crimwood_logs");
   public static ITag.INamedTag<Item> fence_gates = ItemTags.makeWrapperTag("forge:fence_gates");
   public static ITag.INamedTag<Item> leaves = ItemTags.makeWrapperTag("forge:leaves");
   public static ITag.INamedTag<Item> planks = ItemTags.makeWrapperTag("forge:planks");
@@ -37,6 +38,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
   // items
   public static ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
   public static ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
+  public static ITag.INamedTag<Item> axes = ItemTags.makeWrapperTag("forge:tools/axes");
   public static ITag.INamedTag<Item> books = ItemTags.makeWrapperTag("forge:books");
   public static ITag.INamedTag<Item> grasses_tall = ItemTags.makeWrapperTag("forge:grasses/tall");
   public static ITag.INamedTag<Item> slimeballs = ItemTags.makeWrapperTag("forge:slimeballs");
@@ -64,6 +66,19 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.KNIFE_FLINT.get(),
         ModToolItems.KNIFE_IRON.get(),
         ModToolItems.KNIFE_DIAMOND.get()
+    );
+
+    getOrCreateBuilder(axes).add(
+        Items.STONE_AXE,
+        Items.IRON_AXE,
+        Items.GOLDEN_AXE,
+        Items.DIAMOND_AXE,
+        Items.NETHERITE_AXE,
+        ModToolItems.COPPER_AXE.get(),
+        ModToolItems.BRONZE_AXE.get(),
+        ModToolItems.SILVER_AXE.get(),
+        ModToolItems.STEEL_AXE.get(),
+        ModToolItems.MYTHERINE_AXE.get()
     );
 
     getOrCreateBuilder(books).add(
@@ -125,18 +140,23 @@ public class EssentialsItemTags extends ItemTagsProvider {
     getOrCreateBuilder(small_flowers).add(ModBlockItems.CRIMLEAF_ITEM.get());
 
     getOrCreateBuilder(non_flammable_wood).add(
+        ModBlockItems.CRIMWOOD_SAPLING_ITEM.get(),
+        ModBlockItems.CRIMWOOD_ITEM.get(),
         ModBlockItems.CRIMWOOD_LOG_ITEM.get(),
+        ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()
         // ModBlockItems.CRIMWOOD_DOOR_ITEM.get(),
         // ModBlockItems.CRIMWOOD_FENCE_ITEM.get(),
         // ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get(),
-        ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(),
         // ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get(),
-        ModBlockItems.CRIMWOOD_SAPLING_ITEM.get(),
         // ModBlockItems.CRIMWOOD_SLAB_ITEM.get(),
         // ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(),
         // ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_BUTTON_ITEM.get(),
-        ModBlockItems.CRIMWOOD_ITEM.get()
+        // ModBlockItems.CRIMWOOD_BUTTON_ITEM.get()
+    );
+
+    getOrCreateBuilder(crimwood_logs).add(
+        ModBlockItems.CRIMWOOD_ITEM.get(),
+        ModBlockItems.CRIMWOOD_LOG_ITEM.get()
     );
 
     // getOrCreateBuilder(fence_gates).add(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get());

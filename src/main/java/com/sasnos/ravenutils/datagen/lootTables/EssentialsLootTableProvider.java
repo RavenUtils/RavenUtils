@@ -15,6 +15,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     // Vanilla Overrides
     // lootTables.put(Blocks.SPRUCE_LOG, createStandardTable("spruce_log", Blocks.SPRUCE_LOG));
     // lootTables.put(Blocks.TALL_GRASS, createStandardTable("tall_grass", Blocks.TALL_GRASS));
+    // lootTables.put(Blocks.COAL_ORE, createStandardTable("coal_ore", Blocks.COAL_ORE));
 
     // Mod
     lootTables.put(ModBlocks.RESIN_BLOCK.get(), createStandardTable("resin_block", ModBlocks.RESIN_BLOCK.get()));
