@@ -99,9 +99,9 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/sulfur_ore"));
     simpleBlock(ModBlocks.SULFUR_ORE.get(), sulfurOre);
 
-    BlockModelBuilder resin = models().cubeAll("resin_block",
+    BlockModelBuilder resinBlock = models().cubeAll("resin_block",
         resourceLocation("blocks/resin_block"));
-    simpleBlock(ModBlocks.RESIN_BLOCK.get(), resin);
+    simpleBlock(ModBlocks.RESIN_BLOCK.get(), resinBlock);
 
     BlockModelBuilder saltOre = models().cubeAll("salt_ore",
         resourceLocation("blocks/salt_ore"));
@@ -185,7 +185,7 @@ public class BlockStates extends BlockStateProvider {
 
     BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
         resourceLocation("blocks/mytherine_block"));
-    simpleBlock(ModBlocks.BRONZE_BLOCK.get(), mytherineBlock);
+    simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
