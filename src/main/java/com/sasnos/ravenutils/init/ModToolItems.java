@@ -1,10 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Bucket;
-import com.sasnos.ravenutils.items.Hammer;
-import com.sasnos.ravenutils.items.Knife;
-import com.sasnos.ravenutils.items.MortarAndPestle;
+import com.sasnos.ravenutils.items.*;
 import com.sasnos.ravenutils.util.enums.ModItemTier;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
@@ -155,4 +152,8 @@ public class ModToolItems {
 
   public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));
+  public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
+      () -> new Soap(32));
+  public static final RegistryObject<Item> SLEEPING_BAG = ITEMS.register("sleeping_bag",
+      () -> new SleepingBag(128));
 }

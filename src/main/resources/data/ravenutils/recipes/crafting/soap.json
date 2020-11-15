@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:ash"
+    },
+    {
+      "item": "ravenutils:tallow"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:soap",
+    "count": 1
+  }
+}

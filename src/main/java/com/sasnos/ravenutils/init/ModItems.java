@@ -21,6 +21,8 @@ public class ModItems {
   // Items
   public static final RegistryObject<Item> INK_BOTTLE = ITEMS.register("ink_bottle",
       () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
+  public static final RegistryObject<Item> BLOOD_BOTTLE = ITEMS.register("blood_bottle",
+      () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
   public static final RegistryObject<Item> ASH = ITEMS.register("ash", Ash::new);
   public static final RegistryObject<Item> SLAG = ITEMS.register("slag", Slag::new);
   public static final RegistryObject<Item> MYTHERINE_INGOT = ITEMS.register("mytherine_ingot", ItemBase::new);
@@ -56,9 +58,11 @@ public class ModItems {
   public static final RegistryObject<Item> CHARCOAL_DUST = ITEMS.register("charcoal_dust", ItemBase::new);
   public static final RegistryObject<Item> CLOTH = ITEMS.register("cloth", ItemBase::new);
   public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre", ItemBase::new);
+  public static final RegistryObject<Item> PLANT_TWINE = ITEMS.register("plant_twine", ItemBase::new);
   public static final RegistryObject<Item> FLOUR = ITEMS.register("flour", ItemBase::new);
   public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", ItemBase::new);
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
+  public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
 
   public static final RegistryObject<Item> FRESH_HIDE = ITEMS.register("hide_fresh", ItemBase::new);
   public static final RegistryObject<Item> SCRAPED_HIDE = ITEMS.register("hide_scraped", ItemBase::new);
@@ -78,4 +82,10 @@ public class ModItems {
   public static final RegistryObject<Item> CRIMWOOD_SIGN_ITEM = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())
           .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+
+  // todo adapt from Vanilla anvil
+  public static final RegistryObject<Item> STONE_ANVIL_STONE = ITEMS.register("stone_anvil_stone", ItemBase::new);
+  public static final RegistryObject<Item> STONE_ANVIL_GRANITE = ITEMS.register("stone_anvil_granite", ItemBase::new);
+  public static final RegistryObject<Item> STONE_ANVIL_ANDESITE = ITEMS.register("stone_anvil_andesite", ItemBase::new);
+  public static final RegistryObject<Item> STONE_ANVIL_DIORITE = ITEMS.register("stone_anvil_diorite", ItemBase::new);
 }

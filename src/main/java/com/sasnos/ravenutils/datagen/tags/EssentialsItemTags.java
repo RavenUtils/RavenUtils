@@ -89,7 +89,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModFoodItems.BUSHMEAT.get()
     );
 
-    getOrCreateBuilder(strings).add(ModItems.PLANT_FIBRE.get());
+    getOrCreateBuilder(strings).add(ModItems.PLANT_TWINE.get());
     getOrCreateBuilder(salts).add(ModItems.STONE_SALT.get());
 
     getOrCreateBuilder(coals_stone).add(

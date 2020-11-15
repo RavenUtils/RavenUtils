@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "ravenutils:cloth"
+    }
+  },
+  "result": {
+    "item": "ravenutils:sleeping_bag",
+    "count": 1
+  }
+}

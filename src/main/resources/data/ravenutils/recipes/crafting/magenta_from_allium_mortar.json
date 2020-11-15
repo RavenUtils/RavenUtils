@@ -2,14 +2,14 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "minecraft:small_flower"
+      "item": "minecraft:allium"
     },
     {
       "item": "ravenutils:mortar_and_pestle"
     }
   ],
   "result": {
-    "tag": "forge:dyes",
+    "item": "minecraft:magenta_dye",
     "count": 2
   }
 }

@@ -29,6 +29,7 @@
   "block.ravenutils.steel_block": "Block of Steel",
   "block.ravenutils.resin_block": "Block of Resin",
   "block.ravenutils.gelatin_block": "Block of Gelatin",
+  "block.ravenutils.candle": "Candle",
 
   "block.ravenutils.crimleaf": "Crimleaf",
   "block.ravenutils.crimwood_sapling": "Crimwood Sapling",
@@ -161,9 +162,13 @@
   "item.ravenutils.steel_nugget": "Steel Nugget",
 
   "item.ravenutils.ink_bottle": "Ink Bottle",
+  "item.ravenutils.blood_bottle": "Blood Bottle",
   "item.ravenutils.ash": "Ash",
+  "item.ravenutils.flint_shard": "Flint Shard",
   "item.ravenutils.tallow": "Tallow",
   "item.ravenutils.gelatin": "Gelatin",
+  "item.ravenutils.soap": "Soap",
+  "item.ravenutils.candle": "Candle",
   "item.ravenutils.flour": "Flour",
   "item.ravenutils.dough": "Dough",
   "item.ravenutils.leather_strip": "Leather Strip",
@@ -179,6 +184,7 @@
   "item.ravenutils.niter": "Niter",
   "item.ravenutils.slag": "Slag",
   "item.ravenutils.plant_fibre": "Plant Fibre",
+  "item.ravenutils.plant_twine": "Plant Twine",
   "item.ravenutils.cloth": "Cloth",
   "item.ravenutils.small_stone": "Small Stone",
   "item.ravenutils.crimwood_boat": "Crimwood Boat"
