@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "xI "
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:leather_strip"
+    },
+    "I": {
+      "item": "ravenutils:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "ravenutils:shears_bronze",
+    "count": 1
+  }
+}

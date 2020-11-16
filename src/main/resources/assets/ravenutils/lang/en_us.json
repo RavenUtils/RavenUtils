@@ -71,6 +71,7 @@
   "item.ravenutils.copper_axe": "Copper Axe",
   "item.ravenutils.copper_hoe": "Copper Hoe",
   "item.ravenutils.copper_pickaxe": "Copper Pickaxe",
+  "item.ravenutils.shears_copper": "Copper Shears",
   "item.ravenutils.copper_shield": "Copper Shield",
 
   "item.ravenutils.bronze_helmet": "Bronze Helmet",
@@ -82,6 +83,7 @@
   "item.ravenutils.bronze_axe": "Bronze Axe",
   "item.ravenutils.bronze_hoe": "Bronze Hoe",
   "item.ravenutils.bronze_pickaxe": "Bronze Pickaxe",
+  "item.ravenutils.shears_bronze": "Bronze Shears",
   "item.ravenutils.bronze_shield": "Bronze Shield",
 
   "item.ravenutils.silver_helmet": "Silver Helmet",
@@ -93,6 +95,7 @@
   "item.ravenutils.silver_axe": "Silver Axe",
   "item.ravenutils.silver_hoe": "Silver Hoe",
   "item.ravenutils.silver_pickaxe": "Silver Pickaxe",
+  "item.ravenutils.shears_silver": "Silver Shears",
   "item.ravenutils.silver_shield": "Silver Shield",
 
   "item.ravenutils.steel_helmet": "Steel Helmet",
@@ -104,6 +107,7 @@
   "item.ravenutils.steel_axe": "Steel Axe",
   "item.ravenutils.steel_hoe": "Steel Hoe",
   "item.ravenutils.steel_pickaxe": "Steel Pickaxe",
+  "item.ravenutils.shears_steel": "Steel Shears",
   "item.ravenutils.steel_shield": "Steel Shield",
 
   "item.ravenutils.mytherine_helmet": "Mytherine Helmet",

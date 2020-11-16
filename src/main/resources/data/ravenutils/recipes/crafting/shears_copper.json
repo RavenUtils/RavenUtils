@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I  ",
+    "xI "
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:leather_strip"
+    },
+    "I": {
+      "item": "ravenutils:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "ravenutils:shears_copper",
+    "count": 1
+  }
+}

@@ -160,6 +160,16 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_MYTHERINE_TANNIN = ITEMS.register("bucket_mytherine_tannin",
       () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
 
+  // shears (maxDmg iron: 238)
+  public static final RegistryObject<ShearsItem> SHEARS_COPPER = ITEMS.register("shears_copper",
+      () -> new ShearsItem(new Item.Properties().maxDamage(120).group(RavenUtils.TAB)));
+  public static final RegistryObject<ShearsItem> SHEARS_BRONZE = ITEMS.register("shears_bronze",
+      () -> new ShearsItem(new Item.Properties().maxDamage(520).group(RavenUtils.TAB)));
+  public static final RegistryObject<ShearsItem> SHEARS_SILVER = ITEMS.register("shears_silver",
+      () -> new ShearsItem(new Item.Properties().maxDamage(380).group(RavenUtils.TAB)));
+  public static final RegistryObject<ShearsItem> SHEARS_STEEL = ITEMS.register("shears_steel",
+      () -> new ShearsItem(new Item.Properties().maxDamage(2048).group(RavenUtils.TAB)));
+
   public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));
   public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
