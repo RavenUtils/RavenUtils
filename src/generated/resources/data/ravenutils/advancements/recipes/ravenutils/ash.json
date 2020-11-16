@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:ash"
+    ]
+  },
+  "criteria": {
+    "has_ladder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:ladder"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:ash"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ladder",
+      "has_the_recipe"
+    ]
+  ]
+}

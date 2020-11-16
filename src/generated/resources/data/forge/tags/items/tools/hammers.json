@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:hammer_obsidian",
+    "ravenutils:hammer_iron",
+    "ravenutils:hammer_stone"
+  ]
+}

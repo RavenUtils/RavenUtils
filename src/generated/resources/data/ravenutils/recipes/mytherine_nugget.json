@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "ravenutils:mytherine_ore"
+  },
+  "result": "ravenutils:mytherine_nugget",
+  "experience": 0.1,
+  "cookingtime": 800
+}

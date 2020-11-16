@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:cooked_bushmeat"
+    ]
+  },
+  "criteria": {
+    "has_bushmeat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:bushmeat"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:cooked_bushmeat"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bushmeat",
+      "has_the_recipe"
+    ]
+  ]
+}

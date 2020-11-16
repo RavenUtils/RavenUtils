@@ -13,7 +13,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -21,7 +20,6 @@ public abstract class EssentialsAdvancementProvider implements IDataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
     private final DataGenerator generator;
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
-    private List<Consumer<Consumer<Advancement>>> advancements;
 
     public EssentialsAdvancementProvider(DataGenerator generatorIn) {
         this.generator = generatorIn;
@@ -31,7 +29,7 @@ public abstract class EssentialsAdvancementProvider implements IDataProvider {
     public void act(DirectoryCache cache) throws IOException {
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
-        Consumer<Advancement> consumer = (advancement) -> {
+        registerAdvancement((advancement) -> {
             if (!set.add(advancement.getId())) {
                 throw new IllegalStateException("Duplicate advancement " + advancement.getId());
             } else {
@@ -44,24 +42,15 @@ public abstract class EssentialsAdvancementProvider implements IDataProvider {
                 }
 
             }
-        };
+        });
 
-
-
-        for(Consumer<Consumer<Advancement>> consumer1 : this.advancements) {
-            consumer1.accept(consumer);
-        }
 
     }
 
-    protected abstract void registerAdvancement();
+    protected abstract void registerAdvancement(Consumer<Advancement> consumer);
 
     private static Path getPath(Path pathIn, Advancement advancementIn) {
         return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/" + advancementIn.getId().getPath() + ".json");
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
 }

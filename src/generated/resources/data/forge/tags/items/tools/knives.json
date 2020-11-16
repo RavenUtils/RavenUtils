@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:knife_flint",
+    "ravenutils:knife_iron",
+    "ravenutils:knife_diamond"
+  ]
+}

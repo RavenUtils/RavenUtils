@@ -1,0 +1,34 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "predicate": {
+        "type": "minecraft:chicken"
+      },
+      "entity": "this"
+    }
+  ],
+  "minHide": 0.0,
+  "maxHide": 0.0,
+  "applyLootHide": false,
+  "minTallow": 0.0,
+  "maxTallow": 0.0,
+  "applyLootTallow": false,
+  "minMeat": 1.0,
+  "maxMeat": 1.0,
+  "meat": "minecraft:chicken",
+  "applyLootMeat": false,
+  "minBone": 0.0,
+  "maxBone": 0.0,
+  "applyLootBone": false,
+  "additional": [
+    {
+      "item": "minecraft:feather",
+      "minItem": 1.0,
+      "maxItem": 3.0,
+      "change": 1.0,
+      "useLooting": true
+    }
+  ],
+  "type": "ravenutils:fresh_hide"
+}

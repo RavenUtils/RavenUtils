@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "predicate": {
+        "type": "minecraft:cat"
+      },
+      "entity": "this"
+    }
+  ],
+  "minHide": 0.0,
+  "maxHide": 2.0,
+  "applyLootHide": true,
+  "minTallow": 0.0,
+  "maxTallow": 1.0,
+  "applyLootTallow": true,
+  "minMeat": 1.0,
+  "maxMeat": 1.0,
+  "meat": "ravenutils:bushmeat",
+  "applyLootMeat": false,
+  "minBone": 0.0,
+  "maxBone": 0.0,
+  "applyLootBone": true,
+  "additional": [],
+  "type": "ravenutils:fresh_hide"
+}
