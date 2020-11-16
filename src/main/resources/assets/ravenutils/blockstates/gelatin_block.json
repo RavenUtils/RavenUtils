@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ravenutils:block/gelatin_block"
+    }
+  }
+}

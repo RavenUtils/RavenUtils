@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    " S ",
+    "sss"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:granite"
+    },
+    "s": {
+      "item": "minecraft:granite_slab"
+    }
+  },
+  "result": {
+    "item": "ravenutils:stone_anvil_granite",
+    "count": 1
+  }
+}

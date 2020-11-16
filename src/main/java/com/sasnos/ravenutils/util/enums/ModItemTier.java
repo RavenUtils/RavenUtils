@@ -8,8 +8,35 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
 
-  // dmg: 1 + attackDamage (5) + addedDamage
-  // spd: 4 +/- addedSpeed
+  // see https://mcreator.net/wiki/how-make-tool for property examples
+  COPPER(1,
+      150,
+      8.0F,
+      3.0F,
+      20, () -> {
+    return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
+  }),
+  BRONZE(2,
+      700,
+      10.0F,
+      4.0F,
+      18, () -> {
+    return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
+  }),
+  SILVER(1,
+      200,
+      6.0F,
+      3.0F,
+      30, () -> {
+    return Ingredient.fromItems(ModItems.SILVER_INGOT.get());
+  }),
+  STEEL(3,
+      1000,
+      12.0F,
+      5.0F,
+      18, () -> {
+    return Ingredient.fromItems(ModItems.STEEL_INGOT.get());
+  }),
   MYTHERINE(7,
       16000,
       28.0F,

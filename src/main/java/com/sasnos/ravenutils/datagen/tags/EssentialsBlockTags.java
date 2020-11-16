@@ -48,6 +48,15 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.BLACK_COAL_ORE.get(),
         ModBlocks.SALT_ORE.get()
     );
+
+    getOrCreateBuilder(saplings).add(ModBlocks.CRIMWOOD_SAPLING.get());
+    getOrCreateBuilder(small_flowers).add(ModBlocks.CRIMLEAF.get());
+
+    getOrCreateBuilder(flower_pots).add(
+        ModBlocks.POTTED_CRIMWOOD_SAPLING.get(),
+        ModBlocks.POTTED_CRIMLEAF.get()
+    );
+
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),
         ModBlocks.CRIMWOOD_DOOR.get(),
@@ -62,20 +71,10 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.CRIMWOOD_BUTTON.get(),
         ModBlocks.CRIMWOOD.get()
     );
+
     getOrCreateBuilder(fence_gates).add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
-    getOrCreateBuilder(flower_pots).add(
-        ModBlocks.POTTED_CRIMWOOD_SAPLING.get(),
-        ModBlocks.POTTED_CRIMLEAF.get()
-    );
-    getOrCreateBuilder(infiniburn_overworld).add(
-        ModBlocks.CRIMWOOD.get(),
-        ModBlocks.CRIMWOOD_LOG.get(),
-        ModBlocks.CRIMWOOD_PLANKS.get()
-    );
     getOrCreateBuilder(leaves).add(ModBlocks.CRIMWOOD_LEAVES.get());
     getOrCreateBuilder(planks).add(ModBlocks.CRIMWOOD_PLANKS.get());
-    getOrCreateBuilder(saplings).add(ModBlocks.CRIMWOOD_SAPLING.get());
-    getOrCreateBuilder(small_flowers).add(ModBlocks.CRIMLEAF.get());
     getOrCreateBuilder(wooden_buttons).add(ModBlocks.CRIMWOOD_BUTTON.get());
     getOrCreateBuilder(wooden_doors).add(ModBlocks.CRIMWOOD_DOOR.get());
     getOrCreateBuilder(wooden_fences).add(ModBlocks.CRIMWOOD_FENCE.get());
@@ -83,5 +82,11 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     getOrCreateBuilder(wooden_slabs).add(ModBlocks.CRIMWOOD_SLAB.get());
     getOrCreateBuilder(wooden_stairs).add(ModBlocks.CRIMWOOD_STAIRS.get());
     getOrCreateBuilder(wooden_trapdoors).add(ModBlocks.CRIMWOOD_TRAPDOOR.get());
+
+    getOrCreateBuilder(infiniburn_overworld).add(
+        ModBlocks.CRIMWOOD.get(),
+        ModBlocks.CRIMWOOD_LOG.get(),
+        ModBlocks.CRIMWOOD_PLANKS.get()
+    );
   }
 }

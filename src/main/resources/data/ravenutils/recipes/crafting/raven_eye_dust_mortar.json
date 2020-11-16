@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:raven_eye_gem"
+    },
+    {
+      "item": "ravenutils:mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:raven_eye_dust"
+  }
+}
