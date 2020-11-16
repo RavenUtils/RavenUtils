@@ -96,7 +96,6 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
     getOrCreateBuilder(raw_meat).add(
         Items.BEEF,
-        ModFoodItems.POULTRY.get(),
         Items.RABBIT,
         Items.MUTTON,
         Items.PORKCHOP,
