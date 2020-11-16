@@ -4,13 +4,15 @@ package com.sasnos.ravenutils.items;
 import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Rarity;
 
 public class Hammer extends Item {
-  public Hammer(int maxDamage) {
+  public Hammer(int maxDamage, Rarity rarity) {
     super(new Properties()
         .group(RavenUtils.TAB)
         .maxStackSize(1)
         .maxDamage(maxDamage)
+        .rarity(rarity)
         .setNoRepair());
   }
 
