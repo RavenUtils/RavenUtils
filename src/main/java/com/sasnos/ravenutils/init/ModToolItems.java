@@ -15,7 +15,7 @@ public class ModToolItems {
 
   // default tools
   // copper
-  // todo move sword to Combat module and adjust properties
+  // todo move sword to Combat module
   public static final RegistryObject<SwordItem> COPPER_SWORD = ITEMS.register("copper_sword",
       () -> new SwordItem(ModItemTier.COPPER, 2, -3.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
@@ -33,7 +33,7 @@ public class ModToolItems {
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
 
   // bronze
-  // todo move sword to Combat module and adjust properties
+  // todo move sword to Combat module
   public static final RegistryObject<SwordItem> BRONZE_SWORD = ITEMS.register("bronze_sword",
       () -> new SwordItem(ModItemTier.BRONZE, 2, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
@@ -51,7 +51,7 @@ public class ModToolItems {
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
 
   // silver
-  // todo move sword to Combat module and adjust properties
+  // todo move sword to Combat module
   public static final RegistryObject<SwordItem> SILVER_SWORD = ITEMS.register("silver_sword",
       () -> new SwordItem(ModItemTier.SILVER, 1, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
@@ -69,7 +69,7 @@ public class ModToolItems {
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
 
   // steel
-  // todo move sword to Combat module and adjust properties
+  // todo move sword to Combat module
   public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword",
       () -> new SwordItem(ModItemTier.STEEL, 1, -3.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
