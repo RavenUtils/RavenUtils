@@ -144,11 +144,21 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
   public static final RegistryObject<Item> BUCKET_CLAY_WATER = ITEMS.register("bucket_clay_water",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 32));
+      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 64));
   public static final RegistryObject<Item> BUCKET_CLAY_LIMEWATER = ITEMS.register("bucket_clay_limewater",
-      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_CLAY.get(), 32));
+      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_CLAY.get(), 64));
   public static final RegistryObject<Item> BUCKET_CLAY_TANNIN = ITEMS.register("bucket_clay_tannin",
-      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_CLAY.get(), 32));
+      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_CLAY.get(), 64));
+
+  // mytherine buckets
+  public static final RegistryObject<Item> BUCKET_MYTHERINE = ITEMS.register("bucket_mytherine",
+      () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+  public static final RegistryObject<Item> BUCKET_MYTHERINE_WATER = ITEMS.register("bucket_mytherine_water",
+      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
+  public static final RegistryObject<Item> BUCKET_MYTHERINE_LIMEWATER = ITEMS.register("bucket_mytherine_limewater",
+      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
+  public static final RegistryObject<Item> BUCKET_MYTHERINE_TANNIN = ITEMS.register("bucket_mytherine_tannin",
+      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
 
   public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));
