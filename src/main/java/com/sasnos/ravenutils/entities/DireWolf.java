@@ -31,6 +31,7 @@ public class DireWolf extends WolfEntity {
   protected void registerGoals() {
     super.registerGoals();
     this.goalSelector.addGoal(1, new SwimGoal(this));
+    // todo add goals
     // this.goalSelector.addGoal(2, new WolfEntity.AvoidEntityGoal(this, IronGolemEntity.class, 24.0F, 1.5D, 1.5D));
     // this.goalSelector.addGoal(3, new WolfEntity.AvoidEntityGoal(this, PillagerEntity.class, 12.0F, 1.5D, 1.5D));
     this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
