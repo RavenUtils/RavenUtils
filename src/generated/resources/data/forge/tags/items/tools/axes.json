@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stone_axe",
+    "minecraft:iron_axe",
+    "minecraft:golden_axe",
+    "minecraft:diamond_axe",
+    "minecraft:netherite_axe",
+    "ravenutils:copper_axe",
+    "ravenutils:bronze_axe",
+    "ravenutils:silver_axe",
+    "ravenutils:steel_axe",
+    "ravenutils:mytherine_axe"
+  ]
+}

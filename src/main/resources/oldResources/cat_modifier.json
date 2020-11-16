@@ -6,6 +6,10 @@
         "type": "minecraft:cat"
       },
       "entity": "this"
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "killer"
     }
   ],
   "minHide": 0.0,

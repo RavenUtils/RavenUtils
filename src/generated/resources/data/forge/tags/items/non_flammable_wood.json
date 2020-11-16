@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:crimwood_sapling",
+    "ravenutils:crimwood",
+    "ravenutils:crimwood_log",
+    "ravenutils:crimwood_planks"
+  ]
+}

@@ -6,6 +6,7 @@
     "minecraft:rabbit",
     "minecraft:mutton",
     "minecraft:porkchop",
-    "minecraft:chicken"
+    "minecraft:chicken",
+    "ravenutils:bushmeat"
   ]
 }

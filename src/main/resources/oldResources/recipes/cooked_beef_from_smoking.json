@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "ravenutils:red_meat"
+  },
+  "result": "ravenutils:cooked_red_meat",
+  "experience": 0.35,
+  "cookingtime": 100
+}

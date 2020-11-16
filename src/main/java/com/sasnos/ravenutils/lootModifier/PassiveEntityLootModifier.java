@@ -77,7 +77,7 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       ItemStack item;
       Item contextMeat;
       Entity entity = context.get(LootParameters.THIS_ENTITY);
-      if (entity.isBurning()) {
+      if (entity != null && entity.isBurning()) {
         contextMeat = ((Smelt) Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
       } else {
         contextMeat = meat;
@@ -194,7 +194,12 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       json.addProperty("applyLootTallow", instance.applyLootingTallow);
       json.addProperty("minMeat", instance.meatDropRange.getMin());
       json.addProperty("maxMeat", instance.meatDropRange.getMax());
-      json.addProperty("meat", ForgeRegistries.ITEMS.getKey(instance.meat.getItem()).toString());
+      if(instance.meat != null){
+        json.addProperty("meat", ForgeRegistries.ITEMS.getKey(instance.meat.getItem()).toString());
+      }
+      else{
+        json.addProperty("meat", (String) null);
+      }
       json.addProperty("applyLootMeat", instance.applyLootingMeat);
       json.addProperty("minBone", instance.boneDropRange.getMin());
       json.addProperty("maxBone", instance.boneDropRange.getMax());

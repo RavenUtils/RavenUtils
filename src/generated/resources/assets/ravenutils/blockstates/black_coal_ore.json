@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ravenutils:block/black_coal_block"
+      "model": "ravenutils:block/black_coal_ore"
     }
   }
 }

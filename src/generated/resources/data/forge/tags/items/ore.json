@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:copper_ore",
+    "ravenutils:tin_ore",
+    "ravenutils:zinc_ore",
+    "ravenutils:silver_ore",
+    "ravenutils:lead_ore",
+    "ravenutils:mytherine_ore",
+    "ravenutils:fossil_ore",
+    "ravenutils:raven_eye_ore",
+    "ravenutils:sulfur_ore",
+    "ravenutils:black_coal_ore",
+    "ravenutils:salt_ore"
+  ]
+}
