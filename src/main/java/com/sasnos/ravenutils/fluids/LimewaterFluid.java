@@ -6,6 +6,7 @@ import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -18,8 +19,8 @@ public abstract class LimewaterFluid extends ForgeFlowingFluid {
 
   private static final Properties properties = new Properties(ModFluids.LIMEWATER::get, ModFluids.FLOWING_LIMEWATER::get,
       net.minecraftforge.fluids.FluidAttributes.builder(
-          new net.minecraft.util.ResourceLocation("block/water_still"),
-          new net.minecraft.util.ResourceLocation("block/water_flow"))
+          new ResourceLocation("block/water_still"),
+          new ResourceLocation("block/water_flow"))
           .color(0xFFFFCC35)
           .translationKey("block.lavalamp.salty_water_block"))
       .bucket(ModToolItems.BUCKET_IRON_LIMEWATER)
