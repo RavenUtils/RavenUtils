@@ -49,13 +49,9 @@
 
   "block.ravenutils.stone_crafting_table": "Stone Crafting Table",
 
-  "item.ravenutils.red_meat": "Raw Red Meat",
-  "item.ravenutils.cooked_red_meat": "Cooked Red Meat",
-  "item.ravenutils.porkchop": "Raw Porkchop",
-  "item.ravenutils.rabbit": "Raw Rabbit",
-  "item.ravenutils.mutton": "Raw Mutton",
   "item.ravenutils.bushmeat": "Raw Bushmeat",
   "item.ravenutils.cooked_bushmeat": "Cooked Bushmeat",
+  "item.ravenutils.duck_egg": "Ducked Egg",
 
   "item.ravenutils.hide_fresh": "Fresh Hide",
   "item.ravenutils.hide_scraped": "Scraped Hide",
