@@ -1,6 +1,9 @@
 {
   "item.minecraft.chicken": "Raw Poultry",
   "item.minecraft.cooked_chicken": "Cooked Poultry",
-  "item.minecraft.raw_beed": "Raw Red Meat",
-  "item.minecraft.cooked_beef": "Cooked Red Meat"
+  "item.minecraft.raw_beef": "Raw Red Meat",
+  "item.minecraft.cooked_beef": "Cooked Red Meat",
+  "item.minecraft.bucket": "Iron Bucket",
+  "item.minecraft.water_bucket": "Iron Water Bucket",
+  "item.minecraft.lava_bucket": "Iron Lava Bucket"
 }
