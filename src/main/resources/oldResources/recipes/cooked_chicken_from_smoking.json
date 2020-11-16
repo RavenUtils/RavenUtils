@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "ravenutils:poultry"
-  },
-  "result": "ravenutils:cooked_poultry",
-  "experience": 0.35,
-  "cookingtime": 100
-}
