@@ -16,4 +16,6 @@ public class ModTileEntities {
       () -> TileEntityType.Builder
           .create(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
           .build(null));
+
+
 }

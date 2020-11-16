@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.init;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.BlockItemBase;
 import com.sasnos.ravenutils.blocks.blockItems.BlackCoalBlockItem;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -99,4 +100,13 @@ public class ModBlockItems {
 
   public static final RegistryObject<Item> CANDLE_ITEM = ITEMS.register("candle",
       () -> new BlockItemBase(ModBlocks.CANDLE.get()));
+
+  public static final RegistryObject<BlockItem> STONE_ANVIL_STONE = ITEMS.register("stone_anvil_stone",
+          () -> new BlockItemBase(ModBlocks.Stone_Anvil.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_GRANITE = ITEMS.register("stone_anvil_granite",
+          () -> new BlockItemBase(ModBlocks.Granite_Anvil.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_ANDESITE = ITEMS.register("stone_anvil_andesite",
+          () -> new BlockItemBase(ModBlocks.Andesite_Anvil.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_DIORITE = ITEMS.register("stone_anvil_diorite",
+          () -> new BlockItemBase(ModBlocks.Diorite_Anvil.get()));
 }

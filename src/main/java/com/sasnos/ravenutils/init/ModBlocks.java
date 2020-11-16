@@ -1,10 +1,13 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.api.block.EssentialsWoodTypes;
 import com.sasnos.ravenutils.blocks.*;
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.particles.ParticleTypes;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -56,10 +59,10 @@ public class ModBlocks {
   // crimwood
   public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
       () -> new CrimwwodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodType.ACACIA));
+          .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
   public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
       () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), WoodType.ACACIA));
+          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
 
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling", PottedCrimwoodSapling::new);
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
@@ -75,4 +78,17 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_FENCE = BLOCKS.register("crimwood_fence", CrimwoodFence::new);
   public static final RegistryObject<Block> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
+
+  public static final RegistryObject<Block> Stone_Anvil = BLOCKS.register("stone_anvil",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
+  public static final RegistryObject<Block> Granite_Anvil = BLOCKS.register("stone_anvil_granite",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
+  public static final RegistryObject<Block> Andesite_Anvil = BLOCKS.register("stone_anvil_andesite",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
+  public static final RegistryObject<Block> Diorite_Anvil = BLOCKS.register("stone_anvil_diorite",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
 }

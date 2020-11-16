@@ -83,8 +83,5 @@ public class ModItems {
           .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
 
   // todo adapt from Vanilla anvil
-  public static final RegistryObject<Item> STONE_ANVIL_STONE = ITEMS.register("stone_anvil_stone", ItemBase::new);
-  public static final RegistryObject<Item> STONE_ANVIL_GRANITE = ITEMS.register("stone_anvil_granite", ItemBase::new);
-  public static final RegistryObject<Item> STONE_ANVIL_ANDESITE = ITEMS.register("stone_anvil_andesite", ItemBase::new);
-  public static final RegistryObject<Item> STONE_ANVIL_DIORITE = ITEMS.register("stone_anvil_diorite", ItemBase::new);
+
 }
