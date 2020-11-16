@@ -9,6 +9,8 @@ import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
 public class DireWolf extends WolfEntity {
@@ -41,5 +43,15 @@ public class DireWolf extends WolfEntity {
     this.targetSelector.addGoal(3, new NonTamedTargetGoal<>(this, AnimalEntity.class, false, TARGET_ENTITIES));
     this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
   }
-  
+
+  @Override
+  protected SoundEvent getAmbientSound() {
+    if (this.rand.nextInt(3) == 0) {
+      return this.isTamed() && this.getHealth() < 10.0F ? SoundEvents.ENTITY_WOLF_WHINE : SoundEvents.ENTITY_WOLF_PANT;
+    } else {
+      return SoundEvents.ENTITY_WOLF_GROWL;
+    }
+  }
+
+  // todo Direwolf is no tamable or breedable!
 }
