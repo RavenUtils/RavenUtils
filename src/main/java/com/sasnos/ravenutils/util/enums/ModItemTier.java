@@ -10,38 +10,38 @@ public enum ModItemTier implements IItemTier {
 
   // see https://mcreator.net/wiki/how-make-tool for property examples
   COPPER(1,
-      150,
+      180,
       8.0F,
-      3.0F,
-      20, () -> {
+      1.0F,
+      14, () -> {
     return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
   }),
   BRONZE(2,
-      700,
+      740,
       10.0F,
-      4.0F,
+      3.0F,
       18, () -> {
     return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
   }),
   SILVER(1,
-      200,
+      210,
       6.0F,
-      3.0F,
-      30, () -> {
+      2.0F,
+      22, () -> {
     return Ingredient.fromItems(ModItems.SILVER_INGOT.get());
   }),
   STEEL(3,
-      1000,
+      1080,
       12.0F,
-      5.0F,
+      4.0F,
       18, () -> {
     return Ingredient.fromItems(ModItems.STEEL_INGOT.get());
   }),
   MYTHERINE(7,
       16000,
-      28.0F,
+      24.0F,
       6.0F,
-      100, () -> {
+      66, () -> {
     return Ingredient.fromItems(ModItems.MYTHERINE_INGOT.get());
   });
 
