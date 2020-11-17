@@ -132,7 +132,7 @@ public class ModToolItems {
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
-      () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+      () -> new Bucket(() -> Fluids.EMPTY, ItemStack.EMPTY.getItem(), 32));
   public static final RegistryObject<Item> BUCKET_WOOD_WATER = ITEMS.register("bucket_wood_water",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_WOOD.get(), 32));
   public static final RegistryObject<Item> BUCKET_WOOD_LIMEWATER = ITEMS.register("bucket_wood_limewater",
@@ -142,7 +142,7 @@ public class ModToolItems {
 
   // clay buckets
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
-      () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+      () -> new Bucket(() -> Fluids.EMPTY, ItemStack.EMPTY.getItem(), 32));
   public static final RegistryObject<Item> BUCKET_CLAY_WATER = ITEMS.register("bucket_clay_water",
       () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 64));
   public static final RegistryObject<Item> BUCKET_CLAY_LIMEWATER = ITEMS.register("bucket_clay_limewater",

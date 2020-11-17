@@ -14,10 +14,7 @@ public class Hammer extends Item {
         .maxDamage(maxDamage)
         .rarity(rarity)
         .setNoRepair());
-  }
 
-  public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
-    return false;
   }
 
   @Override

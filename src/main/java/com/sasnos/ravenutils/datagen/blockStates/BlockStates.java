@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -186,6 +187,12 @@ public class BlockStates extends BlockStateProvider {
     BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
         resourceLocation("blocks/mytherine_block"));
     simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
+
+    BlockModelBuilder stone_anvil =
+            models().withExistingParent("stone_anvil", new ResourceLocation("anvil"))
+                    .texture("stone", new ResourceLocation("block/stone"));
+
+    simpleBlock(ModBlocks.Stone_Anvil.get(), stone_anvil);
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

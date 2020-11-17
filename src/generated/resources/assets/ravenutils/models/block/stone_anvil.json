@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/anvil",
+  "textures": {
+    "stone": "minecraft:block/stone"
+  }
+}

@@ -28,9 +28,7 @@ import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class Bucket extends BucketItem {
-
-  private final Fluid containedBlock;
-
+  
   public Bucket(Supplier<Fluid> supplier, Item containerItemIn, int maxDamage) {
     super(supplier, new Properties()
         .group(RavenUtils.TAB)
@@ -38,13 +36,6 @@ public class Bucket extends BucketItem {
         .containerItem(containerItemIn)
         .maxDamage(maxDamage)
         .setNoRepair());
-
-    this.containedBlock = null;
-    this.fluidSupplier = supplier;
-  }
-
-  public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
-    return false;
   }
 
   @Override
@@ -54,20 +45,22 @@ public class Bucket extends BucketItem {
 
   @Override
   public ItemStack getContainerItem(ItemStack itemstack) {
+    ItemStack containerItem = super.getContainerItem(itemstack);
     ItemStack stack = itemstack.copy();
 
-    if (stack.getMaxDamage() - stack.getDamage() <= 1) {
-      stack.shrink(1);
+    containerItem.setDamage(stack.getDamage());
+    if (containerItem.getMaxDamage() - containerItem.getDamage() <= 1) {
+      containerItem.shrink(1);
     } else {
-      stack.attemptDamageItem(1, random, null);
+      containerItem.attemptDamageItem(1, random, null);
     }
-    return stack;
+    return containerItem;
   }
 
   @Override
   public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
     ItemStack itemstack = playerIn.getHeldItem(handIn);
-    RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, this.containedBlock == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
+    RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, this.getFluid() == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
     ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, worldIn, itemstack, raytraceresult);
     if (ret != null) return ret;
     if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
@@ -80,27 +73,28 @@ public class Bucket extends BucketItem {
       Direction direction = blockraytraceresult.getFace();
       BlockPos blockpos1 = blockpos.offset(direction);
       if (worldIn.isBlockModifiable(playerIn, blockpos) && playerIn.canPlayerEdit(blockpos1, direction, itemstack)) {
-        if (this.containedBlock == Fluids.EMPTY) {
+        if (this.getFluid() == Fluids.EMPTY) {
           BlockState blockstate1 = worldIn.getBlockState(blockpos);
           if (blockstate1.getBlock() instanceof IBucketPickupHandler) {
             Fluid fluid = ((IBucketPickupHandler) blockstate1.getBlock()).pickupFluid(worldIn, blockpos, blockstate1);
             if (fluid != Fluids.EMPTY) {
               playerIn.addStat(Stats.ITEM_USED.get(this));
 
-              SoundEvent soundevent = this.containedBlock.getAttributes().getFillSound();
+              SoundEvent soundevent = this.getFluid().getAttributes().getFillSound();
               boolean bucketBurnable = false;
 
               if (fluid.isIn(FluidTags.LAVA)) {
-                if (playerIn.getActiveItemStack().getItem() == ModToolItems.BUCKET_WOOD.get()
-                    || playerIn.getActiveItemStack().getItem() == ModToolItems.BUCKET_CLAY.get()) {
+                Item bucket = playerIn.getActiveItemStack().getItem();
+                if (bucket == ModToolItems.BUCKET_WOOD.get()
+                    || bucket == ModToolItems.BUCKET_CLAY.get()
+                //    || bucket.isIn()
+                ) {
                   bucketBurnable = true;
                 }
               }
 
               if (bucketBurnable) {
-                if (soundevent == null) {
-                  soundevent = SoundEvents.BLOCK_LAVA_EXTINGUISH;
-                }
+                soundevent = SoundEvents.BLOCK_LAVA_EXTINGUISH;
                 playerIn.playSound(soundevent, 1.0F, 1.0F);
                 playerIn.getActiveItemStack().shrink(1);
 
@@ -146,10 +140,15 @@ public class Bucket extends BucketItem {
   }
 
   @Override
+  protected ItemStack emptyBucket(ItemStack stack, PlayerEntity player) {
+    return getContainerItem(stack);
+  }
+
+  @Override
   protected void playEmptySound(@Nullable PlayerEntity player, IWorld worldIn, BlockPos pos) {
-    SoundEvent soundevent = this.containedBlock.getAttributes().getEmptySound();
+    SoundEvent soundevent = this.getFluid().getAttributes().getEmptySound();
     if (soundevent == null)
-      soundevent = this.containedBlock.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
+      soundevent = this.getFluid().isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
     worldIn.playSound(player, pos, soundevent, SoundCategory.BLOCKS, 1.0F, 1.0F);
   }
 
@@ -158,9 +157,7 @@ public class Bucket extends BucketItem {
     return super.tryPlaceContainedLiquid(player, worldIn, posIn, rayTrace);
   }
 
-  private final Supplier<? extends Fluid> fluidSupplier;
-
   private boolean canBlockContainFluid(World worldIn, BlockPos posIn, BlockState blockstate) {
-    return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer) blockstate.getBlock()).canContainFluid(worldIn, posIn, blockstate, this.containedBlock);
+    return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer) blockstate.getBlock()).canContainFluid(worldIn, posIn, blockstate, this.getFluid());
   }
 }

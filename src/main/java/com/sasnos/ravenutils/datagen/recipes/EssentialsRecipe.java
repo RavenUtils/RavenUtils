@@ -28,6 +28,7 @@ public class EssentialsRecipe extends RecipeProvider {
         .addIngredient(Items.STONE)
         .addIngredient(EssentialsItemTags.hammers)
         .addCriterion("has_hammer", hasItem(EssentialsItemTags.hammers))
+        .setGroup("hammers")
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_CHESTPLATE.get()) //TODO: change Item for now it is a test
