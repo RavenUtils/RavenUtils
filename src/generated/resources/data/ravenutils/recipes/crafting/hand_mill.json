@@ -1,10 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ccc",
+    " s ",
+    "csc",
     "xxx"
   ],
   "key": {
+    "s": {
+      "tag": "forge:rods/wooden"
+    },
     "c": {
       "item": "minecraft:cobblestone"
     },
