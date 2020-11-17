@@ -51,19 +51,19 @@ public class BlockStates extends BlockStateProvider {
     // models().fenceGate("crimwood_fence_gate",
     // resourceLocation("crimwood_fence_gate"));
 
-    BlockModelBuilder crimLeaves = models().cubeAll("crimwood_leaves",
+    BlockModelBuilder crimwoodLeaves = models().cubeAll("crimwood_leaves",
         resourceLocation("blocks/crimwood_leaves"));
-    simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimLeaves);
+    simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimwoodLeaves);
 
-    BlockModelBuilder crimLog = models().cubeBottomTop("crimwood_log",
+    BlockModelBuilder crimwoodLog = models().cubeBottomTop("crimwood_log",
         resourceLocation("blocks/crimwood_log"),
         resourceLocation("blocks/crimwood_log_top"),
         resourceLocation("blocks/crimwood_log_top"));
-    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimLog);
+    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
 
-    BlockModelBuilder crimplanks = models().cubeAll("crimwood_planks",
+    BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         resourceLocation("blocks/crimwood_planks"));
-    simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimplanks);
+    simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimwoodPlanks);
 
     // models().cubeAll("crimwood_pressure_plate",
     // resourceLocation("crimwood_pressure_plate"));
@@ -84,13 +84,13 @@ public class BlockStates extends BlockStateProvider {
     // resourceLocation("crimwood_slab_bottom"),
     // resourceLocation("crimwood_slap_top"));
 
-    BlockModelBuilder fossil_dirt = models().cubeAll("fossil_dirt",
+    BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt",
         resourceLocation("blocks/fossil_dirt"));
-    simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossil_dirt);
+    simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossilDirt);
 
-    BlockModelBuilder fossil_ore = models().cubeAll("fossil_ore",
+    BlockModelBuilder fossilOre = models().cubeAll("fossil_ore",
         resourceLocation("blocks/fossil_ore"));
-    simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossil_ore);
+    simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossilOre);
 
     BlockModelBuilder limestone = models().cubeAll("limestone",
         resourceLocation("blocks/limestone"));
@@ -180,19 +180,19 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/steel_block"));
     simpleBlock(ModBlocks.STEEL_BLOCK.get(), steelBlock);
 
-    BlockModelBuilder mytherine_ore = models().cubeAll("mytherine_ore",
+    BlockModelBuilder mytherineOre = models().cubeAll("mytherine_ore",
         resourceLocation("blocks/mytherine_ore"));
-    simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherine_ore);
+    simpleBlock(ModBlocks.MYTHERINE_ORE.get(), mytherineOre);
 
     BlockModelBuilder mytherineBlock = models().cubeAll("mytherine_block",
         resourceLocation("blocks/mytherine_block"));
     simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
-    BlockModelBuilder stone_anvil =
-            models().withExistingParent("stone_anvil", new ResourceLocation("anvil"))
-                    .texture("stone", new ResourceLocation("block/stone"));
+    BlockModelBuilder stoneAnvilStone =
+        models().withExistingParent("stone_anvil_stone", new ResourceLocation("anvil"))
+            .texture("stone", new ResourceLocation("block/stone"));
 
-    simpleBlock(ModBlocks.Stone_Anvil.get(), stone_anvil);
+    simpleBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

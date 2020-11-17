@@ -46,7 +46,12 @@
   "block.ravenutils.crimwood_fence": "Crimwood Fence",
   "block.ravenutils.crimwood_fence_gate": "Crimwood Fence Gate",
   "block.ravenutils.crimwood_button": "Crimwood Button",
+  "item.ravenutils.crimwood_boat": "Crimwood Boat",
 
+  "block.ravenutils.stone_anvil_stone": "Stone Anvil",
+  "block.ravenutils.stone_anvil_granite": "Granite Anvil",
+  "block.ravenutils.stone_anvil_andesite": "Andesite Anvil",
+  "block.ravenutils.stone_anvil_diorite": "Diorite Anvil",
   "block.ravenutils.stone_crafting_table": "Stone Crafting Table",
 
   "item.ravenutils.bushmeat": "Raw Bushmeat",
@@ -189,6 +194,5 @@
   "item.ravenutils.plant_fibre": "Plant Fibre",
   "item.ravenutils.plant_twine": "Plant Twine",
   "item.ravenutils.cloth": "Cloth",
-  "item.ravenutils.small_stone": "Small Stone",
-  "item.ravenutils.crimwood_boat": "Crimwood Boat"
+  "item.ravenutils.small_stone": "Small Stone"
 }

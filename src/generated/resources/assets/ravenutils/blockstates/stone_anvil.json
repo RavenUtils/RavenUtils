@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ravenutils:block/stone_anvil"
+      "model": "ravenutils:block/stone_anvil_stone"
     }
   }
 }
