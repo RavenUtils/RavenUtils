@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "xxx"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:cobblestone"
+    },
+    "x": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "ravenutils:hand_mill",
+    "count": 1
+  }
+}

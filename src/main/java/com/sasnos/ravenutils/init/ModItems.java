@@ -62,6 +62,8 @@ public class ModItems {
   public static final RegistryObject<Item> PLANT_TWINE = ITEMS.register("plant_twine", ItemBase::new);
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
+  // todo adjust to mill mechanics
+  public static final RegistryObject<Item> HAND_CRANK = ITEMS.register("hand_crank", ItemBase::new);
 
   public static final RegistryObject<Item> FRESH_HIDE = ITEMS.register("hide_fresh", ItemBase::new);
   public static final RegistryObject<Item> SCRAPED_HIDE = ITEMS.register("hide_scraped", ItemBase::new);

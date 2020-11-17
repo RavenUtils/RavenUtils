@@ -191,8 +191,9 @@ public class BlockStates extends BlockStateProvider {
     BlockModelBuilder stoneAnvilStone =
         models().withExistingParent("stone_anvil_stone", new ResourceLocation("anvil"))
             .texture("stone", new ResourceLocation("block/stone"));
-
     simpleBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
+
+    // todo add mill with and without millstone, with and without hand crank
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

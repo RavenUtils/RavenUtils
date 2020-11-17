@@ -92,4 +92,8 @@ public class ModBlocks {
   public static final RegistryObject<Block> STONE_ANVIL_DIORITE = BLOCKS.register("stone_anvil_diorite",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+
+  // mill
+  // public static final RegistryObject<Block> HAND_MILL = BLOCKS.register("hand_mill", CLASS::new);
+  // public static final RegistryObject<Block> MILLSTONE = BLOCKS.register("millstone", CLASS::new);
 }

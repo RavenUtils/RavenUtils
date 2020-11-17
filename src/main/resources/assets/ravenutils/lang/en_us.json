@@ -53,6 +53,8 @@
   "block.ravenutils.stone_anvil_andesite": "Andesite Anvil",
   "block.ravenutils.stone_anvil_diorite": "Diorite Anvil",
   "block.ravenutils.stone_crafting_table": "Stone Crafting Table",
+  "block.ravenutils.hand_mill": "Mill",
+  "block.ravenutils.millstone": "Millstone",
 
   "item.ravenutils.bushmeat": "Raw Bushmeat",
   "item.ravenutils.cooked_bushmeat": "Cooked Bushmeat",
@@ -148,6 +150,7 @@
   "item.ravenutils.bucket_iron_tannin": "Tannin Bucket",
   "item.ravenutils.bucket_clay_unfired": "Unfired Clay Bucket",
   "item.ravenutils.mortar_and_pestle": "Mortar and Pestle",
+  "item.ravenutils.hand_crank": "Hand Crank",
 
   "item.ravenutils.mytherine_ingot": "Mytherine Ingot",
   "item.ravenutils.mytherine_nugget": "Mytherine Nugget",

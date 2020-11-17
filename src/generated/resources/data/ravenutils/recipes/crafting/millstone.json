@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " x ",
+    "x x",
+    " x "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "ravenutils:millstone",
+    "count": 1
+  }
+}
