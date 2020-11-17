@@ -26,7 +26,7 @@ public class BlockStates extends BlockStateProvider {
   @Override
   protected void registerStatesAndModels() {
 
-    BlockModelBuilder crimleaf = models().cubeAll("crimleaf",
+    BlockModelBuilder crimleaf = models().cross("crimleaf",
         resourceLocation("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
