@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "tag": "forge:tools/axes"
+    "item": "minecraft:ladder"
   },
   "result": "ravenutils:ash",
   "experience": 0.1,

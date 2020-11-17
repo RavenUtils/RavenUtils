@@ -79,6 +79,14 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
 
+  public static final RegistryObject<Block> DRYING_RAG = BLOCKS.register("drying_rag",
+          () -> new DryingRag(AbstractBlock.Properties.create(Material.WOOD)));
+
+  public static final RegistryObject<Block> BARREL = BLOCKS.register("barrel",
+          () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD)));
+
+  public static final RegistryObject<Block> STONE_CRAFTING_TABLE = BLOCKS.register("stone_crafting_table", StoneCraftingTable::new);
+
   // stone anvils
   public static final RegistryObject<Block> STONE_ANVIL_STONE = BLOCKS.register("stone_anvil_stone",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()

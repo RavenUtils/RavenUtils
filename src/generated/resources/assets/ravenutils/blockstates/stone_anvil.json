@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
-      "model": "ravenutils:block/stone_anvil_stone"
+    "facing=north": {
+      "model": "ravenutils:block/stone_anvil"
+    },
+    "facing=south": {
+      "model": "ravenutils:block/stone_anvil",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ravenutils:block/stone_anvil",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ravenutils:block/stone_anvil",
+      "y": 90
     }
   }
 }

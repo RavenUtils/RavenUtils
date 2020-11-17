@@ -2,6 +2,7 @@ package com.sasnos.ravenutils;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
+import com.sasnos.ravenutils.blocks.modules.alloyfurnace.EssentialsAlloyFurnaceInit;
 import com.sasnos.ravenutils.init.*;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
 import net.minecraft.client.renderer.RenderType;
@@ -45,7 +46,12 @@ public class RavenUtils {
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModTileEntities.TILE_ENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModContainer.CONTAINERTYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+
+    //modules aka machines and stuff
+    new EssentialsAlloyFurnaceInit();
 
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);

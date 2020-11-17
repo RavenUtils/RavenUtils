@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
 public class AnvilContainerProvider implements INamedContainerProvider {
 
     private ITextComponent containerName;
+    private StoneAnvilContainer container;
 
     public AnvilContainerProvider(ITextComponent containerName){
         this.containerName = containerName;
