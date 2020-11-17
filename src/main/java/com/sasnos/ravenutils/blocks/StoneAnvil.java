@@ -19,27 +19,27 @@ import java.lang.reflect.Field;
 
 public class StoneAnvil extends AnvilBlock {
 
-    private static final Field name = ObfuscationReflectionHelper.findField(AnvilBlock.class, "field_220273_k");
+  private static final Field name = ObfuscationReflectionHelper.findField(AnvilBlock.class, "field_220273_k");
 
-    public StoneAnvil(Properties properties) {
-        super(properties);
-        name.setAccessible(true);
-    }
+  public StoneAnvil(Properties properties) {
+    super(properties);
+    name.setAccessible(true);
+  }
 
-    @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (worldIn.isRemote) {
-            return ActionResultType.SUCCESS;
-        } else {
-            ITextComponent containerName = null;
-            try {
-                containerName = (ITextComponent) name.get(this);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-            NetworkHooks.openGui((ServerPlayerEntity) player, new AnvilContainerProvider(containerName));
-            player.addStat(Stats.INTERACT_WITH_ANVIL);
-            return ActionResultType.CONSUME;
-        }
+  @Override
+  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (worldIn.isRemote) {
+      return ActionResultType.SUCCESS;
+    } else {
+      ITextComponent containerName = null;
+      try {
+        containerName = (ITextComponent) name.get(this);
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+      NetworkHooks.openGui((ServerPlayerEntity) player, new AnvilContainerProvider(containerName));
+      player.addStat(Stats.INTERACT_WITH_ANVIL);
+      return ActionResultType.CONSUME;
     }
+  }
 }

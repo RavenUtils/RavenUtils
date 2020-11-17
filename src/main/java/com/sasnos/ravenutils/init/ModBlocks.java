@@ -79,16 +79,17 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
 
-  public static final RegistryObject<Block> Stone_Anvil = BLOCKS.register("stone_anvil",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
-  public static final RegistryObject<Block> Granite_Anvil = BLOCKS.register("stone_anvil_granite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
-  public static final RegistryObject<Block> Andesite_Anvil = BLOCKS.register("stone_anvil_andesite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
-  public static final RegistryObject<Block> Diorite_Anvil = BLOCKS.register("stone_anvil_diorite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.ANVIL)));
+  // stone anvils
+  public static final RegistryObject<Block> STONE_ANVIL = BLOCKS.register("stone_anvil",
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+  public static final RegistryObject<Block> GRANITE_ANVIL = BLOCKS.register("stone_anvil_granite",
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+  public static final RegistryObject<Block> ANDESITE_ANVIL = BLOCKS.register("stone_anvil_andesite",
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+  public static final RegistryObject<Block> DIORITE_ANVIL = BLOCKS.register("stone_anvil_diorite",
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 }

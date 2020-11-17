@@ -102,11 +102,11 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.CANDLE.get()));
 
   public static final RegistryObject<BlockItem> STONE_ANVIL_STONE = ITEMS.register("stone_anvil_stone",
-          () -> new BlockItemBase(ModBlocks.Stone_Anvil.get()));
+          () -> new BlockItemBase(ModBlocks.STONE_ANVIL.get()));
   public static final RegistryObject<BlockItem> STONE_ANVIL_GRANITE = ITEMS.register("stone_anvil_granite",
-          () -> new BlockItemBase(ModBlocks.Granite_Anvil.get()));
+          () -> new BlockItemBase(ModBlocks.GRANITE_ANVIL.get()));
   public static final RegistryObject<BlockItem> STONE_ANVIL_ANDESITE = ITEMS.register("stone_anvil_andesite",
-          () -> new BlockItemBase(ModBlocks.Andesite_Anvil.get()));
+          () -> new BlockItemBase(ModBlocks.ANDESITE_ANVIL.get()));
   public static final RegistryObject<BlockItem> STONE_ANVIL_DIORITE = ITEMS.register("stone_anvil_diorite",
-          () -> new BlockItemBase(ModBlocks.Diorite_Anvil.get()));
+          () -> new BlockItemBase(ModBlocks.DIORITE_ANVIL.get()));
 }
