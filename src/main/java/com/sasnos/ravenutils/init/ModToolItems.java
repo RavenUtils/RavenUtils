@@ -17,19 +17,19 @@ public class ModToolItems {
   // copper
   // todo move sword to Combat module
   public static final RegistryObject<SwordItem> COPPER_SWORD = ITEMS.register("copper_sword",
-      () -> new SwordItem(ModItemTier.COPPER, 2, -3.4F, new Item.Properties()
+      () -> new SwordItem(ModItemTier.COPPER, 3, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
   public static final RegistryObject<ShovelItem> COPPER_SHOVEL = ITEMS.register("copper_shovel",
-      () -> new ShovelItem(ModItemTier.COPPER, 2, -2.8F, new Item.Properties()
+      () -> new ShovelItem(ModItemTier.COPPER, 1.5F, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
   public static final RegistryObject<AxeItem> COPPER_AXE = ITEMS.register("copper_axe",
-      () -> new AxeItem(ModItemTier.COPPER, 5, -2.4F, new Item.Properties()
+      () -> new AxeItem(ModItemTier.COPPER, 7, -3.2F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
   public static final RegistryObject<PickaxeItem> COPPER_PICKAXE = ITEMS.register("copper_pickaxe",
-      () -> new PickaxeItem(ModItemTier.COPPER, 6, -2.0F, new Item.Properties()
+      () -> new PickaxeItem(ModItemTier.COPPER, 1, -2.8F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
   public static final RegistryObject<HoeItem> COPPER_HOE = ITEMS.register("copper_hoe",
-      () -> new HoeItem(ModItemTier.COPPER, 1, -2.8F, new Item.Properties()
+      () -> new HoeItem(ModItemTier.COPPER, -1, -2F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
 
   // bronze
@@ -38,16 +38,16 @@ public class ModToolItems {
       () -> new SwordItem(ModItemTier.BRONZE, 2, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<ShovelItem> BRONZE_SHOVEL = ITEMS.register("bronze_shovel",
-      () -> new ShovelItem(ModItemTier.BRONZE, 2, -1.8F, new Item.Properties()
+      () -> new ShovelItem(ModItemTier.BRONZE, 0.5F, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<AxeItem> BRONZE_AXE = ITEMS.register("bronze_axe",
-      () -> new AxeItem(ModItemTier.BRONZE, 5, -1.4F, new Item.Properties()
+      () -> new AxeItem(ModItemTier.BRONZE, 5, -3.1F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<PickaxeItem> BRONZE_PICKAXE = ITEMS.register("bronze_pickaxe",
-      () -> new PickaxeItem(ModItemTier.BRONZE, 6, -1.0F, new Item.Properties()
+      () -> new PickaxeItem(ModItemTier.BRONZE, 0, -2.8F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<HoeItem> BRONZE_HOE = ITEMS.register("bronze_hoe",
-      () -> new HoeItem(ModItemTier.BRONZE, 1, -1.8F, new Item.Properties()
+      () -> new HoeItem(ModItemTier.BRONZE, -3, -1F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
 
   // silver
@@ -56,49 +56,49 @@ public class ModToolItems {
       () -> new SwordItem(ModItemTier.SILVER, 1, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<ShovelItem> SILVER_SHOVEL = ITEMS.register("silver_shovel",
-      () -> new ShovelItem(ModItemTier.SILVER, 2, -1.8F, new Item.Properties()
+      () -> new ShovelItem(ModItemTier.SILVER, -0.5F, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<AxeItem> SILVER_AXE = ITEMS.register("silver_axe",
-      () -> new AxeItem(ModItemTier.SILVER, 5, -1.4F, new Item.Properties()
+      () -> new AxeItem(ModItemTier.SILVER, 4, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<PickaxeItem> SILVER_PICKAXE = ITEMS.register("silver_pickaxe",
-      () -> new PickaxeItem(ModItemTier.SILVER, 6, -1.0F, new Item.Properties()
+      () -> new PickaxeItem(ModItemTier.SILVER, -1, -2.8F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<HoeItem> SILVER_HOE = ITEMS.register("silver_hoe",
-      () -> new HoeItem(ModItemTier.SILVER, 1, -1.8F, new Item.Properties()
+      () -> new HoeItem(ModItemTier.SILVER, -2, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
 
   // steel
   // todo move sword to Combat module
   public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword",
-      () -> new SwordItem(ModItemTier.STEEL, 1, -3.4F, new Item.Properties()
+      () -> new SwordItem(ModItemTier.STEEL, 2, -2.4F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel",
-      () -> new ShovelItem(ModItemTier.STEEL, 2, -2.8F, new Item.Properties()
+      () -> new ShovelItem(ModItemTier.STEEL, 0.5F, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe",
-      () -> new AxeItem(ModItemTier.STEEL, 5, -2.4F, new Item.Properties()
+      () -> new AxeItem(ModItemTier.STEEL, 4, -3F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe",
-      () -> new PickaxeItem(ModItemTier.STEEL, 6, -2.0F, new Item.Properties()
+      () -> new PickaxeItem(ModItemTier.STEEL, 0, -0.8F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe",
-      () -> new HoeItem(ModItemTier.STEEL, 1, -2.8F, new Item.Properties()
+      () -> new HoeItem(ModItemTier.STEEL, -4, 0, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.UNCOMMON)));
 
   // mytherine
   // todo move sword to Combat module
   public static final RegistryObject<SwordItem> MYTHERINE_SWORD = ITEMS.register("mytherine_sword",
-      () -> new SwordItem(ModItemTier.MYTHERINE, 9, 0, new Item.Properties()
+      () -> new SwordItem(ModItemTier.MYTHERINE, 9, 1.5F, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.EPIC)));
   public static final RegistryObject<ShovelItem> MYTHERINE_SHOVEL = ITEMS.register("mytherine_shovel",
       () -> new ShovelItem(ModItemTier.MYTHERINE, 2, 0, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.EPIC)));
   public static final RegistryObject<AxeItem> MYTHERINE_AXE = ITEMS.register("mytherine_axe",
-      () -> new AxeItem(ModItemTier.MYTHERINE, 5, 0, new Item.Properties()
+      () -> new AxeItem(ModItemTier.MYTHERINE, 5, 1, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.EPIC)));
   public static final RegistryObject<PickaxeItem> MYTHERINE_PICKAXE = ITEMS.register("mytherine_pickaxe",
-      () -> new PickaxeItem(ModItemTier.MYTHERINE, 6, 0, new Item.Properties()
+      () -> new PickaxeItem(ModItemTier.MYTHERINE, 6, 2, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.EPIC)));
   public static final RegistryObject<HoeItem> MYTHERINE_HOE = ITEMS.register("mytherine_hoe",
       () -> new HoeItem(ModItemTier.MYTHERINE, 1, 0, new Item.Properties()
