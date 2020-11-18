@@ -3,6 +3,8 @@ package com.sasnos.ravenutils.datagen;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.datagen.blockStates.BlockStates;
 import com.sasnos.ravenutils.datagen.globalLootModifer.EssentialsLootModifier;
+import com.sasnos.ravenutils.datagen.items.ItemModels;
+import com.sasnos.ravenutils.datagen.lang.enUs;
 import com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe;
 import com.sasnos.ravenutils.datagen.tags.EssentialsBlockTags;
 import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
@@ -21,6 +23,8 @@ public class EssentialsDataGenerator {
     DataGenerator generator = event.getGenerator();
     if (event.includeClient()) {
       generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
+      generator.addProvider(new ItemModels(generator, event.getExistingFileHelper()));
+      generator.addProvider(new enUs(generator));
     }
     if (event.includeServer()) {
       BlockTagsProvider btg = new EssentialsBlockTags(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:chisel_iron",
+    "ravenutils:chisel_steel",
+    "ravenutils:chisel_diamond"
+  ]
+}

@@ -91,6 +91,15 @@ public class ModBlocks {
   public static final RegistryObject<Block> STONE_ANVIL_STONE = BLOCKS.register("stone_anvil_stone",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+
+  public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_STONE = BLOCKS.register("damaged_stone_anvil_stone",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+
+  public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_STONE = BLOCKS.register("chipped_stone_anvil_stone",
+          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+
   public static final RegistryObject<Block> STONE_ANVIL_GRANITE = BLOCKS.register("stone_anvil_granite",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));

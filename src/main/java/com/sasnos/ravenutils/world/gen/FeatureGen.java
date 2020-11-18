@@ -17,7 +17,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.HashMap;
 
-import static com.sasnos.ravenutils.util.Utils.resourceLocation;
+import static com.sasnos.ravenutils.util.EssentialsUtils.resourceLocation;
 import static net.minecraft.world.biome.Biome.Category.NETHER;
 import static net.minecraft.world.biome.Biome.Category.THEEND;
 

@@ -7,7 +7,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -16,7 +15,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
 
-import static com.sasnos.ravenutils.util.Utils.resourceLocation;
+import static com.sasnos.ravenutils.util.EssentialsUtils.resourceLocation;
 
 public class BlockStates extends BlockStateProvider {
 
@@ -189,9 +188,32 @@ public class BlockStates extends BlockStateProvider {
     simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
     BlockModelBuilder stoneAnvilStone =
-        models().withExistingParent("stone_anvil_stone", new ResourceLocation("anvil"))
-            .texture("stone", new ResourceLocation("block/stone"));
-    simpleBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
+        models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
+            .texture("body", resourceLocation("blocks/anvil_stone"))
+            .texture("top", resourceLocation("blocks/anvil_top_stone"));
+    horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
+
+    BlockModelBuilder damagedStoneAnvilStone =
+            models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
+            .texture("top", resourceLocation("blocks/damaged_anvil_top_stone"));
+
+    horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_STONE.get(), damagedStoneAnvilStone);
+
+    BlockModelBuilder chippedStoneAnvilStone =
+            models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
+                    .texture("top", resourceLocation("blocks/chipped_anvil_top_stone"));
+
+    horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get(), chippedStoneAnvilStone);
+
+    BlockModelBuilder stone_crafting_table =
+            models().cube("stone_crafting_table",
+                    mcLoc("block/cobblestone"),
+                    resourceLocation("blocks/stone_crafting_table_top"),
+                    resourceLocation("blocks/stone_crafting_table_front"),
+                    resourceLocation("blocks/stone_crafting_table_side"),
+                    resourceLocation("blocks/stone_crafting_table_side"),
+                    resourceLocation("blocks/stone_crafting_table_front"));
+    simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
 
     // todo add mill with and without millstone, with and without hand crank
   }

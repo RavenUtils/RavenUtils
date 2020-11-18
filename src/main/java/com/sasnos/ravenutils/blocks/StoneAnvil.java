@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.blocks;
 import com.sasnos.ravenutils.tileentiety.AnvilContainerProvider;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.stats.Stats;
@@ -15,6 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.network.NetworkHooks;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 
 public class StoneAnvil extends AnvilBlock {
@@ -24,6 +26,15 @@ public class StoneAnvil extends AnvilBlock {
   public StoneAnvil(Properties properties) {
     super(properties);
     name.setAccessible(true);
+  }
+
+  @Nullable
+  public static BlockState damage(BlockState state) {
+    if (state.isIn(Blocks.ANVIL)) {
+      return Blocks.CHIPPED_ANVIL.getDefaultState().with(FACING, state.get(FACING));
+    } else {
+      return state.isIn(Blocks.CHIPPED_ANVIL) ? Blocks.DAMAGED_ANVIL.getDefaultState().with(FACING, state.get(FACING)) : null;
+    }
   }
 
   @Override
@@ -42,4 +53,6 @@ public class StoneAnvil extends AnvilBlock {
       return ActionResultType.CONSUME;
     }
   }
+
+
 }
