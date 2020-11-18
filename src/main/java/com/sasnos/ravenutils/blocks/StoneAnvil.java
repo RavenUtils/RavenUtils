@@ -1,9 +1,9 @@
 package com.sasnos.ravenutils.blocks;
 
+import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.tileentiety.AnvilContainerProvider;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.stats.Stats;
@@ -30,11 +30,36 @@ public class StoneAnvil extends AnvilBlock {
 
   @Nullable
   public static BlockState damage(BlockState state) {
-    if (state.isIn(Blocks.ANVIL)) {
-      return Blocks.CHIPPED_ANVIL.getDefaultState().with(FACING, state.get(FACING));
-    } else {
-      return state.isIn(Blocks.CHIPPED_ANVIL) ? Blocks.DAMAGED_ANVIL.getDefaultState().with(FACING, state.get(FACING)) : null;
+    if(state.isIn(ModBlocks.STONE_ANVIL_STONE.get())){
+      return ModBlocks.CHIPPED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
     }
+    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get())){
+      return ModBlocks.DAMAGED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+
+    if(state.isIn(ModBlocks.STONE_ANVIL_ANDESITE.get())){
+      return ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get())){
+      return ModBlocks.DAMAGED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+
+    if(state.isIn(ModBlocks.STONE_ANVIL_DIORITE.get())){
+      return ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get())){
+      return ModBlocks.DAMAGED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+
+    if(state.isIn(ModBlocks.STONE_ANVIL_GRANITE.get())){
+      return ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get())){
+      return ModBlocks.DAMAGED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
+    }
+
+
+    return null;
   }
 
   @Override

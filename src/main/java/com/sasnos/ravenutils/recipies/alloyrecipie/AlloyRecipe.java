@@ -13,19 +13,25 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Random;
+
 public class AlloyRecipe extends EssentialsRecipe {
 
     public static final ResourceLocation ALLOY_FURNACE = new ResourceLocation(RavenUtils.MOD_ID, "alloy_furnace");
     private final ItemStack output;
     private final NonNullList<Material> input;
     private final int timer;
+    private final ItemStack additionalResult;
+    private final float additionalChange;
     
 
-    public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time){
+    public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change){
         this.output = output;
         this.input = input;
         this.timer = time;
         this.id = id;
+        this.additionalResult = additional;
+        this.additionalChange = change;
     }
 
     public NonNullList<Material> getInput() {
@@ -71,6 +77,26 @@ public class AlloyRecipe extends EssentialsRecipe {
     @Override
     public ItemStack getRecipeOutput() {
         return output;
+    }
+
+    @Override
+    public NonNullList<ItemStack> getOutput(){
+        NonNullList<ItemStack> result = NonNullList.from(output);
+        if(additionalResult != ItemStack.EMPTY){
+            float change = new Random().nextFloat();
+            if(change <= additionalChange){
+                result.add(additionalResult);
+            }
+        }
+        return result;
+    }
+
+    public ItemStack getAdditionalResult(){
+        return additionalResult;
+    }
+
+    public float getAdditionalChange() {
+        return additionalChange;
     }
 
     @NotNull

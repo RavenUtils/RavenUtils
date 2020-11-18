@@ -1,7 +1,9 @@
 package com.sasnos.ravenutils.api.recipes;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
@@ -20,6 +22,8 @@ public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
     }
 
     int getTimer();
+
+    NonNullList<ItemStack> getOutput();
 
     @NotNull
     ResourceLocation getTypeId();

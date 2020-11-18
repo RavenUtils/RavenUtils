@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.container;
 
-import net.minecraft.block.AnvilBlock;
+import com.sasnos.ravenutils.blocks.StoneAnvil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -18,6 +18,7 @@ public class StoneAnvilContainer extends RepairContainer {
         super(id, playerInventory, worldPosCallable);
     }
 
+    @Override
     protected ItemStack func_230301_a_(PlayerEntity p_230301_1_, ItemStack p_230301_2_) {
         if (!p_230301_1_.abilities.isCreativeMode) {
             p_230301_1_.addExperienceLevel(-getMaximumCost());
@@ -42,7 +43,7 @@ public class StoneAnvilContainer extends RepairContainer {
         this.field_234644_e_.consume((p_234633_1_, p_234633_2_) -> {
             BlockState blockstate = p_234633_1_.getBlockState(p_234633_2_);
             if (!p_230301_1_.abilities.isCreativeMode && blockstate.isIn(BlockTags.ANVIL) && p_230301_1_.getRNG().nextFloat() < breakChance) {
-                BlockState blockstate1 = AnvilBlock.damage(blockstate);
+                BlockState blockstate1 = StoneAnvil.damage(blockstate);
                 if (blockstate1 == null) {
                     p_234633_1_.removeBlock(p_234633_2_, false);
                     p_234633_1_.playEvent(1029, p_234633_2_, 0);

@@ -15,8 +15,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlloyRecipe>{
 
-    protected AlloyRecipe createRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time){
-        return new AlloyRecipe(id, input, output, time);
+    protected AlloyRecipe createRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time,
+                                       ItemStack additionalOutput, float change){
+        return new AlloyRecipe(id, input, output, time, additionalOutput, change);
     }
 
     @Override
@@ -29,7 +30,14 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
             input.add(Material.deserialize(inputs.get(i).getAsJsonObject()));
         }
         int time = JSONUtils.getInt(json, "cookingtime");
-        return createRecipe(recipeId, input, output, time);
+        ItemStack additionalOutput = ItemStack.EMPTY;
+        float change = 0;
+        if(json.has("additional")){
+            JsonObject additional = JSONUtils.getJsonObject(json, "additional");
+            additionalOutput = CraftingHelper.getItemStack(additional, true);
+            change = JSONUtils.getFloat(additional, "change");
+        }
+        return createRecipe(recipeId, input, output, time, additionalOutput, change);
     }
 
     @Nullable
@@ -43,7 +51,9 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
         }
         ItemStack output = buffer.readItemStack();
         int time = buffer.readVarInt();
-        return createRecipe(recipeId, input, output, time);
+        ItemStack additionalOutput = buffer.readItemStack();
+        float change = buffer.readFloat();
+        return createRecipe(recipeId, input, output, time, additionalOutput, change);
     }
 
     @Override
@@ -55,5 +65,7 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
         }
         buffer.writeItemStack(recipe.getRecipeOutput());
         buffer.writeVarInt(recipe.getTimer());
+        buffer.writeItemStack(recipe.getAdditionalResult());
+        buffer.writeFloat(recipe.getAdditionalChange());
     }
 }

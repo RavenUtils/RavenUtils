@@ -113,10 +113,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     }
 
     @Override
-    public T getRecipe(ItemStack stack) {
-        if (stack == null){
-            return null;
-        }
+    public T getRecipe() {
         Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
         RecipeWrapper wrapper = new RecipeWrapper(itemHandler);
         return matching(recipes, wrapper, world);
@@ -194,7 +191,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
         if (!world.isRemote){
             ItemStack fuel = itemHandler.getStackInSlot(1);
             if (isBurning() || !fuel.isEmpty()){
-                ICommonRecipe recipe = (ICommonRecipe) getRecipe(itemHandler.getStackInSlot(0));
+                ICommonRecipe recipe = (ICommonRecipe) getRecipe();
                 if(!this.isBurning()){
                     isDirty = handleBurning(fuel);
                 }
