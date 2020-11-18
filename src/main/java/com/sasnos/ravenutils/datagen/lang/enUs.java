@@ -13,6 +13,8 @@ public class enUs extends LanguageProvider {
 
   @Override
   protected void addTranslations() {
+    add(RavenUtils.MOD_ID, "Raven Utils");
+
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
     add(ModBlocks.FOSSIL_ORE.get(), "Fossil Ore");
     add(ModBlocks.FOSSIL_DIRT.get(), "Fossil Dirt");
