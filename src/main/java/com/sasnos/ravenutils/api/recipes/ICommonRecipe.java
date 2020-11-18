@@ -11,20 +11,20 @@ import org.jetbrains.annotations.NotNull;
 
 public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
 
-    @Override
-    default IRecipeType<?> getType() {
-        return Registry.RECIPE_TYPE.getOptional(getTypeId()).get();//.getValue(RECIPE_TYPE_ID).get();
-    }
+  @Override
+  default IRecipeType<?> getType() {
+    return Registry.RECIPE_TYPE.getOptional(getTypeId()).get();//.getValue(RECIPE_TYPE_ID).get();
+  }
 
-    @Override
-    default boolean canFit(int width, int height) {
-        return false;
-    }
+  @Override
+  default boolean canFit(int width, int height) {
+    return false;
+  }
 
-    int getTimer();
+  int getTimer();
 
-    NonNullList<ItemStack> getOutput();
+  NonNullList<ItemStack> getOutput();
 
-    @NotNull
-    ResourceLocation getTypeId();
+  @NotNull
+  ResourceLocation getTypeId();
 }

@@ -9,12 +9,12 @@ import net.minecraft.world.IBlockReader;
 
 public class CrimwwodSignStanding extends StandingSignBlock {
 
-    public CrimwwodSignStanding(Properties properties, WoodType type) {
-        super(properties, type);
-    }
+  public CrimwwodSignStanding(Properties properties, WoodType type) {
+    super(properties, type);
+  }
 
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new SignTileEntity();
-    }
+  @Override
+  public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+    return new SignTileEntity();
+  }
 }

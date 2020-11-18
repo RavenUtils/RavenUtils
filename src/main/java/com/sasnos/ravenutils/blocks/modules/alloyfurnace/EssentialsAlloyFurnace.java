@@ -10,13 +10,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class EssentialsAlloyFurnace extends EssentialsMachineBlock {
 
-    public EssentialsAlloyFurnace() {
-        super(AbstractBlock.Properties.from(Blocks.FURNACE));
-    }
+  public EssentialsAlloyFurnace() {
+    super(AbstractBlock.Properties.from(Blocks.FURNACE));
+  }
 
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new EssentialsFurnaceTileEntity();
-    }
+  @Nullable
+  @Override
+  public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+    return new EssentialsFurnaceTileEntity();
+  }
 }

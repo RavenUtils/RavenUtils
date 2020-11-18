@@ -30,31 +30,27 @@ public class StoneAnvil extends AnvilBlock {
 
   @Nullable
   public static BlockState damage(BlockState state) {
-    if(state.isIn(ModBlocks.STONE_ANVIL_STONE.get())){
+    if (state.isIn(ModBlocks.STONE_ANVIL_STONE.get())) {
       return ModBlocks.CHIPPED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
-    }
-    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get())){
+    } else if (state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get())) {
       return ModBlocks.DAMAGED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
     }
 
-    if(state.isIn(ModBlocks.STONE_ANVIL_ANDESITE.get())){
+    if (state.isIn(ModBlocks.STONE_ANVIL_ANDESITE.get())) {
       return ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
-    }
-    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get())){
+    } else if (state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get())) {
       return ModBlocks.DAMAGED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
     }
 
-    if(state.isIn(ModBlocks.STONE_ANVIL_DIORITE.get())){
+    if (state.isIn(ModBlocks.STONE_ANVIL_DIORITE.get())) {
       return ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
-    }
-    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get())){
+    } else if (state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get())) {
       return ModBlocks.DAMAGED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
     }
 
-    if(state.isIn(ModBlocks.STONE_ANVIL_GRANITE.get())){
+    if (state.isIn(ModBlocks.STONE_ANVIL_GRANITE.get())) {
       return ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
-    }
-    else if(state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get())){
+    } else if (state.isIn(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get())) {
       return ModBlocks.DAMAGED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
     }
 

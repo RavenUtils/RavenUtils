@@ -8,7 +8,7 @@ public class PottedCrimleaf extends FlowerPotBlock {
 
   public PottedCrimleaf() {
     super(null, ModBlocks.CRIMLEAF, Properties.create(Material.MISCELLANEOUS)
-    .zeroHardnessAndResistance()
-    .notSolid());
+        .zeroHardnessAndResistance()
+        .notSolid());
   }
 }

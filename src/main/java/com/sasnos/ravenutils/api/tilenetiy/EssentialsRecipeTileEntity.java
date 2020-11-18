@@ -19,45 +19,45 @@ import java.util.stream.Collectors;
 
 public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends EssentialsCommonTileEntity {
 
-    protected IRecipeType<?> type;
+  protected IRecipeType<?> type;
 
-    public EssentialsRecipeTileEntity(TileEntityType<?> tileEntityTypeIn, IRecipeType<?> recipeType) {
-        super(tileEntityTypeIn);
-        type = recipeType;
+  public EssentialsRecipeTileEntity(TileEntityType<?> tileEntityTypeIn, IRecipeType<?> recipeType) {
+    super(tileEntityTypeIn);
+    type = recipeType;
+  }
+
+  protected abstract T getRecipe();
+
+  public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType) {
+    ClientWorld world = Minecraft.getInstance().world;
+    return world != null ?
+        world.getRecipeManager().getRecipes().stream().filter(iRecipe -> iRecipe.getType() == recipeType).collect(Collectors.toSet())
+        : Collections.emptySet();
+  }
+
+  public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType, World world) {
+    return world != null ?
+        world.getRecipeManager().getRecipes().stream().filter(iRecipe -> iRecipe.getType() == recipeType).collect(Collectors.toSet())
+        : Collections.emptySet();
+  }
+
+  public static Set<ItemStack> getAllRecipeInputs(IRecipeType<?> type, World world) {
+    Set<ItemStack> inputs = new HashSet<>();
+    Set<IRecipe<?>> recipes = findRecipeByType(type, world);
+    for (IRecipe<?> recipe : recipes) {
+      NonNullList<Ingredient> ingredients = recipe.getIngredients();
+      ingredients.forEach(ingredient -> inputs.addAll(Arrays.asList(ingredient.getMatchingStacks())));
     }
+    return inputs;
+  }
 
-    protected abstract T getRecipe();
-
-    public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType) {
-        ClientWorld world = Minecraft.getInstance().world;
-        return world != null ?
-                world.getRecipeManager().getRecipes().stream().filter(iRecipe -> iRecipe.getType() == recipeType).collect(Collectors.toSet())
-                : Collections.emptySet();
+  public static Set<Item> getAllRecipeInputsAsItems(IRecipeType<?> type, World world) {
+    Set<Item> inputs = new HashSet<>();
+    Set<IRecipe<?>> recipes = findRecipeByType(type, world);
+    for (IRecipe<?> recipe : recipes) {
+      NonNullList<Ingredient> ingredients = recipe.getIngredients();
+      ingredients.forEach(ingredient -> Arrays.stream(ingredient.getMatchingStacks()).collect(Collectors.toList()).forEach(itemStack -> inputs.add(itemStack.getItem())));
     }
-
-    public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType, World world) {
-        return world != null ?
-                world.getRecipeManager().getRecipes().stream().filter(iRecipe -> iRecipe.getType() == recipeType).collect(Collectors.toSet())
-                : Collections.emptySet();
-    }
-
-    public static Set<ItemStack> getAllRecipeInputs(IRecipeType<?> type, World world){
-        Set<ItemStack> inputs = new HashSet<>();
-        Set<IRecipe<?>> recipes = findRecipeByType(type, world);
-        for (IRecipe<?> recipe : recipes){
-            NonNullList<Ingredient> ingredients = recipe.getIngredients();
-            ingredients.forEach(ingredient -> inputs.addAll(Arrays.asList(ingredient.getMatchingStacks())));
-        }
-        return inputs;
-    }
-
-    public static Set<Item> getAllRecipeInputsAsItems(IRecipeType<?> type, World world){
-        Set<Item> inputs = new HashSet<>();
-        Set<IRecipe<?>> recipes = findRecipeByType(type, world);
-        for (IRecipe<?> recipe : recipes){
-            NonNullList<Ingredient> ingredients = recipe.getIngredients();
-            ingredients.forEach(ingredient -> Arrays.stream(ingredient.getMatchingStacks()).collect(Collectors.toList()).forEach(itemStack -> inputs.add(itemStack.getItem())));
-        }
-        return inputs;
-    }
+    return inputs;
+  }
 }

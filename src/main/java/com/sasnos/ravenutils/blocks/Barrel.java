@@ -6,11 +6,11 @@ import net.minecraft.state.properties.BlockStateProperties;
 
 public class Barrel extends Block {
 
-    public static BooleanProperty HASLIT = BlockStateProperties.OPEN;
+  public static BooleanProperty HASLIT = BlockStateProperties.OPEN;
 
-    public Barrel(Properties properties) {
-        super(properties);
-    }
+  public Barrel(Properties properties) {
+    super(properties);
+  }
 
 
 }
