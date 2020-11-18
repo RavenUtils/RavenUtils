@@ -59,6 +59,7 @@ public class ModItems {
   public static final RegistryObject<Item> CHARCOAL_DUST = ITEMS.register("charcoal_dust", ItemBase::new);
   public static final RegistryObject<Item> CLOTH = ITEMS.register("cloth", ItemBase::new);
   public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre", ItemBase::new);
+  public static final RegistryObject<Item> DRIED_PLANT_FIBRE = ITEMS.register("dried_plant_fibre", ItemBase::new);
   public static final RegistryObject<Item> PLANT_TWINE = ITEMS.register("plant_twine", ItemBase::new);
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
