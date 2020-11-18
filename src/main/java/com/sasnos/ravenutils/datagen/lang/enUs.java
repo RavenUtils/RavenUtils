@@ -15,6 +15,7 @@ public class enUs extends LanguageProvider {
   protected void addTranslations() {
     add(RavenUtils.MOD_ID, "Raven Utils");
 
+    // ore blocks
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
     add(ModBlocks.FOSSIL_ORE.get(), "Fossil Ore");
     add(ModBlocks.FOSSIL_DIRT.get(), "Fossil Dirt");
@@ -29,6 +30,7 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.LEAD_ORE.get(), "Lead Ore");
     add(ModBlocks.SULFUR_ORE.get(), "Sulfur Ore");
 
+    // material blocks
     add(ModBlocks.BLACK_COAL_BLOCK.get(), "Block of Black Coal");
     add(ModBlocks.SALT_BLOCK.get(), "Block of Salt");
     add(ModBlocks.RAVEN_EYE_BLOCK.get(), "Block of Raven Eye");
@@ -45,9 +47,11 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.GELATIN_BLOCK.get(), "Block of Gelatin");
     add(ModBlocks.CANDLE.get(), "Candle");
 
+    // flowers & saplings
     add(ModBlocks.CRIMLEAF.get(), "Crimleaf");
     add(ModBlocks.CRIMWOOD_SAPLING.get(), "Crimwood Sapling");
 
+    // crimwood blocks
     add(ModBlocks.CRIMWOOD.get(), "Crimwood");
     add(ModBlocks.CRIMWOOD_LOG.get(), "Crimwood Log");
     add(ModBlocks.CRIMWOOD_LEAVES.get(), "Crimwood Leaves");
@@ -61,6 +65,7 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.CRIMWOOD_FENCE_GATE.get(), "Crimwood Fence Gate");
     add(ModBlocks.CRIMWOOD_BUTTON.get(), "Crimwood Button");
 
+    // functional blocks
     add(ModBlocks.STONE_ANVIL_STONE.get(), "Stone Anvil");
     add(ModBlocks.STONE_ANVIL_GRANITE.get(), "Granite Anvil");
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
@@ -69,6 +74,7 @@ public class enUs extends LanguageProvider {
     // add(ModBlocks.HAND_MILL.get(), "Mill");
     // add(ModBlocks.MILLSTONE.get(), "Millstone");
 
+    // food-related items
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
     add(ModFoodItems.DUCK_EGG.get(), "Duck Egg");
@@ -77,15 +83,12 @@ public class enUs extends LanguageProvider {
     add(ModItems.TALLOW.get(), "Tallow");
     add(ModItems.GELATIN.get(), "Gelatin");
 
-    add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
-    add(ModItems.HIDE_SCRAPED.get(), "Scraped Hide");
-    add(ModItems.HIDE_LIMED.get(), "Limed Hide");
-    add(ModItems.HIDE_TANNED.get(), "Tanned Hide");
-
+    // special items
     add(ModItems.COIN_COPPER.get(), "Copper Coin");
     add(ModItems.COIN_SILVER.get(), "Silver Coin");
     add(ModItems.COIN_GOLD.get(), "Gold Coin");
 
+    // tiered armor, weapons and tools
     // add(ModArmorItems.COPPER_HELMET.get(), "Copper Helmet");
     // add(ModArmorItems.COPPER_CHESTPLATE.get(), "Copper Chestplate");
     // add(ModArmorItems.COPPER_LEGGINGS.get(), "Copper Leggings");
@@ -145,6 +148,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.MYTHERINE_PICKAXE.get(), "Mytherine Pickaxe");
     add(ModToolItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
 
+    // tools
     add(ModToolItems.HAMMER_STONE.get(), "Stone Hammer");
     add(ModToolItems.HAMMER_IRON.get(), "Iron Hammer");
     add(ModToolItems.HAMMER_OBSIDIAN.get(), "Obsidian Hammer");
@@ -175,6 +179,7 @@ public class enUs extends LanguageProvider {
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
     add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
 
+    // metals
     add(ModItems.MYTHERINE_INGOT.get(), "Mytherine Ingot");
     add(ModItems.MYTHERINE_NUGGET.get(), "Mytherine Nugget");
     add(ModItems.COPPER_INGOT.get(), "Copper Ingot");
@@ -193,6 +198,12 @@ public class enUs extends LanguageProvider {
     add(ModItems.LEAD_NUGGET.get(), "Lead Nugget");
     add(ModItems.STEEL_INGOT.get(), "Steel Ingot");
     add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");
+
+    // crafting material
+    add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
+    add(ModItems.HIDE_SCRAPED.get(), "Scraped Hide");
+    add(ModItems.HIDE_LIMED.get(), "Limed Hide");
+    add(ModItems.HIDE_TANNED.get(), "Tanned Hide");
 
     add(ModItems.INK_BOTTLE.get(), "Ink Bottle");
     add(ModItems.BLOOD_BOTTLE.get(), "Blood Bottle");
