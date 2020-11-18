@@ -10,16 +10,16 @@ import static com.sasnos.ravenutils.util.EssentialsUtils.resourceLocation;
 
 public class ItemModels extends ItemModelProvider {
 
-    public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, RavenUtils.MOD_ID, existingFileHelper);
-    }
+  public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    super(generator, RavenUtils.MOD_ID, existingFileHelper);
+  }
 
-    @Override
-    protected void registerModels() {
-        withExistingParent("item/"+ ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
-                resourceLocation("block/stone_crafting_table"));
+  @Override
+  protected void registerModels() {
+    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_crafting_table"));
 
-        withExistingParent("item/"+ ModBlockItems.STONE_ANVIL_STONE.get().getRegistryName().getPath(),
-                resourceLocation("block/stone_anvil_stone"));
-    }
+    withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_anvil_stone"));
+  }
 }

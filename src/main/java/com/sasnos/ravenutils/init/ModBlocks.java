@@ -79,11 +79,11 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
 
-  public static final RegistryObject<Block> DRYING_RAG = BLOCKS.register("drying_rag",
-          () -> new DryingRag(AbstractBlock.Properties.create(Material.WOOD)));
+  public static final RegistryObject<Block> DRYING_RACK = BLOCKS.register("drying_rack",
+      () -> new DryingRack(AbstractBlock.Properties.create(Material.WOOD)));
 
   public static final RegistryObject<Block> BARREL = BLOCKS.register("barrel",
-          () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD)));
+      () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD)));
 
   public static final RegistryObject<Block> STONE_CRAFTING_TABLE = BLOCKS.register("stone_crafting_table", StoneCraftingTable::new);
 
@@ -93,48 +93,48 @@ public class ModBlocks {
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_STONE = BLOCKS.register("damaged_stone_anvil_stone",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_STONE = BLOCKS.register("chipped_stone_anvil_stone",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> STONE_ANVIL_GRANITE = BLOCKS.register("stone_anvil_granite",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_GRANITE = BLOCKS.register("damaged_stone_anvil_granite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_GRANITE = BLOCKS.register("chipped_stone_anvil_granite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> STONE_ANVIL_ANDESITE = BLOCKS.register("stone_anvil_andesite",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_ANDESITE = BLOCKS.register("damaged_stone_anvil_andesite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_ANDESITE = BLOCKS.register("chipped_stone_anvil_andesite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> STONE_ANVIL_DIORITE = BLOCKS.register("stone_anvil_diorite",
       () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
           .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_DIORITE = BLOCKS.register("damaged_stone_anvil_diorite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_DIORITE = BLOCKS.register("chipped_stone_anvil_diorite",
-          () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
-                  .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
+      () -> new StoneAnvil(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).setRequiresTool()
+          .hardnessAndResistance(2.5F, 600.0F).sound(SoundType.STONE)));
 
   // mill
   // public static final RegistryObject<Block> HAND_MILL = BLOCKS.register("hand_mill", CLASS::new);

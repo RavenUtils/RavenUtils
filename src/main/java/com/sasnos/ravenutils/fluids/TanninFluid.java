@@ -17,16 +17,16 @@ import java.util.Random;
 public abstract class TanninFluid extends ForgeFlowingFluid {
 
   private static final Properties properties = new Properties(ModFluids.TANNIN::get, ModFluids.FLOWING_TANNIN::get,
-          net.minecraftforge.fluids.FluidAttributes.builder(
-                  new net.minecraft.util.ResourceLocation("block/water_still"),
-                  new net.minecraft.util.ResourceLocation("block/water_flow"))
-                  .color(0xFFFFCC35)
-                  .translationKey("block.lavalamp.salty_water_block"))
-          .bucket(ModToolItems.BUCKET_IRON_TANNIN)
-          .block(() -> (FlowingFluidBlock) ModBlocks.TANNIN_BLOCK.get())
-          .slopeFindDistance(4)
-          .levelDecreasePerBlock(1)
-          .explosionResistance(100F);
+      net.minecraftforge.fluids.FluidAttributes.builder(
+          new net.minecraft.util.ResourceLocation("block/water_still"),
+          new net.minecraft.util.ResourceLocation("block/water_flow"))
+          .color(0xFFFFCC35)
+          .translationKey("block.lavalamp.salty_water_block"))
+      .bucket(ModToolItems.BUCKET_IRON_TANNIN)
+      .block(() -> (FlowingFluidBlock) ModBlocks.TANNIN_BLOCK.get())
+      .slopeFindDistance(4)
+      .levelDecreasePerBlock(1)
+      .explosionResistance(100F);
 
 
   protected TanninFluid(Properties properties) {

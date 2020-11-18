@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils.datagen.lootTables;
 
 import com.sasnos.ravenutils.init.ModBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 
 public class EssentialsLootTableProvider extends BaseLootTableProvider {

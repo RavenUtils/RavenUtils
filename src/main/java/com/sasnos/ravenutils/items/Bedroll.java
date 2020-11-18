@@ -4,8 +4,8 @@ import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class SleepingBag extends Item {
-  public SleepingBag(int maxDamage) {
+public class Bedroll extends Item {
+  public Bedroll(int maxDamage) {
     super(new Properties()
         .group(RavenUtils.TAB)
         .maxStackSize(1)

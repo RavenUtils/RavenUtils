@@ -102,14 +102,14 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.CANDLE.get()));
 
   public static final RegistryObject<Item> STONE_CRAFTING_TABLE_ITEM = ITEMS.register("stone_crafting_table",
-          () -> new BlockItemBase(ModBlocks.STONE_CRAFTING_TABLE.get()));
+      () -> new BlockItemBase(ModBlocks.STONE_CRAFTING_TABLE.get()));
 
-  public static final RegistryObject<BlockItem> STONE_ANVIL_STONE = ITEMS.register("stone_anvil_stone",
-          () -> new BlockItemBase(ModBlocks.STONE_ANVIL_STONE.get()));
-  public static final RegistryObject<BlockItem> STONE_ANVIL_GRANITE = ITEMS.register("stone_anvil_granite",
-          () -> new BlockItemBase(ModBlocks.STONE_ANVIL_GRANITE.get()));
-  public static final RegistryObject<BlockItem> STONE_ANVIL_ANDESITE = ITEMS.register("stone_anvil_andesite",
-          () -> new BlockItemBase(ModBlocks.STONE_ANVIL_ANDESITE.get()));
-  public static final RegistryObject<BlockItem> STONE_ANVIL_DIORITE = ITEMS.register("stone_anvil_diorite",
-          () -> new BlockItemBase(ModBlocks.STONE_ANVIL_DIORITE.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_STONE_ITEM = ITEMS.register("stone_anvil_stone",
+      () -> new BlockItemBase(ModBlocks.STONE_ANVIL_STONE.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_GRANITE_ITEM = ITEMS.register("stone_anvil_granite",
+      () -> new BlockItemBase(ModBlocks.STONE_ANVIL_GRANITE.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_ANDESITE_ITEM = ITEMS.register("stone_anvil_andesite",
+      () -> new BlockItemBase(ModBlocks.STONE_ANVIL_ANDESITE.get()));
+  public static final RegistryObject<BlockItem> STONE_ANVIL_DIORITE_ITEM = ITEMS.register("stone_anvil_diorite",
+      () -> new BlockItemBase(ModBlocks.STONE_ANVIL_DIORITE.get()));
 }

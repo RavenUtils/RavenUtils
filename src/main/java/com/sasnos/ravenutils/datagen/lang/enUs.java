@@ -7,12 +7,12 @@ import net.minecraftforge.common.data.LanguageProvider;
 
 public class enUs extends LanguageProvider {
 
-    public enUs(DataGenerator gen) {
-        super(gen, RavenUtils.MOD_ID, "en_us");
-    }
+  public enUs(DataGenerator gen) {
+    super(gen, RavenUtils.MOD_ID, "en_us");
+  }
 
-    @Override
-    protected void addTranslations() {
-        add(ModBlocks.STONE_ANVIL_STONE.get(), "Stone Anvil");
-    }
+  @Override
+  protected void addTranslations() {
+    add(ModBlocks.STONE_ANVIL_STONE.get(), "Stone Anvil");
+  }
 }

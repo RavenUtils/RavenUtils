@@ -1,15 +1,15 @@
 package com.sasnos.ravenutils.datagen.tags;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.init.*;
-import net.minecraft.block.Block;
+import com.sasnos.ravenutils.init.ModBlockItems;
+import com.sasnos.ravenutils.init.ModFoodItems;
+import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;

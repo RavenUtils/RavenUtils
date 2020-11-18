@@ -13,30 +13,30 @@ import java.util.function.Consumer;
 
 public class EssentialsAdvancement extends EssentialsAdvancementProvider {
 
-    public EssentialsAdvancement(DataGenerator generatorIn) {
-        super(generatorIn);
-    }
+  public EssentialsAdvancement(DataGenerator generatorIn) {
+    super(generatorIn);
+  }
 
-    @Override
-    protected void registerAdvancement(Consumer<Advancement> consumer) {
-        Advancement.Builder.builder()
-                .withDisplay(ModToolItems.BUCKET_WOOD.get(),
-                        new TranslationTextComponent("wood_clay_bucket_advancement"),
-                        new TranslationTextComponent("wood_clay_bucket_advancement_description"),
-                        null,
-                        FrameType.TASK,
-                        true,
-                        true,
-                        false)
-                .withCriterion("has_wood_clay_bucket",
-                        InventoryChangeTrigger.Instance.forItems(ModToolItems.BUCKET_CLAY.get(),
-                                ModToolItems.BUCKET_WOOD.get()))
-                .register(consumer, "wood_clay_bucket");
-    }
+  @Override
+  protected void registerAdvancement(Consumer<Advancement> consumer) {
+    Advancement.Builder.builder()
+        .withDisplay(ModToolItems.BUCKET_WOOD.get(),
+            new TranslationTextComponent("wood_clay_bucket_advancement"),
+            new TranslationTextComponent("wood_clay_bucket_advancement_description"),
+            null,
+            FrameType.TASK,
+            true,
+            true,
+            false)
+        .withCriterion("has_wood_clay_bucket",
+            InventoryChangeTrigger.Instance.forItems(ModToolItems.BUCKET_CLAY.get(),
+                ModToolItems.BUCKET_WOOD.get()))
+        .register(consumer, "wood_clay_bucket");
+  }
 
 
-    @Override
-    public String getName() {
-        return RavenUtils.MOD_ID+" Advancements";
-    }
+  @Override
+  public String getName() {
+    return RavenUtils.MOD_ID + " Advancements";
+  }
 }

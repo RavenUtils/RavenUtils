@@ -182,6 +182,6 @@ public class ModToolItems {
       () -> new Chisel(4096));
   public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
       () -> new Soap(32));
-  public static final RegistryObject<Item> SLEEPING_BAG = ITEMS.register("sleeping_bag",
-      () -> new SleepingBag(128));
+  public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
+      () -> new Bedroll(128));
 }

@@ -194,28 +194,28 @@ public class BlockStates extends BlockStateProvider {
     horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
 
     BlockModelBuilder damagedStoneAnvilStone =
-            models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
+        models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
             .texture("top", resourceLocation("blocks/damaged_anvil_top_stone"));
 
     horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_STONE.get(), damagedStoneAnvilStone);
 
     BlockModelBuilder chippedStoneAnvilStone =
-            models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
-                    .texture("top", resourceLocation("blocks/chipped_anvil_top_stone"));
+        models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
+            .texture("top", resourceLocation("blocks/chipped_anvil_top_stone"));
 
     horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get(), chippedStoneAnvilStone);
 
     BlockModelBuilder stone_crafting_table =
-            models().cube("stone_crafting_table",
-                    mcLoc("block/cobblestone"),
-                    resourceLocation("blocks/stone_crafting_table_top"),
-                    resourceLocation("blocks/stone_crafting_table_front"),
-                    resourceLocation("blocks/stone_crafting_table_side"),
-                    resourceLocation("blocks/stone_crafting_table_side"),
-                    resourceLocation("blocks/stone_crafting_table_front"));
+        models().cube("stone_crafting_table",
+            mcLoc("block/cobblestone"),
+            resourceLocation("blocks/stone_crafting_table_top"),
+            resourceLocation("blocks/stone_crafting_table_front"),
+            resourceLocation("blocks/stone_crafting_table_side"),
+            resourceLocation("blocks/stone_crafting_table_side"),
+            resourceLocation("blocks/stone_crafting_table_front"));
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
 
-    // todo add mill with and without millstone, with and without hand crank
+    // todo add MPS mill with/ without millstone
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

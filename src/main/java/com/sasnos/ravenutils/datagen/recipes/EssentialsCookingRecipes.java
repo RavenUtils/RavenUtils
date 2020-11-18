@@ -8,12 +8,12 @@ import java.util.function.Consumer;
 public class EssentialsCookingRecipes extends EssentialsRecipeProvider {
 
 
-    public EssentialsCookingRecipes(Consumer<IFinishedRecipe> consumer) {
-        super(consumer);
-    }
+  public EssentialsCookingRecipes(Consumer<IFinishedRecipe> consumer) {
+    super(consumer);
+  }
 
-    @Override
-    public void init() {
+  @Override
+  public void init() {
 
-    }
+  }
 }

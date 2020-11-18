@@ -2,9 +2,9 @@ package com.sasnos.ravenutils.blocks;
 
 import net.minecraft.block.Block;
 
-public class DryingRag extends Block {
+public class DryingRack extends Block {
 
-    public DryingRag(Properties properties) {
+    public DryingRack(Properties properties) {
         super(properties);
     }
 }
