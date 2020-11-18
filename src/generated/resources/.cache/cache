@@ -110,7 +110,9 @@ ee98e38387538ef5b1f13ae6060581760e642112 data/forge/tags/items/tools/chisels.jso
 368c7cda192012c739dfe3ee45e92db70a2d7ab7 data/forge/tags/items/tools/hammers.json
 77775a3fa5a1167f939915cb06d100768c9089a7 data/forge/tags/items/tools/knives.json
 bd660c66a0be02a3ab5b12a26e3dec2aed01df07 data/minecraft/advancements/recipes/building_blocks/cobblestone.json
+b96423657cac8846639396d9c12a90ab3f39064a data/minecraft/advancements/recipes/tools/wooden_axe.json
 9e47eeaf8150065b7452accb23bfa08ae099021f data/minecraft/recipes/cobblestone.json
+a537e9422360521b63fe9edc3642894ad65f0f50 data/minecraft/recipes/wooden_axe.json
 bb2f6ad2be509adba5c7f538939dab206edd1d29 data/ravenutils/advancements/recipes/food/cooked_bushmeat.json
 ec57d5e880dbf6279315cd07ef226a1d615e8b8f data/ravenutils/advancements/recipes/ravenutils/ash.json
 aac98d214e949f5592a31ce52982c02ba8069a11 data/ravenutils/advancements/recipes/ravenutils/mytherine_chestplate.json

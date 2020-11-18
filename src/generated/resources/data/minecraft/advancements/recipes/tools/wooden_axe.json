@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:wooden_axe"
+    ]
+  },
+  "criteria": {
+    "dummy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:bedrock"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:wooden_axe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "dummy",
+      "has_the_recipe"
+    ]
+  ]
+}

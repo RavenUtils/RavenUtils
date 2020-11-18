@@ -1,11 +1,17 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
-import com.sasnos.ravenutils.init.*;
+import com.sasnos.ravenutils.init.ModArmorItems;
+import com.sasnos.ravenutils.init.ModBlockItems;
+import com.sasnos.ravenutils.init.ModFoodItems;
+import com.sasnos.ravenutils.init.ModItems;
+import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.data.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ITag;
 
 import java.util.function.Consumer;
 
@@ -100,5 +106,14 @@ public class EssentialsRecipe extends RecipeProvider {
         IRecipeSerializer.SMOKING);
 
 
+  }
+
+  //expose the protected internal methods so i can use tem in external classes
+  public static ICriterionInstance externalHasItem(Item item) {
+    return hasItem(item);
+  }
+
+  public static ICriterionInstance externalHasItem(ITag<Item> tagItem) {
+    return hasItem(tagItem);
   }
 }
