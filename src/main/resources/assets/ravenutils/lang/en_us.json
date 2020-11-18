@@ -131,6 +131,9 @@
   "item.ravenutils.hammer_stone": "Stone Hammer",
   "item.ravenutils.hammer_iron": "Iron Hammer",
   "item.ravenutils.hammer_obsidian": "Obsidian Hammer",
+  "item.ravenutils.chisel_iron": "Iron Chisel",
+  "item.ravenutils.chisel_steel": "Steel Chisel",
+  "item.ravenutils.chisel_diamond": "Diamond Chisel",
   "item.ravenutils.knife_flint": "Flint Knife",
   "item.ravenutils.knife_iron": "Iron Knife",
   "item.ravenutils.knife_diamond": "Diamond Knife",
@@ -150,7 +153,7 @@
   "item.ravenutils.bucket_iron_tannin": "Tannin Bucket",
   "item.ravenutils.bucket_clay_unfired": "Unfired Clay Bucket",
   "item.ravenutils.mortar_and_pestle": "Mortar and Pestle",
-  "item.ravenutils.hand_crank": "Hand Crank",
+  "item.ravenutils.firestarter": "Firestarter",
 
   "item.ravenutils.mytherine_ingot": "Mytherine Ingot",
   "item.ravenutils.mytherine_nugget": "Mytherine Nugget",
@@ -195,6 +198,7 @@
   "item.ravenutils.niter": "Niter",
   "item.ravenutils.slag": "Slag",
   "item.ravenutils.plant_fibre": "Plant Fibre",
+  "item.ravenutils.dried_plant_fibre": "Dried Plant Fibre",
   "item.ravenutils.plant_twine": "Plant Twine",
   "item.ravenutils.cloth": "Cloth",
   "item.ravenutils.small_stone": "Small Stone"

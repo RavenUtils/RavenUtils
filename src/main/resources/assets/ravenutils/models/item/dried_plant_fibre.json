@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:items/hand_crank"
+    "layer0": "ravenutils:items/dried_plant_fibre"
   }
 }

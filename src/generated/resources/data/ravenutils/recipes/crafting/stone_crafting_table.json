@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "ravenutils:stone_crafting_table",
+    "count": 1
+  }
+}

@@ -37,6 +37,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
   // items
   public static ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
+  public static ITag.INamedTag<Item> chisels = ItemTags.makeWrapperTag("forge:tools/chisels");
   public static ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
   public static ITag.INamedTag<Item> axes = ItemTags.makeWrapperTag("forge:tools/axes");
   public static ITag.INamedTag<Item> books = ItemTags.makeWrapperTag("forge:books");
@@ -60,6 +61,12 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.HAMMER_OBSIDIAN.get(),
         ModToolItems.HAMMER_IRON.get(),
         ModToolItems.HAMMER_STONE.get()
+    );
+
+    getOrCreateBuilder(chisels).add(
+        ModToolItems.CHISEL_IRON.get(),
+        ModToolItems.CHISEL_STEEL.get(),
+        ModToolItems.CHISEL_DIAMOND.get()
     );
 
     getOrCreateBuilder(knives).add(
