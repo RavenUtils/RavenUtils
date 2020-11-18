@@ -173,7 +173,7 @@ public class ModToolItems {
   public static final RegistryObject<Item> MORTAR_AND_PESTLE = ITEMS.register("mortar_and_pestle",
       () -> new MortarAndPestle(256));
   public static final RegistryObject<Item> FIRESTARTER = ITEMS.register("firestarter",
-      () -> new Item(new Item.Properties().maxStackSize(1).maxDamage(6).setNoRepair().group(RavenUtils.TAB)));
+      () -> new Firestarter(6));
   public static final RegistryObject<Item> CHISEL_IRON = ITEMS.register("chisel_iron",
       () -> new Chisel(256));
   public static final RegistryObject<Item> CHISEL_STEEL = ITEMS.register("chisel_steel",
