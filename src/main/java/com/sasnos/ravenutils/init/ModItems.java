@@ -64,17 +64,17 @@ public class ModItems {
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
 
-  public static final RegistryObject<Item> FRESH_HIDE = ITEMS.register("hide_fresh", ItemBase::new);
-  public static final RegistryObject<Item> SCRAPED_HIDE = ITEMS.register("hide_scraped", ItemBase::new);
-  public static final RegistryObject<Item> LIMED_HIDE = ITEMS.register("hide_limed", ItemBase::new);
-  public static final RegistryObject<Item> TANNED_HIDE = ITEMS.register("hide_tanned", ItemBase::new);
+  public static final RegistryObject<Item> HIDE_FRESH = ITEMS.register("hide_fresh", ItemBase::new);
+  public static final RegistryObject<Item> HIDE_SCRAPED = ITEMS.register("hide_scraped", ItemBase::new);
+  public static final RegistryObject<Item> HIDE_LIMED = ITEMS.register("hide_limed", ItemBase::new);
+  public static final RegistryObject<Item> HIDE_TANNED = ITEMS.register("hide_tanned", ItemBase::new);
 
   public static final RegistryObject<Item> BUCKET_CLAY_UNFIRED = ITEMS.register("bucket_clay_unfired",
       () -> new Item(new Item.Properties().maxStackSize(16).group(RavenUtils.TAB)));
 
-  public static final RegistryObject<Item> COPPER_COIN = ITEMS.register("coin_copper", ItemBase::new);
-  public static final RegistryObject<Item> SILVER_COIN = ITEMS.register("coin_silver", ItemBase::new);
-  public static final RegistryObject<Item> GOLD_COIN = ITEMS.register("coin_gold", ItemBase::new);
+  public static final RegistryObject<Item> COIN_COPPER = ITEMS.register("coin_copper", ItemBase::new);
+  public static final RegistryObject<Item> COIN_SILVER = ITEMS.register("coin_silver", ItemBase::new);
+  public static final RegistryObject<Item> COIN_GOLD = ITEMS.register("coin_gold", ItemBase::new);
 
   public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
       () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));

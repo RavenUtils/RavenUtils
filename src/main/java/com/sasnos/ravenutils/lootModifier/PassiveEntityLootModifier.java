@@ -65,9 +65,9 @@ public class PassiveEntityLootModifier extends MobLootModifier {
     if (hideDropRange.getMax() > 0) {
       ItemStack item;
       if (applyLootingHide) {
-        item = getItemStackWithLooting(context, hideDropRange, ModItems.FRESH_HIDE.get());
+        item = getItemStackWithLooting(context, hideDropRange, ModItems.HIDE_FRESH.get());
       } else {
-        item = new ItemStack(ModItems.FRESH_HIDE.get(), hideDropRange.generateInt(context.getRandom()));
+        item = new ItemStack(ModItems.HIDE_FRESH.get(), hideDropRange.generateInt(context.getRandom()));
       }
 
       generatedLoot.add(item);
