@@ -1,10 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
-import com.sasnos.ravenutils.init.ModArmorItems;
-import com.sasnos.ravenutils.init.ModBlockItems;
-import com.sasnos.ravenutils.init.ModFoodItems;
-import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.*;
 import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;

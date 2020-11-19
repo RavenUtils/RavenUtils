@@ -14,6 +14,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
@@ -23,6 +24,7 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -55,6 +57,11 @@ public class Bucket extends BucketItem {
       containerItem.attemptDamageItem(1, random, null);
     }
     return containerItem;
+  }
+
+  @Override
+  public ICapabilityProvider initCapabilities(ItemStack stack, @org.jetbrains.annotations.Nullable CompoundNBT nbt) {
+    return super.initCapabilities(stack, nbt);
   }
 
   @Override

@@ -7,10 +7,7 @@ import com.sasnos.ravenutils.init.*;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.Food;
-import net.minecraft.item.Foods;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.gen.feature.Feature;
@@ -116,9 +113,15 @@ public class RavenUtils {
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.1f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.3f));
 
+        Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "field_77699_b");
+        maxDamage.setAccessible(true);
+        maxDamage.setInt(Items.BUCKET, 512);
+
       } catch (IllegalAccessException e) {
-        e.printStackTrace();
+        throw new RuntimeException(e);
       }
+
+
     });
   }
 
