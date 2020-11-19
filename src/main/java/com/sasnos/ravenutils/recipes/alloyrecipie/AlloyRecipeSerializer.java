@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipies.alloyrecipie;
+package com.sasnos.ravenutils.recipes.alloyrecipie;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

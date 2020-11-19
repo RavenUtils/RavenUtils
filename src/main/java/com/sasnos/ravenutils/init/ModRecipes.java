@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.recipies.alloyrecipie.AlloyRecipe;
-import com.sasnos.ravenutils.recipies.alloyrecipie.AlloyRecipeSerializer;
+import com.sasnos.ravenutils.recipes.alloyrecipie.AlloyRecipe;
+import com.sasnos.ravenutils.recipes.alloyrecipie.AlloyRecipeSerializer;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;

@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipies.alloyrecipie;
+package com.sasnos.ravenutils.recipes.alloyrecipie;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
