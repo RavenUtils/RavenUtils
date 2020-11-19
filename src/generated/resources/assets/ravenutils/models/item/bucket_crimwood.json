@@ -1,8 +1,8 @@
 {
   "parent": "forge:item/bucket",
   "textures": {
-    "base": "ravenutils:items/bucket_mytherine",
-    "inner": "ravenutils:items/bucket_mytherine_cutout",
+    "base": "ravenutils:items/bucket_crimwood",
+    "inner": "ravenutils:items/bucket_crimwood_cutout",
     "fluid": "ravenutils:items/bucket_fluid_layer"
   },
   "loader": "forge:bucket",

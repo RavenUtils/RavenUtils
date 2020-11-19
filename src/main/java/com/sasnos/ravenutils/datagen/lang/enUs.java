@@ -166,8 +166,8 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.BUCKET_WOOD.get().getTranslationKey()+".filled", "%s Bucket");
     add(ModToolItems.BUCKET_CLAY.get(), "Clay Bucket");
     add(ModToolItems.BUCKET_CLAY.get().getTranslationKey()+".filled", "%s Bucket");
-    add(ModToolItems.BUCKET_MYTHERINE.get(), "Mytherine Bucket");
-    add(ModToolItems.BUCKET_MYTHERINE.get().getTranslationKey()+".filled", "%s Bucket");
+    add(ModToolItems.BUCKET_CRIMWOOD.get(), "Crimwood Bucket");
+    add(ModToolItems.BUCKET_CRIMWOOD.get().getTranslationKey()+".filled", "%s Bucket");
     add(ModToolItems.BUCKET_IRON_LIMEWATER.get(), "Iron Limewater Bucket");
     add(ModToolItems.BUCKET_IRON_TANNIN.get(), "Iron Tannin Bucket");
     add(ModToolItems.MORTAR_AND_PESTLE.get(), "Mortar and Pestle");

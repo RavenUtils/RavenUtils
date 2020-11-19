@@ -143,10 +143,10 @@ public class ModToolItems {
       () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
 
   // mytherine buckets
-  public static final RegistryObject<Item> BUCKET_MYTHERINE = ITEMS.register("bucket_mytherine",
+  public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_mytherine",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
-  public static final RegistryObject<Item> BUCKET_MYTHERINE_MILK = ITEMS.register("bucket_mytherine_milk",
-      () -> new MilkBucket(ModToolItems.BUCKET_MYTHERINE.get(), 0));
+  public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_mytherine_milk",
+      () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
 
 
   // shears (maxDmg iron: 238)
