@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.datageneration.recipies;
+package com.sasnos.ravenutils.api.datageneration.recipes;
 
 public interface IEssentialRecipeProvider {
 

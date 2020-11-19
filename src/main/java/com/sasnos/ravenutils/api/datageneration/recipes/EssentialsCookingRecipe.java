@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.datageneration.recipies;
+package com.sasnos.ravenutils.api.datageneration.recipes;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;

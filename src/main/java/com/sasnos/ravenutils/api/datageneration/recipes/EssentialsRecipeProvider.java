@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.datageneration.recipies;
+package com.sasnos.ravenutils.api.datageneration.recipes;
 
 import net.minecraft.data.IFinishedRecipe;
 
@@ -12,5 +12,4 @@ public abstract class EssentialsRecipeProvider implements IEssentialRecipeProvid
     this.consumer = consumer;
     init();
   }
-
 }
