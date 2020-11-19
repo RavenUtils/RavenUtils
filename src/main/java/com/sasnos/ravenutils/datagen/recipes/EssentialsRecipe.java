@@ -1,13 +1,10 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
-import com.sasnos.ravenutils.init.*;
 import net.minecraft.advancements.ICriterionInstance;
-import net.minecraft.data.*;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.data.RecipeProvider;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 
 import java.util.function.Consumer;
