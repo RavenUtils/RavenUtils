@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:salt"
+    ]
+  },
+  "criteria": {
+    "has_mortar_and_pestle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:mortar_and_pestle"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:salt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mortar_and_pestle",
+      "has_the_recipe"
+    ]
+  ]
+}
