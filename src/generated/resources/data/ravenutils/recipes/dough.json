@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cooking",
+  "ingredients": [
+    {
+      "item": "ravenutils:wheat_flour"
+    },
+    {
+      "item": "ravenutils:wheat_flour"
+    },
+    {
+      "item": "ravenutils:salt"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:dough"
+  }
+}

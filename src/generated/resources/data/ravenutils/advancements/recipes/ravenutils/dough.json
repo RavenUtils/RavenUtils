@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:dough"
+    ]
+  },
+  "criteria": {
+    "has_wheat_flour": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:wheat_flour"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:dough"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wheat_flour",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.blocks.modules.alloyfurnace.EssentialsAlloyFurnaceInit;
 import com.sasnos.ravenutils.init.*;
+import com.sasnos.ravenutils.util.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -46,6 +47,7 @@ public class RavenUtils {
     ModContainer.CONTAINERTYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+    new EssentialsTags().init();
 
     //modules aka machines and stuff
     new EssentialsAlloyFurnaceInit();

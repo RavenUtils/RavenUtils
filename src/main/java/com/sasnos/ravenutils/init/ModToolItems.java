@@ -132,33 +132,22 @@ public class ModToolItems {
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
-      () -> new Bucket(() -> Fluids.EMPTY, ItemStack.EMPTY.getItem(), 32));
-  public static final RegistryObject<Item> BUCKET_WOOD_WATER = ITEMS.register("bucket_wood_water",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_WOOD.get(), 32));
-  public static final RegistryObject<Item> BUCKET_WOOD_LIMEWATER = ITEMS.register("bucket_wood_limewater",
-      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_WOOD.get(), 32));
-  public static final RegistryObject<Item> BUCKET_WOOD_TANNIN = ITEMS.register("bucket_wood_tannin",
-      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_WOOD.get(), 32));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 32));
+  public static final RegistryObject<Item> BUCKET_WOOD_MILK = ITEMS.register("bucket_wood_milk",
+      () -> new MilkBucket(ModToolItems.BUCKET_WOOD.get(), 32));
 
   // clay buckets
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
-      () -> new Bucket(() -> Fluids.EMPTY, ItemStack.EMPTY.getItem(), 32));
-  public static final RegistryObject<Item> BUCKET_CLAY_WATER = ITEMS.register("bucket_clay_water",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_CLAY.get(), 64));
-  public static final RegistryObject<Item> BUCKET_CLAY_LIMEWATER = ITEMS.register("bucket_clay_limewater",
-      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_CLAY.get(), 64));
-  public static final RegistryObject<Item> BUCKET_CLAY_TANNIN = ITEMS.register("bucket_clay_tannin",
-      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_CLAY.get(), 64));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 32));
+  public static final RegistryObject<Item> BUCKET_CLAY_MILK = ITEMS.register("bucket_clay_milk",
+      () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
 
   // mytherine buckets
   public static final RegistryObject<Item> BUCKET_MYTHERINE = ITEMS.register("bucket_mytherine",
       () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
-  public static final RegistryObject<Item> BUCKET_MYTHERINE_WATER = ITEMS.register("bucket_mytherine_water",
-      () -> new Bucket(() -> Fluids.WATER, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
-  public static final RegistryObject<Item> BUCKET_MYTHERINE_LIMEWATER = ITEMS.register("bucket_mytherine_limewater",
-      () -> new Bucket(ModFluids.LIMEWATER::get, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
-  public static final RegistryObject<Item> BUCKET_MYTHERINE_TANNIN = ITEMS.register("bucket_mytherine_tannin",
-      () -> new Bucket(ModFluids.TANNIN::get, ModToolItems.BUCKET_MYTHERINE.get(), 6400000));
+  public static final RegistryObject<Item> BUCKET_MYTHERINE_MILK = ITEMS.register("bucket_mytherine_milk",
+      () -> new MilkBucket(ModToolItems.BUCKET_MYTHERINE.get(), 0));
+
 
   // shears (maxDmg iron: 238)
   public static final RegistryObject<ShearsItem> SHEARS_COPPER = ITEMS.register("shears_copper",

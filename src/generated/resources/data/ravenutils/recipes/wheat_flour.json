@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "grinding",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "ravenutils:mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:wheat_flour",
+    "count": 2
+  }
+}

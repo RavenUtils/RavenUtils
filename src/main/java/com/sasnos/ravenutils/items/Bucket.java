@@ -1,170 +1,315 @@
 package com.sasnos.ravenutils.items;
 
 
-import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IBucketPickupHandler;
-import net.minecraft.block.ILiquidContainer;
+import net.minecraft.block.*;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.ForgeI18n;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
-import java.util.function.Supplier;
 
-public class Bucket extends BucketItem {
+import static net.minecraft.util.math.RayTraceContext.FluidMode;
+import static net.minecraft.util.math.RayTraceResult.Type;
+
+public class Bucket extends BaseBucketItem {
   
-  public Bucket(Supplier<Fluid> supplier, Item containerItemIn, int maxDamage) {
-    super(supplier, new Properties()
-        .group(RavenUtils.TAB)
+  public Bucket(Item containerItemIn, int maxDamage) {
+    super(new Properties()
         .maxStackSize(1)
         .containerItem(containerItemIn)
         .maxDamage(maxDamage)
         .setNoRepair());
   }
+  /* Bucket behavior */
 
   @Override
-  public boolean hasContainerItem(ItemStack stack) {
-    return true;
-  }
+  public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+    ItemStack stack = player.getHeldItem(hand);
+    Fluid fluid = this.getFluid(stack);
+    BlockRayTraceResult trace = rayTrace(world, player, fluid == Fluids.EMPTY ? FluidMode.SOURCE_ONLY : FluidMode.NONE);
 
-  @Override
-  public ItemStack getContainerItem(ItemStack itemstack) {
-    ItemStack containerItem = super.getContainerItem(itemstack);
-    ItemStack stack = itemstack.copy();
-
-    containerItem.setDamage(stack.getDamage());
-    if (containerItem.getMaxDamage() - containerItem.getDamage() <= 1) {
-      containerItem.shrink(1);
-    } else {
-      containerItem.attemptDamageItem(1, random, null);
+    // fire Forge event for bucket use
+    ActionResult<ItemStack> ret = ForgeEventFactory.onBucketUse(player, world, stack, trace);
+    if (ret != null) {
+      return ret;
     }
-    return containerItem;
-  }
 
-  @Override
-  public ICapabilityProvider initCapabilities(ItemStack stack, @org.jetbrains.annotations.Nullable CompoundNBT nbt) {
-    return super.initCapabilities(stack, nbt);
-  }
+    // if we missed, do nothing
+    if (trace.getType() != Type.BLOCK) {
+      return ActionResult.resultPass(stack);
+    }
 
-  @Override
-  public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-    ItemStack itemstack = playerIn.getHeldItem(handIn);
-    RayTraceResult raytraceresult = rayTrace(worldIn, playerIn, this.getFluid() == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
-    ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, worldIn, itemstack, raytraceresult);
-    if (ret != null) return ret;
-    if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-      return ActionResult.resultPass(itemstack);
-    } else if (raytraceresult.getType() != RayTraceResult.Type.BLOCK) {
-      return ActionResult.resultPass(itemstack);
-    } else {
-      BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceresult;
-      BlockPos blockpos = blockraytraceresult.getPos();
-      Direction direction = blockraytraceresult.getFace();
-      BlockPos blockpos1 = blockpos.offset(direction);
-      if (worldIn.isBlockModifiable(playerIn, blockpos) && playerIn.canPlayerEdit(blockpos1, direction, itemstack)) {
-        if (this.getFluid() == Fluids.EMPTY) {
-          BlockState blockstate1 = worldIn.getBlockState(blockpos);
-          if (blockstate1.getBlock() instanceof IBucketPickupHandler) {
-            Fluid fluid = ((IBucketPickupHandler) blockstate1.getBlock()).pickupFluid(worldIn, blockpos, blockstate1);
-            if (fluid != Fluids.EMPTY) {
-              playerIn.addStat(Stats.ITEM_USED.get(this));
+    // normal fluid logic
+    BlockPos pos = trace.getPos();
+    Direction direction = trace.getFace();
+    BlockPos offset = pos.offset(direction);
 
-              SoundEvent soundevent = this.getFluid().getAttributes().getFillSound();
-              boolean bucketBurnable = false;
+    // ensure we can place a fluid there
+    if (world.isBlockModifiable(player, pos) && player.canPlayerEdit(offset, direction, stack)) {
+      BlockState state = world.getBlockState(pos);
+      Block block = state.getBlock();
+      if (block == Blocks.CAULDRON && !player.isCrouching()) {
+        ActionResult<ItemStack> result = interactWithCauldron(world, pos, state, player, stack, fluid);
+        if (result.getType() != ActionResultType.PASS) {
+          return result;
+        }
+      }
 
-              if (fluid.isIn(FluidTags.LAVA)) {
-                Item bucket = playerIn.getActiveItemStack().getItem();
-                if (bucket == ModToolItems.BUCKET_WOOD.get()
-                    || bucket == ModToolItems.BUCKET_CLAY.get()
-                //    || bucket.isIn()
-                ) {
-                  bucketBurnable = true;
-                }
-              }
+      if (fluid == Fluids.EMPTY) {
+        if (block instanceof IBucketPickupHandler) {
+          Fluid newFluid = ((IBucketPickupHandler)block).pickupFluid(world, pos, state);
+          if (newFluid != Fluids.EMPTY) {
+            player.addStat(Stats.ITEM_USED.get(this));
 
-              if (bucketBurnable) {
-                soundevent = SoundEvents.BLOCK_LAVA_EXTINGUISH;
-                playerIn.playSound(soundevent, 1.0F, 1.0F);
-                playerIn.getActiveItemStack().shrink(1);
-
-                return ActionResult.resultFail(itemstack);
-              } else {
-                Item bucket = playerIn.getActiveItemStack().getItem();
-
-                if (soundevent == null) {
-                  soundevent = SoundEvents.ITEM_BUCKET_FILL;
-                }
-                playerIn.playSound(soundevent, 1.0F, 1.0F);
-                ItemStack itemstack1 = DrinkHelper.fill(itemstack, playerIn, new ItemStack(fluid.getFilledBucket()));
-
-                if (!worldIn.isRemote) {
-                  CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) playerIn, new ItemStack(fluid.getFilledBucket()));
-                }
-
-                return ActionResult.func_233538_a_(itemstack1, worldIn.isRemote());
-              }
+            // play sound effect
+            SoundEvent sound = newFluid.getAttributes().getFillSound();
+            if (sound == null) {
+              sound = newFluid.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_FILL_LAVA : SoundEvents.ITEM_BUCKET_FILL;
             }
-          }
-
-          return ActionResult.resultFail(itemstack);
-        } else {
-          BlockState blockstate = worldIn.getBlockState(blockpos);
-          BlockPos blockpos2 = canBlockContainFluid(worldIn, blockpos, blockstate) ? blockpos : blockpos1;
-          if (this.tryPlaceContainedLiquid(playerIn, worldIn, blockpos2, blockraytraceresult)) {
-            this.onLiquidPlaced(worldIn, itemstack, blockpos2);
-            if (playerIn instanceof ServerPlayerEntity) {
-              CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity) playerIn, blockpos2, itemstack);
+            player.playSound(sound, 1.0F, 1.0F);
+            ItemStack newStack = updateBucket(stack, player, withFluid(newFluid));
+            if (!world.isRemote()) {
+              CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity)player, newStack.copy());
             }
 
-            playerIn.addStat(Stats.ITEM_USED.get(this));
-            return ActionResult.func_233538_a_(this.emptyBucket(itemstack, playerIn), worldIn.isRemote());
-          } else {
-            return ActionResult.resultFail(itemstack);
+            return ActionResult.resultSuccess(newStack);
           }
         }
       } else {
-        return ActionResult.resultFail(itemstack);
+        BlockPos fluidPos = state.getBlock() instanceof ILiquidContainer && fluid == Fluids.WATER ? pos : offset;
+        if (this.tryPlaceContainedLiquid(player, world, fluidPos, stack, trace)) {
+          onLiquidPlaced(fluid, world, stack, fluidPos);
+          if (player instanceof ServerPlayerEntity) {
+            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity)player, fluidPos, stack);
+          }
+
+          player.addStat(Stats.ITEM_USED.get(this));
+          return ActionResult.resultSuccess(emptyBucket(stack, player));
+        }
+      }
+    }
+    return ActionResult.resultFail(stack);
+  }
+
+  /**
+   * Called when a liquid is placed in world
+   * @param fluid  Fluid to place
+   * @param world  World instance
+   * @param stack  Stack instance
+   * @param pos    Position to place the world
+   */
+  private static void onLiquidPlaced(Fluid fluid, World world, ItemStack stack, BlockPos pos) {
+    // TODO: is this bad?
+    Item item = fluid.getFilledBucket();
+    if (item instanceof BucketItem) {
+      ((BucketItem)item).onLiquidPlaced(world, stack, pos);
+    }
+  }
+
+  // TODO: possibly migrate to the Forge method
+  @SuppressWarnings("deprecation")
+  private boolean tryPlaceContainedLiquid(@Nullable PlayerEntity player, World world, BlockPos pos, ItemStack stack, @Nullable BlockRayTraceResult trace) {
+    Fluid fluidStack = this.getFluid(stack);
+    Fluid fluid = fluidStack.getFluid();
+    if (!(fluid instanceof FlowingFluid)) {
+      return false;
+    }
+
+    BlockState state = world.getBlockState(pos);
+    Block block = state.getBlock();
+    boolean replaceable = state.isReplaceable(fluid);
+    if (state.isAir(world, pos) || replaceable || block instanceof ILiquidContainer && ((ILiquidContainer)block).canContainFluid(world, pos, state, fluid)) {
+      if (world.getDimensionType().isUltrawarm() && fluid.isIn(FluidTags.WATER)) {
+        world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
+
+        for(int l = 0; l < 8; ++l) {
+          world.addParticle(ParticleTypes.LARGE_SMOKE, pos.getX() + Math.random(), pos.getY() + Math.random(), pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
+        }
+      } else if (block instanceof ILiquidContainer && fluid == Fluids.WATER) {
+        if (((ILiquidContainer)block).receiveFluid(world, pos, state, ((FlowingFluid)fluid).getStillFluidState(false))) {
+          this.playEmptySound(fluid, player, world, pos);
+        }
+      } else {
+        if (!world.isRemote() && replaceable && !state.getMaterial().isLiquid()) {
+          world.destroyBlock(pos, true);
+        }
+
+        this.playEmptySound(fluid, player, world, pos);
+        world.setBlockState(pos, fluid.getDefaultState().getBlockState(), 11);
+      }
+
+      return true;
+    }
+    if (trace == null) {
+      return false;
+    }
+    return this.tryPlaceContainedLiquid(player, world, trace.getPos().offset(trace.getFace()), stack, null);
+  }
+
+  /**
+   * Plays the sound on emptying the bucket
+   * @param fluid   Fluid placed
+   * @param player  Player accessing the bucket
+   * @param world   World instance
+   * @param pos     Position of sound
+   */
+  private void playEmptySound(Fluid fluid, @Nullable PlayerEntity player, IWorld world, BlockPos pos) {
+    SoundEvent sound = fluid.getAttributes().getEmptySound();
+    if (sound == null) {
+      sound = fluid.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
+    }
+    world.playSound(player, pos, sound, SoundCategory.BLOCKS, 1.0F, 1.0F);
+  }
+
+  /**
+   * Interacts with a cauldron block
+   * @param world   World instance
+   * @param pos     Position of the cauldron
+   * @param state   Cauldron state
+   * @param player  Interacting player
+   * @param stack   Bucket stack
+   * @param fluid   Contained fluid
+   * @return  Action result from interaction, pass means failed to interact with a cauldron
+   */
+  private ActionResult<ItemStack> interactWithCauldron(World world, BlockPos pos, BlockState state, @Nullable PlayerEntity player, ItemStack stack, Fluid fluid) {
+    // if the bucket is empty, try filling from the cauldron
+    int level = state.get(CauldronBlock.LEVEL);
+    if (fluid == Fluids.EMPTY) {
+      // if empty, try emptying
+      if(level == 3) {
+        // empty cauldron logic
+        if(player != null) {
+          player.addStat(Stats.USE_CAULDRON);
+        }
+        if(!world.isRemote()) {
+          ((CauldronBlock)Blocks.CAULDRON).setWaterLevel(world, pos, state, 0);
+        }
+        world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        return ActionResult.resultSuccess(withFluid(Fluids.WATER));
+      }
+    } else if(fluid == Fluids.WATER) {
+      // fill cauldron if not full
+      if(level < 3) {
+        if(player != null) {
+          player.addStat(Stats.FILL_CAULDRON);
+        }
+        if(!world.isRemote) {
+          ((CauldronBlock)Blocks.CAULDRON).setWaterLevel(world, pos, state, 3);
+        }
+        world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+        // return empty bucket
+        return ActionResult.resultSuccess(stack.getContainerItem());
+      }
+    } else {
+      // pass if not empty or water
+      return ActionResult.resultPass(stack);
+    }
+    // consume so we do not accidentally place water next to the cauldron, consistency with vanilla
+    return ActionResult.resultSuccess(stack);
+  }
+
+  @Override
+  public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
+    // only work if the bucket is empty and right clicking a cow
+    if(!player.isCreative() && !hasFluid(stack) && target instanceof CowEntity && !target.isChild()) {
+      // sound
+      player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 1.0F);
+      if (!player.getEntityWorld().isRemote()) {
+        addItem(player, withMilk());
+        stack.shrink(1);
+      }
+      return ActionResultType.SUCCESS;
+    }
+    return ActionResultType.PASS;
+  }
+
+
+  /* Item stack properties */
+
+  // TODO: perhaps separate filled and empty?
+  @Override
+  public int getItemStackLimit(ItemStack stack) {
+    // empty stacks to 16
+    return hasFluid(stack) ? 1 : 16;
+  }
+
+  @Override
+  public int getBurnTime(ItemStack stack) {
+    return getFluid(stack) == Fluids.LAVA ? 20000 : 0;
+  }
+
+  @Override
+  public ITextComponent getDisplayName(ItemStack stack) {
+    Fluid fluid = getFluid(stack);
+    ITextComponent component;
+    if(fluid == Fluids.EMPTY) {
+      component = super.getDisplayName(stack);
+    } else {
+      // if the specific fluid is translatable, use that
+      String key = this.getTranslationKey(stack);
+      ResourceLocation location = fluid.getRegistryName();
+      assert location != null;
+      String fluidKey = String.format("%s.%s.%s", key, location.getNamespace(), location.getPath());
+      if (ForgeI18n.getPattern(fluidKey).equals(fluidKey)) {
+        component = new TranslationTextComponent(key + ".filled", new FluidStack(fluid, FluidAttributes.BUCKET_VOLUME).getDisplayName());
+      } else {
+        component = new TranslationTextComponent(fluidKey);
+      }
+    }
+    // display name in red
+    return component;
+  }
+
+  @Override
+  public void fillItemGroup(ItemGroup tab, NonNullList<ItemStack> subItems) {
+    if (this.isInGroup(tab)) {
+      subItems.add(new ItemStack(this));
+      // add all fluids that the bucket can be filled with
+      for(Fluid fluid : ForgeRegistries.FLUIDS.getValues()) {
+        // skip flowing fluids (we have still) and milks
+        // include cracked if cracked, non-cracked if not cracked
+        if (isVisible(fluid)) {
+          subItems.add(setFluid(new ItemStack(this), fluid));
+        }
       }
     }
   }
 
-  @Override
-  protected ItemStack emptyBucket(ItemStack stack, PlayerEntity player) {
-    return getContainerItem(stack);
-  }
-
-  @Override
-  protected void playEmptySound(@Nullable PlayerEntity player, IWorld worldIn, BlockPos pos) {
-    SoundEvent soundevent = this.getFluid().getAttributes().getEmptySound();
-    if (soundevent == null)
-      soundevent = this.getFluid().isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
-    worldIn.playSound(player, pos, soundevent, SoundCategory.BLOCKS, 1.0F, 1.0F);
-  }
-
-  @Override
-  public boolean tryPlaceContainedLiquid(@Nullable PlayerEntity player, World worldIn, BlockPos posIn, @Nullable BlockRayTraceResult rayTrace) {
-    return super.tryPlaceContainedLiquid(player, worldIn, posIn, rayTrace);
-  }
-
-  private boolean canBlockContainFluid(World worldIn, BlockPos posIn, BlockState blockstate) {
-    return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer) blockstate.getBlock()).canContainFluid(worldIn, posIn, blockstate, this.getFluid());
+  /**
+   * Checks if the given fluid is visible in creative
+   * @param fluid  Fluid to check
+   * @return  True if its visible
+   */
+  private static boolean isVisible(Fluid fluid) {
+    // hide empty and milk (milk shows in its own bucket
+    if (fluid == Fluids.EMPTY || isMilk(fluid)) {
+      return false;
+    }
+    return fluid.getDefaultState().isSource();
   }
 }

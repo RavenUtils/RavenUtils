@@ -125,6 +125,10 @@ dependencies {
     compile 'org.jetbrains:annotations:16.0.2'
 }
 
+project.afterEvaluate {
+    minecraft.runs.data.args('--existing', configurations.minecraft.asPath.split(":").toList().find { it.contains("forge") }.split(";")[0])
+}
+
 repositories {
     maven {
         // location of the maven that hosts JEI files
