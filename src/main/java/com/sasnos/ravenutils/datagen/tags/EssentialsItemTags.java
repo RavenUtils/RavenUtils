@@ -44,6 +44,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
   public static ITag.INamedTag<Item> grasses_tall = ItemTags.makeWrapperTag("forge:grasses/tall");
   public static ITag.INamedTag<Item> slimeballs = ItemTags.makeWrapperTag("forge:slimeballs");
   public static ITag.INamedTag<Item> raw_meat = ItemTags.makeWrapperTag("forge:meat/raw");
+  public static ITag.INamedTag<Item> flours = ItemTags.makeWrapperTag("forge:flours");
   public static ITag.INamedTag<Item> salts = ItemTags.makeWrapperTag("forge:salts");
   public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("forge:boats");
   public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("forge:coals");
@@ -108,6 +109,10 @@ public class EssentialsItemTags extends ItemTagsProvider {
         Items.PORKCHOP,
         Items.CHICKEN,
         ModFoodItems.BUSHMEAT.get()
+    );
+
+    getOrCreateBuilder(flours).add(
+        ModFoodItems.WHEAT_FLOUR.get()
     );
 
     getOrCreateBuilder(strings).add(ModItems.PLANT_TWINE.get());

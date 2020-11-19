@@ -28,7 +28,24 @@ public class EssentialsRecipe extends RecipeProvider {
         .setGroup("grinding")
         .build(consumer);
 
+    ShapelessRecipeBuilder.shapelessRecipe(ModFoodItems.WHEAT_FLOUR.get(), 2)
+        .addIngredient(Items.WHEAT)
+        .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
+        .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
+        .setGroup("grinding")
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModFoodItems.DOUGH.get())
+        .addIngredient(ModFoodItems.WHEAT_FLOUR.get())
+        .addIngredient(ModFoodItems.WHEAT_FLOUR.get())
+        .addIngredient(ModItems.SALT.get())
+        .addIngredient(Items.WATER_BUCKET)
+        .addCriterion("has_wheat_flour", hasItem(ModFoodItems.WHEAT_FLOUR.get()))
+        .setGroup("cooking")
+        .build(consumer);
+
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.HIDE_CURED.get())
+        .addIngredient(ModItems.COARSE_SALT.get())
         .addIngredient(ModItems.COARSE_SALT.get())
         .addIngredient(ModItems.HIDE_FRESH.get())
         .addCriterion("has_hide_fresh", hasItem(ModItems.HIDE_FRESH.get()))

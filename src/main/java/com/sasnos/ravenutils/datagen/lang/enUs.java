@@ -79,8 +79,8 @@ public class enUs extends LanguageProvider {
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
     add(ModFoodItems.DUCK_EGG.get(), "Duck Egg");
-    add(ModFoodItems.FLOUR.get(), "Flour");
-    add(ModItems.COARSE_SALT.get(), "Stone Salt");
+    add(ModFoodItems.WHEAT_FLOUR.get(), "Wheat Flour");
+    add(ModItems.COARSE_SALT.get(), "Coarse Salt");
     add(ModItems.SALT.get(), "Salt");
     add(ModFoodItems.DOUGH.get(), "Dough");
     add(ModItems.TALLOW.get(), "Tallow");
