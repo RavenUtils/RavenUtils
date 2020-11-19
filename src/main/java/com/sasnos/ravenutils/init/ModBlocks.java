@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.block.EssentialsWoodTypes;
+import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
 import com.sasnos.ravenutils.blocks.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

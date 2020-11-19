@@ -2,8 +2,8 @@ package com.sasnos.ravenutils.items;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModToolItems;
-import com.sasnos.ravenutils.util.EssentialsFluidBucketWrapper;
-import com.sasnos.ravenutils.util.tags.EssentialsTags;
+import com.sasnos.ravenutils.utils.EssentialsFluidBucketWrapper;
+import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;

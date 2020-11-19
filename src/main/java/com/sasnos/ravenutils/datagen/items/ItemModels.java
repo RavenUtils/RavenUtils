@@ -10,7 +10,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.loaders.DynamicBucketModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import static com.sasnos.ravenutils.util.EssentialsUtils.resourceLocation;
+import static com.sasnos.ravenutils.utils.EssentialsUtils.resourceLocation;
 
 public class ItemModels extends ItemModelProvider {
 

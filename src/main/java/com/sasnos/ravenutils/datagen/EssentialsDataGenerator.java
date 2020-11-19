@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.datagen;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.datagen.blockStates.BlockStates;
-import com.sasnos.ravenutils.datagen.globalLootModifer.EssentialsLootModifier;
+import com.sasnos.ravenutils.datagen.block_states.BlockStates;
+import com.sasnos.ravenutils.datagen.global_loot_modifer.EssentialsLootModifier;
 import com.sasnos.ravenutils.datagen.items.ItemModels;
 import com.sasnos.ravenutils.datagen.lang.enUs;
 import com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe;

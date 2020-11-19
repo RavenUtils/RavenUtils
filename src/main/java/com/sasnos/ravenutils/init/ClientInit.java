@@ -1,10 +1,10 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.blocks.modules.alloyfurnace.EssentialsAlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.alloyfurnace.EssentialsFurnaceScreen;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsFurnaceScreen;
 import com.sasnos.ravenutils.render.SignRenderer;
-import com.sasnos.ravenutils.util.EssentialsUtils;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.DynamicBucketModel;

@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.blocks;
 
-import com.sasnos.ravenutils.container.StoneCraftingTableContainer;
+import com.sasnos.ravenutils.containers.StoneCraftingTableContainer;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;

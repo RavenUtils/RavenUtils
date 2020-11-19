@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.lootModifier.PassiveEntityLootModifier;
+import com.sasnos.ravenutils.loot_modifiers.PassiveEntityLootModifier;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

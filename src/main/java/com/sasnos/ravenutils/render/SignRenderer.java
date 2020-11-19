@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.sasnos.ravenutils.tileEntities.SignTileEntity;
+import com.sasnos.ravenutils.tile_entities.SignTileEntity;
 import net.minecraft.block.*;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Atlases;
