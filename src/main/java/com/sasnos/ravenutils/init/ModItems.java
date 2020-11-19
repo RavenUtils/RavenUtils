@@ -58,7 +58,7 @@ public class ModItems {
   public static final RegistryObject<Item> LEATHER_STRIP = ITEMS.register("leather_strip", ItemBase::new);
   public static final RegistryObject<Item> COAL_DUST = ITEMS.register("coal_dust", ItemBase::new);
   public static final RegistryObject<Item> CHARCOAL_DUST = ITEMS.register("charcoal_dust", ItemBase::new);
-  public static final RegistryObject<Item> QUARTZ_DUST = ITEMS.register("quartz_dust", ItemBase::new);
+  public static final RegistryObject<Item> QUARTZ_SAND = ITEMS.register("quartz_sand", ItemBase::new);
   public static final RegistryObject<Item> CLOTH = ITEMS.register("cloth", ItemBase::new);
   public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre", ItemBase::new);
   public static final RegistryObject<Item> DRIED_PLANT_FIBRE = ITEMS.register("dried_plant_fibre", ItemBase::new);

@@ -221,7 +221,7 @@ public class enUs extends LanguageProvider {
     add(ModItems.BLACK_COAL.get(), "Black Coal");
     add(ModItems.COAL_DUST.get(), "Coal Dust");
     add(ModItems.CHARCOAL_DUST.get(), "Charcoal Dust");
-    add(ModItems.QUARTZ_DUST.get(), "Quartz Dust");
+    add(ModItems.QUARTZ_SAND.get(), "Quartz Sand");
     add(ModItems.NITER.get(), "Niter");
     add(ModItems.SLAG.get(), "Slag");
     add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");

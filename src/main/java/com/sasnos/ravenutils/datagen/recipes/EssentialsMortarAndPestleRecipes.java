@@ -37,7 +37,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
         .build(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.QUARTZ_DUST.get())
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.QUARTZ_SAND.get())
         .addIngredient(Items.QUARTZ)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
