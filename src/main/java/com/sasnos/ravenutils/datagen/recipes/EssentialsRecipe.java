@@ -1,10 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.datagen.tags.EssentialsItemTags;
-import com.sasnos.ravenutils.init.ModArmorItems;
-import com.sasnos.ravenutils.init.ModBlockItems;
-import com.sasnos.ravenutils.init.ModFoodItems;
-import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -23,6 +20,20 @@ public class EssentialsRecipe extends RecipeProvider {
 
     new EssentialsCraftingRecipes(consumer);
     new EssentialsCookingRecipes(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SALT.get())
+        .addIngredient(ModItems.COARSE_SALT.get())
+        .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
+        .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
+        .setGroup("grinding")
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.HIDE_CURED.get())
+        .addIngredient(ModItems.COARSE_SALT.get())
+        .addIngredient(ModItems.HIDE_FRESH.get())
+        .addCriterion("has_hide_fresh", hasItem(ModItems.HIDE_FRESH.get()))
+        .setGroup("hide_processing")
+        .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)

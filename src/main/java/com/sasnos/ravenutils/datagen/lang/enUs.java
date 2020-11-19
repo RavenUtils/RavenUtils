@@ -13,7 +13,7 @@ public class enUs extends LanguageProvider {
 
   @Override
   protected void addTranslations() {
-    add(RavenUtils.MOD_ID, "Raven Utils");
+    add(RavenUtils.TAB.getPath(), "Raven Utils");
 
     // ore blocks
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
@@ -80,6 +80,8 @@ public class enUs extends LanguageProvider {
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
     add(ModFoodItems.DUCK_EGG.get(), "Duck Egg");
     add(ModFoodItems.FLOUR.get(), "Flour");
+    add(ModItems.COARSE_SALT.get(), "Stone Salt");
+    add(ModItems.SALT.get(), "Salt");
     add(ModFoodItems.DOUGH.get(), "Dough");
     add(ModItems.TALLOW.get(), "Tallow");
     add(ModItems.GELATIN.get(), "Gelatin");
@@ -202,6 +204,7 @@ public class enUs extends LanguageProvider {
 
     // crafting material
     add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
+    add(ModItems.HIDE_CURED.get(), "Cured Hide");
     add(ModItems.HIDE_SCRAPED.get(), "Scraped Hide");
     add(ModItems.HIDE_LIMED.get(), "Limed Hide");
     add(ModItems.HIDE_TANNED.get(), "Tanned Hide");
@@ -215,7 +218,6 @@ public class enUs extends LanguageProvider {
     add(ModItems.LEATHER_STRIP.get(), "Leather Strip");
     add(ModItems.RESIN_DROP.get(), "Resin Drop");
     add(ModItems.RESIN_BALL.get(), "Ball of Resin");
-    add(ModItems.STONE_SALT.get(), "Stone Salt");
     add(ModItems.RAVEN_EYE_GEM.get(), "Raven Eye");
     add(ModItems.RAVEN_EYE_DUST.get(), "Raven Eye Dust");
     add(ModItems.BLACK_COAL.get(), "Black Coal");

@@ -111,7 +111,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
     );
 
     getOrCreateBuilder(strings).add(ModItems.PLANT_TWINE.get());
-    getOrCreateBuilder(salts).add(ModItems.STONE_SALT.get());
+    getOrCreateBuilder(salts).add(ModItems.SALT.get());
 
     getOrCreateBuilder(coals_stone).add(
         ModItems.BLACK_COAL.get(),

@@ -43,7 +43,8 @@ public class ModItems {
   public static final RegistryObject<Item> LEAD_NUGGET = ITEMS.register("lead_nugget", ItemBase::new);
   public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", ItemBase::new);
   public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", ItemBase::new);
-  public static final RegistryObject<Item> STONE_SALT = ITEMS.register("stone_salt", ItemBase::new);
+  public static final RegistryObject<Item> COARSE_SALT = ITEMS.register("coarse_salt", ItemBase::new);
+  public static final RegistryObject<Item> SALT = ITEMS.register("salt", ItemBase::new);
   public static final RegistryObject<Item> TALLOW = ITEMS.register("tallow", ItemBase::new);
   public static final RegistryObject<Item> RESIN_DROP = ITEMS.register("resin_drop", ItemBase::new);
   public static final RegistryObject<Item> RESIN_BALL = ITEMS.register("resin_ball", ItemBase::new);
@@ -65,6 +66,7 @@ public class ModItems {
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
 
   public static final RegistryObject<Item> HIDE_FRESH = ITEMS.register("hide_fresh", ItemBase::new);
+  public static final RegistryObject<Item> HIDE_CURED = ITEMS.register("hide_cured", ItemBase::new);
   public static final RegistryObject<Item> HIDE_SCRAPED = ITEMS.register("hide_scraped", ItemBase::new);
   public static final RegistryObject<Item> HIDE_LIMED = ITEMS.register("hide_limed", ItemBase::new);
   public static final RegistryObject<Item> HIDE_TANNED = ITEMS.register("hide_tanned", ItemBase::new);
