@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.datagen.lootTables;
+package com.sasnos.ravenutils.datagen.globalLootModifierSerializer;
 
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.DataGenerator;

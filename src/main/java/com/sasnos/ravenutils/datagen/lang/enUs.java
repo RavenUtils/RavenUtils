@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen.lang;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.item.Items;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class enUs extends LanguageProvider {
@@ -197,6 +198,7 @@ public class enUs extends LanguageProvider {
     add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");
 
     // crafting material
+    add(Items.QUARTZ, "Quartz");
     add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
     add(ModItems.HIDE_CURED.get(), "Cured Hide");
     add(ModItems.HIDE_SCRAPED.get(), "Scraped Hide");
@@ -214,11 +216,12 @@ public class enUs extends LanguageProvider {
     add(ModItems.RESIN_BALL.get(), "Ball of Resin");
     add(ModItems.RAVEN_EYE_GEM.get(), "Raven Eye");
     add(ModItems.RAVEN_EYE_DUST.get(), "Raven Eye Dust");
-    add(ModItems.BLACK_COAL.get(), "Black Coal");
     add(ModItems.LIME.get(), "Lime");
     add(ModItems.SULFUR.get(), "Sulfur");
+    add(ModItems.BLACK_COAL.get(), "Black Coal");
     add(ModItems.COAL_DUST.get(), "Coal Dust");
     add(ModItems.CHARCOAL_DUST.get(), "Charcoal Dust");
+    add(ModItems.QUARTZ_DUST.get(), "Quartz Dust");
     add(ModItems.NITER.get(), "Niter");
     add(ModItems.SLAG.get(), "Slag");
     add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");

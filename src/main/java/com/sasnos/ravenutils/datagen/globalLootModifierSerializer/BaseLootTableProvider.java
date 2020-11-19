@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.datagen.lootTables;
+package com.sasnos.ravenutils.datagen.globalLootModifierSerializer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
