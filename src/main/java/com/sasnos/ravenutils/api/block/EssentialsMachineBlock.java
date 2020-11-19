@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.api.block;
 
-import com.sasnos.ravenutils.api.tilenetiy.EssentialsCommonTileEntity;
-import com.sasnos.ravenutils.api.tilenetiy.EssentialsMachineTileEntity;
+import com.sasnos.ravenutils.api.tilenEntity.EssentialsCommonTileEntity;
+import com.sasnos.ravenutils.api.tilenEntity.EssentialsMachineTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

@@ -60,8 +60,8 @@ public class PassiveEntityLootModifier extends MobLootModifier {
 
   @Override
   protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-
     int looting = context.getLootingModifier();
+
     if (hideDropRange.getMax() > 0) {
       ItemStack item;
       if (applyLootingHide) {
@@ -69,7 +69,6 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       } else {
         item = new ItemStack(ModItems.HIDE_FRESH.get(), hideDropRange.generateInt(context.getRandom()));
       }
-
       generatedLoot.add(item);
     }
 
@@ -77,12 +76,12 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       ItemStack item;
       Item contextMeat;
       Entity entity = context.get(LootParameters.THIS_ENTITY);
+
       if (entity != null && entity.isBurning()) {
         contextMeat = ((Smelt) Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
       } else {
         contextMeat = meat;
       }
-
       generatedLoot.removeIf(itemStack -> itemStack.getItem() == contextMeat);
 
       if (applyLootingMeat) {
@@ -100,7 +99,6 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       } else {
         item = new ItemStack(ModItems.TALLOW.get(), tallowDropRange.generateInt(context.getRandom()));
       }
-
       generatedLoot.add(item);
     }
 
@@ -111,7 +109,6 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       } else {
         item = new ItemStack(Items.BONE, boneDropRange.generateInt(context.getRandom()));
       }
-
       generatedLoot.add(item);
     }
 
@@ -130,7 +127,6 @@ public class PassiveEntityLootModifier extends MobLootModifier {
 
     return generatedLoot;
   }
-
 
   public static class Serializer extends GlobalLootModifierSerializer<PassiveEntityLootModifier> {
 
@@ -194,12 +190,13 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       json.addProperty("applyLootTallow", instance.applyLootingTallow);
       json.addProperty("minMeat", instance.meatDropRange.getMin());
       json.addProperty("maxMeat", instance.meatDropRange.getMax());
-      if(instance.meat != null){
+
+      if (instance.meat != null) {
         json.addProperty("meat", ForgeRegistries.ITEMS.getKey(instance.meat.getItem()).toString());
-      }
-      else{
+      } else {
         json.addProperty("meat", (String) null);
       }
+
       json.addProperty("applyLootMeat", instance.applyLootingMeat);
       json.addProperty("minBone", instance.boneDropRange.getMin());
       json.addProperty("maxBone", instance.boneDropRange.getMax());
@@ -215,12 +212,10 @@ public class PassiveEntityLootModifier extends MobLootModifier {
         itemstack.addProperty("useLooting", additionalItem.useLootEnchant);
         additional.add(itemstack);
       }
+
       json.add("additional", additional);
 
       return json;
     }
-
   }
-
-
 }

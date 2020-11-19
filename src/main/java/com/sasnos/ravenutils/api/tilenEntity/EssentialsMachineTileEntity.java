@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.tilenetiy;
+package com.sasnos.ravenutils.api.tilenEntity;
 
 import com.sasnos.ravenutils.api.recipes.ICommonRecipe;
 import net.minecraft.block.AbstractFurnaceBlock;

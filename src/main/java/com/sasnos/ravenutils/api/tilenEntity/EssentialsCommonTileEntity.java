@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.tilenetiy;
+package com.sasnos.ravenutils.api.tilenEntity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;

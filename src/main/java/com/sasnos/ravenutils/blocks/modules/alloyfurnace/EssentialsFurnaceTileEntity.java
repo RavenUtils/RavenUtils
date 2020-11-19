@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.blocks.modules.alloyfurnace;
 
-import com.sasnos.ravenutils.api.tilenetiy.EssentialsMachineTileEntity;
+import com.sasnos.ravenutils.api.tilenEntity.EssentialsMachineTileEntity;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.recipies.alloyrecipie.AlloyRecipe;
 import net.minecraft.entity.player.PlayerEntity;
