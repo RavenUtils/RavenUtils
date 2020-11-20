@@ -16,15 +16,18 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 public abstract class BaseBucketItem extends Item {
 
     /** Tag name for fluid in a bucket */
     private static final String TAG_FLUID = "fluid";
 
-    public BaseBucketItem(Properties properties) {
-        super(properties.group(RavenUtils.TAB));
+    protected Supplier<Item> milkBucket;
 
+    public BaseBucketItem(Properties properties, @org.jetbrains.annotations.Nullable Supplier<Item>  milkBucket) {
+        super(properties.group(RavenUtils.TAB));
+        this.milkBucket = milkBucket;
     }
 
 
@@ -121,17 +124,27 @@ public abstract class BaseBucketItem extends Item {
 
     /**
      * Returns the stack with the specified fluid
+     *
+     * @param stack
      * @param fluid  Fluid for the bucket
      * @return  Clay bucket containing the given fluid
      */
-    public ItemStack withFluid(Fluid fluid) {
+    public ItemStack withFluid(ItemStack stack, Fluid fluid) {
         // special case milk: returns the metadata version
         if (isMilk(fluid)) {
             return withMilk();
         }
 
+        Item bucket;
+        if(getContainerItem(stack) == ItemStack.EMPTY){
+            bucket = this;
+        }
+        else {
+            bucket = getContainerItem(stack).getItem();
+        }
+
         // return
-        return setFluid(new ItemStack(ModToolItems.BUCKET_CLAY.get()), fluid);
+        return setFluid(new ItemStack(bucket), fluid);
     }
 
     /**
@@ -150,7 +163,7 @@ public abstract class BaseBucketItem extends Item {
      * @return  Stack with milk
      */
     protected ItemStack withMilk() {
-        return new ItemStack(ModToolItems.BUCKET_CLAY_MILK.get());
+        return new ItemStack(milkBucket.get());
     }
 
     /**

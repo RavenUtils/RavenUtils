@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.items.*;
-import com.sasnos.ravenutils.utils.enums.ModItemTier;
+import com.sasnos.ravenutils.util.enums.ModItemTier;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -132,21 +132,28 @@ public class ModToolItems {
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
-      () -> new Bucket(ItemStack.EMPTY.getItem(), 32));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 32, ModToolItems.BUCKET_WOOD_MILK::get));
   public static final RegistryObject<Item> BUCKET_WOOD_MILK = ITEMS.register("bucket_wood_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_WOOD.get(), 32));
 
   // clay buckets
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
-      () -> new Bucket(ItemStack.EMPTY.getItem(), 32));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 64, ModToolItems.BUCKET_CLAY_MILK::get));
   public static final RegistryObject<Item> BUCKET_CLAY_MILK = ITEMS.register("bucket_clay_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
 
   // mytherine buckets
   public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_mytherine",
-      () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).maxStackSize(16).group(RavenUtils.TAB)));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 0, ModToolItems.BUCKET_CRIMWOOD_MILK::get));
   public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_mytherine_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
+
+  // iron bucket
+  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
+          () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+
+  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
+          () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
 
   // shears (maxDmg iron: 238)

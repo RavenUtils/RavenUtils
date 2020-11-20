@@ -31,7 +31,7 @@ public class EssentialsFluidBucketWrapper extends FluidBucketWrapper {
     } else {
       Item item = container.getItem();
       if (item instanceof BaseBucketItem) {
-        container = ((BaseBucketItem)item).withFluid(stack.getFluid());
+        container = ((BaseBucketItem)item).withFluid(container, stack.getFluid());
       } else {
         container = ItemStack.EMPTY;
       }
