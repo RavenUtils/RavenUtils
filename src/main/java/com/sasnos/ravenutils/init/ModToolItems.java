@@ -171,6 +171,10 @@ public class ModToolItems {
       () -> new Chisel(4096));
   public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
       () -> new Soap(32));
+  public static final RegistryObject<Item> BONE_NEEDLE = ITEMS.register("bone_needle",
+      () -> new Needle(32));
+  public static final RegistryObject<Item> IRON_NEEDLE = ITEMS.register("iron_needle",
+      () -> new Needle(256));
   public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
       () -> new Bedroll(128));
 }

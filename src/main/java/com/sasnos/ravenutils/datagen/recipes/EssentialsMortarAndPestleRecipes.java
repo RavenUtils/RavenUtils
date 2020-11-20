@@ -37,6 +37,12 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
         .build(consumer);
 
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.RAVEN_EYE_DUST.get())
+        .addIngredient(ModItems.RAVEN_EYE_GEM.get())
+        .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
+        .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
+        .build(consumer);
+
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.QUARTZ_SAND.get())
         .addIngredient(Items.QUARTZ)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
@@ -49,7 +55,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
         .build(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SALT.get(), 2)
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SALT.get())
         .addIngredient(ModItems.COARSE_SALT.get())
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))

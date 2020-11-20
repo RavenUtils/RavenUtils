@@ -24,6 +24,7 @@ public class EssentialsRecipe extends RecipeProvider {
 
     new EssentialsMortarAndPestleRecipes(consumer);
     new EssentialsMetalsCraftingRecipes(consumer);
+    new EssentialsCombatCraftingRecipes(consumer);
   }
 
   // expose the protected internal methods so i can use tem in external classes

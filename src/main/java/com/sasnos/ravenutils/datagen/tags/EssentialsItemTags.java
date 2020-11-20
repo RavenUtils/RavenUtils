@@ -52,6 +52,11 @@ public class EssentialsItemTags extends ItemTagsProvider {
   public static ITag.INamedTag<Item> coals_wood = ItemTags.makeWrapperTag("forge:coals/wood");
   public static ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
 
+  public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
+  public static ITag.INamedTag<Item> water_buckets = ItemTags.makeWrapperTag("forge:buckets/water");
+  public static ITag.INamedTag<Item> lava_buckets = ItemTags.makeWrapperTag("forge:buckets/lava");
+  public static ITag.INamedTag<Item> milk_buckets = ItemTags.makeWrapperTag("forge:buckets/milk");
+
   public EssentialsItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
   }
@@ -74,6 +79,28 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.KNIFE_FLINT.get(),
         ModToolItems.KNIFE_IRON.get(),
         ModToolItems.KNIFE_DIAMOND.get()
+    );
+
+    getOrCreateBuilder(buckets).add(
+        Items.BUCKET,
+        ModToolItems.BUCKET_CLAY.get(),
+        ModToolItems.BUCKET_WOOD.get(),
+        ModToolItems.BUCKET_CRIMWOOD.get()
+    );
+
+    // todo custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(water_buckets).add(
+        Items.WATER_BUCKET
+    );
+
+    // todo custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(milk_buckets).add(
+        Items.MILK_BUCKET
+    );
+
+    // todo crimwood variant
+    getOrCreateBuilder(lava_buckets).add(
+        Items.LAVA_BUCKET
     );
 
     getOrCreateBuilder(axes).add(
