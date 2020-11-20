@@ -123,7 +123,6 @@ public class ModToolItems {
   public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
       () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
 
-  // @todo make Vanilla bucket (BUCKET_IRON below) breakable!
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
       () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
           .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
@@ -143,13 +142,13 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_CLAY_MILK = ITEMS.register("bucket_clay_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
 
-  // mytherine buckets
+  // crimwood buckets
   public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_mytherine",
       () -> new Bucket(ItemStack.EMPTY.getItem(), 0, ModToolItems.BUCKET_CRIMWOOD_MILK::get));
   public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_mytherine_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
 
-  // iron bucket
+  // iron bucket (Vanilla override)
   public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
       () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
 
