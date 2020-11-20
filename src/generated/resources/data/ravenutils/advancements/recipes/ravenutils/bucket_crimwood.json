@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:bucket_mytherine"
+      "ravenutils:bucket_crimwood"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:bucket_mytherine"
+        "recipe": "ravenutils:bucket_crimwood"
       }
     }
   },

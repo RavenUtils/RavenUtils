@@ -166,9 +166,9 @@ public class ModToolItems {
       () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
 
   // crimwood buckets
-  public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_mytherine",
+  public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_crimwood",
       () -> new Bucket(ItemStack.EMPTY.getItem(), 0, ModToolItems.BUCKET_CRIMWOOD_MILK::get));
-  public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_mytherine_milk",
+  public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_crimwood_milk",
       () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
 
   // iron bucket (Vanilla override)
