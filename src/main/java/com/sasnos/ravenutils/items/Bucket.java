@@ -102,7 +102,9 @@ public class Bucket extends BaseBucketItem {
 
             if(newFluid == Fluids.LAVA && bucketBurns(stack)) {
               stack.shrink(1);
-              world.setBlockState(player.getPosition(), Fluids.LAVA.getDefaultState().getBlockState());
+              Direction facing = player.getHorizontalFacing();
+              BlockPos position = player.getPosition();
+              world.setBlockState(position.offset(facing), Fluids.LAVA.getDefaultState().getBlockState());
               player.playSound(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1f, 1f);
               return ActionResult.resultFail(stack);
             }
