@@ -450,5 +450,12 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('s', Items.STONE_SLAB)
         .addCriterion("has_stone", hasItem(Items.STONE))
         .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get())
+        .patternLine("SS")
+        .patternLine("SS")
+        .key('S', Items.COBBLESTONE)
+        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
+        .build(consumer);
   }
 }
