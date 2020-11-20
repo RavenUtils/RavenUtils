@@ -4,6 +4,7 @@ import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.items.*;
 import com.sasnos.ravenutils.util.enums.ModItemTier;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -150,10 +151,10 @@ public class ModToolItems {
 
   // iron bucket
   public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
-          () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
 
   public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
-          () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
 
   // shears (maxDmg iron: 238)
@@ -178,10 +179,14 @@ public class ModToolItems {
       () -> new Chisel(4096));
   public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
       () -> new Soap(32));
-  public static final RegistryObject<Item> BONE_NEEDLE = ITEMS.register("bone_needle",
+  public static final RegistryObject<Item> SEWING_NEEDLE_BONE = ITEMS.register("sewing_needle_bone",
       () -> new Needle(32));
-  public static final RegistryObject<Item> IRON_NEEDLE = ITEMS.register("iron_needle",
-      () -> new Needle(256));
+  public static final RegistryObject<Item> SEWING_NEEDLE_IRON = ITEMS.register("sewing_needle_iron",
+      () -> new Needle(128));
+  public static final RegistryObject<Item> BAG_CLOTH = ITEMS.register("bag_cloth",
+      () -> new Bag(ContainerType.GENERIC_9X2, id, player, 2));
+  public static final RegistryObject<Item> BAG_LEATHER = ITEMS.register("bag_leather",
+      () -> new Bag(ContainerType.GENERIC_9X4, id, player, 4));
   public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
       () -> new Bedroll(128));
 }

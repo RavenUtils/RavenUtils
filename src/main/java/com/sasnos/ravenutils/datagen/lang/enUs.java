@@ -173,8 +173,10 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.MORTAR_AND_PESTLE.get(), "Mortar and Pestle");
     add(ModToolItems.FIRESTARTER.get(), "Firestarter");
     add(ModToolItems.SOAP.get(), "Soap");
-    add(ModToolItems.BONE_NEEDLE.get(), "Bone Needle");
-    add(ModToolItems.IRON_NEEDLE.get(), "Iron Needle");
+    add(ModToolItems.SEWING_NEEDLE_BONE.get(), "Bone Sewing Needle");
+    add(ModToolItems.SEWING_NEEDLE_IRON.get(), "Iron Sewing Needle");
+    add(ModToolItems.BAG_CLOTH.get(), "Cloth Bag");
+    add(ModToolItems.BAG_LEATHER.get(), "Leather Bag");
     add(ModToolItems.BEDROLL.get(), "Bedroll");
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
     add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");

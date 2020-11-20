@@ -123,10 +123,15 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_hammer", hasItemTag(EssentialsItemTags.hammers))
         .build(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.IRON_NEEDLE.get())
-        .addIngredient(Items.IRON_NUGGET)
-        .addIngredient(EssentialsItemTags.hammers)
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_IRON.get())
+        .patternLine("xhx")
+        .patternLine("xix")
+        .patternLine("xxx")
+        .key('h', EssentialsItemTags.hammers)
+        .key('i', Items.IRON_NUGGET)
+        .key('x', EssentialsItemTags.strings)
         .addCriterion("has_hammer", hasItemTag(EssentialsItemTags.hammers))
+        .setGroup("sewing_needles")
         .build(consumer);
 
     // knife
@@ -169,10 +174,15 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_knife", hasItemTag(EssentialsItemTags.knives))
         .build(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BONE_NEEDLE.get(), 4)
-        .addIngredient(Items.BONE)
-        .addIngredient(EssentialsItemTags.knives)
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_BONE.get(), 2)
+        .patternLine("xhx")
+        .patternLine("xix")
+        .patternLine("xxx")
+        .key('h', EssentialsItemTags.knives)
+        .key('i', Items.BONE)
+        .key('x', EssentialsItemTags.strings)
         .addCriterion("has_knife", hasItemTag(EssentialsItemTags.knives))
+        .setGroup("sewing_needles")
         .build(consumer);
 
     // materials
@@ -341,9 +351,31 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("ccc")
         .patternLine("ccc")
         .key('s', EssentialsItemTags.strings)
-        .key('n', ModToolItems.BONE_NEEDLE.get())
+        .key('n', ModToolItems.SEWING_NEEDLE_BONE.get())
         .key('c', ModItems.CLOTH.get())
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BAG_CLOTH.get())
+        .patternLine("csc")
+        .patternLine("cnc")
+        .patternLine("ccc")
+        .key('s', EssentialsItemTags.strings)
+        .key('n', ModToolItems.SEWING_NEEDLE_BONE.get())
+        .key('c', ModItems.CLOTH.get())
+        .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
+        .setGroup("bags")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BAG_LEATHER.get())
+        .patternLine("lsl")
+        .patternLine("lnl")
+        .patternLine("lll")
+        .key('s', ModItems.LEATHER_STRIP.get())
+        .key('n', ModToolItems.SEWING_NEEDLE_BONE.get())
+        .key('l', Items.LEATHER)
+        .addCriterion("has_leather", hasItem(Items.LEATHER))
+        .setGroup("bags")
         .build(consumer);
 
     // miscellaneous
