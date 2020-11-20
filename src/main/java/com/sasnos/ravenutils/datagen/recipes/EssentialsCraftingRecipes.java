@@ -414,7 +414,5 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addIngredient(ItemTags.makeWrapperTag("forge:rods/wooden"))
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer);
-
-    // crimwood blocks
   }
 }

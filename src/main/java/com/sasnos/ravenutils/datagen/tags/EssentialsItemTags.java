@@ -47,7 +47,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
   public static ITag.INamedTag<Item> flours = ItemTags.makeWrapperTag("forge:flours");
   public static ITag.INamedTag<Item> salts = ItemTags.makeWrapperTag("forge:salts");
   public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("forge:boats");
-  public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("forge:coals");
+  public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("minecraft:coals");
   public static ITag.INamedTag<Item> coals_stone = ItemTags.makeWrapperTag("forge:coals/stone");
   public static ITag.INamedTag<Item> coals_wood = ItemTags.makeWrapperTag("forge:coals/wood");
   public static ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");

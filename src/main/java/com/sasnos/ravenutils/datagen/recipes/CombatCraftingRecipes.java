@@ -12,8 +12,8 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 
-public class EssentialsCombatCraftingRecipes extends EssentialsRecipeProvider {
-  public EssentialsCombatCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
+public class CombatCraftingRecipes extends EssentialsRecipeProvider {
+  public CombatCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
     super(consumer);
   }
 

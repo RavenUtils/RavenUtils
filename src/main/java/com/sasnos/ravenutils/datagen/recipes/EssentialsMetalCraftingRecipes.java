@@ -13,8 +13,8 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 
-public class EssentialsMetalsCraftingRecipes extends EssentialsRecipeProvider {
-  public EssentialsMetalsCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
+public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
+  public EssentialsMetalCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
     super(consumer);
   }
 
