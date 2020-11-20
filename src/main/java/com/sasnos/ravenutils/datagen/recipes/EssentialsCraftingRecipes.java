@@ -153,7 +153,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BUCKET_WOOD.get())
-        .addIngredient(ItemTags.makeWrapperTag("minecraft:logs_that_burn"))
+        .addIngredient(ItemTags.LOGS_THAT_BURN)
         .addIngredient(knives)
         .addCriterion("has_knife", hasItemTag(knives))
         .setGroup("buckets")
@@ -167,7 +167,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 4)
-        .addIngredient(ItemTags.makeWrapperTag("minecraft:wool"))
+        .addIngredient(ItemTags.WOOL)
         .addIngredient(knives)
         .addCriterion("has_knife", hasItemTag(knives))
         .build(consumer);
@@ -244,8 +244,8 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" s")
         .patternLine("b ")
         .key('b', Items.BOWL)
-        .key('s', ItemTags.makeWrapperTag("forge:rods/wooden"))
-        .addCriterion("has_stick", hasItemTag(ItemTags.makeWrapperTag("forge:rods/wooden")))
+        .key('s', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_STONE.get())
@@ -254,7 +254,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" i ")
         .key('o', Items.STONE)
         .key('x', strings)
-        .key('i', ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_stone", hasItem(Items.STONE))
         .setGroup("hammers")
         .build(consumer);
@@ -265,7 +265,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" i ")
         .key('o', Items.IRON_INGOT)
         .key('x', ModItems.LEATHER_STRIP.get())
-        .key('i', ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_iron", hasItem(Items.IRON_INGOT))
         .setGroup("hammers")
         .build(consumer);
@@ -276,7 +276,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" i ")
         .key('o', Items.OBSIDIAN)
         .key('x', ModItems.LEATHER_STRIP.get())
-        .key('i', Tags.Items.RODS_WOODEN) //TODO: look if this is right
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_leather_strip", hasItem(ModItems.LEATHER_STRIP.get()))
         .addCriterion("has_obsidian", hasItem(Items.OBSIDIAN))
         .setGroup("hammers")
@@ -286,7 +286,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" x")
         .patternLine("i ")
         .key('x', Items.BOWL)
-        .key('i', ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
         .setGroup("knives")
         .build(consumer);
@@ -295,7 +295,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" x")
         .patternLine("i ")
         .key('x', Items.IRON_INGOT)
-        .key('i', ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_iron", hasItem(Items.IRON_INGOT))
         .setGroup("knives")
         .build(consumer);
@@ -304,7 +304,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" x")
         .patternLine("i ")
         .key('x', Items.DIAMOND)
-        .key('i', ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_diamond", hasItem(Items.DIAMOND))
         .setGroup("knives")
         .build(consumer);
@@ -396,28 +396,28 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 3)
-        .addIngredient(ItemTags.makeWrapperTag("minecraft:wool"))
-        .addIngredient(ItemTags.makeWrapperTag("forge:rods/wooden"))
-        .addCriterion("has_wool", hasItemTag(ItemTags.makeWrapperTag("minecraft:wool")))
+        .addIngredient(ItemTags.WOOL)
+        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addCriterion("has_wool", hasItemTag(ItemTags.WOOL))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 6)
         .addIngredient(ItemTags.WOOL)
         .addIngredient(ModItems.TALLOW.get())
         .addIngredient(Tags.Items.RODS_WOODEN)
-        .addCriterion("has_wool", hasItemTag(ItemTags.makeWrapperTag("minecraft:wool")))
+        .addCriterion("has_wool", hasItemTag(ItemTags.WOOL))
         .build(consumer, "torch_from_wool_with_tallow");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 6)
         .addIngredient(ModItems.CLOTH.get())
-        .addIngredient(ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .addIngredient(Tags.Items.RODS_WOODEN)
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer, "torch_from_cloth");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 12)
         .addIngredient(ModItems.CLOTH.get())
         .addIngredient(ModItems.TALLOW.get())
-        .addIngredient(ItemTags.makeWrapperTag("forge:rods/wooden"))
+        .addIngredient(Tags.Items.RODS_WOODEN)
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer, "torch_from_cloth_with_tallow");
 
