@@ -414,5 +414,41 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addIngredient(ItemTags.makeWrapperTag("forge:rods/wooden"))
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get())
+        .patternLine("SSS")
+        .patternLine(" S ")
+        .patternLine("sss")
+        .key('S', Items.ANDESITE)
+        .key('s', Items.ANDESITE_SLAB)
+        .addCriterion("has_andesite", hasItem(Items.ANDESITE))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_ANVIL_DIORITE_ITEM.get())
+        .patternLine("SSS")
+        .patternLine(" S ")
+        .patternLine("sss")
+        .key('S', Items.DIORITE)
+        .key('s', Items.DIORITE_SLAB)
+        .addCriterion("has_diorite", hasItem(Items.DIORITE))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_ANVIL_GRANITE_ITEM.get())
+        .patternLine("SSS")
+        .patternLine(" S ")
+        .patternLine("sss")
+        .key('S', Items.GRANITE)
+        .key('s', Items.GRANITE_SLAB)
+        .addCriterion("has_granite", hasItem(Items.GRANITE))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_ANVIL_STONE_ITEM.get())
+        .patternLine("SSS")
+        .patternLine(" S ")
+        .patternLine("sss")
+        .key('S', Items.STONE)
+        .key('s', Items.STONE_SLAB)
+        .addCriterion("has_stone", hasItem(Items.STONE))
+        .build(consumer);
   }
 }
