@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.loot_modifiers;
+package com.sasnos.ravenutils.global_loot_modifiers;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootContext;

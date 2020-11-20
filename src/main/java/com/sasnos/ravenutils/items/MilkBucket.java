@@ -25,7 +25,7 @@ public class MilkBucket extends BaseBucketItem {
             .maxStackSize(1)
             .containerItem(containerItemIn)
             .maxDamage(maxDamage)
-            .setNoRepair());
+            .setNoRepair(), null);
   }
 
   @Override

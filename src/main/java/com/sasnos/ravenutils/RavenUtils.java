@@ -42,6 +42,7 @@ public class RavenUtils {
     ModBlockItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFoodItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModToolItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModToolItems.VANILLA_ITEM_OVERRIDE.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModTileEntities.TILE_ENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModContainer.CONTAINERTYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -66,6 +67,8 @@ public class RavenUtils {
     // RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
+
+
 
     event.enqueueWork(() -> {
       try {
