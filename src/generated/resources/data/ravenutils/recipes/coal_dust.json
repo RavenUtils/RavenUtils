@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "ravenutils:mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:coal_dust"
+  }
+}

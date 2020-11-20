@@ -8,54 +8,42 @@ import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.tags.ITag;
-import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.axes;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.boats;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.books;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.burnableBuckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.chisels;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals_stone;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.crimwood_logs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.flours;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.grasses_tall;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.lava_buckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.leaves;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.milk_buckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.non_flammable_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.ores;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.planks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.raw_meat;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.salts;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.slimeballs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.small_flowers;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.strings;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.buckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.water_buckets;
+
 public class EssentialsItemTags extends ItemTagsProvider {
 
-  // blockitems
-  public static ITag.INamedTag<Item> ores = ItemTags.makeWrapperTag("forge:ore");
-  public static ITag.INamedTag<Item> non_flammable_wood = ItemTags.makeWrapperTag("forge:non_flammable_wood");
-  public static ITag.INamedTag<Item> crimwood_logs = ItemTags.makeWrapperTag("ravenutils:crimwood_logs");
-  public static ITag.INamedTag<Item> fence_gates = ItemTags.makeWrapperTag("forge:fence_gates");
-  public static ITag.INamedTag<Item> leaves = ItemTags.makeWrapperTag("forge:leaves");
-  public static ITag.INamedTag<Item> planks = ItemTags.makeWrapperTag("forge:planks");
-  public static ITag.INamedTag<Item> saplings = ItemTags.makeWrapperTag("forge:saplings");
-  public static ITag.INamedTag<Item> small_flowers = ItemTags.makeWrapperTag("forge:small_flowers");
-  public static ITag.INamedTag<Item> wooden_buttons = ItemTags.makeWrapperTag("forge:wooden_buttons");
-  public static ITag.INamedTag<Item> wooden_doors = ItemTags.makeWrapperTag("forge:wooden_doors");
-  public static ITag.INamedTag<Item> wooden_fences = ItemTags.makeWrapperTag("forge:wooden_fences");
-  public static ITag.INamedTag<Item> wooden_pressure_plates = ItemTags.makeWrapperTag("forge:wooden_pressure_plates");
-  public static ITag.INamedTag<Item> wooden_slabs = ItemTags.makeWrapperTag("forge:wooden_slabs");
-  public static ITag.INamedTag<Item> wooden_stairs = ItemTags.makeWrapperTag("forge:wooden_stairs");
-  public static ITag.INamedTag<Item> wooden_trapdoors = ItemTags.makeWrapperTag("forge:wooden_trapdoors");
 
-  // items
-  public static ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
-  public static ITag.INamedTag<Item> chisels = ItemTags.makeWrapperTag("forge:tools/chisels");
-  public static ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
-  public static ITag.INamedTag<Item> axes = ItemTags.makeWrapperTag("forge:tools/axes");
-  public static ITag.INamedTag<Item> books = ItemTags.makeWrapperTag("forge:books");
-  public static ITag.INamedTag<Item> grasses_tall = ItemTags.makeWrapperTag("forge:grasses/tall");
-  public static ITag.INamedTag<Item> slimeballs = ItemTags.makeWrapperTag("forge:slimeballs");
-  public static ITag.INamedTag<Item> raw_meat = ItemTags.makeWrapperTag("forge:meat/raw");
-  public static ITag.INamedTag<Item> flours = ItemTags.makeWrapperTag("forge:flours");
-  public static ITag.INamedTag<Item> salts = ItemTags.makeWrapperTag("forge:salts");
-  public static ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("forge:boats");
-  public static ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("minecraft:coals");
-  public static ITag.INamedTag<Item> coals_stone = ItemTags.makeWrapperTag("forge:coals/stone");
-  public static ITag.INamedTag<Item> coals_wood = ItemTags.makeWrapperTag("forge:coals/wood");
-  public static ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
-
-  public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
-  public static ITag.INamedTag<Item> water_buckets = ItemTags.makeWrapperTag("forge:buckets/water");
-  public static ITag.INamedTag<Item> lava_buckets = ItemTags.makeWrapperTag("forge:buckets/lava");
-  public static ITag.INamedTag<Item> milk_buckets = ItemTags.makeWrapperTag("forge:buckets/milk");
 
   public EssentialsItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
@@ -195,6 +183,11 @@ public class EssentialsItemTags extends ItemTagsProvider {
     getOrCreateBuilder(crimwood_logs).add(
         ModBlockItems.CRIMWOOD_ITEM.get(),
         ModBlockItems.CRIMWOOD_LOG_ITEM.get()
+    );
+
+    getOrCreateBuilder(burnableBuckets).add(
+            ModToolItems.BUCKET_WOOD.get(),
+            ModToolItems.BUCKET_CLAY.get()
     );
 
     // getOrCreateBuilder(fence_gates).add(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get());

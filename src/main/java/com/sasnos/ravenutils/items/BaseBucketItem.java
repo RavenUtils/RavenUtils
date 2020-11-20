@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils.items;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.init.ModToolItems;
 import com.sasnos.ravenutils.utils.EssentialsFluidBucketWrapper;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.entity.player.PlayerEntity;
@@ -51,7 +50,8 @@ public abstract class BaseBucketItem extends Item {
         if (!hasFluid(stack)) {
             return ItemStack.EMPTY;
         }
-        return new ItemStack(ModToolItems.BUCKET_CLAY.get());
+
+        return stack;
     }
 
     /**
@@ -61,7 +61,9 @@ public abstract class BaseBucketItem extends Item {
      * @return  Empty bucket, may be the original stack
      */
     protected static ItemStack emptyBucket(ItemStack stack, PlayerEntity player) {
-        return !player.isCreative() ? stack.getContainerItem() : stack;
+        ItemStack emptyBucket = ((BaseBucketItem)stack.getItem()).withFluid(stack, Fluids.EMPTY);
+        emptyBucket.setDamage(stack.getDamage());
+        return !player.isCreative() ? emptyBucket : stack;
     }
 
     /**
@@ -76,11 +78,15 @@ public abstract class BaseBucketItem extends Item {
         if (player.isCreative()) {
             return originalStack;
         }
+        if(newBucket.isDamageable())
+            newBucket.setDamage(originalStack.getDamage()+1);
+
         originalStack.shrink(1);
         // fill with fluid
         if (originalStack.isEmpty()) {
             return newBucket;
         }
+
         addItem(player, newBucket);
         return originalStack;
     }

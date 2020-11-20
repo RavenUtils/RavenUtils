@@ -1,11 +1,31 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.*;
+import com.sasnos.ravenutils.items.Bag;
+import com.sasnos.ravenutils.items.Bedroll;
+import com.sasnos.ravenutils.items.Bucket;
+import com.sasnos.ravenutils.items.Chisel;
+import com.sasnos.ravenutils.items.Firestarter;
+import com.sasnos.ravenutils.items.Hammer;
+import com.sasnos.ravenutils.items.Knife;
+import com.sasnos.ravenutils.items.MilkBucket;
+import com.sasnos.ravenutils.items.MortarAndPestle;
+import com.sasnos.ravenutils.items.Needle;
+import com.sasnos.ravenutils.items.Soap;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.item.*;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.BucketItem;
+import net.minecraft.item.HoeItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ShearsItem;
+import net.minecraft.item.ShieldItem;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,6 +33,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModToolItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
+
+  public static final DeferredRegister<Item> VANILLA_ITEM_OVERRIDE =
+          DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
 
   // default tools
   // copper
@@ -150,10 +173,10 @@ public class ModToolItems {
 
   // iron bucket (Vanilla override)
   public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
-      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+          () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
 
   public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
-      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+          () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
 
   // shears (maxDmg iron: 238)
@@ -183,9 +206,9 @@ public class ModToolItems {
   public static final RegistryObject<Item> SEWING_NEEDLE_IRON = ITEMS.register("sewing_needle_iron",
       () -> new Needle(128));
   public static final RegistryObject<Item> BAG_CLOTH = ITEMS.register("bag_cloth",
-      () -> new Bag(ContainerType.GENERIC_9X2, id, player, 2));
+      () -> new Bag(new Item.Properties(), 2));
   public static final RegistryObject<Item> BAG_LEATHER = ITEMS.register("bag_leather",
-      () -> new Bag(ContainerType.GENERIC_9X4, id, player, 4));
+      () -> new Bag(new Item.Properties(), 4));
   public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
       () -> new Bedroll(128));
 }

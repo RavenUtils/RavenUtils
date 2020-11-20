@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "knives",
+  "pattern": [
+    " x",
+    "i "
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:bowl"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:knife_flint"
+  }
+}

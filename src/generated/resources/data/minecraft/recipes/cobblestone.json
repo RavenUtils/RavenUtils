@@ -1,14 +1,14 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "hammers",
-  "ingredients": [
-    {
-      "item": "minecraft:stone"
-    },
-    {
-      "tag": "forge:tools/hammers"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xx",
+    "xx"
   ],
+  "key": {
+    "x": {
+      "item": "ravenutils:small_stone"
+    }
+  },
   "result": {
     "item": "minecraft:cobblestone"
   }

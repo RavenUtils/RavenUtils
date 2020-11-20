@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "hammers",
+  "pattern": [
+    "oxo",
+    " i ",
+    " i "
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:stone"
+    },
+    "x": {
+      "tag": "forge:string"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:hammer_stone"
+  }
+}

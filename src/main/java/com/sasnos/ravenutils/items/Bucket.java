@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.items;
 
 
+import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -99,6 +100,13 @@ public class Bucket extends BaseBucketItem {
           if (newFluid != Fluids.EMPTY) {
             player.addStat(Stats.ITEM_USED.get(this));
 
+            if(newFluid == Fluids.LAVA && bucketBurns(stack)) {
+              stack.shrink(1);
+              world.setBlockState(player.getPosition(), Fluids.LAVA.getDefaultState().getBlockState());
+              player.playSound(SoundEvents.BLOCK_LAVA_EXTINGUISH, 1f, 1f);
+              return ActionResult.resultFail(stack);
+            }
+
             // play sound effect
             SoundEvent sound = newFluid.getAttributes().getFillSound();
             if (sound == null) {
@@ -127,6 +135,11 @@ public class Bucket extends BaseBucketItem {
       }
     }
     return ActionResult.resultFail(stack);
+  }
+
+  private boolean bucketBurns(ItemStack stack) {
+    Item bucket = stack.getItem();
+    return bucket.isIn(EssentialsTags.Items.burnableBuckets);
   }
 
   /**
@@ -269,7 +282,7 @@ public class Bucket extends BaseBucketItem {
   @Override
   public int getItemStackLimit(ItemStack stack) {
     // empty stacks to 16
-    return hasFluid(stack) ? 1 : 16;
+    return hasFluid(stack) ? 1 : super.getItemStackLimit(stack);
   }
 
   @Override

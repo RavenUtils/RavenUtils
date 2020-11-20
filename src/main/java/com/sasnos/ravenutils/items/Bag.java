@@ -1,14 +1,20 @@
 package com.sasnos.ravenutils.items;
 
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.container.ChestContainer;
-import net.minecraft.inventory.container.ContainerType;
+import com.sasnos.ravenutils.RavenUtils;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import org.jetbrains.annotations.Nullable;
 
-public class Bag extends ChestContainer {
-  public Bag(ContainerType<?> type, int id, PlayerInventory player, int rows) {
-    super(type, id, player, new Inventory(9 * rows), rows);
-
+public class Bag extends Item {
+  public Bag(Properties properties, int rows) {
+    super(properties.group(RavenUtils.TAB));
   }
 
+  @Nullable
+  @Override
+  public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundNBT nbt) {
+    return null;
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:plant_fibre"
+    },
+    {
+      "item": "ravenutils:plant_fibre"
+    },
+    {
+      "item": "ravenutils:plant_fibre"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:plant_twine"
+  }
+}

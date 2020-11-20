@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "hide_processing",
   "ingredients": [
     {
       "item": "ravenutils:coarse_salt"

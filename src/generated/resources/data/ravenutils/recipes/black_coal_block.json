@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:black_coal"
+    }
+  },
+  "result": {
+    "item": "ravenutils:black_coal_block"
+  }
+}

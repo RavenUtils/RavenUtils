@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:charcoal_dust"
+    ]
+  },
+  "criteria": {
+    "has_mortar_and_pestle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:mortar_and_pestle"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:charcoal_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mortar_and_pestle",
+      "has_the_recipe"
+    ]
+  ]
+}

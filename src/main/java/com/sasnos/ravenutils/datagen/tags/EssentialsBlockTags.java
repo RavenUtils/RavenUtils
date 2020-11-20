@@ -1,33 +1,30 @@
 package com.sasnos.ravenutils.datagen.tags;
 
 import com.sasnos.ravenutils.init.ModBlocks;
-import net.minecraft.block.Block;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-public class EssentialsBlockTags extends BlockTagsProvider {
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.fence_gates;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.flower_pots;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.infiniburn_overworld;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.leaves;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.non_flammable_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.ores;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.planks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.saplings;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.small_flowers;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_buttons;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_doors;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_fences;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_pressure_plates;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_slabs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_stairs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_trapdoors;
 
-  public static ITag.INamedTag<Block> ores = BlockTags.makeWrapperTag("forge:ore");
-  public static ITag.INamedTag<Block> non_flammable_wood = BlockTags.makeWrapperTag("forge:non_flammable_wood");
-  public static ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
-  public static ITag.INamedTag<Block> flower_pots = BlockTags.makeWrapperTag("forge:flower_pots");
-  public static ITag.INamedTag<Block> infiniburn_overworld = BlockTags.makeWrapperTag("forge:infiniburn_overworld");
-  public static ITag.INamedTag<Block> leaves = BlockTags.makeWrapperTag("forge:leaves");
-  public static ITag.INamedTag<Block> planks = BlockTags.makeWrapperTag("forge:planks");
-  public static ITag.INamedTag<Block> saplings = BlockTags.makeWrapperTag("forge:saplings");
-  public static ITag.INamedTag<Block> small_flowers = BlockTags.makeWrapperTag("forge:small_flowers");
-  public static ITag.INamedTag<Block> wooden_buttons = BlockTags.makeWrapperTag("forge:wooden_buttons");
-  public static ITag.INamedTag<Block> wooden_doors = BlockTags.makeWrapperTag("forge:wooden_doors");
-  public static ITag.INamedTag<Block> wooden_fences = BlockTags.makeWrapperTag("forge:wooden_fences");
-  public static ITag.INamedTag<Block> wooden_pressure_plates = BlockTags.makeWrapperTag("forge:wooden_pressure_plates");
-  public static ITag.INamedTag<Block> wooden_slabs = BlockTags.makeWrapperTag("forge:wooden_slabs");
-  public static ITag.INamedTag<Block> wooden_stairs = BlockTags.makeWrapperTag("forge:wooden_stairs");
-  public static ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
+public class EssentialsBlockTags extends BlockTagsProvider {
 
   public EssentialsBlockTags(DataGenerator dataGenerator, String modId, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, modId, existingFileHelper);

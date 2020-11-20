@@ -35,7 +35,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(ModItems.BLACK_COAL.get())
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "coal_dust_from_black_coal");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.RAVEN_EYE_DUST.get())
         .addIngredient(ModItems.RAVEN_EYE_GEM.get())
@@ -95,13 +95,13 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(Items.OXEYE_DAISY)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "gray_dye_from_daisy");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.LIGHT_GRAY_DYE, 2)
         .addIngredient(Items.WHITE_TULIP)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "gray_dye_from_tulip");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.MAGENTA_DYE, 2)
         .addIngredient(Items.ALLIUM)
@@ -113,7 +113,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(Items.LILAC)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "magenta_dye_lilac");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.ORANGE_DYE, 2)
         .addIngredient(Items.ORANGE_TULIP)
@@ -131,7 +131,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(Items.PINK_TULIP)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "pink_dye_from_tulip");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.RED_DYE, 2)
         .addIngredient(Items.POPPY)
@@ -143,13 +143,13 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(Items.ROSE_BUSH)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "red_dye_from_rose");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.RED_DYE, 2)
         .addIngredient(Items.RED_TULIP)
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "red_dye_from_tulip");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.WHITE_DYE, 2)
         .addIngredient(Items.LILY_OF_THE_VALLEY)

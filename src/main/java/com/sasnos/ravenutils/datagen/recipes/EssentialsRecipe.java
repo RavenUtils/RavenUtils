@@ -29,10 +29,10 @@ public class EssentialsRecipe extends RecipeProvider {
 
   // expose the protected internal methods so i can use tem in external classes
   public static ICriterionInstance hasItem(Item item) {
-    return hasItem(item);
+    return RecipeProvider.hasItem(item);
   }
 
   public static ICriterionInstance hasItemTag(ITag<Item> tagItem) {
-    return hasItem(tagItem);
+    return RecipeProvider.hasItem(tagItem);
   }
 }

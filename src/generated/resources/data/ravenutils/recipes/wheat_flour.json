@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "grinding",
   "ingredients": [
     {
       "item": "minecraft:wheat"

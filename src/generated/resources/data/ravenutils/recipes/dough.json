@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "cooking",
   "ingredients": [
     {
       "item": "ravenutils:wheat_flour"

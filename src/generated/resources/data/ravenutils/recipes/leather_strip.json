@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:leather_strip",
+    "count": 4
+  }
+}

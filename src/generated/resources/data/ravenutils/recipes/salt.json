@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "grinding",
   "ingredients": [
     {
       "item": "ravenutils:coarse_salt"
@@ -10,6 +9,7 @@
     }
   ],
   "result": {
-    "item": "ravenutils:salt"
+    "item": "ravenutils:salt",
+    "count": 2
   }
 }

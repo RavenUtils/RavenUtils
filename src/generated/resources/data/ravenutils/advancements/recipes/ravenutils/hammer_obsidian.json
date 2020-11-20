@@ -2,16 +2,26 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:wooden_axe"
+      "ravenutils:hammer_obsidian"
     ]
   },
   "criteria": {
-    "dummy": {
+    "has_leather_strip": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:bedrock"
+            "item": "ravenutils:leather_strip"
+          }
+        ]
+      }
+    },
+    "has_obsidian": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:obsidian"
           }
         ]
       }
@@ -19,13 +29,14 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:wooden_axe"
+        "recipe": "ravenutils:hammer_obsidian"
       }
     }
   },
   "requirements": [
     [
-      "dummy",
+      "has_leather_strip",
+      "has_obsidian",
       "has_the_recipe"
     ]
   ]

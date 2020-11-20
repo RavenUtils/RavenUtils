@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "buckets",
+  "ingredients": [
+    {
+      "tag": "minecraft:logs_that_burn"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:bucket_wood"
+  }
+}

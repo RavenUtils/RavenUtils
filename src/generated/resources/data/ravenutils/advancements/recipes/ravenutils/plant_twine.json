@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:plant_twine"
+    ]
+  },
+  "criteria": {
+    "has_plant_fibre": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:plant_fibre"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:plant_twine"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_plant_fibre",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:black_coal_block"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:black_coal",
+    "count": 9
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:bucket_wood",
+    "ravenutils:bucket_clay"
+  ]
+}
