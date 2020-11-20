@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.items.*;
-import com.sasnos.ravenutils.util.enums.ModItemTier;
+import com.sasnos.ravenutils.utils.enums.ModItemTier;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.*;
