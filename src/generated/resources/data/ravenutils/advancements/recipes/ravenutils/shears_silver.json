@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:shears_silver"
+    ]
+  },
+  "criteria": {
+    "has_silver_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:silver_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:shears_silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_silver_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

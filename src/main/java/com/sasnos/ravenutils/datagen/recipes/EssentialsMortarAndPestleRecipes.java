@@ -59,7 +59,7 @@ public class EssentialsMortarAndPestleRecipes extends EssentialsRecipeProvider {
         .addIngredient(ModItems.COARSE_SALT.get())
         .addIngredient(ModToolItems.MORTAR_AND_PESTLE.get())
         .addCriterion("has_mortar_and_pestle", hasItem(ModToolItems.MORTAR_AND_PESTLE.get()))
-        .build(consumer);
+        .build(consumer, "salt_from_mortar");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModFoodItems.WHEAT_FLOUR.get(), 2)
         .addIngredient(Items.WHEAT)

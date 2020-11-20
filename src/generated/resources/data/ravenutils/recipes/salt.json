@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "ravenutils:coarse_salt"
-    },
-    {
-      "item": "ravenutils:mortar_and_pestle"
+      "item": "ravenutils:salt_block"
     }
   ],
   "result": {
     "item": "ravenutils:salt",
-    "count": 2
+    "count": 9
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:resin_ball_from_resin_drop"
+    ]
+  },
+  "criteria": {
+    "has_resin_drop": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:resin_drop"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:resin_ball_from_resin_drop"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_resin_drop",
+      "has_the_recipe"
+    ]
+  ]
+}

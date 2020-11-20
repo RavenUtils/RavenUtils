@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bags",
+  "pattern": [
+    "lsl",
+    "lnl",
+    "lll"
+  ],
+  "key": {
+    "s": {
+      "item": "ravenutils:leather_strip"
+    },
+    "n": {
+      "item": "ravenutils:sewing_needle_bone"
+    },
+    "l": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "ravenutils:bag_leather"
+  }
+}

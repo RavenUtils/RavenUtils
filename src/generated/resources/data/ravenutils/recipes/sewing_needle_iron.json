@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "sewing_needles",
+  "pattern": [
+    "xhx",
+    "xix",
+    "xxx"
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "i": {
+      "item": "minecraft:iron_nugget"
+    },
+    "x": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "ravenutils:sewing_needle_iron"
+  }
+}

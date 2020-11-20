@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:bucket",
+    "ravenutils:bucket_clay",
+    "ravenutils:bucket_wood",
+    "ravenutils:bucket_mytherine"
+  ]
+}

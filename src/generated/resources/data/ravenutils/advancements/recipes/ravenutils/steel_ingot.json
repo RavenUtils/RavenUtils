@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:steel_ingot"
+    ]
+  },
+  "criteria": {
+    "has_steel_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:steel_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:steel_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

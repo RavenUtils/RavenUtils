@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:mytherine_nuggets_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_mytherine_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:mytherine_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:mytherine_nuggets_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mytherine_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

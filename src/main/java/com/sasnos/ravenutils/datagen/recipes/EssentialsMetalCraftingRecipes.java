@@ -1,13 +1,11 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
-import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.Items;
 
 import java.util.function.Consumer;
 
@@ -137,7 +135,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.MYTHERINE_NUGGET.get(), 9)
         .addIngredient(ModItems.MYTHERINE_INGOT.get())
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "mytherine_nuggets_from_crafting");
 
     // ingots to block
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.COPPER_BLOCK_ITEM.get())
@@ -216,47 +214,47 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.COPPER_INGOT.get(), 9)
         .addIngredient(ModBlockItems.COPPER_BLOCK_ITEM.get())
         .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "copper_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.TIN_INGOT.get(), 9)
         .addIngredient(ModBlockItems.TIN_BLOCK_ITEM.get())
         .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "tin_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.ZINC_INGOT.get(), 9)
         .addIngredient(ModBlockItems.ZINC_BLOCK_ITEM.get())
         .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "zinc_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.SILVER_INGOT.get(), 9)
         .addIngredient(ModBlockItems.SILVER_BLOCK_ITEM.get())
         .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "silver_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEAD_INGOT.get(), 9)
         .addIngredient(ModBlockItems.LEAD_BLOCK_ITEM.get())
         .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "lead_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRONZE_INGOT.get(), 9)
         .addIngredient(ModBlockItems.BRONZE_BLOCK_ITEM.get())
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+        .build(consumer, "bronze_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRASS_INGOT.get(), 9)
         .addIngredient(ModBlockItems.BRASS_BLOCK_ITEM.get())
         .addCriterion("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
-        .build(consumer);
+        .build(consumer, "brass_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.STEEL_INGOT.get(), 9)
         .addIngredient(ModBlockItems.STEEL_BLOCK_ITEM.get())
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+        .build(consumer, "steel_ingots_from_block");
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.MYTHERINE_INGOT.get(), 9)
         .addIngredient(ModBlockItems.MYTHERINE_BLOCK_ITEM.get())
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer);
+        .build(consumer, "mytherine_ingots_from_block");
 
     // custom tools
     // copper

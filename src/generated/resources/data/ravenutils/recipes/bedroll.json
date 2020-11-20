@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sn ",
+    "ccc",
+    "ccc"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:string"
+    },
+    "n": {
+      "item": "ravenutils:sewing_needle_bone"
+    },
+    "c": {
+      "item": "ravenutils:cloth"
+    }
+  },
+  "result": {
+    "item": "ravenutils:bedroll"
+  }
+}

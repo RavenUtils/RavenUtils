@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:raven_eye_gem"
+    ]
+  },
+  "criteria": {
+    "has_raven_eye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:raven_eye_gem"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:raven_eye_gem"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raven_eye",
+      "has_the_recipe"
+    ]
+  ]
+}

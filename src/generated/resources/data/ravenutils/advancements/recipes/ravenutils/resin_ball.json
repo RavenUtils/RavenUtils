@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:resin_ball"
+    ]
+  },
+  "criteria": {
+    "has_resin_ball": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:resin_ball"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:resin_ball"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_resin_ball",
+      "has_the_recipe"
+    ]
+  ]
+}

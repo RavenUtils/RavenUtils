@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:soap"
+    ]
+  },
+  "criteria": {
+    "has_tallow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:tallow"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:soap"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tallow",
+      "has_the_recipe"
+    ]
+  ]
+}

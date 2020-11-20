@@ -3,17 +3,35 @@ package com.sasnos.ravenutils;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
-import com.sasnos.ravenutils.init.*;
+import com.sasnos.ravenutils.init.ModArmorItems;
+import com.sasnos.ravenutils.init.ModBlockItems;
+import com.sasnos.ravenutils.init.ModBlocks;
+import com.sasnos.ravenutils.init.ModContainer;
+import com.sasnos.ravenutils.init.ModFluids;
+import com.sasnos.ravenutils.init.ModFoodItems;
+import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.ModLootTables;
+import com.sasnos.ravenutils.init.ModRecipes;
+import com.sasnos.ravenutils.init.ModTileEntities;
+import com.sasnos.ravenutils.init.ModToolItems;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.*;
+import net.minecraft.item.Food;
+import net.minecraft.item.Foods;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.Hand;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -128,9 +146,16 @@ public class RavenUtils {
 
 
     });
+
+
   }
 
-
+  @SubscribeEvent
+  public static void rightclickEvent(PlayerInteractEvent.RightClickBlock event){
+    if(event.getHand() == Hand.MAIN_HAND){
+      event.getPos();
+    }
+  }
 
   public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override

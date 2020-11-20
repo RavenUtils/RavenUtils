@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:mytherine_block"
+    ]
+  },
+  "criteria": {
+    "has_mytherine_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:mytherine_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:mytherine_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mytherine_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

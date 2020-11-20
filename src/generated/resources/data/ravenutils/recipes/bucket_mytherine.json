@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "buckets",
+  "ingredients": [
+    {
+      "item": "ravenutils:crimwood_log"
+    },
+    {
+      "tag": "forge:tools/knives"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:bucket_mytherine"
+  }
+}

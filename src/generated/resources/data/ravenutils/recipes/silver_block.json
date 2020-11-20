@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:silver_ingot"
+    }
+  },
+  "result": {
+    "item": "ravenutils:silver_block"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:raven_eye_gem"
+    }
+  },
+  "result": {
+    "item": "ravenutils:raven_eye_block"
+  }
+}

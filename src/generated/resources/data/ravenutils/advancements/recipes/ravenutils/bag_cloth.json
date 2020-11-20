@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:with_hammer"
+      "ravenutils:bag_cloth"
     ]
   },
   "criteria": {
-    "has_hammer": {
+    "has_cloth": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:tools/hammers"
+            "item": "ravenutils:cloth"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:with_hammer"
+        "recipe": "ravenutils:bag_cloth"
       }
     }
   },
   "requirements": [
     [
-      "has_hammer",
+      "has_cloth",
       "has_the_recipe"
     ]
   ]

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "sewing_needles",
+  "pattern": [
+    "xhx",
+    "xix",
+    "xxx"
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/knives"
+    },
+    "i": {
+      "item": "minecraft:bone"
+    },
+    "x": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "ravenutils:sewing_needle_bone",
+    "count": 2
+  }
+}

@@ -6,16 +6,6 @@
     ]
   },
   "criteria": {
-    "has_leather_strip": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "ravenutils:leather_strip"
-          }
-        ]
-      }
-    },
     "has_iron": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -35,7 +25,6 @@
   },
   "requirements": [
     [
-      "has_leather_strip",
       "has_iron",
       "has_the_recipe"
     ]

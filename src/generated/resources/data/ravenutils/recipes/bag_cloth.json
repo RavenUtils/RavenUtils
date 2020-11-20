@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bags",
+  "pattern": [
+    "csc",
+    "cnc",
+    "ccc"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:string"
+    },
+    "n": {
+      "item": "ravenutils:sewing_needle_bone"
+    },
+    "c": {
+      "item": "ravenutils:cloth"
+    }
+  },
+  "result": {
+    "item": "ravenutils:bag_cloth"
+  }
+}
