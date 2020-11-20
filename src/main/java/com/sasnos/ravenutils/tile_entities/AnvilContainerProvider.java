@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.tile_entity;
+package com.sasnos.ravenutils.tile_entities;
 
 import com.sasnos.ravenutils.containers.StoneAnvilContainer;
 import net.minecraft.entity.player.PlayerEntity;

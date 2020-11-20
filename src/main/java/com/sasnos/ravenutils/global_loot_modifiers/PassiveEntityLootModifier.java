@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.loot_modifiers;
+package com.sasnos.ravenutils.global_loot_modifiers;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

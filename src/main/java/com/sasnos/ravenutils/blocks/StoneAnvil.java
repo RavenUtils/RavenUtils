@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.init.ModBlocks;
-import com.sasnos.ravenutils.tile_entity.AnvilContainerProvider;
+import com.sasnos.ravenutils.tile_entities.AnvilContainerProvider;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
