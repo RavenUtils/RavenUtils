@@ -68,8 +68,8 @@ public class ItemModels extends ItemModelProvider {
 //                .customLoader(DynamicBucketModelBuilder::begin)
 //                .fluid(Fluids.EMPTY);
 
-        withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
-                resourceLocation("block/stone_crafting_table"));
+    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_crafting_table"));
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_anvil_stone"));
