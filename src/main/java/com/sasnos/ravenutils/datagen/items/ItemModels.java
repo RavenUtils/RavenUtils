@@ -71,6 +71,15 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_crafting_table"));
 
+    withExistingParent("item/" + ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_anvil_andesite"));
+
+    withExistingParent("item/" + ModBlockItems.STONE_ANVIL_DIORITE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_anvil_diorite"));
+
+    withExistingParent("item/" + ModBlockItems.STONE_ANVIL_GRANITE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_anvil_granite"));
+
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_anvil_stone"));
   }
