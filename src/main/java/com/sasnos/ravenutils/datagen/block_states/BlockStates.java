@@ -213,7 +213,7 @@ public class BlockStates extends BlockStateProvider {
             resourceLocation("blocks/stone_crafting_table_side"),
             resourceLocation("blocks/stone_crafting_table_side"),
             resourceLocation("blocks/stone_crafting_table_front"))
-                .texture("particles", mcLoc("block/cobblestone"));
+            .texture("particles", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
 

@@ -54,7 +54,9 @@ import java.util.function.Function;
  * The main difference is how it handles covers, as inset rather than outset, so transparent fluids render properly
  */
 public final class BucketModel implements IModelGeometry<BucketModel> {
-  /** Loader instance */
+  /**
+   * Loader instance
+   */
   public static final Loader LOADER = new Loader();
 
   // offsets that wil place the texture within the 3D item model, but always allow a visible liquid
@@ -75,7 +77,8 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
 
   /**
    * Returns a new bucket model representing the given fluid, but with the same  other properties (flipGas, tint).
-   * @param newFluid  New fluid contained
+   *
+   * @param newFluid New fluid contained
    * @return Bucket model instance
    */
   private BucketModel withFluid(Fluid newFluid) {
@@ -84,15 +87,16 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
 
   /**
    * Gets the material from the model config for a given name, or null if its not present
-   * @param owner  Model configuration
-   * @param name   Texture name
-   * @return  Material, or null if the material is missing
+   *
+   * @param owner Model configuration
+   * @param name  Texture name
+   * @return Material, or null if the material is missing
    */
   @Nullable
   private static RenderMaterial getMaterial(IModelConfiguration owner, String name) {
     RenderMaterial location = owner.resolveTexture(name);
     if (MissingTextureSprite.getLocation().equals(location.getTextureLocation())) {
-     return null;
+      return null;
     }
     return location;
   }
@@ -109,7 +113,7 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
 
     // determine the transforms to use
     IModelTransform transformsFromModel = owner.getCombinedTransform();
-    ImmutableMap<TransformType,TransformationMatrix> transformMap = PerspectiveMapWrapper.getTransforms(new ModelTransformComposition(transformsFromModel, modelTransform));
+    ImmutableMap<TransformType, TransformationMatrix> transformMap = PerspectiveMapWrapper.getTransforms(new ModelTransformComposition(transformsFromModel, modelTransform));
 
     // particle has fallback if null based on a few other sprites
     TextureAtlasSprite particleSprite = particleLocation != null ? spriteGetter.apply(particleLocation) : null;
@@ -178,10 +182,13 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
     return texs;
   }
 
-  /** Model loader logic */
+  /**
+   * Model loader logic
+   */
   private static class Loader implements IModelLoader<BucketModel> {
     @Override
-    public void onResourceManagerReload(IResourceManager resourceManager) {}
+    public void onResourceManagerReload(IResourceManager resourceManager) {
+    }
 
     @Override
     public BucketModel read(JsonDeserializationContext deserializationContext, JsonObject modelContents) {
@@ -207,11 +214,14 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
     }
   }
 
-  /** Handles adding in the model for a specific fluid, replacing the fluidless model */
+  /**
+   * Handles adding in the model for a specific fluid, replacing the fluidless model
+   */
   private static final class ContainedFluidOverrideHandler extends ItemOverrideList {
     private static final ResourceLocation REBAKE_LOCATION = new ResourceLocation("ceramics:bucket_override");
 
     private final ModelBakery bakery;
+
     private ContainedFluidOverrideHandler(ModelBakery bakery) {
       this.bakery = bakery;
     }
@@ -219,7 +229,7 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
     @Override
     public IBakedModel getOverrideModel(IBakedModel originalModel, ItemStack stack, @Nullable ClientWorld world, @Nullable LivingEntity entity) {
       return FluidUtil.getFluidContained(stack).map(fluidStack -> {
-        BakedModel model = (BakedModel)originalModel;
+        BakedModel model = (BakedModel) originalModel;
 
         Fluid fluid = fluidStack.getFluid();
         String name = Objects.requireNonNull(fluid.getRegistryName()).toString();
@@ -235,7 +245,9 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
     }
   }
 
-  /** the dynamic bucket is based on the empty bucket */
+  /**
+   * the dynamic bucket is based on the empty bucket
+   */
   private static final class BakedModel extends BakedItemModel {
     private final IModelConfiguration owner;
     private final BucketModel parent;

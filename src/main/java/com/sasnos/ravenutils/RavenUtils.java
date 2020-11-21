@@ -75,8 +75,7 @@ public class RavenUtils {
     MinecraftForge.EVENT_BUS.register(this);
   }
 
-  private void setup(final FMLCommonSetupEvent event)
-  {
+  private void setup(final FMLCommonSetupEvent event) {
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
@@ -85,7 +84,6 @@ public class RavenUtils {
     // RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
-
 
 
     event.enqueueWork(() -> {
@@ -151,8 +149,8 @@ public class RavenUtils {
   }
 
   @SubscribeEvent
-  public static void rightclickEvent(PlayerInteractEvent.RightClickBlock event){
-    if(event.getHand() == Hand.MAIN_HAND){
+  public static void rightclickEvent(PlayerInteractEvent.RightClickBlock event) {
+    if (event.getHand() == Hand.MAIN_HAND) {
       event.getPos();
     }
   }

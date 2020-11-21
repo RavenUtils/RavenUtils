@@ -24,7 +24,7 @@ public class ClientInit {
   }
 
   @SubscribeEvent
-  public static void registerModels(ModelRegistryEvent event){
+  public static void registerModels(ModelRegistryEvent event) {
     ModelLoaderRegistry.registerLoader(EssentialsUtils.resourceLocation("bucket"), DynamicBucketModel.Loader.INSTANCE);
   }
 

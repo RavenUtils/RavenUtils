@@ -14,24 +14,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModRecipes {
 
-    public static final IRecipeType<AlloyRecipe> ALLOY_RECIPE_RECIPE_TYPE = registerType(AlloyRecipe.ALLOY_FURNACE);
+  public static final IRecipeType<AlloyRecipe> ALLOY_RECIPE_RECIPE_TYPE = registerType(AlloyRecipe.ALLOY_FURNACE);
 
-    public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZER = DeferredRegister.create(
-            ForgeRegistries.RECIPE_SERIALIZERS, RavenUtils.MOD_ID
-    );
+  public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZER = DeferredRegister.create(
+      ForgeRegistries.RECIPE_SERIALIZERS, RavenUtils.MOD_ID
+  );
 
-    public static final RegistryObject<AlloyRecipeSerializer> ALLOY_RECIPE = RECIPE_SERIALIZER.register("alloy_recipe", AlloyRecipeSerializer::new);
+  public static final RegistryObject<AlloyRecipeSerializer> ALLOY_RECIPE = RECIPE_SERIALIZER.register("alloy_recipe", AlloyRecipeSerializer::new);
 
-    @SuppressWarnings("unchecked")
-    private static <T extends IRecipeType<?>> T registerType(ResourceLocation recipeTypeId) {
-        return (T) Registry.register(Registry.RECIPE_TYPE, recipeTypeId, new RegisterType<>());
+  @SuppressWarnings("unchecked")
+  private static <T extends IRecipeType<?>> T registerType(ResourceLocation recipeTypeId) {
+    return (T) Registry.register(Registry.RECIPE_TYPE, recipeTypeId, new RegisterType<>());
+  }
+
+  private static class RegisterType<T extends IRecipe<?>> implements IRecipeType<T> {
+    @Override
+    public String toString() {
+      return Registry.RECIPE_TYPE.getKey(this).toString();
     }
-
-    private static class RegisterType<T extends IRecipe<?>> implements IRecipeType<T> {
-        @Override
-        public String toString() {
-            return Registry.RECIPE_TYPE.getKey(this).toString();
-        }
-    }
+  }
 
 }

@@ -51,7 +51,7 @@ import static net.minecraft.util.math.RayTraceContext.FluidMode;
 import static net.minecraft.util.math.RayTraceResult.Type;
 
 public class Bucket extends BaseBucketItem {
-  
+
   public Bucket(Item containerItemIn, int maxDamage, Supplier<Item> milkBucket) {
     super(new Properties()
         .maxStackSize(1)
@@ -96,11 +96,11 @@ public class Bucket extends BaseBucketItem {
 
       if (fluid == Fluids.EMPTY) {
         if (block instanceof IBucketPickupHandler) {
-          Fluid newFluid = ((IBucketPickupHandler)block).pickupFluid(world, pos, state);
+          Fluid newFluid = ((IBucketPickupHandler) block).pickupFluid(world, pos, state);
           if (newFluid != Fluids.EMPTY) {
             player.addStat(Stats.ITEM_USED.get(this));
 
-            if(newFluid == Fluids.LAVA && bucketBurns(stack)) {
+            if (newFluid == Fluids.LAVA && bucketBurns(stack)) {
               stack.shrink(1);
               Direction facing = player.getHorizontalFacing();
               BlockPos position = player.getPosition();
@@ -117,7 +117,7 @@ public class Bucket extends BaseBucketItem {
             player.playSound(sound, 1.0F, 1.0F);
             ItemStack newStack = updateBucket(stack, player, withFluid(stack, newFluid));
             if (!world.isRemote()) {
-              CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity)player, newStack.copy());
+              CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) player, newStack.copy());
             }
 
             return ActionResult.resultSuccess(newStack);
@@ -128,7 +128,7 @@ public class Bucket extends BaseBucketItem {
         if (this.tryPlaceContainedLiquid(player, world, fluidPos, stack, trace)) {
           onLiquidPlaced(fluid, world, stack, fluidPos);
           if (player instanceof ServerPlayerEntity) {
-            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity)player, fluidPos, stack);
+            CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity) player, fluidPos, stack);
           }
 
           player.addStat(Stats.ITEM_USED.get(this));
@@ -146,16 +146,17 @@ public class Bucket extends BaseBucketItem {
 
   /**
    * Called when a liquid is placed in world
-   * @param fluid  Fluid to place
-   * @param world  World instance
-   * @param stack  Stack instance
-   * @param pos    Position to place the world
+   *
+   * @param fluid Fluid to place
+   * @param world World instance
+   * @param stack Stack instance
+   * @param pos   Position to place the world
    */
   private static void onLiquidPlaced(Fluid fluid, World world, ItemStack stack, BlockPos pos) {
     // TODO: is this bad?
     Item item = fluid.getFilledBucket();
     if (item instanceof BucketItem) {
-      ((BucketItem)item).onLiquidPlaced(world, stack, pos);
+      ((BucketItem) item).onLiquidPlaced(world, stack, pos);
     }
   }
 
@@ -171,15 +172,15 @@ public class Bucket extends BaseBucketItem {
     BlockState state = world.getBlockState(pos);
     Block block = state.getBlock();
     boolean replaceable = state.isReplaceable(fluid);
-    if (state.isAir(world, pos) || replaceable || block instanceof ILiquidContainer && ((ILiquidContainer)block).canContainFluid(world, pos, state, fluid)) {
+    if (state.isAir(world, pos) || replaceable || block instanceof ILiquidContainer && ((ILiquidContainer) block).canContainFluid(world, pos, state, fluid)) {
       if (world.getDimensionType().isUltrawarm() && fluid.isIn(FluidTags.WATER)) {
         world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 
-        for(int l = 0; l < 8; ++l) {
+        for (int l = 0; l < 8; ++l) {
           world.addParticle(ParticleTypes.LARGE_SMOKE, pos.getX() + Math.random(), pos.getY() + Math.random(), pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
         }
       } else if (block instanceof ILiquidContainer && fluid == Fluids.WATER) {
-        if (((ILiquidContainer)block).receiveFluid(world, pos, state, ((FlowingFluid)fluid).getStillFluidState(false))) {
+        if (((ILiquidContainer) block).receiveFluid(world, pos, state, ((FlowingFluid) fluid).getStillFluidState(false))) {
           this.playEmptySound(fluid, player, world, pos);
         }
       } else {
@@ -201,10 +202,11 @@ public class Bucket extends BaseBucketItem {
 
   /**
    * Plays the sound on emptying the bucket
-   * @param fluid   Fluid placed
-   * @param player  Player accessing the bucket
-   * @param world   World instance
-   * @param pos     Position of sound
+   *
+   * @param fluid  Fluid placed
+   * @param player Player accessing the bucket
+   * @param world  World instance
+   * @param pos    Position of sound
    */
   private void playEmptySound(Fluid fluid, @Nullable PlayerEntity player, IWorld world, BlockPos pos) {
     SoundEvent sound = fluid.getAttributes().getEmptySound();
@@ -216,38 +218,39 @@ public class Bucket extends BaseBucketItem {
 
   /**
    * Interacts with a cauldron block
-   * @param world   World instance
-   * @param pos     Position of the cauldron
-   * @param state   Cauldron state
-   * @param player  Interacting player
-   * @param stack   Bucket stack
-   * @param fluid   Contained fluid
-   * @return  Action result from interaction, pass means failed to interact with a cauldron
+   *
+   * @param world  World instance
+   * @param pos    Position of the cauldron
+   * @param state  Cauldron state
+   * @param player Interacting player
+   * @param stack  Bucket stack
+   * @param fluid  Contained fluid
+   * @return Action result from interaction, pass means failed to interact with a cauldron
    */
   private ActionResult<ItemStack> interactWithCauldron(World world, BlockPos pos, BlockState state, @Nullable PlayerEntity player, ItemStack stack, Fluid fluid) {
     // if the bucket is empty, try filling from the cauldron
     int level = state.get(CauldronBlock.LEVEL);
     if (fluid == Fluids.EMPTY) {
       // if empty, try emptying
-      if(level == 3) {
+      if (level == 3) {
         // empty cauldron logic
-        if(player != null) {
+        if (player != null) {
           player.addStat(Stats.USE_CAULDRON);
         }
-        if(!world.isRemote()) {
-          ((CauldronBlock)Blocks.CAULDRON).setWaterLevel(world, pos, state, 0);
+        if (!world.isRemote()) {
+          ((CauldronBlock) Blocks.CAULDRON).setWaterLevel(world, pos, state, 0);
         }
         world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
         return ActionResult.resultSuccess(withFluid(stack, Fluids.WATER));
       }
-    } else if(fluid == Fluids.WATER) {
+    } else if (fluid == Fluids.WATER) {
       // fill cauldron if not full
-      if(level < 3) {
-        if(player != null) {
+      if (level < 3) {
+        if (player != null) {
           player.addStat(Stats.FILL_CAULDRON);
         }
-        if(!world.isRemote) {
-          ((CauldronBlock)Blocks.CAULDRON).setWaterLevel(world, pos, state, 3);
+        if (!world.isRemote) {
+          ((CauldronBlock) Blocks.CAULDRON).setWaterLevel(world, pos, state, 3);
         }
         world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
@@ -265,7 +268,7 @@ public class Bucket extends BaseBucketItem {
   @Override
   public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity target, Hand hand) {
     // only work if the bucket is empty and right clicking a cow
-    if(!player.isCreative() && !hasFluid(stack) && target instanceof CowEntity && !target.isChild()) {
+    if (!player.isCreative() && !hasFluid(stack) && target instanceof CowEntity && !target.isChild()) {
       // sound
       player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 1.0F);
       if (!player.getEntityWorld().isRemote()) {
@@ -296,7 +299,7 @@ public class Bucket extends BaseBucketItem {
   public ITextComponent getDisplayName(ItemStack stack) {
     Fluid fluid = getFluid(stack);
     ITextComponent component;
-    if(fluid == Fluids.EMPTY) {
+    if (fluid == Fluids.EMPTY) {
       component = super.getDisplayName(stack);
     } else {
       // if the specific fluid is translatable, use that
@@ -319,7 +322,7 @@ public class Bucket extends BaseBucketItem {
     if (this.isInGroup(tab)) {
       subItems.add(new ItemStack(this));
       // add all fluids that the bucket can be filled with
-      for(Fluid fluid : ForgeRegistries.FLUIDS.getValues()) {
+      for (Fluid fluid : ForgeRegistries.FLUIDS.getValues()) {
         // skip flowing fluids (we have still) and milks
         // include cracked if cracked, non-cracked if not cracked
         if (isVisible(fluid)) {
@@ -331,8 +334,9 @@ public class Bucket extends BaseBucketItem {
 
   /**
    * Checks if the given fluid is visible in creative
-   * @param fluid  Fluid to check
-   * @return  True if its visible
+   *
+   * @param fluid Fluid to check
+   * @return True if its visible
    */
   private static boolean isVisible(Fluid fluid) {
     // hide empty and milk (milk shows in its own bucket

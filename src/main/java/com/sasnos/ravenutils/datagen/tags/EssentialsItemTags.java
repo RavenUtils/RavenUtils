@@ -163,8 +163,8 @@ public class EssentialsItemTags extends ItemTagsProvider {
     );
 
     getOrCreateBuilder(burnableBuckets).add(
-            ModToolItems.BUCKET_WOOD.get(),
-            ModToolItems.BUCKET_CLAY.get()
+        ModToolItems.BUCKET_WOOD.get(),
+        ModToolItems.BUCKET_CLAY.get()
     );
 
     getOrCreateBuilder(fence_gates).add(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get());

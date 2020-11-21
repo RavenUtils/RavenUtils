@@ -5,14 +5,14 @@ import net.minecraft.item.Item;
 
 public class StickAndStoneBlock extends Block {
 
-    private Item dropItem;
+  private Item dropItem;
 
-    public StickAndStoneBlock(Properties properties, Item dropItemIn) {
-        super(properties);
-        this.dropItem = dropItemIn;
-    }
+  public StickAndStoneBlock(Properties properties, Item dropItemIn) {
+    super(properties);
+    this.dropItem = dropItemIn;
+  }
 
-    public Item getDropItem() {
-        return dropItem;
-    }
+  public Item getDropItem() {
+    return dropItem;
+  }
 }

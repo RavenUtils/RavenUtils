@@ -51,7 +51,7 @@ public class DuckEntity extends ChickenEntity {
   }
   */
 
-  // todo add Duck sounds
+  // todo add suitable sounds
   /*
   @Override
   protected SoundEvent getAmbientSound() {

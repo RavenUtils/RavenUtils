@@ -35,7 +35,7 @@ public class ModToolItems {
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
   public static final DeferredRegister<Item> VANILLA_ITEM_OVERRIDE =
-          DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
+      DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
 
   // default tools
   // copper
@@ -169,10 +169,10 @@ public class ModToolItems {
 
   // iron bucket (Vanilla override)
   public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
-          () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
 
   public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
-          () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
 
   // shears (maxDmg iron: 238)

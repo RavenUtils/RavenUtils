@@ -19,19 +19,19 @@ public class EssentialsFluidBucketWrapper extends FluidBucketWrapper {
   public FluidStack getFluid() {
     Item item = container.getItem();
     if (item instanceof BaseBucketItem) {
-      return new FluidStack(((BaseBucketItem)item).getFluid(container), FluidAttributes.BUCKET_VOLUME);
+      return new FluidStack(((BaseBucketItem) item).getFluid(container), FluidAttributes.BUCKET_VOLUME);
     }
     return FluidStack.EMPTY;
   }
 
   @Override
   protected void setFluid(FluidStack stack) {
-    if(stack.isEmpty()) {
+    if (stack.isEmpty()) {
       container = container.getContainerItem();
     } else {
       Item item = container.getItem();
       if (item instanceof BaseBucketItem) {
-        container = ((BaseBucketItem)item).withFluid(container, stack.getFluid());
+        container = ((BaseBucketItem) item).withFluid(container, stack.getFluid());
       } else {
         container = ItemStack.EMPTY;
       }

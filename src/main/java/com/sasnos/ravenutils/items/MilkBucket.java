@@ -20,12 +20,13 @@ import net.minecraftforge.registries.IRegistryDelegate;
  */
 public class MilkBucket extends BaseBucketItem {
   private static final ItemStack MILK_STACK = new ItemStack(Items.MILK_BUCKET);
+
   public MilkBucket(Item containerItemIn, int maxDamage) {
     super(new Properties()
-            .maxStackSize(1)
-            .containerItem(containerItemIn)
-            .maxDamage(maxDamage)
-            .setNoRepair(), null);
+        .maxStackSize(1)
+        .containerItem(containerItemIn)
+        .maxDamage(maxDamage)
+        .setNoRepair(), null);
   }
 
   @Override
@@ -52,13 +53,13 @@ public class MilkBucket extends BaseBucketItem {
     }
     // update stats
     if (entity instanceof ServerPlayerEntity) {
-      ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)entity;
+      ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entity;
       CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
       serverplayerentity.addStat(Stats.ITEM_USED.get(this));
     }
     // if a player, empty a bucket
     if (entity instanceof PlayerEntity) {
-      PlayerEntity player = (PlayerEntity)entity;
+      PlayerEntity player = (PlayerEntity) entity;
       return updateBucket(stack, player, stack.getContainerItem());
     }
     return stack;
@@ -71,7 +72,9 @@ public class MilkBucket extends BaseBucketItem {
     return true;
   }
 
-  /** Cached milk type */
+  /**
+   * Cached milk type
+   */
   private static IRegistryDelegate<Fluid> milk = null;
 
   @Override
