@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "ravenutils:dough"
-  },
-  "result": "minecraft:bread",
-  "experience": 0.35,
-  "cookingtime": 300
-}

@@ -6,12 +6,13 @@ import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
+import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   public EssentialsBuildingBlocksRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -59,6 +60,7 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
 
     ShapelessRecipeBuilder.shapelessRecipe(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(), 4)
         .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
+        .addIngredient(axes)
         .addCriterion("has_crimwood", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
         .build(consumer);
 

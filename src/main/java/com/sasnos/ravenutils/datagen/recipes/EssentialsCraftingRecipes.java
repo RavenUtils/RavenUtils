@@ -16,10 +16,7 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.strings;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.water_buckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
   public EssentialsCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -165,6 +162,12 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_knife", hasItemTag(knives))
         .setGroup("buckets")
         .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 2)
+        .addIngredient(saplings)
+        .addIngredient(knives)
+        .addCriterion("has_knife", hasItemTag(knives))
+        .build(consumer, "plant_fibre_from_knife");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 4)
         .addIngredient(ItemTags.WOOL)

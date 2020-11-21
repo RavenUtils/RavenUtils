@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "ravenutils:bushmeat"
-  },
-  "result": "ravenutils:cooked_bushmeat",
-  "experience": 0.35,
-  "cookingtime": 200
-}

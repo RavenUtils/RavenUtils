@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "ravenutils:coin_copper"
-  },
-  "result": "ravenutils:copper_nugget",
-  "experience": 0.35,
-  "cookingtime": 100
-}
