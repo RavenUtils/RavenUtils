@@ -142,10 +142,6 @@ public class ModToolItems {
   public static final RegistryObject<Item> KNIFE_DIAMOND = ITEMS.register("knife_diamond",
       () -> new Knife(1024, Rarity.UNCOMMON));
 
-  // @todo implement texture and item rendering (#Atlas #Stitching)
-  public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
-      () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
-
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
       () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
           .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));

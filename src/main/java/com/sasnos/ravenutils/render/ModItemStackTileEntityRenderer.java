@@ -3,7 +3,7 @@ package com.sasnos.ravenutils.render;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.datafixers.util.Pair;
-import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.items.MytherineShieldModel;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -31,7 +31,7 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
     Item item = stack.getItem();
     if (item instanceof BlockItem) {
       Block block = ((BlockItem) item).getBlock();
-      if (item == ModToolItems.MYTHERINE_SHIELD.get().getItem()) {
+      if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
         boolean flag = stack.getChildTag("BlockEntityTag") != null;
         matrixStack.push();
         matrixStack.scale(1.0F, -1.0F, -1.0F);

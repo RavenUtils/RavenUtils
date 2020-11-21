@@ -97,60 +97,60 @@ public class enUs extends LanguageProvider {
     // add(ModArmorItems.COPPER_CHESTPLATE.get(), "Copper Chestplate");
     // add(ModArmorItems.COPPER_LEGGINGS.get(), "Copper Leggings");
     // add(ModArmorItems.COPPER_BOOTS.get(), "Copper Boots");
+    // add(ModArmorItems.COPPER_SHIELD.get(), "Copper Shield");
     add(ModToolItems.COPPER_SWORD.get(), "Copper Sword");
     add(ModToolItems.COPPER_SHOVEL.get(), "Copper Shovel");
     add(ModToolItems.COPPER_AXE.get(), "Copper Axe");
     add(ModToolItems.COPPER_HOE.get(), "Copper Hoe");
     add(ModToolItems.COPPER_PICKAXE.get(), "Copper Pickaxe");
     add(ModToolItems.SHEARS_COPPER.get(), "Copper Shears");
-    // add(ModToolItems.COPPER_SHIELD.get(), "Copper Shield");
 
     // add(ModArmorItems.BRONZE_HELMET.get(), "Bronze Helmet");
     // add(ModArmorItems.BRONZE_CHESTPLATE.get(), "Bronze Chestplate");
     // add(ModArmorItems.BRONZE_LEGGINGS.get(), "Bronze Leggings");
     // add(ModArmorItems.BRONZE_BOOTS.get(), "Bronze Boots");
+    // add(ModArmorItems.BRONZE_SHIELD.get(), "Bronze Shield");
     add(ModToolItems.BRONZE_SWORD.get(), "Bronze Sword");
     add(ModToolItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
     add(ModToolItems.BRONZE_AXE.get(), "Bronze Axe");
     add(ModToolItems.BRONZE_HOE.get(), "Bronze Hoe");
     add(ModToolItems.BRONZE_PICKAXE.get(), "Bronze Pickaxe");
     add(ModToolItems.SHEARS_BRONZE.get(), "Bronze Shears");
-    // add(ModToolItems.BRONZE_SHIELD.get(), "Bronze Shield");
 
     // add(ModArmorItems.SILVER_HELMET.get(), "Silver Helmet");
     // add(ModArmorItems.SILVER_CHESTPLATE.get(), "Silver Chestplate");
     // add(ModArmorItems.SILVER_LEGGINGS.get(), "Silver Leggings");
     // add(ModArmorItems.SILVER_BOOTS.get(), "Silver Boots");
+    // add(ModArmorItems.SILVER_SHIELD.get(), "Silver Shield");
     add(ModToolItems.SILVER_SWORD.get(), "Silver Sword");
     add(ModToolItems.SILVER_SHOVEL.get(), "Silver Shovel");
     add(ModToolItems.SILVER_AXE.get(), "Silver Axe");
     add(ModToolItems.SILVER_HOE.get(), "Silver Hoe");
     add(ModToolItems.SILVER_PICKAXE.get(), "Silver Pickaxe");
     add(ModToolItems.SHEARS_SILVER.get(), "Silver Shears");
-    // add(ModToolItems.SILVER_SHIELD.get(), "Silver Shield");
 
     // add(ModArmorItems.STEEL_HELMET.get(), "Steel Helmet");
     // add(ModArmorItems.STEEL_CHESTPLATE.get(), "Steel Chestplate");
     // add(ModArmorItems.STEEL_LEGGINGS.get(), "Steel Leggings");
     // add(ModArmorItems.STEEL_BOOTS.get(), "Steel Boots");
+    // add(ModArmorItems.STEEL_SHIELD.get(), "Steel Shield");
     add(ModToolItems.STEEL_SWORD.get(), "Steel Sword");
     add(ModToolItems.STEEL_SHOVEL.get(), "Steel Shovel");
     add(ModToolItems.STEEL_AXE.get(), "Steel Axe");
     add(ModToolItems.STEEL_HOE.get(), "Steel Hoe");
     add(ModToolItems.STEEL_PICKAXE.get(), "Steel Pickaxe");
     add(ModToolItems.SHEARS_STEEL.get(), "Steel Shears");
-    // add(ModToolItems.STEEL_SHIELD.get(), "Steel Shield");
 
     add(ModArmorItems.MYTHERINE_HELMET.get(), "Mytherine Helmet");
     add(ModArmorItems.MYTHERINE_CHESTPLATE.get(), "Mytherine Chestplate");
     add(ModArmorItems.MYTHERINE_LEGGINGS.get(), "Mytherine Leggings");
     add(ModArmorItems.MYTHERINE_BOOTS.get(), "Mytherine Boots");
+    add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
     add(ModToolItems.MYTHERINE_SWORD.get(), "Mytherine Sword");
     add(ModToolItems.MYTHERINE_SHOVEL.get(), "Mytherine Shovel");
     add(ModToolItems.MYTHERINE_AXE.get(), "Mytherine Axe");
     add(ModToolItems.MYTHERINE_HOE.get(), "Mytherine Hoe");
     add(ModToolItems.MYTHERINE_PICKAXE.get(), "Mytherine Pickaxe");
-    add(ModToolItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
 
     // tools
     add(ModToolItems.HAMMER_STONE.get(), "Stone Hammer");

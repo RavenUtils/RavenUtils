@@ -3,9 +3,13 @@ package com.sasnos.ravenutils.datagen.recipes;
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.item.Items;
+import net.minecraft.tags.ItemTags;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -258,13 +262,196 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
 
     // custom tools
     // copper
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_SHOVEL.get())
+        .patternLine("i")
+        .patternLine("#")
+        .patternLine("#")
+        .key('i', ModItems.COPPER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_AXE.get())
+        .patternLine("ii")
+        .patternLine("i#")
+        .patternLine(" #")
+        .key('i', ModItems.COPPER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_PICKAXE.get())
+        .patternLine("iii")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('i', ModItems.COPPER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_HOE.get())
+        .patternLine("ii")
+        .patternLine(" #")
+        .patternLine(" #")
+        .key('i', ModItems.COPPER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .build(consumer);
 
     // bronze
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_SHOVEL.get())
+        .patternLine("i")
+        .patternLine("#")
+        .patternLine("#")
+        .key('i', ModItems.BRONZE_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_AXE.get())
+        .patternLine("ii")
+        .patternLine("i#")
+        .patternLine(" #")
+        .key('i', ModItems.BRONZE_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_PICKAXE.get())
+        .patternLine("iii")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('i', ModItems.BRONZE_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_HOE.get())
+        .patternLine("ii")
+        .patternLine(" #")
+        .patternLine(" #")
+        .key('i', ModItems.BRONZE_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .build(consumer);
 
     // silver
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_SHOVEL.get())
+        .patternLine("i")
+        .patternLine("#")
+        .patternLine("#")
+        .key('i', ModItems.SILVER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_AXE.get())
+        .patternLine("ii")
+        .patternLine("i#")
+        .patternLine(" #")
+        .key('i', ModItems.SILVER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_PICKAXE.get())
+        .patternLine("iii")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('i', ModItems.SILVER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_HOE.get())
+        .patternLine("ii")
+        .patternLine(" #")
+        .patternLine(" #")
+        .key('i', ModItems.SILVER_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .build(consumer);
 
     // steel
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_SHOVEL.get())
+        .patternLine("i")
+        .patternLine("#")
+        .patternLine("#")
+        .key('i', ModItems.STEEL_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_AXE.get())
+        .patternLine("ii")
+        .patternLine("i#")
+        .patternLine(" #")
+        .key('i', ModItems.STEEL_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_PICKAXE.get())
+        .patternLine("iii")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('i', ModItems.STEEL_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_HOE.get())
+        .patternLine("ii")
+        .patternLine(" #")
+        .patternLine(" #")
+        .key('i', ModItems.STEEL_INGOT.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .build(consumer);
 
     // mytherine
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_SHOVEL.get())
+        .patternLine("oco")
+        .patternLine("xtx")
+        .patternLine("oxo")
+        .key('o', Items.OBSIDIAN)
+        .key('x', ModItems.MYTHERINE_INGOT.get())
+        .key('t', Items.NETHERITE_SHOVEL)
+        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_AXE.get())
+        .patternLine("oco")
+        .patternLine("xtx")
+        .patternLine("oxo")
+        .key('o', Items.OBSIDIAN)
+        .key('x', ModItems.MYTHERINE_INGOT.get())
+        .key('t', Items.NETHERITE_AXE)
+        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_PICKAXE.get())
+        .patternLine("oco")
+        .patternLine("xtx")
+        .patternLine("oxo")
+        .key('o', Items.OBSIDIAN)
+        .key('x', ModItems.MYTHERINE_INGOT.get())
+        .key('t', Items.NETHERITE_PICKAXE)
+        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_HOE.get())
+        .patternLine("oco")
+        .patternLine("xtx")
+        .patternLine("oxo")
+        .key('o', Items.OBSIDIAN)
+        .key('x', ModItems.MYTHERINE_INGOT.get())
+        .key('t', Items.NETHERITE_HOE)
+        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .build(consumer);
   }
 }
