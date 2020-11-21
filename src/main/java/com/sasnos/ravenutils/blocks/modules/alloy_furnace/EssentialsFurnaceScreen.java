@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EssentialsFurnaceScreen extends EssentialsMachineScreen<EssentialsAlloyFurnaceContainer> {
 
-  private ResourceLocation GUI = new ResourceLocation(RavenUtils.MOD_ID, "textures/gui/metalage/alloy_furnace.png");
+  private ResourceLocation GUI = new ResourceLocation(RavenUtils.MOD_ID, "textures/gui/container/alloy_furnace.png");
 
   public EssentialsFurnaceScreen(EssentialsAlloyFurnaceContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
     super(screenContainer, inv, titleIn);
