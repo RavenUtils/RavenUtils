@@ -89,9 +89,6 @@ public class enUs extends LanguageProvider {
     add(ModFoodItems.BLUEBERRIES.get(), "Blueberries");
     add(ModFoodItems.ELDERBERRIES.get(), "Elderberries");
 
-    add(ModItems.SALT.get(), "Salt");
-    add(ModItems.GELATIN.get(), "Gelatin");
-
     // special items
     add(ModItems.COIN_COPPER.get(), "Copper Coin");
     add(ModItems.COIN_SILVER.get(), "Silver Coin");
@@ -184,8 +181,6 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.BAG_CLOTH.get(), "Cloth Bag");
     add(ModToolItems.BAG_LEATHER.get(), "Leather Bag");
     add(ModToolItems.BEDROLL.get(), "Bedroll");
-    add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
-    add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
 
     // metals
     add(ModItems.MYTHERINE_INGOT.get(), "Mytherine Ingot");
@@ -208,6 +203,9 @@ public class enUs extends LanguageProvider {
     add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");
 
     // crafting material
+    add(ModItems.SALT.get(), "Salt");
+    add(ModItems.GELATIN.get(), "Gelatin");
+
     add(Items.QUARTZ, "Quartz");
     add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
     add(ModItems.HIDE_CURED.get(), "Cured Hide");
@@ -241,5 +239,10 @@ public class enUs extends LanguageProvider {
     add(ModItems.PLANT_TWINE.get(), "Plant Twine");
     add(ModItems.CLOTH.get(), "Cloth");
     add(ModItems.SMALL_STONE.get(), "Small Stone");
+
+    // miscellaneous
+    add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
+    add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
+    add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }
 }

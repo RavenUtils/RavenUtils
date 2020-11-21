@@ -13,37 +13,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.axes;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.boats;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.books;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.burnableBuckets;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.chisels;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals_stone;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.coals_wood;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.crimwood_logs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.flours;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.grasses_tall;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.lava_buckets;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.leaves;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.milk_buckets;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.non_flammable_wood;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.ores;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.planks;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.raw_meat;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.salts;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.slimeballs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.small_flowers;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.strings;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.buckets;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.water_buckets;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsItemTags extends ItemTagsProvider {
-
-
 
   public EssentialsItemTags(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
     super(dataGenerator, blockTagProvider, RavenUtils.MOD_ID, existingFileHelper);
@@ -67,6 +39,11 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.KNIFE_FLINT.get(),
         ModToolItems.KNIFE_IRON.get(),
         ModToolItems.KNIFE_DIAMOND.get()
+    );
+
+    getOrCreateBuilder(sewing_needles).add(
+        ModToolItems.SEWING_NEEDLE_BONE.get(),
+        ModToolItems.SEWING_NEEDLE_IRON.get()
     );
 
     getOrCreateBuilder(buckets).add(
@@ -169,15 +146,15 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModBlockItems.CRIMWOOD_SAPLING_ITEM.get(),
         ModBlockItems.CRIMWOOD_ITEM.get(),
         ModBlockItems.CRIMWOOD_LOG_ITEM.get(),
-        ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()
-        // ModBlockItems.CRIMWOOD_DOOR_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_FENCE_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_SLAB_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get(),
-        // ModBlockItems.CRIMWOOD_BUTTON_ITEM.get()
+        ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(),
+        ModBlockItems.CRIMWOOD_DOOR_ITEM.get(),
+        ModBlockItems.CRIMWOOD_FENCE_ITEM.get(),
+        ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get(),
+        ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get(),
+        ModBlockItems.CRIMWOOD_SLAB_ITEM.get(),
+        ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(),
+        ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get(),
+        ModBlockItems.CRIMWOOD_BUTTON_ITEM.get()
     );
 
     getOrCreateBuilder(crimwood_logs).add(
@@ -190,16 +167,16 @@ public class EssentialsItemTags extends ItemTagsProvider {
             ModToolItems.BUCKET_CLAY.get()
     );
 
-    // getOrCreateBuilder(fence_gates).add(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get());
+    getOrCreateBuilder(fence_gates).add(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get());
     getOrCreateBuilder(leaves).add(ModBlockItems.CRIMWOOD_LEAVES_ITEM.get());
     getOrCreateBuilder(planks).add(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get());
-    // getOrCreateBuilder(wooden_buttons).add(ModBlockItems.CRIMWOOD_BUTTON_ITEM.get());
-    // getOrCreateBuilder(wooden_doors).add(ModBlockItems.CRIMWOOD_DOOR_ITEM.get());
-    // getOrCreateBuilder(wooden_fences).add(ModBlockItems.CRIMWOOD_FENCE_ITEM.get());
-    // getOrCreateBuilder(wooden_pressure_plates).add(ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get());
-    // getOrCreateBuilder(wooden_slabs).add(ModBlockItems.CRIMWOOD_SLAB_ITEM.get());
-    // getOrCreateBuilder(wooden_stairs).add(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get());
-    // getOrCreateBuilder(wooden_trapdoors).add(ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get());
+    getOrCreateBuilder(wooden_buttons).add(ModBlockItems.CRIMWOOD_BUTTON_ITEM.get());
+    getOrCreateBuilder(wooden_doors).add(ModBlockItems.CRIMWOOD_DOOR_ITEM.get());
+    getOrCreateBuilder(wooden_fences).add(ModBlockItems.CRIMWOOD_FENCE_ITEM.get());
+    getOrCreateBuilder(wooden_pressure_plates).add(ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get());
+    getOrCreateBuilder(wooden_slabs).add(ModBlockItems.CRIMWOOD_SLAB_ITEM.get());
+    getOrCreateBuilder(wooden_stairs).add(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get());
+    getOrCreateBuilder(wooden_trapdoors).add(ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get());
 
     getOrCreateBuilder(boats).add(ModItems.CRIMWOOD_BOAT.get());
   }
