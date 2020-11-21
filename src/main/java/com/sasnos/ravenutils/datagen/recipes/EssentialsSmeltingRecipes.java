@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
+import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsCookingRecipeBuilder;
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;
@@ -7,6 +8,7 @@ import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
@@ -16,7 +18,8 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.grasses_tall;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
 
 public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
   public EssentialsSmeltingRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -83,9 +86,9 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
         .build(consumer, "lead_ingot_from_smelting");
 
-    CookingRecipeBuilder.smeltingRecipe(
+    EssentialsCookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromItems(ModBlockItems.MYTHERINE_ORE_ITEM.get()),
-        ModItems.MYTHERINE_NUGGET.get(),
+        new ItemStack(ModItems.MYTHERINE_NUGGET.get(), 2),
         1.0f,
         1200)
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
@@ -100,9 +103,9 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_unfired_clay_bucket", hasItem(ModItems.BUCKET_CLAY_UNFIRED.get()))
         .build(consumer);
 
-    CookingRecipeBuilder.smeltingRecipe(
+    EssentialsCookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromItems(Items.BOOK),
-        ModItems.ASH.get(),
+        new ItemStack(ModItems.ASH.get(), 3),
         0.1f,
         120)
         .addCriterion("has_book", hasItem(Items.BOOK))
@@ -116,17 +119,17 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_map", hasItem(Items.MAP))
         .build(consumer, "ash_from_smelting_filled_map");
 
-    CookingRecipeBuilder.smeltingRecipe(
+    EssentialsCookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromItems(Items.LADDER),
-        ModItems.ASH.get(),
+        new ItemStack(ModItems.ASH.get(), 2),
         0.1f,
         60)
         .addCriterion("has_map", hasItem(Items.MAP))
         .build(consumer, "ash_from_smelting_ladder");
 
-    CookingRecipeBuilder.smeltingRecipe(
+    EssentialsCookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromTag(ItemTags.LEAVES),
-        ModItems.ASH.get(),
+        new ItemStack(ModItems.ASH.get(), 2),
         0.1f,
         60)
         .addCriterion("has_leaves", hasItemTag(ItemTags.LEAVES))
@@ -156,9 +159,9 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_tall_grass", hasItemTag(grasses_tall))
         .build(consumer, "ash_from_smelting_tall_grass");
 
-    CookingRecipeBuilder.smeltingRecipe(
+    EssentialsCookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromTag(saplings),
-        ModItems.ASH.get(),
+        new ItemStack(ModItems.ASH.get(), 2),
         0.1f,
         60)
         .addCriterion("has_sapling", hasItemTag(saplings))

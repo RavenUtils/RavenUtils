@@ -76,15 +76,20 @@ public class enUs extends LanguageProvider {
     // add(ModBlocks.HAND_MILL.get(), "Mill");
     // add(ModBlocks.MILLSTONE.get(), "Millstone");
 
-    // food-related items
+    // food-related blocks
+    add(ModBlocks.BLUEBERRY_BUSH.get(), "Blueberry Bush");
+    add(ModBlocks.ELDERBERRY_BUSH.get(), "Elderberry Bush");
+
+    // food(-related) items
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
     add(ModFoodItems.DUCK_EGG.get(), "Duck Egg");
     add(ModFoodItems.WHEAT_FLOUR.get(), "Wheat Flour");
-    add(ModItems.COARSE_SALT.get(), "Coarse Salt");
-    add(ModItems.SALT.get(), "Salt");
     add(ModFoodItems.DOUGH.get(), "Dough");
-    add(ModItems.TALLOW.get(), "Tallow");
+    add(ModFoodItems.BLUEBERRIES.get(), "Blueberries");
+    add(ModFoodItems.ELDERBERRIES.get(), "Elderberries");
+
+    add(ModItems.SALT.get(), "Salt");
     add(ModItems.GELATIN.get(), "Gelatin");
 
     // special items
@@ -210,6 +215,8 @@ public class enUs extends LanguageProvider {
     add(ModItems.HIDE_LIMED.get(), "Limed Hide");
     add(ModItems.HIDE_TANNED.get(), "Tanned Hide");
 
+    add(ModItems.COARSE_SALT.get(), "Coarse Salt");
+    add(ModItems.TALLOW.get(), "Tallow");
     add(ModItems.INK_BOTTLE.get(), "Ink Bottle");
     add(ModItems.BLOOD_BOTTLE.get(), "Blood Bottle");
     add(ModItems.ASH.get(), "Ash");

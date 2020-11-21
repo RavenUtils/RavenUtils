@@ -1,11 +1,9 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Bushmeat;
-import com.sasnos.ravenutils.items.CookedBushmeat;
-import com.sasnos.ravenutils.items.DuckEgg;
-import com.sasnos.ravenutils.items.ItemBase;
-import net.minecraft.item.Item;
+import com.sasnos.ravenutils.items.*;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,4 +18,7 @@ public class ModFoodItems {
   public static final RegistryObject<Item> WHEAT_FLOUR = ITEMS.register("wheat_flour", ItemBase::new);
   public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", ItemBase::new);
   public static final RegistryObject<Item> DUCK_EGG = ITEMS.register("duck_egg", DuckEgg::new);
+
+  public static final RegistryObject<Item> BLUEBERRIES = ITEMS.register("blueberries", Berries::new);
+  public static final RegistryObject<Item> ELDERBERRIES = ITEMS.register("elderberries", Berries::new);
 }

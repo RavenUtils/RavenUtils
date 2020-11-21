@@ -1,10 +1,12 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
+import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsCookingRecipeBuilder;
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -59,9 +61,9 @@ public class EssentialsBlastingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
         .build(consumer, "lead_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
+    EssentialsCookingRecipeBuilder.blastingRecipe(
         Ingredient.fromItems(ModBlockItems.MYTHERINE_ORE_ITEM.get()),
-        ModItems.MYTHERINE_NUGGET.get(),
+        new ItemStack(ModItems.MYTHERINE_NUGGET.get(), 2),
         1.0f,
         1000)
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))

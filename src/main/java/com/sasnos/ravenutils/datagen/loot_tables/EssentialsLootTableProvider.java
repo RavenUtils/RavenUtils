@@ -68,5 +68,9 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.CRIMWOOD_SLAB.get(), createStandardTable("crimwood_slab", ModBlocks.CRIMWOOD_SLAB.get()));
     lootTables.put(ModBlocks.CRIMWOOD_STAIRS.get(), createStandardTable("crimwood_stairs", ModBlocks.CRIMWOOD_STAIRS.get()));
     lootTables.put(ModBlocks.CRIMWOOD_TRAPDOOR.get(), createStandardTable("crimwood_trapdoor", ModBlocks.CRIMWOOD_TRAPDOOR.get()));
+
+    // todo adjust drops and conditions as in sweet_berry_bush
+    lootTables.put(ModBlocks.BLUEBERRY_BUSH.get(), createStandardTable("blueberry_bush", ModBlocks.BLUEBERRY_BUSH.get()));
+    lootTables.put(ModBlocks.ELDERBERRY_BUSH.get(), createStandardTable("elderberry_bush", ModBlocks.ELDERBERRY_BUSH.get()));
   }
 }

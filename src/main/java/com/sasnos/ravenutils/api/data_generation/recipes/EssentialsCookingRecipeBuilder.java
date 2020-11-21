@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
-public class EssentialsCookingRecipe {
+public class EssentialsCookingRecipeBuilder {
 
   private final ItemStack result;
   private final Ingredient ingredient;
@@ -28,7 +28,7 @@ public class EssentialsCookingRecipe {
   private String group;
   private final CookingRecipeSerializer<?> recipeSerializer;
 
-  private EssentialsCookingRecipe(ItemStack resultIn, Ingredient ingredientIn, float experienceIn, int cookingTimeIn, CookingRecipeSerializer<?> serializer) {
+  private EssentialsCookingRecipeBuilder(ItemStack resultIn, Ingredient ingredientIn, float experienceIn, int cookingTimeIn, CookingRecipeSerializer<?> serializer) {
     this.result = resultIn;
     this.ingredient = ingredientIn;
     this.experience = experienceIn;
@@ -36,19 +36,19 @@ public class EssentialsCookingRecipe {
     this.recipeSerializer = serializer;
   }
 
-  public static EssentialsCookingRecipe cookingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn, CookingRecipeSerializer<?> serializer) {
-    return new EssentialsCookingRecipe(resultIn, ingredientIn, experienceIn, cookingTimeIn, serializer);
+  public static EssentialsCookingRecipeBuilder cookingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn, CookingRecipeSerializer<?> serializer) {
+    return new EssentialsCookingRecipeBuilder(resultIn, ingredientIn, experienceIn, cookingTimeIn, serializer);
   }
 
-  public static EssentialsCookingRecipe blastingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn) {
+  public static EssentialsCookingRecipeBuilder blastingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn) {
     return cookingRecipe(ingredientIn, resultIn, experienceIn, cookingTimeIn, IRecipeSerializer.BLASTING);
   }
 
-  public static EssentialsCookingRecipe smeltingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn) {
+  public static EssentialsCookingRecipeBuilder smeltingRecipe(Ingredient ingredientIn, ItemStack resultIn, float experienceIn, int cookingTimeIn) {
     return cookingRecipe(ingredientIn, resultIn, experienceIn, cookingTimeIn, IRecipeSerializer.SMELTING);
   }
 
-  public EssentialsCookingRecipe addCriterion(String name, ICriterionInstance criterionIn) {
+  public EssentialsCookingRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
     this.advancementBuilder.withCriterion(name, criterionIn);
     return this;
   }
@@ -71,7 +71,7 @@ public class EssentialsCookingRecipe {
     ResourceLocation id = ForgeRegistries.ITEMS.getKey(items.getItem());
     this.validate(id);
     this.advancementBuilder.withParentId(new ResourceLocation("recipes/root")).withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id)).withRewards(AdvancementRewards.Builder.recipe(id)).withRequirementsStrategy(IRequirementsStrategy.OR);
-    consumerIn.accept(new EssentialsCookingRecipe.Result(id, this.group == null ? "" : this.group, this.ingredient, this.result, this.experience, this.cookingTime, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath()), this.recipeSerializer));
+    consumerIn.accept(new EssentialsCookingRecipeBuilder.Result(id, this.group == null ? "" : this.group, this.ingredient, this.result, this.experience, this.cookingTime, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath()), this.recipeSerializer));
   }
 
   /**

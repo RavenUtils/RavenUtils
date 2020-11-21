@@ -79,6 +79,13 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
 
+  // berry bushes
+  public static final RegistryObject<Block> BLUEBERRY_BUSH = BLOCKS.register("blueberry_bush",
+      () -> new BlueberryBush(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+  public static final RegistryObject<Block> ELDERBERRY_BUSH = BLOCKS.register("elderberry_bush",
+      () -> new ElderberryBush(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+
+  // functional blocks
   public static final RegistryObject<Block> DRYING_RACK = BLOCKS.register("drying_rack",
       () -> new DryingRack(AbstractBlock.Properties.create(Material.WOOD)));
 
