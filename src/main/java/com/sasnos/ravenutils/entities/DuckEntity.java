@@ -16,11 +16,11 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-public class Duck extends ChickenEntity {
+public class DuckEntity extends ChickenEntity {
   private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.BREAD);
   public boolean chickenJockey = false;
 
-  public Duck(EntityType<? extends ChickenEntity> type, World worldIn) {
+  public DuckEntity(EntityType<? extends ChickenEntity> type, World worldIn) {
     super(type, worldIn);
   }
 
@@ -42,6 +42,14 @@ public class Duck extends ChickenEntity {
     this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 6.0F));
     this.goalSelector.addGoal(7, new LookRandomlyGoal(this));
   }
+
+  // todo adjust
+  /*
+  @Override
+  public ChickenEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
+    return EntityType.DUCK.create(p_241840_1_);
+  }
+  */
 
   // todo add Duck sounds
   /*

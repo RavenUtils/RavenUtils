@@ -13,9 +13,9 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 
-public class DireWolf extends WolfEntity {
+public class DireWolfEntity extends WolfEntity {
 
-  public DireWolf(EntityType<? extends WolfEntity> type, World worldIn) {
+  public DireWolfEntity(EntityType<? extends WolfEntity> type, World worldIn) {
     super(type, worldIn);
   }
 

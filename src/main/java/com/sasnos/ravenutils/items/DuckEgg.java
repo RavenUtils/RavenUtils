@@ -7,6 +7,7 @@ import net.minecraft.item.EggItem;
 public class DuckEgg extends EggItem {
   public DuckEgg() {
     super(new Properties()
+        .maxStackSize(16)
         .group(RavenUtils.TAB));
   }
 }
