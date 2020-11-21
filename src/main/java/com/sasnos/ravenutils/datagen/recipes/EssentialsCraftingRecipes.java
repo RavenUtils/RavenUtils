@@ -99,6 +99,49 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_salt", hasItem(ModItems.SALT.get()))
         .build(consumer);
 
+    // axe
+    ShapelessRecipeBuilder.shapelessRecipe(Items.ACACIA_PLANKS, 4)
+        .addIngredient(Items.ACACIA_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_acacia_log", hasItem(Items.ACACIA_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(Items.BIRCH_PLANKS, 4)
+        .addIngredient(Items.BIRCH_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_birch_log", hasItem(Items.BIRCH_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(Items.DARK_OAK_PLANKS, 4)
+        .addIngredient(Items.DARK_OAK_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_dark_oak_log", hasItem(Items.DARK_OAK_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(Items.JUNGLE_PLANKS, 4)
+        .addIngredient(Items.JUNGLE_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_jungle_log", hasItem(Items.JUNGLE_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(Items.OAK_PLANKS, 4)
+        .addIngredient(Items.OAK_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_oak_log", hasItem(Items.OAK_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(Items.SPRUCE_PLANKS, 4)
+        .addIngredient(Items.SPRUCE_LOG)
+        .addIngredient(axes)
+        .addCriterion("has_spruce_log", hasItem(Items.SPRUCE_LOG))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(), 4)
+        .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
+        .addIngredient(axes)
+        .addCriterion("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
+        .build(consumer);
+
     // hammer
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)

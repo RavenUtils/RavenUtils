@@ -58,12 +58,6 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(), 4)
-        .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
-        .addIngredient(axes)
-        .addCriterion("has_crimwood", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
-        .build(consumer);
-
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get())
         .patternLine("##")
         .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
