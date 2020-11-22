@@ -27,7 +27,6 @@ public class BlockStates extends BlockStateProvider {
   protected void registerStatesAndModels() {
 
     // berry bushes
-    // todo find out how to pass Age for all 4 states
     // BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
     //     resourceLocation("block/bush_blueberry_stage0"));
     // simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush0);
@@ -304,14 +303,14 @@ public class BlockStates extends BlockStateProvider {
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
   }
 
-  public void agingBlock(Block block, Function<BlockState, ModelFile> modelFunction){
+  public void agingBlock(Block block, Function<BlockState, ModelFile> modelFunction) {
     getVariantBuilder(block)
-            .forAllStates(blockState -> {
-              Integer age = blockState.get(BlockStateProperties.AGE_0_3);
-              return ConfiguredModel.builder()
-                      .modelFile(modelFunction.apply(blockState))
-                      .build();
-            });
+        .forAllStates(blockState -> {
+          Integer age = blockState.get(BlockStateProperties.AGE_0_3);
+          return ConfiguredModel.builder()
+              .modelFile(modelFunction.apply(blockState))
+              .build();
+        });
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
