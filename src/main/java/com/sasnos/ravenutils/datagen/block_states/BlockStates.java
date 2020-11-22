@@ -26,29 +26,63 @@ public class BlockStates extends BlockStateProvider {
   @Override
   protected void registerStatesAndModels() {
 
+    // berry bushes
+    /* todo find out how to pass Age for all 4 states
+    BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
+        resourceLocation("block/bush_blueberry_stage0"));
+    simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush0);
+
+    BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
+        resourceLocation("block/bush_blueberry_stage1"));
+    simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush1);
+
+    BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
+        resourceLocation("block/bush_blueberry_stage2"));
+    simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush2);
+
+    BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3",
+        resourceLocation("block/blueberry_bush_stage3"));
+    simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush3);
+
+    BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
+        resourceLocation("block/bush_elderberry_stage0"));
+    simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush0);
+
+    BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
+        resourceLocation("block/bush_elderberry_stage1"));
+    simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush1);
+
+    BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
+        resourceLocation("block/bush_elderberry_stage2"));
+    simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush2);
+
+    BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3",
+        resourceLocation("block/bush_elderberry_stage3"));
+    simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush3);
+    */
+
+    // more
     BlockModelBuilder crimleaf = models().cross("crimleaf",
         resourceLocation("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
-
-    // BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
-    //     resourceLocation("blocks/potted_crimleaf"));
-    // simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), pottedCrimleaf);
 
     BlockModelBuilder crimwood = models().cubeAll("crimwood",
         resourceLocation("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
-    // models().cubeAll("crimwood_button",
-    // resourceLocation("crimwood_button"));
+    /*
+    BlockModelBuilder crimwoodButton = models().cubeAll("crimwood_button",
+        resourceLocation("crimwood_button"));
 
-    // models().cubeAll("crimwood_door",
-    // resourceLocation("crimwood_door"));
+    BlockModelBuilder crimwoodDoor = models().cubeAll("crimwood_door",
+        resourceLocation("crimwood_door"));
 
-    // models().cubeAll("crimwood_fence",
-    // resourceLocation("crimwood_fence"));
+    BlockModelBuilder crimwoodFence = models().cubeAll("crimwood_fence",
+        resourceLocation("crimwood_fence"));
 
-    // models().fenceGate("crimwood_fence_gate",
-    // resourceLocation("crimwood_fence_gate"));
+    BlockModelBuilder crimwoodFenceGate = models().fenceGate("crimwood_fence_gate",
+        resourceLocation("crimwood_fence_gate"));
+   */
 
     BlockModelBuilder crimwoodLeaves = models().cubeAll("crimwood_leaves",
         resourceLocation("blocks/crimwood_leaves"));
@@ -64,24 +98,30 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/crimwood_planks"));
     simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimwoodPlanks);
 
-    // models().cubeAll("crimwood_pressure_plate",
-    // resourceLocation("crimwood_pressure_plate"));
+    // BlockModelBuilder crimwoodPressure_Plate = models().cubeAll("crimwood_pressure_plate",
+    //     resourceLocation("crimwood_pressure_plate"));
 
     BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling",
         resourceLocation("blocks/crimwood_sapling"));
     simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
-    // BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimwood_sapling",
-    //     resourceLocation("blocks/potted_crimwood_sapling"));
-    // simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), pottedCrimwoodSapling);
+    /*
+    BlockModelBuilder pottedCrimwoodSapling = models().cubeAll("potted_crimwood_sapling",
+        resourceLocation("blocks/potted_crimwood_sapling"));
+    simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
-    // models().cubeAll("crimwood_sign",
-    // resourceLocation("crimwood_sign"));
+    BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
+        resourceLocation("blocks/potted_crimleaf"));
+    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimleaf);
 
-    // models().slab("crimwood_slab",
-    // resourceLocation("crimwood_slab"),
-    // resourceLocation("crimwood_slab_bottom"),
-    // resourceLocation("crimwood_slap_top"));
+    BlockModelBuilder crimwoodSign = models().cubeAll("crimwood_sign",
+        resourceLocation("crimwood_sign"));
+
+    BlockModelBuilder crimwoodSlab = models().slab("crimwood_slab",
+        resourceLocation("crimwood_slab"),
+        resourceLocation("crimwood_slab_bottom"),
+        resourceLocation("crimwood_slap_top"));
+    */
 
     BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt",
         resourceLocation("blocks/fossil_dirt"));
@@ -102,6 +142,10 @@ public class BlockStates extends BlockStateProvider {
     BlockModelBuilder resinBlock = models().cubeAll("resin_block",
         resourceLocation("blocks/resin_block"));
     simpleBlock(ModBlocks.RESIN_BLOCK.get(), resinBlock);
+
+    BlockModelBuilder gelatinBlock = models().cubeAll("gelatin_block",
+        resourceLocation("blocks/gelatin_block"));
+    simpleBlock(ModBlocks.GELATIN_BLOCK.get(), gelatinBlock);
 
     BlockModelBuilder saltOre = models().cubeAll("salt_ore",
         resourceLocation("blocks/salt_ore"));
@@ -187,23 +231,70 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/mytherine_block"));
     simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
-    BlockModelBuilder stoneAnvilStone =
-        models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
-            .texture("body", resourceLocation("blocks/anvil_stone"))
-            .texture("top", resourceLocation("blocks/anvil_top_stone"));
+    // stone anvils
+    // stone
+    BlockModelBuilder stoneAnvilStone = models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
+        .texture("body", resourceLocation("blocks/anvil_stone"))
+        .texture("top", resourceLocation("blocks/anvil_top_stone"));
     horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
 
-    BlockModelBuilder damagedStoneAnvilStone =
-        models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
-            .texture("top", resourceLocation("blocks/damaged_anvil_top_stone"));
+    BlockModelBuilder damagedStoneAnvilStone = models().withExistingParent("damaged_anvil_stone", resourceLocation("stone_anvil_stone"))
+        .texture("top", resourceLocation("blocks/damaged_anvil_top_stone"));
 
     horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_STONE.get(), damagedStoneAnvilStone);
 
-    BlockModelBuilder chippedStoneAnvilStone =
-        models().withExistingParent("damaged_stone_anvil", resourceLocation("stone_anvil_stone"))
-            .texture("top", resourceLocation("blocks/chipped_anvil_top_stone"));
+    BlockModelBuilder chippedStoneAnvilStone = models().withExistingParent("damaged_anvil_stone", resourceLocation("stone_anvil_stone"))
+        .texture("top", resourceLocation("blocks/chipped_anvil_top_stone"));
 
     horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get(), chippedStoneAnvilStone);
+
+    // andesite
+    BlockModelBuilder stoneAnvilAndesite = models().withExistingParent("stone_anvil_andesite", mcLoc("block/template_anvil"))
+        .texture("body", resourceLocation("blocks/anvil_andesite"))
+        .texture("top", resourceLocation("blocks/anvil_top_andesite"));
+    horizontalBlock(ModBlocks.STONE_ANVIL_ANDESITE.get(), stoneAnvilAndesite);
+
+    BlockModelBuilder damagedStoneAnvilAndesite = models().withExistingParent("damaged_anvil_andesite", resourceLocation("stone_anvil_andesite"))
+        .texture("top", resourceLocation("blocks/damaged_anvil_top_andesite"));
+
+    horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_ANDESITE.get(), damagedStoneAnvilAndesite);
+
+    BlockModelBuilder chippedStoneAnvilAndesite = models().withExistingParent("damaged_anvil_andesite", resourceLocation("stone_anvil_andesite"))
+        .texture("top", resourceLocation("blocks/chipped_anvil_top_andesite"));
+
+    horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get(), chippedStoneAnvilAndesite);
+
+    // diorite
+    BlockModelBuilder stoneAnvilDiorite = models().withExistingParent("stone_anvil_diorite", mcLoc("block/template_anvil"))
+        .texture("body", resourceLocation("blocks/anvil_diorite"))
+        .texture("top", resourceLocation("blocks/anvil_top_diorite"));
+    horizontalBlock(ModBlocks.STONE_ANVIL_DIORITE.get(), stoneAnvilDiorite);
+
+    BlockModelBuilder damagedStoneAnvilDiorite = models().withExistingParent("damaged_anvil_diorite", resourceLocation("stone_anvil_diorite"))
+        .texture("top", resourceLocation("blocks/damaged_anvil_top_diorite"));
+
+    horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_DIORITE.get(), damagedStoneAnvilDiorite);
+
+    BlockModelBuilder chippedStoneAnvilDiorite = models().withExistingParent("damaged_anvil_diorite", resourceLocation("stone_anvil_diorite"))
+        .texture("top", resourceLocation("blocks/chipped_anvil_top_diorite"));
+
+    horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get(), chippedStoneAnvilDiorite);
+
+    // granite
+    BlockModelBuilder stoneAnvilGranite = models().withExistingParent("stone_anvil_granite", mcLoc("block/template_anvil"))
+        .texture("body", resourceLocation("blocks/anvil_granite"))
+        .texture("top", resourceLocation("blocks/anvil_top_granite"));
+    horizontalBlock(ModBlocks.STONE_ANVIL_GRANITE.get(), stoneAnvilGranite);
+
+    BlockModelBuilder damagedStoneAnvilGranite = models().withExistingParent("damaged_anvil_granite", resourceLocation("stone_anvil_granite"))
+        .texture("top", resourceLocation("blocks/damaged_anvil_top_granite"));
+
+    horizontalBlock(ModBlocks.DAMAGED_STONE_ANVIL_GRANITE.get(), damagedStoneAnvilGranite);
+
+    BlockModelBuilder chippedStoneAnvilGranite = models().withExistingParent("damaged_anvil_granite", resourceLocation("stone_anvil_granite"))
+        .texture("top", resourceLocation("blocks/chipped_anvil_top_granite"));
+
+    horizontalBlock(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get(), chippedStoneAnvilGranite);
 
     BlockModelBuilder stone_crafting_table =
         models().cube("stone_crafting_table",
@@ -216,8 +307,6 @@ public class BlockStates extends BlockStateProvider {
             .texture("particles", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
-
-    // todo add MPS mill with/ without millstone
   }
 
   public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
