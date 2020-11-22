@@ -7,14 +7,13 @@
   ],
   "key": {
     "h": {
-      "tag": "forge:tools/knives"
+      "tag": "forge:tools/hammers"
     },
     "i": {
-      "item": "minecraft:bone"
+      "item": "ravenutils:steel_nugget"
     }
   },
   "result": {
-    "item": "ravenutils:sewing_needle_bone",
-    "count": 2
+    "item": "ravenutils:sewing_needle_steel"
   }
 }

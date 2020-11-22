@@ -22,6 +22,7 @@ public class ItemModels extends ItemModelProvider {
   @Override
   protected void registerModels() {
 
+    // buckets
     withExistingParent("item/" + ModToolItems.BUCKET_WOOD.get().getRegistryName().getPath(),
         new ResourceLocation("forge", "item/bucket"))
         .texture("base", resourceLocation("items/bucket_wood"))
@@ -69,9 +70,7 @@ public class ItemModels extends ItemModelProvider {
                 .customLoader(DynamicBucketModelBuilder::begin)
                 .fluid(Fluids.EMPTY);
 
-    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_crafting_table"));
-
+    // stone anvils
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_anvil_andesite"));
 
@@ -83,5 +82,9 @@ public class ItemModels extends ItemModelProvider {
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_anvil_stone"));
+
+    // miscellaneous
+    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_crafting_table"));
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:knife_iron"
+      "ravenutils:sewing_needle_steel"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:knife_iron"
+        "recipe": "ravenutils:sewing_needle_steel"
       }
     }
   },
