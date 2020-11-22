@@ -174,7 +174,6 @@ public class ModToolItems {
   public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
       () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
-
   // shears (maxDmg iron: 238)
   public static final RegistryObject<ShearsItem> SHEARS_COPPER = ITEMS.register("shears_copper",
       () -> new ShearsItem(new Item.Properties().maxDamage(120).group(RavenUtils.TAB)));
