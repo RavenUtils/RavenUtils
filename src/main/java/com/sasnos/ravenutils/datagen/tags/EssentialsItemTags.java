@@ -38,7 +38,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
     getOrCreateBuilder(knives).add(
         ModToolItems.KNIFE_FLINT.get(),
         ModToolItems.KNIFE_IRON.get(),
-        ModToolItems.KNIFE_DIAMOND.get()
+        ModToolItems.KNIFE_STEEL.get()
     );
 
     getOrCreateBuilder(mortars).add(
@@ -48,7 +48,8 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
     getOrCreateBuilder(sewing_needles).add(
         ModToolItems.SEWING_NEEDLE_BONE.get(),
-        ModToolItems.SEWING_NEEDLE_IRON.get()
+        ModToolItems.SEWING_NEEDLE_IRON.get(),
+        ModToolItems.SEWING_NEEDLE_STEEL.get()
     );
 
     getOrCreateBuilder(buckets).add(

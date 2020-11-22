@@ -4,17 +4,13 @@ import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class Needle extends Item {
-  public Needle(int maxDamage) {
+public class Mortar extends Item {
+  public Mortar(int maxDamage) {
     super(new Properties()
         .group(RavenUtils.TAB)
         .maxStackSize(1)
         .maxDamage(maxDamage)
         .setNoRepair());
-  }
-
-  public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
-    return false;
   }
 
   @Override

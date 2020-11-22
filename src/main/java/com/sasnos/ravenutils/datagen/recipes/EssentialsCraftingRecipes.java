@@ -168,12 +168,19 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_IRON.get())
-        .patternLine("xhx")
-        .patternLine("xix")
-        .patternLine("xxx")
+        .patternLine("h")
+        .patternLine("i")
         .key('h', hammers)
         .key('i', Items.IRON_NUGGET)
-        .key('x', strings)
+        .addCriterion("has_hammer", hasItemTag(hammers))
+        .setGroup("sewing_needles")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_STEEL.get())
+        .patternLine("h")
+        .patternLine("i")
+        .key('h', hammers)
+        .key('i', ModItems.STEEL_NUGGET.get())
         .addCriterion("has_hammer", hasItemTag(hammers))
         .setGroup("sewing_needles")
         .build(consumer);
@@ -225,12 +232,10 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer, "string_from_knife");
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_BONE.get(), 2)
-        .patternLine("xhx")
-        .patternLine("xix")
-        .patternLine("xxx")
+        .patternLine("h")
+        .patternLine("i")
         .key('h', knives)
         .key('i', Items.BONE)
-        .key('x', strings)
         .addCriterion("has_knife", hasItemTag(knives))
         .setGroup("sewing_needles")
         .build(consumer);
@@ -294,10 +299,18 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
         .build(consumer);
 
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_STONE.get())
+        .patternLine(" c")
+        .patternLine("b ")
+        .key('b', Items.STONE)
+        .key('c', chisels)
+        .addCriterion("has_chisel", hasItemTag(chisels))
+        .build(consumer);
+
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_STONE.get())
-        .patternLine("oxo")
-        .patternLine(" i ")
-        .patternLine(" i ")
+        .patternLine(" ox")
+        .patternLine(" io")
+        .patternLine("i  ")
         .key('o', Items.STONE)
         .key('x', strings)
         .key('i', Tags.Items.RODS_WOODEN)
@@ -306,9 +319,9 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_IRON.get())
-        .patternLine("oxo")
-        .patternLine(" i ")
-        .patternLine(" i ")
+        .patternLine(" ox")
+        .patternLine(" io")
+        .patternLine("i  ")
         .key('o', Items.IRON_INGOT)
         .key('x', ModItems.LEATHER_STRIP.get())
         .key('i', Tags.Items.RODS_WOODEN)
@@ -317,9 +330,9 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_OBSIDIAN.get())
-        .patternLine("oxo")
-        .patternLine(" i ")
-        .patternLine(" i ")
+        .patternLine(" ox")
+        .patternLine(" io")
+        .patternLine("i  ")
         .key('o', Items.OBSIDIAN)
         .key('x', ModItems.LEATHER_STRIP.get())
         .key('i', Tags.Items.RODS_WOODEN)
@@ -338,21 +351,58 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.KNIFE_IRON.get())
-        .patternLine(" x")
-        .patternLine("i ")
+        .patternLine("  h")
+        .patternLine(" x ")
+        .patternLine("i  ")
+        .key('h', hammers)
         .key('x', Items.IRON_INGOT)
         .key('i', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_iron", hasItem(Items.IRON_INGOT))
+        .addCriterion("has_hammer", hasItemTag(hammers))
         .setGroup("knives")
         .build(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.KNIFE_DIAMOND.get())
-        .patternLine(" x")
-        .patternLine("i ")
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.KNIFE_STEEL.get())
+        .patternLine("  h")
+        .patternLine(" x ")
+        .patternLine("i  ")
+        .key('h', hammers)
+        .key('x', ModItems.STEEL_INGOT.get())
+        .key('i', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_diamond_shard", hasItem(ModItems.STEEL_INGOT.get()))
+        .setGroup("knives")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.CHISEL_IRON.get())
+        .patternLine("h")
+        .patternLine("x")
+        .patternLine("i")
+        .key('h', hammers)
+        .key('x', Items.IRON_INGOT)
+        .key('i', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
+        .setGroup("chisels")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.CHISEL_STEEL.get())
+        .patternLine("h")
+        .patternLine("x")
+        .patternLine("i")
+        .key('h', hammers)
+        .key('x', ModItems.STEEL_INGOT.get())
+        .key('i', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .setGroup("chisels")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.CHISEL_DIAMOND.get())
+        .patternLine("h")
+        .patternLine("x")
+        .patternLine("i")
+        .key('h', hammers)
         .key('x', Items.DIAMOND)
         .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_diamond", hasItem(Items.DIAMOND))
-        .setGroup("knives")
+        .setGroup("chisels")
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.SHEARS_COPPER.get())

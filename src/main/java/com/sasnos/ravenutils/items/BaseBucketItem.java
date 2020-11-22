@@ -31,7 +31,6 @@ public abstract class BaseBucketItem extends Item {
     this.milkBucket = milkBucket;
   }
 
-
   /* Item methods */
 
   @Override
@@ -106,7 +105,6 @@ public abstract class BaseBucketItem extends Item {
       player.dropItem(stack, false);
     }
   }
-
 
   /* Fluid handling */
 

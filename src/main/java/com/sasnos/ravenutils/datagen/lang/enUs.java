@@ -163,7 +163,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.CHISEL_DIAMOND.get(), "Diamond Chisel");
     add(ModToolItems.KNIFE_FLINT.get(), "Flint Knife");
     add(ModToolItems.KNIFE_IRON.get(), "Iron Knife");
-    add(ModToolItems.KNIFE_DIAMOND.get(), "Diamond Knife");
+    add(ModToolItems.KNIFE_STEEL.get(), "Diamond Knife");
     add(ModToolItems.BUCKET_WOOD.get(), "Wooden Bucket");
     add(ModToolItems.BUCKET_WOOD.get().getTranslationKey() + ".filled", "%s Wooden Bucket");
     add(ModToolItems.BUCKET_CLAY.get(), "Clay Bucket");
@@ -179,6 +179,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.SOAP.get(), "Soap");
     add(ModToolItems.SEWING_NEEDLE_BONE.get(), "Bone Sewing Needle");
     add(ModToolItems.SEWING_NEEDLE_IRON.get(), "Iron Sewing Needle");
+    add(ModToolItems.SEWING_NEEDLE_STEEL.get(), "Steel Sewing Needle");
     add(ModToolItems.BAG_CLOTH.get(), "Cloth Bag");
     add(ModToolItems.BAG_LEATHER.get(), "Leather Bag");
     add(ModToolItems.BEDROLL.get(), "Bedroll");

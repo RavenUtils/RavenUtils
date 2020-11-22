@@ -13,10 +13,6 @@ public class Firestarter extends FlintAndSteelItem {
         .setNoRepair());
   }
 
-  public boolean doesContainerItemLeaveCraftingGrid(ItemStack stack) {
-    return false;
-  }
-
   @Override
   public boolean hasContainerItem(ItemStack stack) {
     return true;

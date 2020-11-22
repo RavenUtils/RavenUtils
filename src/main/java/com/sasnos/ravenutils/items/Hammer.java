@@ -14,7 +14,6 @@ public class Hammer extends Item {
         .maxDamage(maxDamage)
         .rarity(rarity)
         .setNoRepair());
-
   }
 
   @Override

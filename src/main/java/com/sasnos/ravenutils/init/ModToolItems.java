@@ -9,8 +9,8 @@ import com.sasnos.ravenutils.items.Firestarter;
 import com.sasnos.ravenutils.items.Hammer;
 import com.sasnos.ravenutils.items.Knife;
 import com.sasnos.ravenutils.items.MilkBucket;
-import com.sasnos.ravenutils.items.MortarAndPestle;
-import com.sasnos.ravenutils.items.Needle;
+import com.sasnos.ravenutils.items.Mortar;
+import com.sasnos.ravenutils.items.SewingNeedle;
 import com.sasnos.ravenutils.items.Soap;
 import com.sasnos.ravenutils.utils.enums.Bags;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
@@ -128,26 +128,21 @@ public class ModToolItems {
       () -> new HoeItem(ModItemTier.MYTHERINE, 1, 0, new Item.Properties()
           .group(RavenUtils.TAB).rarity(Rarity.EPIC)));
 
-  // hammers & knives
+  // hammers
   public static final RegistryObject<Item> HAMMER_STONE = ITEMS.register("hammer_stone",
       () -> new Hammer(64, Rarity.COMMON));
   public static final RegistryObject<Item> HAMMER_IRON = ITEMS.register("hammer_iron",
       () -> new Hammer(256, Rarity.COMMON));
   public static final RegistryObject<Item> HAMMER_OBSIDIAN = ITEMS.register("hammer_obsidian",
       () -> new Hammer(1024, Rarity.UNCOMMON));
+
+  // knives
   public static final RegistryObject<Item> KNIFE_FLINT = ITEMS.register("knife_flint",
       () -> new Knife(32, Rarity.COMMON));
   public static final RegistryObject<Item> KNIFE_IRON = ITEMS.register("knife_iron",
       () -> new Knife(64, Rarity.COMMON));
-  public static final RegistryObject<Item> KNIFE_DIAMOND = ITEMS.register("knife_diamond",
+  public static final RegistryObject<Item> KNIFE_STEEL = ITEMS.register("knife_steel",
       () -> new Knife(1024, Rarity.UNCOMMON));
-
-  public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
-      () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
-          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
-  public static final RegistryObject<Item> BUCKET_IRON_TANNIN = ITEMS.register("bucket_iron_tannin",
-      () -> new BucketItem(ModFluids.TANNIN::get, (new Item.Properties())
-          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
@@ -170,9 +165,14 @@ public class ModToolItems {
   // iron bucket (Vanilla override)
   public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
       () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
-
   public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
       () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+  public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
+      () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
+          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+  public static final RegistryObject<Item> BUCKET_IRON_TANNIN = ITEMS.register("bucket_iron_tannin",
+      () -> new BucketItem(ModFluids.TANNIN::get, (new Item.Properties())
+          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
 
   // shears (maxDmg iron: 238)
   public static final RegistryObject<ShearsItem> SHEARS_COPPER = ITEMS.register("shears_copper",
@@ -184,28 +184,39 @@ public class ModToolItems {
   public static final RegistryObject<ShearsItem> SHEARS_STEEL = ITEMS.register("shears_steel",
       () -> new ShearsItem(new Item.Properties().maxDamage(2048).group(RavenUtils.TAB)));
 
+  // mortars
   public static final RegistryObject<Item> MORTAR_WOOD = ITEMS.register("mortar_wood",
-      () -> new MortarAndPestle(256));
+      () -> new Mortar(256));
   public static final RegistryObject<Item> MORTAR_STONE = ITEMS.register("mortar_stone",
-      () -> new MortarAndPestle(1024));
-  public static final RegistryObject<Item> FIRESTARTER = ITEMS.register("firestarter",
-      () -> new Firestarter(6));
+      () -> new Mortar(1024));
+
+  // chisels
   public static final RegistryObject<Item> CHISEL_IRON = ITEMS.register("chisel_iron",
       () -> new Chisel(256));
   public static final RegistryObject<Item> CHISEL_STEEL = ITEMS.register("chisel_steel",
       () -> new Chisel(1024));
   public static final RegistryObject<Item> CHISEL_DIAMOND = ITEMS.register("chisel_diamond",
       () -> new Chisel(4096));
-  public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
-      () -> new Soap(32));
+
+  // sewing kits
   public static final RegistryObject<Item> SEWING_NEEDLE_BONE = ITEMS.register("sewing_needle_bone",
-      () -> new Needle(32));
+      () -> new SewingNeedle(64));
   public static final RegistryObject<Item> SEWING_NEEDLE_IRON = ITEMS.register("sewing_needle_iron",
-      () -> new Needle(128));
+      () -> new SewingNeedle(256));
+  public static final RegistryObject<Item> SEWING_NEEDLE_STEEL = ITEMS.register("sewing_needle_steel",
+      () -> new SewingNeedle(512));
+
+  // bags
   public static final RegistryObject<Item> BAG_CLOTH = ITEMS.register("bag_cloth",
       () -> new Bag(new Item.Properties(), Bags.CLOTH));
   public static final RegistryObject<Item> BAG_LEATHER = ITEMS.register("bag_leather",
       () -> new Bag(new Item.Properties(), Bags.LEATHER));
+
+  // miscellaneous
+  public static final RegistryObject<Item> FIRESTARTER = ITEMS.register("firestarter",
+      () -> new Firestarter(6));
+  public static final RegistryObject<Item> SOAP = ITEMS.register("soap",
+      () -> new Soap(32));
   public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
       () -> new Bedroll(128));
 }
