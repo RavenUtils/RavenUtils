@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " c",
+    "b "
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:stone"
+    },
+    "c": {
+      "tag": "forge:tools/chisels"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mortar_stone"
+  }
+}

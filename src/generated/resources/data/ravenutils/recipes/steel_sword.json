@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "knives",
   "pattern": [
-    " x",
-    "i "
+    "i",
+    "i",
+    "#"
   ],
   "key": {
-    "x": {
-      "item": "minecraft:diamond"
-    },
     "i": {
+      "item": "ravenutils:steel_ingot"
+    },
+    "#": {
       "tag": "forge:rods/wooden"
     }
   },
   "result": {
-    "item": "ravenutils:knife_diamond"
+    "item": "ravenutils:steel_sword"
   }
 }

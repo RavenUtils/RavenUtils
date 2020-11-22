@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen.tags;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
@@ -53,6 +54,9 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.POTTED_CRIMWOOD_SAPLING.get(),
         ModBlocks.POTTED_CRIMLEAF.get()
     );
+
+    getOrCreateBuilder(BlockTags.makeWrapperTag(BlockTags.WOODEN_FENCES.getName().getPath()))
+            .add(ModBlocks.CRIMWOOD_FENCE.get());
 
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),

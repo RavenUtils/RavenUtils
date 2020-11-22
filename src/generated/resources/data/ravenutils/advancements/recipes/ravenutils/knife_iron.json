@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_iron": {
+    "has_hammer": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:iron_ingot"
+            "tag": "forge:tools/hammers"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_iron",
+      "has_hammer",
       "has_the_recipe"
     ]
   ]

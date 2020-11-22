@@ -127,7 +127,7 @@ public class EssentialsCookingRecipeBuilder {
     private JsonObject serializeItem(ItemStack result) {
 
       JsonObject json = new JsonObject();
-      json.addProperty("result", ForgeRegistries.ITEMS.getKey(result.getItem()).toString());
+      json.addProperty("item", ForgeRegistries.ITEMS.getKey(result.getItem()).toString());
       json.addProperty("count", result.getCount());
       return json;
     }

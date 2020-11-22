@@ -2,9 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "sewing_needles",
   "pattern": [
-    "xhx",
-    "xix",
-    "xxx"
+    "h",
+    "i"
   ],
   "key": {
     "h": {
@@ -12,9 +11,6 @@
     },
     "i": {
       "item": "minecraft:bone"
-    },
-    "x": {
-      "tag": "forge:string"
     }
   },
   "result": {

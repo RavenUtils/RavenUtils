@@ -2,10 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "group": "knives",
   "pattern": [
-    " x",
-    "i "
+    "  h",
+    " x ",
+    "i  "
   ],
   "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
     "x": {
       "item": "minecraft:iron_ingot"
     },

@@ -12,9 +12,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
 
-public abstract class BlockStates extends BlockStateProvider {
+public abstract class EssentialsBlockStates extends BlockStateProvider {
 
-    public BlockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
+    public EssentialsBlockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
         super(gen, modid, exFileHelper);
     }
 

@@ -1,15 +1,16 @@
 package com.sasnos.ravenutils.datagen.block_states;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static com.sasnos.ravenutils.utils.EssentialsUtils.resourceLocation;
 
-public class BlockStates extends BlockStateProvider {
+public class BlockStates extends EssentialsBlockStates {
 
   public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
     super(gen, RavenUtils.MOD_ID, exFileHelper);
@@ -19,37 +20,59 @@ public class BlockStates extends BlockStateProvider {
   protected void registerStatesAndModels() {
 
     // berry bushes
-    // BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
-    //     resourceLocation("block/bush_blueberry_stage0"));
-    // simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush0);
+     BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
+         resourceLocation("blocks/bush_blueberry_stage0"));
 
-    // BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
-    //     resourceLocation("block/bush_blueberry_stage1"));
-    // simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush1);
+     BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
+         resourceLocation("blocks/bush_blueberry_stage1"));
 
-    // BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
-    //     resourceLocation("block/bush_blueberry_stage2"));
-    // simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush2);
+     BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
+         resourceLocation("blocks/bush_blueberry_stage2"));
 
-    // BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3",
-    //     resourceLocation("block/blueberry_bush_stage3"));
-    // simpleBlock(ModBlocks.BLUEBERRY_BUSH.get(), blueberryBush3);
+     BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3",
+         resourceLocation("blocks/bush_blueberry_stage3"));
 
-    // BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
-    //     resourceLocation("block/bush_elderberry_stage0"));
-    // simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush0);
+     generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
+       switch (blockState.get(BlockStateProperties.AGE_0_3)){
+         case 0:
+           return blueberryBush0;
+         case 1:
+           return blueberryBush1;
+         case 2:
+           return blueberryBush2;
+         case 3:
+           return blueberryBush3;
+         default:
+           return null;
+       }
+     });
 
-    // BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
-    //     resourceLocation("block/bush_elderberry_stage1"));
-    // simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush1);
+     BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
+         resourceLocation("blocks/bush_elderberry_stage0"));
 
-    // BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
-    //     resourceLocation("block/bush_elderberry_stage2"));
-    // simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush2);
+     BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
+         resourceLocation("blocks/bush_elderberry_stage1"));
 
-    // BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3",
-    //     resourceLocation("block/bush_elderberry_stage3"));
-    // simpleBlock(ModBlocks.ELDERBERRY_BUSH.get(), elderberryBush3);
+     BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
+         resourceLocation("blocks/bush_elderberry_stage2"));
+
+     BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3",
+         resourceLocation("blocks/bush_elderberry_stage3"));
+
+     generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
+       switch (blockState.get(BlockStateProperties.AGE_0_3)){
+         case 0:
+           return elderberryBush0;
+         case 1:
+           return elderberryBush1;
+         case 2:
+           return elderberryBush2;
+         case 3:
+           return elderberryBush3;
+         default:
+           return null;
+       }
+     });
 
     // more
     BlockModelBuilder crimleaf = models().cross("crimleaf",
@@ -60,17 +83,34 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
-    // BlockModelBuilder crimwoodButton = models().cubeAll("crimwood_button",
-    //     resourceLocation("crimwood_button"));
+     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
+             .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
-    // BlockModelBuilder crimwoodDoor = models().cubeAll("crimwood_door",
-    //     resourceLocation("crimwood_door"));
+    BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
+            .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
-    // BlockModelBuilder crimwoodFence = models().cubeAll("crimwood_fence",
-    //     resourceLocation("crimwood_fence"));
+    BlockModelBuilder crimwoodButtonInentory = models().withExistingParent("crimwood_button_inventory", mcLoc("block/button_inventory"))
+            .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
-    // BlockModelBuilder crimwoodFenceGate = models().fenceGate("crimwood_fence_gate",
-    //     resourceLocation("crimwood_fence_gate"));
+    directionalBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState -> {
+      if(blockState.get(BlockStateProperties.POWERED)){
+        return crimwoodButtonPressed;
+      }
+      else {
+        return crimwoodButton;
+      }
+    });
+
+    doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
+            resourceLocation("blocks/crimwood_door_bottom"),
+            resourceLocation("blocks/crimwood_door_top"));
+
+    BlockModelBuilder crimwwoodFenceInventory = models().fenceInventory("crimwood_fence_inventory",
+            resourceLocation("blocks/crimwood_planks"));
+
+    fenceBlock(ModBlocks.CRIMWOOD_FENCE.get(), resourceLocation("blocks/crimwood_planks"));
+
+    fenceGateBlock(ModBlocks.CRIMWOOD_FENCE_GATE.get(), resourceLocation("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodLeaves = models().cubeAll("crimwood_leaves",
         resourceLocation("blocks/crimwood_leaves"));
@@ -86,28 +126,65 @@ public class BlockStates extends BlockStateProvider {
         resourceLocation("blocks/crimwood_planks"));
     simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimwoodPlanks);
 
-    // BlockModelBuilder crimwoodPressure_Plate = models().cubeAll("crimwood_pressure_plate",
-    //     resourceLocation("crimwood_pressure_plate"));
+    BlockModelBuilder crimwoodPressurePlate = models()
+            .withExistingParent("crimwood_pressure_plate", mcLoc("block/pressure_plate_up"))
+            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+
+    BlockModelBuilder crimwoodPressurePlateDown = models()
+            .withExistingParent("crimwood_pressure_plate_down", mcLoc("block/pressure_plate_down"))
+            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+
+    generateBlockStatesForBlock(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), blockState -> {
+      if (blockState.get(BlockStateProperties.POWERED)){
+        return crimwoodPressurePlateDown;
+      }
+      else {
+        return crimwoodPressurePlate;
+      }
+    });
+
+    BlockModelBuilder crimwoodTrapDoor = models().trapdoorOrientableBottom("crimwood_trap_door",
+            resourceLocation("blocks/crimwood_trapdoor"));
+
+    BlockModelBuilder crimwoodTrapDoorTop = models().trapdoorOrientableTop("crimwood_trap_door_top",
+            resourceLocation("blocks/crimwood_trapdoor"));
+
+    BlockModelBuilder crimwoodTrapDoorOpen = models().trapdoorOrientableOpen("crimwood_trap_door_open",
+            resourceLocation("blocks/crimwood_trapdoor"));
+
+    trapdoorBlock(ModBlocks.CRIMWOOD_TRAPDOOR.get(), crimwoodTrapDoor, crimwoodTrapDoorTop, crimwoodTrapDoorOpen, true);
+
+    stairsBlock(ModBlocks.CRIMWOOD_STAIRS.get(), resourceLocation("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodSapling = models().cross("crimwood_sapling",
         resourceLocation("blocks/crimwood_sapling"));
     simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
-    // BlockModelBuilder pottedCrimwoodSapling = models().cubeAll("potted_crimwood_sapling",
-    //     resourceLocation("blocks/potted_crimwood_sapling"));
-    // simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodSapling);
+    BlockModelBuilder crimwoodPottedSapling = models()
+            .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+            .texture("plant", resourceLocation("blocks/crimwood_sapling"));
 
-    // BlockModelBuilder pottedCrimleaf = models().cubeAll("potted_crimleaf",
-    //     resourceLocation("blocks/potted_crimleaf"));
-    // simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimleaf);
+    simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
-    // BlockModelBuilder crimwoodSign = models().cubeAll("crimwood_sign",
-    //     resourceLocation("crimwood_sign"));
+    BlockModelBuilder crimwoodPottedLeaf = models()
+            .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+            .texture("plant", resourceLocation("blocks/crimleaf"));
 
-    // BlockModelBuilder crimwoodSlab = models().slab("crimwood_slab",
-    //     resourceLocation("crimwood_slab"),
-    //     resourceLocation("crimwood_slab_bottom"),
-    //     resourceLocation("crimwood_slap_top"));
+    simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);
+
+     BlockModelBuilder crimwoodSlab = models().slab("crimwood_slab",
+         resourceLocation("blocks/crimwood_planks"),
+         resourceLocation("blocks/crimwood_planks"),
+         resourceLocation("blocks/crimwood_planks"));
+
+    BlockModelBuilder crimwoodSlabTop = models().slabTop("crimwood_slab_top",
+            resourceLocation("blocks/crimwood_planks"),
+            resourceLocation("blocks/crimwood_planks"),
+            resourceLocation("blocks/crimwood_planks"));
+
+    slabBlock(ModBlocks.CRIMWOOD_SLAB.get(), crimwoodSlab, crimwoodSlabTop, crimwoodPlanks);
+
+
 
     BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt",
         resourceLocation("blocks/fossil_dirt"));

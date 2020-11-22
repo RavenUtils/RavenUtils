@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "knives",
+  "pattern": [
+    "  h",
+    " x ",
+    "i  "
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "x": {
+      "item": "ravenutils:steel_ingot"
+    },
+    "i": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:knife_steel"
+  }
+}

@@ -69,6 +69,18 @@ public class ItemModels extends ItemModelProvider {
                 .customLoader(DynamicBucketModelBuilder::begin)
                 .fluid(Fluids.EMPTY);
 
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get().getRegistryName().getPath(),
+            resourceLocation("block/crimwood_fence_gate"));
+
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_FENCE_ITEM.get().getRegistryName().getPath(),
+            resourceLocation("block/crimwood_fence_inventory"));
+
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get().getRegistryName().getPath(),
+            resourceLocation("block/crimwood_trap_door"));
+
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get(),
+            resourceLocation("block/crimwood_button_inventory"));
+
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_crafting_table"));
 
