@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:mytherine_nugget"
+      "minecraft:brass_nuggets_from_ingot"
     ]
   },
   "criteria": {
-    "has_mytherine_ore": {
+    "has_brass_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:mytherine_ore"
+            "item": "ravenutils:brass_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:mytherine_nugget"
+        "recipe": "minecraft:brass_nuggets_from_ingot"
       }
     }
   },
   "requirements": [
     [
-      "has_mytherine_ore",
+      "has_brass_ingot",
       "has_the_recipe"
     ]
   ]

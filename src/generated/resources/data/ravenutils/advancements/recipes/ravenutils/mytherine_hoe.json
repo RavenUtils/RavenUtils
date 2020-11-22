@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:mortar_and_pestle"
+      "ravenutils:mytherine_hoe"
     ]
   },
   "criteria": {
-    "has_stick": {
+    "has_mytherine_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:rods/wooden"
+            "item": "ravenutils:mytherine_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:mortar_and_pestle"
+        "recipe": "ravenutils:mytherine_hoe"
       }
     }
   },
   "requirements": [
     [
-      "has_stick",
+      "has_mytherine_ingot",
       "has_the_recipe"
     ]
   ]

@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:steel_nugget"
+      "ravenutils:mytherine_sword"
     ]
   },
   "criteria": {
-    "has_steel_ingot": {
+    "has_mytherine_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:steel_ingot"
+            "item": "ravenutils:mytherine_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:steel_nugget"
+        "recipe": "ravenutils:mytherine_sword"
       }
     }
   },
   "requirements": [
     [
-      "has_steel_ingot",
+      "has_mytherine_ingot",
       "has_the_recipe"
     ]
   ]

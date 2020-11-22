@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "i": {
+      "item": "ravenutils:copper_ingot"
+    },
+    "#": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:copper_pickaxe"
+  }
+}

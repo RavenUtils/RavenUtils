@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:bronze_nugget"
+      "ravenutils:steel_hoe"
     ]
   },
   "criteria": {
-    "has_bronze_ingot": {
+    "has_steel_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:bronze_ingot"
+            "item": "ravenutils:steel_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:bronze_nugget"
+        "recipe": "ravenutils:steel_hoe"
       }
     }
   },
   "requirements": [
     [
-      "has_bronze_ingot",
+      "has_steel_ingot",
       "has_the_recipe"
     ]
   ]

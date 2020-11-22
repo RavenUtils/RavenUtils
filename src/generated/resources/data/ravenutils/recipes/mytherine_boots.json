@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oco",
+    "xtx",
+    "oxo"
+  ],
+  "key": {
+    "o": {
+      "item": "minecraft:obsidian"
+    },
+    "x": {
+      "item": "ravenutils:mytherine_ingot"
+    },
+    "t": {
+      "item": "minecraft:netherite_boots"
+    },
+    "c": {
+      "item": "ravenutils:crimleaf"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mytherine_boots"
+  }
+}

@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " s",
-    "b "
+    "i",
+    "i",
+    "#"
   ],
   "key": {
-    "b": {
-      "item": "minecraft:bowl"
+    "i": {
+      "item": "ravenutils:silver_ingot"
     },
-    "s": {
+    "#": {
       "tag": "forge:rods/wooden"
     }
   },
   "result": {
-    "item": "ravenutils:mortar_and_pestle"
+    "item": "ravenutils:silver_sword"
   }
 }
