@@ -21,8 +21,7 @@ public abstract class LimewaterFluid extends ForgeFlowingFluid {
       net.minecraftforge.fluids.FluidAttributes.builder(
           new ResourceLocation("block/water_still"),
           new ResourceLocation("block/water_flow"))
-          .color(0xFFFFCC35)
-          .translationKey("block.lavalamp.salty_water_block"))
+          .color(0xFFA6A6A6))
       .bucket(ModToolItems.BUCKET_IRON_LIMEWATER)
       .block(() -> (FlowingFluidBlock) ModBlocks.LIMEWATER_BLOCK.get())
       .slopeFindDistance(4)
