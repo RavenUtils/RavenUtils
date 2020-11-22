@@ -12,6 +12,7 @@ import com.sasnos.ravenutils.items.MilkBucket;
 import com.sasnos.ravenutils.items.MortarAndPestle;
 import com.sasnos.ravenutils.items.Needle;
 import com.sasnos.ravenutils.items.Soap;
+import com.sasnos.ravenutils.utils.enums.Bags;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BucketItem;
@@ -23,7 +24,6 @@ import net.minecraft.item.Items;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ShearsItem;
-import net.minecraft.item.ShieldItem;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
@@ -201,9 +201,9 @@ public class ModToolItems {
   public static final RegistryObject<Item> SEWING_NEEDLE_IRON = ITEMS.register("sewing_needle_iron",
       () -> new Needle(128));
   public static final RegistryObject<Item> BAG_CLOTH = ITEMS.register("bag_cloth",
-      () -> new Bag(new Item.Properties(), 2));
+      () -> new Bag(new Item.Properties(), Bags.CLOTH));
   public static final RegistryObject<Item> BAG_LEATHER = ITEMS.register("bag_leather",
-      () -> new Bag(new Item.Properties(), 4));
+      () -> new Bag(new Item.Properties(), Bags.LEATHER));
   public static final RegistryObject<Item> BEDROLL = ITEMS.register("bedroll",
       () -> new Bedroll(128));
 }

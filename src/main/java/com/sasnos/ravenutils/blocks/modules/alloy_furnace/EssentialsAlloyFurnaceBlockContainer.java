@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
-import com.sasnos.ravenutils.api.containers.EssentialsMachineContainer;
+import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -12,14 +12,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class EssentialsAlloyFurnaceContainer extends EssentialsMachineContainer {
+public class EssentialsAlloyFurnaceBlockContainer extends EssentialsMachineBlockContainer {
 
-  public EssentialsAlloyFurnaceContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
+  public EssentialsAlloyFurnaceBlockContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
     this(windowId, playerInventory.player.world, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
   }
 
 
-  protected EssentialsAlloyFurnaceContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
+  protected EssentialsAlloyFurnaceBlockContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
     super(EssentialsAlloyFurnaceInit.alloyFurnaceContainer.get(), id, world, pos, playerInventoryIn, player, EssentialsAlloyFurnaceInit.alloyFurnace.get(), furnaceData);
   }
 

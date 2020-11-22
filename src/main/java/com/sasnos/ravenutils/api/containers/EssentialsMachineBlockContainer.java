@@ -9,39 +9,38 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class EssentialsMachineContainer extends EssentialsCommonContainer {
+public abstract class EssentialsMachineBlockContainer extends EssentialsCommonBlockContainer {
 
+  private final IIntArray machineData;
 
-  private final IIntArray furnaceData;
-
-  protected EssentialsMachineContainer(@Nullable ContainerType<?> type, int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, Block blocktype, IIntArray data) {
+  protected EssentialsMachineBlockContainer(@Nullable ContainerType<?> type, int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, Block blocktype, IIntArray data) {
     super(type, id, world, pos, playerInventoryIn, player, blocktype);
 
-    this.furnaceData = data;
+    this.machineData = data;
 
-    trackIntArray(furnaceData);
+    trackIntArray(machineData);
   }
 
 
   public int getCookProgressionScaled() {
-    int i = furnaceData.get(1);
-    int j = furnaceData.get(2);
+    int i = machineData.get(1);
+    int j = machineData.get(2);
     return j != 0 && i != 0 ? i * 24 / j : 0;
   }
 
 
   public int getBurnLeftScaled() {
-    int i = furnaceData.get(3);
+    int i = machineData.get(3);
     if (i == 0) {
       i = 200;
     }
 
-    return furnaceData.get(0) * 13 / i;
+    return machineData.get(0) * 13 / i;
   }
 
 
   public boolean isBurning() {
-    return furnaceData.get(0) > 0;
+    return machineData.get(0) > 0;
   }
 
 }

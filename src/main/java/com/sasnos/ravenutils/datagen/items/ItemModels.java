@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen.items;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.ResourceLocation;
@@ -60,13 +61,13 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         resourceLocation("items/bucket_clay_milk"));
 
-//        withExistingParent("item/" +ModToolItems.BUCKET_IRON.get().getRegistryName().getPath()
-//                , new ResourceLocation("forge", "item/bucket"))
-//                .texture("base", mcLoc("item/bucket"))
-//                //.texture("inner", new ResourceLocation("forge","item/mask/bucket_clay_cutout") )
-//                .texture("fluid", new ResourceLocation("forge","item/mask/bucket_fluid_cover"))
-//                .customLoader(DynamicBucketModelBuilder::begin)
-//                .fluid(Fluids.EMPTY);
+        withExistingParent("item/" +ModToolItems.BUCKET_IRON.get().getRegistryName().getPath()
+                , new ResourceLocation("forge", "item/bucket"))
+                .texture("base", mcLoc("item/bucket"))
+                .texture("inner", EssentialsUtils.resourceLocation("items/bucket_iron_cutout") )
+                .texture("fluid", new ResourceLocation("forge","item/mask/bucket_fluid_cover"))
+                .customLoader(DynamicBucketModelBuilder::begin)
+                .fluid(Fluids.EMPTY);
 
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_crafting_table"));

@@ -1,23 +1,14 @@
 package com.sasnos.ravenutils.api.screens;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.sasnos.ravenutils.api.containers.EssentialsMachineContainer;
-import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
-public abstract class EssentialsMachineScreen<T extends EssentialsMachineContainer> extends ContainerScreen<T> {
+public abstract class EssentialsCommonMachineScreen<T extends EssentialsMachineBlockContainer> extends EssentialsCommonScreen<T> {
 
-  public EssentialsMachineScreen(T screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+  public EssentialsCommonMachineScreen(T screenContainer, PlayerInventory inv, ITextComponent titleIn) {
     super(screenContainer, inv, titleIn);
-  }
-
-  @Override
-  public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-    this.renderBackground(matrixStack);
-    super.render(matrixStack, mouseX, mouseY, partialTicks);
-    this.renderHoveredTooltip(matrixStack, mouseX, mouseY);
   }
 
   @Override
@@ -34,6 +25,4 @@ public abstract class EssentialsMachineScreen<T extends EssentialsMachineContain
     int l = this.container.getCookProgressionScaled();
     this.blit(matrixStack, left + 79, right + 34, 176, 14, l + 1, 16);
   }
-
-  protected abstract ResourceLocation getGUI();
 }

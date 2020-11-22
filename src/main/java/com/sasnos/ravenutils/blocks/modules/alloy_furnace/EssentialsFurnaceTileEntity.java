@@ -67,7 +67,7 @@ public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<All
   @Override
   public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
     assert world != null;
-    return new EssentialsAlloyFurnaceContainer(p_createMenu_1_, world, pos, p_createMenu_2_, p_createMenu_3_, teData);
+    return new EssentialsAlloyFurnaceBlockContainer(p_createMenu_1_, world, pos, p_createMenu_2_, p_createMenu_3_, teData);
   }
 
 }
