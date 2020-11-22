@@ -4,6 +4,7 @@ import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsFurnaceScreen;
 import com.sasnos.ravenutils.render.SignRenderer;
+import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -21,6 +22,7 @@ public class ClientInit {
   public static void clientStartup(final FMLClientSetupEvent event) {
     ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
     ScreenManager.registerFactory(EssentialsAlloyFurnaceInit.alloyFurnaceContainer.get(), EssentialsFurnaceScreen::new);
+    ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
   }
 
   @SubscribeEvent

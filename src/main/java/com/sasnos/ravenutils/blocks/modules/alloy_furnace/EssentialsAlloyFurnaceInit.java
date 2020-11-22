@@ -29,7 +29,7 @@ public class EssentialsAlloyFurnaceInit {
               .create(EssentialsFurnaceTileEntity::new, alloyFurnace.get())
               .build(null));
 
-  public static final RegistryObject<ContainerType<EssentialsAlloyFurnaceContainer>> alloyFurnaceContainer =
+  public static final RegistryObject<ContainerType<EssentialsAlloyFurnaceBlockContainer>> alloyFurnaceContainer =
       ModContainer.CONTAINERTYPES.register("alloy_furnace", () -> IForgeContainerType.create(
-          EssentialsAlloyFurnaceContainer::new));
+          EssentialsAlloyFurnaceBlockContainer::new));
 }
