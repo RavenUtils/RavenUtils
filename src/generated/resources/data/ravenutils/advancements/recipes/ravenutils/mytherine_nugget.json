@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_raven_ore": {
+    "has_mytherine_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_raven_ore",
+      "has_mytherine_ore",
       "has_the_recipe"
     ]
   ]

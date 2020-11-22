@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:silver_coin_from_blasting"
+    ]
+  },
+  "criteria": {
+    "has_silver_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:coin_silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:silver_coin_from_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_silver_coin",
+      "has_the_recipe"
+    ]
+  ]
+}

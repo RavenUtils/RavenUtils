@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "minecraft:leaves"
+  },
+  "result": {
+    "result": "ravenutils:ash",
+    "count": 2
+  },
+  "experience": 0.1,
+  "cookingtime": 60
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:grasses/tall"
+  },
+  "result": "ravenutils:ash",
+  "experience": 0.1,
+  "cookingtime": 60
+}

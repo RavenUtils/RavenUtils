@@ -11,7 +11,7 @@
       "tag": "forge:string"
     },
     "n": {
-      "item": "ravenutils:sewing_needle_bone"
+      "tag": "forge:tools/sewing_needles"
     },
     "c": {
       "item": "ravenutils:cloth"

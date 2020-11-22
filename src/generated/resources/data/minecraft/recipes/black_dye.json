@@ -5,7 +5,7 @@
       "item": "minecraft:wither_rose"
     },
     {
-      "item": "ravenutils:mortar_and_pestle"
+      "tag": "forge:tools/mortars"
     }
   ],
   "result": {

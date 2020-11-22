@@ -54,7 +54,7 @@ public class EssentialsCookingRecipeBuilder {
   }
 
   public void build(Consumer<IFinishedRecipe> consumerIn) {
-    this.build(consumerIn, this.result);
+    this.build(consumerIn, ForgeRegistries.ITEMS.getKey(this.result.getItem()));
   }
 
   public void build(Consumer<IFinishedRecipe> consumerIn, String save) {
@@ -63,12 +63,11 @@ public class EssentialsCookingRecipeBuilder {
     if (resourcelocation1.equals(resourcelocation)) {
       throw new IllegalStateException("Recipe " + resourcelocation1 + " should remove its 'save' argument");
     } else {
-      this.build(consumerIn, this.result);
+      this.build(consumerIn, resourcelocation1);
     }
   }
 
-  public void build(Consumer<IFinishedRecipe> consumerIn, ItemStack items) {
-    ResourceLocation id = ForgeRegistries.ITEMS.getKey(items.getItem());
+  public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder.withParentId(new ResourceLocation("recipes/root")).withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id)).withRewards(AdvancementRewards.Builder.recipe(id)).withRequirementsStrategy(IRequirementsStrategy.OR);
     consumerIn.accept(new EssentialsCookingRecipeBuilder.Result(id, this.group == null ? "" : this.group, this.ingredient, this.result, this.experience, this.cookingTime, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath()), this.recipeSerializer));

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s",
+    "b "
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:bowl"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mortar_wood"
+  }
+}

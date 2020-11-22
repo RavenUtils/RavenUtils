@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ravenutils:bucket_clay_unfired"
+  },
+  "result": "ravenutils:bucket_clay",
+  "experience": 0.25,
+  "cookingtime": 450
+}

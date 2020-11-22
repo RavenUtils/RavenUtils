@@ -4,6 +4,14 @@
     "ravenutils:crimwood_sapling",
     "ravenutils:crimwood",
     "ravenutils:crimwood_log",
-    "ravenutils:crimwood_planks"
+    "ravenutils:crimwood_planks",
+    "ravenutils:crimwood_door",
+    "ravenutils:crimwood_fence",
+    "ravenutils:crimwood_fence_gate",
+    "ravenutils:crimwood_pressure_plate",
+    "ravenutils:crimwood_slab",
+    "ravenutils:crimwood_stairs",
+    "ravenutils:crimwood_trapdoor",
+    "ravenutils:crimwood_button"
   ]
 }

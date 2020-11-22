@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:ash_from_smelting_tall_grass"
+    ]
+  },
+  "criteria": {
+    "has_tall_grass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:grasses/tall"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:ash_from_smelting_tall_grass"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tall_grass",
+      "has_the_recipe"
+    ]
+  ]
+}

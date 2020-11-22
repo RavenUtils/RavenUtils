@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_silver_ore": {
+    "has_silver_coin": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:silver_ore"
+            "item": "ravenutils:coin_silver"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_silver_ore",
+      "has_silver_coin",
       "has_the_recipe"
     ]
   ]

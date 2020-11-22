@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_ladder": {
+    "has_book": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "minecraft:ladder"
+            "item": "minecraft:book"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_ladder",
+      "has_book",
       "has_the_recipe"
     ]
   ]

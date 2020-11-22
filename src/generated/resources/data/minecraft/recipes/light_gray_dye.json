@@ -5,7 +5,7 @@
       "item": "minecraft:azure_bluet"
     },
     {
-      "item": "ravenutils:mortar_and_pestle"
+      "tag": "forge:tools/mortars"
     }
   ],
   "result": {

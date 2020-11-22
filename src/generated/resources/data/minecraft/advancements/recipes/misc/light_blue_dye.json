@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_mortar_and_pestle": {
+    "has_mortar": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:mortar_and_pestle"
+            "tag": "forge:tools/mortars"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_mortar_and_pestle",
+      "has_mortar",
       "has_the_recipe"
     ]
   ]

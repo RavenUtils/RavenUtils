@@ -5,7 +5,7 @@
       "item": "minecraft:blue_orchid"
     },
     {
-      "item": "ravenutils:mortar_and_pestle"
+      "tag": "forge:tools/mortars"
     }
   ],
   "result": {

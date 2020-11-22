@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WWW",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "W": {
+      "item": "ravenutils:crimwood_planks"
+    }
+  },
+  "result": {
+    "item": "ravenutils:crimwood_sign"
+  }
+}

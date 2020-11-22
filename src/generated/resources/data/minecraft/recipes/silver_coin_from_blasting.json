@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "ravenutils:coin_silver"
+  },
+  "result": "ravenutils:silver_nugget",
+  "experience": 0.35,
+  "cookingtime": 100
+}
