@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i",
+    "#"
+  ],
+  "key": {
+    "i": {
+      "item": "ravenutils:silver_ingot"
+    },
+    "#": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:silver_sword"
+  }
+}

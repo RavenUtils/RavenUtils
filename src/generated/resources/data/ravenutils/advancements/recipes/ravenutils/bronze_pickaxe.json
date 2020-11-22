@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:mytherine_chestplate"
+      "ravenutils:bronze_pickaxe"
     ]
   },
   "criteria": {
-    "has_mytherine_ingot": {
+    "has_bronze_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:mytherine_ingot"
+            "item": "ravenutils:bronze_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:mytherine_chestplate"
+        "recipe": "ravenutils:bronze_pickaxe"
       }
     }
   },
   "requirements": [
     [
-      "has_mytherine_ingot",
+      "has_bronze_ingot",
       "has_the_recipe"
     ]
   ]
