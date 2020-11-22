@@ -2,18 +2,10 @@ package com.sasnos.ravenutils.datagen.block_states;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.function.Function;
 
 import static com.sasnos.ravenutils.utils.EssentialsUtils.resourceLocation;
 
@@ -301,27 +293,10 @@ public class BlockStates extends BlockStateProvider {
             .texture("particles", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
+
+
+    // todo add MPS mill with/ without millstone
   }
 
-  public void agingBlock(Block block, Function<BlockState, ModelFile> modelFunction) {
-    getVariantBuilder(block)
-        .forAllStates(blockState -> {
-          Integer age = blockState.get(BlockStateProperties.AGE_0_3);
-          return ConfiguredModel.builder()
-              .modelFile(modelFunction.apply(blockState))
-              .build();
-        });
-  }
 
-  public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
-    getVariantBuilder(block)
-        .forAllStates(state -> {
-          Direction dir = state.get(BlockStateProperties.FACING);
-          return ConfiguredModel.builder()
-              .modelFile(modelFunc.apply(state))
-              .rotationX(dir.getAxis() == Direction.Axis.Y ? dir.getAxisDirection().getOffset() * -90 : 0)
-              .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.getHorizontalIndex() + 2) % 4) * 90 : 0)
-              .build();
-        });
-  }
 }
