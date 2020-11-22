@@ -286,7 +286,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer, "resin_ball_from_resin_drop");
 
     // tools
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_AND_PESTLE.get())
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_WOOD.get())
         .patternLine(" s")
         .patternLine("b ")
         .key('b', Items.BOWL)

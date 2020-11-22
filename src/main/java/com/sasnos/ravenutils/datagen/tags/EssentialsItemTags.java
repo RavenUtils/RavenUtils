@@ -41,6 +41,11 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.KNIFE_DIAMOND.get()
     );
 
+    getOrCreateBuilder(mortars).add(
+        ModToolItems.MORTAR_WOOD.get(),
+        ModToolItems.MORTAR_STONE.get()
+    );
+
     getOrCreateBuilder(sewing_needles).add(
         ModToolItems.SEWING_NEEDLE_BONE.get(),
         ModToolItems.SEWING_NEEDLE_IRON.get()

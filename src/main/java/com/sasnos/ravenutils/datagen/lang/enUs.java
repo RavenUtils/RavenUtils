@@ -173,7 +173,8 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.BUCKET_IRON.get().getTranslationKey() + ".filled", "%s Iron Bucket");
     add(ModToolItems.BUCKET_IRON_LIMEWATER.get(), "Iron Limewater Bucket");
     add(ModToolItems.BUCKET_IRON_TANNIN.get(), "Iron Tannin Bucket");
-    add(ModToolItems.MORTAR_AND_PESTLE.get(), "Mortar and Pestle");
+    add(ModToolItems.MORTAR_WOOD.get(), "Wooden Mortar");
+    add(ModToolItems.MORTAR_STONE.get(), "Stone Mortar");
     add(ModToolItems.FIRESTARTER.get(), "Firestarter");
     add(ModToolItems.SOAP.get(), "Soap");
     add(ModToolItems.SEWING_NEEDLE_BONE.get(), "Bone Sewing Needle");

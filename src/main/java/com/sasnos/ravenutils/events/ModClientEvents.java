@@ -7,4 +7,12 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
 
+  /*
+  @SubscribeEvent
+  public static void smackFlintIntoShards(PlayerInteractEvent useFlint) {
+    PlayerEntity player = useFlint.getPlayer();
+    Item item = player.getHeldItemMainhand().getItem();
+  }
+  */
+
 }

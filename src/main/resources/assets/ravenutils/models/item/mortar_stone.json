@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ravenutils:items/mortar_pestle"
+    "layer0": "ravenutils:items/mortar_stone"
   }
 }
