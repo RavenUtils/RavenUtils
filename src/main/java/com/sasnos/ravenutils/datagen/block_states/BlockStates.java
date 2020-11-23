@@ -20,59 +20,59 @@ public class BlockStates extends EssentialsBlockStates {
   protected void registerStatesAndModels() {
 
     // berry bushes
-     BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
-         resourceLocation("blocks/berry_bush_stage0"));
+    BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
+        resourceLocation("blocks/berry_bush_stage0"));
 
-     BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
-         resourceLocation("blocks/berry_bush_stage1"));
+    BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
+        resourceLocation("blocks/berry_bush_stage1"));
 
-     BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
-         resourceLocation("blocks/bush_blueberry_stage2"));
+    BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
+        resourceLocation("blocks/bush_blueberry_stage2"));
 
-     BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3",
-         resourceLocation("blocks/bush_blueberry_stage3"));
+    BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3",
+        resourceLocation("blocks/bush_blueberry_stage3"));
 
-     generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
-       switch (blockState.get(BlockStateProperties.AGE_0_3)){
-         case 0:
-           return blueberryBush0;
-         case 1:
-           return blueberryBush1;
-         case 2:
-           return blueberryBush2;
-         case 3:
-           return blueberryBush3;
-         default:
-           return null;
-       }
-     });
+    generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
+      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+        case 0:
+          return blueberryBush0;
+        case 1:
+          return blueberryBush1;
+        case 2:
+          return blueberryBush2;
+        case 3:
+          return blueberryBush3;
+        default:
+          return null;
+      }
+    });
 
-     BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
-         resourceLocation("blocks/berry_bush_stage0"));
+    BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
+        resourceLocation("blocks/berry_bush_stage0"));
 
-     BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
-         resourceLocation("blocks/berry_bush_stage1"));
+    BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
+        resourceLocation("blocks/berry_bush_stage1"));
 
-     BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
-         resourceLocation("blocks/bush_elderberry_stage2"));
+    BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
+        resourceLocation("blocks/bush_elderberry_stage2"));
 
-     BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3",
-         resourceLocation("blocks/bush_elderberry_stage3"));
+    BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3",
+        resourceLocation("blocks/bush_elderberry_stage3"));
 
-     generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
-       switch (blockState.get(BlockStateProperties.AGE_0_3)){
-         case 0:
-           return elderberryBush0;
-         case 1:
-           return elderberryBush1;
-         case 2:
-           return elderberryBush2;
-         case 3:
-           return elderberryBush3;
-         default:
-           return null;
-       }
-     });
+    generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
+      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+        case 0:
+          return elderberryBush0;
+        case 1:
+          return elderberryBush1;
+        case 2:
+          return elderberryBush2;
+        case 3:
+          return elderberryBush3;
+        default:
+          return null;
+      }
+    });
 
     BlockModelBuilder raspberryBush0 = models().cross("raspberry_bush0",
         resourceLocation("blocks/berry_bush_stage0"));
@@ -87,7 +87,7 @@ public class BlockStates extends EssentialsBlockStates {
         resourceLocation("blocks/bush_raspberry_stage3"));
 
     generateBlockStatesForBlock(ModBlocks.RASPBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
         case 0:
           return raspberryBush0;
         case 1:
@@ -114,7 +114,7 @@ public class BlockStates extends EssentialsBlockStates {
         resourceLocation("blocks/bush_blackberry_stage3"));
 
     generateBlockStatesForBlock(ModBlocks.BLACKBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
         case 0:
           return blackberryBush0;
         case 1:
@@ -141,7 +141,7 @@ public class BlockStates extends EssentialsBlockStates {
         resourceLocation("blocks/bush_gooseberry_stage3"));
 
     generateBlockStatesForBlock(ModBlocks.GOOSEBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
         case 0:
           return gooseberryBush0;
         case 1:
@@ -164,30 +164,29 @@ public class BlockStates extends EssentialsBlockStates {
         resourceLocation("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
-     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
-             .texture("texture", resourceLocation("blocks/crimwood_planks"));
+    BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
+        .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
-            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+        .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
-    BlockModelBuilder crimwoodButtonInentory = models().withExistingParent("crimwood_button_inventory", mcLoc("block/button_inventory"))
-            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+    BlockModelBuilder crimwoodButtonInventory = models().withExistingParent("crimwood_button_inventory", mcLoc("block/button_inventory"))
+        .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
     directionalBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState -> {
-      if(blockState.get(BlockStateProperties.POWERED)){
+      if (blockState.get(BlockStateProperties.POWERED)) {
         return crimwoodButtonPressed;
-      }
-      else {
+      } else {
         return crimwoodButton;
       }
     });
 
     doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
-            resourceLocation("blocks/crimwood_door_bottom"),
-            resourceLocation("blocks/crimwood_door_top"));
+        resourceLocation("blocks/crimwood_door_bottom"),
+        resourceLocation("blocks/crimwood_door_top"));
 
     BlockModelBuilder crimwwoodFenceInventory = models().fenceInventory("crimwood_fence_inventory",
-            resourceLocation("blocks/crimwood_planks"));
+        resourceLocation("blocks/crimwood_planks"));
 
     fenceBlock(ModBlocks.CRIMWOOD_FENCE.get(), resourceLocation("blocks/crimwood_planks"));
 
@@ -208,30 +207,29 @@ public class BlockStates extends EssentialsBlockStates {
     simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimwoodPlanks);
 
     BlockModelBuilder crimwoodPressurePlate = models()
-            .withExistingParent("crimwood_pressure_plate", mcLoc("block/pressure_plate_up"))
-            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+        .withExistingParent("crimwood_pressure_plate", mcLoc("block/pressure_plate_up"))
+        .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodPressurePlateDown = models()
-            .withExistingParent("crimwood_pressure_plate_down", mcLoc("block/pressure_plate_down"))
-            .texture("texture", resourceLocation("blocks/crimwood_planks"));
+        .withExistingParent("crimwood_pressure_plate_down", mcLoc("block/pressure_plate_down"))
+        .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
     generateBlockStatesForBlock(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), blockState -> {
-      if (blockState.get(BlockStateProperties.POWERED)){
+      if (blockState.get(BlockStateProperties.POWERED)) {
         return crimwoodPressurePlateDown;
-      }
-      else {
+      } else {
         return crimwoodPressurePlate;
       }
     });
 
     BlockModelBuilder crimwoodTrapDoor = models().trapdoorOrientableBottom("crimwood_trap_door",
-            resourceLocation("blocks/crimwood_trapdoor"));
+        resourceLocation("blocks/crimwood_trapdoor"));
 
     BlockModelBuilder crimwoodTrapDoorTop = models().trapdoorOrientableTop("crimwood_trap_door_top",
-            resourceLocation("blocks/crimwood_trapdoor"));
+        resourceLocation("blocks/crimwood_trapdoor"));
 
     BlockModelBuilder crimwoodTrapDoorOpen = models().trapdoorOrientableOpen("crimwood_trap_door_open",
-            resourceLocation("blocks/crimwood_trapdoor"));
+        resourceLocation("blocks/crimwood_trapdoor"));
 
     trapdoorBlock(ModBlocks.CRIMWOOD_TRAPDOOR.get(), crimwoodTrapDoor, crimwoodTrapDoorTop, crimwoodTrapDoorOpen, true);
 
@@ -242,29 +240,28 @@ public class BlockStates extends EssentialsBlockStates {
     simpleBlock(ModBlocks.CRIMWOOD_SAPLING.get(), crimwoodSapling);
 
     BlockModelBuilder crimwoodPottedSapling = models()
-            .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
-            .texture("plant", resourceLocation("blocks/crimwood_sapling"));
+        .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+        .texture("plant", resourceLocation("blocks/crimwood_sapling"));
 
     simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
     BlockModelBuilder crimwoodPottedLeaf = models()
-            .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
-            .texture("plant", resourceLocation("blocks/crimleaf"));
+        .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+        .texture("plant", resourceLocation("blocks/crimleaf"));
 
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);
 
-     BlockModelBuilder crimwoodSlab = models().slab("crimwood_slab",
-         resourceLocation("blocks/crimwood_planks"),
-         resourceLocation("blocks/crimwood_planks"),
-         resourceLocation("blocks/crimwood_planks"));
+    BlockModelBuilder crimwoodSlab = models().slab("crimwood_slab",
+        resourceLocation("blocks/crimwood_planks"),
+        resourceLocation("blocks/crimwood_planks"),
+        resourceLocation("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodSlabTop = models().slabTop("crimwood_slab_top",
-            resourceLocation("blocks/crimwood_planks"),
-            resourceLocation("blocks/crimwood_planks"),
-            resourceLocation("blocks/crimwood_planks"));
+        resourceLocation("blocks/crimwood_planks"),
+        resourceLocation("blocks/crimwood_planks"),
+        resourceLocation("blocks/crimwood_planks"));
 
     slabBlock(ModBlocks.CRIMWOOD_SLAB.get(), crimwoodSlab, crimwoodSlabTop, crimwoodPlanks);
-
 
 
     BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt",
