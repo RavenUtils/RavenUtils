@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.datagen.loot_tables;
 
-import com.sasnos.ravenutils.api.datageneration.loottable.BaseLootTableProvider;
+
+import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
 

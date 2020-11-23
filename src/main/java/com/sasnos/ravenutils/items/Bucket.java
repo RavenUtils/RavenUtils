@@ -54,7 +54,6 @@ public class Bucket extends BaseBucketItem {
 
   public Bucket(Item containerItemIn, int maxDamage, Supplier<Item> milkBucket) {
     super(new Properties()
-        .maxStackSize(16)
         .containerItem(containerItemIn)
         .maxDamage(maxDamage)
         .setNoRepair(), milkBucket);
@@ -287,7 +286,7 @@ public class Bucket extends BaseBucketItem {
   @Override
   public int getItemStackLimit(ItemStack stack) {
     // empty stacks to 16
-    return hasFluid(stack) ? 1 : super.getItemStackLimit(stack);
+    return hasFluid(stack) ? 1 : 16;
   }
 
   @Override

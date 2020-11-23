@@ -6,7 +6,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
@@ -23,7 +27,6 @@ public class MilkBucket extends BaseBucketItem {
 
   public MilkBucket(Item containerItemIn, int maxDamage) {
     super(new Properties()
-        .maxStackSize(1)
         .containerItem(containerItemIn)
         .maxDamage(maxDamage)
         .setNoRepair(), null);
@@ -66,6 +69,11 @@ public class MilkBucket extends BaseBucketItem {
   }
 
   /* Fluids */
+
+  @Override
+  public boolean hasContainerItem(ItemStack stack) {
+    return true;
+  }
 
   @Override
   protected boolean hasFluid(ItemStack container) {

@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -29,6 +30,11 @@ public abstract class BaseBucketItem extends Item {
   public BaseBucketItem(Properties properties, @org.jetbrains.annotations.Nullable Supplier<Item> milkBucket) {
     super(properties.group(RavenUtils.TAB));
     this.milkBucket = milkBucket;
+  }
+
+  @Override
+  public boolean isEnchantable(ItemStack stack) {
+    return false;
   }
 
   /* Item methods */
@@ -52,7 +58,7 @@ public abstract class BaseBucketItem extends Item {
       return ItemStack.EMPTY;
     }
 
-    return stack;
+    return super.getContainerItem(stack);
   }
 
   /**
@@ -64,7 +70,9 @@ public abstract class BaseBucketItem extends Item {
    */
   protected static ItemStack emptyBucket(ItemStack stack, PlayerEntity player) {
     ItemStack emptyBucket = ((BaseBucketItem) stack.getItem()).withFluid(stack, Fluids.EMPTY);
-    emptyBucket.setDamage(stack.getDamage());
+    if (emptyBucket.isDamageable())
+      emptyBucket.damageItem(stack.getDamage() + 1, player,
+              playerEntity -> playerEntity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f));
     return !player.isCreative() ? emptyBucket : stack;
   }
 
@@ -81,8 +89,9 @@ public abstract class BaseBucketItem extends Item {
     if (player.isCreative()) {
       return originalStack;
     }
+
     if (newBucket.isDamageable())
-      newBucket.setDamage(originalStack.getDamage() + 1);
+      newBucket.setDamage(originalStack.getDamage());
 
     originalStack.shrink(1);
     // fill with fluid
