@@ -25,6 +25,18 @@ public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
 
   NonNullList<ItemStack> getOutput();
 
+  /**
+   * Use the NonNullList Version {@link ICommonRecipe#getOutput()}
+   * @return
+   */
+  @Deprecated
+  @Override
+  ItemStack getRecipeOutput();
+
+  @Deprecated
+  @Override
+  ItemStack getCraftingResult(RecipeWrapper inv);
+
   @NotNull
   ResourceLocation getTypeId();
 }

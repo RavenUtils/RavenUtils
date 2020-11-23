@@ -17,7 +17,7 @@ import java.util.Random;
 
 public abstract class LimewaterFluid extends ForgeFlowingFluid {
 
-  private static final Properties properties = new Properties(ModFluids.LIMEWATER::get, ModFluids.FLOWING_LIMEWATER::get,
+  private static final Properties properties = new Properties(ModFluids.LIMEWATER, ModFluids.FLOWING_LIMEWATER,
       net.minecraftforge.fluids.FluidAttributes.builder(
           new ResourceLocation("block/water_still"),
           new ResourceLocation("block/water_flow"))

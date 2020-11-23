@@ -3,7 +3,7 @@
   "textures": {
     "base": "minecraft:item/bucket",
     "inner": "ravenutils:items/bucket_iron_cutout",
-    "fluid": "forge:item/mask/bucket_fluid_cover"
+    "fluid": "ravenutils:items/bucket_fluid_layer"
   },
   "loader": "forge:bucket",
   "fluid": "minecraft:empty"

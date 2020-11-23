@@ -26,7 +26,7 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
     type = recipeType;
   }
 
-  protected abstract T getRecipe();
+  protected abstract T getRecipe(ItemStack stack);
 
   public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType) {
     ClientWorld world = Minecraft.getInstance().world;

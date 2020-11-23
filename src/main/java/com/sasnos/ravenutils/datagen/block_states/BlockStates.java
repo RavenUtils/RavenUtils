@@ -165,6 +165,10 @@ public class BlockStates extends EssentialsBlockStates {
 
     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
+    axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
+
+     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
+             .texture("texture", modLoc("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
@@ -194,11 +198,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodLeaves = models().cubeAll("crimwood_leaves",
         modLoc("blocks/crimwood_leaves"));
     simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimwoodLeaves);
-
-    BlockModelBuilder crimwoodLog = models().cubeColumn("crimwood_log",
-        modLoc("blocks/crimwood_log"),
-        modLoc("blocks/crimwood_log_top"));
-    axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
     BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         modLoc("blocks/crimwood_planks"));
@@ -374,6 +373,7 @@ public class BlockStates extends EssentialsBlockStates {
     // stone
     BlockModelBuilder stoneAnvilStone = models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_stone"))
+        .texture("particles", modLoc("blocks/anvil_stone"))
         .texture("top", modLoc("blocks/anvil_top_stone"));
     horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
 
@@ -390,6 +390,7 @@ public class BlockStates extends EssentialsBlockStates {
     // andesite
     BlockModelBuilder stoneAnvilAndesite = models().withExistingParent("stone_anvil_andesite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_andesite"))
+        .texture("particles", modLoc("blocks/anvil_andesite"))
         .texture("top", modLoc("blocks/anvil_top_andesite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_ANDESITE.get(), stoneAnvilAndesite);
 
@@ -406,6 +407,7 @@ public class BlockStates extends EssentialsBlockStates {
     // diorite
     BlockModelBuilder stoneAnvilDiorite = models().withExistingParent("stone_anvil_diorite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_diorite"))
+        .texture("particles", modLoc("blocks/anvil_diorite"))
         .texture("top", modLoc("blocks/anvil_top_diorite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_DIORITE.get(), stoneAnvilDiorite);
 
@@ -422,6 +424,7 @@ public class BlockStates extends EssentialsBlockStates {
     // granite
     BlockModelBuilder stoneAnvilGranite = models().withExistingParent("stone_anvil_granite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_granite"))
+        .texture("particles", modLoc("blocks/anvil_granite"))
         .texture("top", modLoc("blocks/anvil_top_granite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_GRANITE.get(), stoneAnvilGranite);
 

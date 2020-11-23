@@ -11,14 +11,15 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 import java.util.Random;
 
 public abstract class TanninFluid extends ForgeFlowingFluid {
 
-  private static final Properties properties = new Properties(ModFluids.TANNIN::get, ModFluids.FLOWING_TANNIN::get,
-      net.minecraftforge.fluids.FluidAttributes.builder(
+  private static final Properties properties = new Properties(ModFluids.TANNIN, ModFluids.FLOWING_TANNIN,
+      FluidAttributes.builder(
           new ResourceLocation("block/water_still"),
           new ResourceLocation("block/water_flow"))
           .color(0xFF946439))

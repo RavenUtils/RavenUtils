@@ -297,11 +297,11 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         resourceLocation("items/bucket_clay_milk"));
 
-    withExistingParent("item/" +ModToolItems.BUCKET_IRON.get().getRegistryName().getPath()
+    withExistingParent("item/" + Items.BUCKET.getRegistryName().getPath()
         , new ResourceLocation("forge", "item/bucket"))
         .texture("base", mcLoc("item/bucket"))
-        .texture("inner", EssentialsUtils.resourceLocation("items/bucket_iron_cutout") )
-        .texture("fluid", new ResourceLocation("forge","item/mask/bucket_fluid_cover"))
+        .texture("inner", resourceLocation("items/bucket_iron_cutout"))
+        .texture("fluid", resourceLocation("items/bucket_fluid_layer"))
         .customLoader(DynamicBucketModelBuilder::begin)
         .fluid(Fluids.EMPTY);
 
