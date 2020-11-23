@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen.items;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;
+import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModToolItems;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -22,6 +23,68 @@ public class ItemModels extends ItemModelProvider {
 
   @Override
   protected void registerModels() {
+
+    // material
+    // todo move Blood Bottle to Magic module
+    singleTexture("item/" + ModItems.BLOOD_BOTTLE.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/blood_bottle"));
+
+    singleTexture("item/" + ModItems.ASH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/ash"));
+
+    singleTexture("item/" + ModItems.BLACK_COAL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/black_coal"));
+
+    // metal and ore block(items)
+    withExistingParent("item/" + ModBlockItems.BRASS_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/brass_block"));
+
+    withExistingParent("item/" + ModBlockItems.BRONZE_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/bronze_block"));
+
+    withExistingParent("item/" + ModBlockItems.COPPER_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/copper_block"));
+
+    withExistingParent("item/" + ModBlockItems.TIN_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/tin_block"));
+
+    withExistingParent("item/" + ModBlockItems.ZINC_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/zinc_block"));
+
+    withExistingParent("item/" + ModBlockItems.SILVER_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/silver_block"));
+
+    withExistingParent("item/" + ModBlockItems.LEAD_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/lead_block"));
+
+    withExistingParent("item/" + ModBlockItems.STEEL_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/steel_block"));
+
+    withExistingParent("item/" + ModBlockItems.MYTHERINE_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("blocks/mytherine_block"));
+
+    // tools
+    singleTexture("item/" + ModToolItems.BEDROLL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bedroll"));
+
+    // bags
+    singleTexture("item/" + ModToolItems.BAG_CLOTH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bag_cloth"));
+
+    singleTexture("item/" + ModToolItems.BAG_LEATHER.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bag_leather"));
 
     // buckets
     withExistingParent("item/" + ModToolItems.BUCKET_WOOD.get().getRegistryName().getPath(),
@@ -63,15 +126,46 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         resourceLocation("items/bucket_clay_milk"));
 
-        withExistingParent("item/" +ModToolItems.BUCKET_IRON.get().getRegistryName().getPath()
-                , new ResourceLocation("forge", "item/bucket"))
-                .texture("base", mcLoc("item/bucket"))
-                .texture("inner", EssentialsUtils.resourceLocation("items/bucket_iron_cutout") )
-                .texture("fluid", new ResourceLocation("forge","item/mask/bucket_fluid_cover"))
-                .customLoader(DynamicBucketModelBuilder::begin)
-                .fluid(Fluids.EMPTY);
+    withExistingParent("item/" +ModToolItems.BUCKET_IRON.get().getRegistryName().getPath()
+        , new ResourceLocation("forge", "item/bucket"))
+        .texture("base", mcLoc("item/bucket"))
+        .texture("inner", EssentialsUtils.resourceLocation("items/bucket_iron_cutout") )
+        .texture("fluid", new ResourceLocation("forge","item/mask/bucket_fluid_cover"))
+        .customLoader(DynamicBucketModelBuilder::begin)
+        .fluid(Fluids.EMPTY);
 
-    // crimwood
+    // miscellaneous
+    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/stone_crafting_table"));
+
+    // berries
+    // todo move berries to Cuisine module
+    singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/blueberries"));
+
+    singleTexture("item/" + ModFoodItems.ELDERBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/elderberries"));
+
+    singleTexture("item/" + ModFoodItems.RASPBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/raspberries"));
+
+    singleTexture("item/" + ModFoodItems.BLACKBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/blackberries"));
+
+    singleTexture("item/" + ModFoodItems.GOOSEBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/gooseberries"));
+
+    // crimwood itemblocks
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood_fence_gate"));
 
@@ -96,35 +190,5 @@ public class ItemModels extends ItemModelProvider {
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_anvil_stone"));
-
-    // miscellaneous
-    withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_crafting_table"));
-
-    // berries
-    singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("items/blueberries"));
-
-    singleTexture("item/" + ModFoodItems.ELDERBERRIES.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("items/elderberries"));
-
-    singleTexture("item/" + ModFoodItems.RASPBERRIES.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("items/raspberries"));
-
-    singleTexture("item/" + ModFoodItems.BLACKBERRIES.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("items/blackberries"));
-
-    singleTexture("item/" + ModFoodItems.GOOSEBERRIES.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("items/gooseberries"));
   }
 }

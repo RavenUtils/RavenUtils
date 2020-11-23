@@ -10,8 +10,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BlockStates extends EssentialsBlockStates {
 
-  public BlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
-    super(gen, RavenUtils.MOD_ID, exFileHelper);
+  public BlockStates(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    super(generator, RavenUtils.MOD_ID, existingFileHelper);
   }
 
   @Override
@@ -198,7 +198,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodLog = models().cubeColumn("crimwood_log",
         modLoc("blocks/crimwood_log"),
         modLoc("blocks/crimwood_log_top"));
-    horizontalFaceBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
+    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
 
     BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         modLoc("blocks/crimwood_planks"));
