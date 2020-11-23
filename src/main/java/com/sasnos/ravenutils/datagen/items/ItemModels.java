@@ -41,6 +41,42 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/black_coal"));
 
+    // hides
+    singleTexture("item/" + ModItems.HIDE_FRESH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_fresh"));
+
+    singleTexture("item/" + ModItems.HIDE_CURED.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_cured"));
+
+    singleTexture("item/" + ModItems.HIDE_LIMED.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_limed"));
+
+    singleTexture("item/" + ModItems.HIDE_SCRAPED.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_scraped"));
+
+    singleTexture("item/" + ModItems.HIDE_TANNED.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_tanned"));
+
+    singleTexture("item/" + ModItems.HIDE_FRESH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_fresh"));
+
+    singleTexture("item/" + ModItems.HIDE_FRESH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hide_fresh"));
+
     // metal and ore block(items)
     withExistingParent("item/" + ModBlockItems.BRASS_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/brass_block"));
@@ -129,6 +165,38 @@ public class ItemModels extends ItemModelProvider {
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/bedroll"));
+
+    // hammers
+    singleTexture("item/" + ModToolItems.HAMMER_STONE.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hammer_stone"));
+
+    singleTexture("item/" + ModToolItems.HAMMER_IRON.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hammer_iron"));
+
+    singleTexture("item/" + ModToolItems.HAMMER_OBSIDIAN.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/hammer_obsidian"));
+
+    // knives
+    singleTexture("item/" + ModToolItems.KNIFE_FLINT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/knife_flint"));
+
+    singleTexture("item/" + ModToolItems.KNIFE_IRON.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/knife_iron"));
+
+    singleTexture("item/" + ModToolItems.KNIFE_STEEL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/knife_steel"));
 
     // sewing needles
     singleTexture("item/" + ModToolItems.SEWING_NEEDLE_BONE.get().getRegistryName().getPath(),
