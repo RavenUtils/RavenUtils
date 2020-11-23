@@ -162,7 +162,7 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
-/*    BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
+    BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
@@ -177,7 +177,7 @@ public class BlockStates extends EssentialsBlockStates {
       } else {
         return crimwoodButton;
       }
-    }, 180);*/
+    }, 180);
 
     doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
         modLoc("blocks/crimwood_door_bottom"),
@@ -198,7 +198,7 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimwood_log"),
         modLoc("blocks/crimwood_log_top"),
         modLoc("blocks/crimwood_log_top"));
-    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
+    horizontalFaceBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
 
     BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         modLoc("blocks/crimwood_planks"));

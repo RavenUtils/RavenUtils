@@ -16,6 +16,10 @@ public class enUs extends LanguageProvider {
   protected void addTranslations() {
     add(RavenUtils.TAB.getPath(), "Raven Utils");
 
+    // fluids
+    add(ModFluids.LIMEWATER.get().getFluid().getAttributes().getTranslationKey(),  "Limewater");
+    add(ModFluids.TANNIN.get().getFluid().getAttributes().getTranslationKey(),  "Tannin");
+
     // ore blocks
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
     add(ModBlocks.FOSSIL_ORE.get(), "Fossil Ore");
