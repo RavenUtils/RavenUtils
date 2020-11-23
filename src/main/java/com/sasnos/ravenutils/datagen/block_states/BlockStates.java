@@ -198,7 +198,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodLog = models().cubeColumn("crimwood_log",
         modLoc("blocks/crimwood_log"),
         modLoc("blocks/crimwood_log_top"));
-    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
+    axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
     BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         modLoc("blocks/crimwood_planks"));
@@ -446,10 +446,5 @@ public class BlockStates extends EssentialsBlockStates {
             .texture("particles", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
-
-
-    // todo add MPS mill with/ without millstone
   }
-
-
 }
