@@ -16,21 +16,21 @@ public enum ModItemTier implements IItemTier {
       14, () -> {
     return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
   }),
-  BRONZE(2,
+  BRONZE(3,
       640,
       10.0F,
       3.0F,
       18, () -> {
     return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
   }),
-  SILVER(1,
+  SILVER(2,
       210,
       6.0F,
       2.0F,
       22, () -> {
     return Ingredient.fromItems(ModItems.SILVER_INGOT.get());
   }),
-  STEEL(3,
+  STEEL(4,
       1080,
       12.0F,
       4.0F,
