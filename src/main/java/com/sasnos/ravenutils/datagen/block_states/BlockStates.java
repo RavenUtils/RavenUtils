@@ -21,10 +21,10 @@ public class BlockStates extends EssentialsBlockStates {
 
     // berry bushes
      BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
-         resourceLocation("blocks/bush_blueberry_stage0"));
+         resourceLocation("blocks/berry_bush_stage0"));
 
      BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1",
-         resourceLocation("blocks/bush_blueberry_stage1"));
+         resourceLocation("blocks/berry_bush_stage1"));
 
      BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2",
          resourceLocation("blocks/bush_blueberry_stage2"));
@@ -48,10 +48,10 @@ public class BlockStates extends EssentialsBlockStates {
      });
 
      BlockModelBuilder elderberryBush0 = models().cross("elderberry_bush0",
-         resourceLocation("blocks/bush_elderberry_stage0"));
+         resourceLocation("blocks/berry_bush_stage0"));
 
      BlockModelBuilder elderberryBush1 = models().cross("elderberry_bush1",
-         resourceLocation("blocks/bush_elderberry_stage1"));
+         resourceLocation("blocks/berry_bush_stage1"));
 
      BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2",
          resourceLocation("blocks/bush_elderberry_stage2"));
@@ -75,10 +75,10 @@ public class BlockStates extends EssentialsBlockStates {
      });
 
     BlockModelBuilder raspberryBush0 = models().cross("raspberry_bush0",
-        resourceLocation("blocks/bush_raspberry_stage0"));
+        resourceLocation("blocks/berry_bush_stage0"));
 
     BlockModelBuilder raspberryBush1 = models().cross("raspberry_bush1",
-        resourceLocation("blocks/bush_raspberry_stage1"));
+        resourceLocation("blocks/berry_bush_stage1"));
 
     BlockModelBuilder raspberryBush2 = models().cross("raspberry_bush2",
         resourceLocation("blocks/bush_raspberry_stage2"));
@@ -102,10 +102,10 @@ public class BlockStates extends EssentialsBlockStates {
     });
 
     BlockModelBuilder blackberryBush0 = models().cross("blackberry_bush0",
-        resourceLocation("blocks/bush_blackberry_stage0"));
+        resourceLocation("blocks/berry_bush_stage0"));
 
     BlockModelBuilder blackberryBush1 = models().cross("blackberry_bush1",
-        resourceLocation("blocks/bush_blackberry_stage1"));
+        resourceLocation("blocks/berry_bush_stage1"));
 
     BlockModelBuilder blackberryBush2 = models().cross("blackberry_bush2",
         resourceLocation("blocks/bush_blackberry_stage2"));
@@ -129,10 +129,10 @@ public class BlockStates extends EssentialsBlockStates {
     });
 
     BlockModelBuilder gooseberryBush0 = models().cross("gooseberry_bush0",
-        resourceLocation("blocks/bush_gooseberry_stage0"));
+        resourceLocation("blocks/berry_bush_stage0"));
 
     BlockModelBuilder gooseberryBush1 = models().cross("gooseberry_bush1",
-        resourceLocation("blocks/bush_gooseberry_stage1"));
+        resourceLocation("blocks/berry_bush_stage1"));
 
     BlockModelBuilder gooseberryBush2 = models().cross("gooseberry_bush2",
         resourceLocation("blocks/bush_gooseberry_stage2"));
