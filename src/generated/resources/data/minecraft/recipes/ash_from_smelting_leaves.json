@@ -4,7 +4,7 @@
     "tag": "minecraft:leaves"
   },
   "result": {
-    "result": "ravenutils:ash",
+    "item": "ravenutils:ash",
     "count": 2
   },
   "experience": 0.1,

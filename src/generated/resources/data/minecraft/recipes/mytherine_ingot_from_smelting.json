@@ -4,7 +4,7 @@
     "item": "ravenutils:mytherine_ore"
   },
   "result": {
-    "result": "ravenutils:mytherine_nugget",
+    "item": "ravenutils:mytherine_nugget",
     "count": 2
   },
   "experience": 1.0,

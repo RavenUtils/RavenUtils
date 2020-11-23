@@ -1,0 +1,28 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:granite"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:andesite"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:diorite"
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:random_chance_with_looting",
+      "chance": 0.1,
+      "looting_multiplier": 0.5
+    }
+  ],
+  "count": 1,
+  "type": "ravenutils:quarz_dropper"
+}

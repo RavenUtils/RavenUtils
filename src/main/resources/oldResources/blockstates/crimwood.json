@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ravenutils:block/crimwood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ravenutils:block/crimwood"
+    },
+    "axis=z": {
+      "model": "ravenutils:block/crimwood",
+      "x": 90
+    }
+  }
+}
