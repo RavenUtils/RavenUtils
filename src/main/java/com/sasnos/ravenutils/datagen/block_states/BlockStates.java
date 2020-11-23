@@ -200,7 +200,7 @@ public class BlockStates extends EssentialsBlockStates {
         resourceLocation("blocks/crimwood_log"),
         resourceLocation("blocks/crimwood_log_top"),
         resourceLocation("blocks/crimwood_log_top"));
-    simpleBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
+    horizontalFaceBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
 
     BlockModelBuilder crimwoodPlanks = models().cubeAll("crimwood_planks",
         resourceLocation("blocks/crimwood_planks"));
