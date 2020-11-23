@@ -74,6 +74,87 @@ public class BlockStates extends EssentialsBlockStates {
        }
      });
 
+    BlockModelBuilder raspberryBush0 = models().cross("raspberry_bush0",
+        resourceLocation("blocks/bush_raspberry_stage0"));
+
+    BlockModelBuilder raspberryBush1 = models().cross("raspberry_bush1",
+        resourceLocation("blocks/bush_raspberry_stage1"));
+
+    BlockModelBuilder raspberryBush2 = models().cross("raspberry_bush2",
+        resourceLocation("blocks/bush_raspberry_stage2"));
+
+    BlockModelBuilder raspberryBush3 = models().cross("raspberry_bush3",
+        resourceLocation("blocks/bush_raspberry_stage3"));
+
+    generateBlockStatesForBlock(ModBlocks.RASPBERRY_BUSH.get(), blockState -> {
+      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+        case 0:
+          return raspberryBush0;
+        case 1:
+          return raspberryBush1;
+        case 2:
+          return raspberryBush2;
+        case 3:
+          return raspberryBush3;
+        default:
+          return null;
+      }
+    });
+
+    BlockModelBuilder blackberryBush0 = models().cross("blackberry_bush0",
+        resourceLocation("blocks/bush_blackberry_stage0"));
+
+    BlockModelBuilder blackberryBush1 = models().cross("blackberry_bush1",
+        resourceLocation("blocks/bush_blackberry_stage1"));
+
+    BlockModelBuilder blackberryBush2 = models().cross("blackberry_bush2",
+        resourceLocation("blocks/bush_blackberry_stage2"));
+
+    BlockModelBuilder blackberryBush3 = models().cross("blackberry_bush3",
+        resourceLocation("blocks/bush_blackberry_stage3"));
+
+    generateBlockStatesForBlock(ModBlocks.BLACKBERRY_BUSH.get(), blockState -> {
+      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+        case 0:
+          return blackberryBush0;
+        case 1:
+          return blackberryBush1;
+        case 2:
+          return blackberryBush2;
+        case 3:
+          return blackberryBush3;
+        default:
+          return null;
+      }
+    });
+
+    BlockModelBuilder gooseberryBush0 = models().cross("gooseberry_bush0",
+        resourceLocation("blocks/bush_gooseberry_stage0"));
+
+    BlockModelBuilder gooseberryBush1 = models().cross("gooseberry_bush1",
+        resourceLocation("blocks/bush_gooseberry_stage1"));
+
+    BlockModelBuilder gooseberryBush2 = models().cross("gooseberry_bush2",
+        resourceLocation("blocks/bush_gooseberry_stage2"));
+
+    BlockModelBuilder gooseberryBush3 = models().cross("gooseberry_bush3",
+        resourceLocation("blocks/bush_gooseberry_stage3"));
+
+    generateBlockStatesForBlock(ModBlocks.GOOSEBERRY_BUSH.get(), blockState -> {
+      switch (blockState.get(BlockStateProperties.AGE_0_3)){
+        case 0:
+          return gooseberryBush0;
+        case 1:
+          return gooseberryBush1;
+        case 2:
+          return gooseberryBush2;
+        case 3:
+          return gooseberryBush3;
+        default:
+          return null;
+      }
+    });
+
     // more
     BlockModelBuilder crimleaf = models().cross("crimleaf",
         resourceLocation("blocks/crimleaf"));

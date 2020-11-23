@@ -79,6 +79,9 @@ public class enUs extends LanguageProvider {
     // food-related blocks
     add(ModBlocks.BLUEBERRY_BUSH.get(), "Blueberry Bush");
     add(ModBlocks.ELDERBERRY_BUSH.get(), "Elderberry Bush");
+    add(ModBlocks.RASPBERRY_BUSH.get(), "Raspberry Bush");
+    add(ModBlocks.BLACKBERRY_BUSH.get(), "Blackberry Bush");
+    add(ModBlocks.GOOSEBERRY_BUSH.get(), "Gooseberry Bush");
 
     // food(-related) items
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
@@ -88,6 +91,9 @@ public class enUs extends LanguageProvider {
     add(ModFoodItems.DOUGH.get(), "Dough");
     add(ModFoodItems.BLUEBERRIES.get(), "Blueberries");
     add(ModFoodItems.ELDERBERRIES.get(), "Elderberries");
+    add(ModFoodItems.RASPBERRIES.get(), "Raspberries");
+    add(ModFoodItems.BLACKBERRIES.get(), "Blackberries");
+    add(ModFoodItems.GOOSEBERRIES.get(), "Gooseberries");
 
     // special items
     add(ModItems.COIN_COPPER.get(), "Copper Coin");

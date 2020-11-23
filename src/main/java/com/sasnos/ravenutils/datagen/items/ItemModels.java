@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.datagen.items;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModBlockItems;
+import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModToolItems;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -99,5 +100,31 @@ public class ItemModels extends ItemModelProvider {
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/stone_crafting_table"));
+
+    // berries
+    singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        resourceLocation("items/blueberries"));
+
+    singleTexture("item/" + ModFoodItems.ELDERBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        resourceLocation("items/elderberries"));
+
+    singleTexture("item/" + ModFoodItems.RASPBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        resourceLocation("items/raspberries"));
+
+    singleTexture("item/" + ModFoodItems.BLACKBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        resourceLocation("items/blackberries"));
+
+    singleTexture("item/" + ModFoodItems.GOOSEBERRIES.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        resourceLocation("items/gooseberries"));
   }
 }
