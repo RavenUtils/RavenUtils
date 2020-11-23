@@ -18,6 +18,7 @@ public class BlockStates extends EssentialsBlockStates {
   protected void registerStatesAndModels() {
 
     // berry bushes
+    // todo move berry bushes to Cuisine module
     BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0",
         mcLoc("block/sweet_berry_bush_stage0"));
 
@@ -194,9 +195,8 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimwood_leaves"));
     simpleBlock(ModBlocks.CRIMWOOD_LEAVES.get(), crimwoodLeaves);
 
-    BlockModelBuilder crimwoodLog = models().cubeBottomTop("crimwood_log",
+    BlockModelBuilder crimwoodLog = models().cubeColumn("crimwood_log",
         modLoc("blocks/crimwood_log"),
-        modLoc("blocks/crimwood_log_top"),
         modLoc("blocks/crimwood_log_top"));
     horizontalFaceBlock(ModBlocks.CRIMWOOD_LOG.get(), crimwoodLog);
 
