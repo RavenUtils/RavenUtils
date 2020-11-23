@@ -368,7 +368,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('h', hammers)
         .key('x', ModItems.STEEL_INGOT.get())
         .key('i', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_diamond_shard", hasItem(ModItems.STEEL_INGOT.get()))
+        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .setGroup("knives")
         .build(consumer);
 

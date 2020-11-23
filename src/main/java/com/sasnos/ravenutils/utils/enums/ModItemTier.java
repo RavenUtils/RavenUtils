@@ -17,7 +17,7 @@ public enum ModItemTier implements IItemTier {
     return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
   }),
   BRONZE(2,
-      740,
+      640,
       10.0F,
       3.0F,
       18, () -> {
