@@ -173,14 +173,14 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodButtonInentory = models().withExistingParent("crimwood_button_inventory", mcLoc("block/button_inventory"))
             .texture("texture", resourceLocation("blocks/crimwood_planks"));
 
-    directionalBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState -> {
+    horizontalFaceBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState -> {
       if(blockState.get(BlockStateProperties.POWERED)){
         return crimwoodButtonPressed;
       }
       else {
         return crimwoodButton;
       }
-    });
+    }, 180);
 
     doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
             resourceLocation("blocks/crimwood_door_bottom"),

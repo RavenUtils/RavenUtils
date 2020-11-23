@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "ravenutils:blocks/berry_bush_stage0"
+    "cross": "ravenutils:blocks/bush_gooseberry_stage2"
   }
 }
