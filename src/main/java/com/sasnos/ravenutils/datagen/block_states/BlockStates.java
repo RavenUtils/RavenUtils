@@ -167,22 +167,14 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("texture", modLoc("blocks/crimwood_planks"));
     axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
-     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
-             .texture("texture", modLoc("blocks/crimwood_planks"));
-
     BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
     BlockModelBuilder crimwoodButtonInventory = models().withExistingParent("crimwood_button_inventory", mcLoc("block/button_inventory"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
-    horizontalFaceBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState -> {
-      if (blockState.get(BlockStateProperties.POWERED)) {
-        return crimwoodButtonPressed;
-      } else {
-        return crimwoodButton;
-      }
-    }, 180);
+    horizontalFaceBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState
+        -> (blockState.get(BlockStateProperties.POWERED)) ? crimwoodButtonPressed : crimwoodButton, 180);
 
     doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
         modLoc("blocks/crimwood_door_bottom"),
