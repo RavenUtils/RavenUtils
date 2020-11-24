@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_anvil",
-  "textures": {
-    "body": "ravenutils:blocks/anvil_granite",
-    "top": "ravenutils:blocks/anvil_top_granite"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "ravenutils:block/stone_anvil_granite",
-  "textures": {
-    "top": "ravenutils:blocks/chipped_anvil_top_granite"
-  }
-}

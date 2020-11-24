@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "side": "ravenutils:blocks/crimwood_log",
-    "bottom": "ravenutils:blocks/crimwood_log_top",
-    "top": "ravenutils:blocks/crimwood_log_top"
-  }
-}
