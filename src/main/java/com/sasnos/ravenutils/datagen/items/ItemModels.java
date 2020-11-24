@@ -159,7 +159,7 @@ public class ItemModels extends ItemModelProvider {
         modLoc("items/raven_eye_dust"));
 
     withExistingParent("item/" + ModBlockItems.CRIMLEAF_ITEM.get().getRegistryName().getPath(),
-        modLoc("blocks/crimleaf"));
+        modLoc("block/crimleaf"));
 
     // food(-related) items
     singleTexture("item/" + ModFoodItems.BUSHMEAT.get().getRegistryName().getPath(),
@@ -403,8 +403,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/bedroll"));
 
-    withExistingParent("item/" + ModBlockItems.CANDLE_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/candle"));
+/*    withExistingParent("item/" + ModBlockItems.CANDLE_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/candle"));*/
 
     singleTexture("item/" + ModToolItems.SOAP.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
@@ -720,11 +720,10 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/mytherine_boots"));
 
-    // todo check and fix
-    singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
+/*    singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
-        resourceLocation("item/mytherine_shield"));
+        resourceLocation("item/mytherine_shield"));*/
 
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
@@ -745,8 +744,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/coin_gold"));
 
-    withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_boat"));
+/*    withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
+        resourceLocation("block/crimwood_boat"));*/
 
     // berries
     // todo move berries to Cuisine module
@@ -779,8 +778,8 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood"));
 
-    withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_door"));
+    /*withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/crimwood_door"));*/
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LEAVES_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood_leaves"));

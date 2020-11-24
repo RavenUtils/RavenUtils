@@ -1,0 +1,6 @@
+{
+  "parent": "ravenutils:block/stone_anvil_diorite",
+  "textures": {
+    "top": "ravenutils:blocks/chipped_anvil_top_diorite"
+  }
+}

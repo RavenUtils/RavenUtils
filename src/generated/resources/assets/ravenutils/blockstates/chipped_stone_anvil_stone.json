@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ravenutils:block/damaged_anvil_stone"
+    },
+    "facing=south": {
+      "model": "ravenutils:block/damaged_anvil_stone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ravenutils:block/damaged_anvil_stone",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ravenutils:block/damaged_anvil_stone",
+      "y": 90
+    }
+  }
+}

@@ -154,11 +154,7 @@ public class BlockStates extends EssentialsBlockStates {
       }
     });
 
-    // more
-    BlockModelBuilder crimleaf = models().cross("crimleaf",
-        modLoc("blocks/crimleaf"));
-    simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
-
+    // crimwood blocks
     BlockModelBuilder crimwood = models().cubeAll("crimwood",
         modLoc("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
@@ -252,7 +248,7 @@ public class BlockStates extends EssentialsBlockStates {
 
     slabBlock(ModBlocks.CRIMWOOD_SLAB.get(), crimwoodSlab, crimwoodSlabTop, crimwoodPlanks);
 
-
+    // blocks & ores
     BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt",
         modLoc("blocks/fossil_dirt"));
     simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossilDirt);
@@ -441,5 +437,17 @@ public class BlockStates extends EssentialsBlockStates {
             .texture("particles", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
+
+    // more
+    BlockModelBuilder crimleaf = models().cross("crimleaf",
+        modLoc("blocks/crimleaf"));
+    simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
+
+    // todo not implemented yet, needs block model
+    /*
+    BlockModelBuilder candle = models().cubeAll("candle",
+        modLoc("blocks/candle"));
+    simpleBlock(ModBlocks.CANDLE.get(), candle);
+    */
   }
 }

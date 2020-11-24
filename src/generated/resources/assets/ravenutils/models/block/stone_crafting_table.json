@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/cobblestone",
+    "up": "ravenutils:blocks/stone_crafting_table_top",
+    "north": "ravenutils:blocks/stone_crafting_table_front",
+    "south": "ravenutils:blocks/stone_crafting_table_side",
+    "east": "ravenutils:blocks/stone_crafting_table_side",
+    "west": "ravenutils:blocks/stone_crafting_table_front",
+    "particles": "minecraft:block/cobblestone"
+  }
+}
