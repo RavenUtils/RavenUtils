@@ -34,10 +34,10 @@ public class HandMillContainer extends EssentialsMachineBlockContainer {
     protected void addSlots() {
         tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
             addSlot(new SlotItemHandler(h, 0, 80, 19));
-            addSlot(new SlotItemHandler(h, 1, 68, 98));
-            addSlot(new SlotItemHandler(h, 2, 92, 98));
+            addSlot(new SlotItemHandler(h, 1, 68, 75));
+            addSlot(new SlotItemHandler(h, 2, 92, 75));
         });
-        layoutPlayerInventorySlots(8, 129);
+        layoutPlayerInventorySlots(8, 106);
     }
 
     @Override

@@ -61,7 +61,8 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
     @Nullable
     @Override
     public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-        return null;
+        assert world != null;
+        return new HandMillContainer(p_createMenu_1_, this.world, this.pos, p_createMenu_2_, p_createMenu_3_, teData);
     }
 
     @Override

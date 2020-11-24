@@ -22,6 +22,6 @@ public class HandMill extends EssentialsMachineBlock {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return null;
+        return new HandMillTileEntity();
     }
 }
