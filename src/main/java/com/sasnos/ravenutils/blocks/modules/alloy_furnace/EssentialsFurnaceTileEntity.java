@@ -27,7 +27,7 @@ public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<All
 
   @Override
   protected ItemStackHandler createHandler() {
-    return new ItemStackHandler(4) {
+    return new ItemStackHandler(5) {
       @Override
       protected void onContentsChanged(int slot) {
         markDirty();

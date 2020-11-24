@@ -3,6 +3,8 @@ package com.sasnos.ravenutils.init;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsFurnaceScreen;
+import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
+import com.sasnos.ravenutils.blocks.modules.handmill.HandMillScreen;
 import com.sasnos.ravenutils.render.SignRenderer;
 import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
@@ -23,6 +25,7 @@ public class ClientInit {
     ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
     ScreenManager.registerFactory(EssentialsAlloyFurnaceInit.alloyFurnaceContainer.get(), EssentialsFurnaceScreen::new);
     ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
+    ScreenManager.registerFactory(HandMillInit.HANDMILL_CONTAINER.get(), HandMillScreen::new);
   }
 
   @SubscribeEvent

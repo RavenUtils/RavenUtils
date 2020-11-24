@@ -24,7 +24,7 @@ public abstract class EssentialsCommonScreen<T extends EssentialsCommonContainer
     @Override
     protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
         this.minecraft.getTextureManager().bindTexture(getGUI());
-        this.blit(matrixStack, guiLeft, guiTop,0, 0, this.xSize, this.ySize+80);
+        this.blit(matrixStack, guiLeft, guiTop,0, 0, this.xSize, this.ySize);
     }
 
     protected abstract ResourceLocation getGUI();

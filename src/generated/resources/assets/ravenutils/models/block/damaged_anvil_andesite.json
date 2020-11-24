@@ -1,0 +1,6 @@
+{
+  "parent": "ravenutils:block/stone_anvil_andesite",
+  "textures": {
+    "top": "ravenutils:blocks/chipped_anvil_top_andesite"
+  }
+}
