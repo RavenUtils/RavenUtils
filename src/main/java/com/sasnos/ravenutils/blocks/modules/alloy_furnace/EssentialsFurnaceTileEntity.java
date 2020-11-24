@@ -18,7 +18,7 @@ import java.util.Set;
 
 public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
 
-  public static final String SCREEN_NAME = "screen.historytechmod.metalage.alloyfurnace";
+  public static final String SCREEN_NAME = "screen.ravenutils.alloyfurnace";
 
 
   public EssentialsFurnaceTileEntity() {

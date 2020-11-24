@@ -138,6 +138,8 @@ public class Bucket extends BaseBucketItem {
     return ActionResult.resultFail(stack);
   }
 
+
+
   private boolean bucketBurns(ItemStack stack) {
     Item bucket = stack.getItem();
     return bucket.isIn(EssentialsTags.Items.burnableBuckets);
@@ -312,7 +314,6 @@ public class Bucket extends BaseBucketItem {
         component = new TranslationTextComponent(fluidKey);
       }
     }
-    // display name in red
     return component;
   }
 

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "ravenutils:blocks/crimwood_log",
+    "end": "ravenutils:blocks/crimwood_log_top"
+  }
+}

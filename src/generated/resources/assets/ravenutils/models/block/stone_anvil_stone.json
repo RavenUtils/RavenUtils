@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_anvil",
+  "textures": {
+    "body": "ravenutils:blocks/anvil_stone",
+    "particles": "ravenutils:blocks/anvil_stone",
+    "top": "ravenutils:blocks/anvil_top_stone"
+  }
+}
