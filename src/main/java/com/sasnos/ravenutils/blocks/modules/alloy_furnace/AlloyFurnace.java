@@ -1,10 +1,11 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
 import com.sasnos.ravenutils.api.blocks.EssentialsMachineBlock;
-import net.minecraft.block.*;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
@@ -19,8 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.stream.Stream;
 
 public class AlloyFurnace extends EssentialsMachineBlock {
-
-  private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
   protected static final VoxelShape SHAPE_N = Stream.of(
       Block.makeCuboidShape(1, 15, 0, 15, 16, 1),
@@ -114,9 +113,7 @@ public class AlloyFurnace extends EssentialsMachineBlock {
 
   @Override
   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-    switch (state.get(FACING)) {
-      case NORTH:
-        return SHAPE_N;
+    switch (state.get(BlockStateProperties.FACING)) {
       case EAST:
         return SHAPE_E;
       case SOUTH:
@@ -128,24 +125,14 @@ public class AlloyFurnace extends EssentialsMachineBlock {
     }
   }
 
-  @Nullable
-  @Override
-  public BlockState getStateForPlacement(BlockItemUseContext context) {
-    return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-  }
-
   @Override
   public BlockState rotate(BlockState state, Rotation rot) {
-    return state.with(FACING, rot.rotate(state.get(FACING)));
+    return state.with(BlockStateProperties.FACING, rot.rotate(state.get(BlockStateProperties.FACING)));
   }
 
   @Override
   public BlockState mirror(BlockState state, Mirror mirrorIn) {
-    return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+    return state.rotate(mirrorIn.toRotation(state.get(BlockStateProperties.FACING)));
   }
 
-  @Override
-  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-    builder.add(FACING);
-  }
 }

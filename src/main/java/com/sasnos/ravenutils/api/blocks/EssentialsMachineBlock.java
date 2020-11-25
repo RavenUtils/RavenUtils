@@ -26,6 +26,8 @@ import java.util.Random;
 
 public abstract class EssentialsMachineBlock extends EssentialsCommonMachineBlock {
 
+
+
   public EssentialsMachineBlock(Properties properties) {
     super(properties);
   }
