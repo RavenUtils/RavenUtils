@@ -16,8 +16,9 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
     @Override
     public MillRecipe read(ResourceLocation recipeId, JsonObject json) {
         ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
-        Ingredient inputs = Ingredient.deserialize(json);
+        Ingredient inputs = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
         int timer = JSONUtils.getInt(json, "timer");
+        float additionalDropChange = JSONUtils.getFloat(json, "additionalDropChange");
         ItemStack additionalOutput = ItemStack.EMPTY;
         float change = 0;
         if (json.has("additional")) {
@@ -26,7 +27,7 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
             change = JSONUtils.getFloat(additional, "change");
         }
 
-        return new MillRecipe(recipeId, timer, inputs, output, additionalOutput, change);
+        return new MillRecipe(recipeId, timer, inputs, additionalDropChange, output, additionalOutput, change);
     }
 
     @Override
@@ -34,6 +35,7 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
         buffer.writeVarInt(recipe.getIngredients().size());
         recipe.getIngredients().get(0).write(buffer);
         buffer.writeItemStack(recipe.getRecipeOutput());
+        buffer.writeFloat(recipe.getAdditionalDropChange());
         buffer.writeVarInt(recipe.getTimer());
         buffer.writeItemStack(recipe.getAdditionalResult());
         buffer.writeFloat(recipe.getAdditionalChange());
@@ -44,10 +46,11 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
     public MillRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
         Ingredient input = Ingredient.read(buffer);
         ItemStack output = buffer.readItemStack();
+        float additionalDropChange = buffer.readFloat();
         int time = buffer.readVarInt();
         ItemStack additionalOutput = buffer.readItemStack();
         float change = buffer.readFloat();
-        return new MillRecipe(recipeId, time, input, output, additionalOutput, change);
+        return new MillRecipe(recipeId, time, input, additionalDropChange, output, additionalOutput, change);
     }
 
 }

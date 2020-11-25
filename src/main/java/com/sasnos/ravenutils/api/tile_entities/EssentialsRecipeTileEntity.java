@@ -37,7 +37,9 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
 
   public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType, World world) {
     return world != null ?
-        world.getRecipeManager().getRecipes().stream().filter(iRecipe -> iRecipe.getType() == recipeType).collect(Collectors.toSet())
+        world.getRecipeManager().getRecipes().stream().filter(
+                iRecipe -> iRecipe.getType() == recipeType
+        ).collect(Collectors.toSet())
         : Collections.emptySet();
   }
 
@@ -46,7 +48,10 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
     Set<IRecipe<?>> recipes = findRecipeByType(type, world);
     for (IRecipe<?> recipe : recipes) {
       NonNullList<Ingredient> ingredients = recipe.getIngredients();
-      ingredients.forEach(ingredient -> inputs.addAll(Arrays.asList(ingredient.getMatchingStacks())));
+      ingredients.forEach(
+              ingredient ->
+                inputs.addAll(Arrays.asList(ingredient.getMatchingStacks()))
+      );
     }
     return inputs;
   }

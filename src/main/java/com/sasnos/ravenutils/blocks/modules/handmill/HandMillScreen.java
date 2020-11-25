@@ -20,6 +20,12 @@ public class HandMillScreen extends EssentialsCommonScreen<HandMillContainer> {
     }
 
     @Override
+    protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
+        this.font.func_243248_b(matrixStack, this.title, (float)this.titleX, (float)this.titleY, 4210752);
+        this.font.func_243248_b(matrixStack, this.playerInventory.getDisplayName(), (float)this.playerInventoryTitleX, (float)this.ySize-72, 4210752);
+    }
+
+    @Override
     protected ResourceLocation getGUI() {
         return EssentialsUtils.resourceLocation("textures/gui/container/hand_mill.png");
     }

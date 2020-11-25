@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -30,7 +31,12 @@ public class MillStone extends EssentialsCommonMachineBlock {
         if (!worldIn.isRemote) {
             TileEntity tile = worldIn.getTileEntity(pos.down());
             if (tile instanceof HandMillTileEntity) {
-                worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
+                if(player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity)tile).hasInput()){
+                    ((HandMillTileEntity)tile).addTick();
+                }
+                else{
+                    worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
+                }
             }
         }
         return ActionResultType.SUCCESS;

@@ -39,7 +39,7 @@ public class EssentialsAlloyFurnaceBlockContainer extends EssentialsMachineBlock
       addSlot(new SlotItemHandler(h, 0, 32, 17));
       addSlot(new SlotItemHandler(h, 1, 56, 17));
       addSlot(new SlotItemHandler(h, 2, 44, 53));
-      addSlot(new SlotItemHandler(h, 3, 121, 17));
+      addSlot(new SlotItemHandler(h, 3, 125, 21));
       addSlot(new SlotItemHandler(h, 4, 125, 53));
     });
     layoutPlayerInventorySlots(8, 84);
