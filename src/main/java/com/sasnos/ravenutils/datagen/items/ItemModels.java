@@ -7,6 +7,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.loaders.DynamicBucketModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -834,10 +835,22 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/mytherine_boots"));
 
-    /* singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        resourceLocation("item/mytherine_shield")); */
+    ModelFile block = withExistingParent("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath()+"_block",
+            mcLoc("item/shield_blocking")).texture("particle", modLoc("blocks/crimwood_planks"));
+
+    withExistingParent("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
+            mcLoc("item/shield")).texture("particle", modLoc("blocks/crimwood_planks"))
+    .override().predicate(mcLoc("blocking"), 1).model(block);
+
+
+
+//     singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
+//        mcLoc("item/generated"),
+//        "layer0",
+//        resourceLocation("item/mytherine_shield"));
+//
+//    withExistingParent("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath()+"_blocking",
+//            modLoc("item/mytherine_shield"));
 
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
@@ -857,11 +870,6 @@ public class ItemModels extends ItemModelProvider {
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/coin_gold"));
-
-    singleTexture("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        modLoc("items/crimwood_boat"));
 
     // todo move berries to Cuisine module
     // berries
@@ -935,10 +943,10 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_button_inventory"));
 
-    /* singleTexture("item/" + ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
+     singleTexture("item/" + ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
-        modLoc("items/crimwood_sign")); */
+        modLoc("items/crimwood_sign"));
 
     // mud itemblocks
     withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),

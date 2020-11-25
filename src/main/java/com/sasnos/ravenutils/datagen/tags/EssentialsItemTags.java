@@ -221,8 +221,6 @@ public class EssentialsItemTags extends ItemTagsProvider {
     getOrCreateBuilder(wooden_stairs).add(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get());
     getOrCreateBuilder(wooden_trapdoors).add(ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get());
 
-    getOrCreateBuilder(boats).add(ModItems.CRIMWOOD_BOAT.get());
-
     getOrCreateBuilder(fireStarter).add(Items.FLINT_AND_STEEL, ModToolItems.FIRESTARTER.get());
   }
 }

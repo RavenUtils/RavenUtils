@@ -1,6 +1,8 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.items.EssentialShieldItem;
+import com.sasnos.ravenutils.render.ShieldRenderer;
 import com.sasnos.ravenutils.utils.enums.ModArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -66,5 +68,5 @@ public class ModArmorItems {
   public static final RegistryObject<ArmorItem> MYTHERINE_BOOTS = ITEMS.register("mytherine_boots",
       () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.FEET, new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
-      () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
+      () -> new EssentialShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB).setISTER(() -> ShieldRenderer::new)));
 }

@@ -2,12 +2,14 @@ package com.sasnos.ravenutils.init;
 
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.blocks.BlockItemBase;
-import com.sasnos.ravenutils.items.*;
-import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.item.BoatItem;
+import com.sasnos.ravenutils.items.Ash;
+import com.sasnos.ravenutils.items.BlackCoal;
+import com.sasnos.ravenutils.items.ItemBase;
+import com.sasnos.ravenutils.items.Peat;
+import com.sasnos.ravenutils.items.SignItem;
+import com.sasnos.ravenutils.items.Slag;
+import com.sasnos.ravenutils.items.TreeBark;
 import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -101,12 +103,9 @@ public class ModItems {
   public static final RegistryObject<Item> COIN_SILVER = ITEMS.register("coin_silver", ItemBase::new);
   public static final RegistryObject<Item> COIN_GOLD = ITEMS.register("coin_gold", ItemBase::new);
 
-  public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
-      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
-
-  /* public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
+  public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())
-          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())); */
+          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
 
   // todo move to Magic module
   public static final RegistryObject<Item> BLOOD_BOTTLE = ITEMS.register("blood_bottle",

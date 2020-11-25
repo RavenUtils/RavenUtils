@@ -8,6 +8,7 @@ import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.init.ModContainer;
+import com.sasnos.ravenutils.init.ModEntities;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModItems;
@@ -72,6 +73,7 @@ public class RavenUtils {
     ModContainer.CONTAINER_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     new EssentialsTags().init();
 

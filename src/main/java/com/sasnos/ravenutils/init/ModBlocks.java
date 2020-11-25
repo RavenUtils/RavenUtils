@@ -2,12 +2,86 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
-import com.sasnos.ravenutils.blocks.*;
-import com.sasnos.ravenutils.blocks.crimwood.*;
-import com.sasnos.ravenutils.blocks.mud.*;
-import com.sasnos.ravenutils.blocks.ores.*;
+import com.sasnos.ravenutils.blocks.Barrel;
+import com.sasnos.ravenutils.blocks.BlackCoalBlock;
+import com.sasnos.ravenutils.blocks.BlackberryBush;
+import com.sasnos.ravenutils.blocks.BlueberryBush;
+import com.sasnos.ravenutils.blocks.BrassBlock;
+import com.sasnos.ravenutils.blocks.BronzeBlock;
+import com.sasnos.ravenutils.blocks.CandleBlock;
+import com.sasnos.ravenutils.blocks.CopperBlock;
+import com.sasnos.ravenutils.blocks.Crimleaf;
+import com.sasnos.ravenutils.blocks.DryingRack;
+import com.sasnos.ravenutils.blocks.ElderberryBush;
+import com.sasnos.ravenutils.blocks.FishTrap;
+import com.sasnos.ravenutils.blocks.GelatinBlock;
+import com.sasnos.ravenutils.blocks.GooseberryBush;
+import com.sasnos.ravenutils.blocks.LeadBlock;
+import com.sasnos.ravenutils.blocks.LimestoneBlock;
+import com.sasnos.ravenutils.blocks.LimewaterBlock;
+import com.sasnos.ravenutils.blocks.MytherineBlock;
+import com.sasnos.ravenutils.blocks.PeatBlock;
+import com.sasnos.ravenutils.blocks.QuicksandBlock;
+import com.sasnos.ravenutils.blocks.RaspberryBush;
+import com.sasnos.ravenutils.blocks.RavenEyeBlock;
+import com.sasnos.ravenutils.blocks.RavenEyeOre;
+import com.sasnos.ravenutils.blocks.ResinBlock;
+import com.sasnos.ravenutils.blocks.SaltBlock;
+import com.sasnos.ravenutils.blocks.SilverBlock;
+import com.sasnos.ravenutils.blocks.SteelBlock;
+import com.sasnos.ravenutils.blocks.StickGroundBlock;
+import com.sasnos.ravenutils.blocks.StoneAnvil;
+import com.sasnos.ravenutils.blocks.StoneCraftingTable;
+import com.sasnos.ravenutils.blocks.StoneGroundBlock;
+import com.sasnos.ravenutils.blocks.TanninBlock;
+import com.sasnos.ravenutils.blocks.TinBlock;
+import com.sasnos.ravenutils.blocks.ZincBlock;
+import com.sasnos.ravenutils.blocks.crimwood.Crimwood;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodButton;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodDoor;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFence;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFenceGate;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLeaves;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLog;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLogStripped;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPlanks;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPressurePlate;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSapling;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignStanding;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignWall;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSlab;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStairs;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodTrapdoor;
+import com.sasnos.ravenutils.blocks.mud.MudBlock;
+import com.sasnos.ravenutils.blocks.mud.MudBrickSlab;
+import com.sasnos.ravenutils.blocks.mud.MudBrickStairs;
+import com.sasnos.ravenutils.blocks.mud.MudBrickWall;
+import com.sasnos.ravenutils.blocks.mud.MudBricks;
+import com.sasnos.ravenutils.blocks.ores.BlackCoalOre;
+import com.sasnos.ravenutils.blocks.ores.CopperOre;
+import com.sasnos.ravenutils.blocks.ores.FossilDirt;
+import com.sasnos.ravenutils.blocks.ores.FossilOre;
+import com.sasnos.ravenutils.blocks.ores.LeadOre;
+import com.sasnos.ravenutils.blocks.ores.MytherineOre;
+import com.sasnos.ravenutils.blocks.ores.SaltOre;
+import com.sasnos.ravenutils.blocks.ores.SilverOre;
+import com.sasnos.ravenutils.blocks.ores.SulfurOre;
+import com.sasnos.ravenutils.blocks.ores.TinOre;
+import com.sasnos.ravenutils.blocks.ores.ZincOre;
 import com.sasnos.ravenutils.blocks.plants.Reeds;
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.DoorBlock;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FlowerPotBlock;
+import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.StairsBlock;
+import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -70,12 +144,12 @@ public class ModBlocks {
   );
 
   // crimwood
-  /* public static final RegistryObject<StandingSignBlock> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
+  public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
       () -> new CrimwoodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
           .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
-  public static final RegistryObject<WallSignBlock> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
+  public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
       () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD)); */
+          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
 
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",

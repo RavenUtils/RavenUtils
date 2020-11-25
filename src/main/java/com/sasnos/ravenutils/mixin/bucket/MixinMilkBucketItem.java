@@ -21,7 +21,7 @@ public abstract class MixinMilkBucketItem extends Item {
     }
 
     /**
-     * add the ability to damge the bucket
+     * @reason add the ability to damge the bucket
      * @author Unbekannt
      */
     @Overwrite

@@ -28,6 +28,7 @@ public abstract class MixinBucketItem extends Item {
     }
 
     /**
+     * @reason add way to add damage to the bucket when emptied and destroy it when exceed max Damage
      * @author Unbekannt
      */
     @Overwrite

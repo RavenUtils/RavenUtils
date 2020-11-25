@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.items.MytherineShieldModel;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -13,10 +14,13 @@ import net.minecraft.client.renderer.model.RenderMaterial;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.tileentity.BannerTileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.DyeColor;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShieldItem;
 import net.minecraft.tileentity.BannerPattern;
 import net.minecraft.tileentity.BannerTileEntity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -31,13 +35,13 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
     Item item = stack.getItem();
     if (item instanceof BlockItem) {
       Block block = ((BlockItem) item).getBlock();
-      /* if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
+      if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
         boolean flag = stack.getChildTag("BlockEntityTag") != null;
         matrixStack.push();
         matrixStack.scale(1.0F, -1.0F, -1.0F);
         RenderMaterial rendermaterial = flag
-            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/mytherine_shield_base"))
-            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, new ResourceLocation("entity/shields/mytherine_shield_base_nopattern"));
+            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base"))
+            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base_nopattern"));
         IVertexBuilder ivertexbuilder = rendermaterial.getSprite().wrapBuffer(ItemRenderer.getEntityGlintVertexBuilder(buffer, this.modelShield.getRenderType(rendermaterial.getAtlasLocation()), true, stack.hasEffect()));
         this.modelShield.func_228294_b_().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         if (flag) {
@@ -48,7 +52,7 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
         }
 
         matrixStack.pop();
-      } */
+      }
     }
   }
 }

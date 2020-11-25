@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public abstract class MixinDrinkHelper {
 
     /**
+     * @reason add way to add damage to the bucket
      * @author Unbekannt
      */
     @Overwrite

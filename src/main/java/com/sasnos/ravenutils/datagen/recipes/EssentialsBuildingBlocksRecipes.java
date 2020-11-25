@@ -7,7 +7,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Items;
 import net.minecraftforge.common.Tags;
 
@@ -134,6 +133,14 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .key('s', Items.STONE)
         .key('g', ModItems.GROUT.get())
         .addCriterion("has_stone", hasItem(Items.STONE))
+        .build(consumer);
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
+        .patternLine("WWW")
+       .patternLine("WWW")
+        .patternLine(" # ")
+       .key('#', Tags.Items.RODS_WOODEN)
+       .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+       .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
   }
 }
