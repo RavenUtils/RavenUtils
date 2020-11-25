@@ -29,7 +29,6 @@ public abstract class TanninFluid extends ForgeFlowingFluid {
       .levelDecreasePerBlock(1)
       .explosionResistance(100F);
 
-
   protected TanninFluid(Properties properties) {
     super(properties);
   }

@@ -22,6 +22,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Food;
 import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
@@ -40,6 +41,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -151,6 +153,10 @@ public class RavenUtils {
         Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "field_77699_b");
         maxDamage.setAccessible(true);
         maxDamage.setInt(Items.BUCKET, 512);
+        maxDamage.setInt(Items.MILK_BUCKET, 512);
+        for(Fluid fluid : ForgeRegistries.FLUIDS.getValues()){
+          maxDamage.setInt(fluid.getFilledBucket(), 512);
+        }
 
       } catch (IllegalAccessException e) {
         throw new RuntimeException(e);

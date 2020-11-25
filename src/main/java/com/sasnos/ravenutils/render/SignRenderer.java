@@ -2,15 +2,22 @@ package com.sasnos.ravenutils.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
 import com.sasnos.ravenutils.tile_entities.SignTileEntity;
-import net.minecraft.block.*;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
+import net.minecraft.block.AbstractSignBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.StandingSignBlock;
+import net.minecraft.block.WallSignBlock;
+import net.minecraft.block.WoodType;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.model.Model;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.client.renderer.model.RenderMaterial;
+import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.texture.NativeImage;
 import net.minecraft.client.renderer.tileentity.SignTileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
@@ -92,7 +99,11 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
       woodtype = WoodType.OAK;
     }
 
-    return Atlases.getSignMaterial(woodtype);
+    if(woodtype instanceof EssentialsWoodTypes){
+      return ((EssentialsWoodTypes)woodtype).getMaterial();
+    }
+
+    return new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation("entity/signs/crimwood"));
   }
 
   @OnlyIn(Dist.CLIENT)

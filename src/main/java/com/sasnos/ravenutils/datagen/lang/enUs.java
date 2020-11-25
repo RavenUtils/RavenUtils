@@ -178,7 +178,7 @@ public class enUs extends LanguageProvider {
     add(ModArmorItems.MYTHERINE_CHESTPLATE.get(), "Mytherine Chestplate");
     add(ModArmorItems.MYTHERINE_LEGGINGS.get(), "Mytherine Leggings");
     add(ModArmorItems.MYTHERINE_BOOTS.get(), "Mytherine Boots");
-    add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
+//    add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
     add(ModToolItems.MYTHERINE_SWORD.get(), "Mytherine Sword");
     add(ModToolItems.MYTHERINE_SHOVEL.get(), "Mytherine Shovel");
     add(ModToolItems.MYTHERINE_AXE.get(), "Mytherine Axe");
@@ -201,7 +201,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.BUCKET_CLAY.get().getTranslationKey() + ".filled", "%s Clay Bucket");
     add(ModToolItems.BUCKET_CRIMWOOD.get(), "Crimwood Bucket");
     add(ModToolItems.BUCKET_CRIMWOOD.get().getTranslationKey() + ".filled", "%s Crimwood Bucket");
-    add(ModToolItems.BUCKET_IRON.get().getTranslationKey() + ".filled", "%s Iron Bucket");
+//    add(ModToolItems.BUCKET_IRON.get().getTranslationKey() + ".filled", "%s Iron Bucket");
     add(ModToolItems.BUCKET_IRON_LIMEWATER.get(), "Iron Limewater Bucket");
     add(ModToolItems.BUCKET_IRON_TANNIN.get(), "Iron Tannin Bucket");
     add(ModToolItems.MORTAR_WOOD.get(), "Wooden Mortar");
