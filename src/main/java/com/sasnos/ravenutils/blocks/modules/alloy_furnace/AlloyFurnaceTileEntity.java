@@ -16,13 +16,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Set;
 
-public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
+public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
 
   public static final String SCREEN_NAME = "screen.ravenutils.alloyfurnace";
 
 
-  public EssentialsFurnaceTileEntity() {
-    super(EssentialsAlloyFurnaceInit.alloyFurnaceTileEntity.get(), ModRecipes.ALLOY_RECIPE_RECIPE_TYPE);
+  public AlloyFurnaceTileEntity() {
+    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), ModRecipes.ALLOY_RECIPE_RECIPE_TYPE);
   }
 
   @Override
@@ -67,7 +67,7 @@ public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<All
   @Override
   public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
     assert world != null;
-    return new EssentialsAlloyFurnaceBlockContainer(p_createMenu_1_, world, pos, p_createMenu_2_, p_createMenu_3_, teData);
+    return new AlloyFurnaceContainer(p_createMenu_1_, world, pos, p_createMenu_2_, p_createMenu_3_, teData);
   }
 
 }

@@ -18,6 +18,7 @@ public class ModBlockItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
+  // blocks & ores
   public static final RegistryObject<Item> FOSSIL_DIRT_ITEM = ITEMS.register("fossil_dirt",
       () -> new BlockItemBase(ModBlocks.FOSSIL_DIRT.get()));
   public static final RegistryObject<Item> SALT_ORE_ITEM = ITEMS.register("salt_ore",
@@ -78,6 +79,7 @@ public class ModBlockItems {
   public static final RegistryObject<Item> CRIMWOOD_SAPLING_ITEM = ITEMS.register("crimwood_sapling",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_SAPLING.get()));
 
+  // crimwood
   public static final RegistryObject<Item> CRIMWOOD_ITEM = ITEMS.register("crimwood",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_ITEM = ITEMS.register("crimwood_log",
@@ -103,6 +105,7 @@ public class ModBlockItems {
   public static final RegistryObject<Item> CRIMWOOD_BUTTON_ITEM = ITEMS.register("crimwood_button",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_BUTTON.get()));
 
+  // miscellaneous
   public static final RegistryObject<Item> CANDLE_ITEM = ITEMS.register("candle",
       () -> new BlockItemBase(ModBlocks.CANDLE.get()));
   public static final RegistryObject<Item> STICK_GROUND_ITEM = ITEMS.register("stick_ground",
@@ -110,6 +113,7 @@ public class ModBlockItems {
   public static final RegistryObject<Item> STONE_GROUND_ITEM = ITEMS.register("stone_ground",
       () -> new BlockItemBase(ModBlocks.STONE_GROUND.get()));
 
+  // functional block(item)s
   public static final RegistryObject<Item> STONE_CRAFTING_TABLE_ITEM = ITEMS.register("stone_crafting_table",
       () -> new BlockItemBase(ModBlocks.STONE_CRAFTING_TABLE.get()));
 

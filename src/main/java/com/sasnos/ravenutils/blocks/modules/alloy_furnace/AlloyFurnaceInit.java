@@ -13,23 +13,23 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 
-public class EssentialsAlloyFurnaceInit {
-  public static final RegistryObject<Block> alloyFurnace =
-      ModBlocks.BLOCKS.register("alloy_furnace", EssentialsAlloyFurnace::new);
+public class AlloyFurnaceInit {
+  public static final RegistryObject<Block> ALLOY_FURNACE =
+      ModBlocks.BLOCKS.register("alloy_furnace", AlloyFurnace::new);
 
-  public static final RegistryObject<Item> alloyFurnaceItem =
+  public static final RegistryObject<Item> ALLOY_FURNACE_ITEM =
       ModBlockItems.ITEMS.register("alloy_furnace", () -> new BlockItem(
-          alloyFurnace.get(),
+          ALLOY_FURNACE.get(),
           new Item.Properties().group(RavenUtils.TAB)
       ));
 
-  public static final RegistryObject<TileEntityType<EssentialsFurnaceTileEntity>> alloyFurnaceTileEntity =
+  public static final RegistryObject<TileEntityType<AlloyFurnaceTileEntity>> ALLOY_FURNACE_TILE_ENTITY =
       ModTileEntities.TILE_ENTITY.register("alloy_furnace",
           () -> TileEntityType.Builder
-              .create(EssentialsFurnaceTileEntity::new, alloyFurnace.get())
+              .create(AlloyFurnaceTileEntity::new, ALLOY_FURNACE.get())
               .build(null));
 
-  public static final RegistryObject<ContainerType<EssentialsAlloyFurnaceBlockContainer>> alloyFurnaceContainer =
+  public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> ALLOY_FURNACE_CONTAINER =
       ModContainer.CONTAINERTYPES.register("alloy_furnace", () -> IForgeContainerType.create(
-          EssentialsAlloyFurnaceBlockContainer::new));
+          AlloyFurnaceContainer::new));
 }

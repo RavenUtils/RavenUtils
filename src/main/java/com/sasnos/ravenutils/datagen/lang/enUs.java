@@ -1,6 +1,8 @@
 package com.sasnos.ravenutils.datagen.lang;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
 import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Items;
@@ -17,8 +19,8 @@ public class enUs extends LanguageProvider {
     add(RavenUtils.TAB.getPath(), "Raven Utils");
 
     // fluids
-    add(ModFluids.LIMEWATER.get().getFluid().getAttributes().getTranslationKey(),  "Limewater");
-    add(ModFluids.TANNIN.get().getFluid().getAttributes().getTranslationKey(),  "Tannin");
+    add(ModFluids.LIMEWATER.get().getFluid().getAttributes().getTranslationKey(), "Limewater");
+    add(ModFluids.TANNIN.get().getFluid().getAttributes().getTranslationKey(), "Tannin");
 
     // ore blocks
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
@@ -80,9 +82,9 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
     add(ModBlocks.STONE_ANVIL_DIORITE.get(), "Diorite Anvil");
     add(ModBlocks.STONE_CRAFTING_TABLE.get(), "Stone Crafting Table");
-    // add(ModBlocks.ALLOY_FURNACE.get(), "Alloy Furnace");
-    // add(ModBlocks.HAND_MILL.get(), "Mill");
-    // add(ModBlocks.MILLSTONE.get(), "Millstone");
+    add(AlloyFurnaceInit.ALLOY_FURNACE.get(), "Alloy Furnace");
+    add(HandMillInit.HAND_MILL.get(), "Mill");
+    add(HandMillInit.MILLSTONE.get(), "Millstone");
 
     // food-related blocks
     add(ModBlocks.BLUEBERRY_BUSH.get(), "Blueberry Bush");

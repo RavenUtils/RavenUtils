@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsFurnaceScreen;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceScreen;
 import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
 import com.sasnos.ravenutils.blocks.modules.handmill.HandMillScreen;
 import com.sasnos.ravenutils.render.SignRenderer;
@@ -23,9 +23,9 @@ public class ClientInit {
   @SubscribeEvent
   public static void clientStartup(final FMLClientSetupEvent event) {
     ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
-    ScreenManager.registerFactory(EssentialsAlloyFurnaceInit.alloyFurnaceContainer.get(), EssentialsFurnaceScreen::new);
+    ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
     ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
-    ScreenManager.registerFactory(HandMillInit.HANDMILL_CONTAINER.get(), HandMillScreen::new);
+    ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
   }
 
   @SubscribeEvent

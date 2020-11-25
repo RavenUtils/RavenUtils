@@ -7,11 +7,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import org.jetbrains.annotations.NotNull;
 
-public class EssentialsFurnaceScreen extends EssentialsCommonScreen<EssentialsAlloyFurnaceBlockContainer> {
+public class AlloyFurnaceScreen extends EssentialsCommonScreen<AlloyFurnaceContainer> {
 
   private ResourceLocation GUI = new ResourceLocation(RavenUtils.MOD_ID, "textures/gui/container/alloy_furnace.png");
 
-  public EssentialsFurnaceScreen(EssentialsAlloyFurnaceBlockContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
+  public AlloyFurnaceScreen(AlloyFurnaceContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
     super(screenContainer, inv, titleIn);
   }
 

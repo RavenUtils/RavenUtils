@@ -2,7 +2,7 @@ package com.sasnos.ravenutils;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
-import com.sasnos.ravenutils.blocks.modules.alloy_furnace.EssentialsAlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
 import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.init.ModBlockItems;
@@ -71,7 +71,7 @@ public class RavenUtils {
     new EssentialsTags().init();
 
     //modules aka machines and stuff
-    new EssentialsAlloyFurnaceInit();
+    new AlloyFurnaceInit();
     new HandMillInit();
 
     // Register ourselves for server and other game events we are interested in
@@ -84,8 +84,7 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
 
-    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
-    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
+    // todo move bushes to Cuisine module
     RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.ELDERBERRY_BUSH.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(), RenderType.getCutout());
@@ -94,7 +93,8 @@ public class RavenUtils {
 
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
-
+    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
+    RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
 
     event.enqueueWork(() -> {
