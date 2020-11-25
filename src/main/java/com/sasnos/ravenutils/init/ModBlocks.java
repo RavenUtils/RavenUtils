@@ -45,6 +45,8 @@ public class ModBlocks {
   public static final RegistryObject<Block> RESIN_BLOCK = BLOCKS.register("resin_block", ResinBlock::new);
   public static final RegistryObject<Block> GELATIN_BLOCK = BLOCKS.register("gelatin_block", GelatinBlock::new);
   public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle", CandleBlock::new);
+  public static final RegistryObject<Block> STICK_GROUND = BLOCKS.register("stick_ground", StickGroundBlock::new);
+  public static final RegistryObject<Block> STONE_GROUND = BLOCKS.register("stone_ground", StoneGroundBlock::new);
 
   // fluid blocks
   public static final RegistryObject<Block> LIMEWATER_BLOCK = BLOCKS.register("limewater_block", LimewaterBlock::new);

@@ -1,0 +1,144 @@
+{
+  "textures": {
+    "1": "ravenutils:blocks/ground_stick"
+  },
+  "elements": [
+    {
+      "from": [
+        8,
+        0,
+        4
+      ],
+      "to": [
+        9,
+        1,
+        12
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8.5,
+          0.5,
+          8
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            2,
+            3,
+            3
+          ],
+          "texture": "#1"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            8,
+            1
+          ],
+          "texture": "#1"
+        },
+        "south": {
+          "uv": [
+            2,
+            3,
+            3,
+            4
+          ],
+          "texture": "#1"
+        },
+        "west": {
+          "uv": [
+            0,
+            1,
+            8,
+            2
+          ],
+          "texture": "#1"
+        },
+        "up": {
+          "uv": [
+            1,
+            10,
+            0,
+            2
+          ],
+          "texture": "#1"
+        },
+        "down": {
+          "uv": [
+            2,
+            2,
+            1,
+            10
+          ],
+          "texture": "#1"
+        }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        -0.75,
+        2,
+        7
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        0,
+        6.5,
+        0
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        0,
+        7.25,
+        0
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        4.5,
+        0
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        90,
+        0,
+        0
+      ],
+      "translation": [
+        -0.25,
+        0.75,
+        7
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "VoxelShapes",
+      "origin": [
+        16,
+        8,
+        15
+      ],
+      "children": [
+        0
+      ]
+    }
+  ]
+}

@@ -83,6 +83,7 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
     RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.getCutout());
@@ -93,6 +94,8 @@ public class RavenUtils {
 
     RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
+
+    RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
 
     event.enqueueWork(() -> {
       try {

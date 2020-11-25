@@ -105,6 +105,10 @@ public class ModBlockItems {
 
   public static final RegistryObject<Item> CANDLE_ITEM = ITEMS.register("candle",
       () -> new BlockItemBase(ModBlocks.CANDLE.get()));
+  public static final RegistryObject<Item> STICK_GROUND_ITEM = ITEMS.register("stick_ground",
+      () -> new BlockItemBase(ModBlocks.STICK_GROUND.get()));
+  public static final RegistryObject<Item> STONE_GROUND_ITEM = ITEMS.register("stone_ground",
+      () -> new BlockItemBase(ModBlocks.STONE_GROUND.get()));
 
   public static final RegistryObject<Item> STONE_CRAFTING_TABLE_ITEM = ITEMS.register("stone_crafting_table",
       () -> new BlockItemBase(ModBlocks.STONE_CRAFTING_TABLE.get()));

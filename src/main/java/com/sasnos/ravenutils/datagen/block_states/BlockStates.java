@@ -42,7 +42,7 @@ public class BlockStates extends EssentialsBlockStates {
         case 3:
           return blueberryBush3;
         default:
-          return null;
+          return blueberryBush0;
       }
     });
 
@@ -69,7 +69,7 @@ public class BlockStates extends EssentialsBlockStates {
         case 3:
           return elderberryBush3;
         default:
-          return null;
+          return elderberryBush0;
       }
     });
 
@@ -96,7 +96,7 @@ public class BlockStates extends EssentialsBlockStates {
         case 3:
           return raspberryBush3;
         default:
-          return null;
+          return raspberryBush0;
       }
     });
 
@@ -123,7 +123,7 @@ public class BlockStates extends EssentialsBlockStates {
         case 3:
           return blackberryBush3;
         default:
-          return null;
+          return blackberryBush0;
       }
     });
 
@@ -150,7 +150,7 @@ public class BlockStates extends EssentialsBlockStates {
         case 3:
           return gooseberryBush3;
         default:
-          return null;
+          return gooseberryBush0;
       }
     });
 
@@ -159,9 +159,12 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
 
+    axisBlock(ModBlocks.CRIMWOOD_LOG.get(),
+        modLoc("blocks/crimwood_log"),
+        modLoc("blocks/crimwood_log_top"));
+
     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
-    axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
     BlockModelBuilder crimwoodButtonPressed = models().withExistingParent("crimwood_button_pressed", mcLoc("block/button_pressed"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
@@ -199,13 +202,8 @@ public class BlockStates extends EssentialsBlockStates {
         .withExistingParent("crimwood_pressure_plate_down", mcLoc("block/pressure_plate_down"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
-    generateBlockStatesForBlock(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), blockState -> {
-      if (blockState.get(BlockStateProperties.POWERED)) {
-        return crimwoodPressurePlateDown;
-      } else {
-        return crimwoodPressurePlate;
-      }
-    });
+    generateBlockStatesForBlock(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), blockState
+        -> (blockState.get(BlockStateProperties.POWERED)) ? crimwoodPressurePlateDown : crimwoodPressurePlate);
 
     BlockModelBuilder crimwoodTrapDoor = models().trapdoorOrientableBottom("crimwood_trap_door",
         modLoc("blocks/crimwood_trapdoor"));
@@ -443,11 +441,8 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-    // todo not implemented yet, needs block model
-    /*
-    BlockModelBuilder candle = models().cubeAll("candle",
+    /*BlockModelBuilder candle = models().torch("candle",
         modLoc("blocks/candle"));
-    simpleBlock(ModBlocks.CANDLE.get(), candle);
-    */
+    horizontalBlock(ModBlocks.CANDLE.get(), candle);*/
   }
 }

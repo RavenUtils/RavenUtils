@@ -50,7 +50,11 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
     add(ModBlocks.RESIN_BLOCK.get(), "Block of Resin");
     add(ModBlocks.GELATIN_BLOCK.get(), "Block of Gelatin");
+
+    // misc blocks
     add(ModBlocks.CANDLE.get(), "Candle");
+    add(ModBlocks.STICK_GROUND.get(), "Stick");
+    add(ModBlocks.STONE_GROUND.get(), "Stone");
 
     // flowers & saplings
     add(ModBlocks.CRIMLEAF.get(), "Crimleaf");
