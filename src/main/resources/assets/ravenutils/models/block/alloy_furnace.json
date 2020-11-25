@@ -4,8 +4,8 @@
     128
   ],
   "textures": {
-    "6": "ravenutils:block/alloy_furnace_lit",
-    "particle": "ravenutils:block/alloy_furnace_lit"
+    "6": "ravenutils:block/alloy_furnace",
+    "particle": "ravenutils:block/alloy_furnace"
   },
   "elements": [
     {
