@@ -59,7 +59,7 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
         slot.onSlotChange(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.MILL_RECIPE_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.HAND_MILL_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if (inputs.contains(stack.getItem())) {
           if (!this.mergeItemStack(stack, 0, 1, false)) {

@@ -22,7 +22,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
 
 
   public AlloyFurnaceTileEntity() {
-    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), ModRecipes.ALLOY_RECIPE_RECIPE_TYPE);
+    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), ModRecipes.ALLOY_FURNACE_RECIPE_TYPE);
   }
 
   @Override

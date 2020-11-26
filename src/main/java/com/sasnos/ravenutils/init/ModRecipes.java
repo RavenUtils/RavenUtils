@@ -16,9 +16,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModRecipes {
 
-  public static final IRecipeType<AlloyRecipe> ALLOY_RECIPE_RECIPE_TYPE = registerType(AlloyRecipe.ALLOY_FURNACE);
+  public static final IRecipeType<AlloyRecipe> ALLOY_FURNACE_RECIPE_TYPE = registerType(AlloyRecipe.ALLOY_FURNACE);
 
-  public static final IRecipeType<MillRecipe> MILL_RECIPE_RECIPE_TYPE = registerType(MillRecipe.MILL);
+  public static final IRecipeType<MillRecipe> HAND_MILL_RECIPE_TYPE = registerType(MillRecipe.MILL);
 
   public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZER = DeferredRegister.create(
       ForgeRegistries.RECIPE_SERIALIZERS, RavenUtils.MOD_ID
