@@ -18,7 +18,6 @@ public class HandMill extends EssentialsMachineBlock {
         .harvestLevel(1));
   }
 
-
   @Nullable
   @Override
   public TileEntity createTileEntity(BlockState state, IBlockReader world) {

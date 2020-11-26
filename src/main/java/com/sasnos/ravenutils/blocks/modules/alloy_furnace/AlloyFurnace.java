@@ -20,5 +20,4 @@ public class AlloyFurnace extends EssentialsMachineBlock {
     return new AlloyFurnaceTileEntity();
   }
 
-
 }
