@@ -1,0 +1,16 @@
+{
+  "type": "ravenutils:mill_recipe",
+  "ingredient": {
+    "item": "minecraft:wheat"
+  },
+  "result": {
+    "item": "minecraft:wheat_seeds"
+  },
+  "additionalDropChange": 1.0,
+  "additional": {
+    "item": "minecraft:bone",
+    "count": 5,
+    "change": 0.5
+  },
+  "timer": 10
+}

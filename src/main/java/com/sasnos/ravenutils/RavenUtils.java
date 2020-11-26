@@ -15,8 +15,11 @@ import com.sasnos.ravenutils.init.ModLootTables;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.Food;
@@ -69,6 +72,11 @@ public class RavenUtils {
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     new EssentialsTags().init();
+
+    ((FlowerPotBlock)Blocks.FLOWER_POT)
+            .addPlant(EssentialsUtils.resourceLocation("crimleaf"), ModBlocks.POTTED_CRIMLEAF);
+    ((FlowerPotBlock)Blocks.FLOWER_POT)
+            .addPlant(EssentialsUtils.resourceLocation("crimwood_sapling"), ModBlocks.POTTED_CRIMWOOD_SAPLING);
 
     //modules aka machines and stuff
     new AlloyFurnaceInit();

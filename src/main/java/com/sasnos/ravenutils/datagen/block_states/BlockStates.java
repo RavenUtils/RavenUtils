@@ -197,6 +197,10 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimwood_planks"));
     simpleBlock(ModBlocks.CRIMWOOD_PLANKS.get(), crimwoodPlanks);
 
+    BlockModelBuilder crimwoodSign = models().cubeAll("crimwwod_sign", modLoc("blocks/crimwood_planks"));
+
+    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodSign);
+
     BlockModelBuilder crimwoodPressurePlate = models()
         .withExistingParent("crimwood_pressure_plate", mcLoc("block/pressure_plate_up"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
@@ -232,7 +236,7 @@ public class BlockStates extends EssentialsBlockStates {
     simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
     BlockModelBuilder crimwoodPottedLeaf = models()
-        .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+        .withExistingParent("potted_crimleaf", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimleaf"));
 
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);

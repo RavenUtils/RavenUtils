@@ -24,7 +24,7 @@ public class EssentialsRecipe extends RecipeProvider {
     new EssentialsBuildingBlocksRecipes(consumer);
     new EssentialsMortarRecipes(consumer);
     new EssentialsMetalCraftingRecipes(consumer);
-
+    new MillRecipes(consumer);
     new CombatCraftingRecipes(consumer);
   }
 

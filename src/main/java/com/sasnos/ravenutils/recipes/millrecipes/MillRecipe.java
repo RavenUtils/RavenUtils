@@ -12,21 +12,24 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MillRecipe extends EssentialsRecipe {
-    public static final ResourceLocation MILL = new ResourceLocation(RavenUtils.MOD_ID, "mill");
+    public static final ResourceLocation MILL = new ResourceLocation(RavenUtils.MOD_ID, "mill_recipe");
     private final ItemStack output;
     private final Ingredient input;
+    private final float change;
     private final int timer;
     private final ItemStack additionalResult;
     private final float additionalChange;
 
-    public MillRecipe(ResourceLocation id, int time, Ingredient input, ItemStack output, ItemStack additionalResult, float additionalChange){
+    public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChange, ItemStack output, ItemStack additionalResult, float additionalChange){
         this.id = id;
         this.output = output;
         this.input = input;
         this.timer = time;
+        this.change = additionalDropChange;
         this.additionalChange = additionalChange;
         this.additionalResult = additionalResult;
     }
@@ -38,14 +41,17 @@ public class MillRecipe extends EssentialsRecipe {
 
     @Override
     public NonNullList<ItemStack> getOutput() {
-        NonNullList<ItemStack> outputs = NonNullList.from(output);
+        ArrayList<ItemStack> outputs = new ArrayList<>();
+        outputs.add(output.copy());
         if (additionalResult != ItemStack.EMPTY) {
             float change = new Random().nextFloat();
             if (change <= additionalChange) {
-                outputs.add(additionalResult);
+                outputs.add(additionalResult.copy());
             }
         }
-        return outputs;
+        NonNullList<ItemStack> list = NonNullList.create();
+        list.addAll(outputs);
+        return list;
     }
 
     @Override
@@ -70,9 +76,12 @@ public class MillRecipe extends EssentialsRecipe {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return NonNullList.from(input);
+        return NonNullList.from(Ingredient.EMPTY, input);
     }
 
+    public float getAdditionalDropChange(){
+        return change;
+    }
 
     public ItemStack getAdditionalResult() {
         return additionalResult;
