@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off",
+      "x": 90
+    },
+    "facing=up,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off",
+      "x": -90
+    },
+    "facing=north,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off"
+    },
+    "facing=south,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off",
+      "y": 270
+    },
+    "facing=east,lit=false": {
+      "model": "ravenutils:block/alloy_furnace_off",
+      "y": 90
+    },
+    "facing=down,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on",
+      "x": 90
+    },
+    "facing=up,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on",
+      "x": -90
+    },
+    "facing=north,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on"
+    },
+    "facing=south,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on",
+      "y": 180
+    },
+    "facing=west,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on",
+      "y": 270
+    },
+    "facing=east,lit=true": {
+      "model": "ravenutils:block/alloy_furnace_on",
+      "y": 90
+    }
+  }
+}
