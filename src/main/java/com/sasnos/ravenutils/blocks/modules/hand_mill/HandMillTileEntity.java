@@ -24,7 +24,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
     private int counter;
 
     public HandMillTileEntity() {
-        super(HandMillInit.HANDMILL_TILEENTITY.get(), ModRecipes.MILL_RECIPE_RECIPE_TYPE);
+        super(HandMillInit.HAND_MILL_TILE_ENTITY.get(), ModRecipes.MILL_RECIPE_RECIPE_TYPE);
     }
 
     @Override
