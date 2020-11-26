@@ -3,7 +3,7 @@ package com.sasnos.ravenutils;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModArmorItems;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;

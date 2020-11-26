@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.blocks.modules.handmill;
+package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.blocks.BlockItemBase;
 import com.sasnos.ravenutils.init.ModBlockItems;
@@ -19,7 +19,7 @@ public class HandMillInit {
   public static final RegistryObject<Item> HAND_MILL_ITEM = ModBlockItems.ITEMS.register("hand_mill",
       () -> new BlockItemBase(HAND_MILL.get()));
 
-  public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", Millstone::new);
+  public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", MillStone::new);
 
   public static final RegistryObject<Item> MILLSTONE_ITEM = ModBlockItems.ITEMS.register("mill_stone",
       () -> new BlockItemBase(MILLSTONE.get()));

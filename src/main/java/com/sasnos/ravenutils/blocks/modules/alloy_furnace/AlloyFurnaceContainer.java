@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.blocks.modules.handmill.HandMillTileEntity;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillTileEntity;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

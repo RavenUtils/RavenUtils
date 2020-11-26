@@ -3,7 +3,7 @@ package com.sasnos.ravenutils.datagen.block_states;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -362,7 +362,7 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/mytherine_block"));
     simpleBlock(ModBlocks.MYTHERINE_BLOCK.get(), mytherineBlock);
 
-    //functional blocks
+    // functional blocks
     // alloy furnace
     BlockModelBuilder alloyFurnace = models().withExistingParent("alloy_furnace_off",
         EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("5", "blocks/alloy_furnace");

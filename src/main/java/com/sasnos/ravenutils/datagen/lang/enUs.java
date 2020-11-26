@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.datagen.lang;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.handmill.HandMillInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Items;
