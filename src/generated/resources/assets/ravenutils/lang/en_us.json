@@ -1,4 +1,5 @@
 {
+  "block.ravenutils.alloy_furnace": "Alloy Furnace",
   "block.ravenutils.black_coal_block": "Block of Black Coal",
   "block.ravenutils.black_coal_ore": "Black Coal Ore",
   "block.ravenutils.blackberry_bush": "Blackberry Bush",
@@ -28,9 +29,11 @@
   "block.ravenutils.fossil_ore": "Fossil Ore",
   "block.ravenutils.gelatin_block": "Block of Gelatin",
   "block.ravenutils.gooseberry_bush": "Gooseberry Bush",
+  "block.ravenutils.hand_mill": "Mill",
   "block.ravenutils.lead_block": "Block of Lead",
   "block.ravenutils.lead_ore": "Lead Ore",
   "block.ravenutils.limestone": "Limestone",
+  "block.ravenutils.mill_stone": "Millstone",
   "block.ravenutils.mytherine_block": "Block of Mytherine",
   "block.ravenutils.mytherine_ore": "Mytherine Ore",
   "block.ravenutils.raspberry_bush": "Raspberry Bush",

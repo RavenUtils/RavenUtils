@@ -2,7 +2,9 @@ package com.sasnos.ravenutils.datagen.block_states;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.init.ModBlocks;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -153,6 +155,15 @@ public class BlockStates extends EssentialsBlockStates {
           return gooseberryBush0;
       }
     });
+
+    //machine blocks
+    BlockModelBuilder alloyFurnace = models().withExistingParent("alloy_furnace_off",
+            EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("5", "blocks/alloy_furnace");
+
+    BlockModelBuilder alloyFurnaceOn = models().withExistingParent("alloy_furnace_on",
+            EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("5", "blocks/alloy_furnace_lit");
+
+    orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
 
     // crimwood blocks
     BlockModelBuilder crimwood = models().cubeAll("crimwood",
