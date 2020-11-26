@@ -235,7 +235,7 @@ public class BlockStates extends EssentialsBlockStates {
     simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
     BlockModelBuilder crimwoodPottedLeaf = models()
-        .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
+        .withExistingParent("potted_crimleaf", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimleaf"));
 
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);

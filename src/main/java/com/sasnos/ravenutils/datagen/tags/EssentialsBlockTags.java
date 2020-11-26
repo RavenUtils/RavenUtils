@@ -73,6 +73,8 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.CRIMWOOD.get()
     );
 
+    getOrCreateBuilder(BlockTags.LOGS).add(ModBlocks.CRIMWOOD_LOG.get());
+
     getOrCreateBuilder(fence_gates).add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
     getOrCreateBuilder(leaves).add(ModBlocks.CRIMWOOD_LEAVES.get());
     getOrCreateBuilder(planks).add(ModBlocks.CRIMWOOD_PLANKS.get());

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ravenutils:block/potted_crimwood_sapling"
+      "model": "ravenutils:block/potted_crimleaf"
     }
   }
 }
