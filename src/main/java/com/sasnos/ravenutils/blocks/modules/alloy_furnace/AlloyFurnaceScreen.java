@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.screens.EssentialsCommonScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,5 +20,11 @@ public class AlloyFurnaceScreen extends EssentialsCommonScreen<AlloyFurnaceConta
   @Override
   protected ResourceLocation getGUI() {
     return GUI;
+  }
+
+  @Override
+  protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
+    this.font.func_243248_b(matrixStack, this.title, (float)this.titleX, (float)this.titleY, 4210752);
+    this.font.func_243248_b(matrixStack, this.playerInventory.getDisplayName(), (float)this.playerInventoryTitleX, (float)this.ySize-94, 4210752);
   }
 }
