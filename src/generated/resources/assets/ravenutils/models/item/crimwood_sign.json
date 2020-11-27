@@ -1,3 +1,6 @@
 {
-  "parent": "ravenutils:item/crimwood_sign"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ravenutils:items/crimwood_sign"
+  }
 }

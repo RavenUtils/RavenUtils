@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
+import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
@@ -8,13 +9,18 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
 
@@ -35,15 +41,93 @@ public class EssentialsFurnaceTileEntity extends EssentialsMachineTileEntity<All
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        return super.isItemValid(slot, stack);
+        if(slot == 0 || slot == 1){
+          return getAllRecipeInputsAsItems(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).contains(stack.getItem());
+        }
+        if(slot == 2){
+          return ForgeHooks.getBurnTime(stack) > 0;
+        }
+        if(slot == 3 || slot == 4){
+          List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+            return iRecipe.getCraftingResult(null).getItem() == stack.getItem()
+                    || ((AlloyRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
+          }).collect(Collectors.toList());
+          return !recipes.isEmpty();
+        }
+        return false;
       }
 
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).contains(stack.getItem())) {
+          return stack;
+        }
+        if(slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)){
+          return stack;
+        }
         return super.insertItem(slot, stack, simulate);
       }
     };
+  }
+
+  @Override
+  protected boolean canSmelt(@Nullable IRecipe<?> recipeIn) {
+    if (!this.itemHandler.getStackInSlot(0).isEmpty() && recipeIn != null) {
+      ItemStack output = recipeIn.getRecipeOutput();
+      ItemStack additionalOutput = ((AlloyRecipe)recipeIn).getAdditionalResult();
+      if (output.isEmpty()) {
+        return false;
+      } else {
+        ItemStack outputSlot = this.itemHandler.getStackInSlot(3);
+        ItemStack additionalSlot = this.itemHandler.getStackInSlot(4);
+        if (outputSlot.isEmpty() && additionalSlot.isEmpty()) {
+          return true;
+        } else if (!outputSlot.isItemEqual(output) && !(additionalOutput != ItemStack.EMPTY && additionalSlot.isItemEqual(additionalOutput))) {
+          return false;
+        } else {
+          boolean regularOutput = itemHandler.insertItem(3, output, true) == ItemStack.EMPTY;
+          boolean additionalOutputFree = itemHandler.insertItem(4, additionalOutput, true) == ItemStack.EMPTY;
+          return regularOutput && additionalOutputFree;
+        }
+      }
+    } else {
+      return false;
+    }
+  }
+
+  @Override
+  protected void smelt(@Nullable IRecipe<?> recipe) {
+    if (recipe != null && this.canSmelt(recipe)) {
+      ItemStack input = this.itemHandler.getStackInSlot(0);
+      ItemStack additionalInput = itemHandler.getStackInSlot(1);
+      NonNullList<ItemStack> outputList = ((EssentialsRecipe)recipe).getOutput();
+      ItemStack output = outputList.get(0);
+      ItemStack additionalOutput = outputList.size() > 1 ? outputList.get(1) : ItemStack.EMPTY;
+      ItemStack outputSlot = this.itemHandler.getStackInSlot(3);
+      ItemStack additionalOutputSlot = itemHandler.getStackInSlot(4);
+      if (outputSlot.isEmpty()) {
+        this.itemHandler.setStackInSlot(3, output.copy());
+      } else if (outputSlot.getItem() == output.getItem()) {
+        outputSlot.grow(output.getCount());
+      }
+
+      if(additionalOutputSlot.isEmpty()){
+        this.itemHandler.setStackInSlot(4, additionalOutput.copy());
+      }else if(additionalOutput.getItem() == additionalOutput.getItem()){
+        additionalOutputSlot.grow(additionalOutput.getCount());
+      }
+
+      input.shrink(recipe.getCraftingResult(null).getCount());
+      if(additionalInput != ItemStack.EMPTY){
+        additionalInput.shrink(Arrays.stream(((AlloyRecipe)recipe).getInput().get(1).ingredient.getMatchingStacks()).findFirst().get().getCount());
+      }
+    }
+  }
+
+  @Override
+  public int getFuelSlot() {
+    return 2;
   }
 
   @Override

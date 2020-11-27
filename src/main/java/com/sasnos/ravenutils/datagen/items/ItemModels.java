@@ -814,8 +814,10 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood_button_inventory"));
 
-    withExistingParent("item/" + ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
-        resourceLocation("item/crimwood_sign"));
+    singleTexture("item/"+ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
+            mcLoc("item/generated"),
+            "layer0",
+            modLoc("items/crimwood_sign"));
 
     // stone anvils
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get().getRegistryName().getPath(),
