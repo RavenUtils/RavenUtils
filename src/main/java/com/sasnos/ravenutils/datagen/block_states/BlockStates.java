@@ -387,12 +387,13 @@ public class BlockStates extends EssentialsBlockStates {
         EssentialsUtils.resourceLocation("block/drying_rack")).texture("1", "blocks/drying_rack");
 
     orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
+    */
 
     // hand mill
     BlockModelBuilder handMill = models().withExistingParent("hand_mill",
         EssentialsUtils.resourceLocation("block/hand_mill")).texture("4", "blocks/hand_mill");
 
-    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);*/
+    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
 
     // stone anvils
     // stone
