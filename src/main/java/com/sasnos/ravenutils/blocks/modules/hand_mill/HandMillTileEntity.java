@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> {
 
+    public static final String SCREEN_NAME = "screen.ravenutils.hand_mill";
     private int counter;
 
     public HandMillTileEntity() {

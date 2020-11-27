@@ -3,18 +3,7 @@ package com.sasnos.ravenutils.init;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
 import com.sasnos.ravenutils.blocks.*;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TrapDoorBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraftforge.fml.RegistryObject;
@@ -66,7 +55,7 @@ public class ModBlocks {
   // crimleaf
   public static final RegistryObject<Block> CRIMLEAF = BLOCKS.register("crimleaf", Crimleaf::new);
   public static final RegistryObject<Block> POTTED_CRIMLEAF = BLOCKS.register("potted_crimleaf",
-          () -> new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, CRIMLEAF::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)));
+      () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMLEAF::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)));
 
   // crimwood
   public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
@@ -78,7 +67,7 @@ public class ModBlocks {
 
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",
-          () -> new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, CRIMWOOD_SAPLING::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)));
+      () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMWOOD_SAPLING::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)));
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG = BLOCKS.register("crimwood_log", CrimwoodLog::new);
   public static final RegistryObject<Block> CRIMWOOD_LEAVES = BLOCKS.register("crimwood_leaves", CrimwoodLeaves::new);
@@ -107,10 +96,10 @@ public class ModBlocks {
 
   // functional blocks
   public static final RegistryObject<Block> DRYING_RACK = BLOCKS.register("drying_rack",
-      () -> new DryingRack(AbstractBlock.Properties.create(Material.WOOD)));
+      () -> new DryingRack(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD)));
 
   public static final RegistryObject<Block> BARREL = BLOCKS.register("barrel",
-      () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD)));
+      () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(5.0F).sound(SoundType.WOOD)));
 
   public static final RegistryObject<Block> STONE_CRAFTING_TABLE = BLOCKS.register("stone_crafting_table", StoneCraftingTable::new);
 

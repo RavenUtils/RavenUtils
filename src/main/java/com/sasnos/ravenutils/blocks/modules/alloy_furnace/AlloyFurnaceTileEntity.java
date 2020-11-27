@@ -18,8 +18,7 @@ import java.util.Set;
 
 public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
 
-  public static final String SCREEN_NAME = "screen.ravenutils.alloyfurnace";
-
+  public static final String SCREEN_NAME = "screen.ravenutils.alloy_furnace";
 
   public AlloyFurnaceTileEntity() {
     super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), ModRecipes.ALLOY_FURNACE_RECIPE_TYPE);

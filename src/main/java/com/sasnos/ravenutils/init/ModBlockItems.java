@@ -3,11 +3,6 @@ package com.sasnos.ravenutils.init;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.BlockItemBase;
 import com.sasnos.ravenutils.blocks.block_items.BlackCoalBlockItem;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.SweetBerryBushBlock;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -116,6 +111,12 @@ public class ModBlockItems {
   // functional block(item)s
   public static final RegistryObject<Item> STONE_CRAFTING_TABLE_ITEM = ITEMS.register("stone_crafting_table",
       () -> new BlockItemBase(ModBlocks.STONE_CRAFTING_TABLE.get()));
+
+  public static final RegistryObject<BlockItem> DRYING_RACK_ITEM = ITEMS.register("drying_rack",
+      () -> new BlockItemBase(ModBlocks.DRYING_RACK.get()));
+
+  public static final RegistryObject<BlockItem> BARREL_ITEM = ITEMS.register("barrel",
+      () -> new BlockItemBase(ModBlocks.BARREL.get()));
 
   public static final RegistryObject<BlockItem> STONE_ANVIL_STONE_ITEM = ITEMS.register("stone_anvil_stone",
       () -> new BlockItemBase(ModBlocks.STONE_ANVIL_STONE.get()));

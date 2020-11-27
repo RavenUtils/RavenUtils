@@ -2,7 +2,9 @@ package com.sasnos.ravenutils.datagen.lang;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceTileEntity;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillTileEntity;
 import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Items;
@@ -82,8 +84,12 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
     add(ModBlocks.STONE_ANVIL_DIORITE.get(), "Diorite Anvil");
     add(ModBlocks.STONE_CRAFTING_TABLE.get(), "Stone Crafting Table");
+    add(ModBlocks.DRYING_RACK.get(), "Drying Rack");
+    add(ModBlocks.BARREL.get(), "Barrel");
     add(AlloyFurnaceInit.ALLOY_FURNACE.get(), "Alloy Furnace");
-    add(HandMillInit.HAND_MILL.get(), "Mill");
+    add(AlloyFurnaceTileEntity.SCREEN_NAME, "Alloy Furnace");
+    add(HandMillInit.HAND_MILL.get(), "Hand Mill");
+    add(HandMillTileEntity.SCREEN_NAME, "Hand Mill");
     add(HandMillInit.MILLSTONE.get(), "Millstone");
 
     // food-related blocks

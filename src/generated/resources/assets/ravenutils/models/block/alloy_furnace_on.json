@@ -1,6 +1,6 @@
 {
   "parent": "ravenutils:block/alloy_furnace",
   "textures": {
-    "5": "ravenutils:blocks/alloy_furnace_lit"
+    "3": "ravenutils:blocks/alloy_furnace_lit"
   }
 }

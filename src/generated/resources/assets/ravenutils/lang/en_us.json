@@ -1,5 +1,6 @@
 {
   "block.ravenutils.alloy_furnace": "Alloy Furnace",
+  "block.ravenutils.barrel": "Barrel",
   "block.ravenutils.black_coal_block": "Block of Black Coal",
   "block.ravenutils.black_coal_ore": "Black Coal Ore",
   "block.ravenutils.blackberry_bush": "Blackberry Bush",
@@ -24,12 +25,13 @@
   "block.ravenutils.crimwood_slab": "Crimwood Slab",
   "block.ravenutils.crimwood_stairs": "Crimwood Stairs",
   "block.ravenutils.crimwood_trapdoor": "Crimwood Trapdoor",
+  "block.ravenutils.drying_rack": "Drying Rack",
   "block.ravenutils.elderberry_bush": "Elderberry Bush",
   "block.ravenutils.fossil_dirt": "Fossil Dirt",
   "block.ravenutils.fossil_ore": "Fossil Ore",
   "block.ravenutils.gelatin_block": "Block of Gelatin",
   "block.ravenutils.gooseberry_bush": "Gooseberry Bush",
-  "block.ravenutils.hand_mill": "Mill",
+  "block.ravenutils.hand_mill": "Hand Mill",
   "block.ravenutils.lead_block": "Block of Lead",
   "block.ravenutils.lead_ore": "Lead Ore",
   "block.ravenutils.limestone": "Limestone",
@@ -186,5 +188,7 @@
   "item.ravenutils.wheat_flour": "Wheat Flour",
   "item.ravenutils.zinc_ingot": "Zinc Ingot",
   "item.ravenutils.zinc_nugget": "Zinc Nugget",
-  "ravenutils": "Raven Utils"
+  "ravenutils": "Raven Utils",
+  "screen.ravenutils.alloy_furnace": "Alloy Furnace",
+  "screen.ravenutils.hand_mill": "Hand Mill"
 }

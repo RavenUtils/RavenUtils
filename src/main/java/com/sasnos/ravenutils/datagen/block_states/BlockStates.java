@@ -365,24 +365,34 @@ public class BlockStates extends EssentialsBlockStates {
     // functional blocks
     // alloy furnace
     BlockModelBuilder alloyFurnace = models().withExistingParent("alloy_furnace_off",
-        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("5", "blocks/alloy_furnace");
+        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("3", "blocks/alloy_furnace");
 
     BlockModelBuilder alloyFurnaceOn = models().withExistingParent("alloy_furnace_on",
-        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("5", "blocks/alloy_furnace_lit");
+        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("3", "blocks/alloy_furnace_lit");
 
     orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
 
-    // hand mill
-    BlockModelBuilder handMill = models().withExistingParent("hand_mill",
-        EssentialsUtils.resourceLocation("block/hand_mill")).texture("4", "blocks/hand_mill");
+    // todo adjust!
+    /*// barrel
+    BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open",
+        EssentialsUtils.resourceLocation("block/barrel")).texture("3", "blocks/barrel_open");
 
-    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
+    BlockModelBuilder barrelLid = models().withExistingParent("barrel_lid",
+        EssentialsUtils.resourceLocation("block/barrel")).texture("3", "blocks/barrel_lid");
+
+    orientedBlock(ModBlocks.BARREL.get(), blockState -> barrelOpen);
 
     // drying rack
     BlockModelBuilder dryingRack = models().withExistingParent("drying_rack",
         EssentialsUtils.resourceLocation("block/drying_rack")).texture("1", "blocks/drying_rack");
 
     orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
+
+    // hand mill
+    BlockModelBuilder handMill = models().withExistingParent("hand_mill",
+        EssentialsUtils.resourceLocation("block/hand_mill")).texture("4", "blocks/hand_mill");
+
+    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);*/
 
     // stone anvils
     // stone
@@ -470,8 +480,7 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
 
-    /*BlockModelBuilder candle = models().torch("candle",
-        modLoc("blocks/candle"));
-    horizontalBlock(ModBlocks.CANDLE.get(), candle);*/
+    /*BlockModelBuilder candle = models().withExistingParent("candle",
+        EssentialsUtils.resourceLocation("block/candle")).texture("4", "blocks/candle");*/
   }
 }

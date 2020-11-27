@@ -4,8 +4,8 @@
     64
   ],
   "textures": {
-    "3": "ravenutils:blocks/alloy_furnace",
-    "particle": "ravenutils:blocks/alloy_furnace"
+    "4": "ravenutils:blocks/hand_mill",
+    "particle": "ravenutils:blocks/hand_mill"
   },
   "elements": [
     {
@@ -27,7 +27,7 @@
             4,
             4
           ],
-          "texture": "#3"
+          "texture": "#4"
         },
         "east": {
           "uv": [
@@ -36,7 +36,7 @@
             4,
             8
           ],
-          "texture": "#3"
+          "texture": "#4"
         },
         "south": {
           "uv": [
@@ -45,7 +45,7 @@
             8,
             8
           ],
-          "texture": "#3"
+          "texture": "#4"
         },
         "west": {
           "uv": [
@@ -54,7 +54,7 @@
             8,
             4
           ],
-          "texture": "#3"
+          "texture": "#4"
         },
         "up": {
           "uv": [
@@ -63,7 +63,7 @@
             0,
             8
           ],
-          "texture": "#3"
+          "texture": "#4"
         },
         "down": {
           "uv": [
@@ -72,7 +72,7 @@
             4,
             12
           ],
-          "texture": "#3"
+          "texture": "#4"
         }
       }
     }
@@ -158,6 +158,13 @@
         0.625,
         0.625,
         0.625
+      ]
+    },
+    "head": {
+      "translation": [
+        0,
+        1,
+        0
       ]
     },
     "fixed": {

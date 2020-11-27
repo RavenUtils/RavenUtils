@@ -1,6 +1,7 @@
 {
   "textures": {
-    "1": "ravenutils:blocks/ground_stick"
+    "1": "ravenutils:blocks/ground_stick",
+    "particle": "ravenutils:blocks/ground_stick"
   },
   "elements": [
     {
