@@ -158,7 +158,7 @@ public class RavenUtils {
   }
 
   @SubscribeEvent
-  public static void rightclickEvent(PlayerInteractEvent.RightClickBlock event) {
+  public static void rightClickEvent(PlayerInteractEvent.RightClickBlock event) {
     if (event.getHand() == Hand.MAIN_HAND) {
       event.getPos();
     }
@@ -168,7 +168,7 @@ public class RavenUtils {
     @Override
     public ItemStack createIcon() {
       // todo adjust later
-      return new ItemStack(ModBlocks.RAVEN_EYE_BLOCK.get());
+      return new ItemStack(ModBlockItems.CRIMLEAF_ITEM.get());
     }
   };
 

@@ -18,7 +18,7 @@ public class enUs extends LanguageProvider {
 
   @Override
   protected void addTranslations() {
-    add(RavenUtils.TAB.getPath(), "Raven Utils");
+    add(RavenUtils.TAB.getGroupName().getString(), "Raven Utils");
 
     // fluids
     add(ModFluids.LIMEWATER.get().getFluid().getAttributes().getTranslationKey(), "Limewater");
