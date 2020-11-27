@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
 import com.sasnos.ravenutils.blocks.Barrel;
 import com.sasnos.ravenutils.blocks.BlackCoalBlock;
 import com.sasnos.ravenutils.blocks.BlackCoalOre;
@@ -23,11 +22,9 @@ import com.sasnos.ravenutils.blocks.CrimwoodLog;
 import com.sasnos.ravenutils.blocks.CrimwoodPlanks;
 import com.sasnos.ravenutils.blocks.CrimwoodPressurePlate;
 import com.sasnos.ravenutils.blocks.CrimwoodSapling;
-import com.sasnos.ravenutils.blocks.CrimwoodSignWall;
 import com.sasnos.ravenutils.blocks.CrimwoodSlab;
 import com.sasnos.ravenutils.blocks.CrimwoodStairs;
 import com.sasnos.ravenutils.blocks.CrimwoodTrapdoor;
-import com.sasnos.ravenutils.blocks.CrimwwodSignStanding;
 import com.sasnos.ravenutils.blocks.DryingRack;
 import com.sasnos.ravenutils.blocks.ElderberryBush;
 import com.sasnos.ravenutils.blocks.FossilDirt;
@@ -121,12 +118,12 @@ public class ModBlocks {
           () -> new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, CRIMLEAF::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)));
 
   // crimwood
-  public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
-      () -> new CrimwwodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
-  public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
-      () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
+//  public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
+//      () -> new CrimwwodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
+//          .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
+//  public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
+//      () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
+//          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
 
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",
