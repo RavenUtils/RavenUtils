@@ -11,8 +11,6 @@ import net.minecraftforge.common.Tags;
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
-import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   public EssentialsBuildingBlocksRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -92,13 +90,13 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
-        .patternLine("WWW")
-        .patternLine("WWW")
-        .patternLine(" # ")
-        .key('#', Tags.Items.RODS_WOODEN)
-        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+//    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
+//        .patternLine("WWW")
+//        .patternLine("WWW")
+//        .patternLine(" # ")
+//        .key('#', Tags.Items.RODS_WOODEN)
+//        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+//        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+//        .build(consumer);
   }
 }

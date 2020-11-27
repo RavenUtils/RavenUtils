@@ -193,7 +193,7 @@ public class BlockStates extends EssentialsBlockStates {
 
     BlockModelBuilder crimwoodSign = models().cubeAll("crimwwod_sign", modLoc("blocks/crimwood_planks"));
 
-    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodSign);
+//    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodSign);
 
     BlockModelBuilder crimwoodPressurePlate = models()
         .withExistingParent("crimwood_pressure_plate", mcLoc("block/pressure_plate_up"))

@@ -255,6 +255,6 @@ public class enUs extends LanguageProvider {
     // miscellaneous
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
     add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
-    add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
+//    add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }
 }
