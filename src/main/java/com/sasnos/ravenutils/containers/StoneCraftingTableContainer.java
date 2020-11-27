@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public class StoneCraftingTableContainer implements INamedContainerProvider {
   @Override
   public ITextComponent getDisplayName() {
-    return new TranslationTextComponent(Items.CRAFTING_TABLE.getTranslationKey());
+    return new TranslationTextComponent("container.crafting");
   }
 
   @Nullable
