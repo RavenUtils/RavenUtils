@@ -2,7 +2,7 @@
   "parent": "minecraft:block/template_anvil",
   "textures": {
     "body": "ravenutils:blocks/anvil_andesite",
-    "particles": "ravenutils:blocks/anvil_andesite",
+    "particle": "ravenutils:blocks/anvil_andesite",
     "top": "ravenutils:blocks/anvil_top_andesite"
   }
 }

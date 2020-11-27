@@ -188,7 +188,7 @@
   "item.ravenutils.wheat_flour": "Wheat Flour",
   "item.ravenutils.zinc_ingot": "Zinc Ingot",
   "item.ravenutils.zinc_nugget": "Zinc Nugget",
-  "ravenutils": "Raven Utils",
+  "itemGroup.ravenutils": "Raven Utils",
   "screen.ravenutils.alloy_furnace": "Alloy Furnace",
   "screen.ravenutils.hand_mill": "Hand Mill"
 }

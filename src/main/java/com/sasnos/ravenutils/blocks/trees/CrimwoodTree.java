@@ -21,9 +21,9 @@ public class CrimwoodTree extends Tree {
     return Feature.TREE.withConfiguration(new BaseTreeFeatureConfig.Builder(
         new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LOG.get().getDefaultState()),
         new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LEAVES.get().getDefaultState()),
-        new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(4), 4),
-        new FancyTrunkPlacer(3, 11, 0),
-        new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))
+        new FancyFoliagePlacer(FeatureSpread.func_242252_a(2), FeatureSpread.func_242252_a(3), 4),
+        new FancyTrunkPlacer(3, 14, 1),
+        new TwoLayerFeature(1, 0, 0, OptionalInt.of(4)))
         .setDecorators(ImmutableList.of(
             TrunkVineTreeDecorator.field_236879_b_,
             LeaveVineTreeDecorator.field_236871_b_

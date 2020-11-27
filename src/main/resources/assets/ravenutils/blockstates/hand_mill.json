@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "ravenutils:block/hand_mill" },
-    "facing=south": { "model": "ravenutils:block/hand_mill", "y":  180},
-    "facing=west": { "model": "ravenutils:block/hand_mill", "y":  270},
-    "facing=east": { "model": "ravenutils:block/hand_mill", "y":  90}
-  }
-}

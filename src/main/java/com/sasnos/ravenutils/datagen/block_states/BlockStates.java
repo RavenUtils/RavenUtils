@@ -3,7 +3,6 @@ package com.sasnos.ravenutils.datagen.block_states;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -365,41 +364,48 @@ public class BlockStates extends EssentialsBlockStates {
     // functional blocks
     // alloy furnace
     BlockModelBuilder alloyFurnace = models().withExistingParent("alloy_furnace_off",
-        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("3", "blocks/alloy_furnace");
+        EssentialsUtils.resourceLocation("block/alloy_furnace"))
+        .texture("3", "blocks/alloy_furnace");
 
     BlockModelBuilder alloyFurnaceOn = models().withExistingParent("alloy_furnace_on",
-        EssentialsUtils.resourceLocation("block/alloy_furnace")).texture("3", "blocks/alloy_furnace_lit");
+        EssentialsUtils.resourceLocation("block/alloy_furnace"))
+        .texture("3", "blocks/alloy_furnace_lit");
 
-    orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
+    orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(),
+        blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
 
     // todo adjust!
     /*// barrel
     BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open",
-        EssentialsUtils.resourceLocation("block/barrel")).texture("3", "blocks/barrel_open");
+        EssentialsUtils.resourceLocation("block/barrel"))
+        .texture("3", "blocks/barrel_open");
 
     BlockModelBuilder barrelLid = models().withExistingParent("barrel_lid",
-        EssentialsUtils.resourceLocation("block/barrel")).texture("3", "blocks/barrel_lid");
+        EssentialsUtils.resourceLocation("block/barrel"))
+        .texture("3", "blocks/barrel_lid");
 
     orientedBlock(ModBlocks.BARREL.get(), blockState -> barrelOpen);
 
     // drying rack
     BlockModelBuilder dryingRack = models().withExistingParent("drying_rack",
-        EssentialsUtils.resourceLocation("block/drying_rack")).texture("1", "blocks/drying_rack");
+        EssentialsUtils.resourceLocation("block/drying_rack"))
+        .texture("1", "blocks/drying_rack");
 
     orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
-    */
 
     // hand mill
     BlockModelBuilder handMill = models().withExistingParent("hand_mill",
-        EssentialsUtils.resourceLocation("block/hand_mill")).texture("4", "blocks/hand_mill");
+        EssentialsUtils.resourceLocation("block/hand_mill"))
+        .texture("4", "blocks/hand_mill");
 
     orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
+    */
 
     // stone anvils
     // stone
     BlockModelBuilder stoneAnvilStone = models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_stone"))
-        .texture("particles", modLoc("blocks/anvil_stone"))
+        .texture("particle", modLoc("blocks/anvil_stone"))
         .texture("top", modLoc("blocks/anvil_top_stone"));
     horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
 
@@ -416,7 +422,7 @@ public class BlockStates extends EssentialsBlockStates {
     // andesite
     BlockModelBuilder stoneAnvilAndesite = models().withExistingParent("stone_anvil_andesite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_andesite"))
-        .texture("particles", modLoc("blocks/anvil_andesite"))
+        .texture("particle", modLoc("blocks/anvil_andesite"))
         .texture("top", modLoc("blocks/anvil_top_andesite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_ANDESITE.get(), stoneAnvilAndesite);
 
@@ -433,7 +439,7 @@ public class BlockStates extends EssentialsBlockStates {
     // diorite
     BlockModelBuilder stoneAnvilDiorite = models().withExistingParent("stone_anvil_diorite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_diorite"))
-        .texture("particles", modLoc("blocks/anvil_diorite"))
+        .texture("particle", modLoc("blocks/anvil_diorite"))
         .texture("top", modLoc("blocks/anvil_top_diorite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_DIORITE.get(), stoneAnvilDiorite);
 
@@ -450,7 +456,7 @@ public class BlockStates extends EssentialsBlockStates {
     // granite
     BlockModelBuilder stoneAnvilGranite = models().withExistingParent("stone_anvil_granite", mcLoc("block/template_anvil"))
         .texture("body", modLoc("blocks/anvil_granite"))
-        .texture("particles", modLoc("blocks/anvil_granite"))
+        .texture("particle", modLoc("blocks/anvil_granite"))
         .texture("top", modLoc("blocks/anvil_top_granite"));
     horizontalBlock(ModBlocks.STONE_ANVIL_GRANITE.get(), stoneAnvilGranite);
 
@@ -472,7 +478,7 @@ public class BlockStates extends EssentialsBlockStates {
             modLoc("blocks/stone_crafting_table_side"),
             modLoc("blocks/stone_crafting_table_side"),
             modLoc("blocks/stone_crafting_table_front"))
-            .texture("particles", mcLoc("block/cobblestone"));
+            .texture("particle", mcLoc("block/cobblestone"));
 
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
 

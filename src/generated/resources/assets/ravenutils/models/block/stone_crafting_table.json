@@ -7,6 +7,6 @@
     "south": "ravenutils:blocks/stone_crafting_table_side",
     "east": "ravenutils:blocks/stone_crafting_table_side",
     "west": "ravenutils:blocks/stone_crafting_table_front",
-    "particles": "minecraft:block/cobblestone"
+    "particle": "minecraft:block/cobblestone"
   }
 }
