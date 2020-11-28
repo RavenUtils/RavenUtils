@@ -67,7 +67,7 @@ public class RavenUtils {
     ModToolItems.VANILLA_ITEM_OVERRIDE.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModLootTables.LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModTileEntities.TILE_ENTITY.register(FMLJavaModLoadingContext.get().getModEventBus());
-    ModContainer.CONTAINERTYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModContainer.CONTAINER_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
 

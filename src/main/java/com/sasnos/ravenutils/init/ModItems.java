@@ -81,7 +81,8 @@ public class ModItems {
   public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
       () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
 
-//  public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
-//      () -> new SignItem((new Item.Properties())
-//          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+  /* public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
+      () -> new SignItem((new Item.Properties())
+      .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+  */
 }

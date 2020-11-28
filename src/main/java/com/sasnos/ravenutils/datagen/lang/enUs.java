@@ -123,6 +123,7 @@ public class enUs extends LanguageProvider {
     add(ModItems.COIN_SILVER.get(), "Silver Coin");
     add(ModItems.COIN_GOLD.get(), "Gold Coin");
 
+    // todo move swords and armor items to Combat module
     // tiered armor, weapons and tools
     // add(ModArmorItems.COPPER_HELMET.get(), "Copper Helmet");
     // add(ModArmorItems.COPPER_CHESTPLATE.get(), "Copper Chestplate");

@@ -19,5 +19,4 @@ public class AlloyFurnace extends EssentialsMachineBlock {
   public TileEntity createTileEntity(BlockState state, IBlockReader world) {
     return new AlloyFurnaceTileEntity();
   }
-
 }

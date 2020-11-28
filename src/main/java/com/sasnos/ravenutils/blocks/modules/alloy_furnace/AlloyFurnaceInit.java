@@ -30,6 +30,6 @@ public class AlloyFurnaceInit {
               .build(null));
 
   public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> ALLOY_FURNACE_CONTAINER =
-      ModContainer.CONTAINERTYPES.register("alloy_furnace", () -> IForgeContainerType.create(
+      ModContainer.CONTAINER_TYPES.register("alloy_furnace", () -> IForgeContainerType.create(
           AlloyFurnaceContainer::new));
 }

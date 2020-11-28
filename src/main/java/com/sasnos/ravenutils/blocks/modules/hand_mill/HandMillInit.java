@@ -20,13 +20,12 @@ public class HandMillInit {
   public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", MillStone::new);
   public static final RegistryObject<Item> MILLSTONE_ITEM = ModBlockItems.ITEMS.register("mill_stone", () -> new BlockItemBase(MILLSTONE.get()));
 
-  public static final RegistryObject<TileEntityType<HandMillTileEntity>> HAND_MILL_TILE_ENTITY =
-      ModTileEntities.TILE_ENTITY.register("hand_mill",
-          () -> TileEntityType.Builder
-              .create(HandMillTileEntity::new, HAND_MILL.get())
-              .build(null));
+  public static final RegistryObject<TileEntityType<HandMillTileEntity>> HAND_MILL_TILE_ENTITY = ModTileEntities.TILE_ENTITY.register("hand_mill",
+      () -> TileEntityType.Builder
+          .create(HandMillTileEntity::new, HAND_MILL.get())
+          .build(null));
 
-  public static final RegistryObject<ContainerType<HandMillContainer>> HAND_MILL_CONTAINER =
-      ModContainer.CONTAINERTYPES.register("hand_mill", () -> IForgeContainerType.create(
+  public static final RegistryObject<ContainerType<HandMillContainer>> HAND_MILL_CONTAINER = ModContainer.CONTAINER_TYPES.register("hand_mill",
+      () -> IForgeContainerType.create(
           HandMillContainer::new));
 }

@@ -9,9 +9,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModContainer {
-  public static final DeferredRegister<ContainerType<?>> CONTAINERTYPES =
+  public static final DeferredRegister<ContainerType<?>> CONTAINER_TYPES =
       DeferredRegister.create(ForgeRegistries.CONTAINERS, RavenUtils.MOD_ID);
 
   public static final RegistryObject<ContainerType<BagContainer>> BAG_CONTAINER =
-          CONTAINERTYPES.register("bag_container", () -> IForgeContainerType.create(BagContainer::createClientContainer));
+          CONTAINER_TYPES.register("bag_container", () -> IForgeContainerType.create(BagContainer::createClientContainer));
 }
