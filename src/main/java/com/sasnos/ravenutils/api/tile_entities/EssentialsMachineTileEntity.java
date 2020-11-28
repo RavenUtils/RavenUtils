@@ -5,7 +5,6 @@ import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.IRecipe;
@@ -22,13 +21,10 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends EssentialsRecipeTileEntity<T> implements ITickableTileEntity, INamedContainerProvider {
 
-  private final List<Item> burner = Arrays.asList(Items.FLINT_AND_STEEL);
   protected int burnTime;
   protected int cookingTime;
   protected int cookingTimeTotal;
@@ -73,6 +69,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     burnTime = nbt.getInt("burnTime");
     cookingTime = nbt.getInt("cookingTime");
     cookingTimeTotal = nbt.getInt("cookingTimeTotal");
+    recipeUsed = nbt.getInt("recipeUsed");
     isBurning = nbt.getBoolean("isBurning");
     super.read(state, nbt);
   }
@@ -83,12 +80,9 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     compound.putInt("burnTime", burnTime);
     compound.putInt("cookingTime", cookingTime);
     compound.putInt("cookingTimeTotal", cookingTimeTotal);
+    compound.putInt("recipeUsed", recipeUsed);
     compound.putBoolean("isBurning", isBurning);
     return super.write(compound);
-  }
-
-  public List<Item> getBurner() {
-    return burner;
   }
 
   public boolean isBurning() {

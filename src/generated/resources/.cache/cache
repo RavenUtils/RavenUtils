@@ -547,6 +547,7 @@ e8830e3dc176185e53eb4c9eeb959929ad3a12fa data/minecraft/tags/blocks/wooden_fence
 083dfc4b931daa93164e2f6a59453c84b299ce81 data/minecraft/tags/fluids/water.json
 2d960c4cce898862e1d49f7ceb48206b5c12d2ba data/minecraft/tags/items/burnable_bucket.json
 63b1d846c1f84499ca5c845602efdfb3ee8d915b data/minecraft/tags/items/coals.json
+e0ac6796fbbebf3abb9e20893a576243e009fc81 data/minecraft/tags/items/fire_starter.json
 bb2f6ad2be509adba5c7f538939dab206edd1d29 data/ravenutils/advancements/recipes/food/cooked_bushmeat.json
 125f3d3fda3d7528693166d42cbef9f0b651e216 data/ravenutils/advancements/recipes/ravenutils/ash.json
 b67db30b7ee313dfe922537857f192f35efbee01 data/ravenutils/advancements/recipes/ravenutils/bag_cloth.json

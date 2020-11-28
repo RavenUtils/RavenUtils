@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.api.blocks;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsCommonTileEntity;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
+import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -69,7 +70,7 @@ public abstract class EssentialsMachineBlock extends EssentialsCommonMachineBloc
       if (tile instanceof EssentialsMachineTileEntity) {
         EssentialsMachineTileEntity CommonTe = (EssentialsMachineTileEntity) tile;
         ItemStack item = player.getHeldItem(handIn);
-        if (CommonTe.getBurner().contains(item.getItem()) && !CommonTe.isBurning()) {
+        if (item.getItem().isIn(EssentialsTags.Items.fireStarter) && !CommonTe.isBurning()) {
           ((EssentialsMachineTileEntity) tile).setIsBurning();
           item.damageItem(1, player, playerEntity -> playerEntity.sendBreakAnimation(handIn));
           return ActionResultType.SUCCESS;

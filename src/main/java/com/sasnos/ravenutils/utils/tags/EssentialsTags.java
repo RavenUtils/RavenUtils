@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.utils.tags;
 
+import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -99,6 +100,8 @@ public class EssentialsTags {
     public static ITag.INamedTag<Item> milk_buckets = ItemTags.makeWrapperTag("forge:buckets/milk");
 
     public static final ITag.INamedTag<Item> burnableBuckets = ItemTags.makeWrapperTag("burnable_bucket");
+
+    public static final ITag.INamedTag<Item> fireStarter = ItemTags.makeWrapperTag(RavenUtils.MOD_ID+":fire_starter");
   }
 
   public static class Fluids {
