@@ -7,9 +7,9 @@ import net.minecraft.block.WoodType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockReader;
 
-public class CrimwwodSignStanding extends StandingSignBlock {
+public class CrimwoodSignStanding extends StandingSignBlock {
 
-  public CrimwwodSignStanding(Properties properties, WoodType type) {
+  public CrimwoodSignStanding(Properties properties, WoodType type) {
     super(properties, type);
   }
 

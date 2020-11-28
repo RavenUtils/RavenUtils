@@ -41,13 +41,13 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
         if(slot == 0 || slot == 1){
-          return getAllRecipeInputsAsItems(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).contains(stack.getItem());
+          return getAllRecipeInputsAsItems(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem());
         }
         if(slot == 2){
           return ForgeHooks.getBurnTime(stack) > 0;
         }
         if(slot == 3 || slot == 4){
-          List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+          List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
             return iRecipe.getCraftingResult(null).getItem() == stack.getItem()
                     || ((AlloyRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
           }).collect(Collectors.toList());
@@ -59,7 +59,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, world).contains(stack.getItem())) {
+        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem())) {
           return stack;
         }
         if(slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)){

@@ -65,7 +65,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.CRIMWOOD_LOG.get(), createStandardTable("crimwood_log", ModBlocks.CRIMWOOD_LOG.get()));
     lootTables.put(ModBlocks.CRIMWOOD_PLANKS.get(), createStandardTable("crimwood_planks", ModBlocks.CRIMWOOD_PLANKS.get()));
     lootTables.put(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), createStandardTable("crimwood_pressure_plate", ModBlocks.CRIMWOOD_PRESSURE_PLATE.get()));
-    lootTables.put(ModBlocks.CRIMWOOD_SIGN.get(), createStandardTable("crimwood_sign", ModBlocks.CRIMWOOD_SIGN.get()));
+    // lootTables.put(ModBlocks.CRIMWOOD_SIGN.get(), createStandardTable("crimwood_sign", ModBlocks.CRIMWOOD_SIGN.get()));
     lootTables.put(ModBlocks.CRIMWOOD_SLAB.get(), createStandardTable("crimwood_slab", ModBlocks.CRIMWOOD_SLAB.get()));
     lootTables.put(ModBlocks.CRIMWOOD_STAIRS.get(), createStandardTable("crimwood_stairs", ModBlocks.CRIMWOOD_STAIRS.get()));
     lootTables.put(ModBlocks.CRIMWOOD_TRAPDOOR.get(), createStandardTable("crimwood_trapdoor", ModBlocks.CRIMWOOD_TRAPDOOR.get()));
