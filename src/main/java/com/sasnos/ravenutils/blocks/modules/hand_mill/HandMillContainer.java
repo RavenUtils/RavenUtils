@@ -27,7 +27,7 @@ public class HandMillContainer extends EssentialsMachineBlockContainer {
     }
 
     public HandMillContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray data) {
-        super(HandMillInit.HANDMILL_CONTAINER.get(), id, world, pos, playerInventoryIn, player, HandMillInit.HANDMILL.get(), data);
+        super(HandMillInit.HAND_MILL_CONTAINER.get(), id, world, pos, playerInventoryIn, player, HandMillInit.HAND_MILL.get(), data);
     }
 
     @Override

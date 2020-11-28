@@ -14,21 +14,19 @@ import net.minecraftforge.fml.RegistryObject;
 
 public class HandMillInit {
 
-    public static final RegistryObject<Block> HANDMILL = ModBlocks.BLOCKS.register("hand_mill", HandMill::new);
+  public static final RegistryObject<Block> HAND_MILL = ModBlocks.BLOCKS.register("hand_mill", HandMill::new);
+  public static final RegistryObject<Item> HAND_MILL_ITEM = ModBlockItems.ITEMS.register("hand_mill", () -> new BlockItemBase(HAND_MILL.get()));
 
-    public static final RegistryObject<Item> HANDMILL_ITEM = ModBlockItems.ITEMS.register("hand_mill", () -> new BlockItemBase(HANDMILL.get()));
+  public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", MillStone::new);
+  public static final RegistryObject<Item> MILLSTONE_ITEM = ModBlockItems.ITEMS.register("mill_stone", () -> new BlockItemBase(MILLSTONE.get()));
 
-    public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", MillStone::new);
+  public static final RegistryObject<TileEntityType<HandMillTileEntity>> HAND_MILL_TILE_ENTITY =
+      ModTileEntities.TILE_ENTITY.register("hand_mill",
+          () -> TileEntityType.Builder
+              .create(HandMillTileEntity::new, HAND_MILL.get())
+              .build(null));
 
-    public static final RegistryObject<Item> MILLSTONE_ITEM = ModBlockItems.ITEMS.register("mill_stone", () -> new BlockItemBase(MILLSTONE.get()));
-
-    public static final RegistryObject<TileEntityType<HandMillTileEntity>> HANDMILL_TILEENTITY =
-            ModTileEntities.TILE_ENTITY.register("hand_mill",
-                    () -> TileEntityType.Builder
-                            .create(HandMillTileEntity::new, HANDMILL.get())
-                            .build(null));
-
-    public static final RegistryObject<ContainerType<HandMillContainer>> HANDMILL_CONTAINER =
-            ModContainer.CONTAINERTYPES.register("hand_mill", () -> IForgeContainerType.create(
-                    HandMillContainer::new));
+  public static final RegistryObject<ContainerType<HandMillContainer>> HAND_MILL_CONTAINER =
+      ModContainer.CONTAINERTYPES.register("hand_mill", () -> IForgeContainerType.create(
+          HandMillContainer::new));
 }
