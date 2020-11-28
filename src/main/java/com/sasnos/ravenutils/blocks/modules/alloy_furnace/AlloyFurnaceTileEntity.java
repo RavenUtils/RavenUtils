@@ -26,8 +26,9 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
 
   public static final String SCREEN_NAME = "screen.ravenutils.alloy_furnace";
 
+
   public AlloyFurnaceTileEntity() {
-    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), ModRecipes.ALLOY_FURNACE_RECIPE_TYPE);
+    super(AlloyFurnaceInit.alloyFurnaceTileEntity.get(), ModRecipes.ALLOY_FURNACE_RECIPE_TYPE);
   }
 
   @Override

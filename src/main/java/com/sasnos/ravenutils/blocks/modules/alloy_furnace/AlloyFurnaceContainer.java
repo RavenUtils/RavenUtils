@@ -27,8 +27,9 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
     this(windowId, playerInventory.player.world, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
   }
 
+
   protected AlloyFurnaceContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
-    super(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), id, world, pos, playerInventoryIn, player, AlloyFurnaceInit.ALLOY_FURNACE.get(), furnaceData);
+    super(AlloyFurnaceInit.alloyFurnaceContainer.get(), id, world, pos, playerInventoryIn, player, AlloyFurnaceInit.alloyFurnace.get(), furnaceData);
   }
 
   @Override
@@ -47,49 +48,52 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
   public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
     ItemStack itemStack = ItemStack.EMPTY;
     Slot slot = inventorySlots.get(index);
-    if (slot != null && slot.getHasStack()) {
+    if(slot != null && slot.getHasStack()) {
       ItemStack stack = slot.getStack();
       itemStack = stack.copy();
 
-      if (Arrays.asList(0, 1, 2, 3, 4).contains(index)) {
-        if (!this.mergeItemStack(stack, 5, 38, true)) {
+      if(Arrays.asList(0,1,2,3,4).contains(index)){
+        if(!this.mergeItemStack(stack, 5, 38, true)){
           return ItemStack.EMPTY;
         }
         slot.onSlotChange(stack, itemStack);
-      } else {
+      }
+      else {
         ArrayList<Item> inputs = new ArrayList<>();
         Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
-        if (inputs.contains(stack.getItem())) {
-          if (!this.mergeItemStack(stack, 0, 2, false)) {
+        if(inputs.contains(stack.getItem())){
+          if(!this.mergeItemStack(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
-          ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(((AlloyFurnaceTileEntity) tileEntity).getRecipe(stack).getTimer());
-        } else if (ForgeHooks.getBurnTime(stack) > 0) {
-          if (!this.mergeItemStack(stack, 2, 3, false)) {
+          ((AlloyFurnaceTileEntity)tileEntity).setCookingTimeTotal(((AlloyFurnaceTileEntity)tileEntity).getRecipe(stack).getTimer());
+        }else if (ForgeHooks.getBurnTime(stack) > 0){
+          if(!this.mergeItemStack(stack, 2, 3, false)) {
             return ItemStack.EMPTY;
           }
-        } else if (index < 28) {
+        }else if (index < 28){
           if (!this.mergeItemStack(stack, 28, 37, false)) {
             return ItemStack.EMPTY;
           }
-        } else if (index < 37 && !this.mergeItemStack(stack, 1, 37, false)) {
+        }
+        else if( index < 37 && !this.mergeItemStack(stack, 1, 37, false)){
           return ItemStack.EMPTY;
         }
       }
 
-      if (itemStack.isEmpty()) {
+      if(itemStack.isEmpty()){
         slot.putStack(ItemStack.EMPTY);
-      } else {
+      }
+      else {
         slot.onSlotChanged();
       }
 
-      if (stack.getCount() == itemStack.getCount()) {
+      if(stack.getCount() == itemStack.getCount()) {
         return ItemStack.EMPTY;
       }
 
       slot.onTake(playerIn, stack);
-    }
+      }
 
     return itemStack;
   }

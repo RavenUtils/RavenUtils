@@ -14,22 +14,22 @@ import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 
 public class AlloyFurnaceInit {
-  public static final RegistryObject<Block> ALLOY_FURNACE =
+  public static final RegistryObject<Block> alloyFurnace =
       ModBlocks.BLOCKS.register("alloy_furnace", AlloyFurnace::new);
 
-  public static final RegistryObject<Item> ALLOY_FURNACE_ITEM =
+  public static final RegistryObject<Item> alloyFurnaceItem =
       ModBlockItems.ITEMS.register("alloy_furnace", () -> new BlockItem(
-          ALLOY_FURNACE.get(),
+          alloyFurnace.get(),
           new Item.Properties().group(RavenUtils.TAB)
       ));
 
-  public static final RegistryObject<TileEntityType<AlloyFurnaceTileEntity>> ALLOY_FURNACE_TILE_ENTITY =
+  public static final RegistryObject<TileEntityType<AlloyFurnaceTileEntity>> alloyFurnaceTileEntity =
       ModTileEntities.TILE_ENTITY.register("alloy_furnace",
           () -> TileEntityType.Builder
-              .create(AlloyFurnaceTileEntity::new, ALLOY_FURNACE.get())
+              .create(AlloyFurnaceTileEntity::new, alloyFurnace.get())
               .build(null));
 
-  public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> ALLOY_FURNACE_CONTAINER =
+  public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> alloyFurnaceContainer =
       ModContainer.CONTAINERTYPES.register("alloy_furnace", () -> IForgeContainerType.create(
           AlloyFurnaceContainer::new));
 }

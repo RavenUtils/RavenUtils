@@ -191,7 +191,7 @@ public class MillRecipeBuilder {
 
         @Override
         public IRecipeSerializer<?> getSerializer() {
-            return ModRecipes.MILL_RECIPE.get();
+            return ModRecipes.MILL_RECIPE_SERIALIZER.get();
         }
 
         @Nullable

@@ -11,8 +11,6 @@ import net.minecraftforge.common.Tags;
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
-import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   public EssentialsBuildingBlocksRecipes(Consumer<IFinishedRecipe> consumer) {
