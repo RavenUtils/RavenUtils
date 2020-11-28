@@ -5,7 +5,7 @@
   ],
   "textures": {
     "3": "ravenutils:blocks/barrel_open",
-    "particle": "ravenutils:blocks/barrel_open"
+    "particle": "minecraft:block/barrel_side"
   },
   "elements": [
     {

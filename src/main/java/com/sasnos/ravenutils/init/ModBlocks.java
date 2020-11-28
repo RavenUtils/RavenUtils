@@ -101,7 +101,13 @@ public class ModBlocks {
   public static final RegistryObject<Block> BARREL = BLOCKS.register("barrel",
       () -> new Barrel(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(5.0F).sound(SoundType.WOOD)));
 
-  public static final RegistryObject<Block> STONE_CRAFTING_TABLE = BLOCKS.register("stone_crafting_table", StoneCraftingTable::new);
+  // public static final RegistryObject<Block> POTTERY_TABLE = BLOCKS.register("pottery_table", PotteryTable::new);
+
+  public static final RegistryObject<Block> STONE_CRAFTING_TABLE = BLOCKS.register("stone_crafting_table",
+      () -> new StoneCraftingTable(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(2.5F).sound(SoundType.STONE)));
+
+  public static final RegistryObject<Block> FISH_TRAP = BLOCKS.register("fish_trap", FishTrap::new);
+  // public static final RegistryObject<Block> ANIMAL_TRAP = BLOCKS.register("animal_trap", AnimalTrap::new);
 
   // stone anvils
   public static final RegistryObject<Block> STONE_ANVIL_STONE = BLOCKS.register("stone_anvil_stone",

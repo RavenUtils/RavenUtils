@@ -1,6 +1,0 @@
-{
-  "parent": "ravenutils:block/hand_mill",
-  "textures": {
-    "4": "ravenutils:blocks/hand_mill"
-  }
-}

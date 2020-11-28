@@ -59,6 +59,8 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.CANDLE.get(), "Candle");
     add(ModBlocks.STICK_GROUND.get(), "Stick");
     add(ModBlocks.STONE_GROUND.get(), "Stone");
+    // add(ModBlocks.CHIMNEY.get(), "Chimney");
+    // add(ModBlocks.CHIMNEY_END.get(), "Chimney End");
 
     // flowers & saplings
     add(ModBlocks.CRIMLEAF.get(), "Crimleaf");
@@ -84,8 +86,13 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
     add(ModBlocks.STONE_ANVIL_DIORITE.get(), "Diorite Anvil");
     add(ModBlocks.STONE_CRAFTING_TABLE.get(), "Stone Crafting Table");
-    add(ModBlocks.DRYING_RACK.get(), "Drying Rack");
+    // add(ModBlocks.ITEM_SHELF.get(), "Item Shelf");
+    // add(ModBlocks.POTION_SHELF.get(), "Potion Shelf");
+    // add(ModBlocks.BOOK_SHELF.get(), "Book Shelf");
     add(ModBlocks.BARREL.get(), "Barrel");
+    add(ModBlocks.FISH_TRAP.get(), "Fish Trap");
+    // add(ModBlocks.ANIMAL_TRAP.get(), "Animal Trap");
+    // add(ModBlocks.POTTERY_TABLE.get(), "Pottery Table");
     add(AlloyFurnaceInit.ALLOY_FURNACE.get(), "Alloy Furnace");
     add(AlloyFurnaceTileEntity.SCREEN_NAME, "Alloy Furnace");
     add(HandMillInit.HAND_MILL.get(), "Hand Mill");
@@ -244,7 +251,6 @@ public class enUs extends LanguageProvider {
     add(ModItems.ASH.get(), "Ash");
     add(ModItems.FLINT_SHARD.get(), "Flint Shard");
 
-    // add(ModItems.CANDLE.get(), "Candle");
     add(ModItems.LEATHER_STRIP.get(), "Leather Strip");
     add(ModItems.RESIN_DROP.get(), "Resin Drop");
     add(ModItems.RESIN_BALL.get(), "Ball of Resin");

@@ -5,7 +5,7 @@
   ],
   "textures": {
     "3": "ravenutils:blocks/alloy_furnace_lit",
-    "particle": "ravenutils:blocks/alloy_furnace"
+    "particle": "minecraft:block/furnace_side"
   },
   "elements": [
     {

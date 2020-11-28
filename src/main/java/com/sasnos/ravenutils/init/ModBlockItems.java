@@ -118,6 +118,23 @@ public class ModBlockItems {
   public static final RegistryObject<BlockItem> BARREL_ITEM = ITEMS.register("barrel",
       () -> new BlockItemBase(ModBlocks.BARREL.get()));
 
+  public static final RegistryObject<Item> FISH_TRAP_ITEM = ITEMS.register("fish_trap",
+      () -> new BlockItemBase(ModBlocks.FISH_TRAP.get()));
+  // public static final RegistryObject<Item> ANIMAL_TRAP_ITEM = ITEMS.register("animal_trap",
+  //    () -> new BlockItemBase(ModBlocks.ANIMAL_TRAP.get()));
+
+  // public static final RegistryObject<Item> CHIMNEY_ITEM = ITEMS.register("chimney",
+  //    () -> new BlockItemBase(ModBlocks.CHIMNEY.get()));
+  // public static final RegistryObject<Item> CHIMNEY_END_ITEM = ITEMS.register("chimney_end",
+  //    () -> new BlockItemBase(ModBlocks.CHIMNEY_END.get()));
+
+  // public static final RegistryObject<Item> ITEM_SHELF_ITEM = ITEMS.register("item_shelf",
+  //    () -> new BlockItemBase(ModBlocks.ITEM_SHELF.get()));
+  // public static final RegistryObject<Item> POTION_SHELF_ITEM = ITEMS.register("potion_shelf",
+  //    () -> new BlockItemBase(ModBlocks.POTION_SHELF.get()));
+  // public static final RegistryObject<Item> BOOK_SHELF_ITEM = ITEMS.register("book_shelf",
+  //    () -> new BlockItemBase(ModBlocks.BOOK_SHELF.get()));
+
   public static final RegistryObject<BlockItem> STONE_ANVIL_STONE_ITEM = ITEMS.register("stone_anvil_stone",
       () -> new BlockItemBase(ModBlocks.STONE_ANVIL_STONE.get()));
   public static final RegistryObject<BlockItem> STONE_ANVIL_GRANITE_ITEM = ITEMS.register("stone_anvil_granite",

@@ -5,7 +5,7 @@
   ],
   "textures": {
     "4": "ravenutils:blocks/hand_mill",
-    "particle": "ravenutils:blocks/hand_mill"
+    "particle": "minecraft:block/furnace_side"
   },
   "elements": [
     {

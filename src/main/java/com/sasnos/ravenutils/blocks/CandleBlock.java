@@ -27,49 +27,49 @@ public class CandleBlock extends TorchBlock {
   private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
   protected static final VoxelShape SHAPE_N = Stream.of(
-      Block.makeCuboidShape(5, 0, 6, 10, 1, 11),
-      Block.makeCuboidShape(4, 1, 5, 11, 2, 6),
-      Block.makeCuboidShape(4, 1, 11, 11, 2, 12),
-      Block.makeCuboidShape(10, 1, 6, 11, 2, 11),
-      Block.makeCuboidShape(4, 1, 6, 5, 2, 11),
-      Block.makeCuboidShape(6, 1, 7, 9, 6, 10),
-      Block.makeCuboidShape(7, 6, 8, 8, 7, 9)
+      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
+      Block.makeCuboidShape(5, 1, 5, 11, 2, 6),
+      Block.makeCuboidShape(5, 1, 10, 11, 2, 11),
+      Block.makeCuboidShape(10, 1, 6, 11, 2, 10),
+      Block.makeCuboidShape(5, 1, 6, 6, 2, 10),
+      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
+      Block.makeCuboidShape(7.8, 6, 8, 8.200000000000001, 6.7, 8)
   ).reduce((v1, v2) -> {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_E = Stream.of(
-      Block.makeCuboidShape(5, 0, 5, 10, 1, 10),
-      Block.makeCuboidShape(10, 1, 4, 11, 2, 11),
-      Block.makeCuboidShape(4, 1, 4, 5, 2, 11),
-      Block.makeCuboidShape(5, 1, 10, 10, 2, 11),
-      Block.makeCuboidShape(5, 1, 4, 10, 2, 5),
-      Block.makeCuboidShape(6, 1, 6, 9, 6, 9),
-      Block.makeCuboidShape(7, 6, 7, 8, 7, 8)
+      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
+      Block.makeCuboidShape(10, 1, 5, 11, 2, 11),
+      Block.makeCuboidShape(5, 1, 5, 6, 2, 11),
+      Block.makeCuboidShape(6, 1, 10, 10, 2, 11),
+      Block.makeCuboidShape(6, 1, 5, 10, 2, 6),
+      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
+      Block.makeCuboidShape(8, 6, 7.8, 8, 6.7, 8.200000000000001)
   ).reduce((v1, v2) -> {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_S = Stream.of(
-      Block.makeCuboidShape(6, 0, 5, 11, 1, 10),
-      Block.makeCuboidShape(5, 1, 10, 12, 2, 11),
-      Block.makeCuboidShape(5, 1, 4, 12, 2, 5),
-      Block.makeCuboidShape(5, 1, 5, 6, 2, 10),
-      Block.makeCuboidShape(11, 1, 5, 12, 2, 10),
-      Block.makeCuboidShape(7, 1, 6, 10, 6, 9),
-      Block.makeCuboidShape(8, 6, 7, 9, 7, 8)
+      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
+      Block.makeCuboidShape(5, 1, 10, 11, 2, 11),
+      Block.makeCuboidShape(5, 1, 5, 11, 2, 6),
+      Block.makeCuboidShape(5, 1, 6, 6, 2, 10),
+      Block.makeCuboidShape(10, 1, 6, 11, 2, 10),
+      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
+      Block.makeCuboidShape(7.799999999999999, 6, 8, 8.2, 6.7, 8)
   ).reduce((v1, v2) -> {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_W = Stream.of(
-      Block.makeCuboidShape(6, 0, 6, 11, 1, 11),
-      Block.makeCuboidShape(5, 1, 5, 6, 2, 12),
-      Block.makeCuboidShape(11, 1, 5, 12, 2, 12),
-      Block.makeCuboidShape(6, 1, 5, 11, 2, 6),
-      Block.makeCuboidShape(6, 1, 11, 11, 2, 12),
-      Block.makeCuboidShape(7, 1, 7, 10, 6, 10),
-      Block.makeCuboidShape(8, 6, 8, 9, 7, 9)
+      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
+      Block.makeCuboidShape(5, 1, 5, 6, 2, 11),
+      Block.makeCuboidShape(10, 1, 5, 11, 2, 11),
+      Block.makeCuboidShape(6, 1, 5, 10, 2, 6),
+      Block.makeCuboidShape(6, 1, 10, 10, 2, 11),
+      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
+      Block.makeCuboidShape(8, 6, 7.799999999999999, 8, 6.7, 8.2)
   ).reduce((v1, v2) -> {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
