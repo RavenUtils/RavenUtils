@@ -8,15 +8,15 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockReader;
 import org.jetbrains.annotations.Nullable;
 
-public class EssentialsAlloyFurnace extends EssentialsMachineBlock {
+public class AlloyFurnace extends EssentialsMachineBlock {
 
-  public EssentialsAlloyFurnace() {
+  public AlloyFurnace() {
     super(AbstractBlock.Properties.from(Blocks.FURNACE));
   }
 
   @Nullable
   @Override
   public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-    return new EssentialsFurnaceTileEntity();
+    return new AlloyFurnaceTileEntity();
   }
 }

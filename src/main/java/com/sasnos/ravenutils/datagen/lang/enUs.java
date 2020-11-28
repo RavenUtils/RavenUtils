@@ -76,9 +76,6 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
     add(ModBlocks.STONE_ANVIL_DIORITE.get(), "Diorite Anvil");
     add(ModBlocks.STONE_CRAFTING_TABLE.get(), "Stone Crafting Table");
-    // add(ModBlocks.ALLOY_FURNACE.get(), "Alloy Furnace");
-    // add(ModBlocks.HAND_MILL.get(), "Mill");
-    // add(ModBlocks.MILLSTONE.get(), "Millstone");
 
     // food-related blocks
     add(ModBlocks.BLUEBERRY_BUSH.get(), "Blueberry Bush");
@@ -255,6 +252,6 @@ public class enUs extends LanguageProvider {
     // miscellaneous
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
     add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
-//    add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
+    // add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }
 }

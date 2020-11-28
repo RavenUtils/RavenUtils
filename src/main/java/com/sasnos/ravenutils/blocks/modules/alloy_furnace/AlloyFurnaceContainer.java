@@ -21,15 +21,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 
-public class EssentialsAlloyFurnaceBlockContainer extends EssentialsMachineBlockContainer {
+public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
 
-  public EssentialsAlloyFurnaceBlockContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
+  public AlloyFurnaceContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
     this(windowId, playerInventory.player.world, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
   }
 
 
-  protected EssentialsAlloyFurnaceBlockContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
-    super(EssentialsAlloyFurnaceInit.alloyFurnaceContainer.get(), id, world, pos, playerInventoryIn, player, EssentialsAlloyFurnaceInit.alloyFurnace.get(), furnaceData);
+  protected AlloyFurnaceContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
+    super(AlloyFurnaceInit.alloyFurnaceContainer.get(), id, world, pos, playerInventoryIn, player, AlloyFurnaceInit.alloyFurnace.get(), furnaceData);
   }
 
   @Override
@@ -60,13 +60,13 @@ public class EssentialsAlloyFurnaceBlockContainer extends EssentialsMachineBlock
       }
       else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if(inputs.contains(stack.getItem())){
           if(!this.mergeItemStack(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
-          ((EssentialsFurnaceTileEntity)tileEntity).setCookingTimeTotal(((EssentialsFurnaceTileEntity)tileEntity).getRecipe(stack).getTimer());
+          ((AlloyFurnaceTileEntity)tileEntity).setCookingTimeTotal(((AlloyFurnaceTileEntity)tileEntity).getRecipe(stack).getTimer());
         }else if (ForgeHooks.getBurnTime(stack) > 0){
           if(!this.mergeItemStack(stack, 2, 3, false)) {
             return ItemStack.EMPTY;

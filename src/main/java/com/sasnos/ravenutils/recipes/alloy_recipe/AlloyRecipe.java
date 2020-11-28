@@ -106,6 +106,6 @@ public class AlloyRecipe extends EssentialsRecipe {
   @NotNull
   @Override
   public IRecipeSerializer<?> getSerializer() {
-    return ModRecipes.ALLOY_RECIPE.get();
+    return ModRecipes.ALLOY_FURNACE_RECIPE_SERIALIZER.get();
   }
 }

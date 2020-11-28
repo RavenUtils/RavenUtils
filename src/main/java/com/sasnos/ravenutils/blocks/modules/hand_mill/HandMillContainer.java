@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.blocks.modules.handmill;
+package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
@@ -56,7 +56,7 @@ public class HandMillContainer extends EssentialsMachineBlockContainer {
             }
             else {
                 ArrayList<Item> inputs = new ArrayList<>();
-                Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.MILL_RECIPE_RECIPE_TYPE, this.tileEntity.getWorld());
+                Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.MILL_RECIPE_TYPE, this.tileEntity.getWorld());
                 inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
                 if(inputs.contains(stack.getItem())){
                     if(!this.mergeItemStack(stack, 0, 1, false)) {

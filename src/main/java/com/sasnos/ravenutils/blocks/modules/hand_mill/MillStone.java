@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.blocks.modules.handmill;
+package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.blocks.EssentialsCommonMachineBlock;
 import net.minecraft.block.BlockState;

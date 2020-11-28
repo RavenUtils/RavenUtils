@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.blocks.modules.handmill;
+package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
 import com.sasnos.ravenutils.init.ModRecipes;
@@ -24,7 +24,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
     private int counter;
 
     public HandMillTileEntity() {
-        super(HandMillInit.HANDMILL_TILEENTITY.get(), ModRecipes.MILL_RECIPE_RECIPE_TYPE);
+        super(HandMillInit.HANDMILL_TILEENTITY.get(), ModRecipes.MILL_RECIPE_TYPE);
     }
 
     /**
@@ -64,10 +64,10 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack) {
                 if(slot == 0){
-                   return getAllRecipeInputsAsItems(ModRecipes.MILL_RECIPE_RECIPE_TYPE, world).contains(stack.getItem());
+                   return getAllRecipeInputsAsItems(ModRecipes.MILL_RECIPE_TYPE, world).contains(stack.getItem());
                 }
                 if(slot == 1 || slot == 2){
-                    List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.MILL_RECIPE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+                    List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.MILL_RECIPE_TYPE, world).stream().filter(iRecipe -> {
                         return ((MillRecipe) iRecipe).getCraftingResult(null).getItem() == stack.getItem()
                                 || ((MillRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
                     }).collect(Collectors.toList());
@@ -79,7 +79,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
             @NotNull
             @Override
             public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-                if (slot == 0 && !getAllRecipeInputsAsItems(ModRecipes.MILL_RECIPE_RECIPE_TYPE, world).contains(stack.getItem())) {
+                if (slot == 0 && !getAllRecipeInputsAsItems(ModRecipes.MILL_RECIPE_TYPE, world).contains(stack.getItem())) {
                     return stack;
                 }
                 return super.insertItem(slot, stack, simulate);
