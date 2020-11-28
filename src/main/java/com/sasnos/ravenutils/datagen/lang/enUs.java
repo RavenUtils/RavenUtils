@@ -86,6 +86,7 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STONE_ANVIL_ANDESITE.get(), "Andesite Anvil");
     add(ModBlocks.STONE_ANVIL_DIORITE.get(), "Diorite Anvil");
     add(ModBlocks.STONE_CRAFTING_TABLE.get(), "Stone Crafting Table");
+    add(ModBlocks.DRYING_RACK.get(), "Drying Rack");
     // add(ModBlocks.ITEM_SHELF.get(), "Item Shelf");
     // add(ModBlocks.POTION_SHELF.get(), "Potion Shelf");
     // add(ModBlocks.BOOK_SHELF.get(), "Book Shelf");
