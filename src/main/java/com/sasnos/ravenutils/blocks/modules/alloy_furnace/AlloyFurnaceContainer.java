@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
 import com.sasnos.ravenutils.init.ModRecipes;
+import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
@@ -64,7 +65,10 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
           if (!this.mergeItemStack(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
-          ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(((AlloyFurnaceTileEntity) tileEntity).getRecipe(stack).getTimer());
+          int timer = 0;
+          AlloyRecipe recipe = ((AlloyFurnaceTileEntity) tileEntity).getRecipe(itemStack);
+          if(recipe != null) timer = recipe.getTimer();
+          ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(timer);
         } else if (ForgeHooks.getBurnTime(stack) > 0) {
           if (!this.mergeItemStack(stack, 2, 3, false)) {
             return ItemStack.EMPTY;

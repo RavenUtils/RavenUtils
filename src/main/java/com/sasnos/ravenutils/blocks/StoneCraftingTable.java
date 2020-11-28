@@ -1,10 +1,11 @@
 package com.sasnos.ravenutils.blocks;
 
-import com.sasnos.ravenutils.containers.StoneCraftingTableContainer;
+import com.sasnos.ravenutils.containers.StoneCraftingTableContainerProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -23,9 +24,14 @@ public class StoneCraftingTable extends CraftingTableBlock {
     if (worldIn.isRemote) {
       return ActionResultType.SUCCESS;
     } else {
-      NetworkHooks.openGui((ServerPlayerEntity) player, new StoneCraftingTableContainer());
+      NetworkHooks.openGui((ServerPlayerEntity) player, getContainer(state, worldIn, pos));
       player.addStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
       return ActionResultType.CONSUME;
     }
+  }
+
+  @Override
+  public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
+    return new StoneCraftingTableContainerProvider(state, worldIn, pos);
   }
 }
