@@ -43,6 +43,11 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/black_coal"));
 
+    singleTexture("item/" + ModItems.PEAT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/peat"));
+
     singleTexture("item/" + ModItems.COAL_DUST.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -113,6 +118,11 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/lime"));
 
+    singleTexture("item/" + ModItems.MUD_LUMP.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/mud_lump"));
+
     singleTexture("item/" + ModItems.RESIN_DROP.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -171,6 +181,16 @@ public class ItemModels extends ItemModelProvider {
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/cooked_bushmeat"));
+
+    singleTexture("item/" + ModFoodItems.SQUID_MEAT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/squid_meat"));
+
+    singleTexture("item/" + ModFoodItems.COOKED_SQUID_MEAT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/cooked_squid_meat"));
 
     singleTexture("item/" + ModFoodItems.WHEAT_FLOUR.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
@@ -367,7 +387,7 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.FOSSIL_ORE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/fossil_ore"));
 
-    withExistingParent("item/" + ModBlockItems.LIMESTONE_ITEM.get().getRegistryName().getPath(),
+    withExistingParent("item/" + ModBlockItems.LIMESTONE_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/limestone"));
 
     withExistingParent("item/" + ModBlockItems.SULFUR_ORE_ITEM.get().getRegistryName().getPath(),
@@ -397,14 +417,17 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.GELATIN_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/gelatin_block"));
 
+    withExistingParent("item/" + ModBlockItems.PEAT_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/peat_block"));
+
+    withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/mud_block"));
+
     // tools
     singleTexture("item/" + ModToolItems.BEDROLL.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/bedroll"));
-
-/*    withExistingParent("item/" + ModBlockItems.CANDLE_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/candle"));*/
 
     singleTexture("item/" + ModToolItems.SOAP.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
@@ -720,10 +743,10 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/mytherine_boots"));
 
-/*    singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
+    singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
-        resourceLocation("item/mytherine_shield"));*/
+        resourceLocation("item/mytherine_shield"));
 
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
@@ -744,8 +767,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/coin_gold"));
 
-/*    withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_boat"));*/
+    withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
+        resourceLocation("block/crimwood_boat"));
 
     // berries
     // todo move berries to Cuisine module
@@ -778,8 +801,8 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood"));
 
-    /*withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_door"));*/
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/crimwood_door"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LEAVES_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood_leaves"));
@@ -814,10 +837,14 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get().getRegistryName().getPath(),
         resourceLocation("block/crimwood_button_inventory"));
 
-    /*singleTexture("item/"+ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
+    /* singleTexture("item/"+ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
             mcLoc("item/generated"),
             "layer0",
             modLoc("items/crimwood_sign"));*/
+
+    // mud blocks
+    withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),
+        resourceLocation("block/mud_block"));
 
     // stone anvils
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get().getRegistryName().getPath(),

@@ -42,7 +42,7 @@ public class FeatureGen {
     Registry<ConfiguredFeature<?, ?>> registry = WorldGenRegistries.CONFIGURED_FEATURE;
 
     LIMESTONE = registerOre(
-        ModBlocks.LIMESTONE.get().getDefaultState(),
+        ModBlocks.LIMESTONE_BLOCK.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
         16, 32, 24, 12,
         resourceLocation("limestone"));

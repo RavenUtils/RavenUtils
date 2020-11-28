@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "ravenutils:limestone"
+      "item": "ravenutils:limestone_block"
     },
     {
       "tag": "forge:tools/hammers"

@@ -24,7 +24,9 @@ public class ModBlocks {
   public static final RegistryObject<Block> RAVEN_EYE_ORE = BLOCKS.register("raven_eye_ore", RavenEyeOre::new);
   public static final RegistryObject<Block> SALT_ORE = BLOCKS.register("salt_ore", SaltOre::new);
   public static final RegistryObject<Block> BLACK_COAL_ORE = BLOCKS.register("black_coal_ore", BlackCoalOre::new);
-  public static final RegistryObject<Block> LIMESTONE = BLOCKS.register("limestone", Limestone::new);
+  public static final RegistryObject<Block> LIMESTONE_BLOCK = BLOCKS.register("limestone_block", LimestoneBlock::new);
+  public static final RegistryObject<Block> MUD_BLOCK = BLOCKS.register("mud_block", MudBlock::new);
+  public static final RegistryObject<Block> PEAT_BLOCK = BLOCKS.register("peat_block", PeatBlock::new);
 
   // blocks
   public static final RegistryObject<Block> MYTHERINE_BLOCK = BLOCKS.register("mytherine_block", MytherineBlock::new);

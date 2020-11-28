@@ -18,5 +18,5 @@ public class ModLootTables {
       .register("fresh_hide", PassiveEntityLootModifier.Serializer::new);
 
   public static final RegistryObject<QuarzFromStone.Serializer> QUARZ_DROPPER = LOOT_MODIFIER
-          .register("quarz_dropper", QuarzFromStone.Serializer::new);
+      .register("quarz_dropper", QuarzFromStone.Serializer::new);
 }

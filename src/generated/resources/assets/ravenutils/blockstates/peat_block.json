@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ravenutils:block/peat_block"
+    }
+  }
+}

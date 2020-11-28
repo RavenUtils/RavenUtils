@@ -31,7 +31,7 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.RAVEN_EYE_ORE.get(), "Raven Eye Ore");
     add(ModBlocks.SALT_ORE.get(), "Salt Ore");
     add(ModBlocks.BLACK_COAL_ORE.get(), "Black Coal Ore");
-    add(ModBlocks.LIMESTONE.get(), "Limestone");
+    add(ModBlocks.LIMESTONE_BLOCK.get(), "Limestone");
     add(ModBlocks.COPPER_ORE.get(), "Copper Ore");
     add(ModBlocks.TIN_ORE.get(), "Tin Ore");
     add(ModBlocks.ZINC_ORE.get(), "Zinc Ore");
@@ -54,6 +54,8 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
     add(ModBlocks.RESIN_BLOCK.get(), "Block of Resin");
     add(ModBlocks.GELATIN_BLOCK.get(), "Block of Gelatin");
+    add(ModBlocks.PEAT_BLOCK.get(), "Block of Peat");
+    add(ModBlocks.MUD_BLOCK.get(), "Block of Mud");
 
     // misc blocks
     add(ModBlocks.CANDLE.get(), "Candle");
@@ -110,6 +112,8 @@ public class enUs extends LanguageProvider {
     // food(-related) items
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
+    add(ModFoodItems.SQUID_MEAT.get(), "Raw Squid Meat");
+    add(ModFoodItems.COOKED_SQUID_MEAT.get(), "Cooked Squid Meat");
     add(ModFoodItems.DUCK_EGG.get(), "Duck Egg");
     add(ModFoodItems.WHEAT_FLOUR.get(), "Wheat Flour");
     add(ModFoodItems.DOUGH.get(), "Dough");
@@ -259,8 +263,10 @@ public class enUs extends LanguageProvider {
     add(ModItems.RAVEN_EYE_GEM.get(), "Raven Eye");
     add(ModItems.RAVEN_EYE_DUST.get(), "Raven Eye Dust");
     add(ModItems.LIME.get(), "Lime");
+    add(ModItems.MUD_LUMP.get(), "Lump of Mud");
     add(ModItems.SULFUR.get(), "Sulfur");
     add(ModItems.BLACK_COAL.get(), "Black Coal");
+    add(ModItems.PEAT.get(), "Peat");
     add(ModItems.COAL_DUST.get(), "Coal Dust");
     add(ModItems.CHARCOAL_DUST.get(), "Charcoal Dust");
     add(ModItems.QUARTZ_SAND.get(), "Quartz Sand");

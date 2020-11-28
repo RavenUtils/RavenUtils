@@ -6,13 +6,14 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class BlackCoalBlock extends Block {
+public class MudBlock extends Block {
 
-  public BlackCoalBlock() {
-    super(AbstractBlock.Properties.create(Material.ROCK)
-        .hardnessAndResistance(4f, 600f)
-        .sound(SoundType.STONE)
-        .harvestTool(ToolType.PICKAXE)
+  public MudBlock() {
+    super(AbstractBlock.Properties.create(Material.EARTH)
+        .hardnessAndResistance(2F)
+        .sound(SoundType.GROUND)
+        .setRequiresTool()
+        .harvestTool(ToolType.SHOVEL)
     );
   }
 }

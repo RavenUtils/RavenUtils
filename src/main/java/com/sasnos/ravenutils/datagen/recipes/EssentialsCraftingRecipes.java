@@ -1,10 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
-import com.sasnos.ravenutils.init.ModBlockItems;
-import com.sasnos.ravenutils.init.ModFoodItems;
-import com.sasnos.ravenutils.init.ModItems;
-import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.init.*;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
@@ -39,6 +36,22 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("xxx")
         .key('x', ModItems.BLACK_COAL.get())
         .addCriterion("has_black_coal", hasItem(ModItems.BLACK_COAL.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.PEAT_BLOCK_ITEM.get())
+        .patternLine("xxx")
+        .patternLine("xxx")
+        .patternLine("xxx")
+        .key('x', ModItems.PEAT.get())
+        .addCriterion("has_peat", hasItem(ModItems.PEAT.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BLOCK_ITEM.get())
+        .patternLine("xxx")
+        .patternLine("xxx")
+        .patternLine("xxx")
+        .key('x', ModItems.MUD_LUMP.get())
+        .addCriterion("has_mud", hasItem(ModItems.MUD_LUMP.get()))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.RAVEN_EYE_BLOCK_ITEM.get())
@@ -76,27 +89,37 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
     // block to items
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.BLACK_COAL.get(), 9)
         .addIngredient(ModBlockItems.BLACK_COAL_BLOCK_ITEM.get())
-        .addCriterion("has_black_coal", hasItem(ModItems.BLACK_COAL.get()))
+        .addCriterion("has_black_coal_block", hasItem(ModBlockItems.BLACK_COAL_BLOCK_ITEM.get()))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PEAT.get(), 9)
+        .addIngredient(ModBlockItems.PEAT_BLOCK_ITEM.get())
+        .addCriterion("has_peat_block", hasItem(ModBlockItems.PEAT_BLOCK_ITEM.get()))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.MUD_LUMP.get(), 9)
+        .addIngredient(ModBlockItems.MUD_BLOCK_ITEM.get())
+        .addCriterion("has_mud_block", hasItem(ModBlockItems.MUD_BLOCK_ITEM.get()))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.RAVEN_EYE_GEM.get(), 9)
         .addIngredient(ModBlockItems.RAVEN_EYE_BLOCK_ITEM.get())
-        .addCriterion("has_raven_eye", hasItem(ModItems.RAVEN_EYE_GEM.get()))
+        .addCriterion("has_raven_eye_block", hasItem(ModBlockItems.RAVEN_EYE_BLOCK_ITEM.get()))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.GELATIN.get(), 9)
         .addIngredient(ModBlockItems.GELATIN_BLOCK_ITEM.get())
-        .addCriterion("has_gelatin", hasItem(ModItems.GELATIN.get()))
+        .addCriterion("has_gelatin_block", hasItem(ModBlockItems.GELATIN_BLOCK_ITEM.get()))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.RESIN_BALL.get(), 9)
         .addIngredient(ModBlockItems.RESIN_BLOCK_ITEM.get())
-        .addCriterion("has_resin_ball", hasItem(ModItems.RESIN_BALL.get()))
+        .addCriterion("has_resin_block", hasItem(ModBlockItems.RESIN_BLOCK_ITEM.get()))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.SALT.get(), 9)
         .addIngredient(ModBlockItems.SALT_BLOCK_ITEM.get())
-        .addCriterion("has_salt", hasItem(ModItems.SALT.get()))
+        .addCriterion("has_salt_block", hasItem(ModBlockItems.SALT_BLOCK_ITEM.get()))
         .build(consumer);
 
     // axe
@@ -162,7 +185,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.LIME.get(), 4)
-        .addIngredient(ModBlockItems.LIMESTONE_ITEM.get())
+        .addIngredient(ModBlockItems.LIMESTONE_BLOCK_ITEM.get())
         .addIngredient(hammers)
         .addCriterion("has_hammer", hasItemTag(hammers))
         .build(consumer);

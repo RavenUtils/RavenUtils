@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:raven_eye_gem"
+      "ravenutils:mud_block"
     ]
   },
   "criteria": {
-    "has_raven_eye_block": {
+    "has_mud": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:raven_eye_block"
+            "item": "ravenutils:mud_lump"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:raven_eye_gem"
+        "recipe": "ravenutils:mud_block"
       }
     }
   },
   "requirements": [
     [
-      "has_raven_eye_block",
+      "has_mud",
       "has_the_recipe"
     ]
   ]

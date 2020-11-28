@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_resin_ball": {
+    "has_resin_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:resin_ball"
+            "item": "ravenutils:resin_block"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_resin_ball",
+      "has_resin_block",
       "has_the_recipe"
     ]
   ]

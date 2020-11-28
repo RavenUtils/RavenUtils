@@ -2,10 +2,7 @@ package com.sasnos.ravenutils.init;
 
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Ash;
-import com.sasnos.ravenutils.items.BlackCoal;
-import com.sasnos.ravenutils.items.ItemBase;
-import com.sasnos.ravenutils.items.Slag;
+import com.sasnos.ravenutils.items.*;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.item.BoatItem;
 import net.minecraft.item.Item;
@@ -50,6 +47,8 @@ public class ModItems {
   public static final RegistryObject<Item> RAVEN_EYE_GEM = ITEMS.register("raven_eye_gem", ItemBase::new);
   public static final RegistryObject<Item> RAVEN_EYE_DUST = ITEMS.register("raven_eye_dust", ItemBase::new);
   public static final RegistryObject<Item> BLACK_COAL = ITEMS.register("black_coal", BlackCoal::new);
+  public static final RegistryObject<Item> PEAT = ITEMS.register("peat", Peat::new);
+  public static final RegistryObject<Item> MUD_LUMP = ITEMS.register("mud_lump", ItemBase::new);
   public static final RegistryObject<Item> LIME = ITEMS.register("lime", ItemBase::new);
   public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", ItemBase::new);
   public static final RegistryObject<Item> NITER = ITEMS.register("niter", ItemBase::new);

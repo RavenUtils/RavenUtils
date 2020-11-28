@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:mud_block"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:mud_lump",
+    "count": 9
+  }
+}

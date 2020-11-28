@@ -1,6 +1,5 @@
 package com.sasnos.ravenutils.items;
 
-
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;

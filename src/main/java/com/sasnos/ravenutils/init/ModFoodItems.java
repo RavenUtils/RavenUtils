@@ -15,6 +15,9 @@ public class ModFoodItems {
   public static final RegistryObject<Item> BUSHMEAT = ITEMS.register("bushmeat", Bushmeat::new);
   public static final RegistryObject<Item> COOKED_BUSHMEAT = ITEMS.register("cooked_bushmeat", CookedBushmeat::new);
 
+  public static final RegistryObject<Item> SQUID_MEAT = ITEMS.register("squid_meat", SquidMeat::new);
+  public static final RegistryObject<Item> COOKED_SQUID_MEAT = ITEMS.register("cooked_squid_meat", CookedSquidMeat::new);
+
   public static final RegistryObject<Item> WHEAT_FLOUR = ITEMS.register("wheat_flour", ItemBase::new);
   public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", ItemBase::new);
   public static final RegistryObject<Item> DUCK_EGG = ITEMS.register("duck_egg", DuckEgg::new);

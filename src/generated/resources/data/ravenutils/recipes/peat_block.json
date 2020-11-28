@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:peat"
+    }
+  },
+  "result": {
+    "item": "ravenutils:peat_block"
+  }
+}

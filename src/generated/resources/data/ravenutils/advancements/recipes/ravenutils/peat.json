@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:raven_eye_gem"
+      "ravenutils:peat"
     ]
   },
   "criteria": {
-    "has_raven_eye_block": {
+    "has_peat_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:raven_eye_block"
+            "item": "ravenutils:peat_block"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:raven_eye_gem"
+        "recipe": "ravenutils:peat"
       }
     }
   },
   "requirements": [
     [
-      "has_raven_eye_block",
+      "has_peat_block",
       "has_the_recipe"
     ]
   ]

@@ -26,8 +26,12 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.BLACK_COAL_ORE.get()));
   public static final RegistryObject<Item> BLACK_COAL_BLOCK_ITEM = ITEMS.register("black_coal_block",
       () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<Item> LIMESTONE_ITEM = ITEMS.register("limestone",
-      () -> new BlockItemBase(ModBlocks.LIMESTONE.get()));
+  public static final RegistryObject<Item> PEAT_BLOCK_ITEM = ITEMS.register("peat_block",
+      () -> new BlackCoalBlockItem(ModBlocks.PEAT_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<Item> MUD_BLOCK_ITEM = ITEMS.register("mud_block",
+      () -> new BlockItemBase(ModBlocks.MUD_BLOCK.get()));
+  public static final RegistryObject<Item> LIMESTONE_BLOCK_ITEM = ITEMS.register("limestone_block",
+      () -> new BlockItemBase(ModBlocks.LIMESTONE_BLOCK.get()));
   public static final RegistryObject<Item> RAVEN_EYE_ORE_ITEM = ITEMS.register("raven_eye_ore",
       () -> new BlockItemBase(ModBlocks.RAVEN_EYE_ORE.get()));
   public static final RegistryObject<Item> RAVEN_EYE_BLOCK_ITEM = ITEMS.register("raven_eye_block",

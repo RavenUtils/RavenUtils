@@ -263,7 +263,11 @@ public class BlockStates extends EssentialsBlockStates {
 
     BlockModelBuilder limestone = models().cubeAll("limestone",
         modLoc("blocks/limestone"));
-    simpleBlock(ModBlocks.LIMESTONE.get(), limestone);
+    simpleBlock(ModBlocks.LIMESTONE_BLOCK.get(), limestone);
+
+    BlockModelBuilder mudBlock = models().cubeAll("mud_block",
+        modLoc("blocks/mud_block"));
+    simpleBlock(ModBlocks.MUD_BLOCK.get(), mudBlock);
 
     BlockModelBuilder sulfurOre = models().cubeAll("sulfur_ore",
         modLoc("blocks/sulfur_ore"));
@@ -292,6 +296,10 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blackCoalBlock = models().cubeAll("black_coal_block",
         modLoc("blocks/black_coal_block"));
     simpleBlock(ModBlocks.BLACK_COAL_BLOCK.get(), blackCoalBlock);
+
+    BlockModelBuilder peatBlock = models().cubeAll("peat_block",
+        modLoc("blocks/peat_block"));
+    simpleBlock(ModBlocks.PEAT_BLOCK.get(), peatBlock);
 
     BlockModelBuilder ravenEyeOre = models().cubeAll("raven_eye_ore",
         modLoc("blocks/raven_eye_ore"));
