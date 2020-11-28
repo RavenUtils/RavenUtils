@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class AlloyRecipe extends EssentialsRecipe {
@@ -81,14 +82,17 @@ public class AlloyRecipe extends EssentialsRecipe {
 
   @Override
   public NonNullList<ItemStack> getOutput() {
-    NonNullList<ItemStack> result = NonNullList.from(output);
+    ArrayList<ItemStack> outputs = new ArrayList<>();
+    outputs.add(output.copy());
     if (additionalResult != ItemStack.EMPTY) {
       float change = new Random().nextFloat();
       if (change <= additionalChange) {
-        result.add(additionalResult);
+        outputs.add(additionalResult.copy());
       }
     }
-    return result;
+    NonNullList<ItemStack> list = NonNullList.create();
+    list.addAll(outputs);
+    return list;
   }
 
   public ItemStack getAdditionalResult() {

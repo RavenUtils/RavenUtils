@@ -59,15 +59,15 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
         slot.onSlotChange(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.HAND_MILL_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(ModRecipes.ALLOY_RECIPE_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
-        if (inputs.contains(stack.getItem())) {
-          if (!this.mergeItemStack(stack, 0, 1, false)) {
+        if(inputs.contains(stack.getItem())){
+          if(!this.mergeItemStack(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
-          ((HandMillTileEntity) tileEntity).setCookingTimeTotal(((HandMillTileEntity) tileEntity).getRecipe(stack).getTimer());
-        } else if (ForgeHooks.getBurnTime(stack) > 0) {
-          if (!this.mergeItemStack(stack, 1, 2, false)) {
+          ((EssentialsFurnaceTileEntity)tileEntity).setCookingTimeTotal(((EssentialsFurnaceTileEntity)tileEntity).getRecipe(stack).getTimer());
+        }else if (ForgeHooks.getBurnTime(stack) > 0){
+          if(!this.mergeItemStack(stack, 2, 3, false)) {
             return ItemStack.EMPTY;
           }
         } else if (index < 28) {

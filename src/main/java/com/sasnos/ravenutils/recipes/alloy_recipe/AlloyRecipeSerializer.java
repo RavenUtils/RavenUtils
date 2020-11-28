@@ -24,7 +24,7 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
   public AlloyRecipe read(ResourceLocation recipeId, JsonObject json) {
 
     ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
-    JsonArray inputs = JSONUtils.getJsonArray(json, "ingredient");
+    JsonArray inputs = JSONUtils.getJsonArray(json, "materials");
     NonNullList<Material> input = NonNullList.create();
     for (int i = 0; i < inputs.size(); i++) {
       input.add(Material.deserialize(inputs.get(i).getAsJsonObject()));

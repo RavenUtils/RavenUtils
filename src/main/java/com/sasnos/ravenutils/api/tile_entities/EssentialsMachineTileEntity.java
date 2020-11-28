@@ -100,9 +100,9 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
   }
 
   public boolean setIsBurning() {
-    if (!itemHandler.getStackInSlot(1).isEmpty()) {
+    if (!itemHandler.getStackInSlot(getFuelSlot()).isEmpty()) {
       isBurning = true;
-      if (handleBurning(itemHandler.getStackInSlot(1))) {
+      if (handleBurning(itemHandler.getStackInSlot(getFuelSlot()))) {
         markDirty();
       }
       this.world.setBlockState(this.pos, this.world.getBlockState(this.pos).with(AbstractFurnaceBlock.LIT, this.isBurning()), 3);
@@ -111,6 +111,8 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     return false;
 
   }
+
+  public abstract int getFuelSlot();
 
   @Override
   public T getRecipe(ItemStack stack) {
@@ -191,7 +193,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     }
 
     if (!world.isRemote) {
-      ItemStack fuel = itemHandler.getStackInSlot(1);
+      ItemStack fuel = itemHandler.getStackInSlot(getFuelSlot());
       if (isBurning() || !fuel.isEmpty()) {
         ICommonRecipe recipe = (ICommonRecipe) getRecipe(itemHandler.getStackInSlot(0));
         if (!this.isBurning()) {
@@ -201,7 +203,6 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
           ++cookingTime;
           if (cookingTime == cookingTimeTotal) {
             cookingTime = 0;
-            cookingTimeTotal = recipe.getTimer();
             cookingTimeTotal = recipe.getTimer();
             smelt(recipe);
             isDirty = true;

@@ -68,7 +68,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("xxx")
         .key('x', ModItems.BRONZE_NUGGET.get())
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+        .build(consumer, "bronze_ingot_from_nuggets");
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.BRASS_INGOT.get())
         .patternLine("xxx")

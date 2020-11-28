@@ -28,6 +28,15 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
         super(HandMillInit.HAND_MILL_TILE_ENTITY.get(), ModRecipes.HAND_MILL_RECIPE_TYPE);
     }
 
+    /**
+     * no used here
+     * @return dummy
+     */
+    @Override
+    public int getFuelSlot() {
+        return 0;
+    }
+
     @Override
     protected MillRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
         for (IRecipe<?> iRecipe : recipes){
