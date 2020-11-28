@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -243,10 +244,13 @@ public class FishTrap extends Block {
   }).get();
 
   public FishTrap() {
-    super(AbstractBlock.Properties.create(Material.WOOD)
+    super(AbstractBlock.Properties.create(Material.MISCELLANEOUS, MaterialColor.WATER)
         .hardnessAndResistance(3.5F)
         .sound(SoundType.WOOD)
-        .harvestTool(ToolType.AXE).notSolid());
+        .harvestTool(ToolType.AXE)
+        .doesNotBlockMovement()
+        .notSolid()
+    );
   }
 
   @Override

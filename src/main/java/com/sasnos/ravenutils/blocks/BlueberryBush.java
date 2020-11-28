@@ -1,9 +1,8 @@
 package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.init.ModFoodItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -33,8 +32,12 @@ public class BlueberryBush extends SweetBerryBushBlock {
   private static final VoxelShape BUSHLING_SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
   private static final VoxelShape GROWING_SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-  public BlueberryBush(Properties properties) {
-    super(properties);
+  public BlueberryBush() {
+    super(AbstractBlock.Properties.create(Material.PLANTS)
+        .tickRandomly()
+        .doesNotBlockMovement()
+        .sound(SoundType.SWEET_BERRY_BUSH)
+    );
     this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
   }
 
@@ -70,7 +73,7 @@ public class BlueberryBush extends SweetBerryBushBlock {
   @Override
   public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
     if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.FOX && entityIn.getType() != EntityType.BEE) {
-      entityIn.setMotionMultiplier(state, new Vector3d((double)0.8F, 0.75D, (double)0.8F));
+      entityIn.setMotionMultiplier(state, new Vector3d((double) 0.8F, 0.75D, (double) 0.8F));
       if (!worldIn.isRemote && state.get(AGE) > 0 && (entityIn.lastTickPosX != entityIn.getPosX() || entityIn.lastTickPosZ != entityIn.getPosZ())) {
         double d0 = Math.abs(entityIn.getPosX() - entityIn.lastTickPosX);
         double d1 = Math.abs(entityIn.getPosZ() - entityIn.lastTickPosZ);

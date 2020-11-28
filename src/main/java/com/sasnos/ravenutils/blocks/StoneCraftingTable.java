@@ -1,8 +1,12 @@
 package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.containers.StoneCraftingTableContainerProvider;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -12,11 +16,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 public class StoneCraftingTable extends CraftingTableBlock {
-  public StoneCraftingTable(Properties properties) {
-    super(properties);
+  public StoneCraftingTable() {
+    super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE)
+        .hardnessAndResistance(2.5F)
+        .harvestTool(ToolType.PICKAXE)
+        .sound(SoundType.STONE)
+    );
   }
 
   @Override

@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
@@ -16,6 +16,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
@@ -81,8 +82,12 @@ public class Barrel extends Block {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
 
-  public Barrel(Properties properties) {
-    super(properties);
+  public Barrel() {
+    super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD)
+        .hardnessAndResistance(5.0F)
+        .harvestTool(ToolType.AXE)
+        .sound(SoundType.WOOD)
+    );
   }
 
   @Override

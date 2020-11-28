@@ -16,10 +16,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.Nullable;
 
-public class MillStone extends EssentialsCommonMachineBlock {
+public class Millstone extends EssentialsCommonMachineBlock {
 
-
-    public MillStone() {
+    public Millstone() {
         super(Properties.create(Material.ROCK, MaterialColor.STONE)
                 .harvestTool(ToolType.PICKAXE)
                 .hardnessAndResistance(1.2f)

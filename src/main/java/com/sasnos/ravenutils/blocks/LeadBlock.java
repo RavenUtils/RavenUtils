@@ -11,7 +11,6 @@ public class LeadBlock extends Block {
     super(Properties.create(Material.IRON)
         .hardnessAndResistance(7f, 12f)
         .sound(SoundType.METAL)
-        .harvestLevel(0)
         .harvestTool(ToolType.PICKAXE)
     );
   }

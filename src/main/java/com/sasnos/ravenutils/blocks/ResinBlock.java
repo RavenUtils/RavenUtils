@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.common.ToolType;
 
 public class ResinBlock extends Block {
 
@@ -11,6 +12,7 @@ public class ResinBlock extends Block {
         .hardnessAndResistance(5f, 50f)
         .sound(SoundType.SLIME)
         .speedFactor(0.1F)
+        .harvestTool(ToolType.PICKAXE)
         .notSolid()
     );
   }

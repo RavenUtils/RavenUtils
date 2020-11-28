@@ -12,7 +12,6 @@ public class MytherineBlock extends Block {
     super(AbstractBlock.Properties.create(Material.IRON)
         .hardnessAndResistance(4f, 1200f)
         .sound(SoundType.METAL)
-        .harvestLevel(0)
         .harvestTool(ToolType.PICKAXE)
     );
   }

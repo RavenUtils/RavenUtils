@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.common.ToolType;
 
 public class GelatinBlock extends Block {
 
@@ -11,7 +12,7 @@ public class GelatinBlock extends Block {
         .hardnessAndResistance(2f, 3f)
         .sound(SoundType.SLIME)
         .speedFactor(0.01F)
-        // todo make player sink to bottom of bottom Gelatin Block (Quicksand)
+        .harvestTool(ToolType.SHOVEL)
         .notSolid()
     );
   }

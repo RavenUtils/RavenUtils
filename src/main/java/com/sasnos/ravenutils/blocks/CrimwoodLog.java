@@ -11,6 +11,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Rotation;
+import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.NotNull;
 
 public class CrimwoodLog extends RotatedPillarBlock {
@@ -20,6 +21,8 @@ public class CrimwoodLog extends RotatedPillarBlock {
     super(Properties.create(Material.WOOD)
         .hardnessAndResistance(2.0F)
         .sound(SoundType.WOOD)
+        .setRequiresTool()
+        .harvestTool(ToolType.AXE)
     );
     this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
   }

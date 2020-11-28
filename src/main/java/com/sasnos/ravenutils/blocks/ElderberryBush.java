@@ -1,9 +1,8 @@
 package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.init.ModFoodItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -33,8 +32,12 @@ public class ElderberryBush extends SweetBerryBushBlock {
   private static final VoxelShape BUSHLING_SHAPE = Block.makeCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
   private static final VoxelShape GROWING_SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-  public ElderberryBush(Properties properties) {
-    super(properties);
+  public ElderberryBush() {
+    super(AbstractBlock.Properties.create(Material.PLANTS)
+        .tickRandomly()
+        .doesNotBlockMovement()
+        .sound(SoundType.SWEET_BERRY_BUSH)
+    );
     this.setDefaultState(this.stateContainer.getBaseState().with(AGE, Integer.valueOf(0)));
   }
 

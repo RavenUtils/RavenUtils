@@ -2,8 +2,12 @@ package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.tile_entities.AnvilContainerProvider;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.stats.Stats;
@@ -13,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.network.NetworkHooks;
 
@@ -23,8 +28,13 @@ public class StoneAnvil extends AnvilBlock {
 
   private static final Field name = ObfuscationReflectionHelper.findField(AnvilBlock.class, "field_220273_k");
 
-  public StoneAnvil(Properties properties) {
-    super(properties);
+  public StoneAnvil() {
+    super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE)
+        .hardnessAndResistance(2.5F, 600.0F)
+        .setRequiresTool()
+        .harvestTool(ToolType.PICKAXE)
+        .sound(SoundType.STONE)
+    );
     name.setAccessible(true);
   }
 

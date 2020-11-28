@@ -11,7 +11,6 @@ public class BronzeBlock extends Block {
     super(Properties.create(Material.IRON)
         .hardnessAndResistance(5f, 6f)
         .sound(SoundType.METAL)
-        .harvestLevel(0)
         .harvestTool(ToolType.PICKAXE)
     );
   }

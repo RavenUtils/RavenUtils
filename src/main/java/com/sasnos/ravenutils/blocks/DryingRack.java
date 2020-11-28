@@ -1,10 +1,8 @@
 package com.sasnos.ravenutils.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -129,8 +127,12 @@ public class DryingRack extends Block {
     return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
   }).get();
 
-  public DryingRack(Properties properties) {
-    super(properties);
+  public DryingRack() {
+    super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD)
+        .hardnessAndResistance(2.5F)
+        .harvestTool(ToolType.AXE)
+        .sound(SoundType.WOOD)
+    );
   }
 
   @Override
