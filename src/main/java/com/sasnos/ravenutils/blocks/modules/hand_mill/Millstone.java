@@ -16,38 +16,40 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.Nullable;
 
-public class Millstone extends EssentialsCommonMachineBlock {
+public class MillStone extends EssentialsCommonMachineBlock {
 
-  public Millstone() {
-    super(Properties.create(Material.ROCK, MaterialColor.STONE)
-        .harvestTool(ToolType.PICKAXE)
-        .hardnessAndResistance(1.2f)
-        .harvestLevel(1));
-  }
 
-  @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (!worldIn.isRemote) {
-      TileEntity tile = worldIn.getTileEntity(pos.down());
-      if (tile instanceof HandMillTileEntity) {
-        if (player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity) tile).hasInput()) {
-          ((HandMillTileEntity) tile).addTick();
-        } else {
-          worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
-        }
-      }
+    public MillStone() {
+        super(Properties.create(Material.ROCK, MaterialColor.STONE)
+                .harvestTool(ToolType.PICKAXE)
+                .hardnessAndResistance(1.2f)
+                .harvestLevel(1));
     }
-    return ActionResultType.SUCCESS;
-  }
 
-  @Override
-  public boolean hasTileEntity(BlockState state) {
-    return false;
-  }
+    @Override
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+        if (!worldIn.isRemote) {
+            TileEntity tile = worldIn.getTileEntity(pos.down());
+            if (tile instanceof HandMillTileEntity) {
+                if(player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity)tile).hasInput()){
+                    ((HandMillTileEntity)tile).addTick();
+                }
+                else{
+                    worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
+                }
+            }
+        }
+        return ActionResultType.SUCCESS;
+    }
 
-  @Nullable
-  @Override
-  public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-    return null;
-  }
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+        return false;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return null;
+    }
 }
