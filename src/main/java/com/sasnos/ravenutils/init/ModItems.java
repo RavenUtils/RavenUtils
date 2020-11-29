@@ -77,8 +77,8 @@ public class ModItems {
   public static final RegistryObject<Item> COIN_SILVER = ITEMS.register("coin_silver", ItemBase::new);
   public static final RegistryObject<Item> COIN_GOLD = ITEMS.register("coin_gold", ItemBase::new);
 
-  public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
-      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
+  /* public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
+      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire())); */
 
   /* public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())

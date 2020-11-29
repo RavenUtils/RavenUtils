@@ -31,7 +31,7 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
     Item item = stack.getItem();
     if (item instanceof BlockItem) {
       Block block = ((BlockItem) item).getBlock();
-      if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
+      /* if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
         boolean flag = stack.getChildTag("BlockEntityTag") != null;
         matrixStack.push();
         matrixStack.scale(1.0F, -1.0F, -1.0F);
@@ -48,7 +48,7 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
         }
 
         matrixStack.pop();
-      }
+      } */
     }
   }
 }

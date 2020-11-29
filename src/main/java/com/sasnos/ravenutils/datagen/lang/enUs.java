@@ -55,7 +55,6 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.RESIN_BLOCK.get(), "Block of Resin");
     add(ModBlocks.GELATIN_BLOCK.get(), "Block of Gelatin");
     add(ModBlocks.PEAT_BLOCK.get(), "Block of Peat");
-    add(ModBlocks.MUD_BLOCK.get(), "Block of Mud");
 
     // misc blocks
     add(ModBlocks.CANDLE.get(), "Candle");
@@ -81,6 +80,13 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.CRIMWOOD_FENCE.get(), "Crimwood Fence");
     add(ModBlocks.CRIMWOOD_FENCE_GATE.get(), "Crimwood Fence Gate");
     add(ModBlocks.CRIMWOOD_BUTTON.get(), "Crimwood Button");
+
+    // mud blocks
+    add(ModBlocks.MUD_BLOCK.get(), "Block of Mud");
+    add(ModBlocks.MUD_BRICKS.get(), "Mud Bricks");
+    add(ModBlocks.MUD_BRICK_SLAB.get(), "Mud Brick Slab");
+    add(ModBlocks.MUD_BRICK_STAIRS.get(), "Mud Brick Stairs");
+    add(ModBlocks.MUD_BRICK_WALL.get(), "Mud Brick Wall");
 
     // functional blocks
     add(ModBlocks.STONE_ANVIL_STONE.get(), "Stone Anvil");
@@ -182,7 +188,7 @@ public class enUs extends LanguageProvider {
     add(ModArmorItems.MYTHERINE_CHESTPLATE.get(), "Mytherine Chestplate");
     add(ModArmorItems.MYTHERINE_LEGGINGS.get(), "Mytherine Leggings");
     add(ModArmorItems.MYTHERINE_BOOTS.get(), "Mytherine Boots");
-    add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
+    // add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
     add(ModToolItems.MYTHERINE_SWORD.get(), "Mytherine Sword");
     add(ModToolItems.MYTHERINE_SHOVEL.get(), "Mytherine Shovel");
     add(ModToolItems.MYTHERINE_AXE.get(), "Mytherine Axe");
@@ -280,7 +286,7 @@ public class enUs extends LanguageProvider {
 
     // miscellaneous
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
-    add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
+    // add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
     // add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }
 }

@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.BlockItemBase;
-import com.sasnos.ravenutils.blocks.block_items.BlackCoalBlockItem;
+import com.sasnos.ravenutils.blocks.fuels.BlackCoalBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
@@ -28,8 +28,6 @@ public class ModBlockItems {
       () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<Item> PEAT_BLOCK_ITEM = ITEMS.register("peat_block",
       () -> new BlackCoalBlockItem(ModBlocks.PEAT_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
-  public static final RegistryObject<Item> MUD_BLOCK_ITEM = ITEMS.register("mud_block",
-      () -> new BlockItemBase(ModBlocks.MUD_BLOCK.get()));
   public static final RegistryObject<Item> LIMESTONE_BLOCK_ITEM = ITEMS.register("limestone_block",
       () -> new BlockItemBase(ModBlocks.LIMESTONE_BLOCK.get()));
   public static final RegistryObject<Item> RAVEN_EYE_ORE_ITEM = ITEMS.register("raven_eye_ore",
@@ -103,6 +101,18 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_FENCE_GATE.get()));
   public static final RegistryObject<Item> CRIMWOOD_BUTTON_ITEM = ITEMS.register("crimwood_button",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_BUTTON.get()));
+
+  // mud
+  public static final RegistryObject<Item> MUD_BLOCK_ITEM = ITEMS.register("mud_block",
+      () -> new BlockItemBase(ModBlocks.MUD_BLOCK.get()));
+  public static final RegistryObject<Item> MUD_BRICKS_ITEM = ITEMS.register("mud_bricks",
+      () -> new BlockItemBase(ModBlocks.MUD_BRICKS.get()));
+  public static final RegistryObject<Item> MUD_BRICK_SLAB_ITEM = ITEMS.register("mud_brick_slab",
+      () -> new BlockItemBase(ModBlocks.MUD_BRICK_SLAB.get()));
+  public static final RegistryObject<Item> MUD_BRICK_STAIRS_ITEM = ITEMS.register("mud_brick_stairs",
+      () -> new BlockItemBase(ModBlocks.MUD_BRICK_STAIRS.get()));
+  public static final RegistryObject<Item> MUD_BRICK_WALL_ITEM = ITEMS.register("mud_brick_wall",
+      () -> new BlockItemBase(ModBlocks.MUD_BRICK_WALL.get()));
 
   // miscellaneous
   public static final RegistryObject<Item> CANDLE_ITEM = ITEMS.register("candle",

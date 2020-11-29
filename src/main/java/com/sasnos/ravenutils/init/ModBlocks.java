@@ -2,6 +2,9 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.*;
+import com.sasnos.ravenutils.blocks.crimwood.*;
+import com.sasnos.ravenutils.blocks.mud.*;
+import com.sasnos.ravenutils.blocks.ores.*;
 import net.minecraft.block.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,7 +28,6 @@ public class ModBlocks {
   public static final RegistryObject<Block> SALT_ORE = BLOCKS.register("salt_ore", SaltOre::new);
   public static final RegistryObject<Block> BLACK_COAL_ORE = BLOCKS.register("black_coal_ore", BlackCoalOre::new);
   public static final RegistryObject<Block> LIMESTONE_BLOCK = BLOCKS.register("limestone_block", LimestoneBlock::new);
-  public static final RegistryObject<Block> MUD_BLOCK = BLOCKS.register("mud_block", MudBlock::new);
   public static final RegistryObject<Block> PEAT_BLOCK = BLOCKS.register("peat_block", PeatBlock::new);
 
   // blocks
@@ -86,6 +88,13 @@ public class ModBlocks {
   public static final RegistryObject<FenceBlock> CRIMWOOD_FENCE = BLOCKS.register("crimwood_fence", CrimwoodFence::new);
   public static final RegistryObject<FenceGateBlock> CRIMWOOD_FENCE_GATE = BLOCKS.register("crimwood_fence_gate", CrimwoodFenceGate::new);
   public static final RegistryObject<Block> CRIMWOOD_BUTTON = BLOCKS.register("crimwood_button", CrimwoodButton::new);
+
+  // mud
+  public static final RegistryObject<Block> MUD_BLOCK = BLOCKS.register("mud_block", MudBlock::new);
+  public static final RegistryObject<Block> MUD_BRICKS = BLOCKS.register("mud_bricks", MudBricks::new);
+  public static final RegistryObject<StairsBlock> MUD_BRICK_STAIRS = BLOCKS.register("mud_brick_stairs", MudBrickStairs::new);
+  public static final RegistryObject<SlabBlock> MUD_BRICK_SLAB = BLOCKS.register("mud_brick_slab", MudBrickSlab::new);
+  public static final RegistryObject<WallBlock> MUD_BRICK_WALL = BLOCKS.register("mud_brick_wall", MudBrickWall::new);
 
   // berry bushes
   // todo move berry bushes to Cuisine module

@@ -420,9 +420,6 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.PEAT_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/peat_block"));
 
-    withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/mud_block"));
-
     // tools
     singleTexture("item/" + ModToolItems.BEDROLL.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
@@ -743,10 +740,10 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/mytherine_boots"));
 
-    singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
+    /* singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
-        resourceLocation("item/mytherine_shield"));
+        resourceLocation("item/mytherine_shield")); */
 
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
@@ -767,8 +764,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/coin_gold"));
 
-    withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_boat"));
+    /* withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
+        resourceLocation("block/crimwood_boat")); */
 
     // berries
     // todo move berries to Cuisine module
@@ -799,64 +796,76 @@ public class ItemModels extends ItemModelProvider {
 
     // crimwood itemblocks
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood"));
+        modLoc("block/crimwood"));
 
-    withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_door"));
+    /* withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/crimwood_door")); */
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LEAVES_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_leaves"));
+        modLoc("block/crimwood_leaves"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LOG_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_log"));
+        modLoc("block/crimwood_log"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_PLANKS_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_planks"));
+        modLoc("block/crimwood_planks"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_pressure_plate"));
+        modLoc("block/crimwood_pressure_plate"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_SAPLING_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_sapling"));
+        modLoc("block/crimwood_sapling"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_SLAB_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_slab"));
+        modLoc("block/crimwood_slab"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_STAIRS_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_stairs"));
+        modLoc("block/crimwood_stairs"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_fence_gate"));
+        modLoc("block/crimwood_fence_gate"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_FENCE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_fence_inventory"));
+        modLoc("block/crimwood_fence_inventory"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_trap_door"));
+        modLoc("block/crimwood_trap_door"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_button_inventory"));
+        modLoc("block/crimwood_button_inventory"));
 
     /* singleTexture("item/"+ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
             mcLoc("item/generated"),
             "layer0",
             modLoc("items/crimwood_sign"));*/
 
-    // mud blocks
+    // mud itemblocks
     withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/mud_block"));
+        modLoc("block/mud_block"));
+
+    withExistingParent("item/" + ModBlockItems.MUD_BRICKS_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/mud_bricks"));
+
+    withExistingParent("item/" + ModBlockItems.MUD_BRICK_SLAB_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/mud_brick_slab"));
+
+    withExistingParent("item/" + ModBlockItems.MUD_BRICK_STAIRS_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/mud_brick_stairs"));
+
+    withExistingParent("item/" + ModBlockItems.MUD_BRICK_WALL_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/mud_brick_wall_inventory"));
 
     // stone anvils
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_anvil_andesite"));
+        modLoc("block/stone_anvil_andesite"));
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_DIORITE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_anvil_diorite"));
+        modLoc("block/stone_anvil_diorite"));
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_GRANITE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_anvil_granite"));
+        modLoc("block/stone_anvil_granite"));
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
-        resourceLocation("block/stone_anvil_stone"));
+        modLoc("block/stone_anvil_stone"));
   }
 }
