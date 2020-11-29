@@ -348,7 +348,7 @@ a201f414c3d59ea5c330f59a353f9d6cffcc55be assets/ravenutils/models/item/wheat_flo
 50c3ef435301c8e97f22cd25dde157148f1c5de5 assets/ravenutils/models/item/zinc_nugget.json
 5270500981658c1953bc94235ad513e7f2671e38 assets/ravenutils/models/item/zinc_ore.json
 c15212383972930e784df86043d6acb907cce4a7 data/forge/loot_modifiers/global_loot_modifiers.json
-392b55ad4884e2ff2bc7bb7ae3c4cb0eb6290613 data/forge/tags/blocks/fence_gates.json
+90a4b7c01309ae7f44808d054a48b236eb52e3ee data/forge/tags/blocks/fence_gates/wooden.json
 1380cd25ce92ddd6e773f371dbc4a7fd0f3f75e8 data/forge/tags/blocks/flower_pots.json
 f741b39d4868fc14e83d5b277b143db3704306eb data/forge/tags/blocks/infiniburn_overworld.json
 70bf5bb2ae20f66362e5c215e8e48d4c49203523 data/forge/tags/blocks/leaves.json
@@ -570,6 +570,7 @@ daff9f54f5f08ad6050e4564819bdf59534479e7 data/minecraft/recipes/zinc_ingot_from_
 c226f99202813b1383b5d90c6176a2bfe952b039 data/minecraft/recipes/zinc_ingot_from_smelting.json
 7ef3f191ae9ae690ea6d5a80e88c9adad12a9bd8 data/minecraft/recipes/zinc_ingots_from_block.json
 7c5098f7ebef2afef9fc8a54d3d5424629a7c625 data/minecraft/tags/blocks/logs.json
+ffc35ec9b7cdbbb34c664ec86c3d7d4be76426e9 data/minecraft/tags/blocks/walls.json
 e8830e3dc176185e53eb4c9eeb959929ad3a12fa data/minecraft/tags/blocks/wooden_fences.json
 083dfc4b931daa93164e2f6a59453c84b299ce81 data/minecraft/tags/fluids/water.json
 2d960c4cce898862e1d49f7ceb48206b5c12d2ba data/minecraft/tags/items/burnable_bucket.json

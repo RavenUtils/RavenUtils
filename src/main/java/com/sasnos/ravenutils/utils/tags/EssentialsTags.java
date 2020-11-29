@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.utils.tags;
 
+import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -34,7 +35,6 @@ public class EssentialsTags {
     public static void init() {
     }
 
-    ;
     public static final ITag.INamedTag<Block> ores = BlockTags.makeWrapperTag("forge:ore");
     public static final ITag.INamedTag<Block> non_flammable_wood = BlockTags.makeWrapperTag("forge:non_flammable_wood");
     public static final ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
@@ -51,6 +51,9 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> wooden_slabs = BlockTags.makeWrapperTag("forge:wooden_slabs");
     public static final ITag.INamedTag<Block> wooden_stairs = BlockTags.makeWrapperTag("forge:wooden_stairs");
     public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
+
+    public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":mud_wall");
+    public static final ITag.INamedTag<Block> mud_gate = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":mud_fences");
   }
 
   public static class Items {

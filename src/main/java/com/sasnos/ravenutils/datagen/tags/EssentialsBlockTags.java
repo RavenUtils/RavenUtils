@@ -4,11 +4,11 @@ import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.tags.BlockTags;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.fence_gates;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.flower_pots;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.infiniburn_overworld;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.leaves;
@@ -55,8 +55,15 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.POTTED_CRIMLEAF.get()
     );
 
-    getOrCreateBuilder(BlockTags.makeWrapperTag(BlockTags.WOODEN_FENCES.getName().getPath()))
+    getOrCreateBuilder(BlockTags.WOODEN_FENCES)
             .add(ModBlocks.CRIMWOOD_FENCE.get());
+
+    getOrCreateBuilder(Tags.Blocks.FENCE_GATES_WOODEN)
+            .add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
+
+    getOrCreateBuilder(BlockTags.WALLS)
+            .add(ModBlocks.MUD_BRICK_WALL.get());
+
 
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),
@@ -75,7 +82,7 @@ public class EssentialsBlockTags extends BlockTagsProvider {
 
     getOrCreateBuilder(BlockTags.LOGS).add(ModBlocks.CRIMWOOD_LOG.get());
 
-    getOrCreateBuilder(fence_gates).add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
+    getOrCreateBuilder(Tags.Blocks.FENCE_GATES_WOODEN).add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
     getOrCreateBuilder(leaves).add(ModBlocks.CRIMWOOD_LEAVES.get());
     getOrCreateBuilder(planks).add(ModBlocks.CRIMWOOD_PLANKS.get());
     getOrCreateBuilder(wooden_buttons).add(ModBlocks.CRIMWOOD_BUTTON.get());
