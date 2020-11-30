@@ -1,0 +1,25 @@
+{
+  "type": "ravenutils:alloy_recipe",
+  "materials": [
+    {
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "ravenutils:coal_dust"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "item": "ravenutils:steel_ingot"
+  },
+  "additional": {
+    "item": "ravenutils:slag",
+    "change": 0.5
+  },
+  "cookingtime": 300
+}

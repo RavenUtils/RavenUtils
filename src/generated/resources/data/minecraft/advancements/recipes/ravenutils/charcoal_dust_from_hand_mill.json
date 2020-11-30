@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:bronze_ingot"
+      "minecraft:charcoal_dust_from_hand_mill"
     ]
   },
   "criteria": {
-    "has_copper": {
+    "has_charcoal": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:copper_ingot"
+            "item": "minecraft:charcoal"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:bronze_ingot"
+        "recipe": "minecraft:charcoal_dust_from_hand_mill"
       }
     }
   },
   "requirements": [
     [
-      "has_copper",
+      "has_charcoal",
       "has_the_recipe"
     ]
   ]

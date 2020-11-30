@@ -1,0 +1,16 @@
+{
+  "type": "ravenutils:mill_recipe",
+  "ingredient": {
+    "item": "minecraft:wheat"
+  },
+  "result": {
+    "item": "ravenutils:wheat_flour",
+    "count": 4
+  },
+  "additionalDropChance": 1.0,
+  "additional": {
+    "item": "ravenutils:wheat_flour",
+    "change": 1.0
+  },
+  "timer": 10
+}

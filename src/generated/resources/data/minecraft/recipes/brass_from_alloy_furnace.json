@@ -9,18 +9,17 @@
     },
     {
       "ingredient": {
-        "item": "ravenutils:tin_ingot"
+        "item": "ravenutils:zinc_ingot"
       },
       "count": 1
     }
   ],
   "result": {
-    "item": "ravenutils:bronze_ingot",
+    "item": "ravenutils:brass_ingot",
     "count": 3
   },
   "additional": {
-    "item": "minecraft:bone",
-    "count": 5,
+    "item": "ravenutils:slag",
     "change": 0.5
   },
   "cookingtime": 200

@@ -582,12 +582,12 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_clay", hasItem(Items.CLAY))
         .build(consumer); */
 
-    /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_BOAT.get())
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_BOAT.get())
         .patternLine("# #")
         .patternLine("###")
         .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer); */
+        .build(consumer);
 
     /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
         .patternLine("WWW")

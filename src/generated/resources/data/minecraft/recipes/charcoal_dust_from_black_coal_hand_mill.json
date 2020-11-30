@@ -1,0 +1,16 @@
+{
+  "type": "ravenutils:mill_recipe",
+  "ingredient": {
+    "item": "ravenutils:black_coal"
+  },
+  "result": {
+    "item": "ravenutils:coal_dust",
+    "count": 4
+  },
+  "additionalDropChance": 1.0,
+  "additional": {
+    "item": "ravenutils:coal_dust",
+    "change": 1.0
+  },
+  "timer": 10
+}

@@ -1,0 +1,16 @@
+{
+  "type": "ravenutils:mill_recipe",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "item": "ravenutils:coal_dust",
+    "count": 2
+  },
+  "additionalDropChance": 1.0,
+  "additional": {
+    "item": "ravenutils:coal_dust",
+    "change": 1.0
+  },
+  "timer": 10
+}

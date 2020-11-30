@@ -69,6 +69,18 @@ public class ModItems {
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
 
+  // barks
+  public static final RegistryObject<Item> BARK_ACACIA = ITEMS.register("bark_acacia", ItemBase::new);
+  public static final RegistryObject<Item> BARK_BIRCH = ITEMS.register("bark_birch", ItemBase::new);
+  public static final RegistryObject<Item> BARK_CRIMSON_STEM = ITEMS.register("bark_crimson_stem", ItemBase::new);
+  public static final RegistryObject<Item> BARK_CRIMWOOD = ITEMS.register("bark_crimwood", ItemBase::new);
+  public static final RegistryObject<Item> BARK_DARK_OAK = ITEMS.register("bark_dark_oak", ItemBase::new);
+  public static final RegistryObject<Item> BARK_JUNGLE = ITEMS.register("bark_jungle", ItemBase::new);
+  public static final RegistryObject<Item> BARK_OAK = ITEMS.register("bark_oak", ItemBase::new);
+  public static final RegistryObject<Item> BARK_SPRUCE = ITEMS.register("bark_spruce", ItemBase::new);
+  public static final RegistryObject<Item> BARK_WARPED_STEM = ITEMS.register("bark_warped_stem", ItemBase::new);
+
+  // hides
   public static final RegistryObject<Item> HIDE_FRESH = ITEMS.register("hide_fresh", ItemBase::new);
   public static final RegistryObject<Item> HIDE_CURED = ITEMS.register("hide_cured", ItemBase::new);
   public static final RegistryObject<Item> HIDE_SCRAPED = ITEMS.register("hide_scraped", ItemBase::new);

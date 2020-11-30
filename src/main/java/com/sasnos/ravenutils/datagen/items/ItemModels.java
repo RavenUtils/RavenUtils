@@ -98,6 +98,51 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/dried_plant_fibre"));
 
+    singleTexture("item/" + ModItems.BARK_ACACIA.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_acacia"));
+
+    singleTexture("item/" + ModItems.BARK_BIRCH.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_birch"));
+
+    singleTexture("item/" + ModItems.BARK_CRIMSON_STEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_crimson_stem"));
+
+    singleTexture("item/" + ModItems.BARK_CRIMWOOD.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_crimwood"));
+
+    singleTexture("item/" + ModItems.BARK_DARK_OAK.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_dark_oak"));
+
+    singleTexture("item/" + ModItems.BARK_JUNGLE.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_jungle"));
+
+    singleTexture("item/" + ModItems.BARK_OAK.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_oak"));
+
+    singleTexture("item/" + ModItems.BARK_SPRUCE.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_spruce"));
+
+    singleTexture("item/" + ModItems.BARK_WARPED_STEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/bark_warped_stem"));
+
     singleTexture("item/" + ModItems.PLANT_TWINE.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -789,11 +834,13 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/coin_gold"));
 
-    /* withExistingParent("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
-        resourceLocation("block/crimwood_boat")); */
+    singleTexture("item/" + ModItems.CRIMWOOD_BOAT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/crimwood_boat"));
 
-    // berries
     // todo move berries to Cuisine module
+    // berries
     singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -823,8 +870,10 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood"));
 
-    /* withExistingParent("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/crimwood_door")); */
+    singleTexture("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/crimwood_door"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LEAVES_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_leaves"));

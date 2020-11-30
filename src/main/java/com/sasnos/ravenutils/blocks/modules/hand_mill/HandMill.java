@@ -17,8 +17,7 @@ public class HandMill extends EssentialsMachineBlock {
                 .hardnessAndResistance(1.2f)
                 .harvestLevel(1));
     }
-
-
+    
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {

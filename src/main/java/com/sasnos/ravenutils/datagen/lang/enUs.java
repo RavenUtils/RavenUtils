@@ -253,6 +253,17 @@ public class enUs extends LanguageProvider {
     add(ModItems.GELATIN.get(), "Gelatin");
 
     add(Items.QUARTZ, "Quartz");
+
+    add(ModItems.BARK_ACACIA.get(), "Acacia Bark");
+    add(ModItems.BARK_BIRCH.get(), "Birch Bark");
+    add(ModItems.BARK_CRIMSON_STEM.get(), "Crimson Stem Bark");
+    add(ModItems.BARK_CRIMWOOD.get(), "Crimwood Bark");
+    add(ModItems.BARK_DARK_OAK.get(), "Dark Oak Bark");
+    add(ModItems.BARK_JUNGLE.get(), "Jungle Bark");
+    add(ModItems.BARK_OAK.get(), "Oak Bark");
+    add(ModItems.BARK_SPRUCE.get(), "Spruce Bark");
+    add(ModItems.BARK_WARPED_STEM.get(), "Warped Stem Bark");
+
     add(ModItems.HIDE_FRESH.get(), "Fresh Hide");
     add(ModItems.HIDE_CURED.get(), "Cured Hide");
     add(ModItems.HIDE_SCRAPED.get(), "Scraped Hide");
@@ -296,7 +307,7 @@ public class enUs extends LanguageProvider {
     add(ModItems.UNFIRED_FLOWER_POT.get(), "Unfired Flower Pot");
     // add(ModItems.UNFIRED_LARGE_FLOWER_POT.get(), "Unfired Large Flower Pot");
 
-    // add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
+    add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
     // add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }
 }
