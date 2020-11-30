@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.blocks.BlockItemBase;
+import com.sasnos.ravenutils.blocks.Millstone;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.init.ModContainer;

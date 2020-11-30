@@ -1,7 +1,10 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
-import com.sasnos.ravenutils.init.*;
+import com.sasnos.ravenutils.init.ModBlockItems;
+import com.sasnos.ravenutils.init.ModFoodItems;
+import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
@@ -313,6 +316,29 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_resin_drop", hasItem(ModItems.RESIN_DROP.get()))
         .build(consumer, "resin_ball_from_resin_drop");
 
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.MUD_BRICK.get(), 1)
+        .addIngredient(ModItems.MUD_LUMP.get())
+        .addIngredient(knives)
+        .addCriterion("has_mud_lump", hasItem(ModItems.MUD_LUMP.get()))
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.UNFIRED_BRICK.get(), 1)
+        .addIngredient(Items.CLAY_BALL)
+        .addIngredient(knives)
+        .addCriterion("has_clay_ball", hasItem(Items.CLAY_BALL))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModItems.GROUT.get(), 8)
+        .patternLine("wl ")
+        .patternLine("ssc")
+        .patternLine("ssc")
+        .key('c', Items.CLAY_BALL)
+        .key('s', ItemTags.SAND)
+        .key('l', ModItems.LIME.get())
+        .key('w', buckets_water)
+        .addCriterion("has_clay_ball", hasItem(Items.CLAY_BALL))
+        .build(consumer);
+
     // tools
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_WOOD.get())
         .patternLine(" s")
@@ -467,7 +493,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
     ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.SOAP.get())
         .addIngredient(ModItems.ASH.get())
         .addIngredient(ModItems.TALLOW.get())
-        .addIngredient(water_buckets)
+        .addIngredient(buckets_water)
         .addCriterion("has_tallow", hasItem(ModItems.TALLOW.get()))
         .build(consumer);
 
@@ -540,6 +566,39 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer, "torch_from_cloth_with_tallow");
 
+    ShapedRecipeBuilder.shapedRecipe(ModItems.UNFIRED_FLOWER_POT.get())
+        .patternLine("ckc")
+        .patternLine(" c ")
+        .key('c', Items.CLAY_BALL)
+        .key('k', knives)
+        .addCriterion("has_clay_ball", hasItem(Items.CLAY_BALL))
+        .build(consumer);
+
+    /* ShapedRecipeBuilder.shapedRecipe(ModItems.UNFIRED_LARGE_FLOWER_POT.get())
+        .patternLine("k")
+        .patternLine("c")
+        .key('c', Items.CLAY)
+        .key('k', knives)
+        .addCriterion("has_clay", hasItem(Items.CLAY))
+        .build(consumer); */
+
+    /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_BOAT.get())
+        .patternLine("# #")
+        .patternLine("###")
+        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .build(consumer); */
+
+    /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
+        .patternLine("WWW")
+        .patternLine("WWW")
+        .patternLine(" # ")
+        .key('#', Tags.Items.RODS_WOODEN)
+        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .build(consumer); */
+
+    // functional blocks
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STONE_ANVIL_ANDESITE_ITEM.get())
         .patternLine("SSS")
         .patternLine(" S ")

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wl ",
+    "ssc",
+    "ssc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "s": {
+      "tag": "minecraft:sand"
+    },
+    "l": {
+      "item": "ravenutils:lime"
+    },
+    "w": {
+      "tag": "forge:buckets/water"
+    }
+  },
+  "result": {
+    "item": "ravenutils:grout",
+    "count": 8
+  }
+}

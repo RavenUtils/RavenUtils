@@ -59,19 +59,32 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.BUCKET_CRIMWOOD.get()
     );
 
-    // todo custom variants (wood, clay, crimwood)
-    getOrCreateBuilder(water_buckets).add(
+    // todo add custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(buckets_water).add(
         Items.WATER_BUCKET
     );
 
-    // todo custom variants (wood, clay, crimwood)
-    getOrCreateBuilder(milk_buckets).add(
-        Items.MILK_BUCKET
+    // todo add custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(buckets_lava).add(
+        Items.LAVA_BUCKET
     );
 
-    // todo crimwood variant
-    getOrCreateBuilder(lava_buckets).add(
-        Items.LAVA_BUCKET
+    getOrCreateBuilder(buckets_milk).add(
+        Items.MILK_BUCKET,
+        ModToolItems.BUCKET_WOOD_MILK.get(),
+        ModToolItems.BUCKET_CLAY_MILK.get(),
+        ModToolItems.BUCKET_IRON_MILK.get(),
+        ModToolItems.BUCKET_CRIMWOOD_MILK.get()
+    );
+
+    // todo add custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(buckets_limewater).add(
+        ModToolItems.BUCKET_IRON_LIMEWATER.get()
+    );
+
+    // todo add custom variants (wood, clay, crimwood)
+    getOrCreateBuilder(buckets_tannin).add(
+        ModToolItems.BUCKET_IRON_TANNIN.get()
     );
 
     getOrCreateBuilder(axes).add(
@@ -98,7 +111,9 @@ public class EssentialsItemTags extends ItemTagsProvider {
         Items.BAMBOO
     );
 
-    getOrCreateBuilder(slimeballs).add(ModItems.RESIN_BALL.get());
+    getOrCreateBuilder(slimeballs).add(
+        ModItems.RESIN_BALL.get()
+    );
 
     getOrCreateBuilder(raw_meat).add(
         Items.BEEF,
@@ -113,8 +128,13 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModFoodItems.WHEAT_FLOUR.get()
     );
 
-    getOrCreateBuilder(strings).add(ModItems.PLANT_TWINE.get());
-    getOrCreateBuilder(salts).add(ModItems.SALT.get());
+    getOrCreateBuilder(strings).add(
+        ModItems.PLANT_TWINE.get()
+    );
+
+    getOrCreateBuilder(salts).add(
+        ModItems.SALT.get()
+    );
 
     getOrCreateBuilder(coals_stone).add(
         ModItems.BLACK_COAL.get(),
@@ -168,7 +188,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModBlockItems.CRIMWOOD_LOG_ITEM.get()
     );
 
-    getOrCreateBuilder(burnableBuckets).add(
+    getOrCreateBuilder(buckets_burnable).add(
         ModToolItems.BUCKET_WOOD.get(),
         ModToolItems.BUCKET_CLAY.get()
     );

@@ -132,4 +132,6 @@ public class ModBlocks {
   public static final RegistryObject<Block> STONE_ANVIL_DIORITE = BLOCKS.register("stone_anvil_diorite", StoneAnvil::new);
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_DIORITE = BLOCKS.register("damaged_stone_anvil_diorite", StoneAnvil::new);
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_DIORITE = BLOCKS.register("chipped_stone_anvil_diorite", StoneAnvil::new);
+
+  // miscellaneous
 }

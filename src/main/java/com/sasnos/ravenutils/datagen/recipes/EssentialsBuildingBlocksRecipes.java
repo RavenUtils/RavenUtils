@@ -3,9 +3,12 @@ package com.sasnos.ravenutils.datagen.recipes;
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Items;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
@@ -83,20 +86,54 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
 
-    /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_BOAT.get())
-        .patternLine("# #")
-        .patternLine("###")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer); */
+    // mud
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICKS_ITEM.get())
+        .patternLine(" m ")
+        .patternLine("mcm")
+        .patternLine(" m ")
+        .key('m', ModItems.MUD_BRICK_DRIED.get())
+        .key('c', Items.CLAY_BALL)
+        .addCriterion("has_mud_brick_dried", hasItem(ModItems.MUD_BRICK_DRIED.get()))
+        .build(consumer);
 
-    /* ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
-        .patternLine("WWW")
-        .patternLine("WWW")
-        .patternLine(" # ")
-        .key('#', Tags.Items.RODS_WOODEN)
-        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer); */
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_SLAB_ITEM.get(), 6)
+        .patternLine("###")
+        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_STAIRS_ITEM.get(), 4)
+        .patternLine("#  ")
+        .patternLine("## ")
+        .patternLine("###")
+        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_WALL_ITEM.get(), 6)
+        .patternLine("###")
+        .patternLine("###")
+        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .build(consumer);
+
+    // miscellaneous
+    ShapedRecipeBuilder.shapedRecipe(Blocks.BRICKS, 4)
+        .patternLine(" b ")
+        .patternLine("bgb")
+        .patternLine(" b ")
+        .key('b', Items.BRICK)
+        .key('g', ModItems.GROUT.get())
+        .addCriterion("has_brick", hasItem(Items.BRICK))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Blocks.STONE_BRICKS, 4)
+        .patternLine(" s ")
+        .patternLine("sgs")
+        .patternLine(" s ")
+        .key('s', Items.STONE)
+        .key('g', ModItems.GROUT.get())
+        .addCriterion("has_stone", hasItem(Items.STONE))
+        .build(consumer);
   }
 }

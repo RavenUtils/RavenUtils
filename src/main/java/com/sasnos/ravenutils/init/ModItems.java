@@ -48,8 +48,13 @@ public class ModItems {
   public static final RegistryObject<Item> RAVEN_EYE_DUST = ITEMS.register("raven_eye_dust", ItemBase::new);
   public static final RegistryObject<Item> BLACK_COAL = ITEMS.register("black_coal", BlackCoal::new);
   public static final RegistryObject<Item> PEAT = ITEMS.register("peat", Peat::new);
-  public static final RegistryObject<Item> MUD_LUMP = ITEMS.register("mud_lump", ItemBase::new);
   public static final RegistryObject<Item> LIME = ITEMS.register("lime", ItemBase::new);
+  public static final RegistryObject<Item> GROUT = ITEMS.register("grout", ItemBase::new);
+  public static final RegistryObject<Item> MUD_LUMP = ITEMS.register("mud_lump", ItemBase::new);
+  public static final RegistryObject<Item> MUD_BRICK = ITEMS.register("mud_brick", ItemBase::new);
+  public static final RegistryObject<Item> MUD_BRICK_DRIED = ITEMS.register("mud_brick_dried", ItemBase::new);
+  public static final RegistryObject<Item> UNFIRED_BRICK = ITEMS.register("unfired_brick", ItemBase::new);
+  public static final RegistryObject<Item> UNFIRED_FLOWER_POT = ITEMS.register("flower_pot_unfired", ItemBase::new);
   public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur", ItemBase::new);
   public static final RegistryObject<Item> NITER = ITEMS.register("niter", ItemBase::new);
   public static final RegistryObject<Item> SMALL_STONE = ITEMS.register("small_stone", ItemBase::new);
@@ -77,8 +82,8 @@ public class ModItems {
   public static final RegistryObject<Item> COIN_SILVER = ITEMS.register("coin_silver", ItemBase::new);
   public static final RegistryObject<Item> COIN_GOLD = ITEMS.register("coin_gold", ItemBase::new);
 
-  /* public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
-      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire())); */
+  public static final RegistryObject<Item> CRIMWOOD_BOAT = ITEMS.register("crimwood_boat",
+      () -> new BoatItem(BoatEntity.Type.ACACIA, new Item.Properties().group(RavenUtils.TAB).isImmuneToFire()));
 
   /* public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())

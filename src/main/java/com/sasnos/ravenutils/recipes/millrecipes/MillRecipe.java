@@ -22,15 +22,15 @@ public class MillRecipe extends EssentialsRecipe {
     private final float change;
     private final int timer;
     private final ItemStack additionalResult;
-    private final float additionalChange;
+    private final float additionalChance;
 
-    public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChange, ItemStack output, ItemStack additionalResult, float additionalChange){
+    public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance){
         this.id = id;
         this.output = output;
         this.input = input;
         this.timer = time;
-        this.change = additionalDropChange;
-        this.additionalChange = additionalChange;
+        this.change = additionalDropChance;
+        this.additionalChance = additionalChance;
         this.additionalResult = additionalResult;
     }
 
@@ -45,7 +45,7 @@ public class MillRecipe extends EssentialsRecipe {
         outputs.add(output.copy());
         if (additionalResult != ItemStack.EMPTY) {
             float change = new Random().nextFloat();
-            if (change <= additionalChange) {
+            if (change <= additionalChance) {
                 outputs.add(additionalResult.copy());
             }
         }
@@ -87,7 +87,7 @@ public class MillRecipe extends EssentialsRecipe {
         return additionalResult;
     }
 
-    public float getAdditionalChange() {
-        return additionalChange;
+    public float getAdditionalChance() {
+        return additionalChance;
     }
 }

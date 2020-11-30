@@ -76,7 +76,6 @@ public class CandleBlock extends TorchBlock {
 
   public CandleBlock() {
     super(AbstractBlock.Properties.create(Material.MISCELLANEOUS)
-            .hardnessAndResistance(0)
             .doesNotBlockMovement()
             .zeroHardnessAndResistance()
             .setLightLevel((state) -> {

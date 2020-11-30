@@ -23,7 +23,7 @@ public class AlloyRecipe extends EssentialsRecipe {
   private final NonNullList<Material> input;
   private final int timer;
   private final ItemStack additionalResult;
-  private final float additionalChange;
+  private final float additionalChance;
 
 
   public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
@@ -32,7 +32,7 @@ public class AlloyRecipe extends EssentialsRecipe {
     this.timer = time;
     this.id = id;
     this.additionalResult = additional;
-    this.additionalChange = change;
+    this.additionalChance = change;
   }
 
   public NonNullList<Material> getInput() {
@@ -86,7 +86,7 @@ public class AlloyRecipe extends EssentialsRecipe {
     outputs.add(output.copy());
     if (additionalResult != ItemStack.EMPTY) {
       float change = new Random().nextFloat();
-      if (change <= additionalChange) {
+      if (change <= additionalChance) {
         outputs.add(additionalResult.copy());
       }
     }
@@ -99,8 +99,8 @@ public class AlloyRecipe extends EssentialsRecipe {
     return additionalResult;
   }
 
-  public float getAdditionalChange() {
-    return additionalChange;
+  public float getAdditionalChance() {
+    return additionalChance;
   }
 
   @NotNull

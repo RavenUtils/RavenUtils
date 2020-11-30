@@ -115,6 +115,9 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.BLACKBERRY_BUSH.get(), "Blackberry Bush");
     add(ModBlocks.GOOSEBERRY_BUSH.get(), "Gooseberry Bush");
 
+    // misc blocks
+    // add(ModBlocks.LARGE_FLOWER_POT.get(), "Large Flower Pot");
+
     // food(-related) items
     add(ModFoodItems.BUSHMEAT.get(), "Raw Bushmeat");
     add(ModFoodItems.COOKED_BUSHMEAT.get(), "Cooked Bushmeat");
@@ -269,7 +272,11 @@ public class enUs extends LanguageProvider {
     add(ModItems.RAVEN_EYE_GEM.get(), "Raven Eye");
     add(ModItems.RAVEN_EYE_DUST.get(), "Raven Eye Dust");
     add(ModItems.LIME.get(), "Lime");
+    add(ModItems.GROUT.get(), "Grout");
     add(ModItems.MUD_LUMP.get(), "Lump of Mud");
+    add(ModItems.MUD_BRICK.get(), "Mud Brick");
+    add(ModItems.MUD_BRICK_DRIED.get(), "Dried Mud Brick");
+    add(ModItems.UNFIRED_BRICK.get(), "Unfired Brick");
     add(ModItems.SULFUR.get(), "Sulfur");
     add(ModItems.BLACK_COAL.get(), "Black Coal");
     add(ModItems.PEAT.get(), "Peat");
@@ -286,6 +293,9 @@ public class enUs extends LanguageProvider {
 
     // miscellaneous
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");
+    add(ModItems.UNFIRED_FLOWER_POT.get(), "Unfired Flower Pot");
+    // add(ModItems.UNFIRED_LARGE_FLOWER_POT.get(), "Unfired Large Flower Pot");
+
     // add(ModItems.CRIMWOOD_BOAT.get(), "Crimwood Boat");
     // add(ModItems.CRIMWOOD_SIGN.get(), "Crimwood Sign");
   }

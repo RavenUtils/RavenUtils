@@ -141,7 +141,7 @@ public class Bucket extends BaseBucketItem {
 
   private boolean bucketBurns(ItemStack stack) {
     Item bucket = stack.getItem();
-    return bucket.isIn(EssentialsTags.Items.burnableBuckets);
+    return bucket.isIn(EssentialsTags.Items.buckets_burnable);
   }
 
   /**

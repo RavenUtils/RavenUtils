@@ -118,10 +118,35 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/lime"));
 
+    singleTexture("item/" + ModItems.GROUT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/grout"));
+
     singleTexture("item/" + ModItems.MUD_LUMP.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/mud_lump"));
+
+    singleTexture("item/" + ModItems.MUD_BRICK.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/mud_brick_wet"));
+
+    singleTexture("item/" + ModItems.MUD_BRICK_DRIED.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/mud_brick_dried"));
+
+    singleTexture("item/" + ModItems.UNFIRED_BRICK.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/unfired_brick"));
+
+    singleTexture("item/" + ModItems.UNFIRED_FLOWER_POT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/unfired_flower_pot"));
 
     singleTexture("item/" + ModItems.RESIN_DROP.get().getRegistryName().getPath(),
         mcLoc("item/generated"),

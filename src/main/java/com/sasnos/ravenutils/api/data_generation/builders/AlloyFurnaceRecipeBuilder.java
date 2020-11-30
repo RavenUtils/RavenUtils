@@ -25,8 +25,8 @@ public class AlloyFurnaceRecipeBuilder {
 
   private Item result;
   private Item additionalResult = null;
-  private int additionalCounter = 0;
-  private float additionalChange = 0;
+  private int additionalCount = 0;
+  private float additionalChance = 0;
   private int count;
   private int timer;
   private String group;
@@ -62,8 +62,8 @@ public class AlloyFurnaceRecipeBuilder {
 
   public AlloyFurnaceRecipeBuilder addAdditionalOutput(Item output, int count, float change) {
     additionalResult = output;
-    additionalCounter = count;
-    additionalChange = change;
+    additionalCount = count;
+    additionalChance = change;
     return this;
   }
 
@@ -89,7 +89,7 @@ public class AlloyFurnaceRecipeBuilder {
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
     ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getGroup().getPath() + "/" + id.getPath());
-    consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.result, this.count, this.materials, timer, this.advancementBuilder, advancementId, additionalResult, additionalCounter, additionalChange));
+    consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.result, this.count, this.materials, timer, this.advancementBuilder, advancementId, additionalResult, additionalCount, additionalChance));
   }
 
   private void validate(ResourceLocation id) {
@@ -105,12 +105,12 @@ public class AlloyFurnaceRecipeBuilder {
       ResourceLocation id, String group, Item result,
       int count, List<Material> materials, int timer,
       Advancement.Builder advancementBuilder, ResourceLocation advancementId, Item additionalResult,
-      int additionalCounter, float additionalChange) {
+      int additionalCount, float additionalChance) {
     return
         new Result(id, group, result,
             count, materials, timer,
             advancementBuilder, advancementId, additionalResult,
-            additionalCounter, additionalChange);
+            additionalCount, additionalChance);
   }
 
   protected static class Result implements IFinishedRecipe {
@@ -119,13 +119,13 @@ public class AlloyFurnaceRecipeBuilder {
     public final String group;
     public final Item result;
     private Item additionalResult;
-    private int additionalCounter;
-    private float additionalChange;
+    private int additionalCount;
+    private float additionalChance;
     public final int count;
     public final int timer;
     public final List<Material> materials;
     public final Advancement.Builder advBuilder;
-    public final ResourceLocation advancmentId;
+    public final ResourceLocation advancementId;
 
     Result(
         ResourceLocation id,
@@ -137,8 +137,8 @@ public class AlloyFurnaceRecipeBuilder {
         Advancement.Builder advancementBuilder,
         ResourceLocation advancementId,
         Item additionalResult,
-        int additionalCounter,
-        float additionalChange) {
+        int additionalCount,
+        float additionalChance) {
       this.id = id;
       this.group = group;
       this.result = result;
@@ -146,10 +146,10 @@ public class AlloyFurnaceRecipeBuilder {
       this.materials = materials;
       this.timer = timer;
       this.advBuilder = advancementBuilder;
-      this.advancmentId = advancementId;
+      this.advancementId = advancementId;
       this.additionalResult = additionalResult;
-      this.additionalCounter = additionalCounter;
-      this.additionalChange = additionalChange;
+      this.additionalCount = additionalCount;
+      this.additionalChance = additionalChance;
     }
 
     @Override
@@ -170,10 +170,10 @@ public class AlloyFurnaceRecipeBuilder {
       if (additionalResult != null) {
         JsonObject additionalResult = new JsonObject();
         additionalResult.addProperty("item", ForgeRegistries.ITEMS.getKey(this.additionalResult).toString());
-        if (additionalCounter > 1) {
-          additionalResult.addProperty("count", additionalCounter);
+        if (additionalCount > 1) {
+          additionalResult.addProperty("count", additionalCount);
         }
-        additionalResult.addProperty("change", additionalChange);
+        additionalResult.addProperty("change", additionalChance);
         json.add("additional", additionalResult);
       }
       json.addProperty("cookingtime", timer);
@@ -198,7 +198,7 @@ public class AlloyFurnaceRecipeBuilder {
     @Nullable
     @Override
     public ResourceLocation getAdvancementID() {
-      return advancmentId;
+      return advancementId;
     }
   }
 

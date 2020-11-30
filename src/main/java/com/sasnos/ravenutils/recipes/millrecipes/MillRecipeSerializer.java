@@ -18,7 +18,7 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
         ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
         Ingredient inputs = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
         int timer = JSONUtils.getInt(json, "timer");
-        float additionalDropChange = JSONUtils.getFloat(json, "additionalDropChange");
+        float additionalDropChance = JSONUtils.getFloat(json, "additionalDropChance");
         ItemStack additionalOutput = ItemStack.EMPTY;
         float change = 0;
         if (json.has("additional")) {
@@ -27,7 +27,7 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
             change = JSONUtils.getFloat(additional, "change");
         }
 
-        return new MillRecipe(recipeId, timer, inputs, additionalDropChange, output, additionalOutput, change);
+        return new MillRecipe(recipeId, timer, inputs, additionalDropChance, output, additionalOutput, change);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
         buffer.writeFloat(recipe.getAdditionalDropChange());
         buffer.writeVarInt(recipe.getTimer());
         buffer.writeItemStack(recipe.getAdditionalResult());
-        buffer.writeFloat(recipe.getAdditionalChange());
+        buffer.writeFloat(recipe.getAdditionalChance());
     }
 
     @Nullable
@@ -46,11 +46,11 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
     public MillRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
         Ingredient input = Ingredient.read(buffer);
         ItemStack output = buffer.readItemStack();
-        float additionalDropChange = buffer.readFloat();
+        float additionalDropChance = buffer.readFloat();
         int time = buffer.readVarInt();
         ItemStack additionalOutput = buffer.readItemStack();
         float change = buffer.readFloat();
-        return new MillRecipe(recipeId, time, input, additionalDropChange, output, additionalOutput, change);
+        return new MillRecipe(recipeId, time, input, additionalDropChance, output, additionalOutput, change);
     }
 
 }

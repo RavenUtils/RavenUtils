@@ -6,7 +6,7 @@
   "result": {
     "item": "minecraft:wheat_seeds"
   },
-  "additionalDropChange": 1.0,
+  "additionalDropChance": 1.0,
   "additional": {
     "item": "minecraft:bone",
     "count": 5,

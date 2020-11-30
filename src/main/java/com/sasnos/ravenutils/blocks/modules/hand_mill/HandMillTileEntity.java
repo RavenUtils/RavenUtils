@@ -135,7 +135,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
         }
         itemHandler.insertItem(1, output, false);
         itemHandler.extractItem(0, 1, false);
-        if(rand.nextFloat() <= recipe.getAdditionalChange()){
+        if(rand.nextFloat() <= recipe.getAdditionalChance()){
             itemHandler.insertItem(2, recipe.getAdditionalResult(), false);
         }
         counter = 0;

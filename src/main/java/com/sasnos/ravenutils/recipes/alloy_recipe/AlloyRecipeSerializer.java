@@ -66,6 +66,6 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
     buffer.writeItemStack(recipe.getRecipeOutput());
     buffer.writeVarInt(recipe.getTimer());
     buffer.writeItemStack(recipe.getAdditionalResult());
-    buffer.writeFloat(recipe.getAdditionalChange());
+    buffer.writeFloat(recipe.getAdditionalChance());
   }
 }

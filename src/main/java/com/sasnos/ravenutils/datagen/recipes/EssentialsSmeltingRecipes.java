@@ -94,7 +94,32 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
         .build(consumer, "mytherine_ingot_from_smelting");
 
+    // material
+    CookingRecipeBuilder.smeltingRecipe(
+        Ingredient.fromItems(ModItems.UNFIRED_BRICK.get()),
+        Items.BRICK,
+        0.3f,
+        200)
+        .addCriterion("has_unfired_brick", hasItem(ModItems.UNFIRED_BRICK.get()))
+        .build(consumer);
+
     // miscellaneous
+    CookingRecipeBuilder.smeltingRecipe(
+        Ingredient.fromItems(ModItems.UNFIRED_FLOWER_POT.get()),
+        Items.FLOWER_POT,
+        0.3f,
+        200)
+        .addCriterion("has_unfired_flower_pot", hasItem(ModItems.UNFIRED_FLOWER_POT.get()))
+        .build(consumer);
+
+    /* CookingRecipeBuilder.smeltingRecipe(
+        Ingredient.fromItems(ModItems.UNFIRED_LARGE_FLOWER_POT.get()),
+        ModBlockItems.LARGE_FLOWER_POT_ITEM.get(),
+        0.5f,
+        350)
+        .addCriterion("has_unfired_large_flower_pot", hasItem(ModItems.UNFIRED_LARGE_FLOWER_POT.get()))
+        .build(consumer); */
+
     CookingRecipeBuilder.smeltingRecipe(
         Ingredient.fromItems(ModItems.BUCKET_CLAY_UNFIRED.get()),
         ModToolItems.BUCKET_CLAY.get(),

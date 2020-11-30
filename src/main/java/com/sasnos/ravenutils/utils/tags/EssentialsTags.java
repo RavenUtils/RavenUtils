@@ -53,7 +53,6 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
 
     public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":mud_wall");
-    public static final ITag.INamedTag<Block> mud_gate = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":mud_fences");
   }
 
   public static class Items {
@@ -97,11 +96,13 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
 
     public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
-    public static ITag.INamedTag<Item> water_buckets = ItemTags.makeWrapperTag("forge:buckets/water");
-    public static ITag.INamedTag<Item> lava_buckets = ItemTags.makeWrapperTag("forge:buckets/lava");
-    public static ITag.INamedTag<Item> milk_buckets = ItemTags.makeWrapperTag("forge:buckets/milk");
+    public static ITag.INamedTag<Item> buckets_water = ItemTags.makeWrapperTag("forge:buckets/water");
+    public static ITag.INamedTag<Item> buckets_lava = ItemTags.makeWrapperTag("forge:buckets/lava");
+    public static ITag.INamedTag<Item> buckets_milk = ItemTags.makeWrapperTag("forge:buckets/milk");
+    public static ITag.INamedTag<Item> buckets_limewater = ItemTags.makeWrapperTag("forge:buckets/limewater");
+    public static ITag.INamedTag<Item> buckets_tannin = ItemTags.makeWrapperTag("forge:buckets/tannin");
 
-    public static final ITag.INamedTag<Item> burnableBuckets = ItemTags.makeWrapperTag("burnable_bucket");
+    public static final ITag.INamedTag<Item> buckets_burnable = ItemTags.makeWrapperTag("buckets_burnable");
   }
 
   public static class Fluids {

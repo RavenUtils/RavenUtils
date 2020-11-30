@@ -64,7 +64,6 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     getOrCreateBuilder(BlockTags.WALLS)
             .add(ModBlocks.MUD_BRICK_WALL.get());
 
-
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),
         ModBlocks.CRIMWOOD_DOOR.get(),

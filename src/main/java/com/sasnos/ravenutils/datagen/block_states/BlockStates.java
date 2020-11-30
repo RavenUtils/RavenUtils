@@ -401,10 +401,8 @@ public class BlockStates extends EssentialsBlockStates {
         modLoc("blocks/stone_crafting_table_front")).texture("particle", mcLoc("block/cobblestone"));
     simpleBlock(ModBlocks.STONE_CRAFTING_TABLE.get(), stone_crafting_table);
 
-    // more
+    // misc
     BlockModelBuilder crimleaf = models().cross("crimleaf", modLoc("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
-
-    // BlockModelBuilder candle = models().withExistingParent("candle", EssentialsUtils.resourceLocation("block/candle")).texture("4", "blocks/candle");
   }
 }

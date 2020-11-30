@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ravenutils:flower_pot_unfired"
+  },
+  "result": "minecraft:flower_pot",
+  "experience": 0.3,
+  "cookingtime": 200
+}
