@@ -103,6 +103,7 @@ public class EssentialsTags {
     public static ITag.INamedTag<Item> buckets_tannin = ItemTags.makeWrapperTag("forge:buckets/tannin");
 
     public static final ITag.INamedTag<Item> buckets_burnable = ItemTags.makeWrapperTag("buckets_burnable");
+    public static final ITag.INamedTag<Item> fireStarter = ItemTags.makeWrapperTag(RavenUtils.MOD_ID+":fire_starter");
   }
 
   public static class Fluids {

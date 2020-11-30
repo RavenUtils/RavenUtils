@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.sasnos.ravenutils.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.8",
+  "mixins": [
+    "bucket.MixinBucketItem",
+    "bucket.MixinDrinkHelper",
+    "bucket.MixinMilkBucketItem"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

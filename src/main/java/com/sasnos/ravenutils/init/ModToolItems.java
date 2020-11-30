@@ -163,10 +163,12 @@ public class ModToolItems {
       () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
 
   // iron bucket (Vanilla override)
-  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
-      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
-  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
-      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+//  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
+//      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+//  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
+//      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+
+
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
       () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
           .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
