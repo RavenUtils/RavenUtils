@@ -66,6 +66,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Item> fence_gates = ItemTags.makeWrapperTag("forge:fence_gates");
     public static final ITag.INamedTag<Item> leaves = ItemTags.makeWrapperTag("forge:leaves");
     public static final ITag.INamedTag<Item> planks = ItemTags.makeWrapperTag("forge:planks");
+    public static final ITag.INamedTag<Item> barks = ItemTags.makeWrapperTag("forge:barks");
     public static final ITag.INamedTag<Item> saplings = ItemTags.makeWrapperTag("forge:saplings");
     public static final ITag.INamedTag<Item> small_flowers = ItemTags.makeWrapperTag("forge:small_flowers");
     public static final ITag.INamedTag<Item> wooden_buttons = ItemTags.makeWrapperTag("forge:wooden_buttons");

@@ -73,7 +73,6 @@ public class EssentialsItemTags extends ItemTagsProvider {
         Items.MILK_BUCKET,
         ModToolItems.BUCKET_WOOD_MILK.get(),
         ModToolItems.BUCKET_CLAY_MILK.get(),
-        ModToolItems.BUCKET_IRON_MILK.get(),
         ModToolItems.BUCKET_CRIMWOOD_MILK.get()
     );
 
@@ -165,7 +164,20 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModBlockItems.SALT_ORE_ITEM.get()
     );
 
+    getOrCreateBuilder(barks).add(
+        ModItems.BARK_ACACIA.get(),
+        ModItems.BARK_BIRCH.get(),
+        ModItems.BARK_CRIMSON_STEM.get(),
+        ModItems.BARK_CRIMWOOD.get(),
+        ModItems.BARK_DARK_OAK.get(),
+        ModItems.BARK_JUNGLE.get(),
+        ModItems.BARK_OAK.get(),
+        ModItems.BARK_SPRUCE.get(),
+        ModItems.BARK_WARPED_STEM.get()
+    );
+
     getOrCreateBuilder(saplings).add(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get());
+
     getOrCreateBuilder(small_flowers).add(ModBlockItems.CRIMLEAF_ITEM.get());
 
     getOrCreateBuilder(non_flammable_wood).add(

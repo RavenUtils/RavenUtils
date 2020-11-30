@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:bark_acacia",
+    "ravenutils:bark_birch",
+    "ravenutils:bark_crimson_stem",
+    "ravenutils:bark_crimwood",
+    "ravenutils:bark_dark_oak",
+    "ravenutils:bark_jungle",
+    "ravenutils:bark_oak",
+    "ravenutils:bark_spruce",
+    "ravenutils:bark_warped_stem"
+  ]
+}

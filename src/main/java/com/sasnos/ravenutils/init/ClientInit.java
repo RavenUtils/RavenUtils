@@ -28,7 +28,7 @@ public class ClientInit {
 
   @SubscribeEvent
   public static void clientStartup(final FMLClientSetupEvent event) {
-    //ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
+    // ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
     ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
     ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
     ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
@@ -42,9 +42,9 @@ public class ClientInit {
   @SubscribeEvent
   public static void init(FMLClientSetupEvent event) {
     addShieldPropertyOverrides(EssentialsUtils.resourceLocation("blocking"),
-            (stack, world, entity) -> entity != null && entity.isHandActive()
-                    && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
-            ModArmorItems.MYTHERINE_SHIELD.get());
+        (stack, world, entity) -> entity != null && entity.isHandActive()
+            && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
+        ModArmorItems.MYTHERINE_SHIELD.get());
   }
 
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,

@@ -65,6 +65,6 @@ public class ModArmorItems {
       () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.LEGS, new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<ArmorItem> MYTHERINE_BOOTS = ITEMS.register("mytherine_boots",
       () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.FEET, new Item.Properties().group(RavenUtils.TAB)));
-  /* public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
-      () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB))); */
+  public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
+      () -> new ShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB)));
 }

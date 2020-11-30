@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:plant_fibre_from_knife"
+      "minecraft:plant_fibre_from_barks"
     ]
   },
   "criteria": {
-    "has_knife": {
+    "has_bark": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:tools/knives"
+            "tag": "forge:barks"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:plant_fibre_from_knife"
+        "recipe": "minecraft:plant_fibre_from_barks"
       }
     }
   },
   "requirements": [
     [
-      "has_knife",
+      "has_bark",
       "has_the_recipe"
     ]
   ]

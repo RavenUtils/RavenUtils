@@ -242,8 +242,14 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 2)
         .addIngredient(saplings)
         .addIngredient(knives)
-        .addCriterion("has_knife", hasItemTag(knives))
-        .build(consumer, "plant_fibre_from_knife");
+        .addCriterion("has_sapling", hasItemTag(saplings))
+        .build(consumer, "plant_fibre_from_saplings");
+
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 1)
+        .addIngredient(barks)
+        .addIngredient(knives)
+        .addCriterion("has_bark", hasItemTag(barks))
+        .build(consumer, "plant_fibre_from_barks");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 4)
         .addIngredient(ItemTags.WOOL)
