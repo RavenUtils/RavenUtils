@@ -126,11 +126,11 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     if (isBurning()) {
       isDirty = true;
       if (fuel.hasContainerItem()) {
-        itemHandler.setStackInSlot(1, fuel.getContainerItem());
+        itemHandler.setStackInSlot(getFuelSlot(), fuel.getContainerItem());
       } else if (!fuel.isEmpty()) {
         fuel.shrink(1);
         if (fuel.isEmpty()) {
-          itemHandler.setStackInSlot(1, fuel.getContainerItem());
+          itemHandler.setStackInSlot(getFuelSlot(), fuel.getContainerItem());
         }
       }
     }
