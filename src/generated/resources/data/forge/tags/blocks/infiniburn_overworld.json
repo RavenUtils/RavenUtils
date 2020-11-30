@@ -3,6 +3,7 @@
   "values": [
     "ravenutils:crimwood",
     "ravenutils:crimwood_log",
+    "ravenutils:crimwood_log_stripped",
     "ravenutils:crimwood_planks"
   ]
 }

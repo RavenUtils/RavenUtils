@@ -653,8 +653,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/bucket_clay_milk"));
 
-    withExistingParent("item/" + Items.BUCKET.getRegistryName().getPath()
-        , new ResourceLocation("forge", "item/bucket"))
+    withExistingParent("item/" + Items.BUCKET.getRegistryName().getPath(),
+        new ResourceLocation("forge", "item/bucket"))
         .texture("base", mcLoc("item/bucket"))
         .texture("inner", resourceLocation("items/bucket_iron_cutout"))
         .texture("fluid", resourceLocation("items/bucket_fluid_layer"))
@@ -880,6 +880,9 @@ public class ItemModels extends ItemModelProvider {
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_LOG_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_log"));
+
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_LOG_STRIPPED_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/crimwood_log_stripped"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_PLANKS_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_planks"));

@@ -14,6 +14,7 @@ import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.infiniburn_
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.leaves;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.non_flammable_wood;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.ores;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.crimwood_logs;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.planks;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.saplings;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.small_flowers;
@@ -64,8 +65,14 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     getOrCreateBuilder(BlockTags.WALLS)
             .add(ModBlocks.MUD_BRICK_WALL.get());
 
+    getOrCreateBuilder(crimwood_logs).add(
+        ModBlocks.CRIMWOOD_LOG.get(),
+        ModBlocks.CRIMWOOD_LOG_STRIPPED.get()
+    );
+
     getOrCreateBuilder(non_flammable_wood).add(
         ModBlocks.CRIMWOOD_LOG.get(),
+        ModBlocks.CRIMWOOD_LOG_STRIPPED.get(),
         ModBlocks.CRIMWOOD_DOOR.get(),
         ModBlocks.CRIMWOOD_FENCE.get(),
         ModBlocks.CRIMWOOD_FENCE_GATE.get(),
@@ -95,6 +102,7 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     getOrCreateBuilder(infiniburn_overworld).add(
         ModBlocks.CRIMWOOD.get(),
         ModBlocks.CRIMWOOD_LOG.get(),
+        ModBlocks.CRIMWOOD_LOG_STRIPPED.get(),
         ModBlocks.CRIMWOOD_PLANKS.get()
     );
   }

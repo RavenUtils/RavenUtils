@@ -40,6 +40,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
     public static final ITag.INamedTag<Block> flower_pots = BlockTags.makeWrapperTag("forge:flower_pots");
     public static final ITag.INamedTag<Block> infiniburn_overworld = BlockTags.makeWrapperTag("forge:infiniburn_overworld");
+    public static final ITag.INamedTag<Block> crimwood_logs = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":crimwood");
     public static final ITag.INamedTag<Block> leaves = BlockTags.makeWrapperTag("forge:leaves");
     public static final ITag.INamedTag<Block> planks = BlockTags.makeWrapperTag("forge:planks");
     public static final ITag.INamedTag<Block> saplings = BlockTags.makeWrapperTag("forge:saplings");
@@ -66,7 +67,6 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Item> fence_gates = ItemTags.makeWrapperTag("forge:fence_gates");
     public static final ITag.INamedTag<Item> leaves = ItemTags.makeWrapperTag("forge:leaves");
     public static final ITag.INamedTag<Item> planks = ItemTags.makeWrapperTag("forge:planks");
-    public static final ITag.INamedTag<Item> barks = ItemTags.makeWrapperTag("forge:barks");
     public static final ITag.INamedTag<Item> saplings = ItemTags.makeWrapperTag("forge:saplings");
     public static final ITag.INamedTag<Item> small_flowers = ItemTags.makeWrapperTag("forge:small_flowers");
     public static final ITag.INamedTag<Item> wooden_buttons = ItemTags.makeWrapperTag("forge:wooden_buttons");
@@ -95,6 +95,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Item> coals_stone = ItemTags.makeWrapperTag("forge:coals/stone");
     public static final ITag.INamedTag<Item> coals_wood = ItemTags.makeWrapperTag("forge:coals/wood");
     public static final ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
+    public static final ITag.INamedTag<Item> barks = ItemTags.makeWrapperTag("forge:barks");
 
     public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
     public static ITag.INamedTag<Item> buckets_water = ItemTags.makeWrapperTag("forge:buckets/water");

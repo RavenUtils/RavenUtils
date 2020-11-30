@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "ravenutils:crimwood_log",
+    "ravenutils:crimwood_log_stripped",
     "ravenutils:crimwood_door",
     "ravenutils:crimwood_fence",
     "ravenutils:crimwood_fence_gate",

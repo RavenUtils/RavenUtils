@@ -70,6 +70,7 @@ public class enUs extends LanguageProvider {
     // crimwood blocks
     add(ModBlocks.CRIMWOOD.get(), "Crimwood");
     add(ModBlocks.CRIMWOOD_LOG.get(), "Crimwood Log");
+    add(ModBlocks.CRIMWOOD_LOG_STRIPPED.get(), "Stripped Crimwood Log");
     add(ModBlocks.CRIMWOOD_LEAVES.get(), "Crimwood Leaves");
     add(ModBlocks.CRIMWOOD_PLANKS.get(), "Crimwood Planks");
     add(ModBlocks.CRIMWOOD_STAIRS.get(), "Crimwood Stairs");

@@ -78,6 +78,7 @@ public class ModBlocks {
   );
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG = BLOCKS.register("crimwood_log", CrimwoodLog::new);
+  public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG_STRIPPED = BLOCKS.register("crimwood_log_stripped", CrimwoodLogStripped::new);
   public static final RegistryObject<Block> CRIMWOOD_LEAVES = BLOCKS.register("crimwood_leaves", CrimwoodLeaves::new);
   public static final RegistryObject<Block> CRIMWOOD_PLANKS = BLOCKS.register("crimwood_planks", CrimwoodPlanks::new);
   public static final RegistryObject<StairsBlock> CRIMWOOD_STAIRS = BLOCKS.register("crimwood_stairs", CrimwoodStairs::new);

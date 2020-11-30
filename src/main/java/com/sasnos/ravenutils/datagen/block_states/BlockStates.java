@@ -122,6 +122,8 @@ public class BlockStates extends EssentialsBlockStates {
 
     axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
+    axisBlock(ModBlocks.CRIMWOOD_LOG_STRIPPED.get(), modLoc("blocks/crimwood_log_stripped"), modLoc("blocks/crimwood_log_stripped_top"));
+
     BlockModelBuilder crimwoodButton = models().withExistingParent("crimwood_button", mcLoc("block/button"))
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
