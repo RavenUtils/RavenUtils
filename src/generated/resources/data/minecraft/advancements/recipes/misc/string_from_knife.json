@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_knife": {
+    "has_cloth": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:tools/knives"
+            "item": "ravenutils:cloth"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_knife",
+      "has_cloth",
       "has_the_recipe"
     ]
   ]

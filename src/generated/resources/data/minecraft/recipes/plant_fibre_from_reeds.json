@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "forge:saplings"
+      "item": "ravenutils:reeds"
     },
     {
       "tag": "forge:tools/knives"
@@ -10,6 +10,6 @@
   ],
   "result": {
     "item": "ravenutils:plant_fibre",
-    "count": 3
+    "count": 2
   }
 }

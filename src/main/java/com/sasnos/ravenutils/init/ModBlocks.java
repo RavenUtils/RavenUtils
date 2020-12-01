@@ -1,11 +1,14 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
 import com.sasnos.ravenutils.blocks.*;
 import com.sasnos.ravenutils.blocks.crimwood.*;
 import com.sasnos.ravenutils.blocks.mud.*;
 import com.sasnos.ravenutils.blocks.ores.*;
+import com.sasnos.ravenutils.blocks.plants.Reeds;
 import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +32,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> BLACK_COAL_ORE = BLOCKS.register("black_coal_ore", BlackCoalOre::new);
   public static final RegistryObject<Block> LIMESTONE_BLOCK = BLOCKS.register("limestone_block", LimestoneBlock::new);
   public static final RegistryObject<Block> PEAT_BLOCK = BLOCKS.register("peat_block", PeatBlock::new);
+  public static final RegistryObject<Block> QUICKSAND_BLOCK = BLOCKS.register("quicksand_block", QuicksandBlock::new);
 
   // blocks
   public static final RegistryObject<Block> MYTHERINE_BLOCK = BLOCKS.register("mytherine_block", MytherineBlock::new);
@@ -53,6 +57,10 @@ public class ModBlocks {
   public static final RegistryObject<Block> LIMEWATER_BLOCK = BLOCKS.register("limewater_block", LimewaterBlock::new);
   public static final RegistryObject<Block> TANNIN_BLOCK = BLOCKS.register("tannin_block", TanninBlock::new);
 
+  // vegetation
+  public static final RegistryObject<Block> REEDS = BLOCKS.register("reeds",
+      () -> new Reeds(AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
+
   // crimleaf
   public static final RegistryObject<Block> CRIMLEAF = BLOCKS.register("crimleaf", Crimleaf::new);
   public static final RegistryObject<Block> POTTED_CRIMLEAF = BLOCKS.register("potted_crimleaf",
@@ -62,13 +70,12 @@ public class ModBlocks {
   );
 
   // crimwood
-  /* public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
-      () -> new CrimwwodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
+  /* public static final RegistryObject<StandingSignBlock> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
+      () -> new CrimwoodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
           .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
-  public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
+  public static final RegistryObject<WallSignBlock> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
       () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
-  */
+          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD)); */
 
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",

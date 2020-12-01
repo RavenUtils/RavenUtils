@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:bucket_wood"
+      "minecraft:plant_fibre_from_reeds"
     ]
   },
   "criteria": {
-    "has_wooden_log": {
+    "has_reeds": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:logs_that_burn"
+            "item": "ravenutils:reeds"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:bucket_wood"
+        "recipe": "minecraft:plant_fibre_from_reeds"
       }
     }
   },
   "requirements": [
     [
-      "has_wooden_log",
+      "has_reeds",
       "has_the_recipe"
     ]
   ]

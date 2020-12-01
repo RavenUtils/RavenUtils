@@ -2,10 +2,12 @@ package com.sasnos.ravenutils.init;
 
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.blocks.BlockItemBase;
 import com.sasnos.ravenutils.items.*;
 import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.item.BoatItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SignItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,10 +16,8 @@ public class ModItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RavenUtils.MOD_ID);
 
-  // Items
+  // Material
   public static final RegistryObject<Item> INK_BOTTLE = ITEMS.register("ink_bottle",
-      () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
-  public static final RegistryObject<Item> BLOOD_BOTTLE = ITEMS.register("blood_bottle",
       () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
   public static final RegistryObject<Item> ASH = ITEMS.register("ash", Ash::new);
   public static final RegistryObject<Item> SLAG = ITEMS.register("slag", Slag::new);
@@ -69,16 +69,22 @@ public class ModItems {
   public static final RegistryObject<Item> GELATIN = ITEMS.register("gelatin", ItemBase::new);
   public static final RegistryObject<Item> FLINT_SHARD = ITEMS.register("flint_shard", ItemBase::new);
 
+  public static final RegistryObject<Item> METAL_ROD_IRON = ITEMS.register("metal_rod_iron", ItemBase::new);
+  public static final RegistryObject<Item> METAL_ROD_STEEL = ITEMS.register("metal_rod_steel", ItemBase::new);
+
+  // vegetation
+  public static final RegistryObject<Item> REED_SEEDS = ITEMS.register("reed_seeds", ItemBase::new);
+
   // barks
-  public static final RegistryObject<Item> BARK_ACACIA = ITEMS.register("bark_acacia", ItemBase::new);
-  public static final RegistryObject<Item> BARK_BIRCH = ITEMS.register("bark_birch", ItemBase::new);
-  public static final RegistryObject<Item> BARK_CRIMSON_STEM = ITEMS.register("bark_crimson_stem", ItemBase::new);
-  public static final RegistryObject<Item> BARK_CRIMWOOD = ITEMS.register("bark_crimwood", ItemBase::new);
-  public static final RegistryObject<Item> BARK_DARK_OAK = ITEMS.register("bark_dark_oak", ItemBase::new);
-  public static final RegistryObject<Item> BARK_JUNGLE = ITEMS.register("bark_jungle", ItemBase::new);
-  public static final RegistryObject<Item> BARK_OAK = ITEMS.register("bark_oak", ItemBase::new);
-  public static final RegistryObject<Item> BARK_SPRUCE = ITEMS.register("bark_spruce", ItemBase::new);
-  public static final RegistryObject<Item> BARK_WARPED_STEM = ITEMS.register("bark_warped_stem", ItemBase::new);
+  public static final RegistryObject<Item> BARK_ACACIA = ITEMS.register("bark_acacia", TreeBark::new);
+  public static final RegistryObject<Item> BARK_BIRCH = ITEMS.register("bark_birch", TreeBark::new);
+  public static final RegistryObject<Item> BARK_CRIMSON_STEM = ITEMS.register("bark_crimson_stem", TreeBark::new);
+  public static final RegistryObject<Item> BARK_CRIMWOOD = ITEMS.register("bark_crimwood", TreeBark::new);
+  public static final RegistryObject<Item> BARK_DARK_OAK = ITEMS.register("bark_dark_oak", TreeBark::new);
+  public static final RegistryObject<Item> BARK_JUNGLE = ITEMS.register("bark_jungle", TreeBark::new);
+  public static final RegistryObject<Item> BARK_OAK = ITEMS.register("bark_oak", TreeBark::new);
+  public static final RegistryObject<Item> BARK_SPRUCE = ITEMS.register("bark_spruce", TreeBark::new);
+  public static final RegistryObject<Item> BARK_WARPED_STEM = ITEMS.register("bark_warped_stem", TreeBark::new);
 
   // hides
   public static final RegistryObject<Item> HIDE_FRESH = ITEMS.register("hide_fresh", ItemBase::new);
@@ -87,6 +93,7 @@ public class ModItems {
   public static final RegistryObject<Item> HIDE_LIMED = ITEMS.register("hide_limed", ItemBase::new);
   public static final RegistryObject<Item> HIDE_TANNED = ITEMS.register("hide_tanned", ItemBase::new);
 
+  // miscellaneous
   public static final RegistryObject<Item> BUCKET_CLAY_UNFIRED = ITEMS.register("bucket_clay_unfired",
       () -> new Item(new Item.Properties().maxStackSize(16).group(RavenUtils.TAB)));
 
@@ -99,6 +106,9 @@ public class ModItems {
 
   /* public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())
-      .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
-  */
+          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())); */
+
+  // todo move to Magic module
+  public static final RegistryObject<Item> BLOOD_BOTTLE = ITEMS.register("blood_bottle",
+      () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
 }

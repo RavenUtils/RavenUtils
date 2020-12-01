@@ -14,7 +14,7 @@
       "item": "ravenutils:leather_strip"
     },
     "i": {
-      "tag": "forge:rods/wooden"
+      "item": "ravenutils:metal_rod_steel"
     }
   },
   "result": {

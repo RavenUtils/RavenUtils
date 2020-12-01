@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "ravenutils:metal_rod_iron",
+    "ravenutils:metal_rod_steel"
+  ]
+}

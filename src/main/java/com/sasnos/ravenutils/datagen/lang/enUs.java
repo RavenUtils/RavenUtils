@@ -55,6 +55,7 @@ public class enUs extends LanguageProvider {
     add(ModBlocks.RESIN_BLOCK.get(), "Block of Resin");
     add(ModBlocks.GELATIN_BLOCK.get(), "Block of Gelatin");
     add(ModBlocks.PEAT_BLOCK.get(), "Block of Peat");
+    add(ModBlocks.QUICKSAND_BLOCK.get(), "Block of Quicksand");
 
     // misc blocks
     add(ModBlocks.CANDLE.get(), "Candle");
@@ -66,6 +67,7 @@ public class enUs extends LanguageProvider {
     // flowers & saplings
     add(ModBlocks.CRIMLEAF.get(), "Crimleaf");
     add(ModBlocks.CRIMWOOD_SAPLING.get(), "Crimwood Sapling");
+    add(ModBlocks.REEDS.get(), "Reeds");
 
     // crimwood blocks
     add(ModBlocks.CRIMWOOD.get(), "Crimwood");
@@ -192,7 +194,7 @@ public class enUs extends LanguageProvider {
     add(ModArmorItems.MYTHERINE_CHESTPLATE.get(), "Mytherine Chestplate");
     add(ModArmorItems.MYTHERINE_LEGGINGS.get(), "Mytherine Leggings");
     add(ModArmorItems.MYTHERINE_BOOTS.get(), "Mytherine Boots");
-    // add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
+    add(ModArmorItems.MYTHERINE_SHIELD.get(), "Mytherine Shield");
     add(ModToolItems.MYTHERINE_SWORD.get(), "Mytherine Sword");
     add(ModToolItems.MYTHERINE_SHOVEL.get(), "Mytherine Shovel");
     add(ModToolItems.MYTHERINE_AXE.get(), "Mytherine Axe");
@@ -297,11 +299,15 @@ public class enUs extends LanguageProvider {
     add(ModItems.QUARTZ_SAND.get(), "Quartz Sand");
     add(ModItems.NITER.get(), "Niter");
     add(ModItems.SLAG.get(), "Slag");
+    add(ModItems.REED_SEEDS.get(), "Reed Seeds");
     add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
     add(ModItems.DRIED_PLANT_FIBRE.get(), "Dried Plant Fibre");
     add(ModItems.PLANT_TWINE.get(), "Plant Twine");
     add(ModItems.CLOTH.get(), "Cloth");
     add(ModItems.SMALL_STONE.get(), "Small Stone");
+
+    add(ModItems.METAL_ROD_IRON.get(), "Iron Rod");
+    add(ModItems.METAL_ROD_STEEL.get(), "Steel Rod");
 
     // miscellaneous
     add(ModItems.BUCKET_CLAY_UNFIRED.get(), "Unfired Clay Bucket");

@@ -238,8 +238,29 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/raven_eye_dust"));
 
+    singleTexture("item/" + ModItems.METAL_ROD_IRON.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/metal_rod_iron"));
+
+    singleTexture("item/" + ModItems.METAL_ROD_STEEL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/metal_rod_steel"));
+
+    // vegetation
     withExistingParent("item/" + ModBlockItems.CRIMLEAF_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimleaf"));
+
+    singleTexture("item/" + ModItems.REED_SEEDS.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/reed_seeds"));
+
+    singleTexture("item/" + ModBlockItems.REEDS_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/reeds"));
 
     // food(-related) items
     singleTexture("item/" + ModFoodItems.BUSHMEAT.get().getRegistryName().getPath(),
@@ -456,6 +477,9 @@ public class ItemModels extends ItemModelProvider {
 
     withExistingParent("item/" + ModBlockItems.FOSSIL_ORE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/fossil_ore"));
+
+    withExistingParent("item/" + ModBlockItems.QUICKSAND_BLOCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/quicksand_block"));
 
     withExistingParent("item/" + ModBlockItems.LIMESTONE_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/limestone"));
@@ -788,8 +812,8 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/mytherine_hoe"));
 
-    // armor
     // todo move armors to Combat module
+    // armor
     singleTexture("item/" + ModArmorItems.MYTHERINE_HELMET.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -911,10 +935,10 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_BUTTON_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_button_inventory"));
 
-    /* singleTexture("item/"+ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
-            mcLoc("item/generated"),
-            "layer0",
-            modLoc("items/crimwood_sign"));*/
+    /* singleTexture("item/" + ModItems.CRIMWOOD_SIGN.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/crimwood_sign")); */
 
     // mud itemblocks
     withExistingParent("item/" + ModBlockItems.MUD_BLOCK_ITEM.get().getRegistryName().getPath(),

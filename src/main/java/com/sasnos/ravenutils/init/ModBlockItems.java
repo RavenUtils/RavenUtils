@@ -28,6 +28,8 @@ public class ModBlockItems {
       () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
   public static final RegistryObject<Item> PEAT_BLOCK_ITEM = ITEMS.register("peat_block",
       () -> new BlackCoalBlockItem(ModBlocks.PEAT_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
+  public static final RegistryObject<Item> QUICKSAND_BLOCK_ITEM = ITEMS.register("quicksand_block",
+      () -> new BlockItemBase(ModBlocks.QUICKSAND_BLOCK.get()));
   public static final RegistryObject<Item> LIMESTONE_BLOCK_ITEM = ITEMS.register("limestone_block",
       () -> new BlockItemBase(ModBlocks.LIMESTONE_BLOCK.get()));
   public static final RegistryObject<Item> RAVEN_EYE_ORE_ITEM = ITEMS.register("raven_eye_ore",
@@ -71,10 +73,13 @@ public class ModBlockItems {
   public static final RegistryObject<Item> GELATIN_BLOCK_ITEM = ITEMS.register("gelatin_block",
       () -> new BlockItemBase(ModBlocks.GELATIN_BLOCK.get()));
 
+  // vegetation
   public static final RegistryObject<Item> CRIMLEAF_ITEM = ITEMS.register("crimleaf",
       () -> new BlockItemBase(ModBlocks.CRIMLEAF.get()));
   public static final RegistryObject<Item> CRIMWOOD_SAPLING_ITEM = ITEMS.register("crimwood_sapling",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_SAPLING.get()));
+  public static final RegistryObject<Item> REEDS_ITEM = ITEMS.register("reeds",
+      () -> new BlockItemBase(ModBlocks.REEDS.get()));
 
   // crimwood
   public static final RegistryObject<Item> CRIMWOOD_ITEM = ITEMS.register("crimwood",

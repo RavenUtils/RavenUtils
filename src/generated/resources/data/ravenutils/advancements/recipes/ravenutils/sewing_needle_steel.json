@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_hammer": {
+    "has_steel_nugget": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:tools/hammers"
+            "item": "ravenutils:steel_nugget"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_hammer",
+      "has_steel_nugget",
       "has_the_recipe"
     ]
   ]
