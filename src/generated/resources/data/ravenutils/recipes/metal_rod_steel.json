@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "metal_rods",
+  "pattern": [
+    "h",
+    "i",
+    "i"
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "i": {
+      "item": "ravenutils:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "ravenutils:metal_rod_steel"
+  }
+}

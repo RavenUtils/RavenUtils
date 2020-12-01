@@ -44,7 +44,7 @@ public class FeatureGen {
     LIMESTONE = registerOre(
         ModBlocks.LIMESTONE_BLOCK.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        16, 32, 24, 12,
+        14, 32, 24, 12,
         resourceLocation("limestone"));
     BLACK_COAL_ORE = registerOre(
         ModBlocks.BLACK_COAL_ORE.get().getDefaultState(),
@@ -74,17 +74,17 @@ public class FeatureGen {
     COPPER = registerOre(
         ModBlocks.COPPER_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        6, 63, 12, 10,
+        7, 63, 12, 10,
         resourceLocation("copper_ore_config"));
     TIN = registerOre(
         ModBlocks.TIN_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        4, 63, 12, 8,
+        5, 63, 12, 8,
         resourceLocation("tin_ore_config"));
     ZINC = registerOre(
         ModBlocks.ZINC_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        4, 63, 12, 8,
+        5, 63, 12, 8,
         resourceLocation("zinc_ore_config"));
     SILVER = registerOre(
         ModBlocks.SILVER_ORE.get().getDefaultState(),
