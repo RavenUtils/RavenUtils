@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.global_loot_modifer;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.global_loot_modifiers.QuarzFromStone;
+import com.sasnos.ravenutils.global_loot_modifiers.QuartzFromStone;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -59,16 +59,16 @@ public class EssentialsLootModifier extends GlobalLootModifierProvider {
 //        chicken
 //    ));
 
-    add("stone_quarz_modifier", ModLootTables.QUARZ_DROPPER.get(), new QuarzFromStone(
-            new ILootCondition[]{
-                    Alternative.builder(
-                      BlockStateProperty.builder(Blocks.GRANITE),
-                      BlockStateProperty.builder(Blocks.ANDESITE),
-                      BlockStateProperty.builder(Blocks.DIORITE)
-                    ).build(),
-                    RandomChanceWithLooting.builder(0.1f, 0.5f).build()
-            },
-            1
+    add("quartz_from_stone_modifier", ModLootTables.QUARTZ_FROM_STONE.get(), new QuartzFromStone(
+        new ILootCondition[]{
+            Alternative.builder(
+                BlockStateProperty.builder(Blocks.GRANITE),
+                BlockStateProperty.builder(Blocks.ANDESITE),
+                BlockStateProperty.builder(Blocks.DIORITE)
+            ).build(),
+            RandomChanceWithLooting.builder(0.1f, 0.5f).build()
+        },
+        1
     ));
   }
 }
