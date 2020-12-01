@@ -84,6 +84,8 @@ public class RavenUtils {
     new AlloyFurnaceInit();
     new HandMillInit();
 
+
+
     // Register ourselves for server and other game events we are interested in
     MinecraftForge.EVENT_BUS.register(this);
   }
@@ -155,8 +157,10 @@ public class RavenUtils {
         maxDamage.setInt(Items.BUCKET, 512);
         maxDamage.setInt(Items.MILK_BUCKET, 512);
         for(Fluid fluid : ForgeRegistries.FLUIDS.getValues()){
+          if(fluid.getFilledBucket() == Items.AIR) continue;
           maxDamage.setInt(fluid.getFilledBucket(), 512);
         }
+        maxDamage.setAccessible(false);
 
       } catch (IllegalAccessException e) {
         throw new RuntimeException(e);

@@ -17,7 +17,6 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -106,6 +105,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       ItemStack additionalOutput = outputList.size() > 1 ? outputList.get(1) : ItemStack.EMPTY;
       ItemStack outputSlot = this.itemHandler.getStackInSlot(3);
       ItemStack additionalOutputSlot = itemHandler.getStackInSlot(4);
+
       if (outputSlot.isEmpty()) {
         this.itemHandler.setStackInSlot(3, output.copy());
       } else if (outputSlot.getItem() == output.getItem()) {
@@ -118,9 +118,20 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
         additionalOutputSlot.grow(additionalOutput.getCount());
       }
 
-      input.shrink(recipe.getCraftingResult(null).getCount());
-      if(additionalInput != ItemStack.EMPTY){
-        additionalInput.shrink(Arrays.stream(((AlloyRecipe)recipe).getInput().get(1).ingredient.getMatchingStacks()).findFirst().get().getCount());
+      if(input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()){
+        input.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+      }
+      else {
+        input.shrink(recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
+      }
+
+      if(((EssentialsRecipe) recipe).hasAdditionalInput()){
+        if(input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()){
+          additionalInput.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+        }
+        else {
+          additionalInput.shrink(recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
+        }
       }
     }
   }
