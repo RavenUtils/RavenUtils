@@ -2,8 +2,18 @@ package com.sasnos.ravenutils.datagen.loot_tables;
 
 
 import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.loot.ConstantRange;
+import net.minecraft.loot.DynamicLootEntry;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.functions.CopyName;
+import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.loot.functions.SetContents;
+import net.minecraft.util.ResourceLocation;
 
 public class EssentialsLootTableProvider extends BaseLootTableProvider {
 
@@ -75,5 +85,19 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.RASPBERRY_BUSH.get(), createStandardTable("raspberry_bush", ModBlocks.RASPBERRY_BUSH.get()));
     lootTables.put(ModBlocks.BLACKBERRY_BUSH.get(), createStandardTable("blackberry_bush", ModBlocks.BLACKBERRY_BUSH.get()));
     lootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
+
+
+    LootPool.Builder builder = LootPool.builder()
+            .name("mill_stone")
+            .rolls(ConstantRange.of(1))
+            .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
+                    .acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
+                    .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
+                      .addOperation("damage", "Damage", CopyNbt.Action.REPLACE)
+                    )
+                    .acceptFunction(SetContents.builderIn()
+                            .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
+            );
+    lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(builder));
   }
 }
