@@ -5,11 +5,7 @@ import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvide
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.loot.ConstantRange;
-import net.minecraft.loot.DynamicLootEntry;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
+import net.minecraft.loot.*;
 import net.minecraft.loot.functions.CopyName;
 import net.minecraft.loot.functions.CopyNbt;
 import net.minecraft.loot.functions.SetContents;
@@ -23,12 +19,8 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
 
   @Override
   protected void addTables() {
-    // Vanilla Overrides
-    // lootTables.put(Blocks.SPRUCE_LOG, createStandardTable("spruce_log", Blocks.SPRUCE_LOG));
-    // lootTables.put(Blocks.TALL_GRASS, createStandardTable("tall_grass", Blocks.TALL_GRASS));
-    // lootTables.put(Blocks.COAL_ORE, createStandardTable("coal_ore", Blocks.COAL_ORE));
+    // lootTables.put(ModBlocks.CRIMWOOD_LEAVES.get(), createStandardTable("crimwood_leaves", ModBlocks.CRIMWOOD_LEAVES.get())); // add sticks
 
-    // Mod
     lootTables.put(ModBlocks.RESIN_BLOCK.get(), createStandardTable("resin_block", ModBlocks.RESIN_BLOCK.get()));
     // lootTables.put(ModBlocks.SALT_ORE.get(), createStandardTable("salt_ore", ModBlocks.SALT_ORE.get()));
     lootTables.put(ModBlocks.SALT_BLOCK.get(), createStandardTable("salt_block", ModBlocks.SALT_BLOCK.get()));
@@ -86,18 +78,17 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.BLACKBERRY_BUSH.get(), createStandardTable("blackberry_bush", ModBlocks.BLACKBERRY_BUSH.get()));
     lootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
 
-
     LootPool.Builder builder = LootPool.builder()
-            .name("mill_stone")
-            .rolls(ConstantRange.of(1))
-            .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
-                    .acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
-                    .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
-                      .addOperation("damage", "Damage", CopyNbt.Action.REPLACE)
-                    )
-                    .acceptFunction(SetContents.builderIn()
-                            .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
-            );
+        .name("mill_stone")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
+            .acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
+            .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
+                .addOperation("damage", "Damage", CopyNbt.Action.REPLACE)
+            )
+            .acceptFunction(SetContents.builderIn()
+                .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
+        );
     lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(builder));
   }
 }

@@ -37,8 +37,8 @@ public class QuartzFromStone extends LootModifier {
     public static class Serializer extends GlobalLootModifierSerializer<QuartzFromStone> {
 
         @Override
-        public QuartzFromStone read(ResourceLocation location, JsonObject object, ILootCondition[] ailootcondition) {
-            return new QuartzFromStone(ailootcondition, JSONUtils.getInt(object, "count"));
+        public QuartzFromStone read(ResourceLocation location, JsonObject object, ILootCondition[] condition) {
+            return new QuartzFromStone(condition, JSONUtils.getInt(object, "count"));
         }
 
         @Override
