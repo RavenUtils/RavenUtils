@@ -179,7 +179,7 @@ public class ModBlocks {
   public static final RegistryObject<WallBlock> MUD_BRICK_WALL = BLOCKS.register("mud_brick_wall", MudBrickWall::new);
 
   // berry bushes
-  // todo move berry bushes to Cuisine module
+  // todo move berry bushes to Harvest module
   public static final RegistryObject<Block> BLUEBERRY_BUSH = BLOCKS.register("blueberry_bush", BlueberryBush::new);
   public static final RegistryObject<Block> ELDERBERRY_BUSH = BLOCKS.register("elderberry_bush", ElderberryBush::new);
   public static final RegistryObject<Block> RASPBERRY_BUSH = BLOCKS.register("raspberry_bush", RaspberryBush::new);

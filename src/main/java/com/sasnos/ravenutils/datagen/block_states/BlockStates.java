@@ -20,7 +20,7 @@ public class BlockStates extends EssentialsBlockStates {
   protected void registerStatesAndModels() {
 
     // berry bushes
-    // todo move berry bushes to Cuisine module
+    // todo move berry bushes to Harvest module
     BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0", mcLoc("block/sweet_berry_bush_stage0"));
     BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1", mcLoc("block/sweet_berry_bush_stage1"));
     BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2", modLoc("blocks/bush_blueberry_stage2"));

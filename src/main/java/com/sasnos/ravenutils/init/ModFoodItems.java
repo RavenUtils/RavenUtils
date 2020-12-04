@@ -22,7 +22,7 @@ public class ModFoodItems {
   public static final RegistryObject<Item> DOUGH = ITEMS.register("dough", ItemBase::new);
   public static final RegistryObject<Item> DUCK_EGG = ITEMS.register("duck_egg", DuckEgg::new);
 
-  // todo move berries to Cuisine module
+  // todo move berries to Harvest module
   public static final RegistryObject<Item> BLUEBERRIES = ITEMS.register("blueberries",
       () -> new BlockNamedItem(ModBlocks.BLUEBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
   public static final RegistryObject<Item> ELDERBERRIES = ITEMS.register("elderberries",
