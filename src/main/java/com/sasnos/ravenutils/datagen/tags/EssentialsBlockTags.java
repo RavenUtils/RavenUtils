@@ -41,7 +41,6 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.SILVER_ORE.get(),
         ModBlocks.LEAD_ORE.get(),
         ModBlocks.MYTHERINE_ORE.get(),
-        ModBlocks.FOSSIL_ORE.get(),
         ModBlocks.RAVEN_EYE_ORE.get(),
         ModBlocks.SULFUR_ORE.get(),
         ModBlocks.BLACK_COAL_ORE.get(),

@@ -60,7 +60,7 @@ import com.sasnos.ravenutils.blocks.mud.MudBricks;
 import com.sasnos.ravenutils.blocks.ores.BlackCoalOre;
 import com.sasnos.ravenutils.blocks.ores.CopperOre;
 import com.sasnos.ravenutils.blocks.ores.FossilDirt;
-import com.sasnos.ravenutils.blocks.ores.FossilOre;
+import com.sasnos.ravenutils.blocks.ores.FossilRock;
 import com.sasnos.ravenutils.blocks.ores.LeadOre;
 import com.sasnos.ravenutils.blocks.ores.MytherineOre;
 import com.sasnos.ravenutils.blocks.ores.SaltOre;
@@ -99,7 +99,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> SILVER_ORE = BLOCKS.register("silver_ore", SilverOre::new);
   public static final RegistryObject<Block> LEAD_ORE = BLOCKS.register("lead_ore", LeadOre::new);
   public static final RegistryObject<Block> SULFUR_ORE = BLOCKS.register("sulfur_ore", SulfurOre::new);
-  public static final RegistryObject<Block> FOSSIL_ORE = BLOCKS.register("fossil_ore", FossilOre::new);
+  public static final RegistryObject<Block> FOSSIL_ROCK = BLOCKS.register("fossil_rock", FossilRock::new);
   public static final RegistryObject<Block> FOSSIL_DIRT = BLOCKS.register("fossil_dirt", FossilDirt::new);
   public static final RegistryObject<Block> RAVEN_EYE_ORE = BLOCKS.register("raven_eye_ore", RavenEyeOre::new);
   public static final RegistryObject<Block> SALT_ORE = BLOCKS.register("salt_ore", SaltOre::new);

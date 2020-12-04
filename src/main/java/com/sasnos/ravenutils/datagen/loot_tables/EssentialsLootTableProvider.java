@@ -26,7 +26,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.SALT_BLOCK.get(), createStandardTable("salt_block", ModBlocks.SALT_BLOCK.get()));
 
     // lootTables.put(ModBlocks.FOSSIL_DIRT.get(), createStandardTable("fossil_dirt", ModBlocks.FOSSIL_DIRT.get()));
-    // lootTables.put(ModBlocks.FOSSIL_ORE.get(), createStandardTable("fossil_ore", ModBlocks.FOSSIL_ORE.get()));
+    // lootTables.put(ModBlocks.FOSSIL_ROCK.get(), createStandardTable("fossil_rock", ModBlocks.FOSSIL_ROCK.get()));
 
     // lootTables.put(ModBlocks.LIMESTONE.get(), createStandardTable("limestone", ModBlocks.LIMESTONE.get()));
     // lootTables.put(ModBlocks.BLACK_COAL_ORE.get(), createStandardTable("black_coal_ore", ModBlocks.BLACK_COAL_ORE.get()));

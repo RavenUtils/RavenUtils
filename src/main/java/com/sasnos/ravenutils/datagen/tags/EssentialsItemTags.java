@@ -157,7 +157,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModBlockItems.SILVER_ORE_ITEM.get(),
         ModBlockItems.LEAD_ORE_ITEM.get(),
         ModBlockItems.MYTHERINE_ORE_ITEM.get(),
-        ModBlockItems.FOSSIL_ORE_ITEM.get(),
+        ModBlockItems.FOSSIL_ROCK_ITEM.get(),
         ModBlockItems.RAVEN_EYE_ORE_ITEM.get(),
         ModBlockItems.SULFUR_ORE_ITEM.get(),
         ModBlockItems.BLACK_COAL_ORE_ITEM.get(),

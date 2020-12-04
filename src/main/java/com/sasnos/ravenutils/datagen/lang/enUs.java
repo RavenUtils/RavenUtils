@@ -26,7 +26,7 @@ public class enUs extends LanguageProvider {
 
     // ore blocks
     add(ModBlocks.MYTHERINE_ORE.get(), "Mytherine Ore");
-    add(ModBlocks.FOSSIL_ORE.get(), "Fossil Ore");
+    add(ModBlocks.FOSSIL_ROCK.get(), "Fossil Rock");
     add(ModBlocks.FOSSIL_DIRT.get(), "Fossil Dirt");
     add(ModBlocks.RAVEN_EYE_ORE.get(), "Raven Eye Ore");
     add(ModBlocks.SALT_ORE.get(), "Salt Ore");

@@ -28,7 +28,7 @@ public class FeatureGen {
   public static ConfiguredFeature<?, ?> LIMESTONE;
   public static ConfiguredFeature<?, ?> BLACK_COAL_ORE;
   public static ConfiguredFeature<?, ?> SULFUR;
-  public static ConfiguredFeature<?, ?> FOSSIL_ORE;
+  public static ConfiguredFeature<?, ?> FOSSIL_ROCK;
   public static ConfiguredFeature<?, ?> SALT_ORE;
   public static ConfiguredFeature<?, ?> RAVEN_EYE;
   public static ConfiguredFeature<?, ?> COPPER;
@@ -56,11 +56,11 @@ public class FeatureGen {
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
         6, 10, 63, 6,
         resourceLocation("sulfur_ore_config"));
-    FOSSIL_ORE = registerOre(
-        ModBlocks.FOSSIL_ORE.get().getDefaultState(),
+    FOSSIL_ROCK = registerOre(
+        ModBlocks.FOSSIL_ROCK.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
         4, 32, 16, 8,
-        resourceLocation("fossil_ore_config"));
+        resourceLocation("fossil_rock_config"));
     SALT_ORE = registerOre(
         ModBlocks.SALT_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,

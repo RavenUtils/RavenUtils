@@ -62,8 +62,8 @@ public class ModBlockItems {
       () -> new BlockItemBase(ModBlocks.LEAD_BLOCK.get()));
   public static final RegistryObject<Item> STEEL_BLOCK_ITEM = ITEMS.register("steel_block",
       () -> new BlockItemBase(ModBlocks.STEEL_BLOCK.get()));
-  public static final RegistryObject<Item> FOSSIL_ORE_ITEM = ITEMS.register("fossil_ore",
-      () -> new BlockItemBase(ModBlocks.FOSSIL_ORE.get()));
+  public static final RegistryObject<Item> FOSSIL_ROCK_ITEM = ITEMS.register("fossil_rock",
+      () -> new BlockItemBase(ModBlocks.FOSSIL_ROCK.get()));
   public static final RegistryObject<Item> MYTHERINE_ORE_ITEM = ITEMS.register("mytherine_ore",
       () -> new BlockItemBase(ModBlocks.MYTHERINE_ORE.get()));
   public static final RegistryObject<Item> MYTHERINE_BLOCK_ITEM = ITEMS.register("mytherine_block",

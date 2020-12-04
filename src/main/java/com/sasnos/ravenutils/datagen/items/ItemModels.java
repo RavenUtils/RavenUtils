@@ -476,8 +476,8 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.FOSSIL_DIRT_ITEM.get().getRegistryName().getPath(),
         modLoc("block/fossil_dirt"));
 
-    withExistingParent("item/" + ModBlockItems.FOSSIL_ORE_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/fossil_ore"));
+    withExistingParent("item/" + ModBlockItems.FOSSIL_ROCK_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/fossil_rock"));
 
     withExistingParent("item/" + ModBlockItems.QUICKSAND_BLOCK_ITEM.get().getRegistryName().getPath(),
         modLoc("block/quicksand_block"));

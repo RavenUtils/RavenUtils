@@ -222,8 +222,8 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder fossilDirt = models().cubeAll("fossil_dirt", modLoc("blocks/fossil_dirt"));
     simpleBlock(ModBlocks.FOSSIL_DIRT.get(), fossilDirt);
 
-    BlockModelBuilder fossilOre = models().cubeAll("fossil_ore", modLoc("blocks/fossil_ore"));
-    simpleBlock(ModBlocks.FOSSIL_ORE.get(), fossilOre);
+    BlockModelBuilder fossilRock = models().cubeAll("fossil_rock", modLoc("blocks/fossil_rock"));
+    simpleBlock(ModBlocks.FOSSIL_ROCK.get(), fossilRock);
 
     BlockModelBuilder quicksandBlock = models().cubeAll("quicksand_block", modLoc("blocks/quicksand"));
     simpleBlock(ModBlocks.QUICKSAND_BLOCK.get(), quicksandBlock);

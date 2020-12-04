@@ -5,9 +5,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class FossilOre extends OreBlock {
+public class FossilRock extends OreBlock {
 
-  public FossilOre() {
+  public FossilRock() {
     super(Properties.create(Material.ROCK)
         .hardnessAndResistance(2.5f, 8f)
         .sound(SoundType.STONE)
