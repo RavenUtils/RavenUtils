@@ -40,7 +40,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
     public static final ITag.INamedTag<Block> flower_pots = BlockTags.makeWrapperTag("forge:flower_pots");
     public static final ITag.INamedTag<Block> infiniburn_overworld = BlockTags.makeWrapperTag("forge:infiniburn_overworld");
-    public static final ITag.INamedTag<Block> crimwood_logs = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":crimwood");
+    public static final ITag.INamedTag<Block> crimwood_logs = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":crimwood");
     public static final ITag.INamedTag<Block> leaves = BlockTags.makeWrapperTag("forge:leaves");
     public static final ITag.INamedTag<Block> planks = BlockTags.makeWrapperTag("forge:planks");
     public static final ITag.INamedTag<Block> saplings = BlockTags.makeWrapperTag("forge:saplings");
@@ -53,7 +53,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> wooden_stairs = BlockTags.makeWrapperTag("forge:wooden_stairs");
     public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
 
-    public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+":mud_wall");
+    public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":mud_wall");
   }
 
   public static class Items {
@@ -107,7 +107,7 @@ public class EssentialsTags {
     public static ITag.INamedTag<Item> buckets_tannin = ItemTags.makeWrapperTag("forge:buckets/tannin");
 
     public static final ITag.INamedTag<Item> buckets_burnable = ItemTags.makeWrapperTag("buckets_burnable");
-    public static final ITag.INamedTag<Item> fireStarter = ItemTags.makeWrapperTag(RavenUtils.MOD_ID+":fire_starter");
+    public static final ITag.INamedTag<Item> fireStarter = ItemTags.makeWrapperTag(RavenUtils.MOD_ID + ":fire_starter");
   }
 
   public static class Fluids {
@@ -115,6 +115,6 @@ public class EssentialsTags {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public static final Tags.IOptionalNamedTag<Fluid> MILK = FluidTags.createOptional(new ResourceLocation("forge:milk"));
+    public static final Tags.IOptionalNamedTag<Fluid> milk = FluidTags.createOptional(new ResourceLocation("forge:milk"));
   }
 }

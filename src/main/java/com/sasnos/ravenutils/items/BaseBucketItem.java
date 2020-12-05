@@ -172,7 +172,7 @@ public abstract class BaseBucketItem extends Item {
    * @return True if the fluid is milk
    */
   protected static boolean isMilk(Fluid fluid) {
-    return EssentialsTags.tagsLoaded() && EssentialsTags.Fluids.MILK.contains(fluid);
+    return EssentialsTags.tagsLoaded() && EssentialsTags.Fluids.milk.contains(fluid);
   }
 
 

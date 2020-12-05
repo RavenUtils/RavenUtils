@@ -99,7 +99,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.MYTHERINE_AXE.get()
     );
 
-    getOrCreateBuilder(axes).add(
+    getOrCreateBuilder(fishing_rods).add(
         Items.FISHING_ROD
     );
 
