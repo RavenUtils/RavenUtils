@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stone_slab"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "tag": "forge:tools/hammers"
+    },
+    {
+      "tag": "forge:tools/chisels"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:mill_stone"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hSc",
+    "s s",
+    "sss"
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "c": {
+      "tag": "forge:tools/chisels"
+    },
+    "s": {
+      "item": "minecraft:cobblestone"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:hand_mill"
+  }
+}

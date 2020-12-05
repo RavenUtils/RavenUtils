@@ -1,9 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.global_loot_modifiers.PassiveEntityLootModifier;
-import com.sasnos.ravenutils.global_loot_modifiers.PlantFibreFromTallGrass;
-import com.sasnos.ravenutils.global_loot_modifiers.QuartzFromStone;
+import com.sasnos.ravenutils.global_loot_modifiers.*;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,4 +21,10 @@ public class ModLootTables {
 
   public static final RegistryObject<PlantFibreFromTallGrass.Serializer> PLANT_FIBRE_FROM_TALL_GRASS = LOOT_MODIFIER
       .register("plant_fibre_from_tall_grass", PlantFibreFromTallGrass.Serializer::new);
+
+  public static final RegistryObject<ResinFromSpruceWood.Serializer> RESIN_FROM_SPRUCE_WOOD = LOOT_MODIFIER
+      .register("resin_from_spruce_wood", ResinFromSpruceWood.Serializer::new);
+
+  public static final RegistryObject<StickFromSpruceLeaves.Serializer> STICK_FROM_SPRUCE_LEAVES = LOOT_MODIFIER
+      .register("stick_from_spruce_leaves", StickFromSpruceLeaves.Serializer::new);
 }

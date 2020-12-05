@@ -10,6 +10,7 @@
     "ravenutils:bronze_axe",
     "ravenutils:silver_axe",
     "ravenutils:steel_axe",
-    "ravenutils:mytherine_axe"
+    "ravenutils:mytherine_axe",
+    "minecraft:fishing_rod"
   ]
 }

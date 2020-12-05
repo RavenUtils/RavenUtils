@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#s#",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "s": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "ravenutils:drying_rack"
+  }
+}

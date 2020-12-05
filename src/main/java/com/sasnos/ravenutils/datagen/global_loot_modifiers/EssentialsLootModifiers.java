@@ -3,6 +3,8 @@ package com.sasnos.ravenutils.datagen.global_loot_modifiers;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.global_loot_modifiers.PlantFibreFromTallGrass;
 import com.sasnos.ravenutils.global_loot_modifiers.QuartzFromStone;
+import com.sasnos.ravenutils.global_loot_modifiers.ResinFromSpruceWood;
+import com.sasnos.ravenutils.global_loot_modifiers.StickFromSpruceLeaves;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -79,6 +81,27 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
                 BlockStateProperty.builder(Blocks.TALL_GRASS)
             ).build(),
             RandomChanceWithLooting.builder(0.5f, 0.5f).build()
+        },
+        1
+    ));
+
+    // todo how to drop resin only once from a log
+    add("resin_from_spruce_wood_modifier", ModLootTables.RESIN_FROM_SPRUCE_WOOD.get(), new ResinFromSpruceWood(
+        new ILootCondition[]{
+            Alternative.builder(
+                BlockStateProperty.builder(Blocks.SPRUCE_LOG)
+            ).build(),
+            RandomChanceWithLooting.builder(0.25f, 0.25f).build()
+        },
+        1
+    ));
+
+    add("stick_from_spruce_leaves_modifier", ModLootTables.STICK_FROM_SPRUCE_LEAVES.get(), new StickFromSpruceLeaves(
+        new ILootCondition[]{
+            Alternative.builder(
+                BlockStateProperty.builder(Blocks.SPRUCE_LEAVES)
+            ).build(),
+            RandomChanceWithLooting.builder(0.25f, 0.25f).build()
         },
         1
     ));

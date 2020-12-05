@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#r#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "r": {
+      "tag": "forge:tools/fishing_rods"
+    }
+  },
+  "result": {
+    "item": "ravenutils:fish_trap"
+  }
+}

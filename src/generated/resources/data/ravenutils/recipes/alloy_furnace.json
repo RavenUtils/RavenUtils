@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "fcf",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:cobblestone"
+    },
+    "f": {
+      "item": "minecraft:furnace"
+    },
+    "c": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "item": "ravenutils:alloy_furnace"
+  }
+}

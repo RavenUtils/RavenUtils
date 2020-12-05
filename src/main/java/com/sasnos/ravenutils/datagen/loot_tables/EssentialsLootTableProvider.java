@@ -3,9 +3,15 @@ package com.sasnos.ravenutils.datagen.loot_tables;
 
 import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
+import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
+import net.minecraft.advancements.criterion.EnchantmentPredicate;
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.loot.*;
+import net.minecraft.loot.conditions.MatchTool;
 import net.minecraft.loot.functions.CopyName;
 import net.minecraft.loot.functions.CopyNbt;
 import net.minecraft.loot.functions.SetContents;
@@ -80,7 +86,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.BLACKBERRY_BUSH.get(), createStandardTable("blackberry_bush", ModBlocks.BLACKBERRY_BUSH.get()));
     lootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
 
-    LootPool.Builder builder = LootPool.builder()
+    LootPool.Builder millStone = LootPool.builder()
         .name("mill_stone")
         .rolls(ConstantRange.of(1))
         .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
@@ -91,6 +97,6 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
             .acceptFunction(SetContents.builderIn()
                 .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
         );
-    lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(builder));
+    lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(millStone));
   }
 }

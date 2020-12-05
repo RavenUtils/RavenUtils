@@ -1,6 +1,8 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModItems;
@@ -229,6 +231,25 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('i', ModItems.STEEL_INGOT.get())
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .setGroup("metal_rods")
+        .build(consumer);
+
+    ShapelessRecipeBuilder.shapelessRecipe(HandMillInit.MILLSTONE_ITEM.get(), 1)
+        .addIngredient(Items.STONE_SLAB)
+        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(hammers)
+        .addIngredient(chisels)
+        .addCriterion("has_stone_slab", hasItem(Items.STONE_SLAB))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(HandMillInit.HAND_MILL_ITEM.get())
+        .patternLine("hSc")
+        .patternLine("s s")
+        .patternLine("sss")
+        .key('h', hammers)
+        .key('c', chisels)
+        .key('s', Items.COBBLESTONE)
+        .key('S', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
 
     // knife
@@ -615,7 +636,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer); */
 
 
-     ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
+    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
         .patternLine("WWW")
         .patternLine("WWW")
         .patternLine(" # ")
@@ -667,5 +688,55 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('S', Items.COBBLESTONE)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(AlloyFurnaceInit.ALLOY_FURNACE_ITEM.get())
+        .patternLine("sss")
+        .patternLine("fcf")
+        .patternLine("sss")
+        .key('s', Items.COBBLESTONE)
+        .key('f', Items.FURNACE)
+        .key('c', Items.CAULDRON)
+        .addCriterion("has_furnace", hasItem(Items.FURNACE))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.BARREL_ITEM.get())
+        .patternLine("#s#")
+        .patternLine("# #")
+        .patternLine("#s#")
+        .key('#', ItemTags.PLANKS)
+        .key('s', ItemTags.WOODEN_SLABS)
+        .addCriterion("has_wooden_slab", hasItemTag(ItemTags.WOODEN_SLABS))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.DRYING_RACK_ITEM.get())
+        .patternLine("###")
+        .patternLine("#s#")
+        .patternLine("# #")
+        .key('#', Tags.Items.RODS_WOODEN)
+        .key('s', Tags.Items.STRING)
+        .addCriterion("has_string", hasItemTag(Tags.Items.STRING))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.FISH_TRAP_ITEM.get())
+        .patternLine("###")
+        .patternLine("#r#")
+        .patternLine("###")
+        .key('#', Tags.Items.RODS_WOODEN)
+        .key('r', fishing_rods)
+        .addCriterion("has_fishing_rod", hasItemTag(fishing_rods))
+        .build(consumer);
+
+    /*
+    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.ANIMAL_TRAP_ITEM.get())
+        .patternLine("###")
+        .patternLine("#c#")
+        .patternLine("###")
+        .key('#', Tags.Items.RODS_WOODEN)
+        .key('c', Items.CARROT_ON_A_STICK)
+        .addCriterion("has_carrot_on_a_stick", hasItem(Items.CARROT_ON_A_STICK))
+        .build(consumer);
+    */
+
+
   }
 }

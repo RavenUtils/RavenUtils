@@ -1,0 +1,20 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:spruce_log"
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:random_chance_with_looting",
+      "chance": 0.25,
+      "looting_multiplier": 0.25
+    }
+  ],
+  "count": 1,
+  "type": "ravenutils:resin_from_spruce_wood"
+}
