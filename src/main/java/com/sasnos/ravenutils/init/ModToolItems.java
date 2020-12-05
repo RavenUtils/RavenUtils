@@ -1,17 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Bag;
-import com.sasnos.ravenutils.items.Bedroll;
-import com.sasnos.ravenutils.items.Bucket;
-import com.sasnos.ravenutils.items.Chisel;
-import com.sasnos.ravenutils.items.Firestarter;
-import com.sasnos.ravenutils.items.Hammer;
-import com.sasnos.ravenutils.items.Knife;
-import com.sasnos.ravenutils.items.MilkBucket;
-import com.sasnos.ravenutils.items.Mortar;
-import com.sasnos.ravenutils.items.SewingNeedle;
-import com.sasnos.ravenutils.items.Soap;
+import com.sasnos.ravenutils.items.*;
 import com.sasnos.ravenutils.utils.enums.Bags;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
 import net.minecraft.item.AxeItem;
@@ -136,13 +126,27 @@ public class ModToolItems {
   public static final RegistryObject<Item> HAMMER_OBSIDIAN = ITEMS.register("hammer_obsidian",
       () -> new Hammer(1024, Rarity.UNCOMMON));
 
+  // tongs
+  public static final RegistryObject<Item> TONGS_WOOD = ITEMS.register("tongs_wooden",
+      () -> new Tongs(32, Rarity.COMMON));
+  public static final RegistryObject<Item> TONGS_IRON = ITEMS.register("tongs_iron",
+      () -> new Tongs(256, Rarity.COMMON));
+  public static final RegistryObject<Item> TONGS_STEEL = ITEMS.register("tongs_steel",
+      () -> new Tongs(512, Rarity.UNCOMMON));
+
+  // handsaws
+  public static final RegistryObject<Item> HANDSAW_IRON = ITEMS.register("handsaw_iron",
+      () -> new Handsaw(256, Rarity.COMMON));
+  public static final RegistryObject<Item> HANDSAW_STEEL = ITEMS.register("handsaw_steel",
+      () -> new Handsaw(512, Rarity.UNCOMMON));
+
   // knives
   public static final RegistryObject<Item> KNIFE_FLINT = ITEMS.register("knife_flint",
       () -> new Knife(32, Rarity.COMMON));
   public static final RegistryObject<Item> KNIFE_IRON = ITEMS.register("knife_iron",
-      () -> new Knife(64, Rarity.COMMON));
+      () -> new Knife(256, Rarity.COMMON));
   public static final RegistryObject<Item> KNIFE_STEEL = ITEMS.register("knife_steel",
-      () -> new Knife(1024, Rarity.UNCOMMON));
+      () -> new Knife(512, Rarity.UNCOMMON));
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
@@ -184,21 +188,21 @@ public class ModToolItems {
   public static final RegistryObject<ShearsItem> SHEARS_SILVER = ITEMS.register("shears_silver",
       () -> new ShearsItem(new Item.Properties().maxDamage(380).group(RavenUtils.TAB)));
   public static final RegistryObject<ShearsItem> SHEARS_STEEL = ITEMS.register("shears_steel",
-      () -> new ShearsItem(new Item.Properties().maxDamage(2048).group(RavenUtils.TAB)));
+      () -> new ShearsItem(new Item.Properties().maxDamage(512).group(RavenUtils.TAB)));
 
   // mortars
   public static final RegistryObject<Item> MORTAR_WOOD = ITEMS.register("mortar_wood",
-      () -> new Mortar(256));
+      () -> new Mortar(128));
   public static final RegistryObject<Item> MORTAR_STONE = ITEMS.register("mortar_stone",
-      () -> new Mortar(1024));
+      () -> new Mortar(512));
 
   // chisels
   public static final RegistryObject<Item> CHISEL_IRON = ITEMS.register("chisel_iron",
       () -> new Chisel(256));
   public static final RegistryObject<Item> CHISEL_STEEL = ITEMS.register("chisel_steel",
-      () -> new Chisel(1024));
+      () -> new Chisel(512));
   public static final RegistryObject<Item> CHISEL_DIAMOND = ITEMS.register("chisel_diamond",
-      () -> new Chisel(4096));
+      () -> new Chisel(2048));
 
   // sewing kits
   public static final RegistryObject<Item> SEWING_NEEDLE_BONE = ITEMS.register("sewing_needle_bone",

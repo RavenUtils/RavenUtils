@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rsr",
+    "rrr",
+    "rsr"
+  ],
+  "key": {
+    "r": {
+      "tag": "forge:rods/wooden"
+    },
+    "s": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "minecraft:ladder",
+    "count": 2
+  }
+}

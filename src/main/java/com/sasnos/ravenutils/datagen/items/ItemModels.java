@@ -547,6 +547,33 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/hammer_obsidian"));
 
+    // tongs
+    singleTexture("item/" + ModToolItems.TONGS_WOOD.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/tongs_wood"));
+
+    singleTexture("item/" + ModToolItems.TONGS_IRON.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/tongs_iron"));
+
+    singleTexture("item/" + ModToolItems.TONGS_STEEL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/tongs_steel"));
+
+    // handsaws
+    singleTexture("item/" + ModToolItems.HANDSAW_IRON.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/handsaw_iron"));
+
+    singleTexture("item/" + ModToolItems.HANDSAW_STEEL.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/handsaw_steel"));
+
     // knives
     singleTexture("item/" + ModToolItems.KNIFE_FLINT.get().getRegistryName().getPath(),
         mcLoc("item/generated"),

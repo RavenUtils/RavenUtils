@@ -29,6 +29,17 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModToolItems.HAMMER_STONE.get()
     );
 
+    getOrCreateBuilder(tongs).add(
+        ModToolItems.TONGS_WOOD.get(),
+        ModToolItems.TONGS_IRON.get(),
+        ModToolItems.TONGS_STEEL.get()
+    );
+
+    getOrCreateBuilder(handsaws).add(
+        ModToolItems.HANDSAW_IRON.get(),
+        ModToolItems.HANDSAW_STEEL.get()
+    );
+
     getOrCreateBuilder(chisels).add(
         ModToolItems.CHISEL_IRON.get(),
         ModToolItems.CHISEL_STEEL.get(),

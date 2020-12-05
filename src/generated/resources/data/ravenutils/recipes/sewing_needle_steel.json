@@ -2,8 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "group": "sewing_needles",
   "pattern": [
-    "h",
-    "i"
+    "ih"
   ],
   "key": {
     "h": {

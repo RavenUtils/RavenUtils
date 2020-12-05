@@ -127,210 +127,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_salt_block", hasItem(ModBlockItems.SALT_BLOCK_ITEM.get()))
         .build(consumer);
 
-    // axe
-    ShapelessRecipeBuilder.shapelessRecipe(Items.ACACIA_PLANKS, 4)
-        .addIngredient(Items.ACACIA_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_acacia_log", hasItem(Items.ACACIA_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.BIRCH_PLANKS, 4)
-        .addIngredient(Items.BIRCH_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_birch_log", hasItem(Items.BIRCH_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.DARK_OAK_PLANKS, 4)
-        .addIngredient(Items.DARK_OAK_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_dark_oak_log", hasItem(Items.DARK_OAK_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.JUNGLE_PLANKS, 4)
-        .addIngredient(Items.JUNGLE_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_jungle_log", hasItem(Items.JUNGLE_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.OAK_PLANKS, 4)
-        .addIngredient(Items.OAK_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_oak_log", hasItem(Items.OAK_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.SPRUCE_PLANKS, 4)
-        .addIngredient(Items.SPRUCE_LOG)
-        .addIngredient(axes)
-        .addCriterion("has_spruce_log", hasItem(Items.SPRUCE_LOG))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get(), 4)
-        .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
-        .addIngredient(axes)
-        .addCriterion("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.STICK, 4)
-        .addIngredient(ItemTags.PLANKS)
-        .addIngredient(axes)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
-        .build(consumer);
-
-    // hammer
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.FLINT_SHARD.get(), 2)
-        .addIngredient(Items.FLINT)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer, "flint_shard_with_hammer");
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
-        .addIngredient(Items.STONE)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer, "cobblestone_with_hammer");
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.GRAVEL)
-        .addIngredient(Items.COBBLESTONE)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.SAND)
-        .addIngredient(Items.GRAVEL)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LIME.get(), 4)
-        .addIngredient(ModBlockItems.LIMESTONE_BLOCK_ITEM.get())
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
-
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_IRON.get())
-        .patternLine("h")
-        .patternLine("i")
-        .key('h', hammers)
-        .key('i', Items.IRON_NUGGET)
-        .addCriterion("has_iron_nugget", hasItem(Items.IRON_NUGGET))
-        .setGroup("sewing_needles")
-        .build(consumer);
-
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_STEEL.get())
-        .patternLine("h")
-        .patternLine("i")
-        .key('h', hammers)
-        .key('i', ModItems.STEEL_NUGGET.get())
-        .addCriterion("has_steel_nugget", hasItem(ModItems.STEEL_NUGGET.get()))
-        .setGroup("sewing_needles")
-        .build(consumer);
-
-    ShapedRecipeBuilder.shapedRecipe(ModItems.METAL_ROD_IRON.get())
-        .patternLine("h")
-        .patternLine("i")
-        .patternLine("i")
-        .key('h', hammers)
-        .key('i', Items.IRON_INGOT)
-        .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
-        .setGroup("metal_rods")
-        .build(consumer);
-
-    ShapedRecipeBuilder.shapedRecipe(ModItems.METAL_ROD_STEEL.get())
-        .patternLine("h")
-        .patternLine("i")
-        .patternLine("i")
-        .key('h', hammers)
-        .key('i', ModItems.STEEL_INGOT.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .setGroup("metal_rods")
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(HandMillInit.MILLSTONE_ITEM.get(), 1)
-        .addIngredient(Items.STONE_SLAB)
-        .addIngredient(Tags.Items.RODS_WOODEN)
-        .addIngredient(hammers)
-        .addIngredient(chisels)
-        .addCriterion("has_stone_slab", hasItem(Items.STONE_SLAB))
-        .build(consumer);
-
-    ShapedRecipeBuilder.shapedRecipe(HandMillInit.HAND_MILL_ITEM.get())
-        .patternLine("hSc")
-        .patternLine("s s")
-        .patternLine("sss")
-        .key('h', hammers)
-        .key('c', chisels)
-        .key('s', Items.COBBLESTONE)
-        .key('S', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
-        .build(consumer);
-
-    // knife
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEATHER_STRIP.get(), 4)
-        .addIngredient(Items.LEATHER)
-        .addIngredient(knives)
-        .addCriterion("has_knife", hasItem(Items.LEATHER))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BUCKET_CLAY_UNFIRED.get())
-        .addIngredient(Items.CLAY)
-        .addIngredient(knives)
-        .addCriterion("has_knife", hasItem(Items.CLAY))
-        .setGroup("buckets")
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BUCKET_WOOD.get())
-        .addIngredient(ItemTags.LOGS_THAT_BURN)
-        .addIngredient(knives)
-        .addCriterion("has_wooden_log", hasItemTag(ItemTags.LOGS_THAT_BURN))
-        .setGroup("buckets")
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BUCKET_CRIMWOOD.get())
-        .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
-        .addIngredient(knives)
-        .addCriterion("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
-        .setGroup("buckets")
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 3)
-        .addIngredient(saplings)
-        .addIngredient(knives)
-        .addCriterion("has_sapling", hasItemTag(saplings))
-        .build(consumer, "plant_fibre_from_saplings");
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 2)
-        .addIngredient(ModBlockItems.REEDS_ITEM.get())
-        .addIngredient(knives)
-        .addCriterion("has_reeds", hasItem(ModBlockItems.REEDS_ITEM.get()))
-        .build(consumer, "plant_fibre_from_reeds");
-
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 1)
-        .addIngredient(barks)
-        .addIngredient(knives)
-        .addCriterion("has_bark", hasItemTag(barks))
-        .build(consumer, "plant_fibre_from_barks");
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 4)
-        .addIngredient(ItemTags.WOOL)
-        .addIngredient(knives)
-        .addCriterion("has_knife", hasItemTag(knives))
-        .build(consumer);
-
-    ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 9)
-        .addIngredient(ModItems.CLOTH.get())
-        .addIngredient(knives)
-        .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
-        .build(consumer, "string_from_knife");
-
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_BONE.get(), 2)
-        .patternLine("h")
-        .patternLine("i")
-        .key('h', knives)
-        .key('i', Items.BONE)
-        .addCriterion("has_knife", hasItemTag(knives))
-        .setGroup("sewing_needles")
-        .build(consumer);
-
     // materials
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_TWINE.get())
         .addIngredient(ModItems.PLANT_FIBRE.get())
@@ -458,7 +254,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.KNIFE_FLINT.get())
         .patternLine(" x")
         .patternLine("i ")
-        .key('x', Items.BOWL)
+        .key('x', ModItems.FLINT_SHARD.get())
         .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
         .setGroup("knives")
@@ -656,6 +452,25 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('#', Tags.Items.RODS_WOODEN)
         .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.LADDER, 2)
+        .patternLine("rsr")
+        .patternLine("rrr")
+        .patternLine("rsr")
+        .key('r', Tags.Items.RODS_WOODEN)
+        .key('s', Tags.Items.STRING)
+        .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.IRON_BARS, 2)
+        .patternLine(" th")
+        .patternLine("###")
+        .patternLine("###")
+        .key('t', tongs)
+        .key('h', hammers)
+        .key('#', Items.IRON_INGOT)
+        .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
         .build(consumer);
 
     // functional blocks

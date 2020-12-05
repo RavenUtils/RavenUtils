@@ -79,6 +79,8 @@ public class EssentialsTags {
 
     // items
     public static final ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
+    public static final ITag.INamedTag<Item> tongs = ItemTags.makeWrapperTag("forge:tools/tongs");
+    public static final ITag.INamedTag<Item> handsaws = ItemTags.makeWrapperTag("forge:tools/handsaws");
     public static final ITag.INamedTag<Item> chisels = ItemTags.makeWrapperTag("forge:tools/chisels");
     public static final ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
     public static final ITag.INamedTag<Item> mortars = ItemTags.makeWrapperTag("forge:tools/mortars");

@@ -206,12 +206,22 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.HAMMER_STONE.get(), "Stone Hammer");
     add(ModToolItems.HAMMER_IRON.get(), "Iron Hammer");
     add(ModToolItems.HAMMER_OBSIDIAN.get(), "Obsidian Hammer");
+
+    add(ModToolItems.TONGS_WOOD.get(), "Wooden Tongs");
+    add(ModToolItems.TONGS_IRON.get(), "Iron Tongs");
+    add(ModToolItems.TONGS_STEEL.get(), "Steel Tongs");
+
+    add(ModToolItems.HANDSAW_IRON.get(), "Iron Handsaw");
+    add(ModToolItems.HANDSAW_STEEL.get(), "Steel Handsaw");
+
     add(ModToolItems.CHISEL_IRON.get(), "Iron Chisel");
     add(ModToolItems.CHISEL_STEEL.get(), "Steel Chisel");
     add(ModToolItems.CHISEL_DIAMOND.get(), "Diamond Chisel");
+
     add(ModToolItems.KNIFE_FLINT.get(), "Flint Knife");
     add(ModToolItems.KNIFE_IRON.get(), "Iron Knife");
     add(ModToolItems.KNIFE_STEEL.get(), "Steel Knife");
+
     add(ModToolItems.BUCKET_WOOD.get(), "Wooden Bucket");
     add(ModToolItems.BUCKET_WOOD.get().getTranslationKey() + ".filled", "%s Wooden Bucket");
     add(ModToolItems.BUCKET_CLAY.get(), "Clay Bucket");
@@ -221,15 +231,19 @@ public class enUs extends LanguageProvider {
     // add(ModToolItems.BUCKET_IRON.get().getTranslationKey() + ".filled", "%s Iron Bucket");
     add(ModToolItems.BUCKET_IRON_LIMEWATER.get(), "Iron Limewater Bucket");
     add(ModToolItems.BUCKET_IRON_TANNIN.get(), "Iron Tannin Bucket");
+
     add(ModToolItems.MORTAR_WOOD.get(), "Wooden Mortar");
     add(ModToolItems.MORTAR_STONE.get(), "Stone Mortar");
-    add(ModToolItems.FIRESTARTER.get(), "Firestarter");
-    add(ModToolItems.SOAP.get(), "Soap");
+
     add(ModToolItems.SEWING_NEEDLE_BONE.get(), "Bone Sewing Needle");
     add(ModToolItems.SEWING_NEEDLE_IRON.get(), "Iron Sewing Needle");
     add(ModToolItems.SEWING_NEEDLE_STEEL.get(), "Steel Sewing Needle");
+
     add(ModToolItems.BAG_CLOTH.get(), "Cloth Bag");
     add(ModToolItems.BAG_LEATHER.get(), "Leather Bag");
+
+    add(ModToolItems.FIRESTARTER.get(), "Firestarter");
+    add(ModToolItems.SOAP.get(), "Soap");
     add(ModToolItems.BEDROLL.get(), "Bedroll");
 
     // metals
