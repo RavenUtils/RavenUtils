@@ -19,12 +19,18 @@ public class ModLootTables {
   public static final RegistryObject<QuartzFromStone.Serializer> QUARTZ_FROM_STONE = LOOT_MODIFIER
       .register("quartz_from_stone", QuartzFromStone.Serializer::new);
 
+  public static final RegistryObject<SulfurFromCoalOre.Serializer> SULFUR_FROM_COAL_ORE = LOOT_MODIFIER
+      .register("sulfur_from_coal_ore", SulfurFromCoalOre.Serializer::new);
+
   public static final RegistryObject<PlantFibreFromTallGrass.Serializer> PLANT_FIBRE_FROM_TALL_GRASS = LOOT_MODIFIER
       .register("plant_fibre_from_tall_grass", PlantFibreFromTallGrass.Serializer::new);
 
   public static final RegistryObject<ResinFromSpruceWood.Serializer> RESIN_FROM_SPRUCE_WOOD = LOOT_MODIFIER
       .register("resin_from_spruce_wood", ResinFromSpruceWood.Serializer::new);
 
-  public static final RegistryObject<StickFromSpruceLeaves.Serializer> STICK_FROM_SPRUCE_LEAVES = LOOT_MODIFIER
-      .register("stick_from_spruce_leaves", StickFromSpruceLeaves.Serializer::new);
+  public static final RegistryObject<StickFromLeaves.Serializer> STICK_FROM_LEAVES = LOOT_MODIFIER
+      .register("stick_from_leaves", StickFromLeaves.Serializer::new);
+
+  public static final RegistryObject<SmallStoneFromDirt.Serializer> SMALL_STONE_FROM_DIRT = LOOT_MODIFIER
+      .register("small_stone_from_dirt", SmallStoneFromDirt.Serializer::new);
 }

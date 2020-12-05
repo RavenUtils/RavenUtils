@@ -1,10 +1,7 @@
 package com.sasnos.ravenutils.datagen.global_loot_modifiers;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.global_loot_modifiers.PlantFibreFromTallGrass;
-import com.sasnos.ravenutils.global_loot_modifiers.QuartzFromStone;
-import com.sasnos.ravenutils.global_loot_modifiers.ResinFromSpruceWood;
-import com.sasnos.ravenutils.global_loot_modifiers.StickFromSpruceLeaves;
+import com.sasnos.ravenutils.global_loot_modifiers.*;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
@@ -64,46 +61,56 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
     */
 
     add("quartz_from_stone_modifier", ModLootTables.QUARTZ_FROM_STONE.get(), new QuartzFromStone(
-        new ILootCondition[]{
-            Alternative.builder(
-                BlockStateProperty.builder(Blocks.GRANITE),
-                BlockStateProperty.builder(Blocks.ANDESITE),
-                BlockStateProperty.builder(Blocks.DIORITE)
-            ).build(),
-            RandomChanceWithLooting.builder(0.1f, 0.5f).build()
-        },
-        1
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.GRANITE),
+            BlockStateProperty.builder(Blocks.ANDESITE),
+            BlockStateProperty.builder(Blocks.DIORITE)
+        ).build(), RandomChanceWithLooting.builder(0.1f, 0.5f).build()
+        }, 1
+    ));
+
+    add("sulfur_from_coal_ore", ModLootTables.SULFUR_FROM_COAL_ORE.get(), new SulfurFromCoalOre(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.COAL_ORE)
+        ).build(), RandomChanceWithLooting.builder(0.03f, 0.25f).build()
+        }, 1
     ));
 
     add("plant_fibre_from_tall_grass_modifier", ModLootTables.PLANT_FIBRE_FROM_TALL_GRASS.get(), new PlantFibreFromTallGrass(
-        new ILootCondition[]{
-            Alternative.builder(
-                BlockStateProperty.builder(Blocks.TALL_GRASS)
-            ).build(),
-            RandomChanceWithLooting.builder(0.5f, 0.5f).build()
-        },
-        1
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.TALL_GRASS)
+        ).build(), RandomChanceWithLooting.builder(0.35f, 0.5f).build()
+        }, 1
     ));
 
-    // todo how to drop resin only once from a log
+    // todo how to maybe drop resin only once from a log?
     add("resin_from_spruce_wood_modifier", ModLootTables.RESIN_FROM_SPRUCE_WOOD.get(), new ResinFromSpruceWood(
-        new ILootCondition[]{
-            Alternative.builder(
-                BlockStateProperty.builder(Blocks.SPRUCE_LOG)
-            ).build(),
-            RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        },
-        1
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.SPRUCE_LOG)
+        ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
+        }, 1
     ));
 
-    add("stick_from_spruce_leaves_modifier", ModLootTables.STICK_FROM_SPRUCE_LEAVES.get(), new StickFromSpruceLeaves(
-        new ILootCondition[]{
-            Alternative.builder(
-                BlockStateProperty.builder(Blocks.SPRUCE_LEAVES)
-            ).build(),
-            RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        },
-        1
+    add("small_stone_from_dirt", ModLootTables.SMALL_STONE_FROM_DIRT.get(), new SmallStoneFromDirt(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.DIRT),
+            BlockStateProperty.builder(Blocks.COARSE_DIRT),
+            BlockStateProperty.builder(Blocks.GRASS_BLOCK),
+            BlockStateProperty.builder(Blocks.FARMLAND)
+        ).build(), RandomChanceWithLooting.builder(0.15f, 0.25f).build()
+        }, 1
+    ));
+
+    add("stick_from_leaves_modifier", ModLootTables.STICK_FROM_LEAVES.get(), new StickFromLeaves(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.ACACIA_LEAVES),
+            BlockStateProperty.builder(Blocks.BIRCH_LEAVES),
+            BlockStateProperty.builder(Blocks.DARK_OAK_LEAVES),
+            BlockStateProperty.builder(Blocks.JUNGLE_LEAVES),
+            BlockStateProperty.builder(Blocks.OAK_LEAVES),
+            BlockStateProperty.builder(Blocks.SPRUCE_LEAVES)
+        ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
+        }, 1
     ));
   }
 }

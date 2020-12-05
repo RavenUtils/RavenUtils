@@ -170,7 +170,19 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
         .build(consumer);
 
+    ShapelessRecipeBuilder.shapelessRecipe(Items.STICK, 4)
+        .addIngredient(ItemTags.PLANKS)
+        .addIngredient(axes)
+        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .build(consumer);
+
     // hammer
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.FLINT_SHARD.get(), 2)
+        .addIngredient(Items.FLINT)
+        .addIngredient(hammers)
+        .addCriterion("has_hammer", hasItemTag(hammers))
+        .build(consumer, "flint_shard_with_hammer");
+
     ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
         .addIngredient(Items.STONE)
         .addIngredient(hammers)
@@ -627,14 +639,15 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_clay_ball", hasItem(Items.CLAY_BALL))
         .build(consumer);
 
-    /* ShapedRecipeBuilder.shapedRecipe(ModItems.UNFIRED_LARGE_FLOWER_POT.get())
-        .patternLine("k")
-        .patternLine("c")
-        .key('c', Items.CLAY)
-        .key('k', knives)
-        .addCriterion("has_clay", hasItem(Items.CLAY))
-        .build(consumer); */
-
+    /*
+    ShapedRecipeBuilder.shapedRecipe(ModItems.UNFIRED_LARGE_FLOWER_POT.get())
+      .patternLine("k")
+      .patternLine("c")
+      .key('c', Items.CLAY)
+      .key('k', knives)
+      .addCriterion("has_clay", hasItem(Items.CLAY))
+      .build(consumer);
+    */
 
     ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
         .patternLine("WWW")

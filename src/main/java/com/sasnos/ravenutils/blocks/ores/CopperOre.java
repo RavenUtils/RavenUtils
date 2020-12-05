@@ -13,7 +13,6 @@ public class CopperOre extends OreBlock {
         .sound(SoundType.STONE)
         .harvestLevel(1)
         .setRequiresTool()
-        .harvestTool(ToolType.PICKAXE)
     );
   }
 }

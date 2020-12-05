@@ -5,16 +5,16 @@
       "terms": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "minecraft:tall_grass"
+          "block": "ravenutils:crimwood_leaves"
         }
       ]
     },
     {
       "condition": "minecraft:random_chance_with_looting",
-      "chance": 0.35,
-      "looting_multiplier": 0.5
+      "chance": 0.25,
+      "looting_multiplier": 0.25
     }
   ],
   "count": 1,
-  "type": "ravenutils:plant_fibre_from_tall_grass"
+  "type": "ravenutils:stick_from_crimwood_leaves"
 }

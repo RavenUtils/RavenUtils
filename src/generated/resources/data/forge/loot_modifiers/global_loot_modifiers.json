@@ -1,9 +1,11 @@
 {
   "replace": false,
   "entries": [
+    "ravenutils:stick_from_leaves_modifier",
     "ravenutils:resin_from_spruce_wood_modifier",
+    "ravenutils:sulfur_from_coal_ore",
     "ravenutils:plant_fibre_from_tall_grass_modifier",
-    "ravenutils:stick_from_spruce_leaves_modifier",
+    "ravenutils:small_stone_from_dirt",
     "ravenutils:quartz_from_stone_modifier"
   ]
 }

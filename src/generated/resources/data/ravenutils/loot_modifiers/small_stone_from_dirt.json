@@ -5,36 +5,28 @@
       "terms": [
         {
           "condition": "minecraft:block_state_property",
-          "block": "minecraft:acacia_leaves"
+          "block": "minecraft:dirt"
         },
         {
           "condition": "minecraft:block_state_property",
-          "block": "minecraft:birch_leaves"
+          "block": "minecraft:coarse_dirt"
         },
         {
           "condition": "minecraft:block_state_property",
-          "block": "minecraft:dark_oak_leaves"
+          "block": "minecraft:grass_block"
         },
         {
           "condition": "minecraft:block_state_property",
-          "block": "minecraft:jungle_leaves"
-        },
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "minecraft:oak_leaves"
-        },
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "minecraft:spruce_leaves"
+          "block": "minecraft:farmland"
         }
       ]
     },
     {
       "condition": "minecraft:random_chance_with_looting",
-      "chance": 0.25,
+      "chance": 0.15,
       "looting_multiplier": 0.25
     }
   ],
   "count": 1,
-  "type": "ravenutils:stick_from_leaves"
+  "type": "ravenutils:small_stone_from_dirt"
 }
