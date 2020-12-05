@@ -871,7 +871,6 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/coin_gold"));
 
-    // todo move berries to Harvest module
     // berries
     singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
         mcLoc("item/generated"),

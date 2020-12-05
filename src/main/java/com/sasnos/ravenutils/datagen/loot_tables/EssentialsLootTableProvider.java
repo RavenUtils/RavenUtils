@@ -59,12 +59,14 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     // lootTables.put(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), createStandardTable("potted_crimwood_sapling", ModBlocks.POTTED_CRIMWOOD_SAPLING.get()));
 
     lootTables.put(ModBlocks.CRIMWOOD.get(), createStandardTable("crimwood", ModBlocks.CRIMWOOD.get()));
+    lootTables.put(ModBlocks.CRIMWOOD_STRIPPED.get(), createStandardTable("crimwood_stripped", ModBlocks.CRIMWOOD_STRIPPED.get()));
     lootTables.put(ModBlocks.CRIMWOOD_BUTTON.get(), createStandardTable("crimwood_button", ModBlocks.CRIMWOOD_BUTTON.get()));
     lootTables.put(ModBlocks.CRIMWOOD_DOOR.get(), createStandardTable("crimwood_door", ModBlocks.CRIMWOOD_DOOR.get()));
     lootTables.put(ModBlocks.CRIMWOOD_FENCE.get(), createStandardTable("crimwood_fence", ModBlocks.CRIMWOOD_FENCE.get()));
     lootTables.put(ModBlocks.CRIMWOOD_FENCE_GATE.get(), createStandardTable("crimwood_fence_gate", ModBlocks.CRIMWOOD_FENCE_GATE.get()));
     lootTables.put(ModBlocks.CRIMWOOD_LEAVES.get(), createStandardTable("crimwood_leaves", ModBlocks.CRIMWOOD_LEAVES.get()));
     lootTables.put(ModBlocks.CRIMWOOD_LOG.get(), createStandardTable("crimwood_log", ModBlocks.CRIMWOOD_LOG.get()));
+    lootTables.put(ModBlocks.CRIMWOOD_LOG_STRIPPED.get(), createStandardTable("crimwood_log_stripped", ModBlocks.CRIMWOOD_LOG_STRIPPED.get()));
     lootTables.put(ModBlocks.CRIMWOOD_PLANKS.get(), createStandardTable("crimwood_planks", ModBlocks.CRIMWOOD_PLANKS.get()));
     lootTables.put(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), createStandardTable("crimwood_pressure_plate", ModBlocks.CRIMWOOD_PRESSURE_PLATE.get()));
     lootTables.put(ModBlocks.CRIMWOOD_SIGN.get(), createStandardTable("crimwood_sign", ModBlocks.CRIMWOOD_SIGN.get()));

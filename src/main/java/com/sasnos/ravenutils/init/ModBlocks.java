@@ -36,22 +36,7 @@ import com.sasnos.ravenutils.blocks.StoneGroundBlock;
 import com.sasnos.ravenutils.blocks.TanninBlock;
 import com.sasnos.ravenutils.blocks.TinBlock;
 import com.sasnos.ravenutils.blocks.ZincBlock;
-import com.sasnos.ravenutils.blocks.crimwood.Crimwood;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodButton;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodDoor;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFence;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFenceGate;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLeaves;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLog;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLogStripped;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPlanks;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPressurePlate;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSapling;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignStanding;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignWall;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSlab;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStairs;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodTrapdoor;
+import com.sasnos.ravenutils.blocks.crimwood.*;
 import com.sasnos.ravenutils.blocks.mud.MudBlock;
 import com.sasnos.ravenutils.blocks.mud.MudBrickSlab;
 import com.sasnos.ravenutils.blocks.mud.MudBrickStairs;
@@ -158,6 +143,7 @@ public class ModBlocks {
       )
   );
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);
+  public static final RegistryObject<Block> CRIMWOOD_STRIPPED = BLOCKS.register("crimwood_stripped", CrimwoodStripped::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG = BLOCKS.register("crimwood_log", CrimwoodLog::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG_STRIPPED = BLOCKS.register("crimwood_log_stripped", CrimwoodLogStripped::new);
   public static final RegistryObject<Block> CRIMWOOD_LEAVES = BLOCKS.register("crimwood_leaves", CrimwoodLeaves::new);
@@ -179,7 +165,6 @@ public class ModBlocks {
   public static final RegistryObject<WallBlock> MUD_BRICK_WALL = BLOCKS.register("mud_brick_wall", MudBrickWall::new);
 
   // berry bushes
-  // todo move berry bushes to Harvest module
   public static final RegistryObject<Block> BLUEBERRY_BUSH = BLOCKS.register("blueberry_bush", BlueberryBush::new);
   public static final RegistryObject<Block> ELDERBERRY_BUSH = BLOCKS.register("elderberry_bush", ElderberryBush::new);
   public static final RegistryObject<Block> RASPBERRY_BUSH = BLOCKS.register("raspberry_bush", RaspberryBush::new);

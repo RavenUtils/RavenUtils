@@ -202,7 +202,9 @@ public class EssentialsItemTags extends ItemTagsProvider {
 
     getOrCreateBuilder(crimwood_logs).add(
         ModBlockItems.CRIMWOOD_ITEM.get(),
-        ModBlockItems.CRIMWOOD_LOG_ITEM.get()
+        ModBlockItems.CRIMWOOD_LOG_ITEM.get(),
+        ModBlockItems.CRIMWOOD_LOG_STRIPPED_ITEM.get(),
+        ModBlockItems.CRIMWOOD_STRIPPED_ITEM.get()
     );
 
     getOrCreateBuilder(buckets_burnable).add(

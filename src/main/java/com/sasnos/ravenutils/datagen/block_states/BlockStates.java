@@ -20,7 +20,6 @@ public class BlockStates extends EssentialsBlockStates {
   protected void registerStatesAndModels() {
 
     // berry bushes
-    // todo move berry bushes to Harvest module
     BlockModelBuilder blueberryBush0 = models().cross("blueberry_bush0", mcLoc("block/sweet_berry_bush_stage0"));
     BlockModelBuilder blueberryBush1 = models().cross("blueberry_bush1", mcLoc("block/sweet_berry_bush_stage1"));
     BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2", modLoc("blocks/bush_blueberry_stage2"));
@@ -119,6 +118,9 @@ public class BlockStates extends EssentialsBlockStates {
     // crimwood blocks
     BlockModelBuilder crimwood = models().cubeAll("crimwood", modLoc("blocks/crimwood_log"));
     simpleBlock(ModBlocks.CRIMWOOD.get(), crimwood);
+
+    BlockModelBuilder crimwood_stripped = models().cubeAll("crimwood_stripped", modLoc("blocks/crimwood_log_stripped"));
+    simpleBlock(ModBlocks.CRIMWOOD_STRIPPED.get(), crimwood_stripped);
 
     axisBlock(ModBlocks.CRIMWOOD_LOG.get(), modLoc("blocks/crimwood_log"), modLoc("blocks/crimwood_log_top"));
 
@@ -317,7 +319,8 @@ public class BlockStates extends EssentialsBlockStates {
     orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
 
     // todo adjust!
-    /*// barrel
+    /*
+    // barrel
     BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open", EssentialsUtils.resourceLocation("block/barrel"))
         .texture("3", "blocks/barrel_open");
 
