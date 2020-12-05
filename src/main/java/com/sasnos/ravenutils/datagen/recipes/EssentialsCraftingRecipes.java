@@ -251,6 +251,65 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("hammers")
         .build(consumer);
 
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_WOOD.get())
+        .patternLine("ix")
+        .patternLine(" i")
+        .key('x', ModItems.LEATHER_STRIP.get())
+        .key('i', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_leather_strip",hasItem(ModItems.LEATHER_STRIP.get()))
+        .setGroup("tongs")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_IRON.get())
+        .patternLine(" th")
+        .patternLine("ix ")
+        .patternLine(" i ")
+        .key('t', tongs)
+        .key('h', hammers)
+        .key('x', Items.IRON_NUGGET)
+        .key('i', ModItems.METAL_ROD_IRON.get())
+        .addCriterion("has_iron_rod",hasItem(ModItems.METAL_ROD_IRON.get()))
+        .setGroup("tongs")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_STEEL.get())
+        .patternLine(" th")
+        .patternLine("ix ")
+        .patternLine(" i ")
+        .key('t', tongs)
+        .key('h', hammers)
+        .key('x', ModItems.STEEL_NUGGET.get())
+        .key('i', ModItems.METAL_ROD_STEEL.get())
+        .addCriterion("has_steel_rod",hasItem(ModItems.METAL_ROD_STEEL.get()))
+        .setGroup("tongs")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_IRON.get())
+        .patternLine(" th")
+        .patternLine("nin")
+        .patternLine(" r ")
+        .key('t', tongs)
+        .key('h', hammers)
+        .key('n', Items.IRON_NUGGET)
+        .key('i', Items.IRON_INGOT)
+        .key('r', ModItems.METAL_ROD_IRON.get())
+        .addCriterion("has_iron_rod",hasItem(ModItems.METAL_ROD_IRON.get()))
+        .setGroup("handsaws")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_STEEL.get())
+        .patternLine(" th")
+        .patternLine("nin")
+        .patternLine(" r ")
+        .key('t', tongs)
+        .key('h', hammers)
+        .key('n', ModItems.STEEL_NUGGET.get())
+        .key('i', ModItems.STEEL_INGOT.get())
+        .key('r', ModItems.METAL_ROD_STEEL.get())
+        .addCriterion("has_steel_rod",hasItem(ModItems.METAL_ROD_STEEL.get()))
+        .setGroup("handsaws")
+        .build(consumer);
+
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.KNIFE_FLINT.get())
         .patternLine(" x")
         .patternLine("i ")
