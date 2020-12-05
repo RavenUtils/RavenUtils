@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.datagen;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.datagen.block_states.BlockStates;
-import com.sasnos.ravenutils.datagen.global_loot_modifer.EssentialsLootModifier;
+import com.sasnos.ravenutils.datagen.global_loot_modifiers.EssentialsLootModifiers;
 import com.sasnos.ravenutils.datagen.items.ItemModels;
 import com.sasnos.ravenutils.datagen.lang.enUs;
 import com.sasnos.ravenutils.datagen.loot_tables.EssentialsLootTableProvider;
@@ -33,7 +33,7 @@ public class EssentialsDataGenerator {
       BlockTagsProvider btg = new EssentialsBlockTags(generator, RavenUtils.MOD_ID, event.getExistingFileHelper());
       ItemTagsProvider itg = new EssentialsItemTags(generator, btg, event.getExistingFileHelper());
       FluidTagsProvider ftg = new EssentialsFluidTags(generator, event.getExistingFileHelper());
-      generator.addProvider(new EssentialsLootModifier(generator));
+      generator.addProvider(new EssentialsLootModifiers(generator));
       generator.addProvider(itg);
       generator.addProvider(btg);
       generator.addProvider(ftg);

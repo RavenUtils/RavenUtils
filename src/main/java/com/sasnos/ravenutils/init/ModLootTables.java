@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.global_loot_modifiers.PassiveEntityLootModifier;
+import com.sasnos.ravenutils.global_loot_modifiers.PlantFibreFromTallGrass;
 import com.sasnos.ravenutils.global_loot_modifiers.QuartzFromStone;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.fml.RegistryObject;
@@ -19,4 +20,7 @@ public class ModLootTables {
 
   public static final RegistryObject<QuartzFromStone.Serializer> QUARTZ_FROM_STONE = LOOT_MODIFIER
       .register("quartz_from_stone", QuartzFromStone.Serializer::new);
+
+  public static final RegistryObject<PlantFibreFromTallGrass.Serializer> PLANT_FIBRE_FROM_TALL_GRASS = LOOT_MODIFIER
+      .register("plant_fibre_from_tall_grass", PlantFibreFromTallGrass.Serializer::new);
 }

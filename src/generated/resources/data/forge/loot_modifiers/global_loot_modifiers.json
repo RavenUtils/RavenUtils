@@ -1,6 +1,7 @@
 {
   "replace": false,
   "entries": [
+    "ravenutils:plant_fibre_from_tall_grass_modifier",
     "ravenutils:quartz_from_stone_modifier"
   ]
 }
