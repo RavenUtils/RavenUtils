@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:handsaw_flint"
+      "minecraft:shears"
     ]
   },
   "criteria": {
-    "has_flint_shard": {
+    "has_iron_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:flint_shard"
+            "item": "minecraft:iron_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:handsaw_flint"
+        "recipe": "minecraft:shears"
       }
     }
   },
   "requirements": [
     [
-      "has_flint_shard",
+      "has_iron_ingot",
       "has_the_recipe"
     ]
   ]

@@ -344,18 +344,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("tongs")
         .build(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_FLINT.get())
-        .patternLine(" h ")
-        .patternLine("rsr")
-        .patternLine("fff")
-        .key('h', hammers)
-        .key('r', Tags.Items.RODS_WOODEN)
-        .key('s', Tags.Items.STRING)
-        .key('f', ModItems.FLINT_SHARD.get())
-        .addCriterion("has_flint_shard",hasItem(ModItems.FLINT_SHARD.get()))
-        .setGroup("handsaws")
-        .build(consumer);
-
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_IRON.get())
         .patternLine(" th")
         .patternLine("nin")
@@ -444,6 +432,15 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('i', Tags.Items.RODS_WOODEN)
         .addCriterion("has_diamond", hasItem(Items.DIAMOND))
         .setGroup("chisels")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.SHEARS)
+        .patternLine("i ")
+        .patternLine("xi")
+        .key('i', Items.IRON_INGOT)
+        .key('x', ModItems.LEATHER_STRIP.get())
+        .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
+        .setGroup("shears")
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.SHEARS_COPPER.get())

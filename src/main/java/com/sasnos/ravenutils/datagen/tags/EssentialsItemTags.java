@@ -98,6 +98,7 @@ public class EssentialsItemTags extends ItemTagsProvider {
     );
 
     getOrCreateBuilder(axes).add(
+        ModToolItems.FLINT_AXE.get(),
         Items.STONE_AXE,
         Items.IRON_AXE,
         Items.GOLDEN_AXE,

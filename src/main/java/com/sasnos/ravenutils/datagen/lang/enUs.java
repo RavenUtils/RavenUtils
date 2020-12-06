@@ -143,6 +143,7 @@ public class enUs extends LanguageProvider {
 
     // todo move swords and armor items to Combat module
     // tiered armor, weapons and tools
+    add(ModToolItems.FLINT_AXE.get(), "Flint Axe");
     // add(ModArmorItems.COPPER_HELMET.get(), "Copper Helmet");
     // add(ModArmorItems.COPPER_CHESTPLATE.get(), "Copper Chestplate");
     // add(ModArmorItems.COPPER_LEGGINGS.get(), "Copper Leggings");
@@ -211,7 +212,6 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.TONGS_IRON.get(), "Iron Tongs");
     add(ModToolItems.TONGS_STEEL.get(), "Steel Tongs");
 
-    add(ModToolItems.HANDSAW_FLINT.get(), "Flint Handsaw");
     add(ModToolItems.HANDSAW_IRON.get(), "Iron Handsaw");
     add(ModToolItems.HANDSAW_STEEL.get(), "Steel Handsaw");
 

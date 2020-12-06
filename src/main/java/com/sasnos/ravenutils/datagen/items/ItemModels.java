@@ -569,11 +569,6 @@ public class ItemModels extends ItemModelProvider {
         modLoc("items/tongs_steel"));
 
     // handsaws
-    singleTexture("item/" + ModToolItems.HANDSAW_FLINT.get().getRegistryName().getPath(),
-        mcLoc("item/generated"),
-        "layer0",
-        modLoc("items/handsaw_flint"));
-
     singleTexture("item/" + ModToolItems.HANDSAW_IRON.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",

@@ -139,8 +139,6 @@ public class ModToolItems {
       () -> new Tongs(512, Rarity.UNCOMMON));
 
   // handsaws
-  public static final RegistryObject<Item> HANDSAW_FLINT = ITEMS.register("handsaw_flint",
-      () -> new Handsaw(32, Rarity.COMMON));
   public static final RegistryObject<Item> HANDSAW_IRON = ITEMS.register("handsaw_iron",
       () -> new Handsaw(256, Rarity.COMMON));
   public static final RegistryObject<Item> HANDSAW_STEEL = ITEMS.register("handsaw_steel",

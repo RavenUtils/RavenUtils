@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "shears",
+  "pattern": [
+    "i ",
+    "xi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "x": {
+      "item": "ravenutils:leather_strip"
+    }
+  },
+  "result": {
+    "item": "minecraft:shears"
+  }
+}
