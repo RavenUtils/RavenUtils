@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ffs",
+    "f# ",
+    " # "
+  ],
+  "key": {
+    "f": {
+      "item": "ravenutils:flint_shard"
+    },
+    "s": {
+      "tag": "forge:string"
+    },
+    "#": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "ravenutils:flint_axe"
+  }
+}

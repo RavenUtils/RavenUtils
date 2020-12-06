@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:flint_axe"
+    ]
+  },
+  "criteria": {
+    "has_flint_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:flint_shard"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:flint_axe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flint_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

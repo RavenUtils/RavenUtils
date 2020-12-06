@@ -1,0 +1,36 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:redstone_ore"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:lapis_ore"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:emerald_ore"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:diamond_ore"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:coal_ore"
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:random_chance_with_looting",
+      "chance": 0.35,
+      "looting_multiplier": 0.05
+    }
+  ],
+  "count": 1,
+  "type": "ravenutils:cobble_from_ore"
+}

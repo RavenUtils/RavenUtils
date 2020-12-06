@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "handsaws",
+  "pattern": [
+    " h ",
+    "rsr",
+    "fff"
+  ],
+  "key": {
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "r": {
+      "tag": "forge:rods/wooden"
+    },
+    "s": {
+      "tag": "forge:string"
+    },
+    "f": {
+      "item": "ravenutils:flint_shard"
+    }
+  },
+  "result": {
+    "item": "ravenutils:handsaw_flint"
+  }
+}

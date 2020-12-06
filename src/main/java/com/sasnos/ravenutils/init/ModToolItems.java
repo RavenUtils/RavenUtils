@@ -28,6 +28,10 @@ public class ModToolItems {
       DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
 
   // default tools
+  public static final RegistryObject<Item> FLINT_AXE = ITEMS.register("flint_axe",
+      () -> new AxeItem(ModItemTier.FLINT, 2, -5F, new Item.Properties()
+          .group(RavenUtils.TAB).rarity(Rarity.COMMON)));
+
   // copper
   // todo move sword to Combat module
   public static final RegistryObject<SwordItem> COPPER_SWORD = ITEMS.register("copper_sword",
@@ -135,6 +139,8 @@ public class ModToolItems {
       () -> new Tongs(512, Rarity.UNCOMMON));
 
   // handsaws
+  public static final RegistryObject<Item> HANDSAW_FLINT = ITEMS.register("handsaw_flint",
+      () -> new Handsaw(32, Rarity.COMMON));
   public static final RegistryObject<Item> HANDSAW_IRON = ITEMS.register("handsaw_iron",
       () -> new Handsaw(256, Rarity.COMMON));
   public static final RegistryObject<Item> HANDSAW_STEEL = ITEMS.register("handsaw_steel",
@@ -167,10 +173,10 @@ public class ModToolItems {
       () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
 
   // iron bucket (Vanilla override)
-//  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
-//      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
-//  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
-//      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
+  //  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
+  //      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
+  //  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
+  //      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
 
 
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",

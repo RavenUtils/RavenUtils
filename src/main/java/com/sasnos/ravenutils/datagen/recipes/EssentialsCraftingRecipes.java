@@ -201,6 +201,66 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     // tools
+    ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_SWORD)
+        .patternLine(" p ")
+        .patternLine(" ps")
+        .patternLine(" # ")
+        .key('p', ItemTags.PLANKS)
+        .key('s', Tags.Items.STRING)
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_SHOVEL)
+        .patternLine(" ps")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('p', ItemTags.PLANKS)
+        .key('s', Tags.Items.STRING)
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_HOE)
+        .patternLine("pps")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('p', ItemTags.PLANKS)
+        .key('s', Tags.Items.STRING)
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.FLINT_AXE.get())
+        .patternLine("ffs")
+        .patternLine("f# ")
+        .patternLine(" # ")
+        .key('f', ModItems.FLINT_SHARD.get())
+        .key('s', Tags.Items.STRING)
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.STONE_AXE)
+        .patternLine("ccl")
+        .patternLine("c# ")
+        .patternLine(" # ")
+        .key('c', Items.COBBLESTONE)
+        .key('l', ModItems.LEATHER_STRIP.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(Items.STONE_HOE)
+        .patternLine("ccl")
+        .patternLine(" # ")
+        .patternLine(" # ")
+        .key('c', Items.COBBLESTONE)
+        .key('l', ModItems.LEATHER_STRIP.get())
+        .key('#', Tags.Items.RODS_WOODEN)
+        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
+        .build(consumer);
+
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_WOOD.get())
         .patternLine(" s")
         .patternLine("b ")
@@ -282,6 +342,18 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('i', ModItems.METAL_ROD_STEEL.get())
         .addCriterion("has_steel_rod",hasItem(ModItems.METAL_ROD_STEEL.get()))
         .setGroup("tongs")
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_FLINT.get())
+        .patternLine(" h ")
+        .patternLine("rsr")
+        .patternLine("fff")
+        .key('h', hammers)
+        .key('r', Tags.Items.RODS_WOODEN)
+        .key('s', Tags.Items.STRING)
+        .key('f', ModItems.FLINT_SHARD.get())
+        .addCriterion("has_flint_shard",hasItem(ModItems.FLINT_SHARD.get()))
+        .setGroup("handsaws")
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.HANDSAW_IRON.get())

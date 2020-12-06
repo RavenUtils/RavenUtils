@@ -526,6 +526,11 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/soap"));
 
+    singleTexture("item/" + ModToolItems.FLINT_AXE.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/flint_axe"));
+
     singleTexture("item/" + ModToolItems.FIRESTARTER.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -564,6 +569,11 @@ public class ItemModels extends ItemModelProvider {
         modLoc("items/tongs_steel"));
 
     // handsaws
+    singleTexture("item/" + ModToolItems.HANDSAW_FLINT.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/handsaw_flint"));
+
     singleTexture("item/" + ModToolItems.HANDSAW_IRON.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",

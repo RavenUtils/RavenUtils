@@ -211,6 +211,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.TONGS_IRON.get(), "Iron Tongs");
     add(ModToolItems.TONGS_STEEL.get(), "Steel Tongs");
 
+    add(ModToolItems.HANDSAW_FLINT.get(), "Flint Handsaw");
     add(ModToolItems.HANDSAW_IRON.get(), "Iron Handsaw");
     add(ModToolItems.HANDSAW_STEEL.get(), "Steel Handsaw");
 

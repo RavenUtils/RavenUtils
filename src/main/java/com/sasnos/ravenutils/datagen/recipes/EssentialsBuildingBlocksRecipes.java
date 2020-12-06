@@ -64,12 +64,6 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_SLAB_ITEM.get(), 6)
-        .patternLine("###")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
-
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(), 4)
         .patternLine("#  ")
         .patternLine("## ")
@@ -133,14 +127,6 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
         .key('s', Items.STONE)
         .key('g', ModItems.GROUT.get())
         .addCriterion("has_stone", hasItem(Items.STONE))
-        .build(consumer);
-    ShapedRecipeBuilder.shapedRecipe(ModItems.CRIMWOOD_SIGN.get())
-        .patternLine("WWW")
-       .patternLine("WWW")
-        .patternLine(" # ")
-       .key('#', Tags.Items.RODS_WOODEN)
-       .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-       .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
   }
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ch",
+    " # "
+  ],
+  "key": {
+    "c": {
+      "tag": "forge:tools/chisels"
+    },
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "#": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "minecraft:glass_pane",
+    "count": 8
+  }
+}

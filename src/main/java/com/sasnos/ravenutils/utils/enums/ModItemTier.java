@@ -9,6 +9,13 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
   // see https://mcreator.net/wiki/how-make-tool for property examples
+  FLINT(0,
+      32,
+      4.0F,
+      1.0F,
+      10, () -> {
+    return Ingredient.fromItems(ModItems.FLINT_SHARD.get());
+  }),
   COPPER(1,
       180,
       8.0F,

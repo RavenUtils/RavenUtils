@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:spruce_slabs_with_handsaw"
+    ]
+  },
+  "criteria": {
+    "has_spruce_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:spruce_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:spruce_slabs_with_handsaw"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

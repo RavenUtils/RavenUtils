@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "ravenutils:crimwood_planks"
+    },
+    {
+      "tag": "forge:tools/axes"
     }
-  },
+  ],
   "result": {
     "item": "ravenutils:crimwood_slab",
-    "count": 6
+    "count": 2
   }
 }

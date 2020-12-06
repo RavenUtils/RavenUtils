@@ -112,5 +112,24 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
         }, 1
     ));
+
+    add("cobble_from_ore", ModLootTables.COBBLE_FROM_ORE.get(), new CobbleFromOre(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.REDSTONE_ORE),
+            BlockStateProperty.builder(Blocks.LAPIS_ORE),
+            BlockStateProperty.builder(Blocks.EMERALD_ORE),
+            BlockStateProperty.builder(Blocks.DIAMOND_ORE),
+            BlockStateProperty.builder(Blocks.COAL_ORE)
+        ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
+        }, 1
+    ));
+
+    add("netherrack_from_ore", ModLootTables.NETHERRACK_FROM_ORE.get(), new NetherrackFromOre(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.NETHER_GOLD_ORE),
+            BlockStateProperty.builder(Blocks.NETHER_QUARTZ_ORE)
+        ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
+        }, 1
+    ));
   }
 }

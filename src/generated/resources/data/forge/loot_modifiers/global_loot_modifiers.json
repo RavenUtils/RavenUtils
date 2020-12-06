@@ -5,7 +5,9 @@
     "ravenutils:resin_from_spruce_wood_modifier",
     "ravenutils:sulfur_from_coal_ore",
     "ravenutils:plant_fibre_from_tall_grass_modifier",
+    "ravenutils:netherrack_from_ore",
     "ravenutils:small_stone_from_dirt",
+    "ravenutils:cobble_from_ore",
     "ravenutils:quartz_from_stone_modifier"
   ]
 }

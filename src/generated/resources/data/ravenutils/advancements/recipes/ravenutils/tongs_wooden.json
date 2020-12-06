@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:tongs_wooden"
+    ]
+  },
+  "criteria": {
+    "has_leather_strip": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:leather_strip"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:tongs_wooden"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_leather_strip",
+      "has_the_recipe"
+    ]
+  ]
+}

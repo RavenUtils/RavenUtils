@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "handsaws",
+  "pattern": [
+    " th",
+    "nin",
+    " r "
+  ],
+  "key": {
+    "t": {
+      "tag": "forge:tools/tongs"
+    },
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "n": {
+      "item": "ravenutils:steel_nugget"
+    },
+    "i": {
+      "item": "ravenutils:steel_ingot"
+    },
+    "r": {
+      "item": "ravenutils:metal_rod_steel"
+    }
+  },
+  "result": {
+    "item": "ravenutils:handsaw_steel"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tongs",
+  "pattern": [
+    " th",
+    "ix ",
+    " i "
+  ],
+  "key": {
+    "t": {
+      "tag": "forge:tools/tongs"
+    },
+    "h": {
+      "tag": "forge:tools/hammers"
+    },
+    "x": {
+      "item": "minecraft:iron_nugget"
+    },
+    "i": {
+      "item": "ravenutils:metal_rod_iron"
+    }
+  },
+  "result": {
+    "item": "ravenutils:tongs_iron"
+  }
+}

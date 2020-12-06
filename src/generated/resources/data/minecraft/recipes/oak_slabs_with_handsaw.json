@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:oak_planks"
+    },
+    {
+      "tag": "forge:tools/handsaws"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_slab",
+    "count": 3
+  }
+}

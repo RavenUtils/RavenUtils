@@ -33,4 +33,10 @@ public class ModLootTables {
 
   public static final RegistryObject<SmallStoneFromDirt.Serializer> SMALL_STONE_FROM_DIRT = LOOT_MODIFIER
       .register("small_stone_from_dirt", SmallStoneFromDirt.Serializer::new);
+
+  public static final RegistryObject<CobbleFromOre.Serializer> COBBLE_FROM_ORE = LOOT_MODIFIER
+      .register("cobble_from_ore", CobbleFromOre.Serializer::new);
+
+  public static final RegistryObject<NetherrackFromOre.Serializer> NETHERRACK_FROM_ORE = LOOT_MODIFIER
+      .register("netherrack_from_ore", NetherrackFromOre.Serializer::new);
 }

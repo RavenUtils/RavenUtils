@@ -1,11 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " h ",
+    " th",
     "###",
     "###"
   ],
   "key": {
+    "t": {
+      "tag": "forge:tools/tongs"
+    },
     "h": {
       "tag": "forge:tools/hammers"
     },

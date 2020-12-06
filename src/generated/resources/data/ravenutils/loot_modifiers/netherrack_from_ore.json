@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:nether_gold_ore"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:nether_quartz_ore"
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:random_chance_with_looting",
+      "chance": 0.35,
+      "looting_multiplier": 0.05
+    }
+  ],
+  "count": 1,
+  "type": "ravenutils:netherrack_from_ore"
+}

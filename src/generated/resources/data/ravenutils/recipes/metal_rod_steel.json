@@ -2,9 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "group": "metal_rods",
   "pattern": [
-    "ih"
+    "th",
+    "i "
   ],
   "key": {
+    "t": {
+      "tag": "forge:tools/tongs"
+    },
     "h": {
       "tag": "forge:tools/hammers"
     },
