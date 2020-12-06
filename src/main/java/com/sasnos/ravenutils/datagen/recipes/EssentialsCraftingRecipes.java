@@ -135,6 +135,12 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_plant_fibre", hasItem(ModItems.PLANT_FIBRE.get()))
         .build(consumer);
 
+    ShapelessRecipeBuilder.shapelessRecipe(ModItems.FLINT_SHARD.get())
+        .addIngredient(Items.FLINT)
+        .addIngredient(ModItems.SMALL_STONE.get())
+        .addCriterion("has_flint", hasItem(Items.FLINT))
+        .build(consumer, "flint_shard_with_small_stone");
+
     ShapelessRecipeBuilder.shapelessRecipe(ModFoodItems.DOUGH.get())
         .addIngredient(ModFoodItems.WHEAT_FLOUR.get())
         .addIngredient(ModFoodItems.WHEAT_FLOUR.get())
