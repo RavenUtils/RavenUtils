@@ -197,7 +197,15 @@ public class EssentialsItemTags extends ItemTagsProvider {
         ModItems.METAL_ROD_STEEL.get()
     );
 
-    getOrCreateBuilder(saplings).add(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get());
+    getOrCreateBuilder(saplings).add(
+        Items.ACACIA_SAPLING,
+        Items.BIRCH_SAPLING,
+        Items.DARK_OAK_SAPLING,
+        Items.JUNGLE_SAPLING,
+        Items.OAK_SAPLING,
+        Items.SPRUCE_SAPLING,
+        ModBlockItems.CRIMWOOD_SAPLING_ITEM.get()
+    );
 
     getOrCreateBuilder(small_flowers).add(ModBlockItems.CRIMLEAF_ITEM.get());
 
