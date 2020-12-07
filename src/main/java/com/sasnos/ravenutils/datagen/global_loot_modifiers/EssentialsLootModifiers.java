@@ -2,13 +2,17 @@ package com.sasnos.ravenutils.datagen.global_loot_modifiers;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.global_loot_modifiers.*;
+import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.loot.conditions.Alternative;
 import net.minecraft.loot.conditions.BlockStateProperty;
 import net.minecraft.loot.conditions.ILootCondition;
 import net.minecraft.loot.conditions.RandomChanceWithLooting;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 
 public class EssentialsLootModifiers extends GlobalLootModifierProvider {
@@ -60,48 +64,48 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
     ));
     */
 
-    add("quartz_from_stone_modifier", ModLootTables.QUARTZ_FROM_STONE.get(), new QuartzFromStone(
+    add("quartz_from_stone_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.GRANITE),
             BlockStateProperty.builder(Blocks.ANDESITE),
             BlockStateProperty.builder(Blocks.DIORITE)
         ).build(), RandomChanceWithLooting.builder(0.1f, 0.5f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.QUARTZ_SAND.get()))
     ));
 
-    add("sulfur_from_coal_ore", ModLootTables.SULFUR_FROM_COAL_ORE.get(), new SulfurFromCoalOre(
+    add("sulfur_from_coal_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.COAL_ORE)
         ).build(), RandomChanceWithLooting.builder(0.03f, 0.25f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.SULFUR.get()))
     ));
 
-    add("plant_fibre_from_tall_grass_modifier", ModLootTables.PLANT_FIBRE_FROM_TALL_GRASS.get(), new PlantFibreFromTallGrass(
+    add("plant_fibre_from_tall_grass_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.TALL_GRASS)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.5f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
     ));
 
     // todo how to maybe drop resin only once from a log?
-    add("resin_from_spruce_wood_modifier", ModLootTables.RESIN_FROM_SPRUCE_WOOD.get(), new ResinFromSpruceWood(
+    add("resin_from_spruce_wood_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.SPRUCE_LOG)
         ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.RESIN_DROP.get()))
     ));
 
-    add("small_stone_from_dirt", ModLootTables.SMALL_STONE_FROM_DIRT.get(), new SmallStoneFromDirt(
+    add("small_stone_from_dirt", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.DIRT),
             BlockStateProperty.builder(Blocks.COARSE_DIRT),
             BlockStateProperty.builder(Blocks.GRASS_BLOCK),
             BlockStateProperty.builder(Blocks.FARMLAND)
         ).build(), RandomChanceWithLooting.builder(0.15f, 0.25f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.SMALL_STONE.get()))
     ));
 
-    add("stick_from_leaves_modifier", ModLootTables.STICK_FROM_LEAVES.get(), new StickFromLeaves(
+    add("stick_from_leaves_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.ACACIA_LEAVES),
             BlockStateProperty.builder(Blocks.BIRCH_LEAVES),
@@ -110,10 +114,10 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
             BlockStateProperty.builder(Blocks.OAK_LEAVES),
             BlockStateProperty.builder(Blocks.SPRUCE_LEAVES)
         ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.STICK))
     ));
 
-    add("cobble_from_ore", ModLootTables.COBBLE_FROM_ORE.get(), new CobbleFromOre(
+    add("cobble_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.REDSTONE_ORE),
             BlockStateProperty.builder(Blocks.LAPIS_ORE),
@@ -121,15 +125,15 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
             BlockStateProperty.builder(Blocks.DIAMOND_ORE),
             BlockStateProperty.builder(Blocks.COAL_ORE)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.STICK))
     ));
 
-    add("netherrack_from_ore", ModLootTables.NETHERRACK_FROM_ORE.get(), new NetherrackFromOre(
+    add("netherrack_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.NETHER_GOLD_ORE),
             BlockStateProperty.builder(Blocks.NETHER_QUARTZ_ORE)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, 1
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
     ));
   }
 }
