@@ -126,7 +126,7 @@ public class FeatureGen {
     } else if (event.getCategory().equals(THEEND)) {
       // do nothing
     } else {
-      for (ConfiguredFeature modOreFeature : ores.values()) {
+      for (ConfiguredFeature<?, ?> modOreFeature : ores.values()) {
         event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
       }
     }

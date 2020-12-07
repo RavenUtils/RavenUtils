@@ -12,7 +12,12 @@ public class ItemBase extends Item {
 
   public ItemBase() {
     super(new Properties().group(RavenUtils.TAB));
-    this.burnTime = -1;
+    this.burnTime = 0;
+  }
+
+  public ItemBase(Properties properties) {
+    super(properties.group(RavenUtils.TAB));
+    this.burnTime = 0;
   }
 
   public ItemBase setBurnTime(int burnTime) {
