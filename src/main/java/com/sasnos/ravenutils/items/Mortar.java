@@ -7,6 +7,4 @@ public class Mortar extends BaseItemDamageable {
         .maxDamage(maxDamage)
         .setNoRepair());
   }
-
-
 }
