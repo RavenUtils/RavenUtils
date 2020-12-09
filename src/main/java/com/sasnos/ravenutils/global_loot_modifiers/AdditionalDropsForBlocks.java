@@ -47,7 +47,8 @@ public class AdditionalDropsForBlocks extends LootModifier {
       NonNullList<ItemStack> list = NonNullList.create();
 
       for (JsonElement json : array){
-        list.add(new ItemStack(JSONUtils.getItem(json, "item"), JSONUtils.getInt(json, "count")));
+        JsonObject jsonObject = (JsonObject) json;
+        list.add(new ItemStack(JSONUtils.getItem(jsonObject, "item"), JSONUtils.getInt(jsonObject, "count")));
       }
 
       return new AdditionalDropsForBlocks(condition, list);

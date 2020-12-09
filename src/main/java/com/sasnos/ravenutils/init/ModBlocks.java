@@ -29,14 +29,29 @@ import com.sasnos.ravenutils.blocks.ResinBlock;
 import com.sasnos.ravenutils.blocks.SaltBlock;
 import com.sasnos.ravenutils.blocks.SilverBlock;
 import com.sasnos.ravenutils.blocks.SteelBlock;
-import com.sasnos.ravenutils.blocks.StickGroundBlock;
+import com.sasnos.ravenutils.blocks.StickAndStoneBlock;
 import com.sasnos.ravenutils.blocks.StoneAnvil;
 import com.sasnos.ravenutils.blocks.StoneCraftingTable;
-import com.sasnos.ravenutils.blocks.StoneGroundBlock;
 import com.sasnos.ravenutils.blocks.TanninBlock;
 import com.sasnos.ravenutils.blocks.TinBlock;
 import com.sasnos.ravenutils.blocks.ZincBlock;
-import com.sasnos.ravenutils.blocks.crimwood.*;
+import com.sasnos.ravenutils.blocks.crimwood.Crimwood;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodButton;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodDoor;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFence;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodFenceGate;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLeaves;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLog;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodLogStripped;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPlanks;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodPressurePlate;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSapling;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignStanding;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignWall;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSlab;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStairs;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStripped;
+import com.sasnos.ravenutils.blocks.crimwood.CrimwoodTrapdoor;
 import com.sasnos.ravenutils.blocks.mud.MudBlock;
 import com.sasnos.ravenutils.blocks.mud.MudBrickSlab;
 import com.sasnos.ravenutils.blocks.mud.MudBrickStairs;
@@ -68,6 +83,7 @@ import net.minecraft.block.StairsBlock;
 import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Items;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -109,8 +125,14 @@ public class ModBlocks {
   public static final RegistryObject<Block> RESIN_BLOCK = BLOCKS.register("resin_block", ResinBlock::new);
   public static final RegistryObject<Block> GELATIN_BLOCK = BLOCKS.register("gelatin_block", GelatinBlock::new);
   public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle", CandleBlock::new);
-  public static final RegistryObject<Block> STICK_GROUND = BLOCKS.register("stick_ground", StickGroundBlock::new);
-  public static final RegistryObject<Block> STONE_GROUND = BLOCKS.register("stone_ground", StoneGroundBlock::new);
+  public static final RegistryObject<Block> STONE_GROUND = BLOCKS.register("ground_stone",
+          () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.ROCK)
+                  .hardnessAndResistance(0.25F)
+                  .sound(SoundType.STONE).doesNotBlockMovement().notSolid(), ModItems.SMALL_STONE));
+  public static final RegistryObject<Block> STICK_GROUND = BLOCKS.register("ground_stick",
+          () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.WOOD)
+                  .hardnessAndResistance(0.25F)
+                  .sound(SoundType.WOOD).notSolid().doesNotBlockMovement(), () -> Items.STICK));
 
   // fluid blocks
   public static final RegistryObject<Block> LIMEWATER_BLOCK = BLOCKS.register("limewater_block", LimewaterBlock::new);

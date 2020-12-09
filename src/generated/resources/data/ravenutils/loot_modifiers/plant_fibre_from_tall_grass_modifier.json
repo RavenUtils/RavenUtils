@@ -15,6 +15,11 @@
       "looting_multiplier": 0.5
     }
   ],
-  "count": 1,
-  "type": "ravenutils:plant_fibre_from_tall_grass"
+  "items": [
+    {
+      "item": "ravenutils:plant_fibre",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }
