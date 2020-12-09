@@ -19,6 +19,11 @@
       "looting_multiplier": 0.05
     }
   ],
-  "count": 1,
-  "type": "ravenutils:netherrack_from_ore"
+  "items": [
+    {
+      "item": "minecraft:netherrack",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

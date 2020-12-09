@@ -35,6 +35,11 @@
       "looting_multiplier": 0.25
     }
   ],
-  "count": 1,
-  "type": "ravenutils:stick_from_leaves"
+  "items": [
+    {
+      "item": "minecraft:stick",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

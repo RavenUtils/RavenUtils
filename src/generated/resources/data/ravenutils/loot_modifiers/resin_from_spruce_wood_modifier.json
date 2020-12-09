@@ -15,6 +15,11 @@
       "looting_multiplier": 0.25
     }
   ],
-  "count": 1,
-  "type": "ravenutils:resin_from_spruce_wood"
+  "items": [
+    {
+      "item": "ravenutils:resin_drop",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

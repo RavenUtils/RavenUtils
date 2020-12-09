@@ -27,6 +27,11 @@
       "looting_multiplier": 0.25
     }
   ],
-  "count": 1,
-  "type": "ravenutils:small_stone_from_dirt"
+  "items": [
+    {
+      "item": "ravenutils:small_stone",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }
