@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "fossile_dirt",
+      "name": "fossil_dirt",
       "rolls": 1,
       "entries": [
         {

@@ -11,19 +11,9 @@ import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
-import net.minecraft.loot.ConstantRange;
-import net.minecraft.loot.DynamicLootEntry;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.MatchTool;
-import net.minecraft.loot.functions.ApplyBonus;
-import net.minecraft.loot.functions.CopyName;
-import net.minecraft.loot.functions.CopyNbt;
-import net.minecraft.loot.functions.ExplosionDecay;
-import net.minecraft.loot.functions.SetContents;
-import net.minecraft.loot.functions.SetCount;
+import net.minecraft.loot.functions.*;
 import net.minecraft.util.ResourceLocation;
 
 public class EssentialsLootTableProvider extends BaseLootTableProvider {
@@ -96,54 +86,54 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
 
 
-    LootPool.Builder millstone_builder = LootPool.builder()
-            .name("mill_stone")
-            .rolls(ConstantRange.of(1))
-            .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
-                    .acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
-                    .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
-                      .addOperation("damage", "Damage", CopyNbt.Action.REPLACE)
+    LootPool.Builder millstone = LootPool.builder()
+        .name("mill_stone")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(HandMillInit.MILLSTONE.get())
+            .acceptFunction(CopyName.builder(CopyName.Source.BLOCK_ENTITY))
+            .acceptFunction(CopyNbt.builder(CopyNbt.Source.BLOCK_ENTITY)
+                .addOperation("damage", "Damage", CopyNbt.Action.REPLACE)
+            )
+            .acceptFunction(SetContents.builderIn()
+                .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
+        );
+    lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(millstone));
+
+    LootPool.Builder fossil_dirt = LootPool.builder()
+        .name("fossil_dirt")
+        .rolls(ConstantRange.of(1))
+        .addEntry(
+            ItemLootEntry.builder(ModBlockItems.FOSSIL_DIRT_ITEM.get())
+                .acceptCondition(MatchTool
+                    .builder(
+                        ItemPredicate.Builder.create()
+                            .enchantment(
+                                new EnchantmentPredicate(
+                                    Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)
+                                )
+                            )
                     )
-                    .acceptFunction(SetContents.builderIn()
-                            .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
-            );
-    lootTables.put(HandMillInit.MILLSTONE.get(), LootTable.builder().addLootPool(millstone_builder));
+                ).weight(4))
+        .addEntry(
+            ItemLootEntry.builder(Items.BONE)
+                .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+                .acceptFunction(ExplosionDecay.builder()).weight(3))
 
-    LootPool.Builder fossilDirt = LootPool.builder()
-            .name("fossile_dirt")
-            .rolls(ConstantRange.of(1))
-            .addEntry(
-                    ItemLootEntry.builder(ModBlockItems.FOSSIL_DIRT_ITEM.get())
-                            .acceptCondition(MatchTool
-                                    .builder(
-                                            ItemPredicate.Builder.create()
-                                                    .enchantment(
-                                                            new EnchantmentPredicate(
-                                                                    Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)
-                                                            )
-                                                    )
-                                    )
-                            ).weight(4))
-            .addEntry(
-                    ItemLootEntry.builder(Items.BONE)
-                    .acceptFunction(SetCount.builder(new RandomValueRange(1,3)))
-                    .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                    .acceptFunction(ExplosionDecay.builder()).weight(3))
+        .addEntry(
+            ItemLootEntry.builder(Items.BONE_MEAL)
+                .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+                .acceptFunction(ExplosionDecay.builder()).weight(2))
 
-            .addEntry(
-                    ItemLootEntry.builder(Items.BONE_MEAL)
-                    .acceptFunction(SetCount.builder(new RandomValueRange(2,4)))
-                    .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                    .acceptFunction(ExplosionDecay.builder()).weight(2))
+        .addEntry(
+            ItemLootEntry.builder(Items.SKELETON_SKULL)
+                .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+                .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
+                .weight(1)
+            // todo add damaged tools, weapons, armor as rare drop
+        );
 
-            .addEntry(
-                    ItemLootEntry.builder(Items.SKELETON_SKULL)
-                    .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
-                    .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
-                    .weight(1)
-            );
-
-    lootTables.put(ModBlocks.FOSSIL_DIRT.get(), LootTable.builder().addLootPool(fossilDirt));
-
+    lootTables.put(ModBlocks.FOSSIL_DIRT.get(), LootTable.builder().addLootPool(fossil_dirt));
   }
 }
