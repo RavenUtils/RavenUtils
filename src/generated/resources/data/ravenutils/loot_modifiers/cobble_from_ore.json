@@ -31,6 +31,11 @@
       "looting_multiplier": 0.05
     }
   ],
-  "count": 1,
-  "type": "ravenutils:cobble_from_ore"
+  "items": [
+    {
+      "item": "minecraft:stick",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

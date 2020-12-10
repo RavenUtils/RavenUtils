@@ -23,6 +23,11 @@
       "looting_multiplier": 0.5
     }
   ],
-  "count": 1,
-  "type": "ravenutils:quartz_from_stone"
+  "items": [
+    {
+      "item": "ravenutils:quartz_sand",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

@@ -15,6 +15,11 @@
       "looting_multiplier": 0.25
     }
   ],
-  "count": 1,
-  "type": "ravenutils:sulfur_from_coal_ore"
+  "items": [
+    {
+      "item": "ravenutils:sulfur",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
 }

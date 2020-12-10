@@ -9,14 +9,21 @@ import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Items;
 import net.minecraft.loot.ConstantRange;
 import net.minecraft.loot.DynamicLootEntry;
 import net.minecraft.loot.ItemLootEntry;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.conditions.MatchTool;
+import net.minecraft.loot.functions.ApplyBonus;
 import net.minecraft.loot.functions.CopyName;
 import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.loot.functions.ExplosionDecay;
 import net.minecraft.loot.functions.SetContents;
+import net.minecraft.loot.functions.SetCount;
 import net.minecraft.util.ResourceLocation;
 
 public class EssentialsLootTableProvider extends BaseLootTableProvider {
@@ -105,7 +112,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     LootPool.Builder fossilDirt = LootPool.builder()
             .name("fossile_dirt")
             .rolls(ConstantRange.of(1))
-            .addEntry(AlternativesLootEntry.builder(
+            .addEntry(
                     ItemLootEntry.builder(ModBlockItems.FOSSIL_DIRT_ITEM.get())
                             .acceptCondition(MatchTool
                                     .builder(
@@ -116,22 +123,24 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
                                                             )
                                                     )
                                     )
-                            ),
-
-
+                            ).weight(4))
+            .addEntry(
                     ItemLootEntry.builder(Items.BONE)
                     .acceptFunction(SetCount.builder(new RandomValueRange(1,3)))
                     .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                    .acceptFunction(ExplosionDecay.builder()),
+                    .acceptFunction(ExplosionDecay.builder()).weight(3))
+
+            .addEntry(
                     ItemLootEntry.builder(Items.BONE_MEAL)
                     .acceptFunction(SetCount.builder(new RandomValueRange(2,4)))
                     .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                    .acceptFunction(ExplosionDecay.builder()),
+                    .acceptFunction(ExplosionDecay.builder()).weight(2))
+
+            .addEntry(
                     ItemLootEntry.builder(Items.SKELETON_SKULL)
                     .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
                     .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
-
-                    )
+                    .weight(1)
             );
 
     lootTables.put(ModBlocks.FOSSIL_DIRT.get(), LootTable.builder().addLootPool(fossilDirt));
