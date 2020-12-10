@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:steel_nugget"
+    ]
+  },
+  "criteria": {
+    "has_water": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:water_bucket"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:steel_nugget"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_water",
+      "has_the_recipe"
+    ]
+  ]
+}

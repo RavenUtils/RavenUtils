@@ -25,7 +25,7 @@ public class MillRecipe extends EssentialsRecipe {
     private final float additionalChance;
 
     public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance){
-        this.id = id;
+        super(id);
         this.output = output;
         this.input = input;
         this.timer = time;

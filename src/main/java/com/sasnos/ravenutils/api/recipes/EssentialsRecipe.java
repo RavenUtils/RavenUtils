@@ -8,6 +8,10 @@ import net.minecraft.util.ResourceLocation;
 public abstract class EssentialsRecipe implements ICommonRecipe {
   protected ResourceLocation id;
 
+  public EssentialsRecipe(ResourceLocation id){
+    this.id = id;
+  }
+
   @Override
   public ResourceLocation getId() {
     return id;

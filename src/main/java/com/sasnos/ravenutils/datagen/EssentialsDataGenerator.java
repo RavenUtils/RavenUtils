@@ -25,8 +25,9 @@ public class EssentialsDataGenerator {
   public static void gatherData(GatherDataEvent event) {
     DataGenerator generator = event.getGenerator();
     if (event.includeClient()) {
-      generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
-      generator.addProvider(new ItemModels(generator, event.getExistingFileHelper()));
+      BlockStates blockStates = new BlockStates(generator, event.getExistingFileHelper());
+      generator.addProvider(blockStates);
+      generator.addProvider(new ItemModels(generator, blockStates.models().existingFileHelper));
       generator.addProvider(new enUs(generator));
     }
     if (event.includeServer()) {

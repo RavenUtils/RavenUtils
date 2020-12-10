@@ -13,12 +13,14 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static com.sasnos.ravenutils.utils.EssentialsUtils.resourceLocation;
 
+
 public class ItemModels extends ItemModelProvider {
 
   public ItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
     super(generator, RavenUtils.MOD_ID, existingFileHelper);
   }
 
+  @SuppressWarnings("ConstantConditions")
   @Override
   protected void registerModels() {
 

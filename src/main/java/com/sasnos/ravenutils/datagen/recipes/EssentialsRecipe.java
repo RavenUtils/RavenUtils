@@ -1,11 +1,18 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
+import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
+import com.sasnos.ravenutils.init.ModFluids;
+import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.tags.ITag;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.function.Consumer;
 
@@ -32,6 +39,15 @@ public class EssentialsRecipe extends RecipeProvider {
     new MillRecipes(consumer);
     new CombatCraftingRecipes(consumer);
     new AlloyFurnaceRecipes(consumer);
+
+    new BarrelRecipeBuilder(20)
+            .addFluidIntake(new FluidStack(Fluids.WATER, 200))
+            .addItemIntake(new ItemStack(Items.WHEAT_SEEDS))
+            .addItemOutput(new ItemStack(ModItems.STEEL_NUGGET.get()))
+            .addFluidOutput(ModFluids.LIMEWATER.get())
+            .addCriterion("has_water", hasItem(Items.WATER_BUCKET))
+            .litClosed().build(consumer);
+
   }
 
   // expose the protected internal methods so i can use tem in external classes

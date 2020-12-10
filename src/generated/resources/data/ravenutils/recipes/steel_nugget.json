@@ -1,0 +1,24 @@
+{
+  "type": "ravenutils:barrel_recipe",
+  "outputs": [
+    {
+      "item": "ravenutils:steel_nugget",
+      "count": 1
+    },
+    {
+      "fluid": "ravenutils:source_limewater"
+    }
+  ],
+  "inputs": [
+    {
+      "fluid": "minecraft:water",
+      "count": 200
+    },
+    {
+      "item": "minecraft:wheat_seeds"
+    }
+  ],
+  "litClosed": true,
+  "group": "",
+  "timer": 20
+}

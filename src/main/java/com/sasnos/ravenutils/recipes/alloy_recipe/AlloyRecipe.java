@@ -27,10 +27,10 @@ public class AlloyRecipe extends EssentialsRecipe {
 
 
   public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
+    super(id);
     this.output = output;
     this.input = input;
     this.timer = time;
-    this.id = id;
     this.additionalResult = additional;
     this.additionalChance = change;
   }

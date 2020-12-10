@@ -3,6 +3,8 @@ package com.sasnos.ravenutils.init;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
 import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipeSerializer;
+import com.sasnos.ravenutils.recipes.barrel.BarrelRecipe;
+import com.sasnos.ravenutils.recipes.barrel.BarrelRecipeSerializer;
 import com.sasnos.ravenutils.recipes.millrecipes.MillRecipe;
 import com.sasnos.ravenutils.recipes.millrecipes.MillRecipeSerializer;
 import net.minecraft.item.crafting.IRecipe;
@@ -18,6 +20,7 @@ public class ModRecipes {
 
   public static final IRecipeType<AlloyRecipe> ALLOY_FURNACE_RECIPE_TYPE =  registerType(AlloyRecipe.ALLOY_FURNACE);
   public static final IRecipeType<MillRecipe> MILL_RECIPE_TYPE = registerType(MillRecipe.MILL);
+  public static final IRecipeType<BarrelRecipe> BARREL_RECIPE_TYPE = registerType(BarrelRecipe.BARREL);
 
   public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZER = DeferredRegister.create(
       ForgeRegistries.RECIPE_SERIALIZERS, RavenUtils.MOD_ID
@@ -25,6 +28,7 @@ public class ModRecipes {
 
   public static final RegistryObject<AlloyRecipeSerializer> ALLOY_FURNACE_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("alloy_recipe", AlloyRecipeSerializer::new);
   public static final RegistryObject<MillRecipeSerializer> MILL_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("mill_recipe", MillRecipeSerializer::new);
+  public static final RegistryObject<BarrelRecipeSerializer> BARREL_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("barrel_recipe", BarrelRecipeSerializer::new);
 
   @SuppressWarnings("unchecked")
   private static <T extends IRecipeType<?>> T registerType(ResourceLocation recipeTypeId) {

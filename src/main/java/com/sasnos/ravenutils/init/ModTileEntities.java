@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.tile_entities.BarrelTileEntity;
 import com.sasnos.ravenutils.tile_entities.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -16,6 +17,12 @@ public class ModTileEntities {
       () -> TileEntityType.Builder
           .create(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
           .build(null));
+
+  public static RegistryObject<TileEntityType<BarrelTileEntity>> BARREL_TILE_ENTITIES = TILE_ENTITY.register(
+          "barrel",
+          () -> TileEntityType.Builder
+          .create(BarrelTileEntity::new, ModBlocks.BARREL.get()).build(null)
+  );
 
 
 }
