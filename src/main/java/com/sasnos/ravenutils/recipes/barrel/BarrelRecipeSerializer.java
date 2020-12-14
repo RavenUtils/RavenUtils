@@ -41,7 +41,7 @@ public class BarrelRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer
                 fluidInput = new FluidStack(fluid, JSONUtils.getInt((JsonObject)element, "count"));
             }
             else {
-                itemInput = Ingredient.deserialize(json);
+                itemInput = Ingredient.deserialize(element);
             }
         }
 

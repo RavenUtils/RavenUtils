@@ -8,7 +8,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.wrappers.FluidBucketWrapper;
 
 /**
- * Wrapper around a clay bucket to get the fluid stored
+ * Wrapper around our bucket to get the fluid stored
  */
 public class EssentialsFluidBucketWrapper extends FluidBucketWrapper {
   public EssentialsFluidBucketWrapper(ItemStack container) {

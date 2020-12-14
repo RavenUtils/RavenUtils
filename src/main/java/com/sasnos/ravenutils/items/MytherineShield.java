@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.items;
 
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.render.ShieldRenderer;
+import com.sasnos.ravenutils.client.render.ShieldRenderer;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.client.renderer.tileentity.ItemStackTileEntityRenderer;
 import net.minecraft.item.ArmorItem;

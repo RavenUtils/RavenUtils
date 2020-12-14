@@ -15,7 +15,7 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
 public class BarrelRecipe extends CommonRecipe {
-    public static final ResourceLocation BARREL = new ResourceLocation(RavenUtils.MOD_ID, "barrel");
+    public static final ResourceLocation BARREL = new ResourceLocation(RavenUtils.MOD_ID, "barrel_recipe");
 
     private final Fluid fluidOutput;
 
@@ -23,7 +23,7 @@ public class BarrelRecipe extends CommonRecipe {
     private final boolean lidClosed;
 
     public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
-        super(recipeId, NonNullList.from(itemInput), timer, NonNullList.from(itemOutput));
+        super(recipeId, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput));
         this.fluidOutput = fluidOutput;
         this.fluidInput = fluidInput;
         this.lidClosed = lidClosed;

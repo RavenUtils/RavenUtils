@@ -21,7 +21,8 @@ public class ModTileEntities {
   public static RegistryObject<TileEntityType<BarrelTileEntity>> BARREL_TILE_ENTITIES = TILE_ENTITY.register(
           "barrel",
           () -> TileEntityType.Builder
-          .create(BarrelTileEntity::new, ModBlocks.BARREL.get()).build(null)
+          .create(BarrelTileEntity::new, ModBlocks.BARREL.get())
+                  .build(null)
   );
 
 

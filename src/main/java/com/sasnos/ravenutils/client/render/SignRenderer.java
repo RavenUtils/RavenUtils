@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.render;
+package com.sasnos.ravenutils.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;

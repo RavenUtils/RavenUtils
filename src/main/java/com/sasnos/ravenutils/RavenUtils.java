@@ -16,6 +16,7 @@ import com.sasnos.ravenutils.init.ModLootTables;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
@@ -111,6 +112,8 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.getTranslucent());
+
+    RavenUtilsPacketHandler.registerNetworkMessages();
 
     event.enqueueWork(() -> {
       try {

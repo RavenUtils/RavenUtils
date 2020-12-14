@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.items.EssentialShieldItem;
-import com.sasnos.ravenutils.render.ShieldRenderer;
+import com.sasnos.ravenutils.client.render.ShieldRenderer;
 import com.sasnos.ravenutils.utils.enums.ModArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
