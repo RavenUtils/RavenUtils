@@ -59,7 +59,7 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
         FluidStack fluid = fluidRef.get();
         IVertexBuilder builder = bufferIn.getBuffer(RenderType.getTranslucent());
 
-        double height = ((double)fluid.getAmount()) / ((double)maxValue.get());
+        double height = (((double)fluid.getAmount())*.85) / ((double)maxValue.get());
         if(height == 0.0) height += .1;
 
         if(height == 1) height -= .01;
