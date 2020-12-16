@@ -212,7 +212,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" ps")
         .patternLine(" # ")
         .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
         .build(consumer);
@@ -222,7 +222,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
         .build(consumer);
@@ -232,7 +232,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
         .build(consumer);
@@ -242,27 +242,27 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("f# ")
         .patternLine(" # ")
         .key('f', ModItems.FLINT_SHARD.get())
-        .key('s', Tags.Items.STRING)
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.STONE_AXE)
-        .patternLine("ccl")
+        .patternLine("ccs")
         .patternLine("c# ")
         .patternLine(" # ")
         .key('c', Items.COBBLESTONE)
-        .key('l', ModItems.LEATHER_STRIP.get())
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.STONE_HOE)
-        .patternLine("ccl")
+        .patternLine("ccs")
         .patternLine(" # ")
         .patternLine(" # ")
         .key('c', Items.COBBLESTONE)
-        .key('l', ModItems.LEATHER_STRIP.get())
+        .key('s', strings)
         .key('#', Tags.Items.RODS_WOODEN)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);

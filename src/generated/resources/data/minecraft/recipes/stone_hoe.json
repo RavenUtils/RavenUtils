@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ccl",
+    "ccs",
     " # ",
     " # "
   ],
@@ -9,8 +9,8 @@
     "c": {
       "item": "minecraft:cobblestone"
     },
-    "l": {
-      "item": "ravenutils:leather_strip"
+    "s": {
+      "tag": "forge:string"
     },
     "#": {
       "tag": "forge:rods/wooden"
