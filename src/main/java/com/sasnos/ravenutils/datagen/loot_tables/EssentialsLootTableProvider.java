@@ -5,6 +5,7 @@ import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvide
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
+import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
@@ -40,7 +41,6 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     // lootTables.put(ModBlocks.SALT_ORE.get(), createStandardTable("salt_ore", ModBlocks.SALT_ORE.get()));
     lootTables.put(ModBlocks.SALT_BLOCK.get(), createStandardTable("salt_block", ModBlocks.SALT_BLOCK.get()));
 
-    // lootTables.put(ModBlocks.FOSSIL_DIRT.get(), createStandardTable("fossil_dirt", ModBlocks.FOSSIL_DIRT.get()));
     // lootTables.put(ModBlocks.FOSSIL_ROCK.get(), createStandardTable("fossil_rock", ModBlocks.FOSSIL_ROCK.get()));
 
     // lootTables.put(ModBlocks.LIMESTONE.get(), createStandardTable("limestone", ModBlocks.LIMESTONE.get()));
@@ -89,13 +89,32 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.CRIMWOOD_STAIRS.get(), createStandardTable("crimwood_stairs", ModBlocks.CRIMWOOD_STAIRS.get()));
     lootTables.put(ModBlocks.CRIMWOOD_TRAPDOOR.get(), createStandardTable("crimwood_trapdoor", ModBlocks.CRIMWOOD_TRAPDOOR.get()));
 
+    // lootTables.put(ModBlocks.MUD_BLOCK.get(), createStandardTable("mud_block", ModBlocks.MUD_BLOCK.get()));
+    lootTables.put(ModBlocks.MUD_BRICK_SLAB.get(), createStandardTable("mud_brick_slab", ModBlocks.MUD_BRICK_SLAB.get()));
+    lootTables.put(ModBlocks.MUD_BRICK_STAIRS.get(), createStandardTable("mud_brick_stairs", ModBlocks.MUD_BRICK_STAIRS.get()));
+    lootTables.put(ModBlocks.MUD_BRICK_WALL.get(), createStandardTable("mud_brick_wall", ModBlocks.MUD_BRICK_WALL.get()));
+    lootTables.put(ModBlocks.MUD_BRICKS.get(), createStandardTable("mud_bricks", ModBlocks.MUD_BRICKS.get()));
+
+    // lootTables.put(ModBlocks.PEAT_BLOCK.get(), createStandardTable("peat_block", ModBlocks.PEAT_BLOCK.get()));
+
     lootTables.put(ModBlocks.BLUEBERRY_BUSH.get(), createStandardTable("blueberry_bush", ModBlocks.BLUEBERRY_BUSH.get()));
     lootTables.put(ModBlocks.ELDERBERRY_BUSH.get(), createStandardTable("elderberry_bush", ModBlocks.ELDERBERRY_BUSH.get()));
     lootTables.put(ModBlocks.RASPBERRY_BUSH.get(), createStandardTable("raspberry_bush", ModBlocks.RASPBERRY_BUSH.get()));
     lootTables.put(ModBlocks.BLACKBERRY_BUSH.get(), createStandardTable("blackberry_bush", ModBlocks.BLACKBERRY_BUSH.get()));
     lootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
 
+    // lootTables.put(ModBlocks.STONE_GROUND.get(), createStandardTable("stone_ground", ModItems.SMALL_STONE.get()));
+    // lootTables.put(ModBlocks.STICK_GROUND.get(), createStandardTable("stick_ground", Items.STICK));
 
+    lootTables.put(ModBlocks.STONE_ANVIL_ANDESITE.get(), createStandardTable("stone_anvil_andesite", ModBlocks.STONE_ANVIL_ANDESITE.get()));
+    lootTables.put(ModBlocks.STONE_ANVIL_DIORITE.get(), createStandardTable("stone_anvil_diorite", ModBlocks.STONE_ANVIL_DIORITE.get()));
+    lootTables.put(ModBlocks.STONE_ANVIL_GRANITE.get(), createStandardTable("stone_anvil_granite", ModBlocks.STONE_ANVIL_GRANITE.get()));
+    lootTables.put(ModBlocks.STONE_ANVIL_STONE.get(), createStandardTable("stone_anvil_stone", ModBlocks.STONE_ANVIL_STONE.get()));
+    lootTables.put(ModBlocks.STONE_CRAFTING_TABLE.get(), createStandardTable("stone_crafting_table", ModBlocks.STONE_CRAFTING_TABLE.get()));
+    lootTables.put(ModBlocks.DRYING_RACK.get(), createStandardTable("drying_rack", ModBlocks.DRYING_RACK.get()));
+    // lootTables.put(ModBlocks.BARREL.get(), createStandardTable("barrel", ModBlocks.BARREL.get()));
+
+    lootTables.put(HandMillInit.HAND_MILL.get(), createStandardTable("hand_mill", HandMillInit.HAND_MILL.get()));
     LootPool.Builder millstone = LootPool.builder()
         .name("mill_stone")
         .rolls(ConstantRange.of(1))
@@ -143,7 +162,41 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
                 .weight(1)
             // todo add damaged tools, weapons, armor as rare drop
         );
-
     lootTables.put(ModBlocks.FOSSIL_DIRT.get(), LootTable.builder().addLootPool(fossil_dirt));
+
+    LootPool.Builder fossil_rock = LootPool.builder()
+        .name("fossil_rock")
+        .rolls(ConstantRange.of(1))
+        .addEntry(
+            ItemLootEntry.builder(ModBlockItems.FOSSIL_ROCK_ITEM.get())
+                .acceptCondition(MatchTool
+                    .builder(
+                        ItemPredicate.Builder.create()
+                            .enchantment(
+                                new EnchantmentPredicate(
+                                    Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)
+                                )
+                            )
+                    )
+                ).weight(4))
+        .addEntry(
+            ItemLootEntry.builder(Items.BONE)
+                .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+                .acceptFunction(ExplosionDecay.builder()).weight(3))
+
+        .addEntry(
+            ItemLootEntry.builder(Items.BONE_MEAL)
+                .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+                .acceptFunction(ExplosionDecay.builder()).weight(2))
+
+        .addEntry(
+            ItemLootEntry.builder(Items.SKELETON_SKULL)
+                .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+                .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
+                .weight(1)
+        );
+    lootTables.put(ModBlocks.FOSSIL_ROCK.get(), LootTable.builder().addLootPool(fossil_rock));
   }
 }

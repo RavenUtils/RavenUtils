@@ -318,11 +318,11 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_WOOD.get())
-        .patternLine("ix")
+        .patternLine("is")
         .patternLine(" i")
-        .key('x', ModItems.LEATHER_STRIP.get())
+        .key('s', strings)
         .key('i', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_leather_strip",hasItem(ModItems.LEATHER_STRIP.get()))
+        .addCriterion("has_leather_strip",hasItemTag(Tags.Items.RODS_WOODEN))
         .setGroup("tongs")
         .build(consumer);
 
