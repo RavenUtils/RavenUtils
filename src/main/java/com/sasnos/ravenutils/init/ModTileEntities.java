@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.tile_entities.BarrelTileEntity;
+import com.sasnos.ravenutils.tile_entities.DryingRackTileEntity;
 import com.sasnos.ravenutils.tile_entities.SignTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -22,6 +23,13 @@ public class ModTileEntities {
           "barrel",
           () -> TileEntityType.Builder
           .create(BarrelTileEntity::new, ModBlocks.BARREL.get())
+                  .build(null)
+  );
+
+  public static RegistryObject<TileEntityType<DryingRackTileEntity>> DRY_RACK_TILE_ENTITIES = TILE_ENTITY.register(
+          "drying_rack",
+          () -> TileEntityType.Builder
+                  .create(DryingRackTileEntity::new, ModBlocks.DRYING_RACK.get())
                   .build(null)
   );
 

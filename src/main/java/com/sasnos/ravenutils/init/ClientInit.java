@@ -6,6 +6,7 @@ import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceScreen;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillScreen;
 import com.sasnos.ravenutils.client.render.BarrelRenderer;
+import com.sasnos.ravenutils.client.render.DryingRackRenderer;
 import com.sasnos.ravenutils.client.render.SignRenderer;
 import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
@@ -39,6 +40,7 @@ public class ClientInit {
     ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
 
     ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
+    ClientRegistry.bindTileEntityRenderer(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryingRackRenderer::new);
   }
 
   @SubscribeEvent

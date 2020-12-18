@@ -34,7 +34,6 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
     protected int cookingTime;
     protected int cookingTimeTotal;
-    protected int recipeUsed;
 
     public BarrelTileEntity() {
         super(ModTileEntities.BARREL_TILE_ENTITIES.get(), ModRecipes.BARREL_RECIPE_TYPE);
@@ -95,7 +94,6 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
         fluidTank.readFromNBT(nbt);
         cookingTime = nbt.getInt("cookingTime");
         cookingTimeTotal = nbt.getInt("cookingTimeTotal");
-        recipeUsed = nbt.getInt("recipeUsed");
     }
 
     @Override
@@ -103,7 +101,6 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
         fluidTank.writeToNBT(compound);
         compound.putInt("cookingTime", cookingTime);
         compound.putInt("cookingTimeTotal", cookingTimeTotal);
-        compound.putInt("recipeUsed", recipeUsed);
         return super.write(compound);
     }
 
