@@ -137,7 +137,7 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
             BlockStateProperty.builder(Blocks.DIAMOND_ORE),
             BlockStateProperty.builder(Blocks.COAL_ORE)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.STICK))
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.COBBLESTONE))
     ));
 
     add("netherrack_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(

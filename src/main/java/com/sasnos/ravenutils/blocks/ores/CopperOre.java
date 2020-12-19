@@ -13,6 +13,9 @@ public class CopperOre extends OreBlock {
         .sound(SoundType.STONE)
         .harvestLevel(1)
         .setRequiresTool()
+        .harvestTool(ToolType.AXE)
+        // todo treat Stone Axe as Pickaxe-Axe
+        // .harvestTool(ToolType.PICKAXE)
     );
   }
 }
