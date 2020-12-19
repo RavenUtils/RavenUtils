@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.datagen.loot_tables;
 
 
 import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
+import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
@@ -106,6 +107,7 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     // lootTables.put(ModBlocks.STONE_GROUND.get(), createStandardTable("stone_ground", ModItems.SMALL_STONE.get()));
     // lootTables.put(ModBlocks.STICK_GROUND.get(), createStandardTable("stick_ground", Items.STICK));
 
+    lootTables.put(AlloyFurnaceInit.ALLOY_FURNACE.get(), createStandardTable("alloy_furnace", AlloyFurnaceInit.ALLOY_FURNACE.get()));
     lootTables.put(ModBlocks.STONE_ANVIL_ANDESITE.get(), createStandardTable("stone_anvil_andesite", ModBlocks.STONE_ANVIL_ANDESITE.get()));
     lootTables.put(ModBlocks.STONE_ANVIL_DIORITE.get(), createStandardTable("stone_anvil_diorite", ModBlocks.STONE_ANVIL_DIORITE.get()));
     lootTables.put(ModBlocks.STONE_ANVIL_GRANITE.get(), createStandardTable("stone_anvil_granite", ModBlocks.STONE_ANVIL_GRANITE.get()));
