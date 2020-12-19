@@ -14,7 +14,7 @@ public class TinOre extends OreBlock {
         .harvestLevel(1)
         .setRequiresTool()
         .harvestTool(ToolType.AXE)
-        // todo treat Stone Axe as Pickaxe-Axe
+        // todo make harvestabke by axe (stone+) and pickaxe (iron+) only
         // .harvestTool(ToolType.PICKAXE)
     );
   }
