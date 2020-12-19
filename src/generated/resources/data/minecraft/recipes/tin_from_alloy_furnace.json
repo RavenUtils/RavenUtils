@@ -1,0 +1,26 @@
+{
+  "type": "ravenutils:alloy_recipe",
+  "materials": [
+    {
+      "ingredient": {
+        "item": "ravenutils:tin_ore"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "tag": "forge:sand"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "ravenutils:tin_ingot",
+    "count": 2
+  },
+  "additional": {
+    "item": "ravenutils:slag",
+    "change": 0.5
+  },
+  "cookingtime": 150
+}

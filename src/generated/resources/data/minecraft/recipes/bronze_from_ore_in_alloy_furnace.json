@@ -3,20 +3,25 @@
   "materials": [
     {
       "ingredient": {
-        "item": "ravenutils:copper_ingot"
+        "item": "ravenutils:copper_ore"
       },
       "count": 3
     },
     {
       "ingredient": {
-        "item": "ravenutils:tin_ingot"
+        "item": "ravenutils:tin_ore"
       },
       "count": 1
     }
   ],
   "result": {
     "item": "ravenutils:bronze_ingot",
-    "count": 4
+    "count": 3
   },
-  "cookingtime": 200
+  "additional": {
+    "item": "ravenutils:slag",
+    "count": 2,
+    "change": 0.75
+  },
+  "cookingtime": 300
 }
