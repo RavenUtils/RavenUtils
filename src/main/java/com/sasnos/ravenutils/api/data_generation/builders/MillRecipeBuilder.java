@@ -100,6 +100,9 @@ public class MillRecipeBuilder {
     if (change > 1) {
       throw new IllegalStateException("The additional drop chance cannot be greater than 1");
     }
+    if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
+      throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+    }
   }
 
   protected static class Result implements IFinishedRecipe {

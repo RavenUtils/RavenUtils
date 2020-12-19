@@ -23,7 +23,7 @@ public class BarrelRecipe extends CommonRecipe {
     private final boolean lidClosed;
 
     public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
-        super(recipeId, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput));
+        super(recipeId, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
         this.fluidOutput = fluidOutput;
         this.fluidInput = fluidInput;
         this.lidClosed = lidClosed;

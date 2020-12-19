@@ -99,6 +99,9 @@ public class AlloyFurnaceRecipeBuilder {
     if (this.materials.isEmpty()) {
       throw new IllegalStateException("No ingredients for alloy recipe " + id);
     }
+    if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
+      throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+    }
   }
 
   protected IFinishedRecipe createFinishedRecipe(

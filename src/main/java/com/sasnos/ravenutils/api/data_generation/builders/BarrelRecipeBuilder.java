@@ -110,6 +110,9 @@ public class BarrelRecipeBuilder {
         if(this.fluid == null || this.fluid == FluidStack.EMPTY){
             throw new IllegalStateException("Needs Fluid for recipe " + id);
         }
+        if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
+            throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+        }
     }
 
     protected static class Result implements IFinishedRecipe {

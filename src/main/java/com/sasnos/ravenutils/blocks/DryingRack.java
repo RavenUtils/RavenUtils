@@ -65,23 +65,33 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       double z = Math.abs(hit.getHitVec().z);
       BigDecimal bigx = new BigDecimal( x % 1);
       BigDecimal bigz = new BigDecimal( z % 1);
+      Direction facing = state.get(FACING);
 
-      boolean top = isTop(bigx, bigz, state.get(FACING), true);
+      boolean top = isTop(bigx, bigz, facing, true);
 
-      boolean left = isTop(bigz, bigx , state.get(FACING), false);
+      boolean left = isTop(bigz, bigx , facing, false);
 
       int slot = getSelectedSlot(top, left);
 
       ItemStack stack = handler.getStackInSlot(slot);
       if(player.getHeldItem(handIn) == ItemStack.EMPTY){
         if(stack == ItemStack.EMPTY) return ActionResultType.CONSUME;
-        player.addItemStackToInventory(stack);
+        player.addItemStackToInventory(handler.extractItem(slot, 1, false));
       }
       else {
         if(stack != ItemStack.EMPTY || !handler.isItemValid(slot, stack)) return ActionResultType.FAIL;
-        handler.insertItem(slot, stack, false);
+        ItemStack remain = handler.insertItem(slot, player.getHeldItem(handIn), false);
+        if(!player.isCreative()){
+          if(remain == ItemStack.EMPTY){
+            player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
+          }
+          else
+          {
+            player.getHeldItem(handIn).setCount(remain.getCount());
+          }
+        }
+
       }
-      return ActionResultType.SUCCESS;
     }
 
     return ActionResultType.SUCCESS;
@@ -121,21 +131,21 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     return true;
   }
 
+  private int getSelectedSlot(boolean top, boolean left) {
+      //top left
+      if (top && left) return 0;
+      //top right
+      if (top) return 1;
+      //bottom left
+      if (left) return 2;
+      //bottom right
+      return 3;
+  }
+
   @Nullable
   @Override
   public TileEntity createTileEntity(BlockState state, IBlockReader world) {
     return new DryingRackTileEntity();
-  }
-
-  private int getSelectedSlot(boolean top, boolean left) {
-    //top left
-    if (top && left) return 0;
-    //top right
-    if (top) return 1;
-    //bottom left
-    if (left) return 2;
-    //bottom right
-    return 3;
   }
 
   @Nullable

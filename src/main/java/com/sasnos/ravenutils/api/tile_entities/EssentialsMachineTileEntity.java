@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.api.tile_entities;
 
+import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.api.recipes.ICommonRecipe;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
@@ -141,6 +142,9 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     if (recipe != null && this.canSmelt(recipe)) {
       ItemStack input = this.itemHandler.getStackInSlot(0);
       ItemStack output = recipe.getRecipeOutput();
+      if(recipe instanceof CommonRecipe){
+        output = ((CommonRecipe) recipe).getOutput().get(0);
+      }
       ItemStack outputSlot = this.itemHandler.getStackInSlot(2);
       if (outputSlot.isEmpty()) {
         this.itemHandler.setStackInSlot(2, output.copy());
@@ -203,6 +207,9 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
           }
         } else {
           cookingTime = 0;
+        }
+        if(cookingTimeTotal == 0 && !itemHandler.getStackInSlot(0).isEmpty() && recipe != null){
+          cookingTimeTotal = recipe.getTimer();
         }
       } else if (!this.isBurning() && this.cookingTime > 0) {
         this.cookingTime = MathHelper.clamp(this.cookingTime - 2, 0, this.cookingTimeTotal);

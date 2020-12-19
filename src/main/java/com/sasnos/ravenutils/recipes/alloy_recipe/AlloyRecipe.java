@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.recipes.alloy_recipe;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
+import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.api.recipes.Material;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.item.ItemStack;
@@ -13,24 +13,17 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-public class AlloyRecipe extends EssentialsRecipe {
+public class AlloyRecipe extends CommonRecipe {
 
   public static final ResourceLocation ALLOY_FURNACE = new ResourceLocation(RavenUtils.MOD_ID, "alloy_furnace");
-  private final ItemStack output;
   private final NonNullList<Material> input;
-  private final int timer;
   private final ItemStack additionalResult;
   private final float additionalChance;
 
 
   public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
-    super(id);
-    this.output = output;
+    super(id, null, time, NonNullList.from(ItemStack.EMPTY, output), 0);
     this.input = input;
-    this.timer = time;
     this.additionalResult = additional;
     this.additionalChance = change;
   }
@@ -60,6 +53,8 @@ public class AlloyRecipe extends EssentialsRecipe {
     return true;
   }
 
+
+
   @NotNull
   @Override
   public NonNullList<Ingredient> getIngredients() {
@@ -74,26 +69,6 @@ public class AlloyRecipe extends EssentialsRecipe {
     return getRecipeOutput().copy();
   }
 
-  @NotNull
-  @Override
-  public ItemStack getRecipeOutput() {
-    return output;
-  }
-
-  @Override
-  public NonNullList<ItemStack> getOutput() {
-    ArrayList<ItemStack> outputs = new ArrayList<>();
-    outputs.add(output.copy());
-    if (additionalResult != ItemStack.EMPTY) {
-      float change = new Random().nextFloat();
-      if (change <= additionalChance) {
-        outputs.add(additionalResult.copy());
-      }
-    }
-    NonNullList<ItemStack> list = NonNullList.create();
-    list.addAll(outputs);
-    return list;
-  }
 
   public ItemStack getAdditionalResult() {
     return additionalResult;

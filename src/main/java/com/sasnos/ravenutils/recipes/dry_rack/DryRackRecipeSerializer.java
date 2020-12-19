@@ -18,7 +18,8 @@ public class DryRackRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
         Ingredient inputs = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
         int timer = JSONUtils.getInt(json, "timer");
-        return new DryRackRecipe(recipeId, NonNullList.from(Ingredient.EMPTY, inputs), timer, NonNullList.from(ItemStack.EMPTY, output));
+        float xp = JSONUtils.getFloat(json, "xp", 0);
+        return new DryRackRecipe(recipeId, NonNullList.from(Ingredient.EMPTY, inputs), timer, NonNullList.from(ItemStack.EMPTY, output), xp);
     }
 
     @Override
@@ -26,6 +27,7 @@ public class DryRackRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         buffer.writeItemStack(recipe.getOutput().get(0));
         recipe.getIngredients().get(0).write(buffer);
         buffer.writeInt(recipe.getTimer());
+        buffer.writeFloat(recipe.getXp());
     }
 
     @Nullable
@@ -34,7 +36,8 @@ public class DryRackRecipeSerializer extends ForgeRegistryEntry<IRecipeSerialize
         ItemStack output = buffer.readItemStack();
         Ingredient input = Ingredient.read(buffer);
         int timer = buffer.readInt();
-        return new DryRackRecipe(recipeId, NonNullList.from(Ingredient.EMPTY, input), timer, NonNullList.from(ItemStack.EMPTY, output));
+        float xp = buffer.readFloat();
+        return new DryRackRecipe(recipeId, NonNullList.from(Ingredient.EMPTY, input), timer, NonNullList.from(ItemStack.EMPTY, output), xp);
     }
 
 

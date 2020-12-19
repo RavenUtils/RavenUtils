@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.api.data_generation.builders;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.sasnos.ravenutils.api.data_generation.recipes.FinishedRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -16,7 +17,6 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
@@ -27,12 +27,16 @@ public class DryRackRecipeBuilder {
     private final int timer;
     private final IItemProvider output;
     private Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+    private final float xp;
 
-    private DryRackRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output) {
+    public DryRackRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float xp) {
+        if(input.hasNoMatchingItems()) throw new IllegalStateException("Input can not be Empty");
+        if(timer < 1) throw new IllegalStateException("Timer can not be smaller then 1");
         this.input = input;
         this.count = count;
         this.timer = timer;
         this.output = output;
+        this.xp = xp;
     }
 
     public DryRackRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
@@ -57,24 +61,25 @@ public class DryRackRecipeBuilder {
 
     private void createRecipe(Consumer<IFinishedRecipe> consumer, ResourceLocation id, ResourceLocation advancementsId) {
         consumer.accept(new Result(id, this.output, this.count, this.input,
-                timer, this.advancementBuilder, advancementsId));
+                timer, xp, this.advancementBuilder, advancementsId));
     }
 
     private void validate(ResourceLocation id) {
         if (this.advancementBuilder.getCriteria().isEmpty()) {
             throw new IllegalStateException("No way of obtaining alloy recipe " + id);
         }
+        if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
+            throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+        }
     }
 
-    protected static class Result implements IFinishedRecipe {
+    protected static class Result extends FinishedRecipe {
 
-        private final ResourceLocation id;
         private final IItemProvider result;
         private final int count;
         private final Ingredient input;
         private final int timer;
-        private final Advancement.Builder advancementBuilder;
-        private final ResourceLocation advancementId;
+        private final float xp;
 
         public Result(
                 ResourceLocation id,
@@ -82,15 +87,14 @@ public class DryRackRecipeBuilder {
                 int count,
                 Ingredient input,
                 int timer,
-                Advancement.Builder advancementBuilder,
+                float xp, Advancement.Builder advancementBuilder,
                 ResourceLocation advancementId) {
-            this.id = id;
+            super(id, advancementBuilder, advancementId);
             this.result = result;
             this.count = count;
             this.input = input;
             this.timer = timer;
-            this.advancementBuilder = advancementBuilder;
-            this.advancementId = advancementId;
+            this.xp = xp;
         }
 
         @Override
@@ -114,28 +118,13 @@ public class DryRackRecipeBuilder {
             json.add("result", resultJson);
 
             json.addProperty("timer", timer);
+            json.addProperty("xp", xp);
         }
 
-        @Override
-        public ResourceLocation getID() {
-            return id;
-        }
 
         @Override
         public IRecipeSerializer<?> getSerializer() {
             return ModRecipes.DRY_RACK_RECIPE_SERIALIZER.get();
-        }
-
-        @Nullable
-        @Override
-        public JsonObject getAdvancementJson() {
-            return advancementBuilder.serialize();
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getAdvancementID() {
-            return advancementId;
         }
     }
 

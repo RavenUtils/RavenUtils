@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.vector.Quaternion;
@@ -31,37 +30,20 @@ public class DryingRackRenderer extends TileEntityRenderer<DryingRackTileEntity>
             IItemHandler itemHandler = cap.resolve().get();
             Direction facing = tileEntityIn.getBlockState().get(BlockStateProperties.FACING);
 
-            int slots = 4;//itemHandler.getSlots();
-
+            int slots = itemHandler.getSlots();
 
             for (int i = 0; i < slots; i++) {
-                ItemStack item; //itemHandler.getStackInSlot(i);
+                ItemStack item = itemHandler.getStackInSlot(i);
                 matrixStackIn.push();
 
-                switch (i) {
-                    case 1:
-                        matrixStackIn.translate(getXForPosition(facing, i), 1, getYForPosition(facing, i));
-                        item = new ItemStack(Items.WHEAT_SEEDS);
-                        break;
-                    case 2:
-                        matrixStackIn.translate(getXForPosition(facing, i), 1, getYForPosition(facing, i));
-                        item = new ItemStack(Items.BEETROOT);
-                        break;
-                    case 3:
-                        matrixStackIn.translate(getXForPosition(facing, i), 1, getYForPosition(facing, i));
-                        item = new ItemStack(Items.MILK_BUCKET);
-                        break;
-                    default:
-                        matrixStackIn.translate(getXForPosition(facing, i), 1, getYForPosition(facing, i));
-                        item = new ItemStack(Items.PUMPKIN);
-                }
+                matrixStackIn.translate(getXForPosition(facing, i), 1, getYForPosition(facing, i));
 
                 matrixStackIn.scale(0.5f, 0.5f, 0.5f);
                 matrixStackIn.rotate(new Quaternion(90f, 0, getRotationForFace(facing), true));
                 ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
                 IBakedModel bakedModel = itemRenderer.getItemModelWithOverrides(item, tileEntityIn.getWorld(), null);
                 itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.FIXED, true,
-                        matrixStackIn, bufferIn, 128, 0, bakedModel);
+                        matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bakedModel);
                 matrixStackIn.pop();
             }
         }
@@ -83,16 +65,14 @@ public class DryingRackRenderer extends TileEntityRenderer<DryingRackTileEntity>
     private double getXForPosition(Direction facing, int slot) {
 
         if (facing == Direction.NORTH) {
-            if (slot == 1 || slot == 3) return .75;
-            if (slot == 0 || slot == 2) return .25;
-        } else if (facing == Direction.EAST) {
-            if (slot == 1) return .25;
-            if (slot == 3) return .70;
-            if (slot == 0) return .25;
-            if (slot == 2) return .70;
-        } else if (facing == Direction.SOUTH) {
-            if (slot == 0 || slot == 2) return .75;
             if (slot == 1 || slot == 3) return .25;
+            if (slot == 0 || slot == 2) return .75;
+        } else if (facing == Direction.EAST) {
+            if (slot == 1 || slot == 0) return .25;
+            if (slot == 3 || slot == 2) return .70;
+        } else if (facing == Direction.SOUTH) {
+            if (slot == 0 || slot == 2) return .25;
+            if (slot == 1 || slot == 3) return .75;
         } else if (facing == Direction.WEST) {
             if (slot == 2 || slot == 3) return .30;
             if (slot == 0 || slot == 1) return .75;
@@ -107,18 +87,14 @@ public class DryingRackRenderer extends TileEntityRenderer<DryingRackTileEntity>
             return .30;
 
         }else if (facing == Direction.EAST) {
-            if (slot == 1) return .75;
-            if (slot == 3) return .75;
-            if (slot == 0) return .25;
-            if (slot == 2) return .25;
+            if (slot == 1 || slot == 3) return .25;
+            if (slot == 0 || slot == 2) return .75;
         } else if (facing == Direction.SOUTH) {
             if(slot == 0 || slot == 1) return .25;
             return .70;
         } else if (facing == Direction.WEST) {
-            if (slot == 1) return .25;
-            if (slot == 3) return .25;
-            if (slot == 0) return .75;
-            if (slot == 2) return .75;
+            if (slot == 1 || slot == 3) return .75;
+            if (slot == 0 || slot == 2) return .25;
         }
         return 0.75;
     }

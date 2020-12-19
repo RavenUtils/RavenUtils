@@ -1,5 +1,6 @@
 package com.sasnos.ravenutils.api.tile_entities;
 
+import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.Item;
@@ -54,6 +55,22 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
       );
     }
     return inputs;
+  }
+
+  public static Set<Item> getAllRecipeOutputAsItems(IRecipeType<?> type, World world){
+    Set<Item> outputs = new HashSet<>();
+    Set<IRecipe<?>> recipes = findRecipeByType(type, world);
+    for (IRecipe<?> recipe : recipes){
+      if(recipe instanceof CommonRecipe){
+        NonNullList<ItemStack> output = ((CommonRecipe) recipe).getOutput();
+        output.forEach(itemStack -> outputs.add(itemStack.getItem()));
+      }
+      else {
+        ItemStack output = recipe.getRecipeOutput();
+        outputs.add(output.getItem());
+      }
+    }
+    return outputs;
   }
 
   public static Set<Item> getAllRecipeInputsAsItems(IRecipeType<?> type, World world) {

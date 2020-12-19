@@ -39,19 +39,30 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
 
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-                if (getAllRecipeInputsAsItems(type, world).contains(stack.getItem())) return true;
+                if (getAllRecipeInputsAsItems(type, world).contains(stack.getItem()) || getAllRecipeOutputAsItems(type, world).contains(stack.getItem())) return true;
                 return super.isItemValid(slot, stack);
             }
 
             @NotNull
             @Override
             public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-                if(!getAllRecipeInputsAsItems(type, world).contains(stack.getItem())){
+                if(!isItemValid(slot, stack)){
                     return stack;
                 }
                 return super.insertItem(slot, stack, simulate);
             }
+
+            @Override
+            public int getSlotLimit(int slot) {
+                return 1;
+            }
         };
+    }
+
+    private void handleUpdate() {
+        if(world != null){
+            world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+        }
     }
 
     @Override
@@ -133,11 +144,16 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
         }
     }
 
-
+    @Override
+    public void markDirty() {
+        super.markDirty();
+        handleUpdate();
+    }
 
     private void handleRecipeForSlot(Integer slot, DryRackRecipe recipe) {
         if(recipe == null) return;
-        itemHandler.setStackInSlot(slot, recipe.getOutput().get(0));
+        itemHandler.extractItem(slot, 1, false);
+        itemHandler.insertItem(slot, recipe.getOutput().get(0).copy(), false);
     }
 
     private static class DryingObject{
@@ -153,10 +169,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
 
         public boolean tick(){
             cookingTime++;
-            if(cookingTime >= cookingTimeTotal){
-                return true;
-            }
-            return false;
+            return cookingTime >= cookingTimeTotal;
         }
 
         public void serialize(ListNBT nbt, int slot){

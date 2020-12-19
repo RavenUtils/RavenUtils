@@ -16,8 +16,8 @@ public class DryRackRecipe extends CommonRecipe {
 
     public static final ResourceLocation DRYRACK = EssentialsUtils.resourceLocation("sry_rack");
 
-    public DryRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result) {
-        super(id, ingredients, timer, result);
+    public DryRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
+        super(id, ingredients, timer, result, xp);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
+import com.sasnos.ravenutils.api.data_generation.builders.DryRackRecipeBuilder;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.ICriterionInstance;
@@ -11,6 +12,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ITag;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -47,6 +49,10 @@ public class EssentialsRecipe extends RecipeProvider {
             .addFluidOutput(ModFluids.LIMEWATER.get())
             .addCriterion("has_water", hasItem(Items.WATER_BUCKET))
             .litClosed().build(consumer);
+
+    new DryRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 200, Items.LEATHER, 0.5f)
+    .addCriterion("has_tanned_hide", hasItem(ModItems.HIDE_TANNED.get()))
+    .build(consumer);
 
   }
 

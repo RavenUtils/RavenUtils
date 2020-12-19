@@ -25,6 +25,8 @@ public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
 
   NonNullList<ItemStack> getOutput();
 
+  float getXp();
+
   /**
    * Use the NonNullList Version {@link ICommonRecipe#getOutput()}
    * @return

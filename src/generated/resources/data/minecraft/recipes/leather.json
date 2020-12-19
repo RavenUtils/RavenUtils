@@ -1,0 +1,10 @@
+{
+  "type": "ravenutils:dry_rack",
+  "ingredient": {
+    "item": "ravenutils:hide_tanned"
+  },
+  "result": {
+    "item": "minecraft:leather"
+  },
+  "timer": 200
+}
