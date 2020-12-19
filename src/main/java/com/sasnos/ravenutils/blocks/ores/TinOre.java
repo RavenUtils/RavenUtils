@@ -13,7 +13,9 @@ public class TinOre extends OreBlock {
         .sound(SoundType.STONE)
         .harvestLevel(1)
         .setRequiresTool()
-        .harvestTool(ToolType.PICKAXE)
+        .harvestTool(ToolType.AXE)
+        // todo make harvestabke by axe (stone+) and pickaxe (iron+) only
+        // .harvestTool(ToolType.PICKAXE)
     );
   }
 }

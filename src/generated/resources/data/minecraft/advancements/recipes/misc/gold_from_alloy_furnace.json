@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:tongs_wooden"
+      "minecraft:gold_from_alloy_furnace"
     ]
   },
   "criteria": {
-    "has_leather_strip": {
+    "has_gold_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "forge:rods/wooden"
+            "item": "minecraft:gold_ore"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:tongs_wooden"
+        "recipe": "minecraft:gold_from_alloy_furnace"
       }
     }
   },
   "requirements": [
     [
-      "has_leather_strip",
+      "has_gold_ore",
       "has_the_recipe"
     ]
   ]

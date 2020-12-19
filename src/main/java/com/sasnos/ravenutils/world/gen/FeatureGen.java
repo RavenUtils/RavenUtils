@@ -121,18 +121,18 @@ public class FeatureGen {
     HashSet<BlockState> blacklist = new HashSet<>();
     blacklist.add(Blocks.AIR.getDefaultState());
     STICK_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.STICK_GROUND.get().getDefaultState()), SimpleBlockPlacer.PLACER)
-                    .whitelist(whiteList).blacklist(blacklist)
-                    .replaceable().tries(2)
-                    .build()
+        new BlockClusterFeatureConfig.Builder(
+            new SimpleBlockStateProvider(ModBlocks.STICK_GROUND.get().getDefaultState()), SimpleBlockPlacer.PLACER)
+            .whitelist(whiteList).blacklist(blacklist)
+            .replaceable().tries(2)
+            .build()
     ).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 5, 10)));
     STONE_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.STONE_GROUND.get().getDefaultState()), new SimpleBlockPlacer())
-                    .whitelist(whiteList).blacklist(blacklist)
-                    .replaceable().tries(2)
-                    .build()
+        new BlockClusterFeatureConfig.Builder(
+            new SimpleBlockStateProvider(ModBlocks.STONE_GROUND.get().getDefaultState()), new SimpleBlockPlacer())
+            .whitelist(whiteList).blacklist(blacklist)
+            .replaceable().tries(2)
+            .build()
     ).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 5, 10)));
     Registry.register(registry, resourceLocation("stick_ground"), STICK_GROUND);
     Registry.register(registry, resourceLocation("stone_ground"), STONE_GROUND);
@@ -160,9 +160,9 @@ public class FeatureGen {
     } else {
       for (ConfiguredFeature<?, ?> modOreFeature : ores.values()) {
         event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
-        if (event.getCategory().equals(Biome.Category.PLAINS)){
+        if (event.getCategory().equals(Biome.Category.PLAINS)) {
           event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
-          .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+              .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
         }
       }
     }

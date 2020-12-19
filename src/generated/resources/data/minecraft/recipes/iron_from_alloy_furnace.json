@@ -3,20 +3,24 @@
   "materials": [
     {
       "ingredient": {
-        "item": "ravenutils:copper_ingot"
+        "item": "minecraft:iron_ore"
       },
-      "count": 3
+      "count": 1
     },
     {
       "ingredient": {
-        "item": "ravenutils:tin_ingot"
+        "tag": "forge:sand"
       },
       "count": 1
     }
   ],
   "result": {
-    "item": "ravenutils:bronze_ingot",
-    "count": 4
+    "item": "minecraft:iron_ingot",
+    "count": 2
+  },
+  "additional": {
+    "item": "ravenutils:slag",
+    "change": 0.5
   },
   "cookingtime": 200
 }
