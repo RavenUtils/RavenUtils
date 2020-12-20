@@ -11,11 +11,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
@@ -124,18 +120,18 @@ public class FeatureGen {
     HashSet<BlockState> blacklist = new HashSet<>();
     blacklist.add(Blocks.AIR.getDefaultState());
     STICK_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new FacingBlockStateProvider(ModBlocks.STICK_GROUND.get()), SimpleBlockPlacer.PLACER)
-                    .whitelist(whiteList)
-                    .replaceable().tries(2)
-                    .build()
+        new BlockClusterFeatureConfig.Builder(
+            new FacingBlockStateProvider(ModBlocks.STICK_GROUND.get()), SimpleBlockPlacer.PLACER)
+            .whitelist(whiteList)
+            .replaceable().tries(2)
+            .build()
     ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     STONE_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new FacingBlockStateProvider(ModBlocks.STONE_GROUND.get()), SimpleBlockPlacer.PLACER)
-                    .whitelist(whiteList)
-                    .replaceable().tries(2)
-                    .build()
+        new BlockClusterFeatureConfig.Builder(
+            new FacingBlockStateProvider(ModBlocks.STONE_GROUND.get()), SimpleBlockPlacer.PLACER)
+            .whitelist(whiteList)
+            .replaceable().tries(2)
+            .build()
     ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     Registry.register(registry, resourceLocation("stick_ground"), STICK_GROUND);
     Registry.register(registry, resourceLocation("stone_ground"), STONE_GROUND);
