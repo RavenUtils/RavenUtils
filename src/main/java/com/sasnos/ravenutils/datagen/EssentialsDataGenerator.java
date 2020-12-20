@@ -5,7 +5,7 @@ import com.sasnos.ravenutils.datagen.block_states.BlockStates;
 import com.sasnos.ravenutils.datagen.global_loot_modifiers.EssentialsLootModifiers;
 import com.sasnos.ravenutils.datagen.items.ItemModels;
 import com.sasnos.ravenutils.datagen.lang.enUs;
-import com.sasnos.ravenutils.datagen.loot_tables.EssentialsLootTableProvider;
+import com.sasnos.ravenutils.datagen.loot_tables.EssentialsBaseLootTableProvider;
 import com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe;
 import com.sasnos.ravenutils.datagen.tags.EssentialsBlockTags;
 import com.sasnos.ravenutils.datagen.tags.EssentialsFluidTags;
@@ -39,7 +39,7 @@ public class EssentialsDataGenerator {
       generator.addProvider(btg);
       generator.addProvider(ftg);
       generator.addProvider(new EssentialsRecipe(generator));
-      generator.addProvider(new EssentialsLootTableProvider(generator));
+      generator.addProvider(new EssentialsBaseLootTableProvider(generator));
     }
   }
 }
