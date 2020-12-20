@@ -13,19 +13,9 @@ import net.minecraft.advancements.criterion.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
-import net.minecraft.loot.ConstantRange;
-import net.minecraft.loot.DynamicLootEntry;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.MatchTool;
-import net.minecraft.loot.functions.ApplyBonus;
-import net.minecraft.loot.functions.CopyName;
-import net.minecraft.loot.functions.CopyNbt;
-import net.minecraft.loot.functions.ExplosionDecay;
-import net.minecraft.loot.functions.SetContents;
-import net.minecraft.loot.functions.SetCount;
+import net.minecraft.loot.functions.*;
 import net.minecraft.util.ResourceLocation;
 
 public class EssentialsLootTableProvider extends BaseLootTableProvider {
@@ -36,6 +26,22 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
 
   @Override
   protected void addTables() {
+    LootPool.Builder stick_ground = LootPool.builder()
+        .name("stick_ground")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(Items.STICK)
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 1)))
+        );
+    lootTables.put(ModBlocks.STICK_GROUND.get(), LootTable.builder().addLootPool(stick_ground));
+
+    LootPool.Builder stone_ground = LootPool.builder()
+        .name("stone_ground")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModItems.SMALL_STONE.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 1)))
+        );
+    lootTables.put(ModBlocks.STONE_GROUND.get(), LootTable.builder().addLootPool(stone_ground));
+
     LootPool.Builder crimwood_leaves = LootPool.builder()
         .name("crimwood_leaves")
         .rolls(ConstantRange.of(1))
@@ -160,22 +166,32 @@ public class EssentialsLootTableProvider extends BaseLootTableProvider {
     lootTables.put(ModBlocks.MYTHERINE_BLOCK.get(), createStandardTable("mytherine_block", ModBlocks.MYTHERINE_BLOCK.get()));
 
     lootTables.put(ModBlocks.CRIMLEAF.get(), createStandardTable("crimleaf", ModBlocks.CRIMLEAF.get()));
-    LootPool.Builder potted_crimleaf = LootPool.builder()
-        .name("potted_crimleaf")
+    LootPool.Builder potted_crimleaf_plant = LootPool.builder()
+        .name("potted_crimleaf_plant")
         .rolls(ConstantRange.of(1))
-        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMLEAF_ITEM.get()))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMLEAF_ITEM.get()));
+    LootPool.Builder potted_crimleaf_pot = LootPool.builder()
+        .name("potted_crimleaf_pot")
         .rolls(ConstantRange.of(1))
         .addEntry(ItemLootEntry.builder(Items.FLOWER_POT));
-    lootTables.put(ModBlocks.POTTED_CRIMLEAF.get(), LootTable.builder().addLootPool(potted_crimleaf));
+    lootTables.put(ModBlocks.POTTED_CRIMLEAF.get(), LootTable.builder()
+        .addLootPool(potted_crimleaf_plant)
+        .addLootPool(potted_crimleaf_pot));
 
     lootTables.put(ModBlocks.CRIMWOOD_SAPLING.get(), createStandardTable("crimwood_sapling", ModBlocks.CRIMWOOD_SAPLING.get()));
-    LootPool.Builder potted_crimwood_sapling = LootPool.builder()
-        .name("potted_crimwood_sapling")
+    LootPool.Builder potted_crimwood_sapling_plant = LootPool.builder()
+        .name("potted_crimwood_sapling_plant")
         .rolls(ConstantRange.of(1))
-        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get()))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get()));
+    LootPool.Builder potted_crimwood_sapling_pot = LootPool.builder()
+        .name("potted_crimwood_sapling_pot")
         .rolls(ConstantRange.of(1))
         .addEntry(ItemLootEntry.builder(Items.FLOWER_POT));
-    lootTables.put(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), LootTable.builder().addLootPool(potted_crimwood_sapling));
+    lootTables.put(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), LootTable.builder()
+        .addLootPool(potted_crimwood_sapling_plant)
+        .addLootPool(potted_crimwood_sapling_pot));
+
+    lootTables.put(ModBlocks.CANDLE.get(), createStandardTable("candle", ModBlocks.CANDLE.get()));
 
     lootTables.put(ModBlocks.CRIMWOOD.get(), createStandardTable("crimwood", ModBlocks.CRIMWOOD.get()));
     lootTables.put(ModBlocks.CRIMWOOD_STRIPPED.get(), createStandardTable("crimwood_stripped", ModBlocks.CRIMWOOD_STRIPPED.get()));

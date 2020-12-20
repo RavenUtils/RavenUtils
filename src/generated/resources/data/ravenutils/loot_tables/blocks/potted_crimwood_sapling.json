@@ -2,13 +2,19 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "potted_crimwood_sapling",
+      "name": "potted_crimwood_sapling_plant",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ravenutils:crimwood_sapling"
-        },
+        }
+      ]
+    },
+    {
+      "name": "potted_crimwood_sapling_pot",
+      "rolls": 1,
+      "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:flower_pot"

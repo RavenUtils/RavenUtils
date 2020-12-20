@@ -12,19 +12,19 @@ import java.util.Random;
 
 public class FacingBlockStateProvider extends BlockStateProvider {
 
-    private Block block;
+  private final Block block;
 
-    public FacingBlockStateProvider(Block block){
-        this.block = block;
-    }
+  public FacingBlockStateProvider(Block block) {
+    this.block = block;
+  }
 
-    @Override
-    protected BlockStateProviderType<?> getProviderType() {
-        return null;
-    }
+  @Override
+  protected BlockStateProviderType<?> getProviderType() {
+    return null;
+  }
 
-    @Override
-    public BlockState getBlockState(Random randomIn, BlockPos blockPosIn) {
-        return block.getDefaultState().with(BlockStateProperties.FACING, Direction.getRandomDirection(randomIn));
-    }
+  @Override
+  public BlockState getBlockState(Random randomIn, BlockPos blockPosIn) {
+    return block.getDefaultState().with(BlockStateProperties.FACING, Direction.getRandomDirection(randomIn));
+  }
 }

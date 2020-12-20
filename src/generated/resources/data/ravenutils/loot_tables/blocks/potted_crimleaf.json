@@ -2,13 +2,19 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "potted_crimleaf",
+      "name": "potted_crimleaf_plant",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ravenutils:crimleaf"
-        },
+        }
+      ]
+    },
+    {
+      "name": "potted_crimleaf_pot",
+      "rolls": 1,
+      "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:flower_pot"
