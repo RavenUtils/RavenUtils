@@ -106,9 +106,9 @@ public class EssentialsHandsawRecipes extends EssentialsRecipeProvider {
         .build(consumer, "crimwood_slab_with_handsaw");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.STICK, 8)
-        .addIngredient(ItemTags.PLANKS)
+        .addIngredient(ItemTags.WOODEN_SLABS)
         .addIngredient(handsaws)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .addCriterion("has_slab", hasItemTag(ItemTags.WOODEN_SLABS))
         .build(consumer, "sticks_with_handsaw");
 
   }

@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.millrecipes;
+package com.sasnos.ravenutils.recipes.mill_recipe;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;

@@ -9,8 +9,6 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.tags.ItemTags;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -103,7 +101,7 @@ public class EssentialsHammerRecipes extends EssentialsRecipeProvider {
 
     ShapelessRecipeBuilder.shapelessRecipe(HandMillInit.MILLSTONE_ITEM.get(), 1)
         .addIngredient(Items.STONE_SLAB)
-        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(rods_wood)
         .addIngredient(hammers)
         .addIngredient(chisels)
         .addCriterion("has_stone_slab", hasItem(Items.STONE_SLAB))
@@ -116,7 +114,7 @@ public class EssentialsHammerRecipes extends EssentialsRecipeProvider {
         .key('h', hammers)
         .key('c', chisels)
         .key('s', Items.COBBLESTONE)
-        .key('S', Tags.Items.RODS_WOODEN)
+        .key('S', rods_wood)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
 

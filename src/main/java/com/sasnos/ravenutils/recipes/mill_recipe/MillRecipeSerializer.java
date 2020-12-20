@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.millrecipes;
+package com.sasnos.ravenutils.recipes.mill_recipe;
 
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;

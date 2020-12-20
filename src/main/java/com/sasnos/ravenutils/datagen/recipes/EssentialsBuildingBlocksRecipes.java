@@ -8,11 +8,11 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   public EssentialsBuildingBlocksRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -45,7 +45,7 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_FENCE_ITEM.get(), 3)
         .patternLine("W#W")
         .patternLine("W#W")
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
@@ -53,7 +53,7 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get())
         .patternLine("#W#")
         .patternLine("#W#")
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);

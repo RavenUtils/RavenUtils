@@ -12,14 +12,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.grasses_tall;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
   public EssentialsSmeltingRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -201,11 +199,11 @@ public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
         .build(consumer, "ash_from_smelting_scaffolding");
 
     CookingRecipeBuilder.smeltingRecipe(
-        Ingredient.fromTag(Tags.Items.RODS_WOODEN),
+        Ingredient.fromTag(rods_wood),
         ModItems.ASH.get(),
         0.1f,
         60)
-        .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
+        .addCriterion("has_stick", hasItemTag(rods_wood))
         .build(consumer, "ash_from_smelting_stick");
 
     CookingRecipeBuilder.smeltingRecipe(
