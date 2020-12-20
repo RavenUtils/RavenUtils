@@ -91,6 +91,16 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/niter"));
 
+    singleTexture("item/" + ModBlockItems.STICK_GROUND_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        mcLoc("item/stick"));
+
+    singleTexture("item/" + ModBlockItems.STONE_GROUND_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/small_stone"));
+
     singleTexture("item/" + ModItems.PLANT_FIBRE.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",

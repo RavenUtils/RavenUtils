@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ravenutils:dried_plant_fibre"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "tag": "forge:barks"
+    }
+  ],
+  "result": {
+    "item": "ravenutils:firestarter"
+  }
+}

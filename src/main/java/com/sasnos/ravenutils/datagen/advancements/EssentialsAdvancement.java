@@ -34,7 +34,6 @@ public class EssentialsAdvancement extends EssentialsAdvancementProvider {
         .register(consumer, "wood_clay_bucket");
   }
 
-
   @Override
   public String getName() {
     return RavenUtils.MOD_ID + " Advancements";

@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.datagen.global_loot_modifiers;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.global_loot_modifiers.*;
+import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
@@ -147,5 +148,8 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
     ));
+
+    // lootTables.put(ModBlocks.STONE_GROUND.get(), createStandardTable("stone_ground", ModItems.SMALL_STONE.get()));
+    // lootTables.put(ModBlocks.STICK_GROUND.get(), createStandardTable("stick_ground", Items.STICK));
   }
 }
