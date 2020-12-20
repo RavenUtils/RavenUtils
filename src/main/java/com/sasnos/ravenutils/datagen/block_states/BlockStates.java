@@ -3,7 +3,6 @@ package com.sasnos.ravenutils.datagen.block_states;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
-import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -191,13 +190,11 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodPottedSapling = models()
         .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimwood_sapling"));
-
     simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
     BlockModelBuilder crimwoodPottedLeaf = models()
         .withExistingParent("potted_crimleaf", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimleaf"));
-
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);
 
     // mud blocks
@@ -318,6 +315,49 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("3", "blocks/alloy_furnace_lit");
 
     orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
+
+    // todo adjust!
+    /*
+    // barrel open
+    BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open", EssentialsUtils.resourceLocation("block/barrel"))
+        .texture("3", "blocks/barrel_open");
+    orientedBlock(ModBlocks.BARREL.get(), blockState -> barrelOpen);
+
+    // barrel closed
+    ...
+
+    // drying rack
+    BlockModelBuilder dryingRack = models().withExistingParent("drying_rack", EssentialsUtils.resourceLocation("block/drying_rack"))
+        .texture("1", "blocks/drying_rack");
+    orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
+
+    // fish trap
+    ...
+
+    // hand mill
+    BlockModelBuilder handMill = models().withExistingParent("hand_mill", EssentialsUtils.resourceLocation("block/hand_mill"))
+        .texture("4", "blocks/hand_mill");
+    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
+
+    // millstone
+    BlockModelBuilder millstone = models().withExistingParent("millstone", EssentialsUtils.resourceLocation("block/millstone"))
+        .texture("2", "blocks/millstone");
+    axisBlock(HandMillInit.HAND_MILL.get(), blockState -> millstone);
+
+    // candle
+    ...
+
+    // crimwood sign wall
+    BlockModelBuilder crimwoodSignWall = models().withExistingParent("crimwood_sign_wall", EssentialsUtils.resourceLocation("block/crimwood_sign_wall"))
+        .texture("particle", "blocks/crimwood_planks");
+    axisBlock(ModBlocks.CRIMWOOD_WALL_SIGN.get(), blockState -> crimwoodSignWall);
+
+    // crimwood sign standing
+    BlockModelBuilder crimwoodSign = models().withExistingParent("crimwood_sign", EssentialsUtils.resourceLocation("block/crimwood_sign"))
+        .texture("particle", "blocks/crimwood_planks");
+    axisBlock(ModBlocks.CRIMWOOD_SIGN.get(), blockState -> crimwoodSign);
+
+    */
 
     // stone anvils
     // stone

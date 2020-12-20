@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "ravenutils:block/millstone" },
+    "facing=south": { "model": "ravenutils:block/millstone", "y":  180},
+    "facing=west": { "model": "ravenutils:block/millstone", "y":  270},
+    "facing=east": { "model": "ravenutils:block/millstone", "y":  90}
+  }
+}

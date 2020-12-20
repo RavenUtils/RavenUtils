@@ -16,20 +16,31 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
 
-  // todo implement getting Flitn Shards from FLint on Overworld Stone
   @SubscribeEvent
   public static void smackFlintIntoShards(PlayerInteractEvent.RightClickBlock useFlint) {
-        World world = useFlint.getWorld();
-        if(world.isRemote) return;
-        Block block = world.getBlockState(useFlint.getPos()).getBlock();
+    World world = useFlint.getWorld();
 
-        if(!(block == Blocks.STONE || block == Blocks.OBSIDIAN)) return;
-        PlayerEntity player = useFlint.getPlayer();
-        ItemStack item = player.getHeldItem(useFlint.getHand());
-        if(item.getItem() == Items.FLINT){
-            item.shrink(1);
-            player.addItemStackToInventory(new ItemStack(ModItems.FLINT_SHARD.get(), 2));
-        }
+    if (world.isRemote) {
+      return;
+    }
+
+    Block block = world.getBlockState(useFlint.getPos()).getBlock();
+
+    if (!(block == Blocks.STONE ||
+        block == Blocks.ANDESITE ||
+        block == Blocks.DIORITE ||
+        block == Blocks.GRANITE ||
+        block == Blocks.OBSIDIAN)) {
+      return;
+    }
+
+    PlayerEntity player = useFlint.getPlayer();
+    ItemStack item = player.getHeldItem(useFlint.getHand());
+
+    if (item.getItem() == Items.FLINT) {
+      item.shrink(1);
+      player.addItemStackToInventory(new ItemStack(ModItems.FLINT_SHARD.get(), 2));
+    }
   }
 
 }

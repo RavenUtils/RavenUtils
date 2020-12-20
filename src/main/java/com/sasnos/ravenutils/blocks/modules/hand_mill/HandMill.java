@@ -14,8 +14,7 @@ public class HandMill extends EssentialsMachineBlock {
   public HandMill() {
     super(Properties.create(Material.ROCK, MaterialColor.STONE)
         .harvestTool(ToolType.PICKAXE)
-        .hardnessAndResistance(1.2f)
-        .harvestLevel(1));
+        .hardnessAndResistance(1.2f));
   }
 
   @Nullable

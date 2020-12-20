@@ -886,16 +886,6 @@ public class ItemModels extends ItemModelProvider {
             mcLoc("item/shield")).texture("particle", modLoc("blocks/crimwood_planks"))
     .override().predicate(mcLoc("blocking"), 1).model(block);
 
-
-
-//     singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
-//        mcLoc("item/generated"),
-//        "layer0",
-//        resourceLocation("item/mytherine_shield"));
-//
-//    withExistingParent("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath()+"_blocking",
-//            modLoc("item/mytherine_shield"));
-
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/stone_crafting_table"));
@@ -914,6 +904,11 @@ public class ItemModels extends ItemModelProvider {
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/coin_gold"));
+
+    singleTexture("item/" + ModItems.BARREL_LID.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/barrel_lid"));
 
     // berries
     singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),

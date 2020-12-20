@@ -112,6 +112,8 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.getTranslucent());
+    RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.getTranslucent());
+    RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.getTranslucent());
 
     RavenUtilsPacketHandler.registerNetworkMessages();
 
