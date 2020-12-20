@@ -25,6 +25,10 @@ public class FacingBlockStateProvider extends BlockStateProvider {
 
   @Override
   public BlockState getBlockState(Random randomIn, BlockPos blockPosIn) {
-    return block.getDefaultState().with(BlockStateProperties.FACING, Direction.getRandomDirection(randomIn));
+    Direction direction = Direction.getRandomDirection(randomIn);
+    while (direction == Direction.UP || direction == Direction.DOWN){
+      direction = Direction.getRandomDirection(randomIn);
+    }
+    return block.getDefaultState().with(BlockStateProperties.FACING, direction);
   }
 }
