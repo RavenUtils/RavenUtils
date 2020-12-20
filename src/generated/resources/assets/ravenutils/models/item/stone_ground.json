@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "ravenutils:items/small_stone"
-  }
+  "parent": "ravenutils:block/ground_stone"
 }

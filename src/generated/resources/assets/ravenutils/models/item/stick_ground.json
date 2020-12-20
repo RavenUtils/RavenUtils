@@ -1,6 +1,17 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "minecraft:item/stick"
+  "parent": "ravenutils:block/ground_stick",
+  "display": {
+    "gui": {
+      "rotation": [
+        90,
+        45,
+        0
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1.5
+      ]
+    }
   }
 }
