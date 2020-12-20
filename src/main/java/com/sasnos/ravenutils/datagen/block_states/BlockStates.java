@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.datagen.block_states;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
@@ -317,27 +318,6 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("3", "blocks/alloy_furnace_lit");
 
     orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
-
-    // todo adjust!
-    /*
-    // barrel
-    BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open", EssentialsUtils.resourceLocation("block/barrel"))
-        .texture("3", "blocks/barrel_open");
-
-    BlockModelBuilder barrelLid = models().withExistingParent("barrel_lid", EssentialsUtils.resourceLocation("block/barrel"))
-        .texture("3", "blocks/barrel_lid");
-    orientedBlock(ModBlocks.BARREL.get(), blockState -> barrelOpen);
-
-    // drying rack
-    BlockModelBuilder dryingRack = models().withExistingParent("drying_rack", EssentialsUtils.resourceLocation("block/drying_rack"))
-        .texture("1", "blocks/drying_rack");
-    orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
-
-    // hand mill
-    BlockModelBuilder handMill = models().withExistingParent("hand_mill", EssentialsUtils.resourceLocation("block/hand_mill"))
-        .texture("4", "blocks/hand_mill");
-    orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
-    */
 
     // stone anvils
     // stone

@@ -30,7 +30,7 @@ public class AlloyFurnaceScreen extends EssentialsCommonMachineScreen<AlloyFurna
     int l = this.container.getCookProgressionScaled();
     this.blit(matrixStack, left + 84, right + 34, 176, 14, l + 1, 16);
   }
-  
+
   @Override
   protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
     this.font.func_243248_b(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);

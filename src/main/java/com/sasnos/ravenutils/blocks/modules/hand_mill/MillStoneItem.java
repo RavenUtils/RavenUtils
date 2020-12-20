@@ -5,7 +5,7 @@ import net.minecraft.item.BlockItem;
 
 public class MillStoneItem extends BlockItem {
 
-    public MillStoneItem(Block blockIn, Properties builder) {
-        super(blockIn, builder);
-    }
+  public MillStoneItem(Block blockIn, Properties builder) {
+    super(blockIn, builder);
+  }
 }

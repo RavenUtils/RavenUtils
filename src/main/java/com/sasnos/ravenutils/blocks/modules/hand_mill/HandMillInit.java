@@ -29,9 +29,9 @@ public class HandMillInit {
           .build(null));
 
   public static final RegistryObject<TileEntityType<HandMillTileEntity>> STONE_MILL_TILE_ENTITY = ModTileEntities.TILE_ENTITY.register("mill_stone",
-          () -> TileEntityType.Builder
-                  .create(HandMillTileEntity::new, MILLSTONE.get())
-                  .build(null));
+      () -> TileEntityType.Builder
+          .create(HandMillTileEntity::new, MILLSTONE.get())
+          .build(null));
 
   public static final RegistryObject<ContainerType<HandMillContainer>> HAND_MILL_CONTAINER = ModContainer.CONTAINER_TYPES.register("hand_mill",
       () -> IForgeContainerType.create(

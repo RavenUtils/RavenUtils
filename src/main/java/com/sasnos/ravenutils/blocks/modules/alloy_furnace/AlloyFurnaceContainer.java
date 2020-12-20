@@ -67,7 +67,7 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
           }
           int timer = 0;
           AlloyRecipe recipe = ((AlloyFurnaceTileEntity) tileEntity).getRecipe(itemStack);
-          if(recipe != null) timer = recipe.getTimer();
+          if (recipe != null) timer = recipe.getTimer();
           ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(timer);
         } else if (ForgeHooks.getBurnTime(stack) > 0) {
           if (!this.mergeItemStack(stack, 2, 3, false)) {

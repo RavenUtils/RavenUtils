@@ -19,56 +19,54 @@ import org.jetbrains.annotations.Nullable;
 
 public class Millstone extends EssentialsCommonMachineBlock {
 
-    public Millstone() {
-        super(Properties.create(Material.ROCK, MaterialColor.STONE)
-                .harvestTool(ToolType.PICKAXE)
-                .hardnessAndResistance(1.2f)
-                .harvestLevel(1));
-    }
+  public Millstone() {
+    super(Properties.create(Material.ROCK, MaterialColor.STONE)
+        .harvestTool(ToolType.PICKAXE)
+        .hardnessAndResistance(1.2f)
+        .harvestLevel(1));
+  }
 
-    @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!worldIn.isRemote) {
-            TileEntity tile = worldIn.getTileEntity(pos.down());
-            TileEntity owntile = worldIn.getTileEntity(pos);
-            if (tile instanceof HandMillTileEntity) {
-                if(player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity)tile).hasInput()){
-                    ((HandMillTileEntity)tile).addTick();
-                }
-                else{
-                    worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
-                }
-            }
-
-            if(owntile instanceof MillStoneTileEntity){
-                MillStoneTileEntity millStoneTileEntity = (MillStoneTileEntity) owntile;
-                if(millStoneTileEntity.addDamage()){
-                    worldIn.destroyBlock(pos, false);
-                }
-            }
+  @Override
+  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (!worldIn.isRemote) {
+      TileEntity tile = worldIn.getTileEntity(pos.down());
+      TileEntity owntile = worldIn.getTileEntity(pos);
+      if (tile instanceof HandMillTileEntity) {
+        if (player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity) tile).hasInput()) {
+          ((HandMillTileEntity) tile).addTick();
+        } else {
+          worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
         }
-        return ActionResultType.SUCCESS;
-    }
+      }
 
-    @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-        TileEntity te = worldIn.getTileEntity(pos);
-        if(te instanceof MillStoneTileEntity){
-            ((MillStoneTileEntity)te).setDamage(stack.getMaxDamage(), stack.getDamage());
+      if (owntile instanceof MillStoneTileEntity) {
+        MillStoneTileEntity millStoneTileEntity = (MillStoneTileEntity) owntile;
+        if (millStoneTileEntity.addDamage()) {
+          worldIn.destroyBlock(pos, false);
         }
-        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+      }
     }
+    return ActionResultType.SUCCESS;
+  }
 
-
-
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
+  @Override
+  public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    TileEntity te = worldIn.getTileEntity(pos);
+    if (te instanceof MillStoneTileEntity) {
+      ((MillStoneTileEntity) te).setDamage(stack.getMaxDamage(), stack.getDamage());
     }
+    super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+  }
 
-    @Nullable
-    @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new MillStoneTileEntity();
-    }
+
+  @Override
+  public boolean hasTileEntity(BlockState state) {
+    return true;
+  }
+
+  @Nullable
+  @Override
+  public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+    return new MillStoneTileEntity();
+  }
 }

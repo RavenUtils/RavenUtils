@@ -40,16 +40,16 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if(slot == 0 || slot == 1){
+        if (slot == 0 || slot == 1) {
           return getAllRecipeInputsAsItems(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem());
         }
-        if(slot == 2){
+        if (slot == 2) {
           return ForgeHooks.getBurnTime(stack) > 0;
         }
-        if(slot == 3 || slot == 4){
+        if (slot == 3 || slot == 4) {
           List<IRecipe<?>> recipes = findRecipeByType(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
             return iRecipe.getCraftingResult(null).getItem() == stack.getItem()
-                    || ((AlloyRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
+                || ((AlloyRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
           }).collect(Collectors.toList());
           return !recipes.isEmpty();
         }
@@ -62,7 +62,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
         if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(ModRecipes.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem())) {
           return stack;
         }
-        if(slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)){
+        if (slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)) {
           return stack;
         }
         return super.insertItem(slot, stack, simulate);
@@ -74,7 +74,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
   protected boolean canSmelt(@Nullable IRecipe<?> recipeIn) {
     if (!this.itemHandler.getStackInSlot(0).isEmpty() && recipeIn != null) {
       ItemStack output = recipeIn.getRecipeOutput();
-      ItemStack additionalOutput = ((AlloyRecipe)recipeIn).getAdditionalResult();
+      ItemStack additionalOutput = ((AlloyRecipe) recipeIn).getAdditionalResult();
       if (output.isEmpty()) {
         return false;
       } else {
@@ -100,7 +100,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
     if (recipe != null && this.canSmelt(recipe)) {
       ItemStack input = this.itemHandler.getStackInSlot(0);
       ItemStack additionalInput = itemHandler.getStackInSlot(1);
-      NonNullList<ItemStack> outputList = ((EssentialsRecipe)recipe).getOutput();
+      NonNullList<ItemStack> outputList = ((EssentialsRecipe) recipe).getOutput();
       ItemStack output = outputList.get(0);
       ItemStack additionalOutput = outputList.size() > 1 ? outputList.get(1) : ItemStack.EMPTY;
       ItemStack outputSlot = this.itemHandler.getStackInSlot(3);
@@ -112,24 +112,22 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
         outputSlot.grow(output.getCount());
       }
 
-      if(additionalOutputSlot.isEmpty()){
+      if (additionalOutputSlot.isEmpty()) {
         this.itemHandler.setStackInSlot(4, additionalOutput.copy());
-      }else if(additionalOutput.getItem() == additionalOutput.getItem()){
+      } else if (additionalOutput.getItem() == additionalOutput.getItem()) {
         additionalOutputSlot.grow(additionalOutput.getCount());
       }
 
-      if(input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()){
+      if (input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()) {
         input.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
-      }
-      else {
+      } else {
         input.shrink(recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
       }
 
-      if(((EssentialsRecipe) recipe).hasAdditionalInput()){
-        if(input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()){
+      if (((EssentialsRecipe) recipe).hasAdditionalInput()) {
+        if (input.getItem() == ((EssentialsRecipe) recipe).getOutput().get(0).getItem()) {
           additionalInput.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
-        }
-        else {
+        } else {
           additionalInput.shrink(recipe.getIngredients().get(1).getMatchingStacks()[0].getCount());
         }
       }
