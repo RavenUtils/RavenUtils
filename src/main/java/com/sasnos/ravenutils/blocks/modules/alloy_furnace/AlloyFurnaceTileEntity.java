@@ -142,6 +142,18 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
   }
 
   @Override
+  protected AlloyRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
+    for (IRecipe<?> iRecipe : recipes) {
+      if (!(iRecipe instanceof AlloyRecipe)) continue;
+      AlloyRecipe recipe = (AlloyRecipe) iRecipe;
+      if (ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)) {
+        return recipe;
+      }
+    }
+    return null;
+  }
+
+  @Override
   protected AlloyRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
     for (IRecipe<?> iRecipe : recipes) {
       if (!(iRecipe instanceof AlloyRecipe)) continue;

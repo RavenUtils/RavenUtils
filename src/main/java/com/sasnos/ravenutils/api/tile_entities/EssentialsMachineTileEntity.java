@@ -118,6 +118,17 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     return matching(recipes, wrapper, world);
   }
 
+  @Override
+  public T getRecipeFromOutput(ItemStack result) {
+      if(result == ItemStack.EMPTY) return null;
+
+      Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+
+      return matchingOutput(recipes, result, world);
+  }
+
+  protected abstract T matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world);
+
   protected abstract T matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world);
 
   protected boolean handleBurning(ItemStack fuel) {

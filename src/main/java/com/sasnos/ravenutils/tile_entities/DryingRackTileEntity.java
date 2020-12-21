@@ -12,6 +12,7 @@ import net.minecraft.nbt.ListNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -52,6 +53,22 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
                 return super.insertItem(slot, stack, simulate);
             }
 
+            @NotNull
+            @Override
+            public ItemStack extractItem(int slot, int amount, boolean simulate) {
+                ItemStack result = super.extractItem(slot, amount, simulate);
+                DryRackRecipe recipe = getRecipeFromOutput(result);
+                if(!simulate && recipe != null){
+                    int recipeResult = recipe.getOutput().get(0).getCount();
+                    float xp = recipe.getXp();
+                    int resultCount = result.getCount();
+                    int count = resultCount / recipeResult;
+                    BlockPos pos = DryingRackTileEntity.this.pos;
+                    splitAndSpawnExperience(DryingRackTileEntity.this.world, pos, count, xp);
+                }
+                return result;
+            }
+
             @Override
             public int getSlotLimit(int slot) {
                 return 1;
@@ -72,6 +89,19 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
             if(!(recipe instanceof DryRackRecipe)) continue;
             DryRackRecipe barrelRecipe = (DryRackRecipe) recipe;
             if (barrelRecipe.getIngredients().get(0).test(stack)){
+                return barrelRecipe;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public DryRackRecipe getRecipeFromOutput(ItemStack result) {
+        Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+        for (IRecipe<?> recipe : recipes){
+            if(!(recipe instanceof DryRackRecipe)) continue;
+            DryRackRecipe barrelRecipe = (DryRackRecipe) recipe;
+            if (ItemStack.areItemsEqual(barrelRecipe.getOutput().get(0), result)){
                 return barrelRecipe;
             }
         }

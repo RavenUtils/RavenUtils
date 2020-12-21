@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.api.tile_entities;
 import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -10,6 +11,8 @@ import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -57,6 +60,8 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
     return inputs;
   }
 
+  public abstract T getRecipeFromOutput(ItemStack result);
+
   public static Set<Item> getAllRecipeOutputAsItems(IRecipeType<?> type, World world){
     Set<Item> outputs = new HashSet<>();
     Set<IRecipe<?>> recipes = findRecipeByType(type, world);
@@ -81,5 +86,19 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
       ingredients.forEach(ingredient -> Arrays.stream(ingredient.getMatchingStacks()).collect(Collectors.toList()).forEach(itemStack -> inputs.add(itemStack.getItem())));
     }
     return inputs;
+  }
+
+  protected static void splitAndSpawnExperience(World world, BlockPos pos, int craftedAmount, float experience) {
+    int i = MathHelper.floor((float)craftedAmount * experience);
+    float f = MathHelper.frac((float)craftedAmount * experience);
+    if (f != 0.0F && Math.random() < (double)f) {
+      ++i;
+    }
+
+    while(i > 0) {
+      int j = ExperienceOrbEntity.getXPSplit(i);
+      i -= j;
+      world.addEntity(new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), j));
+    }
   }
 }

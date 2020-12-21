@@ -38,6 +38,18 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
     }
 
     @Override
+    protected MillRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
+        for (IRecipe<?> iRecipe : recipes){
+            if(!(iRecipe instanceof MillRecipe))continue;
+            MillRecipe recipe = (MillRecipe) iRecipe;
+            if(ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)){
+                return recipe;
+            }
+        }
+        return null;
+    }
+
+    @Override
     protected MillRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
         for (IRecipe<?> iRecipe : recipes){
             if(!(iRecipe instanceof MillRecipe))continue;

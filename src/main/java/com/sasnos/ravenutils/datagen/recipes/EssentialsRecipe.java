@@ -4,6 +4,7 @@ import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
 import com.sasnos.ravenutils.api.data_generation.builders.DryRackRecipeBuilder;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
@@ -50,9 +51,9 @@ public class EssentialsRecipe extends RecipeProvider {
             .addCriterion("has_water", hasItem(Items.WATER_BUCKET))
             .litClosed().build(consumer);
 
-    new DryRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 200, Items.LEATHER, 0.5f)
+    new DryRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 200, Items.LEATHER, 1f)
     .addCriterion("has_tanned_hide", hasItem(ModItems.HIDE_TANNED.get()))
-    .build(consumer);
+    .build(consumer, EssentialsUtils.resourceLocation("leather_from_drying"));
 
   }
 

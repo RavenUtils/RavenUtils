@@ -30,12 +30,16 @@ public class DryRackRecipeBuilder {
     private final float xp;
 
     public DryRackRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float xp) {
-        if(input.hasNoMatchingItems()) throw new IllegalStateException("Input can not be Empty");
-        if(timer < 1) throw new IllegalStateException("Timer can not be smaller then 1");
+        if(input.hasNoMatchingItems()) throw new IllegalArgumentException("Input can not be Empty");
+        if(timer < 1) throw new IllegalArgumentException("Timer can not be smaller then 1");
+        if (input.getMatchingStacks().length > 1) throw new IllegalStateException("Max 1 Ingredient can be used");
+        if(input.getMatchingStacks()[0].getCount() > 1) throw new IllegalStateException("Max amount for input is 1");
         this.input = input;
+        if(count > 1) throw new IllegalArgumentException("Output can not be greater then 1");
         this.count = count;
         this.timer = timer;
         this.output = output;
+        if(xp < 1) throw new IllegalArgumentException("xp under 1 do not drop");
         this.xp = xp;
     }
 
@@ -45,11 +49,18 @@ public class DryRackRecipeBuilder {
     }
 
     public void build(Consumer<IFinishedRecipe> consumer) {
-        this.build(consumer, ForgeRegistries.ITEMS.getKey(output.asItem()));
+        build(consumer, false);
+    }
+    public void build(Consumer<IFinishedRecipe> consumer, boolean ignoreMcNames) {
+        this.build(consumer, ForgeRegistries.ITEMS.getKey(output.asItem()), ignoreMcNames);
     }
 
     public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id) {
-        validate(id);
+        this.build(consumer, id, false);
+    }
+
+    public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id, boolean ignoreMCNames) {
+        validate(id, ignoreMCNames);
         this.advancementBuilder
                 .withParentId(new ResourceLocation("recipes/root"))
                 .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
@@ -64,11 +75,11 @@ public class DryRackRecipeBuilder {
                 timer, xp, this.advancementBuilder, advancementsId));
     }
 
-    private void validate(ResourceLocation id) {
+    private void validate(ResourceLocation id, boolean ignoreMCNames) {
         if (this.advancementBuilder.getCriteria().isEmpty()) {
             throw new IllegalStateException("No way of obtaining alloy recipe " + id);
         }
-        if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
+        if (!ignoreMCNames && id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
             throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
         }
     }

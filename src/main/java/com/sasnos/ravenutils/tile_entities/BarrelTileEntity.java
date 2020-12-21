@@ -204,6 +204,24 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
         return null;
     }
 
+    @Override
+    public BarrelRecipe getRecipeFromOutput(ItemStack result) {
+        Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+        BlockState blockState = world.getBlockState(pos);
+        boolean open = blockState.get(Barrel.HAS_LID);
+        for (IRecipe<?> recipe : recipes){
+            if(!(recipe instanceof BarrelRecipe)) continue;
+            BarrelRecipe barrelRecipe = (BarrelRecipe) recipe;
+            if (barrelRecipe.isLidClosed() == open &&
+                    barrelRecipe.getFluidInput().getFluid() == fluidTank.getFluid().getFluid() &&
+                    barrelRecipe.getFluidInput().getAmount() <= fluidTank.getFluidAmount() &&
+                    ItemStack.areItemStackTagsEqual(barrelRecipe.getOutput().get(0), result)){
+                return barrelRecipe;
+            }
+        }
+        return null;
+    }
+
     public void setCookingTimeTotal(int timer) {
         cookingTimeTotal = timer;
     }
