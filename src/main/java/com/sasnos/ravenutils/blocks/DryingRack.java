@@ -41,7 +41,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
         .hardnessAndResistance(2.5F)
         .harvestTool(ToolType.AXE)
         .sound(SoundType.WOOD)
-            .notSolid()
+        .notSolid()
     );
   }
 
@@ -49,45 +49,43 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   @Override
   public @NotNull ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
 
-    if(!worldIn.isRemote){
+    if (!worldIn.isRemote) {
       TileEntity tile = worldIn.getTileEntity(pos);
 
-      if(!(tile instanceof DryingRackTileEntity)) return ActionResultType.FAIL;
+      if (!(tile instanceof DryingRackTileEntity)) return ActionResultType.FAIL;
 
       DryingRackTileEntity dryTile = (DryingRackTileEntity) tile;
       LazyOptional<IItemHandler> cap = dryTile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
 
-      if(!cap.isPresent()) return ActionResultType.FAIL;
+      if (!cap.isPresent()) return ActionResultType.FAIL;
 
-      IItemHandler handler = cap.resolve().get();
+      IItemHandler handler = (cap.resolve().isPresent()) ? cap.resolve().get() : null;
 
       double x = Math.abs(hit.getHitVec().x);
       double z = Math.abs(hit.getHitVec().z);
-      BigDecimal bigx = new BigDecimal( x % 1);
-      BigDecimal bigz = new BigDecimal( z % 1);
+      BigDecimal bigx = new BigDecimal(x % 1);
+      BigDecimal bigz = new BigDecimal(z % 1);
       Direction facing = state.get(FACING);
 
       boolean top = isTop(bigx, bigz, facing, true);
 
-      boolean left = isTop(bigz, bigx , facing, false);
+      boolean left = isTop(bigz, bigx, facing, false);
 
       int slot = getSelectedSlot(top, left);
 
+      assert handler != null;
       ItemStack stack = handler.getStackInSlot(slot);
-      if(player.getHeldItem(handIn) == ItemStack.EMPTY || ItemStack.areItemsEqual(stack, player.getHeldItem(handIn))){
-        if(stack == ItemStack.EMPTY) return ActionResultType.CONSUME;
+      if (player.getHeldItem(handIn) == ItemStack.EMPTY || ItemStack.areItemsEqual(stack, player.getHeldItem(handIn))) {
+        if (stack == ItemStack.EMPTY) return ActionResultType.CONSUME;
         player.addItemStackToInventory(handler.extractItem(slot, 1, false));
 
-      }
-      else {
-        if(stack != ItemStack.EMPTY || !handler.isItemValid(slot, stack)) return ActionResultType.FAIL;
+      } else {
+        if (stack != ItemStack.EMPTY || !handler.isItemValid(slot, stack)) return ActionResultType.FAIL;
         ItemStack remain = handler.insertItem(slot, player.getHeldItem(handIn), false);
-        if(!player.isCreative()){
-          if(remain == ItemStack.EMPTY){
+        if (!player.isCreative()) {
+          if (remain == ItemStack.EMPTY) {
             player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
-          }
-          else
-          {
+          } else {
             player.getHeldItem(handIn).setCount(remain.getCount());
           }
         }
@@ -102,30 +100,28 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     int compareX = x.compareTo(new BigDecimal("0.5"));
     int compareZ = z.compareTo(new BigDecimal("0.5"));
     if (facing == Direction.NORTH) {
-      if(isForTop){
-        return (compareZ >= 0 && compareX < 0) || (compareX >= 0 && compareZ > 0) ;
+      if (isForTop) {
+        return (compareZ >= 0 && compareX < 0) || (compareX >= 0 && compareZ > 0);
       }
       return (compareX >= 0 && compareZ < 0) || (compareX <= 0 && compareZ <= 0);
 
     } else if (facing == Direction.EAST) {
-      if(isForTop){
+      if (isForTop) {
         return compareX >= 0;
-      }
-      else {
+      } else {
         return compareX > 0;
       }
     } else if (facing == Direction.SOUTH) {
-      if(isForTop){
-        return (compareX >=0 && compareZ <= 0) || (compareX < 0 && compareZ <= 0);
+      if (isForTop) {
+        return (compareX >= 0 && compareZ <= 0) || (compareX < 0 && compareZ <= 0);
       }
-      return (compareX >=0 && compareZ >= 0) || (compareX < 0 && compareZ >= 0);
+      return (compareX >= 0 && compareZ >= 0) || (compareX < 0 && compareZ >= 0);
 
     } else if (facing == Direction.WEST) {
-      if(isForTop){
+      if (isForTop) {
         return compareX < 0;
-      }
-      else {
-        return (compareX < 0 && compareZ >= 0) || (compareX < 0 && compareZ < 0) ;
+      } else {
+        return compareX < 0;
       }
     }
 
@@ -133,14 +129,14 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   }
 
   private int getSelectedSlot(boolean top, boolean left) {
-      //top left
-      if (top && left) return 0;
-      //top right
-      if (top) return 1;
-      //bottom left
-      if (left) return 2;
-      //bottom right
-      return 3;
+    //top left
+    if (top && left) return 0;
+    //top right
+    if (top) return 1;
+    //bottom left
+    if (left) return 2;
+    //bottom right
+    return 3;
   }
 
   @Nullable

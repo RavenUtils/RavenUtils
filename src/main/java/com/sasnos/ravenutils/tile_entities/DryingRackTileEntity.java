@@ -132,7 +132,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
     }
 
     @Override
-    public CompoundNBT getUpdateTag() {
+    public @NotNull CompoundNBT getUpdateTag() {
         CompoundNBT nbt = super.getUpdateTag();
         nbt.put("inv", itemHandler.serializeNBT());
         return nbt;
@@ -157,6 +157,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
     @Override
     public void tick() {
 
+        assert world != null;
         if(!world.isRemote){
             slotTimer.forEach((integer, dryingObject) -> {
                 DryRackRecipe recipe = getRecipe(itemHandler.getStackInSlot(integer));
@@ -187,9 +188,9 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
     }
 
     private static class DryingObject{
-        private ItemStack item;
+        private final ItemStack item;
         private int cookingTime;
-        private int cookingTimeTotal;
+        private final int cookingTimeTotal;
 
         public DryingObject(ItemStack item, int cookingTime, int cookingTimeTotal){
             this.item = item;
