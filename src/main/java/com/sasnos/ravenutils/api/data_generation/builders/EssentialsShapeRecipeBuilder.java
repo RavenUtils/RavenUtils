@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.ICriterionInstance;
@@ -16,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tags.ITag;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
@@ -32,29 +34,27 @@ import java.util.function.Consumer;
 public class EssentialsShapeRecipeBuilder {
     private static final Logger LOGGER = LogManager.getLogger();
     private final ItemStack result;
-    private final int count;
     private final List<String> pattern = Lists.newArrayList();
     private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
     private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
     private String group;
 
-    public EssentialsShapeRecipeBuilder(ItemStack resultIn, int countIn) {
+    public EssentialsShapeRecipeBuilder(ItemStack resultIn) {
         this.result = resultIn;
-        this.count = countIn;
     }
 
     /**
      * Creates a new builder for a shaped recipe.
      */
-    public static EssentialsShapeRecipeBuilder shapedRecipe(ItemStack resultIn) {
+    public static EssentialsShapeRecipeBuilder shapedRecipe(IItemProvider resultIn) {
         return shapedRecipe(resultIn, 1);
     }
 
     /**
      * Creates a new builder for a shaped recipe.
      */
-    public static EssentialsShapeRecipeBuilder shapedRecipe(ItemStack resultIn, int countIn) {
-        return new EssentialsShapeRecipeBuilder(resultIn, countIn);
+    public static EssentialsShapeRecipeBuilder shapedRecipe(IItemProvider resultIn, int countIn) {
+        return new EssentialsShapeRecipeBuilder(new ItemStack(resultIn, countIn));
     }
 
     /**
@@ -141,7 +141,7 @@ public class EssentialsShapeRecipeBuilder {
     public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
         this.validate(id);
         this.advancementBuilder.withParentId(new ResourceLocation("recipes/root")).withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id)).withRewards(AdvancementRewards.Builder.recipe(id)).withRequirementsStrategy(IRequirementsStrategy.OR);
-        consumerIn.accept(new Result(id, this.result, this.count, this.group == null ? "" : this.group, this.pattern, this.key, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath())));
+        consumerIn.accept(new Result(id, this.result, this.group == null ? "" : this.group, this.pattern, this.key, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath())));
     }
 
     /**
@@ -178,17 +178,15 @@ public class EssentialsShapeRecipeBuilder {
     public class Result implements IFinishedRecipe {
         private final ResourceLocation id;
         private final ItemStack result;
-        private final int count;
         private final String group;
         private final List<String> pattern;
         private final Map<Character, Ingredient> key;
         private final Advancement.Builder advancementBuilder;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation idIn, ItemStack resultIn, int countIn, String groupIn, List<String> patternIn, Map<Character, Ingredient> keyIn, Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
+        public Result(ResourceLocation idIn, ItemStack resultIn, String groupIn, List<String> patternIn, Map<Character, Ingredient> keyIn, Advancement.Builder advancementBuilderIn, ResourceLocation advancementIdIn) {
             this.id = idIn;
             this.result = resultIn;
-            this.count = countIn;
             this.group = groupIn;
             this.pattern = patternIn;
             this.key = keyIn;
@@ -217,16 +215,20 @@ public class EssentialsShapeRecipeBuilder {
             json.add("key", jsonobject);
             JsonObject jsonobject1 = new JsonObject();
             jsonobject1.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result.getItem()).toString());
-            if (this.count > 1) {
-                jsonobject1.addProperty("count", this.count);
+            if (this.result.getCount() > 1) {
+                jsonobject1.addProperty("count", this.result.getCount());
             }
-            json.addProperty("nbt", result.getTag().toString());
+            CompoundNBT tag = result.getTag();
+            if(tag != null){
+                if(tag.contains("Damage")) tag.remove("Damage");
+                jsonobject1.addProperty("nbt", tag.toString());
+            }
 
             json.add("result", jsonobject1);
         }
 
         public IRecipeSerializer<?> getSerializer() {
-            return IRecipeSerializer.CRAFTING_SHAPED;
+            return ModRecipes.SHAPED_RECIPE_SERIALIZER.get();
         }
 
         /**
