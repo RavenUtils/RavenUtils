@@ -119,7 +119,7 @@ public class CombatCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
         .build(consumer);
 
-    /* ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_SHIELD.get())
+    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_SHIELD.get())
         .patternLine("oco")
         .patternLine("xtx")
         .patternLine("oxo")
@@ -128,6 +128,6 @@ public class CombatCraftingRecipes extends EssentialsRecipeProvider {
         .key('t', Items.SHIELD)
         .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .build(consumer); */
+        .build(consumer);
   }
 }

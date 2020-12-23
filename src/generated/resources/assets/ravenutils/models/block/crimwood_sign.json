@@ -1,0 +1,6 @@
+{
+  "parent": "ravenutils:block/crimwood_sign",
+  "textures": {
+    "particle": "ravenutils:blocks/crimwood_planks"
+  }
+}

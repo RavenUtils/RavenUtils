@@ -344,19 +344,6 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("2", "blocks/millstone");
     axisBlock(HandMillInit.HAND_MILL.get(), blockState -> millstone);
 
-    // candle
-    ...
-
-    // crimwood sign wall
-    BlockModelBuilder crimwoodSignWall = models().withExistingParent("crimwood_sign_wall", EssentialsUtils.resourceLocation("block/crimwood_sign_wall"))
-        .texture("particle", "blocks/crimwood_planks");
-    axisBlock(ModBlocks.CRIMWOOD_WALL_SIGN.get(), blockState -> crimwoodSignWall);
-
-    // crimwood sign standing
-    BlockModelBuilder crimwoodSign = models().withExistingParent("crimwood_sign", EssentialsUtils.resourceLocation("block/crimwood_sign"))
-        .texture("particle", "blocks/crimwood_planks");
-    axisBlock(ModBlocks.CRIMWOOD_SIGN.get(), blockState -> crimwoodSign);
-
     */
 
     // stone anvils
@@ -429,5 +416,20 @@ public class BlockStates extends EssentialsBlockStates {
     // misc
     BlockModelBuilder crimleaf = models().cross("crimleaf", modLoc("blocks/crimleaf"));
     simpleBlock(ModBlocks.CRIMLEAF.get(), crimleaf);
+
+    BlockModelBuilder crimwoodSignWall = models().withExistingParent("crimwood_sign_wall", EssentialsUtils.resourceLocation("block/crimwood_sign_wall"))
+        .texture("particle", "blocks/crimwood_planks");
+    simpleBlock(ModBlocks.CRIMWOOD_WALL_SIGN.get(), crimwoodSignWall);
+
+    BlockModelBuilder crimwoodSign = models().withExistingParent("crimwood_sign", EssentialsUtils.resourceLocation("block/crimwood_sign"))
+        .texture("particle", "blocks/crimwood_planks");
+    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodSign);
+
+    /*
+    BlockModelBuilder candle = models().withExistingParent("candle", EssentialsUtils.resourceLocation("block/candle"))
+        .texture("particle", "blocks/candle");
+    simpleBlock(ModBlocks.CANDLE.get(), candle);
+
+     */
   }
 }

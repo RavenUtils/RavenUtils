@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:mytherine_shield"
+    ]
+  },
+  "criteria": {
+    "has_mytherine_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:mytherine_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:mytherine_shield"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mytherine_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}
