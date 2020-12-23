@@ -111,6 +111,7 @@ public class EssentialsShapeRecipeBuilder {
     }
 
     public EssentialsShapeRecipeBuilder addEnactment(Enchantment enchantment, int lvl){
+        if (!result.isEnchantable()) throw new IllegalStateException("Item can not be enchanted");
         result.addEnchantment(enchantment, lvl);
         return this;
     }
