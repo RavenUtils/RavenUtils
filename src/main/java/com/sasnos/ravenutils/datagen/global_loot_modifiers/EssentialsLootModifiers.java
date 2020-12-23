@@ -144,5 +144,6 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
     ));
+
   }
 }

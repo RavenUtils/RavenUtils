@@ -16,6 +16,7 @@ import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.non_flammab
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.ores;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.crimwood_logs;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.planks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.requireTool;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.saplings;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.small_flowers;
 import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_buttons;
@@ -46,6 +47,9 @@ public class EssentialsBlockTags extends BlockTagsProvider {
         ModBlocks.BLACK_COAL_ORE.get(),
         ModBlocks.SALT_ORE.get()
     );
+
+    getOrCreateBuilder(requireTool)
+            .addTag(BlockTags.LOGS);
 
     getOrCreateBuilder(saplings).add(ModBlocks.CRIMWOOD_SAPLING.get());
     getOrCreateBuilder(small_flowers).add(ModBlocks.CRIMLEAF.get());

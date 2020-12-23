@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.events;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -12,12 +13,26 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
+
+    @SubscribeEvent
+    public static void stopDrop(PlayerEvent.HarvestCheck event){
+        BlockState state = event.getTargetBlock();
+        if (state.isIn(EssentialsTags.Blocks.requireTool)){
+            PlayerEntity player = event.getPlayer();
+            int itemSlot = player.inventory.currentItem;
+            ItemStack stack = player.inventory.getStackInSlot(itemSlot);
+            if(stack == ItemStack.EMPTY || !stack.getItem().canHarvestBlock(state)){
+                event.setCanHarvest(false);
+            }
+        }
+    }
 
   // todo implement getting Flitn Shards from FLint on Overworld Stone
   @SubscribeEvent

@@ -21,6 +21,8 @@ import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.renderer.RenderType;
@@ -120,6 +122,7 @@ public class RavenUtils {
       try {
         Field saturation = ObfuscationReflectionHelper.findField(Food.class, "field_221471_b");
         Field effect = ObfuscationReflectionHelper.findField(Food.class, "field_221475_f");
+        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235706_j_");
         List<Pair<Supplier<EffectInstance>, Float>> effects = Lists.newArrayList();
         saturation.setAccessible(true);
 
@@ -166,6 +169,11 @@ public class RavenUtils {
           maxDamage.setInt(fluid.getFilledBucket(), 512);
         }
         maxDamage.setAccessible(false);
+
+        requireTool.setAccessible(true);
+        for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()){
+          requireTool.setBoolean(block, true);
+        }
 
       } catch (IllegalAccessException e) {
         throw new RuntimeException(e);
