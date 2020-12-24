@@ -5,7 +5,6 @@ import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
 import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipeSerializer;
 import com.sasnos.ravenutils.recipes.barrel.BarrelRecipe;
 import com.sasnos.ravenutils.recipes.barrel.BarrelRecipeSerializer;
-import com.sasnos.ravenutils.recipes.curstom_crafting_recipe.EssentialsShapedRecipe;
 import com.sasnos.ravenutils.recipes.dry_rack.DryRackRecipe;
 import com.sasnos.ravenutils.recipes.dry_rack.DryRackRecipeSerializer;
 import com.sasnos.ravenutils.recipes.millrecipes.MillRecipe;
@@ -34,8 +33,6 @@ public class ModRecipes {
   public static final RegistryObject<MillRecipeSerializer> MILL_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("mill_recipe", MillRecipeSerializer::new);
   public static final RegistryObject<BarrelRecipeSerializer> BARREL_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("barrel_recipe", BarrelRecipeSerializer::new);
   public static final RegistryObject<DryRackRecipeSerializer> DRY_RACK_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("dry_rack", DryRackRecipeSerializer::new);
-  public static final RegistryObject<EssentialsShapedRecipe.Serializer> SHAPED_RECIPE_SERIALIZER = RECIPE_SERIALIZER.register("shaped_recipe", EssentialsShapedRecipe.Serializer::new);
-
   @SuppressWarnings("unchecked")
   private static <T extends IRecipeType<?>> T registerType(ResourceLocation recipeTypeId) {
     return (T) Registry.register(Registry.RECIPE_TYPE, recipeTypeId, new RegisterType<>());

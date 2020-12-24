@@ -5,7 +5,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.ICriterionInstance;
@@ -229,7 +228,7 @@ public class EssentialsShapeRecipeBuilder {
         }
 
         public IRecipeSerializer<?> getSerializer() {
-            return ModRecipes.SHAPED_RECIPE_SERIALIZER.get();
+            return IRecipeSerializer.CRAFTING_SHAPED;
         }
 
         /**

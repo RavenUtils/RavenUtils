@@ -59,7 +59,9 @@ public class DryingRack extends EssentialsCommonMachineBlock {
 
       if (!cap.isPresent()) return ActionResultType.FAIL;
 
-      IItemHandler handler = (cap.resolve().isPresent()) ? cap.resolve().get() : null;
+      //the isPresent above checks for this already
+      @SuppressWarnings("OptionalGetWithoutIsPresent")
+      IItemHandler handler = cap.resolve().get();
 
       double x = Math.abs(hit.getHitVec().x);
       double z = Math.abs(hit.getHitVec().z);
@@ -67,13 +69,12 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       BigDecimal bigz = new BigDecimal(z % 1);
       Direction facing = state.get(FACING);
 
-      boolean top = isTop(bigx, bigz, facing, true);
+      boolean top = isTop(bigx, bigz, facing);
 
-      boolean left = isTop(bigz, bigx, facing, false);
+      boolean left = isLeft(bigz, bigx, facing);
 
       int slot = getSelectedSlot(top, left);
 
-      assert handler != null;
       ItemStack stack = handler.getStackInSlot(slot);
       if (player.getHeldItem(handIn) == ItemStack.EMPTY || ItemStack.areItemsEqual(stack, player.getHeldItem(handIn))) {
         if (stack == ItemStack.EMPTY) return ActionResultType.CONSUME;
@@ -96,33 +97,35 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     return ActionResultType.SUCCESS;
   }
 
-  private boolean isTop(BigDecimal x, BigDecimal z, Direction facing, boolean isForTop) {
+  private boolean isTop(BigDecimal x, BigDecimal z, Direction facing) {
     int compareX = x.compareTo(new BigDecimal("0.5"));
     int compareZ = z.compareTo(new BigDecimal("0.5"));
     if (facing == Direction.NORTH) {
-      if (isForTop) {
         return (compareZ >= 0 && compareX < 0) || (compareX >= 0 && compareZ > 0);
-      }
+    } else if (facing == Direction.EAST) {
+        return compareX >= 0;
+    } else if (facing == Direction.SOUTH) {
+        return (compareX >= 0 && compareZ >= 1) || (compareX < 0 && compareZ >= 0);
+    } else if (facing == Direction.WEST) {
+        return compareX < 0;
+    }
+
+    return true;
+  }
+
+  public boolean isLeft(BigDecimal z, BigDecimal x, Direction facing){
+    int compareX = x.compareTo(new BigDecimal("0.5"));
+    int compareZ = z.compareTo(new BigDecimal("0.5"));
+    if (facing == Direction.NORTH) {
       return (compareX >= 0 && compareZ < 0) || (compareX <= 0 && compareZ <= 0);
 
     } else if (facing == Direction.EAST) {
-      if (isForTop) {
-        return compareX >= 0;
-      } else {
-        return compareX > 0;
-      }
+      return (compareX < 0  && compareZ >= 1) || (compareX < 0 && compareZ < 0);
     } else if (facing == Direction.SOUTH) {
-      if (isForTop) {
-        return (compareX >= 0 && compareZ <= 0) || (compareX < 0 && compareZ <= 0);
-      }
       return (compareX >= 0 && compareZ >= 0) || (compareX < 0 && compareZ >= 0);
 
     } else if (facing == Direction.WEST) {
-      if (isForTop) {
-        return compareX < 0;
-      } else {
-        return compareX < 0;
-      }
+      return compareX < 0;
     }
 
     return true;
