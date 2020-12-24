@@ -197,6 +197,9 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("plant", modLoc("blocks/crimleaf"));
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);
 
+    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodPlanks);
+    simpleBlock(ModBlocks.CRIMWOOD_WALL_SIGN.get(), crimwoodPlanks);
+
     // mud blocks
     BlockModelBuilder mudBlock = models().cubeAll("mud_block", modLoc("blocks/mud_block"));
     simpleBlock(ModBlocks.MUD_BLOCK.get(), mudBlock);
