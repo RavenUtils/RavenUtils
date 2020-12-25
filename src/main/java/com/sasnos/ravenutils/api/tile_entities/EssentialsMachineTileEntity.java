@@ -31,6 +31,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
   protected int cookingTimeTotal;
   protected int recipeUsed;
   protected boolean isBurning;
+  protected ICommonRecipe recipe;
 
   protected IIntArray teData = new IIntArray() {
     @Override
@@ -205,6 +206,10 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
       ItemStack fuel = itemHandler.getStackInSlot(getFuelSlot());
       if (isBurning() || !fuel.isEmpty()) {
         ICommonRecipe recipe = (ICommonRecipe) getRecipe(itemHandler.getStackInSlot(0));
+        if(this.recipe != recipe){
+          cookingTime = 0;
+          this.recipe = recipe;
+        }
         if (!this.isBurning()) {
           isDirty = handleBurning(fuel);
         }

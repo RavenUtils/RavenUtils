@@ -126,7 +126,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       }
 
       if(((EssentialsRecipe) recipe).hasAdditionalInput()){
-        if(((AlloyRecipe) recipe).getInput().get(1).test(input)){
+        if(((AlloyRecipe) recipe).getInput().get(1).test(additionalInput)){
           additionalInput.shrink(((AlloyRecipe) recipe).getInput().get(1).count);
         }
         else {
