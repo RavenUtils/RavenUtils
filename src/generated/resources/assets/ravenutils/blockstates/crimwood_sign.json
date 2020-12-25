@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "ravenutils:block/crimwood_sign"
+      "model": "ravenutils:block/crimwood_planks"
     }
   }
 }

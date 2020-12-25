@@ -16,6 +16,7 @@ import com.sasnos.ravenutils.init.ModLootTables;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.init.UtilInit;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
@@ -33,12 +34,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.Hand;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -75,6 +73,7 @@ public class RavenUtils {
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+    UtilInit.BLOCKSTATEPROVIDER.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     new EssentialsTags().init();
 
@@ -174,12 +173,6 @@ public class RavenUtils {
     });
   }
 
-  @SubscribeEvent
-  public static void rightClickEvent(PlayerInteractEvent.RightClickBlock event) {
-    if (event.getHand() == Hand.MAIN_HAND) {
-      event.getPos();
-    }
-  }
 
   public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override
