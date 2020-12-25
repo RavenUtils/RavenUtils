@@ -48,8 +48,9 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   @SuppressWarnings("deprecation")
   @Override
   public @NotNull ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-
     if (!worldIn.isRemote) {
+      if(hit.getFace() != Direction.UP) return ActionResultType.CONSUME;
+
       TileEntity tile = worldIn.getTileEntity(pos);
 
       if (!(tile instanceof DryingRackTileEntity)) return ActionResultType.FAIL;
@@ -105,7 +106,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     } else if (facing == Direction.EAST) {
         return compareX >= 0;
     } else if (facing == Direction.SOUTH) {
-        return (compareX >= 0 && compareZ >= 1) || (compareX < 0 && compareZ >= 0);
+        return (compareX >= 0 && compareZ < 1) || (compareX < 0 && compareZ < 0);
     } else if (facing == Direction.WEST) {
         return compareX < 0;
     }
@@ -122,8 +123,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     } else if (facing == Direction.EAST) {
       return (compareX < 0  && compareZ >= 1) || (compareX < 0 && compareZ < 0);
     } else if (facing == Direction.SOUTH) {
-      return (compareX >= 0 && compareZ >= 0) || (compareX < 0 && compareZ >= 0);
-
+      return (compareX >= 0 && compareZ < 0) || (compareX > 0 && compareZ > 0);
     } else if (facing == Direction.WEST) {
       return compareX < 0;
     }
