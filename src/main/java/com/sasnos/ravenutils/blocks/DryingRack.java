@@ -29,8 +29,6 @@ import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.math.BigDecimal;
-
 public class DryingRack extends EssentialsCommonMachineBlock {
 
   public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -64,10 +62,11 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       @SuppressWarnings("OptionalGetWithoutIsPresent")
       IItemHandler handler = cap.resolve().get();
 
-      double x = Math.abs(hit.getHitVec().x);
-      double z = Math.abs(hit.getHitVec().z);
-      BigDecimal bigx = new BigDecimal(x % 1);
-      BigDecimal bigz = new BigDecimal(z % 1);
+      double x = Math.floor(hit.getHitVec().x);
+      double z = Math.floor(hit.getHitVec().z);
+
+      double bigx = hit.getHitVec().x - x;
+      double bigz = hit.getHitVec().z - z;
       Direction facing = state.get(FACING);
 
       boolean top = isTop(bigx, bigz, facing);
@@ -98,34 +97,29 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     return ActionResultType.SUCCESS;
   }
 
-  private boolean isTop(BigDecimal x, BigDecimal z, Direction facing) {
-    int compareX = x.compareTo(new BigDecimal("0.5"));
-    int compareZ = z.compareTo(new BigDecimal("0.5"));
+  private boolean isTop(double x, double z, Direction facing) {
     if (facing == Direction.NORTH) {
-        return (compareZ >= 0 && compareX < 0) || (compareX >= 0 && compareZ > 0);
+      return z > 0.5 && x > 0.5 || z > 0.5 && x <= 0.5;
     } else if (facing == Direction.EAST) {
-        return compareX >= 0;
+      return z > 0.5 && x <= 0.5 || z <= 0.5 && x <= 0.5;
     } else if (facing == Direction.SOUTH) {
-        return (compareX >= 0 && compareZ < 1) || (compareX < 0 && compareZ < 0);
+      return z < 0.5;
     } else if (facing == Direction.WEST) {
-        return compareX < 0;
+      return z < 0.5 && x >= 0.5 || z >= 0.5 && x >= 0.5;
     }
 
     return true;
   }
 
-  public boolean isLeft(BigDecimal z, BigDecimal x, Direction facing){
-    int compareX = x.compareTo(new BigDecimal("0.5"));
-    int compareZ = z.compareTo(new BigDecimal("0.5"));
+  public boolean isLeft(double z, double x, Direction facing){
     if (facing == Direction.NORTH) {
-      return (compareX >= 0 && compareZ < 0) || (compareX <= 0 && compareZ <= 0);
-
+      return z > 0.5 && x > 0.5 || z <= 0.5 && x > 0.5;
     } else if (facing == Direction.EAST) {
-      return (compareX < 0  && compareZ >= 1) || (compareX < 0 && compareZ < 0);
+      return z > 0.5 && x <= 0.5 || z > 0.5 && x > 0.5;
     } else if (facing == Direction.SOUTH) {
-      return (compareX >= 0 && compareZ < 0) || (compareX > 0 && compareZ > 0);
+      return x < 0.5 && z < 0.5 || x < 0.5 && z >= 0;
     } else if (facing == Direction.WEST) {
-      return compareX < 0;
+      return z < 0.5 && x >= 0.5 || z < 0.5 && x < 0.5 ;
     }
 
     return true;
