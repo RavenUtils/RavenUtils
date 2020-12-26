@@ -13,8 +13,10 @@ import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -26,11 +28,23 @@ public class ModClientEvents {
         BlockState state = event.getTargetBlock();
         if (state.isIn(EssentialsTags.Blocks.requireTool)){
             PlayerEntity player = event.getPlayer();
-            int itemSlot = player.inventory.currentItem;
-            ItemStack stack = player.inventory.getStackInSlot(itemSlot);
-            if(stack == ItemStack.EMPTY || !stack.getItem().canHarvestBlock(state)){
+            ItemStack stack = player.getHeldItemMainhand();
+            ToolType tool = state.getHarvestTool();
+            if (stack.isEmpty() || tool == null)
                 event.setCanHarvest(false);
-            }
+
+            int toolLevel = stack.getHarvestLevel(tool, player, state);
+            if (toolLevel < 0)
+                event.setCanHarvest(false);
+            event.setCanHarvest(toolLevel >= state.getHarvestLevel());
+        }
+    }
+
+    @SubscribeEvent
+    public static void stopDestroy(BlockEvent.BreakEvent event){
+        BlockState state = event.getState();
+        if(state.isIn(EssentialsTags.Blocks.requireTool)){
+            event.setCanceled(!state.canHarvestBlock(event.getWorld(), event.getPos(), event.getPlayer()));
         }
     }
 
