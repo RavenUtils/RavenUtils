@@ -47,7 +47,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   @Override
   public @NotNull ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
     if (!worldIn.isRemote) {
-      if(hit.getFace() != Direction.UP) return ActionResultType.CONSUME;
+      if (hit.getFace() != Direction.UP) return ActionResultType.CONSUME;
 
       TileEntity tile = worldIn.getTileEntity(pos);
 
@@ -58,7 +58,6 @@ public class DryingRack extends EssentialsCommonMachineBlock {
 
       if (!cap.isPresent()) return ActionResultType.FAIL;
 
-      //the isPresent above checks for this already
       @SuppressWarnings("OptionalGetWithoutIsPresent")
       IItemHandler handler = cap.resolve().get();
 
@@ -70,7 +69,6 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       Direction facing = state.get(FACING);
 
       boolean top = isTop(bigx, bigz, facing);
-
       boolean left = isLeft(bigz, bigx, facing);
 
       int slot = getSelectedSlot(top, left);
@@ -111,7 +109,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     return true;
   }
 
-  public boolean isLeft(double z, double x, Direction facing){
+  public boolean isLeft(double z, double x, Direction facing) {
     if (facing == Direction.NORTH) {
       return z > 0.5 && x > 0.5 || z <= 0.5 && x > 0.5;
     } else if (facing == Direction.EAST) {
@@ -119,7 +117,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
     } else if (facing == Direction.SOUTH) {
       return x < 0.5 && z < 0.5 || x < 0.5 && z >= 0;
     } else if (facing == Direction.WEST) {
-      return z < 0.5 && x >= 0.5 || z < 0.5 && x < 0.5 ;
+      return z < 0.5 && x >= 0.5 || z < 0.5 && x < 0.5;
     }
 
     return true;
