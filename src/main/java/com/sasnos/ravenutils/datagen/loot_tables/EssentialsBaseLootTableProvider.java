@@ -184,6 +184,7 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
     localLootTables.put(ModBlocks.CANDLE.get(), createStandardBlockTable("candle", ModBlocks.CANDLE.get()));
 
     localLootTables.put(ModBlocks.CRIMWOOD.get(), createStandardBlockTable("crimwood", ModBlocks.CRIMWOOD.get()));
+    localLootTables.put(ModBlocks.CRIMWOOD_STRIPPED.get(), createStandardBlockTable("crimwood_stripped", ModBlocks.CRIMWOOD_STRIPPED.get()));
     localLootTables.put(ModBlocks.CRIMWOOD_BUTTON.get(), createStandardBlockTable("crimwood_button", ModBlocks.CRIMWOOD_BUTTON.get()));
     localLootTables.put(ModBlocks.CRIMWOOD_DOOR.get(), createStandardBlockTable("crimwood_door", ModBlocks.CRIMWOOD_DOOR.get()));
     localLootTables.put(ModBlocks.CRIMWOOD_FENCE.get(), createStandardBlockTable("crimwood_fence", ModBlocks.CRIMWOOD_FENCE.get()));
