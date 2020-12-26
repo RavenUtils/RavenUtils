@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.blocks;
 
 import com.sasnos.ravenutils.api.blocks.EssentialsCommonMachineBlock;
+import com.sasnos.ravenutils.api.tile_entities.EssentialsCommonTileEntity;
 import com.sasnos.ravenutils.tile_entities.DryingRackTileEntity;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -41,6 +42,21 @@ public class DryingRack extends EssentialsCommonMachineBlock {
         .sound(SoundType.WOOD)
         .notSolid()
     );
+  }
+
+  @SuppressWarnings("deprecation")
+  @Override
+  public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+    if (!state.isIn(newState.getBlock())) {
+      TileEntity te = worldIn.getTileEntity(pos);
+      if (te instanceof EssentialsCommonTileEntity) {
+        LazyOptional<IItemHandler> inventory = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+        if (inventory.isPresent()) {
+          dropInventoryItems(worldIn, pos, inventory.resolve().get());
+        }
+      }
+    }
+    super.onReplaced(state, worldIn, pos, newState, isMoving);
   }
 
   @SuppressWarnings("deprecation")
