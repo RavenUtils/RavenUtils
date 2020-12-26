@@ -1,11 +1,11 @@
 package com.sasnos.ravenutils.datagen.loot_tables;
 
-
 import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModBlocks;
+import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.criterion.EnchantmentPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.advancements.criterion.MinMaxBounds;
@@ -13,26 +13,16 @@ import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
-import net.minecraft.loot.ConstantRange;
-import net.minecraft.loot.DynamicLootEntry;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.RandomValueRange;
+import net.minecraft.loot.*;
 import net.minecraft.loot.conditions.MatchTool;
-import net.minecraft.loot.functions.ApplyBonus;
-import net.minecraft.loot.functions.CopyName;
-import net.minecraft.loot.functions.CopyNbt;
-import net.minecraft.loot.functions.ExplosionDecay;
-import net.minecraft.loot.functions.SetContents;
-import net.minecraft.loot.functions.SetCount;
+import net.minecraft.loot.functions.*;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
-  
+
   private final Map<Block, LootTable.Builder> localLootTables = new HashMap<>();
 
   public EssentialsBaseLootTableProvider(DataGenerator dataGeneratorIn) {
@@ -42,43 +32,156 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
   @Override
   protected void addTables() {
     new OreBlocksLootTable();
-    // localLootTables.put(ModBlocks.CRIMWOOD_LEAVES.get(), createStandardTable("crimwood_leaves", ModBlocks.CRIMWOOD_LEAVES.get())); // add sticks
+
+    LootPool.Builder stick_ground = LootPool.builder()
+        .name("stick_ground")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(Items.STICK)
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 1)))
+        );
+    localLootTables.put(ModBlocks.STICK_GROUND.get(), LootTable.builder().addLootPool(stick_ground));
+
+    LootPool.Builder stone_ground = LootPool.builder()
+        .name("stone_ground")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModItems.SMALL_STONE.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 1)))
+        );
+    localLootTables.put(ModBlocks.STONE_GROUND.get(), LootTable.builder().addLootPool(stone_ground));
+
+    LootPool.Builder crimwood_leaves = LootPool.builder()
+        .name("crimwood_leaves")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMWOOD_LEAVES_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(3)
+        )
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+            .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
+            .acceptFunction(ExplosionDecay.builder())
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(Items.STICK)
+            .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+            .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.CRIMWOOD_LEAVES.get(), LootTable.builder().addLootPool(crimwood_leaves));
 
     localLootTables.put(ModBlocks.RESIN_BLOCK.get(), createStandardBlockTable("resin_block", ModBlocks.RESIN_BLOCK.get()));
-    // localLootTables.put(ModBlocks.SALT_ORE.get(), createStandardTable("salt_ore", ModBlocks.SALT_ORE.get()));
+
+    LootPool.Builder salt_ore = LootPool.builder()
+        .name("salt_ore")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.SALT_ORE_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.COARSE_SALT.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.SALT_ORE.get(), LootTable.builder().addLootPool(salt_ore));
     localLootTables.put(ModBlocks.SALT_BLOCK.get(), createStandardBlockTable("salt_block", ModBlocks.SALT_BLOCK.get()));
 
-    // localLootTables.put(ModBlocks.FOSSIL_ROCK.get(), createStandardTable("fossil_rock", ModBlocks.FOSSIL_ROCK.get()));
+    LootPool.Builder limestone = LootPool.builder()
+        .name("limetone")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.LIMESTONE_BLOCK_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.LIME.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(3, 6)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.LIMESTONE_BLOCK.get(), LootTable.builder().addLootPool(limestone));
 
-    // localLootTables.put(ModBlocks.LIMESTONE.get(), createStandardTable("limestone", ModBlocks.LIMESTONE.get()));
-    // localLootTables.put(ModBlocks.BLACK_COAL_ORE.get(), createStandardTable("black_coal_ore", ModBlocks.BLACK_COAL_ORE.get()));
+    LootPool.Builder black_coal_ore = LootPool.builder()
+        .name("black_coal_ore")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.BLACK_COAL_ORE_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.BLACK_COAL.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.BLACK_COAL_ORE.get(), LootTable.builder().addLootPool(black_coal_ore));
     localLootTables.put(ModBlocks.BLACK_COAL_BLOCK.get(), createStandardBlockTable("black_coal_block", ModBlocks.BLACK_COAL_BLOCK.get()));
-    // localLootTables.put(ModBlocks.SULFUR_ORE.get(), createStandardTable("sulfur_ore", ModBlocks.SULFUR_ORE.get()));
 
-    // localLootTables.put(ModBlocks.RAVEN_EYE_ORE.get(), createStandardTable("raven_eye_ore", ModBlocks.RAVEN_EYE_ORE.get()));
+    LootPool.Builder sulfur_ore = LootPool.builder()
+        .name("sulfur_ore")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.SULFUR_ORE_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.SULFUR.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.SULFUR_ORE.get(), LootTable.builder().addLootPool(sulfur_ore));
+
+    LootPool.Builder raven_eye_ore = LootPool.builder()
+        .name("raven_eye_ore")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.RAVEN_EYE_ORE_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(3)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.RAVEN_EYE_GEM.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 2)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(Items.COBBLESTONE)
+            .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+            .acceptFunction(ExplosionDecay.builder())
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.RAVEN_EYE_ORE.get(), LootTable.builder().addLootPool(raven_eye_ore));
     localLootTables.put(ModBlocks.RAVEN_EYE_BLOCK.get(), createStandardBlockTable("raven_eye_block", ModBlocks.RAVEN_EYE_BLOCK.get()));
 
-//    localLootTables.put(ModBlocks.COPPER_ORE.get(), createStandardBlockTable("copper_ore", ModBlocks.COPPER_ORE.get()));
-//    localLootTables.put(ModBlocks.TIN_ORE.get(), createStandardBlockTable("tin_ore", ModBlocks.TIN_ORE.get()));
-//    localLootTables.put(ModBlocks.ZINC_ORE.get(), createStandardBlockTable("zinc_ore", ModBlocks.ZINC_ORE.get()));
-//    localLootTables.put(ModBlocks.SILVER_ORE.get(), createStandardBlockTable("silver_ore", ModBlocks.SILVER_ORE.get()));
-//    localLootTables.put(ModBlocks.LEAD_ORE.get(), createStandardBlockTable("lead_ore", ModBlocks.LEAD_ORE.get()));
-//    localLootTables.put(ModBlocks.MYTHERINE_ORE.get(), createStandardBlockTable("mytherine_ore", ModBlocks.MYTHERINE_ORE.get()));
-//
-//    localLootTables.put(ModBlocks.COPPER_BLOCK.get(), createStandardBlockTable("copper_block", ModBlocks.COPPER_BLOCK.get()));
-//    localLootTables.put(ModBlocks.TIN_BLOCK.get(), createStandardBlockTable("tin_block", ModBlocks.TIN_BLOCK.get()));
-//    localLootTables.put(ModBlocks.ZINC_BLOCK.get(), createStandardBlockTable("zinc_block", ModBlocks.ZINC_BLOCK.get()));
-//    localLootTables.put(ModBlocks.BRONZE_BLOCK.get(), createStandardBlockTable("bronze_block", ModBlocks.BRONZE_BLOCK.get()));
-//    localLootTables.put(ModBlocks.BRASS_BLOCK.get(), createStandardBlockTable("brass_block", ModBlocks.BRASS_BLOCK.get()));
-//    localLootTables.put(ModBlocks.SILVER_BLOCK.get(), createStandardBlockTable("silver_block", ModBlocks.SILVER_BLOCK.get()));
-//    localLootTables.put(ModBlocks.LEAD_BLOCK.get(), createStandardBlockTable("lead_block", ModBlocks.LEAD_BLOCK.get()));
-//    localLootTables.put(ModBlocks.STEEL_BLOCK.get(), createStandardBlockTable("steel_block", ModBlocks.STEEL_BLOCK.get()));
-//    localLootTables.put(ModBlocks.MYTHERINE_BLOCK.get(), createStandardBlockTable("mytherine_block", ModBlocks.MYTHERINE_BLOCK.get()));
-
     localLootTables.put(ModBlocks.CRIMLEAF.get(), createStandardBlockTable("crimleaf", ModBlocks.CRIMLEAF.get()));
-    // localLootTables.put(ModBlocks.POTTED_CRIMLEAF.get(), createStandardTable("potted_crimleaf", ModBlocks.POTTED_CRIMLEAF.get()));
+    LootPool.Builder potted_crimleaf_plant = LootPool.builder()
+        .name("potted_crimleaf_plant")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMLEAF_ITEM.get()));
+    LootPool.Builder potted_crimleaf_pot = LootPool.builder()
+        .name("potted_crimleaf_pot")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(Items.FLOWER_POT));
+    localLootTables.put(ModBlocks.POTTED_CRIMLEAF.get(), LootTable.builder()
+        .addLootPool(potted_crimleaf_plant)
+        .addLootPool(potted_crimleaf_pot));
+
     localLootTables.put(ModBlocks.CRIMWOOD_SAPLING.get(), createStandardBlockTable("crimwood_sapling", ModBlocks.CRIMWOOD_SAPLING.get()));
-    // localLootTables.put(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), createStandardTable("potted_crimwood_sapling", ModBlocks.POTTED_CRIMWOOD_SAPLING.get()));
+    LootPool.Builder potted_crimwood_sapling_plant = LootPool.builder()
+        .name("potted_crimwood_sapling_plant")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.CRIMWOOD_SAPLING_ITEM.get()));
+    LootPool.Builder potted_crimwood_sapling_pot = LootPool.builder()
+        .name("potted_crimwood_sapling_pot")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(Items.FLOWER_POT));
+    localLootTables.put(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), LootTable.builder()
+        .addLootPool(potted_crimwood_sapling_plant)
+        .addLootPool(potted_crimwood_sapling_pot));
+
+    localLootTables.put(ModBlocks.CANDLE.get(), createStandardBlockTable("candle", ModBlocks.CANDLE.get()));
 
     localLootTables.put(ModBlocks.CRIMWOOD.get(), createStandardBlockTable("crimwood", ModBlocks.CRIMWOOD.get()));
     localLootTables.put(ModBlocks.CRIMWOOD_STRIPPED.get(), createStandardBlockTable("crimwood_stripped", ModBlocks.CRIMWOOD_STRIPPED.get()));
@@ -96,22 +199,45 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
     localLootTables.put(ModBlocks.CRIMWOOD_STAIRS.get(), createStandardBlockTable("crimwood_stairs", ModBlocks.CRIMWOOD_STAIRS.get()));
     localLootTables.put(ModBlocks.CRIMWOOD_TRAPDOOR.get(), createStandardBlockTable("crimwood_trapdoor", ModBlocks.CRIMWOOD_TRAPDOOR.get()));
 
-    // localLootTables.put(ModBlocks.MUD_BLOCK.get(), createStandardTable("mud_block", ModBlocks.MUD_BLOCK.get()));
+    LootPool.Builder mud_block = LootPool.builder()
+        .name("mud_block")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.MUD_BLOCK_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.MUD_LUMP.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.MUD_BLOCK.get(), LootTable.builder().addLootPool(mud_block));
     localLootTables.put(ModBlocks.MUD_BRICK_SLAB.get(), createStandardBlockTable("mud_brick_slab", ModBlocks.MUD_BRICK_SLAB.get()));
     localLootTables.put(ModBlocks.MUD_BRICK_STAIRS.get(), createStandardBlockTable("mud_brick_stairs", ModBlocks.MUD_BRICK_STAIRS.get()));
     localLootTables.put(ModBlocks.MUD_BRICK_WALL.get(), createStandardBlockTable("mud_brick_wall", ModBlocks.MUD_BRICK_WALL.get()));
     localLootTables.put(ModBlocks.MUD_BRICKS.get(), createStandardBlockTable("mud_bricks", ModBlocks.MUD_BRICKS.get()));
 
-    // localLootTables.put(ModBlocks.PEAT_BLOCK.get(), createStandardTable("peat_block", ModBlocks.PEAT_BLOCK.get()));
+    LootPool.Builder peat_block = LootPool.builder()
+        .name("peat_block")
+        .rolls(ConstantRange.of(1))
+        .addEntry(ItemLootEntry.builder(ModBlockItems.PEAT_BLOCK_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(ModItems.PEAT.get())
+            .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(1)
+        );
+    localLootTables.put(ModBlocks.PEAT_BLOCK.get(), LootTable.builder().addLootPool(peat_block));
 
     localLootTables.put(ModBlocks.BLUEBERRY_BUSH.get(), createStandardBlockTable("blueberry_bush", ModBlocks.BLUEBERRY_BUSH.get()));
     localLootTables.put(ModBlocks.ELDERBERRY_BUSH.get(), createStandardBlockTable("elderberry_bush", ModBlocks.ELDERBERRY_BUSH.get()));
     localLootTables.put(ModBlocks.RASPBERRY_BUSH.get(), createStandardBlockTable("raspberry_bush", ModBlocks.RASPBERRY_BUSH.get()));
     localLootTables.put(ModBlocks.BLACKBERRY_BUSH.get(), createStandardBlockTable("blackberry_bush", ModBlocks.BLACKBERRY_BUSH.get()));
     localLootTables.put(ModBlocks.GOOSEBERRY_BUSH.get(), createStandardBlockTable("gooseberry_bush", ModBlocks.GOOSEBERRY_BUSH.get()));
-
-    // localLootTables.put(ModBlocks.STONE_GROUND.get(), createStandardTable("stone_ground", ModItems.SMALL_STONE.get()));
-    // localLootTables.put(ModBlocks.STICK_GROUND.get(), createStandardTable("stick_ground", Items.STICK));
 
     localLootTables.put(AlloyFurnaceInit.ALLOY_FURNACE.get(), createStandardBlockTable("alloy_furnace", AlloyFurnaceInit.ALLOY_FURNACE.get()));
     localLootTables.put(ModBlocks.STONE_ANVIL_ANDESITE.get(), createStandardBlockTable("stone_anvil_andesite", ModBlocks.STONE_ANVIL_ANDESITE.get()));
@@ -120,7 +246,7 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
     localLootTables.put(ModBlocks.STONE_ANVIL_STONE.get(), createStandardBlockTable("stone_anvil_stone", ModBlocks.STONE_ANVIL_STONE.get()));
     localLootTables.put(ModBlocks.STONE_CRAFTING_TABLE.get(), createStandardBlockTable("stone_crafting_table", ModBlocks.STONE_CRAFTING_TABLE.get()));
     localLootTables.put(ModBlocks.DRYING_RACK.get(), createStandardBlockTable("drying_rack", ModBlocks.DRYING_RACK.get()));
-    // localLootTables.put(ModBlocks.BARREL.get(), createStandardTable("barrel", ModBlocks.BARREL.get()));
+    // localLootTables.put(ModBlocks.BARREL.get(), createStandardBlockTable("barrel", ModBlocks.BARREL.get()));
 
     localLootTables.put(HandMillInit.HAND_MILL.get(), createStandardBlockTable("hand_mill", HandMillInit.HAND_MILL.get()));
     LootPool.Builder millstone = LootPool.builder()
@@ -139,32 +265,22 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
     LootPool.Builder fossil_dirt = LootPool.builder()
         .name("fossil_dirt")
         .rolls(ConstantRange.of(1))
-        .addEntry(
-            ItemLootEntry.builder(ModBlockItems.FOSSIL_DIRT_ITEM.get())
-                .acceptCondition(MatchTool
-                    .builder(
-                        ItemPredicate.Builder.create()
-                            .enchantment(
-                                new EnchantmentPredicate(
-                                    Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)
-                                )
-                            )
-                    )
-                ).weight(4))
-        .addEntry(
-            ItemLootEntry.builder(Items.BONE)
-                .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
-                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                .acceptFunction(ExplosionDecay.builder()).weight(3))
-
-        .addEntry(
-            ItemLootEntry.builder(Items.BONE_MEAL)
-                .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
-                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                .acceptFunction(ExplosionDecay.builder()).weight(2))
-
-        .addEntry(
-            ItemLootEntry.builder(Items.SKELETON_SKULL)
+        .addEntry(ItemLootEntry.builder(ModBlockItems.FOSSIL_DIRT_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(4)
+        )
+        .addEntry(ItemLootEntry.builder(Items.BONE)
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(3)
+        )
+        .addEntry(ItemLootEntry.builder(Items.BONE_MEAL)
+            .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(Items.SKELETON_SKULL)
                 .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
                 .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
                 .weight(1)
@@ -175,38 +291,26 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
     LootPool.Builder fossil_rock = LootPool.builder()
         .name("fossil_rock")
         .rolls(ConstantRange.of(1))
-        .addEntry(
-            ItemLootEntry.builder(ModBlockItems.FOSSIL_ROCK_ITEM.get())
-                .acceptCondition(MatchTool
-                    .builder(
-                        ItemPredicate.Builder.create()
-                            .enchantment(
-                                new EnchantmentPredicate(
-                                    Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)
-                                )
-                            )
-                    )
-                ).weight(4))
-        .addEntry(
-            ItemLootEntry.builder(Items.BONE)
-                .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
-                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                .acceptFunction(ExplosionDecay.builder()).weight(3))
-
-        .addEntry(
-            ItemLootEntry.builder(Items.BONE_MEAL)
-                .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
-                .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
-                .acceptFunction(ExplosionDecay.builder()).weight(2))
-
-        .addEntry(
-            ItemLootEntry.builder(Items.SKELETON_SKULL)
-                .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
-                .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
-                .weight(1)
+        .addEntry(ItemLootEntry.builder(ModBlockItems.FOSSIL_ROCK_ITEM.get())
+            .acceptCondition(MatchTool.builder(ItemPredicate.Builder.create()
+                .enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, MinMaxBounds.IntBound.atLeast(1)))))
+            .weight(4)
+        )
+        .addEntry(ItemLootEntry.builder(Items.BONE)
+            .acceptFunction(SetCount.builder(new RandomValueRange(1, 3)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(3)
+        )
+        .addEntry(ItemLootEntry.builder(Items.BONE_MEAL)
+            .acceptFunction(SetCount.builder(new RandomValueRange(2, 4)))
+            .acceptFunction(ApplyBonus.uniformBonusCount(Enchantments.FORTUNE))
+            .weight(2)
+        )
+        .addEntry(ItemLootEntry.builder(Items.SKELETON_SKULL)
+            .acceptFunction(SetCount.builder(new RandomValueRange(0, 1)))
+            .acceptFunction(ApplyBonus.binomialWithBonusCount(Enchantments.FORTUNE, 0.25f, 1))
+            .weight(1)
         );
     localLootTables.put(ModBlocks.FOSSIL_ROCK.get(), LootTable.builder().addLootPool(fossil_rock));
-
-    lootTables.add(localLootTables);
   }
 }
