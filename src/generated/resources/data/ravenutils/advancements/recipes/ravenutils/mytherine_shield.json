@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_mytherine_ingot": {
+    "has_shield": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:mytherine_ingot"
+            "item": "minecraft:shield"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_mytherine_ingot",
+      "has_shield",
       "has_the_recipe"
     ]
   ]
