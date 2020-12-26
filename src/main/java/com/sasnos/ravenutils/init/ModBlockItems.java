@@ -84,8 +84,6 @@ public class ModBlockItems {
   // crimwood
   public static final RegistryObject<Item> CRIMWOOD_ITEM = ITEMS.register("crimwood",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD.get()));
-  public static final RegistryObject<Item> CRIMWOOD_STRIPPED_ITEM = ITEMS.register("crimwood_stripped",
-      () -> new BlockItemBase(ModBlocks.CRIMWOOD_STRIPPED.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_ITEM = ITEMS.register("crimwood_log",
       () -> new BlockItemBase(ModBlocks.CRIMWOOD_LOG.get()));
   public static final RegistryObject<Item> CRIMWOOD_LOG_STRIPPED_ITEM = ITEMS.register("crimwood_log_stripped",

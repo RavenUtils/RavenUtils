@@ -50,7 +50,6 @@ import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignStanding;
 import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSignWall;
 import com.sasnos.ravenutils.blocks.crimwood.CrimwoodSlab;
 import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStairs;
-import com.sasnos.ravenutils.blocks.crimwood.CrimwoodStripped;
 import com.sasnos.ravenutils.blocks.crimwood.CrimwoodTrapdoor;
 import com.sasnos.ravenutils.blocks.mud.MudBlock;
 import com.sasnos.ravenutils.blocks.mud.MudBrickSlab;
@@ -165,7 +164,6 @@ public class ModBlocks {
       )
   );
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);
-  public static final RegistryObject<Block> CRIMWOOD_STRIPPED = BLOCKS.register("crimwood_stripped", CrimwoodStripped::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG = BLOCKS.register("crimwood_log", CrimwoodLog::new);
   public static final RegistryObject<RotatedPillarBlock> CRIMWOOD_LOG_STRIPPED = BLOCKS.register("crimwood_log_stripped", CrimwoodLogStripped::new);
   public static final RegistryObject<Block> CRIMWOOD_LEAVES = BLOCKS.register("crimwood_leaves", CrimwoodLeaves::new);
