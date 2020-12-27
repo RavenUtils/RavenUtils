@@ -1,0 +1,27 @@
+{
+  "type": "ravenutils:alloy_recipe",
+  "materials": [
+    {
+      "ingredient": {
+        "item": "ravenutils:copper_ore"
+      },
+      "count": 3
+    },
+    {
+      "ingredient": {
+        "item": "ravenutils:zinc_ore"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "ravenutils:brass_ingot",
+    "count": 3
+  },
+  "additional": {
+    "item": "ravenutils:slag",
+    "count": 2,
+    "change": 0.75
+  },
+  "cookingtime": 300
+}

@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#s#",
+    "# #",
     "# #",
     "#s#"
   ],
   "key": {
     "#": {
-      "tag": "minecraft:planks"
+      "tag": "forge:planks"
     },
     "s": {
-      "tag": "minecraft:wooden_slabs"
+      "tag": "forge:wooden_slabs"
     }
   },
   "result": {

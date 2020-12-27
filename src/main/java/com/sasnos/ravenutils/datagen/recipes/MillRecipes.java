@@ -5,16 +5,12 @@ import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvide
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
-
-import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.mortars;
 
 public class MillRecipes extends EssentialsRecipeProvider {
 

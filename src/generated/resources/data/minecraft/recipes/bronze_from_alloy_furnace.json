@@ -16,11 +16,7 @@
   ],
   "result": {
     "item": "ravenutils:bronze_ingot",
-    "count": 3
-  },
-  "additional": {
-    "item": "ravenutils:slag",
-    "change": 0.5
+    "count": 4
   },
   "cookingtime": 200
 }

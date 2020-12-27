@@ -26,8 +26,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3", modLoc("blocks/bush_blueberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return blueberryBush0;
         case 1:
           return blueberryBush1;
         case 2:
@@ -45,8 +43,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3", modLoc("blocks/bush_elderberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return elderberryBush0;
         case 1:
           return elderberryBush1;
         case 2:
@@ -64,8 +60,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder raspberryBush3 = models().cross("raspberry_bush3", modLoc("blocks/bush_raspberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.RASPBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return raspberryBush0;
         case 1:
           return raspberryBush1;
         case 2:
@@ -83,8 +77,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blackberryBush3 = models().cross("blackberry_bush3", modLoc("blocks/bush_blackberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLACKBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return blackberryBush0;
         case 1:
           return blackberryBush1;
         case 2:
@@ -102,8 +94,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder gooseberryBush3 = models().cross("gooseberry_bush3", modLoc("blocks/bush_gooseberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.GOOSEBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return gooseberryBush0;
         case 1:
           return gooseberryBush1;
         case 2:
@@ -190,14 +180,15 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder crimwoodPottedSapling = models()
         .withExistingParent("potted_crimwood_sapling", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimwood_sapling"));
-
     simpleBlock(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), crimwoodPottedSapling);
 
     BlockModelBuilder crimwoodPottedLeaf = models()
         .withExistingParent("potted_crimleaf", mcLoc("block/flower_pot_cross"))
         .texture("plant", modLoc("blocks/crimleaf"));
-
     simpleBlock(ModBlocks.POTTED_CRIMLEAF.get(), crimwoodPottedLeaf);
+
+    simpleBlock(ModBlocks.CRIMWOOD_SIGN.get(), crimwoodPlanks);
+    simpleBlock(ModBlocks.CRIMWOOD_WALL_SIGN.get(), crimwoodPlanks);
 
     // mud blocks
     BlockModelBuilder mudBlock = models().cubeAll("mud_block", modLoc("blocks/mud_block"));
@@ -320,23 +311,32 @@ public class BlockStates extends EssentialsBlockStates {
 
     // todo adjust!
     /*
-    // barrel
+    // barrel open
     BlockModelBuilder barrelOpen = models().withExistingParent("barrel_open", EssentialsUtils.resourceLocation("block/barrel"))
         .texture("3", "blocks/barrel_open");
-
-    BlockModelBuilder barrelLid = models().withExistingParent("barrel_lid", EssentialsUtils.resourceLocation("block/barrel"))
-        .texture("3", "blocks/barrel_lid");
     orientedBlock(ModBlocks.BARREL.get(), blockState -> barrelOpen);
+
+    // barrel closed
+    ...
 
     // drying rack
     BlockModelBuilder dryingRack = models().withExistingParent("drying_rack", EssentialsUtils.resourceLocation("block/drying_rack"))
         .texture("1", "blocks/drying_rack");
     orientedBlock(ModBlocks.DRYING_RACK.get(), blockState -> dryingRack);
 
+    // fish trap
+    ...
+
     // hand mill
     BlockModelBuilder handMill = models().withExistingParent("hand_mill", EssentialsUtils.resourceLocation("block/hand_mill"))
         .texture("4", "blocks/hand_mill");
     orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
+
+    // millstone
+    BlockModelBuilder millstone = models().withExistingParent("millstone", EssentialsUtils.resourceLocation("block/millstone"))
+        .texture("2", "blocks/millstone");
+    axisBlock(HandMillInit.HAND_MILL.get(), blockState -> millstone);
+
     */
 
     // stone anvils

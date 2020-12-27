@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ravenutils:barrel_lid"
+    ]
+  },
+  "criteria": {
+    "has_wooden_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:wooden_slabs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ravenutils:barrel_lid"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

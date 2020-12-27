@@ -13,7 +13,6 @@ import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.tags.ItemTags;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -52,17 +51,15 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.PEAT_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
+        .patternLine("xx")
+        .patternLine("xx")
         .key('x', ModItems.PEAT.get())
         .addCriterion("has_peat", hasItem(ModItems.PEAT.get()))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
+        .patternLine("xx")
+        .patternLine("xx")
         .key('x', ModItems.MUD_LUMP.get())
         .addCriterion("has_mud", hasItem(ModItems.MUD_LUMP.get()))
         .build(consumer);
@@ -215,34 +212,41 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     // tools
+    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.FIRESTARTER.get())
+        .addIngredient(ModItems.DRIED_PLANT_FIBRE.get())
+        .addIngredient(rods_wood)
+        .addIngredient(barks)
+        .addCriterion("has_bark", hasItemTag(barks))
+        .build(consumer);
+
     ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_SWORD)
         .patternLine(" p ")
         .patternLine(" ps")
         .patternLine(" # ")
-        .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
-        .key('#', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .key('p', planks)
+        .key('s', strings)
+        .key('#', rods_wood)
+        .addCriterion("has_planks", hasItemTag(planks))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_SHOVEL)
         .patternLine(" ps")
         .patternLine(" # ")
         .patternLine(" # ")
-        .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
-        .key('#', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .key('p', planks)
+        .key('s', strings)
+        .key('#', rods_wood)
+        .addCriterion("has_planks", hasItemTag(planks))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.WOODEN_HOE)
         .patternLine("pps")
         .patternLine(" # ")
         .patternLine(" # ")
-        .key('p', ItemTags.PLANKS)
-        .key('s', Tags.Items.STRING)
-        .key('#', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .key('p', planks)
+        .key('s', strings)
+        .key('#', rods_wood)
+        .addCriterion("has_planks", hasItemTag(planks))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.FLINT_AXE.get())
@@ -250,28 +254,28 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("f# ")
         .patternLine(" # ")
         .key('f', ModItems.FLINT_SHARD.get())
-        .key('s', Tags.Items.STRING)
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('s', strings)
+        .key('#', rods_wood)
         .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.STONE_AXE)
-        .patternLine("ccl")
+        .patternLine("ccs")
         .patternLine("c# ")
         .patternLine(" # ")
         .key('c', Items.COBBLESTONE)
-        .key('l', ModItems.LEATHER_STRIP.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('s', strings)
+        .key('#', rods_wood)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.STONE_HOE)
-        .patternLine("ccl")
+        .patternLine("ccs")
         .patternLine(" # ")
         .patternLine(" # ")
         .key('c', Items.COBBLESTONE)
-        .key('l', ModItems.LEATHER_STRIP.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('s', strings)
+        .key('#', rods_wood)
         .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
         .build(consumer);
 
@@ -279,8 +283,8 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" s")
         .patternLine("b ")
         .key('b', Items.BOWL)
-        .key('s', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
+        .key('s', rods_wood)
+        .addCriterion("has_stick", hasItemTag(rods_wood))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.MORTAR_STONE.get())
@@ -297,7 +301,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i  ")
         .key('o', Items.STONE)
         .key('x', strings)
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_stone", hasItem(Items.STONE))
         .setGroup("hammers")
             .addEnactment(Enchantments.KNOCKBACK, 1)
@@ -329,11 +333,11 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_WOOD.get())
-        .patternLine("ix")
+        .patternLine("is")
         .patternLine(" i")
-        .key('x', ModItems.LEATHER_STRIP.get())
-        .key('i', Tags.Items.RODS_WOODEN)
-        .addCriterion("has_leather_strip",hasItem(ModItems.LEATHER_STRIP.get()))
+        .key('s', strings)
+        .key('i', rods_wood)
+        .addCriterion("has_leather_strip", hasItemTag(rods_wood))
         .setGroup("tongs")
         .build(consumer);
 
@@ -345,7 +349,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('h', hammers)
         .key('x', Items.IRON_NUGGET)
         .key('i', ModItems.METAL_ROD_IRON.get())
-        .addCriterion("has_iron_rod",hasItem(ModItems.METAL_ROD_IRON.get()))
+        .addCriterion("has_iron_rod", hasItem(ModItems.METAL_ROD_IRON.get()))
         .setGroup("tongs")
         .build(consumer);
 
@@ -357,7 +361,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('h', hammers)
         .key('x', ModItems.STEEL_NUGGET.get())
         .key('i', ModItems.METAL_ROD_STEEL.get())
-        .addCriterion("has_steel_rod",hasItem(ModItems.METAL_ROD_STEEL.get()))
+        .addCriterion("has_steel_rod", hasItem(ModItems.METAL_ROD_STEEL.get()))
         .setGroup("tongs")
         .build(consumer);
 
@@ -370,7 +374,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('n', Items.IRON_NUGGET)
         .key('i', Items.IRON_INGOT)
         .key('r', ModItems.METAL_ROD_IRON.get())
-        .addCriterion("has_iron_rod",hasItem(ModItems.METAL_ROD_IRON.get()))
+        .addCriterion("has_iron_rod", hasItem(ModItems.METAL_ROD_IRON.get()))
         .setGroup("handsaws")
         .build(consumer);
 
@@ -383,7 +387,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('n', ModItems.STEEL_NUGGET.get())
         .key('i', ModItems.STEEL_INGOT.get())
         .key('r', ModItems.METAL_ROD_STEEL.get())
-        .addCriterion("has_steel_rod",hasItem(ModItems.METAL_ROD_STEEL.get()))
+        .addCriterion("has_steel_rod", hasItem(ModItems.METAL_ROD_STEEL.get()))
         .setGroup("handsaws")
         .build(consumer);
 
@@ -391,7 +395,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" x")
         .patternLine("i ")
         .key('x', ModItems.FLINT_SHARD.get())
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_flint_shard", hasItem(ModItems.FLINT_SHARD.get()))
         .setGroup("knives")
         .build(consumer);
@@ -402,7 +406,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i  ")
         .key('h', hammers)
         .key('x', Items.IRON_INGOT)
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_hammer", hasItemTag(hammers))
         .setGroup("knives")
         .build(consumer);
@@ -413,7 +417,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i  ")
         .key('h', hammers)
         .key('x', ModItems.STEEL_INGOT.get())
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .setGroup("knives")
         .build(consumer);
@@ -424,7 +428,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i")
         .key('h', hammers)
         .key('x', Items.IRON_INGOT)
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
         .setGroup("chisels")
         .build(consumer);
@@ -435,7 +439,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i")
         .key('h', hammers)
         .key('x', ModItems.STEEL_INGOT.get())
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .setGroup("chisels")
         .build(consumer);
@@ -446,7 +450,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i")
         .key('h', hammers)
         .key('x', Items.DIAMOND)
-        .key('i', Tags.Items.RODS_WOODEN)
+        .key('i', rods_wood)
         .addCriterion("has_diamond", hasItem(Items.DIAMOND))
         .setGroup("chisels")
         .build(consumer);
@@ -535,6 +539,27 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("bags")
         .build(consumer);
 
+    // todo move to Smithing Recipes
+    /* EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_AXE.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .addCriterion("has_netherite_axe", hasItem(Items.NETHERITE_AXE))
+        .addEnchantment(Enchantments.EFFICIENCY, 5)
+
+    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_SHOVEL.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .addCriterion("has_netherite_shovel", hasItem(Items.NETHERITE_SHOVEL))
+        .addEnchantment(Enchantments.EFFICIENCY, 5)
+
+    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_PICKAXE.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .addCriterion("has_netherite_pickaxe", hasItem(Items.NETHERITE_PICKAXE))
+        .addEnchantment(Enchantments.EFFICIENCY, 5)
+
+    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_HOE.get())
+        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .addCriterion("has_netherite_hoe", hasItem(Items.NETHERITE_HOE))
+        .addEnchantment(Enchantments.EFFICIENCY, 5) */
+
     // miscellaneous
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CANDLE_ITEM.get())
         .patternLine("s")
@@ -548,27 +573,27 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 3)
         .addIngredient(ItemTags.WOOL)
-        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(rods_wood)
         .addCriterion("has_wool", hasItemTag(ItemTags.WOOL))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 6)
         .addIngredient(ItemTags.WOOL)
         .addIngredient(ModItems.TALLOW.get())
-        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(rods_wood)
         .addCriterion("has_wool", hasItemTag(ItemTags.WOOL))
         .build(consumer, "torch_from_wool_with_tallow");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 6)
         .addIngredient(ModItems.CLOTH.get())
-        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(rods_wood)
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer, "torch_from_cloth");
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.TORCH, 12)
         .addIngredient(ModItems.CLOTH.get())
         .addIngredient(ModItems.TALLOW.get())
-        .addIngredient(Tags.Items.RODS_WOODEN)
+        .addIngredient(rods_wood)
         .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
         .build(consumer, "torch_from_cloth_with_tallow");
 
@@ -594,7 +619,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("WWW")
         .patternLine("WWW")
         .patternLine(" # ")
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
         .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
         .build(consumer);
@@ -603,9 +628,9 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("rsr")
         .patternLine("rrr")
         .patternLine("rsr")
-        .key('r', Tags.Items.RODS_WOODEN)
-        .key('s', Tags.Items.STRING)
-        .addCriterion("has_stick", hasItemTag(Tags.Items.RODS_WOODEN))
+        .key('r', rods_wood)
+        .key('s', strings)
+        .addCriterion("has_stick", hasItemTag(rods_wood))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(Items.IRON_BARS, 2)
@@ -673,28 +698,35 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.BARREL_ITEM.get())
-        .patternLine("#s#")
+        .patternLine("# #")
         .patternLine("# #")
         .patternLine("#s#")
-        .key('#', ItemTags.PLANKS)
-        .key('s', ItemTags.WOODEN_SLABS)
-        .addCriterion("has_wooden_slab", hasItemTag(ItemTags.WOODEN_SLABS))
+        .key('#', planks)
+        .key('s', wooden_slabs)
+        .addCriterion("has_wooden_slab", hasItemTag(wooden_slabs))
+        .build(consumer);
+
+    ShapedRecipeBuilder.shapedRecipe(ModItems.BARREL_LID.get())
+        .patternLine("ss")
+        .patternLine("ss")
+        .key('s', wooden_slabs)
+        .addCriterion("has_wooden_slab", hasItemTag(wooden_slabs))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.DRYING_RACK_ITEM.get())
         .patternLine("###")
         .patternLine("#s#")
         .patternLine("# #")
-        .key('#', Tags.Items.RODS_WOODEN)
-        .key('s', Tags.Items.STRING)
-        .addCriterion("has_string", hasItemTag(Tags.Items.STRING))
+        .key('#', rods_wood)
+        .key('s', strings)
+        .addCriterion("has_string", hasItemTag(strings))
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.FISH_TRAP_ITEM.get())
         .patternLine("###")
         .patternLine("#r#")
         .patternLine("###")
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .key('r', fishing_rods)
         .addCriterion("has_fishing_rod", hasItemTag(fishing_rods))
         .build(consumer);
@@ -704,7 +736,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("###")
         .patternLine("#c#")
         .patternLine("###")
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .key('c', Items.CARROT_ON_A_STICK)
         .addCriterion("has_carrot_on_a_stick", hasItem(Items.CARROT_ON_A_STICK))
         .build(consumer);

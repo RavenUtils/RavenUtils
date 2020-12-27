@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_planks": {
+    "has_slab": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:planks"
+            "tag": "minecraft:wooden_slabs"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_planks",
+      "has_slab",
       "has_the_recipe"
     ]
   ]

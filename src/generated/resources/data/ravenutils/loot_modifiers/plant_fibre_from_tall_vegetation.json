@@ -1,0 +1,29 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:alternative",
+      "terms": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:tall_grass"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:large_fern"
+        }
+      ]
+    },
+    {
+      "condition": "minecraft:random_chance_with_looting",
+      "chance": 0.35,
+      "looting_multiplier": 0.5
+    }
+  ],
+  "items": [
+    {
+      "item": "ravenutils:plant_fibre",
+      "count": 1
+    }
+  ],
+  "type": "ravenutils:additional_drops"
+}

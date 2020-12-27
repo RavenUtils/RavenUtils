@@ -8,11 +8,11 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
   public EssentialsMetalCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -266,7 +266,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("#")
         .patternLine("#")
         .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
         .build(consumer);
 
@@ -275,7 +275,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i#")
         .patternLine(" #")
         .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
         .build(consumer);
 
@@ -284,7 +284,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
         .build(consumer);
 
@@ -293,7 +293,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" #")
         .patternLine(" #")
         .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
         .build(consumer);
 
@@ -303,7 +303,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("#")
         .patternLine("#")
         .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
         .build(consumer);
 
@@ -312,7 +312,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i#")
         .patternLine(" #")
         .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
         .build(consumer);
 
@@ -321,7 +321,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
         .build(consumer);
 
@@ -330,7 +330,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" #")
         .patternLine(" #")
         .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
         .build(consumer);
 
@@ -340,7 +340,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("#")
         .patternLine("#")
         .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
         .build(consumer);
 
@@ -349,7 +349,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i#")
         .patternLine(" #")
         .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
         .build(consumer);
 
@@ -358,7 +358,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
         .build(consumer);
 
@@ -367,7 +367,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" #")
         .patternLine(" #")
         .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
         .build(consumer);
 
@@ -377,7 +377,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("#")
         .patternLine("#")
         .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .build(consumer);
 
@@ -386,7 +386,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine("i#")
         .patternLine(" #")
         .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .build(consumer);
 
@@ -395,7 +395,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" # ")
         .patternLine(" # ")
         .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .build(consumer);
 
@@ -404,7 +404,7 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
         .patternLine(" #")
         .patternLine(" #")
         .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', Tags.Items.RODS_WOODEN)
+        .key('#', rods_wood)
         .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
         .build(consumer);
 

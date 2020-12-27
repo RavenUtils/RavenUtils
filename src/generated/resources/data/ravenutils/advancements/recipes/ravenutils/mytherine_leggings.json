@@ -6,12 +6,12 @@
     ]
   },
   "criteria": {
-    "has_mytherine_ingot": {
+    "has_netherite_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:mytherine_ingot"
+            "item": "minecraft:netherite_leggings"
           }
         ]
       }
@@ -25,7 +25,7 @@
   },
   "requirements": [
     [
-      "has_mytherine_ingot",
+      "has_netherite_leggings",
       "has_the_recipe"
     ]
   ]

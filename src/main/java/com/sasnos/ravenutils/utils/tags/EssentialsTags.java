@@ -53,7 +53,9 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Block> wooden_stairs = BlockTags.makeWrapperTag("forge:wooden_stairs");
     public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
 
-    public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":mud_wall");
+    //public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":mud_wall");
+
+    public static final ITag.INamedTag<Block> requireTool = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+ ":require_tool");
   }
 
   public static class Items {
@@ -100,6 +102,7 @@ public class EssentialsTags {
     public static final ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
     public static final ITag.INamedTag<Item> barks = ItemTags.makeWrapperTag("forge:barks");
     public static final ITag.INamedTag<Item> rods_metal = ItemTags.makeWrapperTag("forge:rods/metal");
+    public static final ITag.INamedTag<Item> rods_wood = ItemTags.makeWrapperTag("forge:rods/wooden");
 
     public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
     public static ITag.INamedTag<Item> buckets_water = ItemTags.makeWrapperTag("forge:buckets/water");

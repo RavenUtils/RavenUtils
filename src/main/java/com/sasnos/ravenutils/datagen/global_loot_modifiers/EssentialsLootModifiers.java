@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.global_loot_modifiers;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.global_loot_modifiers.*;
+import com.sasnos.ravenutils.global_loot_modifiers.AdditionalDropsForBlocks;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModLootTables;
 import net.minecraft.block.Blocks;
@@ -80,10 +80,19 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.SULFUR.get()))
     ));
 
-    add("plant_fibre_from_tall_grass_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
+    add("plant_fibre_from_tall_vegetation", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.TALL_GRASS)
+            BlockStateProperty.builder(Blocks.TALL_GRASS),
+            BlockStateProperty.builder(Blocks.LARGE_FERN)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.5f).build()
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
+    ));
+
+    add("plant_fibre_from_small_vegetation", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
+        new ILootCondition[]{Alternative.builder(
+            BlockStateProperty.builder(Blocks.GRASS),
+            BlockStateProperty.builder(Blocks.FERN)
+        ).build(), RandomChanceWithLooting.builder(0.25f, 0.35f).build()
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
     ));
 
@@ -125,7 +134,7 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
             BlockStateProperty.builder(Blocks.DIAMOND_ORE),
             BlockStateProperty.builder(Blocks.COAL_ORE)
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.STICK))
+        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.COBBLESTONE))
     ));
 
     add("netherrack_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
@@ -135,5 +144,6 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
     ));
+
   }
 }

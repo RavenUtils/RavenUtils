@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xcx",
+    "xAx",
+    "xgx"
+  ],
+  "key": {
+    "x": {
+      "item": "ravenutils:mytherine_ingot"
+    },
+    "A": {
+      "item": "minecraft:shield"
+    },
+    "c": {
+      "item": "ravenutils:crimleaf"
+    },
+    "g": {
+      "item": "ravenutils:raven_eye_gem"
+    }
+  },
+  "result": {
+    "item": "ravenutils:mytherine_shield"
+  }
+}

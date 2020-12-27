@@ -23,30 +23,24 @@ import java.util.function.Supplier;
 
 public class StickAndStoneBlock extends Block {
 
-    private static final Property<Direction> FACING = HorizontalBlock.HORIZONTAL_FACING;;
-    private Supplier<Item> dropItem;
+  protected static final Property<Direction> FACING = HorizontalBlock.HORIZONTAL_FACING;
+  private final Supplier<Item> dropItem;
 
   public StickAndStoneBlock(Properties properties, Supplier<Item> dropItemIn) {
     super(properties);
     this.dropItem = dropItemIn;
   }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(!worldIn.isRemote && player.getHeldItem(handIn) == ItemStack.EMPTY){
-            InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY()+1, pos.getZ(), new ItemStack(dropItem.get()));
-            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
-            return ActionResultType.SUCCESS;
-        }
-        return ActionResultType.PASS;
+  @SuppressWarnings("deprecation")
+  @Override
+  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (!worldIn.isRemote && player.getHeldItem(handIn) == ItemStack.EMPTY) {
+      InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY() + 1, pos.getZ(), new ItemStack(dropItem.get()));
+      worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+      return ActionResultType.SUCCESS;
     }
-
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
+    return ActionResultType.PASS;
+  }
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

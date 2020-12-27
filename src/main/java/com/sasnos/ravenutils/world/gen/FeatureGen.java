@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.world.gen;
 
 import com.sasnos.ravenutils.init.ModBlocks;
+import com.sasnos.ravenutils.world.FacingBlockStateProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -10,13 +11,12 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.template.RuleTest;
-import net.minecraft.world.gen.placement.NoiseDependant;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 import net.minecraftforge.event.RegistryEvent;
@@ -32,7 +32,7 @@ import static net.minecraft.world.biome.Biome.Category.THEEND;
 
 public class FeatureGen {
 
-  private static HashMap<ResourceLocation, ConfiguredFeature<?, ?>> ores = new HashMap<>();
+  private static final HashMap<ResourceLocation, ConfiguredFeature<?, ?>> ores = new HashMap<>();
 
   public static ConfiguredFeature<?, ?> LIMESTONE;
   public static ConfiguredFeature<?, ?> BLACK_COAL_ORE;
@@ -85,27 +85,27 @@ public class FeatureGen {
     COPPER = registerOre(
         ModBlocks.COPPER_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        7, 63, 12, 10,
+        8, 63, 12, 10,
         resourceLocation("copper_ore_config"));
     TIN = registerOre(
         ModBlocks.TIN_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        5, 63, 12, 8,
+        6, 63, 12, 8,
         resourceLocation("tin_ore_config"));
     ZINC = registerOre(
         ModBlocks.ZINC_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        5, 63, 12, 8,
+        6, 63, 12, 8,
         resourceLocation("zinc_ore_config"));
     SILVER = registerOre(
         ModBlocks.SILVER_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        4, 24, 8, 4,
+        6, 24, 8, 4,
         resourceLocation("silver_ore_config"));
     LEAD = registerOre(
         ModBlocks.LEAD_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-        4, 24, 8, 4,
+        6, 24, 8, 4,
         resourceLocation("lead_ore_config"));
     MYTHERINE = registerOre(
         ModBlocks.MYTHERINE_ORE.get().getDefaultState(),
@@ -116,24 +116,27 @@ public class FeatureGen {
         (resourceLocation, configuredFeature) ->
             Registry.register(registry, resourceLocation, configuredFeature));
 
-    HashSet<Block> whiteList = new HashSet<>();
-    whiteList.addAll(Arrays.asList(Blocks.GRASS_BLOCK, Blocks.STONE));
+    HashSet<Block> whiteList = new HashSet<>(Arrays.asList(
+        Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT,
+        Blocks.MOSSY_COBBLESTONE, Blocks.COBBLESTONE,
+        Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE
+    ));
     HashSet<BlockState> blacklist = new HashSet<>();
     blacklist.add(Blocks.AIR.getDefaultState());
     STICK_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.STICK_GROUND.get().getDefaultState()), SimpleBlockPlacer.PLACER)
-                    .whitelist(whiteList).blacklist(blacklist)
-                    .replaceable().tries(2)
-                    .build()
-    ).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 5, 10)));
+        new BlockClusterFeatureConfig.Builder(
+            new FacingBlockStateProvider(ModBlocks.STICK_GROUND.get()), SimpleBlockPlacer.PLACER)
+            .whitelist(whiteList)
+            .replaceable().tries(2)
+            .build()
+    ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     STONE_GROUND = Feature.RANDOM_PATCH.withConfiguration(
-            new BlockClusterFeatureConfig.Builder(
-                    new SimpleBlockStateProvider(ModBlocks.STONE_GROUND.get().getDefaultState()), new SimpleBlockPlacer())
-                    .whitelist(whiteList).blacklist(blacklist)
-                    .replaceable().tries(2)
-                    .build()
-    ).withPlacement(Placement.COUNT_NOISE.configure(new NoiseDependant(-0.8D, 5, 10)));
+        new BlockClusterFeatureConfig.Builder(
+            new FacingBlockStateProvider(ModBlocks.STONE_GROUND.get()), SimpleBlockPlacer.PLACER)
+            .whitelist(whiteList)
+            .replaceable().tries(2)
+            .build()
+    ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     Registry.register(registry, resourceLocation("stick_ground"), STICK_GROUND);
     Registry.register(registry, resourceLocation("stone_ground"), STONE_GROUND);
   }
@@ -151,7 +154,6 @@ public class FeatureGen {
     return ORE;
   }
 
-
   public static void addFeaturesToBiomes(BiomeLoadingEvent event) {
     if (event.getCategory().equals(NETHER)) {
       // do nothing
@@ -160,11 +162,17 @@ public class FeatureGen {
     } else {
       for (ConfiguredFeature<?, ?> modOreFeature : ores.values()) {
         event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
-        if (event.getCategory().equals(Biome.Category.PLAINS)){
-          event.getGeneration().withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
-          .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+      }
+        if (event.getCategory() != Biome.Category.DESERT &&
+            event.getCategory() != Biome.Category.ICY &&
+            event.getCategory() != Biome.Category.MUSHROOM &&
+            event.getCategory() != Biome.Category.OCEAN
+        ) {
+//          event.getGeneration()
+//              .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
+//              .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+          // todo add spawning of Fossil Dirt (Grass and Dirt blocks only)
         }
       }
     }
   }
-}

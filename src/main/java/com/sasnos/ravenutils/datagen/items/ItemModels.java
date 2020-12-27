@@ -91,6 +91,16 @@ public class ItemModels extends ItemModelProvider {
         "layer0",
         modLoc("items/niter"));
 
+    singleTexture("item/" + ModBlockItems.STICK_GROUND_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        mcLoc("item/stick"));
+
+    singleTexture("item/" + ModBlockItems.STONE_GROUND_ITEM.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/small_stone"));
+
     singleTexture("item/" + ModItems.PLANT_FIBRE.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -252,8 +262,8 @@ public class ItemModels extends ItemModelProvider {
         modLoc("items/metal_rod_steel"));
 
     // vegetation
-    withExistingParent("item/" + ModBlockItems.CRIMLEAF_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/crimleaf"));
+    createGeneratedItem("item/" + ModBlockItems.CRIMLEAF_ITEM.get().getRegistryName().getPath(),
+         modLoc("blocks/crimleaf"));
 
     singleTexture("item/" + ModItems.REED_SEEDS.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
@@ -876,16 +886,6 @@ public class ItemModels extends ItemModelProvider {
             mcLoc("item/shield")).texture("particle", modLoc("blocks/crimwood_planks"))
     .override().predicate(mcLoc("blocking"), 1).model(block);
 
-
-
-//     singleTexture("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath(),
-//        mcLoc("item/generated"),
-//        "layer0",
-//        resourceLocation("item/mytherine_shield"));
-//
-//    withExistingParent("item/" + ModArmorItems.MYTHERINE_SHIELD.get().getRegistryName().getPath()+"_blocking",
-//            modLoc("item/mytherine_shield"));
-
     // miscellaneous
     withExistingParent("item/" + ModBlockItems.STONE_CRAFTING_TABLE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/stone_crafting_table"));
@@ -904,6 +904,11 @@ public class ItemModels extends ItemModelProvider {
         mcLoc("item/generated"),
         "layer0",
         modLoc("items/coin_gold"));
+
+    singleTexture("item/" + ModItems.BARREL_LID.get().getRegistryName().getPath(),
+        mcLoc("item/generated"),
+        "layer0",
+        modLoc("items/barrel_lid"));
 
     // berries
     singleTexture("item/" + ModFoodItems.BLUEBERRIES.get().getRegistryName().getPath(),
@@ -935,6 +940,9 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood"));
 
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_STRIPPED_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/crimwood_stripped"));
+
     singleTexture("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
@@ -955,8 +963,10 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_pressure_plate"));
 
-    withExistingParent("item/" + ModBlockItems.CRIMWOOD_SAPLING_ITEM.get().getRegistryName().getPath(),
-        modLoc("block/crimwood_sapling"));
+    singleTexture("item/" + ModBlockItems.CRIMWOOD_SAPLING_ITEM.get().getRegistryName().getPath(),
+            mcLoc("item/generated"),
+            "layer0",
+            modLoc("blocks/crimwood_sapling"));
 
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_SLAB_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood_slab"));
@@ -1009,5 +1019,12 @@ public class ItemModels extends ItemModelProvider {
 
     withExistingParent("item/" + ModBlockItems.STONE_ANVIL_STONE_ITEM.get().getRegistryName().getPath(),
         modLoc("block/stone_anvil_stone"));
+  }
+
+  private void createGeneratedItem(String name, ResourceLocation texture){
+    singleTexture(name,
+            mcLoc("item/generated"),
+            "layer0",
+            texture);
   }
 }

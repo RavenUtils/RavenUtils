@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:zinc_from_alloy_furnace"
+    ]
+  },
+  "criteria": {
+    "has_zinc_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "ravenutils:zinc_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:zinc_from_alloy_furnace"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_zinc_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

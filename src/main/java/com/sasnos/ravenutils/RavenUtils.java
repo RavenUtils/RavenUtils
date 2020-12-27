@@ -16,10 +16,13 @@ import com.sasnos.ravenutils.init.ModLootTables;
 import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.init.ModToolItems;
+import com.sasnos.ravenutils.init.UtilInit;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import com.sasnos.ravenutils.world.gen.FeatureGen;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.renderer.RenderType;
@@ -33,12 +36,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-import net.minecraft.util.Hand;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -75,6 +75,7 @@ public class RavenUtils {
     ModFluids.FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModRecipes.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
     ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+    UtilInit.BLOCKSTATEPROVIDER.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     new EssentialsTags().init();
 
@@ -112,6 +113,8 @@ public class RavenUtils {
     RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.getTranslucent());
     RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.getTranslucent());
+    RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.getTranslucent());
+    RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.getTranslucent());
 
     RavenUtilsPacketHandler.registerNetworkMessages();
 
@@ -119,6 +122,7 @@ public class RavenUtils {
       try {
         Field saturation = ObfuscationReflectionHelper.findField(Food.class, "field_221471_b");
         Field effect = ObfuscationReflectionHelper.findField(Food.class, "field_221475_f");
+        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235706_j_");
         List<Pair<Supplier<EffectInstance>, Float>> effects = Lists.newArrayList();
         saturation.setAccessible(true);
 
@@ -166,18 +170,17 @@ public class RavenUtils {
         }
         maxDamage.setAccessible(false);
 
+        requireTool.setAccessible(true);
+        for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()){
+          requireTool.setBoolean(block, true);
+        }
+
       } catch (IllegalAccessException e) {
         throw new RuntimeException(e);
       }
     });
   }
 
-  @SubscribeEvent
-  public static void rightClickEvent(PlayerInteractEvent.RightClickBlock event) {
-    if (event.getHand() == Hand.MAIN_HAND) {
-      event.getPos();
-    }
-  }
 
   public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override

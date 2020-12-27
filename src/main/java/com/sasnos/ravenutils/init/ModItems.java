@@ -98,11 +98,11 @@ public class ModItems {
   // miscellaneous
   public static final RegistryObject<Item> BUCKET_CLAY_UNFIRED = ITEMS.register("bucket_clay_unfired",
       () -> new Item(new Item.Properties().maxStackSize(16).group(RavenUtils.TAB)));
+  public static final RegistryObject<Item> BARREL_LID = ITEMS.register("barrel_lid", ItemBase::new);
 
   public static final RegistryObject<Item> COIN_COPPER = ITEMS.register("coin_copper", ItemBase::new);
   public static final RegistryObject<Item> COIN_SILVER = ITEMS.register("coin_silver", ItemBase::new);
   public static final RegistryObject<Item> COIN_GOLD = ITEMS.register("coin_gold", ItemBase::new);
-  public static final RegistryObject<Item> BARREL_LIT = ITEMS.register("barrel_lid", ItemBase::new);
 
   public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())

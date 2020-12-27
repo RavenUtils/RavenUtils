@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
-import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModToolItems;
@@ -10,7 +9,6 @@ import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.tags.ItemTags;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -29,13 +27,13 @@ public class EssentialsKnifeRecipes extends EssentialsRecipeProvider {
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEATHER_STRIP.get(), 4)
         .addIngredient(Items.LEATHER)
         .addIngredient(knives)
-        .addCriterion("has_knife", hasItem(Items.LEATHER))
+        .addCriterion("has_leather", hasItem(Items.LEATHER))
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(ModItems.BUCKET_CLAY_UNFIRED.get())
         .addIngredient(Items.CLAY)
         .addIngredient(knives)
-        .addCriterion("has_knife", hasItem(Items.CLAY))
+        .addCriterion("has_clay", hasItem(Items.CLAY))
         .setGroup("buckets")
         .build(consumer);
 

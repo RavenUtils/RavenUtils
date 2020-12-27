@@ -8,7 +8,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
 import net.minecraft.data.IDataProvider;
 import net.minecraft.data.LootTableProvider;
-import net.minecraft.loot.*;
+import net.minecraft.loot.ConstantRange;
+import net.minecraft.loot.DynamicLootEntry;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTableManager;
 import net.minecraft.loot.functions.CopyName;
 import net.minecraft.loot.functions.SetContents;
 import net.minecraft.util.ResourceLocation;
@@ -18,14 +24,17 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class BaseLootTableProvider extends LootTableProvider {
 
   private static final Logger LOGGER = LogManager.getLogger();
   private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-  protected final Map<Block, LootTable.Builder> lootTables = new HashMap<>();
+  protected final Set<Map<Block, LootTable.Builder>> lootTables = new HashSet<>();
+  public static Map<ResourceLocation, LootTable> tables = new HashMap<>();
   protected final DataGenerator generator;
 
   public BaseLootTableProvider(DataGenerator dataGeneratorIn) {
@@ -35,7 +44,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
 
   protected abstract void addTables();
 
-  public LootTable.Builder createStandardTable(String name, Block block) {
+  public static LootTable.Builder createStandardBlockTable(String name, Block block) {
     LootPool.Builder builder = LootPool.builder()
         .name(name)
         .rolls(ConstantRange.of(1))
@@ -44,17 +53,19 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
             .acceptFunction(SetContents.builderIn()
                 .addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("minecraft", "contents"))))
         );
-    return LootTable.builder().addLootPool(builder);
+    return LootTable.builder().addLootPool(builder).setParameterSet(LootParameterSets.BLOCK);
   }
 
   @Override
   public void act(DirectoryCache cache) {
     addTables();
 
-    Map<ResourceLocation, LootTable> tables = new HashMap<>();
-    for (Map.Entry<Block, LootTable.Builder> entry : lootTables.entrySet()) {
-      tables.put(entry.getKey().getLootTable(), entry.getValue().setParameterSet(LootParameterSets.BLOCK).build());
-    }
+    lootTables.forEach(blockBuilderMap -> {
+      for (Map.Entry<Block, LootTable.Builder> entry : blockBuilderMap.entrySet()) {
+        tables.put(entry.getKey().getLootTable(), entry.getValue().build());
+      }
+    });
+
     writeTables(cache, tables);
   }
 

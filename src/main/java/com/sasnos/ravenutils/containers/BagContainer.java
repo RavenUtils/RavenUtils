@@ -16,9 +16,9 @@ import net.minecraft.network.PacketBuffer;
 
 public class BagContainer extends EssentialsCommonContainer {
 
-    private Bags bag;
-    private IInventory bagInv;
-    private int selectedSlot;
+    private final Bags bag;
+    private final IInventory bagInv;
+    private final int selectedSlot;
 
     // Client
     public static BagContainer createClientContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {

@@ -246,6 +246,7 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.FIRESTARTER.get(), "Firestarter");
     add(ModToolItems.SOAP.get(), "Soap");
     add(ModToolItems.BEDROLL.get(), "Bedroll");
+    add(ModItems.BARREL_LID.get(), "Barrel Lid");
 
     // metals
     add(ModItems.MYTHERINE_INGOT.get(), "Mytherine Ingot");

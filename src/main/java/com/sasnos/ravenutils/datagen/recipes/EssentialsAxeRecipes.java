@@ -5,13 +5,12 @@ import com.sasnos.ravenutils.init.ModBlockItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.tags.ItemTags;
 
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.axes;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsAxeRecipes extends EssentialsRecipeProvider {
   public EssentialsAxeRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -106,9 +105,9 @@ public class EssentialsAxeRecipes extends EssentialsRecipeProvider {
         .build(consumer);
 
     ShapelessRecipeBuilder.shapelessRecipe(Items.STICK, 4)
-        .addIngredient(ItemTags.PLANKS)
+        .addIngredient(planks)
         .addIngredient(axes)
-        .addCriterion("has_planks", hasItemTag(ItemTags.PLANKS))
+        .addCriterion("has_planks", hasItemTag(planks))
         .build(consumer);
 
   }

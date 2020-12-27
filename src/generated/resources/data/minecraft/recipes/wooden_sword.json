@@ -7,7 +7,7 @@
   ],
   "key": {
     "p": {
-      "tag": "minecraft:planks"
+      "tag": "forge:planks"
     },
     "s": {
       "tag": "forge:string"
