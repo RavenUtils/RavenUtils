@@ -6,6 +6,7 @@ import com.sasnos.ravenutils.api.recipes.Material;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -15,14 +16,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class AlloyRecipe extends CommonRecipe {
 
-  public static final ResourceLocation ALLOY_FURNACE = new ResourceLocation(RavenUtils.MOD_ID, "alloy_furnace");
+  public static final IRecipeType<AlloyRecipe> ALLOY_FURNACE_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":alloy_furnace");
+
   private final NonNullList<Material> input;
   private final ItemStack additionalResult;
   private final float additionalChance;
 
 
   public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
-    super(id, null, time, NonNullList.from(ItemStack.EMPTY, output), 0);
+    super(id, ALLOY_FURNACE_RECIPE_TYPE, null, time, NonNullList.from(ItemStack.EMPTY, output), 0);
     this.input = input;
     this.additionalResult = additional;
     this.additionalChance = change;
@@ -35,12 +37,6 @@ public class AlloyRecipe extends CommonRecipe {
   @Override
   public int getTimer() {
     return timer;
-  }
-
-  @NotNull
-  @Override
-  public ResourceLocation getTypeId() {
-    return ALLOY_FURNACE;
   }
 
   @Override

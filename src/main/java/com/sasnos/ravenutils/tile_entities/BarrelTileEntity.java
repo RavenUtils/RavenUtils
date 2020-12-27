@@ -2,7 +2,6 @@ package com.sasnos.ravenutils.tile_entities;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsRecipeTileEntity;
 import com.sasnos.ravenutils.blocks.Barrel;
-import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.networking.SyncTeWithItemHandler;
@@ -28,15 +27,13 @@ import java.util.Set;
 
 public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> implements ITickableTileEntity {
 
-    private FluidTank fluidTank;
-
-    private final LazyOptional<FluidTank> fluidHandler = LazyOptional.of(() -> fluidTank);
-
     protected int cookingTime;
     protected int cookingTimeTotal;
+    private FluidTank fluidTank;
+    private final LazyOptional<FluidTank> fluidHandler = LazyOptional.of(() -> fluidTank);
 
     public BarrelTileEntity() {
-        super(ModTileEntities.BARREL_TILE_ENTITIES.get(), ModRecipes.BARREL_RECIPE_TYPE);
+        super(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRecipe.BARREL_RECIPE_TYPE);
         fluidTank = new FluidTank(10000);
     }
 

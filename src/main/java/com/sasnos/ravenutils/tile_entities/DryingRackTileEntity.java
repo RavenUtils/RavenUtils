@@ -1,7 +1,6 @@
 package com.sasnos.ravenutils.tile_entities;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsRecipeTileEntity;
-import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.recipes.dry_rack.DryRackRecipe;
 import net.minecraft.block.BlockState;
@@ -26,7 +25,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
   HashMap<Integer, DryingObject> slotTimer = new HashMap<>(4);
 
   public DryingRackTileEntity() {
-    super(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), ModRecipes.DRY_RACK_RECIPE);
+    super(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryRackRecipe.DRY_RACK_RECIPE_TYPE);
   }
 
   @Override
@@ -190,13 +189,20 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
 
   private static class DryingObject {
     private final ItemStack item;
-    private int cookingTime;
     private final int cookingTimeTotal;
+    private int cookingTime;
 
     public DryingObject(ItemStack item, int cookingTime, int cookingTimeTotal) {
       this.item = item;
       this.cookingTime = cookingTime;
       this.cookingTimeTotal = cookingTimeTotal;
+    }
+
+    public static DryingObject deserialize(CompoundNBT nbt) {
+      ItemStack item = ItemStack.read(nbt);
+      int cookingTime = nbt.getInt("cookingTime");
+      int cookingTimeTotal = nbt.getInt("cookingTimeTotal");
+      return new DryingObject(item, cookingTime, cookingTimeTotal);
     }
 
     public boolean tick() {
@@ -211,13 +217,6 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
       itemTag.putInt("cookingTime", cookingTime);
       itemTag.putInt("cookingTimeTotal", cookingTimeTotal);
       nbt.add(itemTag);
-    }
-
-    public static DryingObject deserialize(CompoundNBT nbt) {
-      ItemStack item = ItemStack.read(nbt);
-      int cookingTime = nbt.getInt("cookingTime");
-      int cookingTimeTotal = nbt.getInt("cookingTimeTotal");
-      return new DryingObject(item, cookingTime, cookingTimeTotal);
     }
   }
 }

@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.api.recipes;
 
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -17,12 +18,27 @@ public abstract class CommonRecipe extends EssentialsRecipe {
     protected final int timer;
     protected final float xp;
 
-    public CommonRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
-        super(id);
+    public CommonRecipe(ResourceLocation id, IRecipeType<?> recipeType, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
+        super(id, recipeType);
         this.ingredients = ingredients;
         this.timer = timer;
         this.result = result;
         this.xp = xp;
+    }
+
+    private static void splitAndSpawnExperience(World world, Vector3d pos, int craftedAmount, float experience) {
+        int i = MathHelper.floor((float)craftedAmount * experience);
+        float f = MathHelper.frac((float)craftedAmount * experience);
+        if (f != 0.0F && Math.random() < (double)f) {
+            ++i;
+        }
+
+        while(i > 0) {
+            int j = ExperienceOrbEntity.getXPSplit(i);
+            i -= j;
+            world.addEntity(new ExperienceOrbEntity(world, pos.x, pos.y, pos.z, j));
+        }
+
     }
 
     @Override
@@ -51,21 +67,6 @@ public abstract class CommonRecipe extends EssentialsRecipe {
     @Override
     public ItemStack getCraftingResult(RecipeWrapper inv) {
         return result.get(0);
-    }
-
-    private static void splitAndSpawnExperience(World world, Vector3d pos, int craftedAmount, float experience) {
-        int i = MathHelper.floor((float)craftedAmount * experience);
-        float f = MathHelper.frac((float)craftedAmount * experience);
-        if (f != 0.0F && Math.random() < (double)f) {
-            ++i;
-        }
-
-        while(i > 0) {
-            int j = ExperienceOrbEntity.getXPSplit(i);
-            i -= j;
-            world.addEntity(new ExperienceOrbEntity(world, pos.x, pos.y, pos.z, j));
-        }
-
     }
 
 }

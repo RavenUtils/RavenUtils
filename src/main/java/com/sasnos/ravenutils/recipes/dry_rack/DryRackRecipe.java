@@ -1,28 +1,23 @@
 package com.sasnos.ravenutils.recipes.dry_rack;
 
+import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
-import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
-import org.jetbrains.annotations.NotNull;
 
 public class DryRackRecipe extends CommonRecipe {
 
-    public static final ResourceLocation DRYRACK = EssentialsUtils.resourceLocation("sry_rack");
+    public static final IRecipeType<DryRackRecipe> DRY_RACK_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":dry_rack");
 
     public DryRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
-        super(id, ingredients, timer, result, xp);
-    }
-
-    @Override
-    public @NotNull ResourceLocation getTypeId() {
-        return DRYRACK;
+        super(id, DRY_RACK_RECIPE_TYPE, ingredients, timer, result, xp);
     }
 
     @Override

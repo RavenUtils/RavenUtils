@@ -6,16 +6,17 @@ import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
-import org.jetbrains.annotations.NotNull;
 
 public class BarrelRecipe extends CommonRecipe {
-    public static final ResourceLocation BARREL = new ResourceLocation(RavenUtils.MOD_ID, "barrel_recipe");
+
+    public static final IRecipeType<BarrelRecipe> BARREL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":barrel");
 
     private final Fluid fluidOutput;
 
@@ -23,15 +24,10 @@ public class BarrelRecipe extends CommonRecipe {
     private final boolean lidClosed;
 
     public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
-        super(recipeId, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
+        super(recipeId, BARREL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
         this.fluidOutput = fluidOutput;
         this.fluidInput = fluidInput;
         this.lidClosed = lidClosed;
-    }
-
-    @Override
-    public @NotNull ResourceLocation getTypeId() {
-        return BARREL;
     }
 
     public boolean isLidClosed() {
