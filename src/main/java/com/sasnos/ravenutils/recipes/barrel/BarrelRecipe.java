@@ -16,39 +16,39 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class BarrelRecipe extends CommonRecipe {
 
-    public static final IRecipeType<BarrelRecipe> BARREL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":barrel");
+  public static final IRecipeType<BarrelRecipe> BARREL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":barrel");
 
-    private final Fluid fluidOutput;
+  private final Fluid fluidOutput;
 
-    private final FluidStack fluidInput;
-    private final boolean lidClosed;
+  private final FluidStack fluidInput;
+  private final boolean lidClosed;
 
-    public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
-        super(recipeId, BARREL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
-        this.fluidOutput = fluidOutput;
-        this.fluidInput = fluidInput;
-        this.lidClosed = lidClosed;
-    }
+  public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
+    super(recipeId, BARREL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
+    this.fluidOutput = fluidOutput;
+    this.fluidInput = fluidInput;
+    this.lidClosed = lidClosed;
+  }
 
-    public boolean isLidClosed() {
-        return lidClosed;
-    }
+  public boolean isLidClosed() {
+    return lidClosed;
+  }
 
-    public Fluid getFluidOutput() {
-        return fluidOutput;
-    }
+  public Fluid getFluidOutput() {
+    return fluidOutput;
+  }
 
-    public FluidStack getFluidInput() {
-        return fluidInput;
-    }
+  public FluidStack getFluidInput() {
+    return fluidInput;
+  }
 
-    @Override
-    public boolean matches(RecipeWrapper inv, World worldIn) {
-        return ingredients.get(0).test(inv.getStackInSlot(0));
-    }
+  @Override
+  public boolean matches(RecipeWrapper inv, World worldIn) {
+    return ingredients.get(0).test(inv.getStackInSlot(0));
+  }
 
-    @Override
-    public IRecipeSerializer<?> getSerializer() {
-        return ModRecipes.BARREL_RECIPE_SERIALIZER.get();
-    }
+  @Override
+  public IRecipeSerializer<?> getSerializer() {
+    return ModRecipes.BARREL_RECIPE_SERIALIZER.get();
+  }
 }

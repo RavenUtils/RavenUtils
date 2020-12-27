@@ -49,8 +49,6 @@ public class AlloyFurnaceRecipe extends CommonRecipe {
     return true;
   }
 
-
-
   @NotNull
   @Override
   public NonNullList<Ingredient> getIngredients() {
@@ -64,7 +62,6 @@ public class AlloyFurnaceRecipe extends CommonRecipe {
   public ItemStack getCraftingResult(@NotNull RecipeWrapper inv) {
     return getRecipeOutput().copy();
   }
-
 
   public ItemStack getAdditionalResult() {
     return additionalResult;

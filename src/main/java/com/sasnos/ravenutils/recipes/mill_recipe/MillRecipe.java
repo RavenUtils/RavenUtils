@@ -15,45 +15,45 @@ import org.jetbrains.annotations.NotNull;
 
 public class MillRecipe extends CommonRecipe {
 
-    public static final IRecipeType<MillRecipe> MILL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":mill");
+  public static final IRecipeType<MillRecipe> MILL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":mill");
 
-    private final float change;
-    private final ItemStack additionalResult;
-    private final float additionalChance;
+  private final float change;
+  private final ItemStack additionalResult;
+  private final float additionalChance;
 
-    public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance) {
-        super(id, MILL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, input), time, NonNullList.from(ItemStack.EMPTY, output), 0);
-        this.change = additionalDropChance;
-        this.additionalChance = additionalChance;
-        this.additionalResult = additionalResult;
-    }
+  public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance) {
+    super(id, MILL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, input), time, NonNullList.from(ItemStack.EMPTY, output), 0);
+    this.change = additionalDropChance;
+    this.additionalChance = additionalChance;
+    this.additionalResult = additionalResult;
+  }
 
-    @Override
-    public int getTimer() {
-        return timer;
-    }
+  @Override
+  public int getTimer() {
+    return timer;
+  }
 
-    @Override
-    public boolean matches(RecipeWrapper inv, World worldIn) {
-        return ingredients.get(0).test(inv.getStackInSlot(0));
-    }
+  @Override
+  public boolean matches(RecipeWrapper inv, World worldIn) {
+    return ingredients.get(0).test(inv.getStackInSlot(0));
+  }
 
-    @Override
-    @NotNull
-    public IRecipeSerializer<?> getSerializer() {
-        return ModRecipes.MILL_RECIPE_SERIALIZER.get();
-    }
+  @Override
+  @NotNull
+  public IRecipeSerializer<?> getSerializer() {
+    return ModRecipes.MILL_RECIPE_SERIALIZER.get();
+  }
 
 
-    public float getAdditionalDropChange(){
-        return change;
-    }
+  public float getAdditionalDropChange() {
+    return change;
+  }
 
-    public ItemStack getAdditionalResult() {
-        return additionalResult;
-    }
+  public ItemStack getAdditionalResult() {
+    return additionalResult;
+  }
 
-    public float getAdditionalChance() {
-        return additionalChance;
-    }
+  public float getAdditionalChance() {
+    return additionalChance;
+  }
 }
