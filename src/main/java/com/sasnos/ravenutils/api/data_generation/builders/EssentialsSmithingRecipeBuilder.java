@@ -49,7 +49,6 @@ public class EssentialsSmithingRecipeBuilder {
    public EssentialsSmithingRecipeBuilder addEnchantment(Enchantment enchantment, int lvl){
       if(!output.isEnchantable()) throw new IllegalStateException("Enchantment can not be enchanted");
       if(!enchantment.canApply(output)) throw new IllegalArgumentException("Enchantment can not be applied to the item");
-      if(enchantment.getMaxLevel() < lvl) throw new IllegalArgumentException("Enchantment level is bigger then max Lvl");
       output.addEnchantment(enchantment, lvl);
 
       return this;

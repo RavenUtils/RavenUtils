@@ -112,7 +112,6 @@ public class EssentialsShapeRecipeBuilder {
     public EssentialsShapeRecipeBuilder addEnactment(Enchantment enchantment, int lvl){
         if (!result.isEnchantable()) throw new IllegalStateException("Item can not be enchanted");
         if(!enchantment.canApply(result)) throw new IllegalArgumentException("Enchantment can not be applied to the item");
-        if(enchantment.getMaxLevel() < lvl) throw new IllegalArgumentException("Enchantment level is bigger then max Lvl");
         result.addEnchantment(enchantment, lvl);
         return this;
     }
