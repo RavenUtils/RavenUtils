@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.recipes.millrecipes.MillRecipe;
+import com.sasnos.ravenutils.recipes.mill_recipe.MillRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;

@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.alloy_recipe;
+package com.sasnos.ravenutils.recipes.alloy_furnace;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.CommonRecipe;
@@ -14,16 +14,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
-public class AlloyRecipe extends CommonRecipe {
+public class AlloyFurnaceRecipe extends CommonRecipe {
 
-  public static final IRecipeType<AlloyRecipe> ALLOY_FURNACE_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":alloy_furnace");
+  public static final IRecipeType<AlloyFurnaceRecipe> ALLOY_FURNACE_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":alloy_furnace");
 
   private final NonNullList<Material> input;
   private final ItemStack additionalResult;
   private final float additionalChance;
 
 
-  public AlloyRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
+  public AlloyFurnaceRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
     super(id, ALLOY_FURNACE_RECIPE_TYPE, null, time, NonNullList.from(ItemStack.EMPTY, output), 0);
     this.input = input;
     this.additionalResult = additional;

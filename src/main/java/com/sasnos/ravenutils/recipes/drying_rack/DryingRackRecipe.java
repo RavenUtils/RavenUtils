@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.dry_rack;
+package com.sasnos.ravenutils.recipes.drying_rack;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.CommonRecipe;
@@ -12,11 +12,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 
-public class DryRackRecipe extends CommonRecipe {
+public class DryingRackRecipe extends CommonRecipe {
 
-    public static final IRecipeType<DryRackRecipe> DRY_RACK_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":dry_rack");
+    public static final IRecipeType<DryingRackRecipe> DRY_RACK_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":dry_rack");
 
-    public DryRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
+    public DryingRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
         super(id, DRY_RACK_RECIPE_TYPE, ingredients, timer, result, xp);
     }
 

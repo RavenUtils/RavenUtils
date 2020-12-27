@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
 import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
+import com.sasnos.ravenutils.recipes.alloy_furnace.AlloyFurnaceRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -20,13 +20,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRecipe> {
+public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFurnaceRecipe> {
 
   public static final String SCREEN_NAME = "screen.ravenutils.alloy_furnace";
 
 
   public AlloyFurnaceTileEntity() {
-    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), AlloyRecipe.ALLOY_FURNACE_RECIPE_TYPE);
+    super(AlloyFurnaceInit.ALLOY_FURNACE_TILE_ENTITY.get(), AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE);
   }
 
   @Override
@@ -40,15 +40,15 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
         if (slot == 0 || slot == 1) {
-          return getAllRecipeInputsAsItems(AlloyRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem());
+          return getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem());
         }
         if (slot == 2) {
           return ForgeHooks.getBurnTime(stack) > 0;
         }
         if (slot == 3 || slot == 4) {
-          List<IRecipe<?>> recipes = findRecipeByType(AlloyRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
-            return ((AlloyRecipe) iRecipe).getOutput().get(0).getItem() == stack.getItem()
-                || ((AlloyRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
+          List<IRecipe<?>> recipes = findRecipeByType(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+            return ((AlloyFurnaceRecipe) iRecipe).getOutput().get(0).getItem() == stack.getItem()
+                || ((AlloyFurnaceRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
           }).collect(Collectors.toList());
           return !recipes.isEmpty();
         }
@@ -58,7 +58,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(AlloyRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem())) {
+        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem())) {
           return stack;
         }
         if (slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)) {
@@ -72,8 +72,8 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
   @Override
   protected boolean canSmelt(@Nullable IRecipe<?> recipeIn) {
     if (!this.itemHandler.getStackInSlot(0).isEmpty() && recipeIn != null) {
-      ItemStack output = ((AlloyRecipe)recipeIn).getOutput().get(0);
-      ItemStack additionalOutput = ((AlloyRecipe) recipeIn).getAdditionalResult();
+      ItemStack output = ((AlloyFurnaceRecipe)recipeIn).getOutput().get(0);
+      ItemStack additionalOutput = ((AlloyFurnaceRecipe) recipeIn).getAdditionalResult();
       if (output.isEmpty()) {
         return false;
       } else {
@@ -99,7 +99,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
     if (recipe != null && this.canSmelt(recipe)) {
       ItemStack input = this.itemHandler.getStackInSlot(0);
       ItemStack additionalInput = itemHandler.getStackInSlot(1);
-      NonNullList<ItemStack> outputList = ((AlloyRecipe) recipe).getOutput();
+      NonNullList<ItemStack> outputList = ((AlloyFurnaceRecipe) recipe).getOutput();
       ItemStack output = outputList.get(0).copy();
       ItemStack additionalOutput = outputList.size() > 1 ? outputList.get(1).copy() : ItemStack.EMPTY;
       ItemStack outputSlot = this.itemHandler.getStackInSlot(3);
@@ -117,17 +117,17 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
         additionalOutputSlot.grow(additionalOutput.getCount());
       }
 
-      if (((AlloyRecipe) recipe).getInput().get(0).test(input)) {
-        input.shrink(((AlloyRecipe) recipe).getInput().get(0).count);
+      if (((AlloyFurnaceRecipe) recipe).getInput().get(0).test(input)) {
+        input.shrink(((AlloyFurnaceRecipe) recipe).getInput().get(0).count);
       } else {
-        input.shrink(((AlloyRecipe) recipe).getInput().get(1).count);
+        input.shrink(((AlloyFurnaceRecipe) recipe).getInput().get(1).count);
       }
 
       if (((EssentialsRecipe) recipe).hasAdditionalInput()) {
-        if (((AlloyRecipe) recipe).getInput().get(1).test(additionalInput)) {
-          additionalInput.shrink(((AlloyRecipe) recipe).getInput().get(1).count);
+        if (((AlloyFurnaceRecipe) recipe).getInput().get(1).test(additionalInput)) {
+          additionalInput.shrink(((AlloyFurnaceRecipe) recipe).getInput().get(1).count);
         } else {
-          additionalInput.shrink(((AlloyRecipe) recipe).getInput().get(0).count);
+          additionalInput.shrink(((AlloyFurnaceRecipe) recipe).getInput().get(0).count);
         }
       }
     }
@@ -139,10 +139,10 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
   }
 
   @Override
-  protected AlloyRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
+  protected AlloyFurnaceRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
     for (IRecipe<?> iRecipe : recipes) {
-      if (!(iRecipe instanceof AlloyRecipe)) continue;
-      AlloyRecipe recipe = (AlloyRecipe) iRecipe;
+      if (!(iRecipe instanceof AlloyFurnaceRecipe)) continue;
+      AlloyFurnaceRecipe recipe = (AlloyFurnaceRecipe) iRecipe;
       if (ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)) {
         return recipe;
       }
@@ -151,10 +151,10 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyRec
   }
 
   @Override
-  protected AlloyRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
+  protected AlloyFurnaceRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
     for (IRecipe<?> iRecipe : recipes) {
-      if (!(iRecipe instanceof AlloyRecipe)) continue;
-      AlloyRecipe recipe = (AlloyRecipe) iRecipe;
+      if (!(iRecipe instanceof AlloyFurnaceRecipe)) continue;
+      AlloyFurnaceRecipe recipe = (AlloyFurnaceRecipe) iRecipe;
       if (recipe.matches(wrapper, world)) {
         return recipe;
       }

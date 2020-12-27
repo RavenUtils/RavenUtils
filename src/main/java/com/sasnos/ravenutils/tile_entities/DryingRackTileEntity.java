@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.tile_entities;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsRecipeTileEntity;
 import com.sasnos.ravenutils.init.ModTileEntities;
-import com.sasnos.ravenutils.recipes.dry_rack.DryRackRecipe;
+import com.sasnos.ravenutils.recipes.drying_rack.DryingRackRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -20,12 +20,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.Set;
 
-public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackRecipe> implements ITickableTileEntity {
+public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackRecipe> implements ITickableTileEntity {
 
   HashMap<Integer, DryingObject> slotTimer = new HashMap<>(4);
 
   public DryingRackTileEntity() {
-    super(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryRackRecipe.DRY_RACK_RECIPE_TYPE);
+    super(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryingRackRecipe.DRY_RACK_RECIPE_TYPE);
   }
 
   @Override
@@ -57,7 +57,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
       @Override
       public ItemStack extractItem(int slot, int amount, boolean simulate) {
         ItemStack result = super.extractItem(slot, amount, simulate);
-        DryRackRecipe recipe = getRecipeFromOutput(result);
+        DryingRackRecipe recipe = getRecipeFromOutput(result);
         if (!simulate && recipe != null) {
           int recipeResult = recipe.getOutput().get(0).getCount();
           float xp = recipe.getXp();
@@ -83,11 +83,11 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
   }
 
   @Override
-  protected DryRackRecipe getRecipe(ItemStack stack) {
+  protected DryingRackRecipe getRecipe(ItemStack stack) {
     Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
     for (IRecipe<?> recipe : recipes) {
-      if (!(recipe instanceof DryRackRecipe)) continue;
-      DryRackRecipe barrelRecipe = (DryRackRecipe) recipe;
+      if (!(recipe instanceof DryingRackRecipe)) continue;
+      DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;
       if (barrelRecipe.getIngredients().get(0).test(stack)) {
         return barrelRecipe;
       }
@@ -96,11 +96,11 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
   }
 
   @Override
-  public DryRackRecipe getRecipeFromOutput(ItemStack result) {
+  public DryingRackRecipe getRecipeFromOutput(ItemStack result) {
     Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
     for (IRecipe<?> recipe : recipes) {
-      if (!(recipe instanceof DryRackRecipe)) continue;
-      DryRackRecipe barrelRecipe = (DryRackRecipe) recipe;
+      if (!(recipe instanceof DryingRackRecipe)) continue;
+      DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;
       if (ItemStack.areItemsEqual(barrelRecipe.getOutput().get(0), result)) {
         return barrelRecipe;
       }
@@ -160,7 +160,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
     assert world != null;
     if (!world.isRemote) {
       slotTimer.forEach((integer, dryingObject) -> {
-        DryRackRecipe recipe = getRecipe(itemHandler.getStackInSlot(integer));
+        DryingRackRecipe recipe = getRecipe(itemHandler.getStackInSlot(integer));
         if (recipe == null) return;
         if (dryingObject == null) {
           slotTimer.put(integer, new DryingObject(itemHandler.getStackInSlot(0), 0, recipe.getTimer()));
@@ -181,7 +181,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryRackReci
     handleUpdate();
   }
 
-  private void handleRecipeForSlot(Integer slot, DryRackRecipe recipe) {
+  private void handleRecipeForSlot(Integer slot, DryingRackRecipe recipe) {
     if (recipe == null) return;
     itemHandler.extractItem(slot, 1, false);
     itemHandler.insertItem(slot, recipe.getOutput().get(0).copy(), false);

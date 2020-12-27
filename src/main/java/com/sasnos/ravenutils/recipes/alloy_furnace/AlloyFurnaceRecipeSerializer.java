@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.alloy_recipe;
+package com.sasnos.ravenutils.recipes.alloy_furnace;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -13,15 +13,15 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.jetbrains.annotations.Nullable;
 
-public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlloyRecipe> {
+public class AlloyFurnaceRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlloyFurnaceRecipe> {
 
-  protected AlloyRecipe createRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time,
-                                     ItemStack additionalOutput, float change) {
-    return new AlloyRecipe(id, input, output, time, additionalOutput, change);
+  protected AlloyFurnaceRecipe createRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time,
+                                            ItemStack additionalOutput, float change) {
+    return new AlloyFurnaceRecipe(id, input, output, time, additionalOutput, change);
   }
 
   @Override
-  public AlloyRecipe read(ResourceLocation recipeId, JsonObject json) {
+  public AlloyFurnaceRecipe read(ResourceLocation recipeId, JsonObject json) {
 
     ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
     JsonArray inputs = JSONUtils.getJsonArray(json, "materials");
@@ -42,7 +42,7 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
 
   @Nullable
   @Override
-  public AlloyRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+  public AlloyFurnaceRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
 
     int numMaterials = buffer.readVarInt();
     NonNullList<Material> input = NonNullList.create();
@@ -57,7 +57,7 @@ public class AlloyRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<
   }
 
   @Override
-  public void write(PacketBuffer buffer, AlloyRecipe recipe) {
+  public void write(PacketBuffer buffer, AlloyFurnaceRecipe recipe) {
 
     buffer.writeVarInt(recipe.getIngredients().size());
     for (Material input : recipe.getInput()) {

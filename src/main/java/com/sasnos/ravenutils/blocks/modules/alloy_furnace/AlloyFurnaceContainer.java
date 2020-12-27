@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.recipes.alloy_recipe.AlloyRecipe;
+import com.sasnos.ravenutils.recipes.alloy_furnace.AlloyFurnaceRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
@@ -58,14 +58,14 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
         slot.onSlotChange(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(AlloyRecipe.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if (inputs.contains(stack.getItem())) {
           if (!this.mergeItemStack(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
           int timer = 0;
-          AlloyRecipe recipe = ((AlloyFurnaceTileEntity) tileEntity).getRecipe(itemStack);
+          AlloyFurnaceRecipe recipe = ((AlloyFurnaceTileEntity) tileEntity).getRecipe(itemStack);
           if (recipe != null) timer = recipe.getTimer();
           ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(timer);
         } else if (ForgeHooks.getBurnTime(stack) > 0) {
