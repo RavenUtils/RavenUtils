@@ -940,6 +940,9 @@ public class ItemModels extends ItemModelProvider {
     withExistingParent("item/" + ModBlockItems.CRIMWOOD_ITEM.get().getRegistryName().getPath(),
         modLoc("block/crimwood"));
 
+    withExistingParent("item/" + ModBlockItems.CRIMWOOD_STRIPPED_ITEM.get().getRegistryName().getPath(),
+        modLoc("block/crimwood_stripped"));
+
     singleTexture("item/" + ModBlockItems.CRIMWOOD_DOOR_ITEM.get().getRegistryName().getPath(),
         mcLoc("item/generated"),
         "layer0",
