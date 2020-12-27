@@ -26,8 +26,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3", modLoc("blocks/bush_blueberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return blueberryBush0;
         case 1:
           return blueberryBush1;
         case 2:
@@ -45,8 +43,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3", modLoc("blocks/bush_elderberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return elderberryBush0;
         case 1:
           return elderberryBush1;
         case 2:
@@ -64,8 +60,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder raspberryBush3 = models().cross("raspberry_bush3", modLoc("blocks/bush_raspberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.RASPBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return raspberryBush0;
         case 1:
           return raspberryBush1;
         case 2:
@@ -83,8 +77,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blackberryBush3 = models().cross("blackberry_bush3", modLoc("blocks/bush_blackberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLACKBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return blackberryBush0;
         case 1:
           return blackberryBush1;
         case 2:
@@ -102,8 +94,6 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder gooseberryBush3 = models().cross("gooseberry_bush3", modLoc("blocks/bush_gooseberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.GOOSEBERRY_BUSH.get(), blockState -> {
       switch (blockState.get(BlockStateProperties.AGE_0_3)) {
-        case 0:
-          return gooseberryBush0;
         case 1:
           return gooseberryBush1;
         case 2:

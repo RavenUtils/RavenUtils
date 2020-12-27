@@ -146,7 +146,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMLEAF = BLOCKS.register("crimleaf", Crimleaf::new);
   public static final RegistryObject<Block> POTTED_CRIMLEAF = BLOCKS.register("potted_crimleaf",
       () -> new FlowerPotBlock(
-          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMLEAF::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
+          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMLEAF, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
       )
   );
 
@@ -161,7 +161,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",
       () -> new FlowerPotBlock(
-          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMWOOD_SAPLING::get, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
+          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMWOOD_SAPLING, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
       )
   );
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);
@@ -221,6 +221,4 @@ public class ModBlocks {
   public static final RegistryObject<Block> STONE_ANVIL_DIORITE = BLOCKS.register("stone_anvil_diorite", StoneAnvil::new);
   public static final RegistryObject<Block> DAMAGED_STONE_ANVIL_DIORITE = BLOCKS.register("damaged_stone_anvil_diorite", StoneAnvil::new);
   public static final RegistryObject<Block> CHIPPED_STONE_ANVIL_DIORITE = BLOCKS.register("chipped_stone_anvil_diorite", StoneAnvil::new);
-
-  // miscellaneous
 }
