@@ -168,9 +168,9 @@ public class FeatureGen {
             event.getCategory() != Biome.Category.MUSHROOM &&
             event.getCategory() != Biome.Category.OCEAN
         ) {
-//          event.getGeneration()
-//              .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
-//              .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+          event.getGeneration()
+                  .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
+                  .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
           // todo add spawning of Fossil Dirt (Grass and Dirt blocks only)
         }
       }

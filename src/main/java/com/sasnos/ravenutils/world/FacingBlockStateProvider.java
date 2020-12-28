@@ -43,6 +43,6 @@ public class FacingBlockStateProvider extends BlockStateProvider {
     while (direction == Direction.UP || direction == Direction.DOWN){
       direction = Direction.getRandomDirection(randomIn);
     }
-    return block.getDefaultState().with(BlockStateProperties.FACING, direction);
+    return block.getDefaultState().with(BlockStateProperties.HORIZONTAL_FACING, direction);
   }
 }
