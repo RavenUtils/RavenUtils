@@ -1,13 +1,16 @@
 package com.sasnos.ravenutils.items;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
+import net.minecraft.item.ToolItem;
 
-public class Hammer extends BaseItemDamageable {
-    public Hammer(int maxDamage, Rarity rarity) {
-        super(new Properties()
+import java.util.HashSet;
+
+public class Hammer extends ToolItem {
+    public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
+        super(attackDamage, attackSpeed, hammerTier, new HashSet<>(), new Properties()
                 .maxStackSize(1)
                 .maxDamage(maxDamage)
                 .rarity(rarity)
@@ -16,6 +19,6 @@ public class Hammer extends BaseItemDamageable {
 
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        return enchantment == Enchantments.KNOCKBACK;
+        return false;
     }
 }
