@@ -56,7 +56,7 @@ public class FeatureGen {
         ModBlocks.LIMESTONE_BLOCK.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
         14, 32, 24, 12,
-        resourceLocation("limestone"));
+        resourceLocation("limestone_config"));
     BLACK_COAL_ORE = registerOre(
         ModBlocks.BLACK_COAL_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
@@ -76,7 +76,7 @@ public class FeatureGen {
         ModBlocks.SALT_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
         12, 42, 24, 10,
-        resourceLocation("salt_ore_congig"));
+        resourceLocation("salt_ore_config"));
     RAVEN_EYE = registerOre(
         ModBlocks.RAVEN_EYE_ORE.get().getDefaultState(),
         OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
