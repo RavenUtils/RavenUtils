@@ -42,7 +42,7 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
   public static Set<IRecipe<?>> findRecipeByType(IRecipeType<?> recipeType, World world) {
     return world != null ?
         world.getRecipeManager().getRecipes().stream().filter(
-                iRecipe -> iRecipe.getType() == recipeType
+            iRecipe -> iRecipe.getType() == recipeType
         ).collect(Collectors.toSet())
         : Collections.emptySet();
   }
@@ -53,8 +53,8 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
     for (IRecipe<?> recipe : recipes) {
       NonNullList<Ingredient> ingredients = recipe.getIngredients();
       ingredients.forEach(
-              ingredient ->
-                inputs.addAll(Arrays.asList(ingredient.getMatchingStacks()))
+          ingredient ->
+              inputs.addAll(Arrays.asList(ingredient.getMatchingStacks()))
       );
     }
     return inputs;
@@ -62,15 +62,14 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
 
   public abstract T getRecipeFromOutput(ItemStack result);
 
-  public static Set<Item> getAllRecipeOutputAsItems(IRecipeType<?> type, World world){
+  public static Set<Item> getAllRecipeOutputAsItems(IRecipeType<?> type, World world) {
     Set<Item> outputs = new HashSet<>();
     Set<IRecipe<?>> recipes = findRecipeByType(type, world);
-    for (IRecipe<?> recipe : recipes){
-      if(recipe instanceof CommonRecipe){
+    for (IRecipe<?> recipe : recipes) {
+      if (recipe instanceof CommonRecipe) {
         NonNullList<ItemStack> output = ((CommonRecipe) recipe).getOutput();
         output.forEach(itemStack -> outputs.add(itemStack.getItem()));
-      }
-      else {
+      } else {
         ItemStack output = recipe.getRecipeOutput();
         outputs.add(output.getItem());
       }
@@ -89,13 +88,13 @@ public abstract class EssentialsRecipeTileEntity<T extends IRecipe<?>> extends E
   }
 
   protected static void splitAndSpawnExperience(World world, BlockPos pos, int craftedAmount, float experience) {
-    int i = MathHelper.floor((float)craftedAmount * experience);
-    float f = MathHelper.frac((float)craftedAmount * experience);
-    if (f != 0.0F && Math.random() < (double)f) {
+    int i = MathHelper.floor((float) craftedAmount * experience);
+    float f = MathHelper.frac((float) craftedAmount * experience);
+    if (f != 0.0F && Math.random() < (double) f) {
       ++i;
     }
 
-    while(i > 0) {
+    while (i > 0) {
       int j = ExperienceOrbEntity.getXPSplit(i);
       i -= j;
       world.addEntity(new ExperienceOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), j));

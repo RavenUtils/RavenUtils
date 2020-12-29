@@ -10,7 +10,8 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.axes;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.planks;
 
 public class EssentialsAxeRecipes extends EssentialsRecipeProvider {
   public EssentialsAxeRecipes(Consumer<IFinishedRecipe> consumer) {

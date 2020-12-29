@@ -72,7 +72,7 @@ public abstract class BaseBucketItem extends Item {
     ItemStack emptyBucket = ((BaseBucketItem) stack.getItem()).withFluid(stack, Fluids.EMPTY);
     if (emptyBucket.isDamageable())
       emptyBucket.damageItem(stack.getDamage() + 1, player,
-              playerEntity -> playerEntity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f));
+          playerEntity -> playerEntity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f));
     return !player.isCreative() ? emptyBucket : stack;
   }
 

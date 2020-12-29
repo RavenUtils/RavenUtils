@@ -4,19 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
-import com.sasnos.ravenutils.init.ModArmorItems;
-import com.sasnos.ravenutils.init.ModBlockItems;
-import com.sasnos.ravenutils.init.ModBlocks;
-import com.sasnos.ravenutils.init.ModContainer;
-import com.sasnos.ravenutils.init.ModEntities;
-import com.sasnos.ravenutils.init.ModFluids;
-import com.sasnos.ravenutils.init.ModFoodItems;
-import com.sasnos.ravenutils.init.ModItems;
-import com.sasnos.ravenutils.init.ModLootTables;
-import com.sasnos.ravenutils.init.ModRecipes;
-import com.sasnos.ravenutils.init.ModTileEntities;
-import com.sasnos.ravenutils.init.ModToolItems;
-import com.sasnos.ravenutils.init.UtilInit;
+import com.sasnos.ravenutils.init.*;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
@@ -28,12 +16,7 @@ import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Food;
-import net.minecraft.item.Foods;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.gen.feature.Feature;
@@ -79,15 +62,14 @@ public class RavenUtils {
 
     new EssentialsTags().init();
 
-    ((FlowerPotBlock)Blocks.FLOWER_POT)
-            .addPlant(EssentialsUtils.resourceLocation("crimleaf"), ModBlocks.POTTED_CRIMLEAF);
-    ((FlowerPotBlock)Blocks.FLOWER_POT)
-            .addPlant(EssentialsUtils.resourceLocation("crimwood_sapling"), ModBlocks.POTTED_CRIMWOOD_SAPLING);
+    ((FlowerPotBlock) Blocks.FLOWER_POT)
+        .addPlant(EssentialsUtils.resourceLocation("crimleaf"), ModBlocks.POTTED_CRIMLEAF);
+    ((FlowerPotBlock) Blocks.FLOWER_POT)
+        .addPlant(EssentialsUtils.resourceLocation("crimwood_sapling"), ModBlocks.POTTED_CRIMWOOD_SAPLING);
 
     //modules aka machines and stuff
     new AlloyFurnaceInit();
     new HandMillInit();
-
 
 
     // Register ourselves for server and other game events we are interested in
@@ -164,14 +146,14 @@ public class RavenUtils {
         maxDamage.setAccessible(true);
         maxDamage.setInt(Items.BUCKET, 512);
         maxDamage.setInt(Items.MILK_BUCKET, 512);
-        for(Fluid fluid : ForgeRegistries.FLUIDS.getValues()){
-          if(fluid.getFilledBucket() == Items.AIR) continue;
+        for (Fluid fluid : ForgeRegistries.FLUIDS.getValues()) {
+          if (fluid.getFilledBucket() == Items.AIR) continue;
           maxDamage.setInt(fluid.getFilledBucket(), 512);
         }
         maxDamage.setAccessible(false);
 
         requireTool.setAccessible(true);
-        for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()){
+        for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()) {
           requireTool.setBoolean(block, true);
         }
 

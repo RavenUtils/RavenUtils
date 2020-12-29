@@ -25,7 +25,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
   HashMap<Integer, DryingObject> slotTimer = new HashMap<>(4);
 
   public DryingRackTileEntity() {
-    super(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryingRackRecipe.DRY_RACK_RECIPE_TYPE);
+    super(ModTileEntities.DRYING_RACK_TILE_ENTITIES.get(), DryingRackRecipe.DRYING_RACK_RECIPE_TYPE);
   }
 
   @Override

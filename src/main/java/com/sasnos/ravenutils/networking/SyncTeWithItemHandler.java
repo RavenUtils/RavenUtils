@@ -16,40 +16,40 @@ import java.util.function.Supplier;
 
 public class SyncTeWithItemHandler {
 
-    private final ItemStack item;
-    private final FluidStack fluid;
-    private final BlockPos pos;
+  private final ItemStack item;
+  private final FluidStack fluid;
+  private final BlockPos pos;
 
-    public SyncTeWithItemHandler(PacketBuffer buf){
-        item = buf.readItemStack();
-        fluid = buf.readFluidStack();
-        pos = buf.readBlockPos();
+  public SyncTeWithItemHandler(PacketBuffer buf) {
+    item = buf.readItemStack();
+    fluid = buf.readFluidStack();
+    pos = buf.readBlockPos();
 
-    }
+  }
 
-    public SyncTeWithItemHandler(ItemStack item, FluidStack fluid, BlockPos pos){
-        this.item = item;
-        this.fluid = fluid;
-        this.pos = pos;
+  public SyncTeWithItemHandler(ItemStack item, FluidStack fluid, BlockPos pos) {
+    this.item = item;
+    this.fluid = fluid;
+    this.pos = pos;
 
-    }
+  }
 
-    public static boolean handle(SyncTeWithItemHandler syncTeWithItemHandler, Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> {
-            World world = DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> SafeClientCall::getClientWorld);
-            TileEntity te = world.getTileEntity(syncTeWithItemHandler.pos);
-            if(te instanceof BarrelTileEntity){
-                ((BarrelTileEntity)te).update(syncTeWithItemHandler.item, syncTeWithItemHandler.fluid);
+  public static boolean handle(SyncTeWithItemHandler syncTeWithItemHandler, Supplier<NetworkEvent.Context> ctx) {
+    ctx.get().enqueueWork(() -> {
+      World world = DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> SafeClientCall::getClientWorld);
+      TileEntity te = world.getTileEntity(syncTeWithItemHandler.pos);
+      if (te instanceof BarrelTileEntity) {
+        ((BarrelTileEntity) te).update(syncTeWithItemHandler.item, syncTeWithItemHandler.fluid);
 
-            }
-        });
-        return true;
-    }
+      }
+    });
+    return true;
+  }
 
-    public void toBuf(PacketBuffer packetBuffer) {
-        packetBuffer.writeItemStack(item);
-        packetBuffer.writeFluidStack(fluid);
-        packetBuffer.writeBlockPos(pos);
-    }
+  public void toBuf(PacketBuffer packetBuffer) {
+    packetBuffer.writeItemStack(item);
+    packetBuffer.writeFluidStack(fluid);
+    packetBuffer.writeBlockPos(pos);
+  }
 
 }

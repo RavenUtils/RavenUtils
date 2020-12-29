@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.containers.EssentialsMachineBlockContainer;
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.recipes.mill_recipe.MillRecipe;
+import com.sasnos.ravenutils.recipes.hand_mill_recipe.HandMillRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Slot;
@@ -55,7 +55,7 @@ public class HandMillContainer extends EssentialsMachineBlockContainer {
         slot.onSlotChange(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(MillRecipe.MILL_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(HandMillRecipe.HAND_MILL_RECIPE_TYPE, this.tileEntity.getWorld());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if (inputs.contains(stack.getItem())) {
           if (!this.mergeItemStack(stack, 0, 1, false)) {

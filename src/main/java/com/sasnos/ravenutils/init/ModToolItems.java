@@ -1,34 +1,10 @@
 package com.sasnos.ravenutils.init;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Bag;
-import com.sasnos.ravenutils.items.Bedroll;
-import com.sasnos.ravenutils.items.Bucket;
-import com.sasnos.ravenutils.items.Chisel;
-import com.sasnos.ravenutils.items.Firestarter;
-import com.sasnos.ravenutils.items.Hammer;
-import com.sasnos.ravenutils.items.Handsaw;
-import com.sasnos.ravenutils.items.Knife;
-import com.sasnos.ravenutils.items.MilkBucket;
-import com.sasnos.ravenutils.items.Mortar;
-import com.sasnos.ravenutils.items.SewingNeedle;
-import com.sasnos.ravenutils.items.Soap;
-import com.sasnos.ravenutils.items.Tongs;
+import com.sasnos.ravenutils.items.*;
 import com.sasnos.ravenutils.utils.enums.Bags;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.BucketItem;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTier;
-import net.minecraft.item.Items;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ShearsItem;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -137,11 +113,11 @@ public class ModToolItems {
 
   // hammers
   public static final RegistryObject<Item> HAMMER_STONE = ITEMS.register("hammer_stone",
-          () -> new Hammer(64, Rarity.COMMON, 1.5F, -3.0F, ItemTier.STONE));
+      () -> new Hammer(64, Rarity.COMMON, 1.5F, -3.0F, ItemTier.STONE));
   public static final RegistryObject<Item> HAMMER_IRON = ITEMS.register("hammer_iron",
-          () -> new Hammer(256, Rarity.COMMON, 1.5F, -3.0F, ItemTier.IRON));
+      () -> new Hammer(256, Rarity.COMMON, 1.5F, -3.0F, ItemTier.IRON));
   public static final RegistryObject<Item> HAMMER_OBSIDIAN = ITEMS.register("hammer_obsidian",
-          () -> new Hammer(1024, Rarity.UNCOMMON, 3, -2.4F, ItemTier.DIAMOND));
+      () -> new Hammer(1024, Rarity.UNCOMMON, 3, -2.4F, ItemTier.DIAMOND));
 
   // tongs
   public static final RegistryObject<Item> TONGS_WOOD = ITEMS.register("tongs_wooden",
@@ -153,45 +129,45 @@ public class ModToolItems {
 
   // handsaws
   public static final RegistryObject<Item> HANDSAW_IRON = ITEMS.register("handsaw_iron",
-          () -> new Handsaw(256, Rarity.COMMON));
+      () -> new Handsaw(256, Rarity.COMMON));
   public static final RegistryObject<Item> HANDSAW_STEEL = ITEMS.register("handsaw_steel",
-          () -> new Handsaw(512, Rarity.UNCOMMON));
+      () -> new Handsaw(512, Rarity.UNCOMMON));
 
   // knives
   public static final RegistryObject<Item> KNIFE_FLINT = ITEMS.register("knife_flint",
-          () -> new Knife(32, Rarity.COMMON));
+      () -> new Knife(32, Rarity.COMMON));
   public static final RegistryObject<Item> KNIFE_IRON = ITEMS.register("knife_iron",
-          () -> new Knife(256, Rarity.COMMON));
+      () -> new Knife(256, Rarity.COMMON));
   public static final RegistryObject<Item> KNIFE_STEEL = ITEMS.register("knife_steel",
-          () -> new Knife(512, Rarity.UNCOMMON));
+      () -> new Knife(512, Rarity.UNCOMMON));
 
   // wooden buckets
   public static final RegistryObject<Item> BUCKET_WOOD = ITEMS.register("bucket_wood",
-          () -> new Bucket(ItemStack.EMPTY.getItem(), 32, ModToolItems.BUCKET_WOOD_MILK::get));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 32, ModToolItems.BUCKET_WOOD_MILK::get));
   public static final RegistryObject<Item> BUCKET_WOOD_MILK = ITEMS.register("bucket_wood_milk",
-          () -> new MilkBucket(ModToolItems.BUCKET_WOOD.get(), 32));
-  
+      () -> new MilkBucket(ModToolItems.BUCKET_WOOD.get(), 32));
+
   // clay buckets
   public static final RegistryObject<Item> BUCKET_CLAY = ITEMS.register("bucket_clay",
-          () -> new Bucket(ItemStack.EMPTY.getItem(), 64, ModToolItems.BUCKET_CLAY_MILK::get));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 64, ModToolItems.BUCKET_CLAY_MILK::get));
   public static final RegistryObject<Item> BUCKET_CLAY_MILK = ITEMS.register("bucket_clay_milk",
-          () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
+      () -> new MilkBucket(ModToolItems.BUCKET_CLAY.get(), 64));
   // crimwood buckets
   public static final RegistryObject<Item> BUCKET_CRIMWOOD = ITEMS.register("bucket_crimwood",
-          () -> new Bucket(ItemStack.EMPTY.getItem(), 0, ModToolItems.BUCKET_CRIMWOOD_MILK::get));
+      () -> new Bucket(ItemStack.EMPTY.getItem(), 0, ModToolItems.BUCKET_CRIMWOOD_MILK::get));
   public static final RegistryObject<Item> BUCKET_CRIMWOOD_MILK = ITEMS.register("bucket_crimwood_milk",
-          () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
+      () -> new MilkBucket(ModToolItems.BUCKET_CRIMWOOD.get(), 0));
   // iron bucket (Vanilla override)
   //  public static final RegistryObject<Item> BUCKET_IRON = VANILLA_ITEM_OVERRIDE.register(Items.BUCKET.getRegistryName().getPath(),
   //      () -> new Bucket(ItemStack.EMPTY.getItem(), 512, ModToolItems.BUCKET_IRON_MILK::get));
   //  public static final RegistryObject<Item> BUCKET_IRON_MILK = VANILLA_ITEM_OVERRIDE.register(Items.MILK_BUCKET.getRegistryName().getPath(),
   //      () -> new MilkBucket(ModToolItems.BUCKET_IRON.get(), 512));
   public static final RegistryObject<Item> BUCKET_IRON_LIMEWATER = ITEMS.register("bucket_iron_limewater",
-          () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
-                  .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+      () -> new BucketItem(ModFluids.LIMEWATER::get, (new Item.Properties())
+          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
   public static final RegistryObject<Item> BUCKET_IRON_TANNIN = ITEMS.register("bucket_iron_tannin",
-          () -> new BucketItem(ModFluids.TANNIN::get, (new Item.Properties())
-                  .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
+      () -> new BucketItem(ModFluids.TANNIN::get, (new Item.Properties())
+          .containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC)));
 
   // shears (maxDmg iron: 238)
   public static final RegistryObject<ShearsItem> SHEARS_COPPER = ITEMS.register("shears_copper",

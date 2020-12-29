@@ -11,11 +11,11 @@ public class Utils {
     return new ResourceLocation(modId, namespace);
   }
 
-  public static FluidStack createFluidStackFromBucket(BucketItem bucket){
+  public static FluidStack createFluidStackFromBucket(BucketItem bucket) {
     return new FluidStack(bucket.getFluid(), 1000);
   }
 
-  public static FluidStack createFluidStackFromBucket(BaseBucketItem bucket, ItemStack stack){
+  public static FluidStack createFluidStackFromBucket(BaseBucketItem bucket, ItemStack stack) {
     return new FluidStack(bucket.getFluid(stack), 1000);
   }
 }

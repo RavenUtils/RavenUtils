@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface ILootTableProvider<T> {
 
-    @NotNull
-    Map<T, LootTable.Builder> getTables();
+  @NotNull
+  Map<T, LootTable.Builder> getTables();
 }

@@ -20,17 +20,17 @@ public class ModTileEntities {
           .build(null));
 
   public static RegistryObject<TileEntityType<BarrelTileEntity>> BARREL_TILE_ENTITIES = TILE_ENTITY.register(
-          "barrel",
-          () -> TileEntityType.Builder
+      "barrel",
+      () -> TileEntityType.Builder
           .create(BarrelTileEntity::new, ModBlocks.BARREL.get())
-                  .build(null)
+          .build(null)
   );
 
-  public static RegistryObject<TileEntityType<DryingRackTileEntity>> DRY_RACK_TILE_ENTITIES = TILE_ENTITY.register(
-          "drying_rack",
-          () -> TileEntityType.Builder
-                  .create(DryingRackTileEntity::new, ModBlocks.DRYING_RACK.get())
-                  .build(null)
+  public static RegistryObject<TileEntityType<DryingRackTileEntity>> DRYING_RACK_TILE_ENTITIES = TILE_ENTITY.register(
+      "drying_rack",
+      () -> TileEntityType.Builder
+          .create(DryingRackTileEntity::new, ModBlocks.DRYING_RACK.get())
+          .build(null)
   );
 
 

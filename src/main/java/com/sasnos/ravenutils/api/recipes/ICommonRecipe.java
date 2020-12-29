@@ -20,6 +20,7 @@ public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
 
   /**
    * Use the NonNullList Version {@link ICommonRecipe#getOutput()}
+   *
    * @return
    */
   @Deprecated

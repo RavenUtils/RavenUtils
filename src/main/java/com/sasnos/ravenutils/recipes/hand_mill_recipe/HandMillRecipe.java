@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.mill_recipe;
+package com.sasnos.ravenutils.recipes.hand_mill_recipe;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.CommonRecipe;
@@ -13,16 +13,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
-public class MillRecipe extends CommonRecipe {
+public class HandMillRecipe extends CommonRecipe {
 
-  public static final IRecipeType<MillRecipe> MILL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":mill");
+  public static final IRecipeType<HandMillRecipe> HAND_MILL_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":mill");
 
   private final float change;
   private final ItemStack additionalResult;
   private final float additionalChance;
 
-  public MillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance) {
-    super(id, MILL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, input), time, NonNullList.from(ItemStack.EMPTY, output), 0);
+  public HandMillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance) {
+    super(id, HAND_MILL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, input), time, NonNullList.from(ItemStack.EMPTY, output), 0);
     this.change = additionalDropChance;
     this.additionalChance = additionalChance;
     this.additionalResult = additionalResult;
@@ -41,7 +41,7 @@ public class MillRecipe extends CommonRecipe {
   @Override
   @NotNull
   public IRecipeSerializer<?> getSerializer() {
-    return ModRecipes.MILL_RECIPE_SERIALIZER.get();
+    return ModRecipes.HAND_MILL_RECIPE_SERIALIZER.get();
   }
 
 

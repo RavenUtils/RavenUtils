@@ -112,7 +112,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
 
   @Override
   public T getRecipe(ItemStack stack) {
-    if(stack == ItemStack.EMPTY) return null;
+    if (stack == ItemStack.EMPTY) return null;
 
     Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
     RecipeWrapper wrapper = new RecipeWrapper(itemHandler);
@@ -121,11 +121,11 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
 
   @Override
   public T getRecipeFromOutput(ItemStack result) {
-      if(result == ItemStack.EMPTY) return null;
+    if (result == ItemStack.EMPTY) return null;
 
-      Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
 
-      return matchingOutput(recipes, result, world);
+    return matchingOutput(recipes, result, world);
   }
 
   protected abstract T matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world);
@@ -154,7 +154,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
     if (recipe != null && this.canSmelt(recipe)) {
       ItemStack input = this.itemHandler.getStackInSlot(0);
       ItemStack output = recipe.getRecipeOutput();
-      if(recipe instanceof CommonRecipe){
+      if (recipe instanceof CommonRecipe) {
         output = ((CommonRecipe) recipe).getOutput().get(0);
       }
       ItemStack outputSlot = this.itemHandler.getStackInSlot(2);
@@ -206,7 +206,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
       ItemStack fuel = itemHandler.getStackInSlot(getFuelSlot());
       if (isBurning() || !fuel.isEmpty()) {
         ICommonRecipe recipe = (ICommonRecipe) getRecipe(itemHandler.getStackInSlot(0));
-        if(this.recipe != recipe){
+        if (this.recipe != recipe) {
           cookingTime = 0;
           this.recipe = recipe;
         }
@@ -224,7 +224,7 @@ public abstract class EssentialsMachineTileEntity<T extends IRecipe<?>> extends 
         } else {
           cookingTime = 0;
         }
-        if(cookingTimeTotal == 0 && !itemHandler.getStackInSlot(0).isEmpty() && recipe != null){
+        if (cookingTimeTotal == 0 && !itemHandler.getStackInSlot(0).isEmpty() && recipe != null) {
           cookingTimeTotal = recipe.getTimer();
         }
       } else if (!this.isBurning() && this.cookingTime > 0) {

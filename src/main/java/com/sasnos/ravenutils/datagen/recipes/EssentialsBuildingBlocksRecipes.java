@@ -12,7 +12,7 @@ import net.minecraft.item.Items;
 import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.rods_wood;
 
 public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   public EssentialsBuildingBlocksRecipes(Consumer<IFinishedRecipe> consumer) {

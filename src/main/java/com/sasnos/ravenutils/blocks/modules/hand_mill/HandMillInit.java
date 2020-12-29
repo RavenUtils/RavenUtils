@@ -28,7 +28,7 @@ public class HandMillInit {
           .create(HandMillTileEntity::new, HAND_MILL.get())
           .build(null));
 
-  public static final RegistryObject<TileEntityType<HandMillTileEntity>> STONE_MILL_TILE_ENTITY = ModTileEntities.TILE_ENTITY.register("mill_stone",
+  public static final RegistryObject<TileEntityType<HandMillTileEntity>> MILLSTONE_TILE_ENTITY = ModTileEntities.TILE_ENTITY.register("mill_stone",
       () -> TileEntityType.Builder
           .create(HandMillTileEntity::new, MILLSTONE.get())
           .build(null));

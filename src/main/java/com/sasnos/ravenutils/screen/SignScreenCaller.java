@@ -6,14 +6,14 @@ import net.minecraftforge.fml.DistExecutor;
 
 public class SignScreenCaller implements DistExecutor.SafeRunnable {
 
-    private final SignTileEntity tile;
+  private final SignTileEntity tile;
 
-    public SignScreenCaller(SignTileEntity tile){
-        this.tile = tile;
-    }
+  public SignScreenCaller(SignTileEntity tile) {
+    this.tile = tile;
+  }
 
-    @Override
-    public void run() {
-        Minecraft.getInstance().displayGuiScreen(new SignScreen(tile));
-    }
+  @Override
+  public void run() {
+    Minecraft.getInstance().displayGuiScreen(new SignScreen(tile));
+  }
 }

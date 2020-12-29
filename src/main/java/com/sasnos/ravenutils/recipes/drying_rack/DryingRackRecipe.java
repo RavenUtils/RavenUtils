@@ -14,10 +14,10 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class DryingRackRecipe extends CommonRecipe {
 
-  public static final IRecipeType<DryingRackRecipe> DRY_RACK_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":dry_rack");
+  public static final IRecipeType<DryingRackRecipe> DRYING_RACK_RECIPE_TYPE = IRecipeType.register(RavenUtils.MOD_ID + ":dry_rack");
 
   public DryingRackRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, int timer, NonNullList<ItemStack> result, float xp) {
-    super(id, DRY_RACK_RECIPE_TYPE, ingredients, timer, result, xp);
+    super(id, DRYING_RACK_RECIPE_TYPE, ingredients, timer, result, xp);
   }
 
   @Override
@@ -31,6 +31,6 @@ public class DryingRackRecipe extends CommonRecipe {
 
   @Override
   public IRecipeSerializer<?> getSerializer() {
-    return ModRecipes.DRY_RACK_RECIPE_SERIALIZER.get();
+    return ModRecipes.DRYING_RACK_RECIPE_SERIALIZER.get();
   }
 }

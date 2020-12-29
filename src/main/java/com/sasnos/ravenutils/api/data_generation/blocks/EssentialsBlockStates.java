@@ -14,28 +14,26 @@ import java.util.function.Function;
 
 public abstract class EssentialsBlockStates extends BlockStateProvider {
 
-    public EssentialsBlockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
-        super(gen, modid, exFileHelper);
-    }
+  public EssentialsBlockStates(DataGenerator gen, String modid, ExistingFileHelper exFileHelper) {
+    super(gen, modid, exFileHelper);
+  }
 
-    public void generateBlockStatesForBlock(Block block, Function<BlockState, ModelFile> modelFunction){
-        getVariantBuilder(block)
-                .forAllStates(blockState -> {
-                    return ConfiguredModel.builder()
-                            .modelFile(modelFunction.apply(blockState))
-                            .build();
-                });
-    }
+  public void generateBlockStatesForBlock(Block block, Function<BlockState, ModelFile> modelFunction) {
+    getVariantBuilder(block)
+        .forAllStates(blockState -> ConfiguredModel.builder()
+            .modelFile(modelFunction.apply(blockState))
+            .build());
+  }
 
-    public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
-        getVariantBuilder(block)
-                .forAllStates(state -> {
-                    Direction dir = state.get(BlockStateProperties.FACING);
-                    return ConfiguredModel.builder()
-                            .modelFile(modelFunc.apply(state))
-                            .rotationX(dir.getAxis() == Direction.Axis.Y ? dir.getAxisDirection().getOffset() * -90 : 0)
-                            .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.getHorizontalIndex() + 2) % 4) * 90 : 0)
-                            .build();
-                });
-    }
+  public void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
+    getVariantBuilder(block)
+        .forAllStates(state -> {
+          Direction dir = state.get(BlockStateProperties.FACING);
+          return ConfiguredModel.builder()
+              .modelFile(modelFunc.apply(state))
+              .rotationX(dir.getAxis() == Direction.Axis.Y ? dir.getAxisDirection().getOffset() * -90 : 0)
+              .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.getHorizontalIndex() + 2) % 4) * 90 : 0)
+              .build();
+        });
+  }
 }

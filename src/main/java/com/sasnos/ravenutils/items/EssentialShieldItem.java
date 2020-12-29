@@ -8,14 +8,14 @@ import net.minecraft.item.ShieldItem;
 import org.jetbrains.annotations.Nullable;
 
 public class EssentialShieldItem extends ShieldItem {
-    public EssentialShieldItem(Properties builder) {
-        super(builder);
+  public EssentialShieldItem(Properties builder) {
+    super(builder);
 
-        DispenserBlock.registerDispenseBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);
-    }
+    DispenserBlock.registerDispenseBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);
+  }
 
-    @Override
-    public boolean isShield(ItemStack stack, @Nullable LivingEntity entity) {
-        return true;
-    }
+  @Override
+  public boolean isShield(ItemStack stack, @Nullable LivingEntity entity) {
+    return true;
+  }
 }

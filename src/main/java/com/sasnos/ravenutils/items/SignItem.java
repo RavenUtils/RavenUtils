@@ -16,23 +16,23 @@ import javax.annotation.Nullable;
 
 public class SignItem extends WallOrFloorItem {
 
-    public SignItem(Properties propertiesIn, Block floorBlockIn, Block wallBlockIn) {
-        super(floorBlockIn, wallBlockIn, propertiesIn);
+  public SignItem(Properties propertiesIn, Block floorBlockIn, Block wallBlockIn) {
+    super(floorBlockIn, wallBlockIn, propertiesIn);
+  }
+
+  protected boolean onBlockPlaced(BlockPos pos, World worldIn, @Nullable PlayerEntity player, ItemStack stack, BlockState state) {
+    boolean flag = super.onBlockPlaced(pos, worldIn, player, stack, state);
+    SignTileEntity tile = (SignTileEntity) worldIn.getTileEntity(pos);
+    tile.setPlayer(player);
+    if (worldIn.isRemote && !flag) {
+      DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> new SignScreenCaller(tile));
     }
 
-    protected boolean onBlockPlaced(BlockPos pos, World worldIn, @Nullable PlayerEntity player, ItemStack stack, BlockState state) {
-        boolean flag = super.onBlockPlaced(pos, worldIn, player, stack, state);
-        SignTileEntity tile = (SignTileEntity) worldIn.getTileEntity(pos);
-        tile.setPlayer(player);
-        if(worldIn.isRemote && !flag){
-            DistExecutor.safeRunWhenOn(Dist.CLIENT, () ->  new SignScreenCaller(tile));
-        }
+    return flag;
+  }
 
-        return flag;
-    }
-
-    @Override
-    public String getTranslationKey() {
-        return getDefaultTranslationKey();
-    }
+  @Override
+  public String getTranslationKey() {
+    return getDefaultTranslationKey();
+  }
 }

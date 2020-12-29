@@ -13,5 +13,5 @@ public class ModContainer {
       DeferredRegister.create(ForgeRegistries.CONTAINERS, RavenUtils.MOD_ID);
 
   public static final RegistryObject<ContainerType<BagContainer>> BAG_CONTAINER =
-          CONTAINER_TYPES.register("bag_container", () -> IForgeContainerType.create(BagContainer::createClientContainer));
+      CONTAINER_TYPES.register("bag_container", () -> IForgeContainerType.create(BagContainer::createClientContainer));
 }

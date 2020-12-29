@@ -9,16 +9,16 @@ import net.minecraft.item.ToolItem;
 import java.util.HashSet;
 
 public class Hammer extends ToolItem {
-    public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
-        super(attackDamage, attackSpeed, hammerTier, new HashSet<>(), new Properties()
-                .maxStackSize(1)
-                .maxDamage(maxDamage)
-                .rarity(rarity)
-                .setNoRepair());
-    }
+  public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
+    super(attackDamage, attackSpeed, hammerTier, new HashSet<>(), new Properties()
+        .maxStackSize(1)
+        .maxDamage(maxDamage)
+        .rarity(rarity)
+        .setNoRepair());
+  }
 
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        return false;
-    }
+  @Override
+  public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+    return false;
+  }
 }

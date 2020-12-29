@@ -23,49 +23,50 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModEvents {
 
-    @SubscribeEvent
-    public static void stopDrop(PlayerEvent.HarvestCheck event){
-        BlockState state = event.getTargetBlock();
-        if (state.isIn(EssentialsTags.Blocks.requireTool)){
-            PlayerEntity player = event.getPlayer();
-            ItemStack stack = player.getHeldItemMainhand();
-            ToolType tool = state.getHarvestTool();
-            if (stack.isEmpty() || tool == null)
-                event.setCanHarvest(false);
+  @SubscribeEvent
+  public static void stopDrop(PlayerEvent.HarvestCheck event) {
+    BlockState state = event.getTargetBlock();
+    if (state.isIn(EssentialsTags.Blocks.requireTool)) {
+      PlayerEntity player = event.getPlayer();
+      ItemStack stack = player.getHeldItemMainhand();
+      ToolType tool = state.getHarvestTool();
+      if (stack.isEmpty() || tool == null)
+        event.setCanHarvest(false);
 
-            int toolLevel = stack.getHarvestLevel(tool, player, state);
-            if (toolLevel < 0)
-                event.setCanHarvest(false);
-            event.setCanHarvest(toolLevel >= state.getHarvestLevel());
-        }
+      int toolLevel = stack.getHarvestLevel(tool, player, state);
+      if (toolLevel < 0)
+        event.setCanHarvest(false);
+      event.setCanHarvest(toolLevel >= state.getHarvestLevel());
     }
+  }
 
-    @SubscribeEvent
-    public static void stopDestroy(BlockEvent.BreakEvent event){
-        BlockState state = event.getState();
-        if(state.isIn(EssentialsTags.Blocks.requireTool)){
-            event.setCanceled(!state.canHarvestBlock(event.getWorld(), event.getPos(), event.getPlayer()));
-        }
-    }// todo implement getting Flitn Shards from FLint on Overworld Stone
-    @SubscribeEvent
-    public static void smackFlintIntoShards(PlayerInteractEvent.RightClickBlock useFlint) {
-        World world = useFlint.getWorld();
-        if (world.isRemote) return;
-      BlockState blockState = world.getBlockState(useFlint.getPos());
-        Block block = blockState.getBlock();
-
-        if (!(block == Blocks.STONE ||
-                block == Blocks.ANDESITE ||
-                block == Blocks.DIORITE ||
-                block == Blocks.GRANITE ||
-                block == Blocks.OBSIDIAN)) return;
-
-        PlayerEntity player = useFlint.getPlayer();
-        ItemStack item = player.getHeldItem(useFlint.getHand());
-        if (item.getItem() == Items.FLINT) {
-            item.shrink(1);
-            BlockPos pos = useFlint.getPos().offset(player.getHorizontalFacing().getOpposite());
-            InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.FLINT_SHARD.get(), 2));
-        }
+  @SubscribeEvent
+  public static void stopDestroy(BlockEvent.BreakEvent event) {
+    BlockState state = event.getState();
+    if (state.isIn(EssentialsTags.Blocks.requireTool)) {
+      event.setCanceled(!state.canHarvestBlock(event.getWorld(), event.getPos(), event.getPlayer()));
     }
+  }// todo implement getting Flitn Shards from FLint on Overworld Stone
+
+  @SubscribeEvent
+  public static void smackFlintIntoShards(PlayerInteractEvent.RightClickBlock useFlint) {
+    World world = useFlint.getWorld();
+    if (world.isRemote) return;
+    BlockState blockState = world.getBlockState(useFlint.getPos());
+    Block block = blockState.getBlock();
+
+    if (!(block == Blocks.STONE ||
+        block == Blocks.ANDESITE ||
+        block == Blocks.DIORITE ||
+        block == Blocks.GRANITE ||
+        block == Blocks.OBSIDIAN)) return;
+
+    PlayerEntity player = useFlint.getPlayer();
+    ItemStack item = player.getHeldItem(useFlint.getHand());
+    if (item.getItem() == Items.FLINT) {
+      item.shrink(1);
+      BlockPos pos = useFlint.getPos().offset(player.getHorizontalFacing().getOpposite());
+      InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.FLINT_SHARD.get(), 2));
+    }
+  }
 }

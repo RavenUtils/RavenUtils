@@ -10,7 +10,6 @@ import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.tags.ItemTags;
 
@@ -297,7 +296,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('i', rods_wood)
         .addCriterion("has_stone", hasItem(Items.STONE))
         .setGroup("hammers")
-            .addEnactment(Enchantments.KNOCKBACK, 1)
         .build(consumer);
 
     EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_IRON.get())
@@ -309,7 +307,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .key('i', ModItems.METAL_ROD_IRON.get())
         .addCriterion("has_iron", hasItem(Items.IRON_INGOT))
         .setGroup("hammers")
-            .addEnactment(Enchantments.KNOCKBACK, 2)
         .build(consumer);
 
     EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_OBSIDIAN.get())
@@ -322,7 +319,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_leather_strip", hasItem(ModItems.LEATHER_STRIP.get()))
         .addCriterion("has_obsidian", hasItem(Items.OBSIDIAN))
         .setGroup("hammers")
-            .addEnactment(Enchantments.KNOCKBACK, 3)
         .build(consumer);
 
     ShapedRecipeBuilder.shapedRecipe(ModToolItems.TONGS_WOOD.get())
@@ -536,22 +532,18 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
     /* EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_AXE.get())
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
         .addCriterion("has_netherite_axe", hasItem(Items.NETHERITE_AXE))
-        .addEnchantment(Enchantments.EFFICIENCY, 5)
 
     EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_SHOVEL.get())
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
         .addCriterion("has_netherite_shovel", hasItem(Items.NETHERITE_SHOVEL))
-        .addEnchantment(Enchantments.EFFICIENCY, 5)
 
     EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_PICKAXE.get())
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
         .addCriterion("has_netherite_pickaxe", hasItem(Items.NETHERITE_PICKAXE))
-        .addEnchantment(Enchantments.EFFICIENCY, 5)
 
     EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_HOE.get())
         .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
         .addCriterion("has_netherite_hoe", hasItem(Items.NETHERITE_HOE))
-        .addEnchantment(Enchantments.EFFICIENCY, 5) */
 
     // miscellaneous
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CANDLE_ITEM.get())

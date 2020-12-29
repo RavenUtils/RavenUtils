@@ -72,7 +72,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
   @Override
   protected boolean canSmelt(@Nullable IRecipe<?> recipeIn) {
     if (!this.itemHandler.getStackInSlot(0).isEmpty() && recipeIn != null) {
-      ItemStack output = ((AlloyFurnaceRecipe)recipeIn).getOutput().get(0);
+      ItemStack output = ((AlloyFurnaceRecipe) recipeIn).getOutput().get(0);
       ItemStack additionalOutput = ((AlloyFurnaceRecipe) recipeIn).getAdditionalResult();
       if (output.isEmpty()) {
         return false;

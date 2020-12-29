@@ -6,11 +6,11 @@ import net.minecraft.util.ResourceLocation;
 
 public interface IModBoatType {
 
-    public String getName();
+  public String getName();
 
-    public ResourceLocation getTexture();
+  public ResourceLocation getTexture();
 
-    public ItemStack asPlank();
+  public ItemStack asPlank();
 
-    public Item getItem();
+  public Item getItem();
 }

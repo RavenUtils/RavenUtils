@@ -10,13 +10,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class EssentialsFluidTags extends FluidTagsProvider {
 
-    public EssentialsFluidTags(DataGenerator generatorIn, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generatorIn, RavenUtils.MOD_ID, existingFileHelper);
-    }
+  public EssentialsFluidTags(DataGenerator generatorIn, @Nullable ExistingFileHelper existingFileHelper) {
+    super(generatorIn, RavenUtils.MOD_ID, existingFileHelper);
+  }
 
-    @Override
-    protected void registerTags() {
-        getOrCreateBuilder(FluidTags.makeWrapperTag(FluidTags.WATER.getName().getPath()))
-                .add(ModFluids.LIMEWATER.get(), ModFluids.TANNIN.get());
-    }
+  @Override
+  protected void registerTags() {
+    getOrCreateBuilder(FluidTags.makeWrapperTag(FluidTags.WATER.getName().getPath()))
+        .add(ModFluids.LIMEWATER.get(), ModFluids.TANNIN.get());
+  }
 }

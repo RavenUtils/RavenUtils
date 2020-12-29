@@ -14,35 +14,35 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(BucketItem.class)
 public abstract class MixinBucketItem extends Item {
 
-    @Final
-    @Shadow
-    private Fluid containedBlock;
+  @Final
+  @Shadow
+  private Fluid containedBlock;
 
-    public MixinBucketItem(Properties properties) {
-        super(properties);
+  public MixinBucketItem(Properties properties) {
+    super(properties);
+  }
+
+  @Override
+  public boolean isEnchantable(ItemStack stack) {
+    return false;
+  }
+
+  /**
+   * @reason add way to add damage to the bucket when emptied and destroy it when exceed max Damage
+   * @author Unbekannt
+   */
+  @Overwrite
+  protected ItemStack emptyBucket(ItemStack itemstack, PlayerEntity playerIn) {
+    if (playerIn.abilities.isCreativeMode) {
+      return itemstack;
     }
 
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return false;
+    if (itemstack.getDamage() + 1 > itemstack.getMaxDamage()) {
+      return ItemStack.EMPTY;
     }
-
-    /**
-     * @reason add way to add damage to the bucket when emptied and destroy it when exceed max Damage
-     * @author Unbekannt
-     */
-    @Overwrite
-    protected ItemStack emptyBucket(ItemStack itemstack, PlayerEntity playerIn) {
-        if(playerIn.abilities.isCreativeMode){
-            return itemstack;
-        }
-
-        if(itemstack.getDamage()+1 > itemstack.getMaxDamage()){
-            return ItemStack.EMPTY;
-        }
-        int damage = itemstack.getDamage()+1;
-        ItemStack newBucket = new ItemStack(Items.BUCKET);
-        newBucket.setDamage(damage);
-        return newBucket;
-    }
+    int damage = itemstack.getDamage() + 1;
+    ItemStack newBucket = new ItemStack(Items.BUCKET);
+    newBucket.setDamage(damage);
+    return newBucket;
+  }
 }

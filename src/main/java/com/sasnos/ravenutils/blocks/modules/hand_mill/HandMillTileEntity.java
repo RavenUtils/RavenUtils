@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
-import com.sasnos.ravenutils.recipes.mill_recipe.MillRecipe;
+import com.sasnos.ravenutils.recipes.hand_mill_recipe.HandMillRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -18,13 +18,13 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> {
+public class HandMillTileEntity extends EssentialsMachineTileEntity<HandMillRecipe> {
 
   public static final String SCREEN_NAME = "screen.ravenutils.hand_mill";
   private int counter;
 
   public HandMillTileEntity() {
-    super(HandMillInit.HAND_MILL_TILE_ENTITY.get(), MillRecipe.MILL_RECIPE_TYPE);
+    super(HandMillInit.HAND_MILL_TILE_ENTITY.get(), HandMillRecipe.HAND_MILL_RECIPE_TYPE);
   }
 
   /**
@@ -38,22 +38,22 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
   }
 
   @Override
-    protected MillRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
-        for (IRecipe<?> iRecipe : recipes){
-            if(!(iRecipe instanceof MillRecipe))continue;
-            MillRecipe recipe = (MillRecipe) iRecipe;
-            if(ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)){
-                return recipe;
-            }
-        }
-        return null;
-    }
-
-    @Override
-  protected MillRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
+  protected HandMillRecipe matchingOutput(Set<IRecipe<?>> recipes, ItemStack result, World world) {
     for (IRecipe<?> iRecipe : recipes) {
-      if (!(iRecipe instanceof MillRecipe)) continue;
-      MillRecipe recipe = (MillRecipe) iRecipe;
+      if (!(iRecipe instanceof HandMillRecipe)) continue;
+      HandMillRecipe recipe = (HandMillRecipe) iRecipe;
+      if (ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)) {
+        return recipe;
+      }
+    }
+    return null;
+  }
+
+  @Override
+  protected HandMillRecipe matching(Set<IRecipe<?>> recipes, RecipeWrapper wrapper, World world) {
+    for (IRecipe<?> iRecipe : recipes) {
+      if (!(iRecipe instanceof HandMillRecipe)) continue;
+      HandMillRecipe recipe = (HandMillRecipe) iRecipe;
       if (recipe.matches(wrapper, world)) {
         return recipe;
       }
@@ -74,15 +74,15 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
         markDirty();
       }
 
-            @Override
-            public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-                if(slot == 0){
-                    return getAllRecipeInputsAsItems(MillRecipe.MILL_RECIPE_TYPE, world).contains(stack.getItem());
+      @Override
+      public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+        if (slot == 0) {
+          return getAllRecipeInputsAsItems(HandMillRecipe.HAND_MILL_RECIPE_TYPE, world).contains(stack.getItem());
         }
         if (slot == 1 || slot == 2) {
-          List<IRecipe<?>> recipes = findRecipeByType(MillRecipe.MILL_RECIPE_TYPE, world).stream().filter(iRecipe -> {
-            return ((MillRecipe) iRecipe).getCraftingResult(null).getItem() == stack.getItem()
-                || ((MillRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
+          List<IRecipe<?>> recipes = findRecipeByType(HandMillRecipe.HAND_MILL_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+            return ((HandMillRecipe) iRecipe).getCraftingResult(null).getItem() == stack.getItem()
+                || ((HandMillRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
           }).collect(Collectors.toList());
           return !recipes.isEmpty();
         }
@@ -92,7 +92,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if (slot == 0 && !getAllRecipeInputsAsItems(MillRecipe.MILL_RECIPE_TYPE, world).contains(stack.getItem())) {
+        if (slot == 0 && !getAllRecipeInputsAsItems(HandMillRecipe.HAND_MILL_RECIPE_TYPE, world).contains(stack.getItem())) {
           return stack;
         }
         return super.insertItem(slot, stack, simulate);
@@ -122,7 +122,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
         ||
         itemHandler.getStackInSlot(1).getMaxStackSize() == itemHandler.getStackInSlot(1).getCount()) return false;
 
-    MillRecipe recipe = getRecipe(itemHandler.getStackInSlot(0));
+    HandMillRecipe recipe = getRecipe(itemHandler.getStackInSlot(0));
     int timer = recipe.getTimer() / 10;
 
     if (counter == 0) {
@@ -138,7 +138,7 @@ public class HandMillTileEntity extends EssentialsMachineTileEntity<MillRecipe> 
     return true;
   }
 
-  private void finishCrafting(MillRecipe recipe) {
+  private void finishCrafting(HandMillRecipe recipe) {
     Random rand = new Random();
     ItemStack output = recipe.getOutput().get(0);
     if (rand.nextFloat() <= recipe.getAdditionalDropChange()) {

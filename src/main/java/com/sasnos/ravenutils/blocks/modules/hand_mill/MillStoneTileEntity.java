@@ -11,7 +11,7 @@ public class MillStoneTileEntity extends TileEntity {
   private int maxDamage;
 
   public MillStoneTileEntity() {
-    super(HandMillInit.STONE_MILL_TILE_ENTITY.get());
+    super(HandMillInit.MILLSTONE_TILE_ENTITY.get());
   }
 
   public void setDamage(int maxDamage, int damage) {

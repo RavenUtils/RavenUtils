@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.recipes.mill_recipe;
+package com.sasnos.ravenutils.recipes.hand_mill_recipe;
 
 import com.google.gson.JsonObject;
 import net.minecraft.item.ItemStack;
@@ -11,10 +11,10 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.jetbrains.annotations.Nullable;
 
-public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<MillRecipe> {
+public class HandMillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<HandMillRecipe> {
 
   @Override
-  public MillRecipe read(ResourceLocation recipeId, JsonObject json) {
+  public HandMillRecipe read(ResourceLocation recipeId, JsonObject json) {
     ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
     Ingredient inputs = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
     int timer = JSONUtils.getInt(json, "timer");
@@ -27,11 +27,11 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
       change = JSONUtils.getFloat(additional, "change");
     }
 
-    return new MillRecipe(recipeId, timer, inputs, additionalDropChance, output, additionalOutput, change);
+    return new HandMillRecipe(recipeId, timer, inputs, additionalDropChance, output, additionalOutput, change);
   }
 
   @Override
-  public void write(PacketBuffer buffer, MillRecipe recipe) {
+  public void write(PacketBuffer buffer, HandMillRecipe recipe) {
     buffer.writeVarInt(recipe.getIngredients().size());
     recipe.getIngredients().get(0).write(buffer);
     buffer.writeItemStack(recipe.getRecipeOutput());
@@ -43,14 +43,14 @@ public class MillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?
 
   @Nullable
   @Override
-  public MillRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+  public HandMillRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
     Ingredient input = Ingredient.read(buffer);
     ItemStack output = buffer.readItemStack();
     float additionalDropChance = buffer.readFloat();
     int time = buffer.readVarInt();
     ItemStack additionalOutput = buffer.readItemStack();
     float change = buffer.readFloat();
-    return new MillRecipe(recipeId, time, input, additionalDropChance, output, additionalOutput, change);
+    return new HandMillRecipe(recipeId, time, input, additionalDropChance, output, additionalOutput, change);
   }
 
 }

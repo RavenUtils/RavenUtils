@@ -55,7 +55,7 @@ public class EssentialsTags {
 
     //public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":mud_wall");
 
-    public static final ITag.INamedTag<Block> requireTool = BlockTags.makeWrapperTag(RavenUtils.MOD_ID+ ":require_tool");
+    public static final ITag.INamedTag<Block> requireTool = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":require_tool");
   }
 
   public static class Items {

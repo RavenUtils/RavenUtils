@@ -9,23 +9,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.Nullable;
 
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.flower_pots;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.infiniburn_overworld;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.leaves;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.non_flammable_wood;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.ores;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.crimwood_logs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.planks;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.requireTool;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.saplings;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.small_flowers;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_buttons;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_doors;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_fences;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_pressure_plates;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_slabs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_stairs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.wooden_trapdoors;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Blocks.*;
 
 public class EssentialsBlockTags extends BlockTagsProvider {
 
@@ -49,7 +33,7 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     );
 
     getOrCreateBuilder(requireTool)
-            .addTag(BlockTags.LOGS);
+        .addTag(BlockTags.LOGS);
 
     getOrCreateBuilder(saplings).add(ModBlocks.CRIMWOOD_SAPLING.get());
     getOrCreateBuilder(small_flowers).add(ModBlocks.CRIMLEAF.get());
@@ -60,13 +44,13 @@ public class EssentialsBlockTags extends BlockTagsProvider {
     );
 
     getOrCreateBuilder(BlockTags.WOODEN_FENCES)
-            .add(ModBlocks.CRIMWOOD_FENCE.get());
+        .add(ModBlocks.CRIMWOOD_FENCE.get());
 
     getOrCreateBuilder(Tags.Blocks.FENCE_GATES_WOODEN)
-            .add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
+        .add(ModBlocks.CRIMWOOD_FENCE_GATE.get());
 
     getOrCreateBuilder(BlockTags.WALLS)
-            .add(ModBlocks.MUD_BRICK_WALL.get());
+        .add(ModBlocks.MUD_BRICK_WALL.get());
 
     getOrCreateBuilder(crimwood_logs).add(
         ModBlocks.CRIMWOOD_LOG.get(),

@@ -11,11 +11,7 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
@@ -163,16 +159,16 @@ public class FeatureGen {
       for (ConfiguredFeature<?, ?> modOreFeature : ores.values()) {
         event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
       }
-        if (event.getCategory() != Biome.Category.DESERT &&
-            event.getCategory() != Biome.Category.ICY &&
-            event.getCategory() != Biome.Category.MUSHROOM &&
-            event.getCategory() != Biome.Category.OCEAN
-        ) {
-          event.getGeneration()
-                  .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
-                  .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
-          // todo add spawning of Fossil Dirt (Grass and Dirt blocks only)
-        }
+      if (event.getCategory() != Biome.Category.DESERT &&
+          event.getCategory() != Biome.Category.ICY &&
+          event.getCategory() != Biome.Category.MUSHROOM &&
+          event.getCategory() != Biome.Category.OCEAN
+      ) {
+        event.getGeneration()
+            .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
+            .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+        // todo add spawning of Fossil Dirt (Grass and Dirt blocks only)
       }
     }
   }
+}

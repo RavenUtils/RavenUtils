@@ -46,7 +46,7 @@ public class AdditionalDropsForBlocks extends LootModifier {
 
       NonNullList<ItemStack> list = NonNullList.create();
 
-      for (JsonElement json : array){
+      for (JsonElement json : array) {
         JsonObject jsonObject = (JsonObject) json;
         list.add(new ItemStack(JSONUtils.getItem(jsonObject, "item"), JSONUtils.getInt(jsonObject, "count")));
       }
@@ -58,7 +58,7 @@ public class AdditionalDropsForBlocks extends LootModifier {
     public JsonObject write(AdditionalDropsForBlocks instance) {
       JsonObject jsonObject = makeConditions(instance.conditions);
       JsonArray array = new JsonArray();
-      for (ItemStack stack : instance.output){
+      for (ItemStack stack : instance.output) {
         JsonObject jo = new JsonObject();
         jo.addProperty("item", ForgeRegistries.ITEMS.getKey(stack.getItem()).toString());
         jo.addProperty("count", stack.getCount());

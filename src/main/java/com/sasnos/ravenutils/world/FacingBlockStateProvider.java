@@ -19,14 +19,14 @@ import java.util.Random;
 
 public class FacingBlockStateProvider extends BlockStateProvider {
 
-    public static final Codec<FacingBlockStateProvider> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(ResourceLocation.CODEC.xmap(
-                ForgeRegistries.BLOCKS::getValue,
-                ForgeRegistryEntry::getRegistryName).optionalFieldOf("block", Blocks.AIR).forGetter(o -> o.block))
-                .apply(builder, FacingBlockStateProvider::new);
-    });
+  public static final Codec<FacingBlockStateProvider> CODEC = RecordCodecBuilder.create(builder -> {
+    return builder.group(ResourceLocation.CODEC.xmap(
+        ForgeRegistries.BLOCKS::getValue,
+        ForgeRegistryEntry::getRegistryName).optionalFieldOf("block", Blocks.AIR).forGetter(o -> o.block))
+        .apply(builder, FacingBlockStateProvider::new);
+  });
 
-    private Block block;
+  private Block block;
 
   public FacingBlockStateProvider(Block block) {
     this.block = block;
@@ -40,7 +40,7 @@ public class FacingBlockStateProvider extends BlockStateProvider {
   @Override
   public BlockState getBlockState(Random randomIn, BlockPos blockPosIn) {
     Direction direction = Direction.getRandomDirection(randomIn);
-    while (direction == Direction.UP || direction == Direction.DOWN){
+    while (direction == Direction.UP || direction == Direction.DOWN) {
       direction = Direction.getRandomDirection(randomIn);
     }
     return block.getDefaultState().with(BlockStateProperties.HORIZONTAL_FACING, direction);

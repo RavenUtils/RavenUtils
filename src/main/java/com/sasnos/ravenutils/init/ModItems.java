@@ -2,13 +2,7 @@ package com.sasnos.ravenutils.init;
 
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.items.Ash;
-import com.sasnos.ravenutils.items.BlackCoal;
-import com.sasnos.ravenutils.items.ItemBase;
-import com.sasnos.ravenutils.items.Peat;
-import com.sasnos.ravenutils.items.SignItem;
-import com.sasnos.ravenutils.items.Slag;
-import com.sasnos.ravenutils.items.TreeBark;
+import com.sasnos.ravenutils.items.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

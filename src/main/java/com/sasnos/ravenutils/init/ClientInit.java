@@ -40,7 +40,7 @@ public class ClientInit {
     ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
 
     ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
-    ClientRegistry.bindTileEntityRenderer(ModTileEntities.DRY_RACK_TILE_ENTITIES.get(), DryingRackRenderer::new);
+    ClientRegistry.bindTileEntityRenderer(ModTileEntities.DRYING_RACK_TILE_ENTITIES.get(), DryingRackRenderer::new);
   }
 
   @SubscribeEvent
@@ -51,9 +51,9 @@ public class ClientInit {
   @SubscribeEvent
   public static void init(FMLClientSetupEvent event) {
     addShieldPropertyOverrides(new ResourceLocation("blocking"),
-            (stack, world, entity) -> entity != null && entity.isHandActive()
-                    && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
-            ModArmorItems.MYTHERINE_SHIELD.get());
+        (stack, world, entity) -> entity != null && entity.isHandActive()
+            && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
+        ModArmorItems.MYTHERINE_SHIELD.get());
   }
 
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,

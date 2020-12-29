@@ -35,7 +35,7 @@ public abstract class EssentialsRecipe implements ICommonRecipe {
     return ItemStack.EMPTY;
   }
 
-  public boolean hasAdditionalInput(){
+  public boolean hasAdditionalInput() {
     return getIngredients().size() > 1;
   }
 }

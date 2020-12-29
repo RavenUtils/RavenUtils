@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class MillRecipeBuilder {
+public class HandMillRecipeBuilder {
   private IItemProvider output;
   private final Ingredient input;
   private final int count;
@@ -33,7 +33,7 @@ public class MillRecipeBuilder {
   private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
   private String group;
 
-  private MillRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float additionalDropChance) {
+  private HandMillRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float additionalDropChance) {
     this.input = input;
     this.count = count;
     this.timer = timer;
@@ -41,22 +41,22 @@ public class MillRecipeBuilder {
     this.change = additionalDropChance;
   }
 
-  public static MillRecipeBuilder millRecipe(Ingredient input, int count, int timer, IItemProvider output, float additionalDropChance) {
-    return new MillRecipeBuilder(input, count, timer, output, additionalDropChance);
+  public static HandMillRecipeBuilder millRecipe(Ingredient input, int count, int timer, IItemProvider output, float additionalDropChance) {
+    return new HandMillRecipeBuilder(input, count, timer, output, additionalDropChance);
   }
 
-  public MillRecipeBuilder setAdditionalOutput(ItemStack additionalOutput, float additionalChance) {
+  public HandMillRecipeBuilder setAdditionalOutput(ItemStack additionalOutput, float additionalChance) {
     this.additionalResult = additionalOutput;
     this.additionalChance = additionalChance;
     return this;
   }
 
-  public MillRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
+  public HandMillRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
     this.advancementBuilder.withCriterion(name, criterionIn);
     return this;
   }
 
-  public MillRecipeBuilder setGroup(String groupIn) {
+  public HandMillRecipeBuilder setGroup(String groupIn) {
     this.group = groupIn;
     return this;
   }
@@ -191,7 +191,7 @@ public class MillRecipeBuilder {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-      return ModRecipes.MILL_RECIPE_SERIALIZER.get();
+      return ModRecipes.HAND_MILL_RECIPE_SERIALIZER.get();
     }
 
     @Nullable

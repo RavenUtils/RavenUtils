@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
 import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
-import com.sasnos.ravenutils.api.data_generation.builders.DryRackRecipeBuilder;
+import com.sasnos.ravenutils.api.data_generation.builders.DryingRackRecipeBuilder;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
@@ -44,16 +44,16 @@ public class EssentialsRecipe extends RecipeProvider {
     new AlloyFurnaceRecipes(consumer);
 
     new BarrelRecipeBuilder(20)
-            .addFluidIntake(new FluidStack(Fluids.WATER, 200))
-            .addItemIntake(new ItemStack(Items.WHEAT_SEEDS))
-            .addItemOutput(new ItemStack(ModItems.STEEL_NUGGET.get()))
-            .addFluidOutput(ModFluids.LIMEWATER.get())
-            .addCriterion("has_water", hasItem(Items.WATER_BUCKET))
-            .litClosed().build(consumer);
+        .addFluidIntake(new FluidStack(Fluids.WATER, 200))
+        .addItemIntake(new ItemStack(Items.WHEAT_SEEDS))
+        .addItemOutput(new ItemStack(ModItems.STEEL_NUGGET.get()))
+        .addFluidOutput(ModFluids.LIMEWATER.get())
+        .addCriterion("has_water", hasItem(Items.WATER_BUCKET))
+        .litClosed().build(consumer);
 
-    new DryRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 200, Items.LEATHER, 1f)
-    .addCriterion("has_tanned_hide", hasItem(ModItems.HIDE_TANNED.get()))
-    .build(consumer, EssentialsUtils.resourceLocation("leather_from_drying"));
+    new DryingRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 200, Items.LEATHER, 1f)
+        .addCriterion("has_tanned_hide", hasItem(ModItems.HIDE_TANNED.get()))
+        .build(consumer, EssentialsUtils.resourceLocation("leather_from_drying"));
 
   }
 

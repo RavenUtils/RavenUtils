@@ -8,45 +8,45 @@ import net.minecraft.util.NonNullList;
 
 public class BagInventory extends Inventory {
 
-    private final ItemStack stack;
+  private final ItemStack stack;
 
-    public BagInventory(ItemStack stack, int count) {
-        super(count);
-        this.stack = stack;
-        readItemStack();
-    }
+  public BagInventory(ItemStack stack, int count) {
+    super(count);
+    this.stack = stack;
+    readItemStack();
+  }
 
-    public ItemStack getStack() {
-        return stack;
-    }
+  public ItemStack getStack() {
+    return stack;
+  }
 
-    public void readItemStack() {
-        if (stack.getTag() != null) {
-            readNBT(stack.getTag());
-        }
+  public void readItemStack() {
+    if (stack.getTag() != null) {
+      readNBT(stack.getTag());
     }
+  }
 
-    public void writeItemStack() {
-        if (isEmpty()) {
-            stack.removeChildTag("Items");
-        } else {
-            writeNBT(stack.getOrCreateTag());
-        }
+  public void writeItemStack() {
+    if (isEmpty()) {
+      stack.removeChildTag("Items");
+    } else {
+      writeNBT(stack.getOrCreateTag());
     }
+  }
 
-    private void readNBT(CompoundNBT compound) {
-        final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
-        ItemStackHelper.loadAllItems(compound, list);
-        for (int index = 0; index < list.size(); index++) {
-            setInventorySlotContents(index, list.get(index));
-        }
+  private void readNBT(CompoundNBT compound) {
+    final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
+    ItemStackHelper.loadAllItems(compound, list);
+    for (int index = 0; index < list.size(); index++) {
+      setInventorySlotContents(index, list.get(index));
     }
+  }
 
-    private void writeNBT(CompoundNBT compound) {
-        final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
-        for (int index = 0; index < list.size(); index++) {
-            list.set(index, getStackInSlot(index));
-        }
-        ItemStackHelper.saveAllItems(compound, list, false);
+  private void writeNBT(CompoundNBT compound) {
+    final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
+    for (int index = 0; index < list.size(); index++) {
+      list.set(index, getStackInSlot(index));
     }
+    ItemStackHelper.saveAllItems(compound, list, false);
+  }
 }

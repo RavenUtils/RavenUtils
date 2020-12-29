@@ -7,7 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntities {
 
-    public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(ForgeRegistries.ENTITIES, RavenUtils.MOD_ID);
+  public static final DeferredRegister<EntityType<?>> ENTITIES =
+      DeferredRegister.create(ForgeRegistries.ENTITIES, RavenUtils.MOD_ID);
 
 }

@@ -4,11 +4,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.world.IWorld;
 
 public interface IChimney {
-    boolean bottom = false;
+  boolean bottom = false;
 
-    void updateBlock(IWorld worldIn, BlockState facingState);
+  void updateBlock(IWorld worldIn, BlockState facingState);
 
-    default boolean isBottom(){
-        return bottom;
-    }
+  default boolean isBottom() {
+    return bottom;
+  }
 }

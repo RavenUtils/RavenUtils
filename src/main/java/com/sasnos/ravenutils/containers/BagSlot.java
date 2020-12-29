@@ -7,12 +7,12 @@ import net.minecraft.item.ItemStack;
 
 public class BagSlot extends Slot {
 
-    public BagSlot(IInventory inventoryIn, int index, int xPosition, int yPosition) {
-        super(inventoryIn, index, xPosition, yPosition);
-    }
+  public BagSlot(IInventory inventoryIn, int index, int xPosition, int yPosition) {
+    super(inventoryIn, index, xPosition, yPosition);
+  }
 
-    @Override
-    public boolean isItemValid(ItemStack stack) {
-        return !(stack.getItem() == ModToolItems.BAG_CLOTH.get() || stack.getItem() == ModToolItems.BAG_LEATHER.get());
-    }
+  @Override
+  public boolean isItemValid(ItemStack stack) {
+    return !(stack.getItem() == ModToolItems.BAG_CLOTH.get() || stack.getItem() == ModToolItems.BAG_LEATHER.get());
+  }
 }
