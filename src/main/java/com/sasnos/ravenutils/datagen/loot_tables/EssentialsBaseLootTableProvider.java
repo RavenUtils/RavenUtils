@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.datagen.loot_tables;
 
-import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
+import com.sasnos.ravenutils.api.datagen.loot_table.BaseLootTableProvider;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;

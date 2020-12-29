@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
+import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModToolItems;

@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.loot_table;
+package com.sasnos.ravenutils.api.datagen.loot_table;
 
 import net.minecraft.loot.LootTable;
 import org.jetbrains.annotations.NotNull;

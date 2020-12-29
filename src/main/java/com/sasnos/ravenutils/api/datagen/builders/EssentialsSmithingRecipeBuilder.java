@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.builders;
+package com.sasnos.ravenutils.api.datagen.builders;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
@@ -7,7 +7,6 @@ import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.advancements.IRequirementsStrategy;
 import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;

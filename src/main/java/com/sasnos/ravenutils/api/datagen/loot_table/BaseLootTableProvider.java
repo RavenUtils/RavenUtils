@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.loot_table;
+package com.sasnos.ravenutils.api.datagen.loot_table;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

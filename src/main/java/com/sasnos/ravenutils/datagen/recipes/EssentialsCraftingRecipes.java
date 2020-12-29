@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.data_generation.builders.EssentialsShapeRecipeBuilder;
-import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
+import com.sasnos.ravenutils.api.datagen.builders.EssentialsShapeRecipeBuilder;
+import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;

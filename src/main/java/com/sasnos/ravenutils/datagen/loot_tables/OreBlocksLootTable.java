@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.loot_tables;
 
-import com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider;
-import com.sasnos.ravenutils.api.data_generation.loot_table.EssentialsLootTableProvider;
+import com.sasnos.ravenutils.api.datagen.loot_table.BaseLootTableProvider;
+import com.sasnos.ravenutils.api.datagen.loot_table.EssentialsLootTableProvider;
 import com.sasnos.ravenutils.init.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.loot.LootParameterSets;
@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import static com.sasnos.ravenutils.api.data_generation.loot_table.BaseLootTableProvider.createStandardBlockTable;
+import static com.sasnos.ravenutils.api.datagen.loot_table.BaseLootTableProvider.createStandardBlockTable;
 
 public class OreBlocksLootTable extends EssentialsLootTableProvider<Block> {
 

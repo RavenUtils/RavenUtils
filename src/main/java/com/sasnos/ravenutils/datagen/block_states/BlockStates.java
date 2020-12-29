@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.block_states;
 
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.data_generation.blocks.EssentialsBlockStates;
+import com.sasnos.ravenutils.api.datagen.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;

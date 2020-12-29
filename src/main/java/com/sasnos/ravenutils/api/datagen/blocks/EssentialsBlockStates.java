@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.blocks;
+package com.sasnos.ravenutils.api.datagen.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

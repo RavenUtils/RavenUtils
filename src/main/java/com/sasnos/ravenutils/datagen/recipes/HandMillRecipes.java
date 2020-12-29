@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.data_generation.builders.HandMillRecipeBuilder;
-import com.sasnos.ravenutils.api.data_generation.recipes.EssentialsRecipeProvider;
+import com.sasnos.ravenutils.api.datagen.builders.HandMillRecipeBuilder;
+import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.IFinishedRecipe;
@@ -12,9 +12,9 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
 
-public class MillRecipes extends EssentialsRecipeProvider {
+public class HandMillRecipes extends EssentialsRecipeProvider {
 
-  public MillRecipes(Consumer<IFinishedRecipe> consumer) {
+  public HandMillRecipes(Consumer<IFinishedRecipe> consumer) {
     super(consumer);
   }
 

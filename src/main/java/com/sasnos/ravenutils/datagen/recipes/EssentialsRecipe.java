@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
-import com.sasnos.ravenutils.api.data_generation.builders.DryingRackRecipeBuilder;
+import com.sasnos.ravenutils.api.datagen.builders.BarrelRecipeBuilder;
+import com.sasnos.ravenutils.api.datagen.builders.DryingRackRecipeBuilder;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
@@ -39,7 +39,7 @@ public class EssentialsRecipe extends RecipeProvider {
     new EssentialsAxeRecipes(consumer);
     new EssentialsHandsawRecipes(consumer);
     new EssentialsMetalCraftingRecipes(consumer);
-    new MillRecipes(consumer);
+    new HandMillRecipes(consumer);
     new CombatCraftingRecipes(consumer);
     new AlloyFurnaceRecipes(consumer);
 

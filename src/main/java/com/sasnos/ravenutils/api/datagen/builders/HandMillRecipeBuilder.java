@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.builders;
+package com.sasnos.ravenutils.api.datagen.builders;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

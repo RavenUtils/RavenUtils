@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.data_generation.advancement;
+package com.sasnos.ravenutils.api.datagen.advancement;
 
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;

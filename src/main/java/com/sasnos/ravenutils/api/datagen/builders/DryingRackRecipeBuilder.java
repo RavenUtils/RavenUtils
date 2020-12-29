@@ -1,9 +1,9 @@
-package com.sasnos.ravenutils.api.data_generation.builders;
+package com.sasnos.ravenutils.api.datagen.builders;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.data_generation.recipes.FinishedRecipe;
+import com.sasnos.ravenutils.api.datagen.recipes.FinishedRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
