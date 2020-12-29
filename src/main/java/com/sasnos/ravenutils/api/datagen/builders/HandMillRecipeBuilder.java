@@ -18,12 +18,14 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class HandMillRecipeBuilder {
-  private IItemProvider output;
+  private final IItemProvider output;
   private final Ingredient input;
   private final int count;
   private final float change;
@@ -72,7 +74,7 @@ public class HandMillRecipeBuilder {
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.output.asItem().getGroup().getPath() + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(
         id,
         this.group == null ? "" : this.group,
@@ -108,15 +110,15 @@ public class HandMillRecipeBuilder {
   protected static class Result implements IFinishedRecipe {
 
     public final ResourceLocation id;
-    private IItemProvider output;
+    private final IItemProvider output;
     private final Ingredient input;
     private final int count;
     private final float change;
     private final int timer;
-    private Item additionalResult;
-    private int additionalCount;
-    private float additionalChance;
-    private String group;
+    private final Item additionalResult;
+    private final int additionalCount;
+    private final float additionalChance;
+    private final String group;
     public final Advancement.Builder advBuilder;
     public final ResourceLocation advancementId;
 
@@ -147,7 +149,7 @@ public class HandMillRecipeBuilder {
     }
 
     @Override
-    public void serialize(JsonObject json) {
+    public void serialize(@NotNull JsonObject json) {
 
       if (!this.group.isEmpty()) {
         json.addProperty("group", this.group);
@@ -166,7 +168,7 @@ public class HandMillRecipeBuilder {
       json.add("ingredient", ingredients);
 
       JsonObject resultJson = new JsonObject();
-      resultJson.addProperty("item", ForgeRegistries.ITEMS.getKey(this.output.asItem()).toString());
+      resultJson.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.output.asItem())).toString());
       if (this.count > 1) {
         resultJson.addProperty("count", this.count);
       }
@@ -174,7 +176,7 @@ public class HandMillRecipeBuilder {
       json.addProperty("additionalDropChance", change);
       if (additionalResult != null) {
         JsonObject additionalResult = new JsonObject();
-        additionalResult.addProperty("item", ForgeRegistries.ITEMS.getKey(this.additionalResult).toString());
+        additionalResult.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.additionalResult)).toString());
         if (additionalCount > 1) {
           additionalResult.addProperty("count", additionalCount);
         }
@@ -185,12 +187,12 @@ public class HandMillRecipeBuilder {
     }
 
     @Override
-    public ResourceLocation getID() {
+    public @NotNull ResourceLocation getID() {
       return id;
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return ModRecipes.HAND_MILL_RECIPE_SERIALIZER.get();
     }
 

@@ -14,8 +14,10 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class EssentialsSmithingRecipeBuilder {
@@ -46,9 +48,8 @@ public class EssentialsSmithingRecipeBuilder {
   }
 
   public void build(Consumer<IFinishedRecipe> consumer) {
-    this.build(consumer, ForgeRegistries.ITEMS.getKey(output.getItem()).toString());
+    this.build(consumer, Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(output.getItem())).toString());
   }
-
 
   public void build(Consumer<IFinishedRecipe> consumer, String id) {
     this.build(consumer, new ResourceLocation(id));
@@ -57,7 +58,7 @@ public class EssentialsSmithingRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> recipe, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder.withParentId(new ResourceLocation("recipes/root")).withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id)).withRewards(AdvancementRewards.Builder.recipe(id)).withRequirementsStrategy(IRequirementsStrategy.OR);
-    recipe.accept(new EssentialsSmithingRecipeBuilder.Result(id, this.serializer, this.base, this.addition, this.output, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + this.output.getItem().getGroup().getPath() + "/" + id.getPath())));
+    recipe.accept(new EssentialsSmithingRecipeBuilder.Result(id, this.serializer, this.base, this.addition, this.output, this.advancementBuilder, new ResourceLocation(id.getNamespace(), "recipes/" + Objects.requireNonNull(this.output.getItem().getGroup()).getPath() + "/" + id.getPath())));
   }
 
   private void validate(ResourceLocation id) {
@@ -89,9 +90,10 @@ public class EssentialsSmithingRecipeBuilder {
       json.add("base", this.base.serialize());
       json.add("addition", this.addition.serialize());
       JsonObject jsonobject = new JsonObject();
-      jsonobject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.output.getItem()).toString());
+      jsonobject.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.output.getItem())).toString());
       if (output.hasTag()) {
         CompoundNBT tag = output.getTag();
+        assert tag != null;
         if (tag.contains("Damage")) tag.remove("Damage");
         jsonobject.addProperty("nbt", tag.toString());
       }
@@ -101,11 +103,11 @@ public class EssentialsSmithingRecipeBuilder {
     /**
      * Gets the ID for the recipe.
      */
-    public ResourceLocation getID() {
+    public @NotNull ResourceLocation getID() {
       return this.id;
     }
 
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return this.serializer;
     }
 

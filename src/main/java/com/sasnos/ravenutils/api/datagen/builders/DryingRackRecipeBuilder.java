@@ -17,7 +17,9 @@ import net.minecraft.util.IItemProvider;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class DryingRackRecipeBuilder {
@@ -30,16 +32,16 @@ public class DryingRackRecipeBuilder {
   private final float xp;
 
   public DryingRackRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float xp) {
-    if (input.hasNoMatchingItems()) throw new IllegalArgumentException("Input can not be Empty");
-    if (timer < 1) throw new IllegalArgumentException("Timer can not be smaller then 1");
-    if (input.getMatchingStacks().length > 1) throw new IllegalStateException("Max 1 Ingredient can be used");
+    if (input.hasNoMatchingItems()) throw new IllegalArgumentException("Input must not be empty");
+    if (timer < 1) throw new IllegalArgumentException("Timer must not be smaller than 1");
+    if (input.getMatchingStacks().length > 1) throw new IllegalStateException("Max 1 ingredient can be used");
     if (input.getMatchingStacks()[0].getCount() > 1) throw new IllegalStateException("Max amount for input is 1");
     this.input = input;
-    if (count > 1) throw new IllegalArgumentException("Output can not be greater then 1");
+    if (count > 1) throw new IllegalArgumentException("Output cannot be greater than 1");
     this.count = count;
     this.timer = timer;
     this.output = output;
-    if (xp < 1) throw new IllegalArgumentException("xp under 1 do not drop");
+    if (xp < 1) throw new IllegalArgumentException("XP below 1 does not drop");
     this.xp = xp;
   }
 
@@ -67,7 +69,7 @@ public class DryingRackRecipeBuilder {
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.output.asItem().getGroup().getPath() + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
     createRecipe(consumer, id, advancementId);
   }
 
@@ -78,10 +80,10 @@ public class DryingRackRecipeBuilder {
 
   private void validate(ResourceLocation id, boolean ignoreMCNames) {
     if (this.advancementBuilder.getCriteria().isEmpty()) {
-      throw new IllegalStateException("No way of obtaining alloy recipe " + id);
+      throw new IllegalStateException("No way of obtaining recipe " + id);
     }
     if (!ignoreMCNames && id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
-      throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+      throw new IllegalStateException("Change name of recipe to avoid problems with other mods for recipe " + id);
     }
   }
 
@@ -110,7 +112,7 @@ public class DryingRackRecipeBuilder {
     }
 
     @Override
-    public void serialize(JsonObject json) {
+    public void serialize(@NotNull JsonObject json) {
       JsonElement ingredients = this.input.serialize();
       if (ingredients.isJsonArray()) {
         JsonArray ingredientArray = JSONUtils.getJsonArray(ingredients, null);
@@ -123,7 +125,7 @@ public class DryingRackRecipeBuilder {
 
       json.add("ingredient", ingredients);
       JsonObject resultJson = new JsonObject();
-      resultJson.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result.asItem()).toString());
+      resultJson.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result.asItem())).toString());
       if (this.count > 1) {
         resultJson.addProperty("count", this.count);
       }
@@ -135,7 +137,7 @@ public class DryingRackRecipeBuilder {
 
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return ModRecipes.DRYING_RACK_RECIPE_SERIALIZER.get();
     }
   }

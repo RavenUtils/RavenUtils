@@ -16,19 +16,21 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class BarrelRecipeBuilder {
 
-  private int timer;
+  private final int timer;
   private Fluid fluidOutput;
   private ItemStack itemOutput;
 
   private FluidStack fluid;
   private Ingredient input;
-  private Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+  private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
   private String group;
   private boolean closedLit = false;
 
@@ -88,7 +90,7 @@ public class BarrelRecipeBuilder {
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.itemOutput != null ? this.itemOutput.getItem().getGroup().getPath() : "" + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.itemOutput, this.fluidOutput, this.fluid, this.input, closedLit, timer, this.advancementBuilder, advancementId));
   }
 
@@ -101,16 +103,16 @@ public class BarrelRecipeBuilder {
 
   private void validate(ResourceLocation id) {
     if (advancementBuilder.getCriteria().isEmpty()) {
-      throw new IllegalStateException("No way of obtaining alloy recipe " + id);
+      throw new IllegalStateException("No way of obtaining recipe " + id);
     }
     if (this.itemOutput == null && this.fluidOutput == null) {
-      throw new IllegalStateException("Needs Inputs either Fluid or Item for recipe " + id);
+      throw new IllegalStateException("Needs either fluid or item input for recipe " + id);
     }
     if (this.fluid == null || this.fluid == FluidStack.EMPTY) {
-      throw new IllegalStateException("Needs Fluid for recipe " + id);
+      throw new IllegalStateException("Needs fluid for recipe " + id);
     }
     if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
-      throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+      throw new IllegalStateException("Change name of recipe to avoid problems with other mods for recipe " + id);
     }
   }
 
@@ -118,8 +120,8 @@ public class BarrelRecipeBuilder {
 
     public final ResourceLocation id;
     private final FluidStack fluid;
-    private ItemStack output;
-    private Fluid fluidOutput;
+    private final ItemStack output;
+    private final Fluid fluidOutput;
     private final Ingredient input;
     private final int timer;
     private String group;
@@ -141,24 +143,24 @@ public class BarrelRecipeBuilder {
     }
 
     @Override
-    public void serialize(JsonObject json) {
+    public void serialize(@NotNull JsonObject json) {
       JsonArray array = new JsonArray();
       JsonObject object = new JsonObject();
       if (this.output != null) {
-        object.addProperty("item", ForgeRegistries.ITEMS.getKey(output.getItem()).toString());
+        object.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(output.getItem())).toString());
         object.addProperty("count", output.getCount());
         array.add(object);
       }
       object = new JsonObject();
       if (this.fluidOutput != null) {
-        object.addProperty("fluid", fluidOutput.getRegistryName().toString());
+        object.addProperty("fluid", Objects.requireNonNull(fluidOutput.getRegistryName()).toString());
         array.add(object);
       }
       json.add("outputs", array);
       array = new JsonArray();
       object = new JsonObject();
       if (fluid != null) {
-        object.addProperty("fluid", fluid.getFluid().getRegistryName().toString());
+        object.addProperty("fluid", Objects.requireNonNull(fluid.getFluid().getRegistryName()).toString());
         object.addProperty("count", fluid.getAmount());
         array.add(object);
       }
@@ -172,12 +174,12 @@ public class BarrelRecipeBuilder {
     }
 
     @Override
-    public ResourceLocation getID() {
+    public @NotNull ResourceLocation getID() {
       return id;
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return ModRecipes.BARREL_RECIPE_SERIALIZER.get();
     }
 

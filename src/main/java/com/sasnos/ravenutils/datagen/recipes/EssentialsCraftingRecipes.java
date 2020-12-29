@@ -528,23 +528,6 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("bags")
         .build(consumer);
 
-    // todo move to Smithing Recipes
-    /* EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_AXE.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .addCriterion("has_netherite_axe", hasItem(Items.NETHERITE_AXE))
-
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_SHOVEL.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .addCriterion("has_netherite_shovel", hasItem(Items.NETHERITE_SHOVEL))
-
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_PICKAXE.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .addCriterion("has_netherite_pickaxe", hasItem(Items.NETHERITE_PICKAXE))
-
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_HOE.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .addCriterion("has_netherite_hoe", hasItem(Items.NETHERITE_HOE))
-
     // miscellaneous
     ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CANDLE_ITEM.get())
         .patternLine("s")
@@ -726,7 +709,5 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_carrot_on_a_stick", hasItem(Items.CARROT_ON_A_STICK))
         .build(consumer);
     */
-
-
   }
 }

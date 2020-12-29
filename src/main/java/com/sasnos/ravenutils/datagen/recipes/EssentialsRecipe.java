@@ -30,6 +30,7 @@ public class EssentialsRecipe extends RecipeProvider {
     new EssentialsSmeltingRecipes(consumer);
     new EssentialsBlastingRecipes(consumer);
     new EssentialsSmokingRecipes(consumer);
+    new EssentialsSmithingRecipes(consumer);
     new EssentialsCampfireCookingRecipes(consumer);
     new EssentialsStoneCuttingRecipes(consumer);
     new EssentialsBuildingBlocksRecipes(consumer);

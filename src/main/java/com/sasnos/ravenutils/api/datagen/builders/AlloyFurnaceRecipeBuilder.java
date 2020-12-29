@@ -16,19 +16,21 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 public class AlloyFurnaceRecipeBuilder {
 
-  private Item result;
+  private final Item result;
   private Item additionalResult = null;
   private int additionalCount = 0;
   private float additionalChance = 0;
-  private int count;
-  private int timer;
+  private final int count;
+  private final int timer;
   private String group;
   private final List<Material> materials = Lists.newArrayList();
   private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
@@ -40,7 +42,7 @@ public class AlloyFurnaceRecipeBuilder {
   protected AlloyFurnaceRecipeBuilder(Item resultIn, int countIn, int timerIn) {
     result = resultIn;
     count = countIn;
-    if (timerIn < 1) throw new IllegalArgumentException("Timer can not be under 1");
+    if (timerIn < 1) throw new IllegalArgumentException("Timer must be greater than 1");
     timer = timerIn;
   }
 
@@ -88,19 +90,20 @@ public class AlloyFurnaceRecipeBuilder {
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
+    assert this.result.getGroup() != null;
     ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getGroup().getPath() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.result, this.count, this.materials, timer, this.advancementBuilder, advancementId, additionalResult, additionalCount, additionalChance));
   }
 
   private void validate(ResourceLocation id) {
     if (this.advancementBuilder.getCriteria().isEmpty()) {
-      throw new IllegalStateException("No way of obtaining alloy recipe " + id);
+      throw new IllegalStateException("No way of obtaining recipe " + id);
     }
     if (this.materials.isEmpty()) {
-      throw new IllegalStateException("No ingredients for alloy recipe " + id);
+      throw new IllegalStateException("No ingredients for recipe " + id);
     }
     if (id.getNamespace().equals("minecraft") && ForgeRegistries.ITEMS.containsKey(id)) {
-      throw new IllegalStateException("Change Name of Recipe to avoid Problems with other Mods for Recipe " + id);
+      throw new IllegalStateException("Change name of recipe to avoid problems with other mods for recipe " + id);
     }
   }
 
@@ -121,9 +124,9 @@ public class AlloyFurnaceRecipeBuilder {
     public final ResourceLocation id;
     public final String group;
     public final Item result;
-    private Item additionalResult;
-    private int additionalCount;
-    private float additionalChance;
+    private final Item additionalResult;
+    private final int additionalCount;
+    private final float additionalChance;
     public final int count;
     public final int timer;
     public final List<Material> materials;
@@ -156,7 +159,7 @@ public class AlloyFurnaceRecipeBuilder {
     }
 
     @Override
-    public void serialize(JsonObject json) {
+    public void serialize(@NotNull JsonObject json) {
 
       JsonArray jsonarray = new JsonArray();
       for (Material material : this.materials) {
@@ -165,14 +168,14 @@ public class AlloyFurnaceRecipeBuilder {
       json.add("materials", jsonarray);
 
       JsonObject resultJson = new JsonObject();
-      resultJson.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
+      resultJson.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result)).toString());
       if (this.count > 1) {
         resultJson.addProperty("count", this.count);
       }
       json.add("result", resultJson);
       if (additionalResult != null) {
         JsonObject additionalResult = new JsonObject();
-        additionalResult.addProperty("item", ForgeRegistries.ITEMS.getKey(this.additionalResult).toString());
+        additionalResult.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.additionalResult)).toString());
         if (additionalCount > 1) {
           additionalResult.addProperty("count", additionalCount);
         }
@@ -183,12 +186,12 @@ public class AlloyFurnaceRecipeBuilder {
     }
 
     @Override
-    public ResourceLocation getID() {
+    public @NotNull ResourceLocation getID() {
       return id;
     }
 
     @Override
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return ModRecipes.ALLOY_FURNACE_RECIPE_SERIALIZER.get();
     }
 

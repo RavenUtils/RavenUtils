@@ -22,15 +22,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 
 public class EssentialsShapeRecipeBuilder {
-  private static final Logger LOGGER = LogManager.getLogger();
   private final ItemStack result;
   private final List<String> pattern = Lists.newArrayList();
   private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
@@ -122,7 +123,7 @@ public class EssentialsShapeRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, String save) {
     ResourceLocation resourcelocation = ForgeRegistries.ITEMS.getKey(this.result.getItem());
     if ((new ResourceLocation(save)).equals(resourcelocation)) {
-      throw new IllegalStateException("Shaped Recipe " + save + " should remove its 'save' argument");
+      throw new IllegalStateException("Shaped recipe " + save + " should remove its 'save' argument");
     } else {
       this.build(consumerIn, new ResourceLocation(save));
     }
@@ -145,7 +146,7 @@ public class EssentialsShapeRecipeBuilder {
             this.key,
             this.advancementBuilder,
             new ResourceLocation(
-                id.getNamespace(), "recipes/" + this.result.getItem().getGroup().getPath() + "/" + id.getPath()
+                id.getNamespace(), "recipes/" + Objects.requireNonNull(this.result.getItem().getGroup()).getPath() + "/" + id.getPath()
             )
         )
     );
@@ -182,7 +183,7 @@ public class EssentialsShapeRecipeBuilder {
     }
   }
 
-  public class Result implements IFinishedRecipe {
+  public static class Result implements IFinishedRecipe {
     private final ResourceLocation id;
     private final ItemStack result;
     private final String group;
@@ -201,7 +202,7 @@ public class EssentialsShapeRecipeBuilder {
       this.advancementId = advancementIdIn;
     }
 
-    public void serialize(JsonObject json) {
+    public void serialize(@NotNull JsonObject json) {
       if (!this.group.isEmpty()) {
         json.addProperty("group", this.group);
       }
@@ -221,7 +222,7 @@ public class EssentialsShapeRecipeBuilder {
 
       json.add("key", jsonobject);
       JsonObject jsonobject1 = new JsonObject();
-      jsonobject1.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result.getItem()).toString());
+      jsonobject1.addProperty("item", Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(this.result.getItem())).toString());
       if (this.result.getCount() > 1) {
         jsonobject1.addProperty("count", this.result.getCount());
       }
@@ -234,14 +235,14 @@ public class EssentialsShapeRecipeBuilder {
       json.add("result", jsonobject1);
     }
 
-    public IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getSerializer() {
       return IRecipeSerializer.CRAFTING_SHAPED;
     }
 
     /**
      * Gets the ID for the recipe.
      */
-    public ResourceLocation getID() {
+    public @NotNull ResourceLocation getID() {
       return this.id;
     }
 
