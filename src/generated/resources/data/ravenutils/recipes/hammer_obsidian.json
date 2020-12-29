@@ -19,6 +19,6 @@
   },
   "result": {
     "item": "ravenutils:hammer_obsidian",
-    "nbt": "{Enchantments:[{lvl:3s,id:\"minecraft:knockback\"}]}"
+    "nbt": "{}"
   }
 }
