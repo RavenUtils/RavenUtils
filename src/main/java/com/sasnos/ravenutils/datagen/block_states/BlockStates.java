@@ -3,11 +3,13 @@ package com.sasnos.ravenutils.datagen.block_states;
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.datagen.blocks.EssentialsBlockStates;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
+import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class BlockStates extends EssentialsBlockStates {
@@ -326,25 +328,22 @@ public class BlockStates extends EssentialsBlockStates {
 
     // fish trap
     ...
-
+*/
     // hand mill
-    BlockModelBuilder handMill = models().withExistingParent("hand_mill", EssentialsUtils.resourceLocation("block/hand_mill"))
-        .texture("4", "blocks/hand_mill");
+    ModelFile.ExistingModelFile handMill = models().getExistingFile(EssentialsUtils.resourceLocation("block/hand_mill"));
     orientedBlock(HandMillInit.HAND_MILL.get(), blockState -> handMill);
 
     // millstone
-    BlockModelBuilder millstone = models().withExistingParent("millstone", EssentialsUtils.resourceLocation("block/millstone"))
-        .texture("2", "blocks/millstone");
-    axisBlock(HandMillInit.HAND_MILL.get(), blockState -> millstone);
+    ModelFile.ExistingModelFile millstone = models().getExistingFile(EssentialsUtils.resourceLocation("block/millstone"));
+    orientedBlock(HandMillInit.MILLSTONE.get(), blockState -> millstone);
 
-    */
 
     // stone anvils
     // stone
     BlockModelBuilder stoneAnvilStone = models().withExistingParent("stone_anvil_stone", mcLoc("block/template_anvil"))
-        .texture("body", modLoc("blocks/anvil_stone"))
-        .texture("particle", modLoc("blocks/anvil_stone"))
-        .texture("top", modLoc("blocks/anvil_top_stone"));
+            .texture("body", modLoc("blocks/anvil_stone"))
+            .texture("particle", modLoc("blocks/anvil_stone"))
+            .texture("top", modLoc("blocks/anvil_top_stone"));
     horizontalBlock(ModBlocks.STONE_ANVIL_STONE.get(), stoneAnvilStone);
 
     BlockModelBuilder damagedStoneAnvilStone = models().withExistingParent("damaged_anvil_stone", modLoc("stone_anvil_stone"))

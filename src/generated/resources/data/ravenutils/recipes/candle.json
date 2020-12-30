@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s",
+    "t",
+    "b"
+  ],
+  "key": {
+    "s": {
+      "tag": "forge:string"
+    },
+    "t": {
+      "item": "ravenutils:tallow"
+    },
+    "b": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "result": {
+    "item": "ravenutils:candle"
+  }
+}

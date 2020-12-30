@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ckc",
+    " c "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "k": {
+      "tag": "forge:tools/knives"
+    }
+  },
+  "result": {
+    "item": "ravenutils:flower_pot_unfired"
+  }
+}
