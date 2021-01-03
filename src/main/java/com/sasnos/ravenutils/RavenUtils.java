@@ -1,7 +1,5 @@
 package com.sasnos.ravenutils;
 
-import com.google.common.collect.Lists;
-import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModArmorItems;
@@ -19,26 +17,15 @@ import com.sasnos.ravenutils.init.ModToolItems;
 import com.sasnos.ravenutils.init.UtilInit;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
-import com.sasnos.ravenutils.world.gen.FeatureGen;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.function.Supplier;
 
 @Mod(RavenUtils.MOD_ID)
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -72,7 +59,6 @@ public class RavenUtils {
     //modules aka machines and stuff
     new AlloyFurnaceInit();
     new HandMillInit();
-
 
 
     // Register ourselves for server and other game events we are interested in
