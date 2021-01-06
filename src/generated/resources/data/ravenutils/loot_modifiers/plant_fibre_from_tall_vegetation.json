@@ -10,6 +10,14 @@
         {
           "condition": "minecraft:block_state_property",
           "block": "minecraft:large_fern"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:tall_seagrass"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:cactus"
         }
       ]
     },

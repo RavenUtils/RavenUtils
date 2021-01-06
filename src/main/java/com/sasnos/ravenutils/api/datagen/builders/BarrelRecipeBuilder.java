@@ -63,7 +63,7 @@ public class BarrelRecipeBuilder {
     return this;
   }
 
-  public BarrelRecipeBuilder litClosed() {
+  public BarrelRecipeBuilder lidClosed() {
     this.closedLit = true;
     return this;
   }

@@ -10,6 +10,10 @@
         {
           "condition": "minecraft:block_state_property",
           "block": "minecraft:fern"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "minecraft:seagrass"
         }
       ]
     },

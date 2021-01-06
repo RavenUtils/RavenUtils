@@ -99,14 +99,6 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
         }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
     ));
 
-    // todo how to maybe drop resin only once from a log?
-    add("resin_from_spruce_wood_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.SPRUCE_LOG)
-        ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.RESIN_DROP.get()))
-    ));
-
     add("small_stone_from_dirt", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
         new ILootCondition[]{Alternative.builder(
             BlockStateProperty.builder(Blocks.DIRT),
