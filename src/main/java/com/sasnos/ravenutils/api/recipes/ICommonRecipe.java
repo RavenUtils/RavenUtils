@@ -25,10 +25,14 @@ public interface ICommonRecipe extends IRecipe<RecipeWrapper> {
    */
   @Deprecated
   @Override
-  ItemStack getRecipeOutput();
+  default ItemStack getRecipeOutput() {
+    return getOutput().get(0);
+  }
 
   @Deprecated
   @Override
-  ItemStack getCraftingResult(RecipeWrapper inv);
+  default ItemStack getCraftingResult(RecipeWrapper inv) {
+    return getOutput().get(0).copy();
+  }
 
 }
