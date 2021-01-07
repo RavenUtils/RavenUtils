@@ -1,0 +1,11 @@
+{
+  "type": "ravenutils:dry_rack",
+  "ingredient": {
+    "item": "ravenutils:mud_brick"
+  },
+  "result": {
+    "item": "ravenutils:mud_brick_dried"
+  },
+  "timer": 1800,
+  "xp": 0.2
+}

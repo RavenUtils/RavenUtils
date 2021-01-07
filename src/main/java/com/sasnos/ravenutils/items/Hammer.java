@@ -6,7 +6,11 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTier;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ToolItem;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -19,16 +23,21 @@ import java.util.List;
 public class Hammer extends ToolItem {
   public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
     super(attackDamage, attackSpeed, hammerTier, new HashSet<>(),
-        new Properties()
-            .maxStackSize(1)
-            .maxDamage(maxDamage)
-            .rarity(rarity)
-            .setNoRepair()
-            .group(RavenUtils.TAB));
+            new Properties()
+                    .maxStackSize(1)
+                    .maxDamage(maxDamage)
+                    .rarity(rarity)
+                    .setNoRepair()
+                    .group(RavenUtils.TAB));
   }
 
   @Override
   public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+    return false;
+  }
+
+  @Override
+  public boolean isEnchantable(ItemStack stack) {
     return false;
   }
 
@@ -61,7 +70,6 @@ public class Hammer extends ToolItem {
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     super.addInformation(stack, worldIn, tooltip, flagIn);
     ItemStack dummyStack = new ItemStack(stack.getItem());
-    dummyStack.setTag(stack.getTag());
     dummyStack.addEnchantment(Enchantments.KNOCKBACK, getKnockBackLevel(((Hammer) stack.getItem()).getTier()));
     ItemStack.addEnchantmentTooltips(tooltip, dummyStack.getEnchantmentTagList());
   }

@@ -1,0 +1,20 @@
+{
+  "type": "ravenutils:barrel_recipe",
+  "outputs": [
+    {
+      "item": "ravenutils:hide_tanned",
+      "count": 1
+    }
+  ],
+  "inputs": [
+    {
+      "fluid": "ravenutils:source_tanning",
+      "count": 2000
+    },
+    {
+      "item": "ravenutils:hide_scraped"
+    }
+  ],
+  "litClosed": true,
+  "timer": 3600
+}

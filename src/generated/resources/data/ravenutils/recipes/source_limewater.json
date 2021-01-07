@@ -2,22 +2,18 @@
   "type": "ravenutils:barrel_recipe",
   "outputs": [
     {
-      "item": "ravenutils:steel_nugget",
-      "count": 1
-    },
-    {
       "fluid": "ravenutils:source_limewater"
     }
   ],
   "inputs": [
     {
       "fluid": "minecraft:water",
-      "count": 200
+      "count": 1000
     },
     {
-      "item": "minecraft:wheat_seeds"
+      "item": "ravenutils:lime"
     }
   ],
   "litClosed": true,
-  "timer": 20
+  "timer": 0
 }

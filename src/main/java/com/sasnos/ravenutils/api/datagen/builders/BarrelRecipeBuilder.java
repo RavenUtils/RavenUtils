@@ -86,11 +86,16 @@ public class BarrelRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("recipes/root"))
-        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-        .withRewards(AdvancementRewards.Builder.recipe(id))
-        .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath());
+            .withParentId(new ResourceLocation("recipes/root"))
+            .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
+            .withRewards(AdvancementRewards.Builder.recipe(id))
+            .withRequirementsStrategy(IRequirementsStrategy.OR);
+    ResourceLocation advancementId;
+    if (itemOutput != null) {
+      advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath());
+    } else {
+      advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.fluidOutput.getFluid().getRegistryName()).getPath());
+    }
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.itemOutput, this.fluidOutput, this.fluid, this.input, closedLit, timer, this.advancementBuilder, advancementId));
   }
 

@@ -41,7 +41,6 @@ public class DryingRackRecipeBuilder {
     this.count = count;
     this.timer = timer;
     this.output = output;
-    if (xp < 1) throw new IllegalArgumentException("XP below 1 does not drop");
     this.xp = xp;
   }
 

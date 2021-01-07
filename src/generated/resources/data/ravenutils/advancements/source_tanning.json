@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ravenutils:hide_tanned"
+      "ravenutils:source_tanning"
     ]
   },
   "criteria": {
-    "has_scraped_hide": {
+    "has_oak_log": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "ravenutils:hide_scraped"
+            "item": "minecraft:oak_log"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ravenutils:hide_tanned"
+        "recipe": "ravenutils:source_tanning"
       }
     }
   },
   "requirements": [
     [
-      "has_scraped_hide",
+      "has_oak_log",
       "has_the_recipe"
     ]
   ]

@@ -1,0 +1,11 @@
+{
+  "type": "ravenutils:dry_rack",
+  "ingredient": {
+    "item": "ravenutils:plant_fibre"
+  },
+  "result": {
+    "item": "ravenutils:dried_plant_fibre"
+  },
+  "timer": 200,
+  "xp": 0.1
+}

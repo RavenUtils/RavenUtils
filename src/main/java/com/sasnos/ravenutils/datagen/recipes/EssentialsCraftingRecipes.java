@@ -1,6 +1,5 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.builders.EssentialsShapeRecipeBuilder;
 import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
@@ -17,7 +16,18 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.barks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.buckets_water;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.chisels;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.fishing_rods;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.planks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.rods_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.sewing_needles;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.strings;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.tongs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.wooden_slabs;
 
 public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
   public EssentialsCraftingRecipes(Consumer<IFinishedRecipe> consumer) {
@@ -287,7 +297,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_chisel", hasItemTag(chisels))
         .build(consumer);
 
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_STONE.get())
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_STONE.get())
         .patternLine(" ox")
         .patternLine(" io")
         .patternLine("i  ")
@@ -298,7 +308,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("hammers")
         .build(consumer);
 
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_IRON.get())
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_IRON.get())
         .patternLine(" ox")
         .patternLine(" io")
         .patternLine("i  ")
@@ -309,7 +319,7 @@ public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
         .setGroup("hammers")
         .build(consumer);
 
-    EssentialsShapeRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_OBSIDIAN.get())
+    ShapedRecipeBuilder.shapedRecipe(ModToolItems.HAMMER_OBSIDIAN.get())
         .patternLine(" ox")
         .patternLine(" io")
         .patternLine("i  ")

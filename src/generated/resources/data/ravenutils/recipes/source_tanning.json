@@ -1,0 +1,19 @@
+{
+  "type": "ravenutils:barrel_recipe",
+  "outputs": [
+    {
+      "fluid": "ravenutils:source_tanning"
+    }
+  ],
+  "inputs": [
+    {
+      "fluid": "minecraft:water",
+      "count": 10000
+    },
+    {
+      "item": "minecraft:oak_log"
+    }
+  ],
+  "litClosed": true,
+  "timer": 1200
+}
