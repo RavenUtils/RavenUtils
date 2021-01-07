@@ -12,6 +12,8 @@ import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.RenderMaterials;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.model.RenderMaterial;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.IItemPropertyGetter;
@@ -33,15 +35,35 @@ public class ClientInit {
 
   @SubscribeEvent
   public static void clientStartup(final FMLClientSetupEvent event) {
-    ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
+    event.enqueueWork(() -> {
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+
+      RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.ELDERBERRY_BUSH.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.BLACKBERRY_BUSH.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.GOOSEBERRY_BUSH.get(), RenderType.getCutout());
+
+      RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.getTranslucent());
 
     ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
     ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
     ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
 
-    ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
-    ClientRegistry.bindTileEntityRenderer(ModTileEntities.DRYING_RACK_TILE_ENTITIES.get(), DryingRackRenderer::new);
-  }
+      ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
+      ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
+    });
 
   @SubscribeEvent
   public static void registerModels(ModelRegistryEvent event) {
@@ -54,6 +76,11 @@ public class ClientInit {
         (stack, world, entity) -> entity != null && entity.isHandActive()
             && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
         ModArmorItems.MYTHERINE_SHIELD.get());
+  }
+
+  @SubscribeEvent
+  public static void registerModels(ModelRegistryEvent event) {
+    ModelLoaderRegistry.registerLoader(EssentialsUtils.resourceLocation("bucket"), DynamicBucketModel.Loader.INSTANCE);
   }
 
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,
