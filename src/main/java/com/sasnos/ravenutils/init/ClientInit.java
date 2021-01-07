@@ -11,8 +11,6 @@ import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import com.sasnos.ravenutils.utils.RenderMaterials;
 import net.minecraft.client.gui.ScreenManager;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.model.RenderMaterial;
 import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.item.IItemPropertyGetter;
@@ -65,17 +63,15 @@ public class ClientInit {
     });
   }
 
-  @SubscribeEvent
-  public static void registerModels(ModelRegistryEvent event) {
-    ModelLoaderRegistry.registerLoader(EssentialsUtils.resourceLocation("bucket"), DynamicBucketModel.Loader.INSTANCE);
-  }
-
-  @SubscribeEvent
-  public static void init(FMLClientSetupEvent event) {
     addShieldPropertyOverrides(new ResourceLocation("blocking"),
         (stack, world, entity) -> entity != null && entity.isHandActive()
             && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
         ModArmorItems.MYTHERINE_SHIELD.get());
+  }
+
+  @SubscribeEvent
+  public static void registerModels(ModelRegistryEvent event) {
+    ModelLoaderRegistry.registerLoader(EssentialsUtils.resourceLocation("bucket"), DynamicBucketModel.Loader.INSTANCE);
   }
 
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,
