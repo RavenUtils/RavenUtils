@@ -2,6 +2,7 @@ package com.sasnos.ravenutils.recipes.in_world;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
+import com.sasnos.ravenutils.api.utils.blockingridient.BlockIngredient;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -19,9 +20,9 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
 
     private final NonNullList<Ingredient> input;
     private final NonNullList<ItemStack> output;
-    private final Block block;
+    private final BlockIngredient block;
 
-    public RightClickInWorldRecipe(ResourceLocation id, Ingredient input, Block blockInput, NonNullList<ItemStack> output) {
+    public RightClickInWorldRecipe(ResourceLocation id, Ingredient input, BlockIngredient blockInput, NonNullList<ItemStack> output) {
         super(id);
         this.input = NonNullList.from(Ingredient.EMPTY, input);
         this.output = output;
@@ -45,7 +46,12 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
 
     @Override
     public NonNullList<ItemStack> getOutput() {
-        return output;
+
+        NonNullList<ItemStack> stacks = NonNullList.create();
+        for (ItemStack stack : output) {
+            stacks.add(stack.copy());
+        }
+        return stacks;
     }
 
     @Deprecated
@@ -55,7 +61,11 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
     }
 
     public boolean matches(Block block, ItemStack itemStack) {
-        return block == this.block && input.get(0).test(itemStack);
+        return this.block.test(block) && input.get(0).test(itemStack);
+    }
+
+    public BlockIngredient getBlocks() {
+        return block;
     }
 
     @Override

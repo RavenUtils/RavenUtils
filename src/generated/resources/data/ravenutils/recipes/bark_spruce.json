@@ -1,0 +1,19 @@
+{
+  "type": "ravenutils:right_click",
+  "ingredient": {
+    "item": "minecraft:stone_axe"
+  },
+  "blockIngredient": {
+    "block": "minecraft:spruce_log"
+  },
+  "result": [
+    {
+      "item": "ravenutils:bark_spruce",
+      "count": 1
+    },
+    {
+      "item": "ravenutils:resin_drop",
+      "count": 2
+    }
+  ]
+}

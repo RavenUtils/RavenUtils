@@ -3,15 +3,16 @@ package com.sasnos.ravenutils.events;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.init.ModItems;
+import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
+import com.sasnos.ravenutils.recipes.in_world.RightClickInWorldRecipe;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Food;
@@ -36,6 +37,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ModEvents {
@@ -74,23 +76,29 @@ public class ModEvents {
     BlockState blockState = world.getBlockState(useFlint.getPos());
     Block block = blockState.getBlock();
 
-    if (!(block == Blocks.STONE ||
-            block == Blocks.ANDESITE ||
-            block == Blocks.DIORITE ||
-            block == Blocks.GRANITE ||
-            block == Blocks.OBSIDIAN)) return;
-
     PlayerEntity player = useFlint.getPlayer();
     ItemStack item = player.getHeldItem(useFlint.getHand());
-    if (item.getItem() == Items.FLINT) {
-      item.shrink(1);
+
+    List<RightClickInWorldRecipe> recipes = world.getRecipeManager().getRecipesForType(ModRecipes.RIGHT_CLICK_IN_WORLD_RECIPE_TYPE).stream()
+            .filter(rightClickInWorldRecipe -> rightClickInWorldRecipe.matches(block, item))
+            .collect(Collectors.toList());
+
+
+    for (RightClickInWorldRecipe recipe : recipes) {
+      if (item.isDamageable()) {
+        item.attemptDamageItem(1, useFlint.getPlayer().getRNG(), (ServerPlayerEntity) player);
+      } else {
+        item.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+      }
+
       BlockPos pos = useFlint.getPos().offset(player.getHorizontalFacing().getOpposite());
-      InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.FLINT_SHARD.get(), 2));
+      for (ItemStack stack : recipe.getOutput())
+        InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
     }
   }
 
   @SubscribeEvent
-  private void setup(final FMLCommonSetupEvent event) {
+  public void setup(final FMLCommonSetupEvent event) {
     RavenUtilsPacketHandler.registerNetworkMessages();
 
     event.enqueueWork(() -> {

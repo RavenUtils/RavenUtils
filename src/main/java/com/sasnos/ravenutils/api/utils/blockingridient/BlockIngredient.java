@@ -23,11 +23,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public class BlockIngredient extends Ingredient implements Predicate<Block> {
+public class BlockIngredient extends Ingredient {
     public static final BlockIngredient EMPTY = new BlockIngredient(Stream.empty());
     private final IBlockList[] acceptedBlocks;
     private Block[] matchingBlocks;
@@ -107,7 +106,7 @@ public class BlockIngredient extends Ingredient implements Predicate<Block> {
         return ingredient.acceptedBlocks.length == 0 ? EMPTY : ingredient;
     }
 
-    public static BlockIngredient fromStacks(Block... blocks) {
+    public static BlockIngredient fromBlocks(Block... blocks) {
         return fromBlocks(Arrays.stream(blocks));
     }
 
@@ -153,7 +152,7 @@ public class BlockIngredient extends Ingredient implements Predicate<Block> {
         if (json.has("block") && json.has("tag")) {
             throw new JsonParseException("An block ingredient entry is either a tag or an Block, not both");
         } else if (json.has("block")) {
-            ResourceLocation resourcelocation1 = new ResourceLocation(JSONUtils.getString(json, "item"));
+            ResourceLocation resourcelocation1 = new ResourceLocation(JSONUtils.getString(json, "block"));
             Block block = ForgeRegistries.BLOCKS.getValue(resourcelocation1);
             if (block == null) throw new JsonSyntaxException("Unknown item '" + resourcelocation1 + "'");
             return new SingleItemList(block);

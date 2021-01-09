@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 public class RightClickInWorldRecipeBuilder {
 
     private Ingredient input;
-    private NonNullList<ItemStack> output;
+    private NonNullList<ItemStack> output = NonNullList.create();
     private BlockIngredient block;
 
     private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
@@ -33,8 +33,9 @@ public class RightClickInWorldRecipeBuilder {
 
 
     public RightClickInWorldRecipeBuilder(Ingredient input, ItemStack output, BlockIngredient block) {
+
         this.input = input;
-        this.output = NonNullList.from(ItemStack.EMPTY, output);
+        this.output.add(output);
         this.block = block;
     }
 
@@ -87,7 +88,7 @@ public class RightClickInWorldRecipeBuilder {
         return new Result(id, group, output, input, block, advancementBuilder, advancementId);
     }
 
-    public void validate(ResourceLocation id) {
+    private void validate(ResourceLocation id) {
         if (this.advancementBuilder.getCriteria().isEmpty()) {
             throw new IllegalStateException("No way of obtaining recipe " + id);
         }

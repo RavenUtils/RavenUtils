@@ -50,14 +50,25 @@ public class BarrelRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer
     return new BarrelRecipe(recipeId, itemInput, fluidInput, itemOutput, fluidOutput, lidClosed, timer);
   }
 
-  @Nullable
-  @Override
-  public BarrelRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-    return null;
-  }
+    @Nullable
+    @Override
+    public BarrelRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+        ItemStack output = buffer.readItemStack();
+        Fluid outputFluid = buffer.readFluidStack().getFluid();
+        Ingredient input = Ingredient.read(buffer);
+        FluidStack inputFluid = buffer.readFluidStack();
+        boolean lid = buffer.readBoolean();
+        int timer = buffer.readVarInt();
+        return new BarrelRecipe(recipeId, input, inputFluid, output, outputFluid, lid, timer);
+    }
 
-  @Override
-  public void write(PacketBuffer buffer, BarrelRecipe recipe) {
-
-  }
+    @Override
+    public void write(PacketBuffer buffer, BarrelRecipe recipe) {
+        buffer.writeItemStack(recipe.getOutput().get(0));
+        buffer.writeFluidStack(new FluidStack(recipe.getFluidOutput(), 2));
+        recipe.getIngredients().get(0).write(buffer);
+        buffer.writeFluidStack(recipe.getFluidInput());
+        buffer.writeBoolean(recipe.isLidClosed());
+        buffer.writeVarInt(recipe.getTimer());
+    }
 }

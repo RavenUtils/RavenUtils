@@ -1,11 +1,23 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
+import com.sasnos.ravenutils.api.data_generation.builders.BarrelRecipeBuilder;
+import com.sasnos.ravenutils.api.data_generation.builders.RightClickInWorldRecipeBuilder;
+import com.sasnos.ravenutils.api.utils.blockingridient.BlockIngredient;
+import com.sasnos.ravenutils.init.ModFluids;
+import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.ICriterionInstance;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.RecipeProvider;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.function.Consumer;
 
@@ -35,6 +47,19 @@ public class EssentialsRecipe extends RecipeProvider {
     new AlloyFurnaceRecipes(consumer);
     new BarrelRecipes(consumer);
     new DryingRackRecipes(consumer);
+
+    new RightClickInWorldRecipeBuilder(Ingredient.fromItems(Items.FLINT),
+            new ItemStack(ModItems.FLINT_SHARD.get(), 2),
+            BlockIngredient.fromBlockTag(BlockTags.BASE_STONE_OVERWORLD))
+            .addCriterion("has_flint", hasItem(Items.FLINT))
+            .build(consumer);
+
+    new RightClickInWorldRecipeBuilder(Ingredient.fromItems(Items.STONE_AXE),
+            new ItemStack(ModItems.BARK_SPRUCE.get(), 1),
+            BlockIngredient.fromBlocks(Blocks.SPRUCE_LOG))
+            .addOutput(new ItemStack(ModItems.RESIN_DROP.get(), 2))
+            .addCriterion("has_axe", hasItem(Items.STONE_AXE))
+            .build(consumer);
   }
 
   // expose the protected internal methods so i can use tem in external classes
