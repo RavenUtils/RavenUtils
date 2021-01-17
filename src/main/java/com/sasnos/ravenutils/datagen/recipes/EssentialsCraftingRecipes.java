@@ -16,18 +16,7 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.barks;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.buckets_water;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.chisels;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.fishing_rods;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.planks;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.rods_wood;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.sewing_needles;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.strings;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.tongs;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.wooden_slabs;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
 
 public class EssentialsCraftingRecipes extends EssentialsRecipeProvider {
   public EssentialsCraftingRecipes(Consumer<IFinishedRecipe> consumer) {

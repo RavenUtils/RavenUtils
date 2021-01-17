@@ -53,12 +53,12 @@ public class ModBlocks {
   public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle", CandleBlock::new);
   public static final RegistryObject<Block> STONE_GROUND = BLOCKS.register("ground_stone",
       () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.ROCK)
-          .hardnessAndResistance(0.25F)
-          .sound(SoundType.STONE).doesNotBlockMovement().notSolid(), ModItems.SMALL_STONE));
+          .hardnessAndResistance(0.25F).sound(SoundType.STONE)
+          .doesNotBlockMovement().notSolid(), ModItems.SMALL_STONE));
   public static final RegistryObject<Block> STICK_GROUND = BLOCKS.register("ground_stick",
       () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.WOOD)
-          .hardnessAndResistance(0.25F)
-          .sound(SoundType.WOOD).notSolid().doesNotBlockMovement(), () -> Items.STICK));
+          .hardnessAndResistance(0.25F).sound(SoundType.WOOD)
+          .notSolid().doesNotBlockMovement(), () -> Items.STICK));
 
   // fluid blocks
   public static final RegistryObject<Block> LIMEWATER_BLOCK = BLOCKS.register("limewater_block", LimewaterBlock::new);

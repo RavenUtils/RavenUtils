@@ -123,14 +123,14 @@ public class FeatureGen {
         new BlockClusterFeatureConfig.Builder(
             new FacingBlockStateProvider(ModBlocks.STICK_GROUND.get()), SimpleBlockPlacer.PLACER)
             .whitelist(whiteList)
-            .replaceable().tries(2)
+            .replaceable().tries(3)
             .build()
     ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     STONE_GROUND = Feature.RANDOM_PATCH.withConfiguration(
         new BlockClusterFeatureConfig.Builder(
             new FacingBlockStateProvider(ModBlocks.STONE_GROUND.get()), SimpleBlockPlacer.PLACER)
             .whitelist(whiteList)
-            .replaceable().tries(2)
+            .replaceable().tries(4)
             .build()
     ).withPlacement(Features.Placements.PATCH_PLACEMENT);
     Registry.register(registry, resourceLocation("stick_ground"), STICK_GROUND);

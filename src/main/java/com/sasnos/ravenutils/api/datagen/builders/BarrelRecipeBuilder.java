@@ -86,23 +86,19 @@ public class BarrelRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-            .withParentId(new ResourceLocation("recipes/root"))
-            .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-            .withRewards(AdvancementRewards.Builder.recipe(id))
-            .withRequirementsStrategy(IRequirementsStrategy.OR);
+        .withParentId(new ResourceLocation("recipes/root"))
+        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
+        .withRewards(AdvancementRewards.Builder.recipe(id))
+        .withRequirementsStrategy(IRequirementsStrategy.OR);
     ResourceLocation advancementId;
-    if (itemOutput != null) {
-      advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath());
-    } else {
-      advancementId = new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.fluidOutput.getFluid().getRegistryName()).getPath());
-    }
+    advancementId = (itemOutput != null)
+        ? new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath())
+        : new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.fluidOutput.getFluid().getRegistryName()).getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.itemOutput, this.fluidOutput, this.fluid, this.input, closedLit, timer, this.advancementBuilder, advancementId));
   }
 
   protected IFinishedRecipe createFinishedRecipe(ResourceLocation id, String group, ItemStack output, Fluid fluidOutput, FluidStack fluid, Ingredient input, boolean closedLit, int timer, Advancement.Builder advancementBuilder, ResourceLocation advancementId) {
-
     return new Result(id, group == null ? "" : group, output, fluidOutput, fluid, input, closedLit, timer, advancementBuilder, advancementId);
-
   }
 
 
@@ -122,7 +118,6 @@ public class BarrelRecipeBuilder {
   }
 
   protected static class Result implements IFinishedRecipe {
-
     public final ResourceLocation id;
     private final FluidStack fluid;
     private final ItemStack output;

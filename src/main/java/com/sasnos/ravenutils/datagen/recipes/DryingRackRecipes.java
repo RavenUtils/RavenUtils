@@ -23,8 +23,8 @@ public class DryingRackRecipes extends EssentialsRecipeProvider {
         .build(consumer, EssentialsUtils.resourceLocation("dried_plant_fibre_from_drying"));
 
     new DryingRackRecipeBuilder(Ingredient.fromItems(ModItems.MUD_BRICK.get()), 1, 1800, ModItems.MUD_BRICK_DRIED.get(), 0.2f)
-            .addCriterion("has_mud_brick", EssentialsRecipe.hasItem(ModItems.MUD_BRICK.get()))
-            .build(consumer, EssentialsUtils.resourceLocation("mud_brick_from_drying"));
+        .addCriterion("has_mud_brick", EssentialsRecipe.hasItem(ModItems.MUD_BRICK.get()))
+        .build(consumer, EssentialsUtils.resourceLocation("mud_brick_from_drying"));
 
     new DryingRackRecipeBuilder(Ingredient.fromItems(ModItems.HIDE_TANNED.get()), 1, 1200, Items.LEATHER, 1f)
         .addCriterion("has_tanned_hide", EssentialsRecipe.hasItem(ModItems.HIDE_TANNED.get()))

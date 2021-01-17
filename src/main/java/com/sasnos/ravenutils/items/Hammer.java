@@ -6,14 +6,11 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTier;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ToolItem;
+import net.minecraft.item.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -23,12 +20,11 @@ import java.util.List;
 public class Hammer extends ToolItem {
   public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
     super(attackDamage, attackSpeed, hammerTier, new HashSet<>(),
-            new Properties()
-                    .maxStackSize(1)
-                    .maxDamage(maxDamage)
-                    .rarity(rarity)
-                    .setNoRepair()
-                    .group(RavenUtils.TAB));
+        new Properties()
+            .maxStackSize(1)
+            .maxDamage(maxDamage)
+            .rarity(rarity)
+            .group(RavenUtils.TAB));
   }
 
   @Override
@@ -37,7 +33,7 @@ public class Hammer extends ToolItem {
   }
 
   @Override
-  public boolean isEnchantable(ItemStack stack) {
+  public boolean isEnchantable(@NotNull ItemStack stack) {
     return false;
   }
 

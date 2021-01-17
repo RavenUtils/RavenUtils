@@ -134,7 +134,6 @@ public class DryingRackRecipeBuilder {
       json.addProperty("xp", xp);
     }
 
-
     @Override
     public @NotNull IRecipeSerializer<?> getSerializer() {
       return ModRecipes.DRYING_RACK_RECIPE_SERIALIZER.get();
