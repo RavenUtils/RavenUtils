@@ -7,23 +7,23 @@ import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
-import org.jetbrains.annotations.NotNull;
 
 public class RightClickInWorldRecipe extends EssentialsRecipe {
 
-    public static final ResourceLocation RIGHT_CLICK = new ResourceLocation(RavenUtils.MOD_ID, "right_click");
+    public static final IRecipeType<RightClickInWorldRecipe> RIGHT_CLICK_IN_WORLD_RECIPE = IRecipeType.register(RavenUtils.MOD_ID + ":right_click");
 
     private final NonNullList<Ingredient> input;
     private final NonNullList<ItemStack> output;
     private final BlockIngredient block;
 
     public RightClickInWorldRecipe(ResourceLocation id, Ingredient input, BlockIngredient blockInput, NonNullList<ItemStack> output) {
-        super(id);
+        super(id, RIGHT_CLICK_IN_WORLD_RECIPE);
         this.input = NonNullList.from(Ingredient.EMPTY, input);
         this.output = output;
         this.block = blockInput;
@@ -54,6 +54,11 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
         return stacks;
     }
 
+    @Override
+    public float getXp() {
+        return 0;
+    }
+
     @Deprecated
     @Override
     public boolean matches(RecipeWrapper inv, World worldIn) {
@@ -66,10 +71,5 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
 
     public BlockIngredient getBlocks() {
         return block;
-    }
-
-    @Override
-    public @NotNull ResourceLocation getTypeId() {
-        return RIGHT_CLICK;
     }
 }
