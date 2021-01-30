@@ -6,7 +6,6 @@ import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceScreen;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillScreen;
 import com.sasnos.ravenutils.client.render.BarrelRenderer;
-import com.sasnos.ravenutils.client.render.DryingRackRenderer;
 import com.sasnos.ravenutils.client.render.SignRenderer;
 import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
@@ -57,13 +56,14 @@ public class ClientInit {
       RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.getTranslucent());
       RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.getTranslucent());
 
-    ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
-    ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
-    ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
+      ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
+      ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
+      ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
 
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
     });
+  }
 
   @SubscribeEvent
   public static void registerModels(ModelRegistryEvent event) {
@@ -76,11 +76,6 @@ public class ClientInit {
         (stack, world, entity) -> entity != null && entity.isHandActive()
             && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
         ModArmorItems.MYTHERINE_SHIELD.get());
-  }
-
-  @SubscribeEvent
-  public static void registerModels(ModelRegistryEvent event) {
-    ModelLoaderRegistry.registerLoader(EssentialsUtils.resourceLocation("bucket"), DynamicBucketModel.Loader.INSTANCE);
   }
 
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,
