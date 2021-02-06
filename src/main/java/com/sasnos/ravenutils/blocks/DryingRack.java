@@ -32,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class DryingRack extends EssentialsCommonMachineBlock {
 
-  public static final DirectionProperty FACING = BlockStateProperties.FACING;
+  public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
 
   public DryingRack() {

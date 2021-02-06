@@ -3,7 +3,6 @@ package com.sasnos.ravenutils.events;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.init.ModRecipes;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.recipes.in_world.RightClickInWorldRecipe;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
@@ -79,7 +78,7 @@ public class ModEvents {
     PlayerEntity player = useFlint.getPlayer();
     ItemStack item = player.getHeldItem(useFlint.getHand());
 
-    List<RightClickInWorldRecipe> recipes = world.getRecipeManager().getRecipesForType(ModRecipes.RIGHT_CLICK_IN_WORLD_RECIPE_TYPE).stream()
+    List<RightClickInWorldRecipe> recipes = world.getRecipeManager().getRecipesForType(RightClickInWorldRecipe.RIGHT_CLICK_IN_WORLD_RECIPE).stream()
             .filter(rightClickInWorldRecipe -> rightClickInWorldRecipe.matches(block, item))
             .collect(Collectors.toList());
 
