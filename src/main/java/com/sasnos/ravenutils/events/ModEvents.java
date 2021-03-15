@@ -66,6 +66,13 @@ public class ModEvents {
     }
   }
 
+  @SubscribeEvent
+  public static void stripBlock(BlockEvent.BlockToolInteractEvent event){
+    if(event.getToolType() == ToolType.AXE && event.getState().isIn(ModBlocks.CRIMWOOD_LOG.get())){
+      event.setFinalState(ModBlocks.CRIMWOOD_LOG_STRIPPED.get().getDefaultState().with(BlockStateProperties.AXIS, event.getState().get(BlockStateProperties.AXIS)));
+    }
+  }
+  
   // todo implement getting Flitn Shards from FLint on Overworld Stone
 
   @SubscribeEvent
