@@ -21,8 +21,11 @@ public abstract class EssentialsCommonContainer extends Container {
   }
 
   protected void layoutPlayerInventorySlots(int leftCol, int topRow) {
+    layoutPlayerInventorySlots(leftCol, topRow, 9);
+  }
+  protected void layoutPlayerInventorySlots(int leftCol, int topRow, int initial) {
     // Player inventory
-    addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);
+    addSlotBox(playerInventory, initial, leftCol, topRow, 9, 18, 3, 18);
 
     // Hotbar
     topRow += 58;

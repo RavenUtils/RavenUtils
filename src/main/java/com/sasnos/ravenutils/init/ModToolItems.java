@@ -14,7 +14,7 @@ import com.sasnos.ravenutils.items.Mortar;
 import com.sasnos.ravenutils.items.SewingNeedle;
 import com.sasnos.ravenutils.items.Soap;
 import com.sasnos.ravenutils.items.Tongs;
-import com.sasnos.ravenutils.utils.enums.Bags;
+import com.sasnos.ravenutils.utils.enums.BagTypes;
 import com.sasnos.ravenutils.utils.enums.ModItemTier;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BucketItem;
@@ -231,9 +231,9 @@ public class ModToolItems {
 
   // bags
   public static final RegistryObject<Item> BAG_CLOTH = ITEMS.register("bag_cloth",
-      () -> new Bag(new Item.Properties(), Bags.CLOTH));
+      () -> new Bag(new Item.Properties(), BagTypes.CLOTH));
   public static final RegistryObject<Item> BAG_LEATHER = ITEMS.register("bag_leather",
-      () -> new Bag(new Item.Properties(), Bags.LEATHER));
+      () -> new Bag(new Item.Properties(), BagTypes.LEATHER));
 
   // miscellaneous
   public static final RegistryObject<Item> FIRESTARTER = ITEMS.register("firestarter",

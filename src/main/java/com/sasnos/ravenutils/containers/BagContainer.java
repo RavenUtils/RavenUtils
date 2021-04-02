@@ -2,60 +2,53 @@ package com.sasnos.ravenutils.containers;
 
 import com.sasnos.ravenutils.api.containers.EssentialsCommonContainer;
 import com.sasnos.ravenutils.init.ModContainer;
-import com.sasnos.ravenutils.inventories.BagInventory;
 import com.sasnos.ravenutils.items.Bag;
-import com.sasnos.ravenutils.utils.enums.Bags;
+import com.sasnos.ravenutils.utils.enums.BagTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.ClickType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
 
 public class BagContainer extends EssentialsCommonContainer {
 
-  private final Bags bag;
-  private final IInventory bagInv;
+  private final BagTypes bag;
   private final int selectedSlot;
 
-  // Client
-  public static BagContainer createClientContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
-    final Bags bag = buffer.readEnumValue(Bags.class);
-    final int selectedSlot = buffer.readVarInt();
-    return new BagContainer(id, playerInventory, new Inventory(bag.getInventorySize()), bag, selectedSlot);
+  public BagContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
+    this(windowId, playerInventory, extraData.readVarInt());
   }
 
   public BagContainer(
       int id,
       PlayerInventory playerInventory,
-      Inventory inventory,
-      Bags bag,
       int selectedSlot) {
     super(ModContainer.BAG_CONTAINER.get(), id, playerInventory);
-    this.bag = bag;
-    bagInv = inventory;
+    ItemStack bagStack = playerInventory.getStackInSlot(selectedSlot);
+    if(!(bagStack.getItem() instanceof Bag)) {
+      throw new IllegalStateException("Container can only handel Bag Items");
+    }
+    this.bag = ((Bag)bagStack.getItem()).getBagType();
     this.selectedSlot = selectedSlot;
 
-    appendBackpackInventory(bag.getSlotBackpackX(), bag.getSlotBackpackY());
+    bagStack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(iItemHandler -> {
+      appendBackpackInventory(bag.getSlotBackpackX(), bag.getSlotBackpackY(), iItemHandler);
+      layoutPlayerInventorySlots(bag.getSlotPlayerX(), bag.getSlotPlayerY());
+    });
 
-    layoutPlayerInventorySlots(bag.getSlotPlayerX(), bag.getSlotPlayerY());
   }
 
-  public void appendBackpackInventory(int x, int y) {
+
+
+  public void appendBackpackInventory(int x, int y, IItemHandler inv) {
     for (int height = 0; height < bag.getInventoryHeight(); height++) {
       for (int width = 0; width < bag.getInventoryWidth(); width++) {
-        addSlot(new BagSlot(bagInv, width + height * bag.getInventoryWidth(), width * 18 + x, height * 18 + y));
+        addSlot(new SlotItemHandler(inv, width + height * bag.getInventoryWidth(), width * 18 + x, height * 18 + y));
       }
-    }
-  }
-
-  @Override
-  public void detectAndSendChanges() {
-    super.detectAndSendChanges();
-    if (bagInv instanceof BagInventory) {
-      ((BagInventory) bagInv).writeItemStack();
     }
   }
 
@@ -111,14 +104,10 @@ public class BagContainer extends EssentialsCommonContainer {
 
   @Override
   public boolean canInteractWith(PlayerEntity player) {
-    if (bagInv instanceof BagInventory) {
-      final ItemStack stack = ((BagInventory) bagInv).getStack();
-      return !stack.isEmpty() && stack.getItem() instanceof Bag;
-    }
-    return true;
+    return player.getHeldItem(player.getActiveHand()).getItem() instanceof Bag;
   }
 
-  public Bags getBag() {
+  public BagTypes getBag() {
     return bag;
   }
 }

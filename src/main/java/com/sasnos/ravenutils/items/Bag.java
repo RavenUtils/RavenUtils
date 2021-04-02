@@ -2,8 +2,7 @@ package com.sasnos.ravenutils.items;
 
 import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.containers.BagContainer;
-import com.sasnos.ravenutils.inventories.BagInventory;
-import com.sasnos.ravenutils.utils.enums.Bags;
+import com.sasnos.ravenutils.utils.enums.BagTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
@@ -14,18 +13,24 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fml.network.NetworkHooks;
-import org.jetbrains.annotations.Nullable;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 
-import net.minecraft.item.Item.Properties;
+import javax.annotation.Nullable;
 
 public class Bag extends Item {
 
-  private Bags bag;
+  private BagTypes bag;
 
-  public Bag(Properties properties, Bags bag) {
+  public Bag(Properties properties, BagTypes bag) {
     super(properties.group(RavenUtils.TAB));
     this.bag = bag;
+  }
+
+  public BagTypes getBagType() {
+    return bag;
   }
 
   @Nullable
@@ -45,19 +50,20 @@ public class Bag extends Item {
   @Override
   public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
     final ItemStack stack = player.getHeldItem(hand);
-    if (!world.isRemote && player instanceof ServerPlayerEntity) {
-      open((ServerPlayerEntity) player, stack, hand == Hand.MAIN_HAND ? player.inventory.currentItem : -1);
+    if (!world.isRemote) {
+      LazyOptional<IItemHandler> bagItem = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
+      int selectedSlot = hand == Hand.MAIN_HAND ? player.inventory.currentItem : -1;
+      bagItem.ifPresent(iItemHandler -> {
+        NetworkHooks.openGui((ServerPlayerEntity) player, new SimpleNamedContainerProvider(
+                (id, playerInventory, openPlayer) -> new BagContainer(id, playerInventory, selectedSlot),
+                        stack.getDisplayName()),
+                buffer -> {
+          buffer.writeVarInt(selectedSlot);
+        });
+      });
+
     }
     return new ActionResult<>(ActionResultType.SUCCESS, stack);
-  }
-
-  public void open(ServerPlayerEntity player, ItemStack stack, int selectedSlot) {
-    NetworkHooks.openGui(player, new SimpleNamedContainerProvider((id, playerInventory, openPlayer) -> {
-      return new BagContainer(id, playerInventory, new BagInventory(stack, bag.getInventorySize()), bag, selectedSlot);
-    }, stack.getDisplayName()), buffer -> {
-      buffer.writeEnumValue(bag);
-      buffer.writeVarInt(selectedSlot);
-    });
   }
 
   @Override

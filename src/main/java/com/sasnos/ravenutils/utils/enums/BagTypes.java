@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.utils.enums;
 
-public enum Bags {
+public enum BagTypes {
 
   CLOTH("bag_cloth", 9, 2, 8, 18, 8, 66),
   LEATHER("bag_leather", 9, 4, 8, 18, 8, 102);
@@ -10,7 +10,7 @@ public enum Bags {
   private final int slotBackpackX, slotBackpackY;
   private final int slotPlayerX, slotPlayerY;
 
-  Bags(String guiName, int inventoryWidth, int inventoryHeight, int slotBackpackX, int slotBackpackY, int slotPlayerX, int slotPlayerY) {
+  BagTypes(String guiName, int inventoryWidth, int inventoryHeight, int slotBackpackX, int slotBackpackY, int slotPlayerX, int slotPlayerY) {
     this.guiName = guiName;
     this.inventoryWidth = inventoryWidth;
     this.inventoryHeight = inventoryHeight;
