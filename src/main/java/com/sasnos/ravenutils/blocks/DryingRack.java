@@ -47,7 +47,7 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   @SuppressWarnings("deprecation")
   @Override
   public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-    if (!state.isIn(newState.getBlock())) {
+    if (!state.matchesBlock(newState.getBlock())) {
       TileEntity te = worldIn.getTileEntity(pos);
       if (te instanceof EssentialsCommonTileEntity) {
         LazyOptional<IItemHandler> inventory = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);

@@ -145,8 +145,8 @@ public class SignScreen extends Screen {
     matrixStack.translate(0.0D, (double) 0.33333334F, (double) 0.046666667F);
     matrixStack.scale(0.010416667F, -0.010416667F, 0.010416667F);
     int i = this.tileSign.getTextColor().getTextColor();
-    int j = this.textInputUtil.getEndIndex();
-    int k = this.textInputUtil.getStartIndex();
+    int j = this.textInputUtil.getSelectionEnd();
+    int k = this.textInputUtil.getSelectionStart();
     int l = this.editLine * 10 - this.field_238846_r_.length * 5;
     Matrix4f matrix4f = matrixStack.getLast().getMatrix();
 
@@ -158,12 +158,12 @@ public class SignScreen extends Screen {
         }
 
         float f3 = (float) (-this.minecraft.fontRenderer.getStringWidth(s) / 2);
-        this.minecraft.fontRenderer.func_238411_a_(s, f3, (float) (i1 * 10 - this.field_238846_r_.length * 5), i, false, matrix4f, irendertypebuffer$impl, false, 0, 15728880, false);
+        this.minecraft.fontRenderer.drawBidiString(s, f3, (float) (i1 * 10 - this.field_238846_r_.length * 5), i, false, matrix4f, irendertypebuffer$impl, false, 0, 15728880, false);
         if (i1 == this.editLine && j >= 0 && flag1) {
           int j1 = this.minecraft.fontRenderer.getStringWidth(s.substring(0, Math.max(Math.min(j, s.length()), 0)));
           int k1 = j1 - this.minecraft.fontRenderer.getStringWidth(s) / 2;
           if (j >= s.length()) {
-            this.minecraft.fontRenderer.func_238411_a_("_", (float) k1, (float) l, i, false, matrix4f, irendertypebuffer$impl, false, 0, 15728880, false);
+            this.minecraft.fontRenderer.drawBidiString("_", (float) k1, (float) l, i, false, matrix4f, irendertypebuffer$impl, false, 0, 15728880, false);
           }
         }
       }

@@ -36,6 +36,10 @@ import java.util.function.Supplier;
 import static net.minecraft.util.math.RayTraceContext.FluidMode;
 import static net.minecraft.util.math.RayTraceResult.Type;
 
+import net.minecraft.item.Item.Properties;
+import net.minecraft.util.math.RayTraceContext.FluidMode;
+import net.minecraft.util.math.RayTraceResult.Type;
+
 public class Bucket extends BaseBucketItem {
 
   public Bucket(Item containerItemIn, int maxDamage, Supplier<Item> milkBucket) {

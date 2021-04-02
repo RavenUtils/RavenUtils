@@ -2,6 +2,8 @@ package com.sasnos.ravenutils.items;
 
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.item.Item.Properties;
+
 public class BaseItemDamageable extends ItemBase {
 
   public BaseItemDamageable() {

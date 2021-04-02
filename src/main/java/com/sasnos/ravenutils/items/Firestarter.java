@@ -4,6 +4,8 @@ import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.FlintAndSteelItem;
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.item.Item.Properties;
+
 public class Firestarter extends FlintAndSteelItem {
   public Firestarter(int maxDamage) {
     super(new Properties()

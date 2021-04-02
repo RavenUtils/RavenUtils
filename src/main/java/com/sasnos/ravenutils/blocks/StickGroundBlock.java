@@ -8,6 +8,8 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class StickGroundBlock extends StickAndStoneBlock {
 
   protected static final VoxelShape SHAPE_N = Block.makeCuboidShape(8, 0, 4, 9, 1, 12);

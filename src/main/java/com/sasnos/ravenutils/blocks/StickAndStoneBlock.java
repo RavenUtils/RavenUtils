@@ -19,6 +19,8 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class StickAndStoneBlock extends Block {
 
   protected static final Property<Direction> FACING = HorizontalBlock.HORIZONTAL_FACING;

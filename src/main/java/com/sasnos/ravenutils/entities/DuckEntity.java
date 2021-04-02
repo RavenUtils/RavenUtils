@@ -41,8 +41,8 @@ public class DuckEntity extends ChickenEntity {
   // todo adjust
   /*
   @Override
-  public ChickenEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-    return EntityType.DUCK.create(p_241840_1_);
+  public ChickenEntity createChild(ServerWorld world, AgeableEntity mate) {
+    return EntityType.DUCK.create(world);
   }
   */
 
@@ -64,8 +64,8 @@ public class DuckEntity extends ChickenEntity {
   }
 
   @Override
-  public ChickenEntity func_241840_a(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-    return EntityType.DUCK.create(p_241840_1_);
+  public ChickenEntity createChild(ServerWorld world, AgeableEntity mate) {
+    return EntityType.DUCK.create(world);
   }
   */
 }

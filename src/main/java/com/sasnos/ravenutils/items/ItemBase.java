@@ -4,6 +4,8 @@ package com.sasnos.ravenutils.items;
 import com.sasnos.ravenutils.RavenUtils;
 import net.minecraft.item.Item;
 
+import net.minecraft.item.Item.Properties;
+
 public class ItemBase extends Item {
   private int burnTime;
 

@@ -9,6 +9,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class HandMill extends EssentialsMachineBlock {
 
   public HandMill() {

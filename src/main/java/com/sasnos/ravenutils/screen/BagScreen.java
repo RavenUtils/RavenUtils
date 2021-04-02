@@ -23,13 +23,13 @@ public class BagScreen extends EssentialsCommonScreen<BagContainer> {
 
   @Override
   protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
-    this.font.func_243248_b(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);
+    this.font.drawText(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);
     switch (container.getBag()) {
       case CLOTH:
-        this.font.func_243248_b(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 110, 4210752);
+        this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 110, 4210752);
         break;
       case LEATHER:
-        this.font.func_243248_b(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 75, 4210752);
+        this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 75, 4210752);
         break;
     }
 

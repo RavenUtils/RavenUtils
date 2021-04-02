@@ -15,6 +15,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IRegistryDelegate;
 
+import net.minecraft.item.Item.Properties;
+
 /**
  * Clay bucket holding milk
  */

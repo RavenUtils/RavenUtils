@@ -5,6 +5,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 
+import net.minecraft.item.Item.Properties;
+
 public class Handsaw extends Item {
   public Handsaw(int maxDamage, Rarity rarity) {
     super(new Properties()

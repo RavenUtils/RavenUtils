@@ -7,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.item.Item.Properties;
+
 public class EssentialShieldItem extends ShieldItem {
   public EssentialShieldItem(Properties builder) {
     super(builder);

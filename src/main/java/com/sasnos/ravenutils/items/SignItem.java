@@ -14,6 +14,8 @@ import net.minecraftforge.fml.DistExecutor;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.item.Item.Properties;
+
 public class SignItem extends WallOrFloorItem {
 
   public SignItem(Properties propertiesIn, Block floorBlockIn, Block wallBlockIn) {

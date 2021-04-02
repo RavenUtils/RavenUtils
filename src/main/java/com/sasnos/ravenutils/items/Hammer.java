@@ -17,6 +17,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashSet;
 import java.util.List;
 
+import net.minecraft.item.Item.Properties;
+
 public class Hammer extends ToolItem {
   public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
     super(attackDamage, attackSpeed, hammerTier, new HashSet<>(),

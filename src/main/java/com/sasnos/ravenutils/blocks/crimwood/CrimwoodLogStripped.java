@@ -14,6 +14,8 @@ import net.minecraft.util.Rotation;
 import net.minecraftforge.common.ToolType;
 import org.jetbrains.annotations.NotNull;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CrimwoodLogStripped extends RotatedPillarBlock {
   public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
 

@@ -10,6 +10,8 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class StoneGroundBlock extends StickAndStoneBlock {
 
   protected static final VoxelShape SHAPE_N = VoxelShapes.combineAndSimplify(

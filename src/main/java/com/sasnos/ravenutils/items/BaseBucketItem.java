@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import net.minecraft.item.Item.Properties;
+
 public abstract class BaseBucketItem extends Item {
 
   /**

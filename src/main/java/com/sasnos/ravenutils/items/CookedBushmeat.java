@@ -6,6 +6,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 
+import net.minecraft.item.Item.Properties;
+
 public class CookedBushmeat extends Item {
 
   public CookedBushmeat() {

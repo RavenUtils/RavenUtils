@@ -10,6 +10,8 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class ChimneyBlock extends Block implements IChimney {
 
   public ChimneyBlock(Properties properties) {

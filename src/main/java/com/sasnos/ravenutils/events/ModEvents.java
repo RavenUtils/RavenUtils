@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.events;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.recipes.in_world.RightClickInWorldRecipe;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
@@ -21,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
@@ -68,7 +70,7 @@ public class ModEvents {
 
   @SubscribeEvent
   public static void stripBlock(BlockEvent.BlockToolInteractEvent event){
-    if(event.getToolType() == ToolType.AXE && event.getState().isIn(ModBlocks.CRIMWOOD_LOG.get())){
+    if(event.getToolType() == ToolType.AXE && event.getState().matchesBlock(ModBlocks.CRIMWOOD_LOG.get())){
       event.setFinalState(ModBlocks.CRIMWOOD_LOG_STRIPPED.get().getDefaultState().with(BlockStateProperties.AXIS, event.getState().get(BlockStateProperties.AXIS)));
     }
   }
@@ -109,9 +111,9 @@ public class ModEvents {
 
     event.enqueueWork(() -> {
       try {
-        Field saturation = ObfuscationReflectionHelper.findField(Food.class, "field_221471_b");
-        Field effect = ObfuscationReflectionHelper.findField(Food.class, "field_221475_f");
-        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235706_j_");
+        Field saturation = ObfuscationReflectionHelper.findField(Food.class, "saturation");
+        Field effect = ObfuscationReflectionHelper.findField(Food.class, "effects");
+        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "requiresTool");
         List<Pair<Supplier<EffectInstance>, Float>> effects = Lists.newArrayList();
         saturation.setAccessible(true);
 
@@ -149,7 +151,7 @@ public class ModEvents {
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.1f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.3f));
 
-        Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "field_77699_b");
+        Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "maxDamage");
         maxDamage.setAccessible(true);
         maxDamage.setInt(Items.BUCKET, 512);
         maxDamage.setInt(Items.MILK_BUCKET, 512);
@@ -164,8 +166,8 @@ public class ModEvents {
           requireTool.setBoolean(block, true);
         }
 
-        Field isSolid = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235707_k_");
-        Field canCollide = ObfuscationReflectionHelper.findField(AbstractBlock.class, "field_235688_at_");
+        Field isSolid = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "isSolid");
+        Field canCollide = ObfuscationReflectionHelper.findField(AbstractBlock.class, "canCollide");
 
         isSolid.setAccessible(true);
         canCollide.setAccessible(true);

@@ -5,6 +5,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.potion.Effects;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class Crimleaf extends FlowerBlock {
 
   public Crimleaf() {

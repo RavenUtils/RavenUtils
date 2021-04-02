@@ -5,6 +5,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 
+import net.minecraft.item.Item.Properties;
+
 public class Tongs extends Item {
   public Tongs(int maxDamage, Rarity rarity) {
     super(new Properties()

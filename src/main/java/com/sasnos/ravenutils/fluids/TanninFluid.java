@@ -16,6 +16,8 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 import java.util.Random;
 
+import net.minecraftforge.fluids.ForgeFlowingFluid.Properties;
+
 public abstract class TanninFluid extends ForgeFlowingFluid {
 
   private static final Properties properties = new Properties(ModFluids.TANNIN, ModFluids.FLOWING_TANNIN,

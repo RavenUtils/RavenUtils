@@ -6,6 +6,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
+import net.minecraft.item.Item.Properties;
+
 public class Bedroll extends BaseItemDamageable {
   public Bedroll(int maxDamage) {
     super(new Properties()

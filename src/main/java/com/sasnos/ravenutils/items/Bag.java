@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.item.Item.Properties;
+
 public class Bag extends Item {
 
   private Bags bag;

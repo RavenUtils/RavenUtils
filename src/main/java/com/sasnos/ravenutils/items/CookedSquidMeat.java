@@ -4,6 +4,8 @@ import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 
+import net.minecraft.item.Item.Properties;
+
 public class CookedSquidMeat extends Item {
 
   public CookedSquidMeat() {

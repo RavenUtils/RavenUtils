@@ -5,6 +5,8 @@ import net.minecraft.block.SaplingBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
+import net.minecraft.block.AbstractBlock.Properties;
+
 public class CrimwoodSapling extends SaplingBlock {
 
   public CrimwoodSapling() {

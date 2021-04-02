@@ -71,13 +71,13 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
     int j1 = 20;
 
     for (int k1 = 0; k1 < 4; ++k1) {
-      IReorderingProcessor ireorderingprocessor = tileEntityIn.func_242686_a(k1, (p_243502_1_) -> {
+      IReorderingProcessor ireorderingprocessor = tileEntityIn.reorderText(k1, (p_243502_1_) -> {
         List<IReorderingProcessor> list = fontrenderer.trimStringToWidth(p_243502_1_, 90);
         return list.isEmpty() ? IReorderingProcessor.field_242232_a : list.get(0);
       });
       if (ireorderingprocessor != null) {
         float f3 = (float) (-fontrenderer.func_243245_a(ireorderingprocessor) / 2);
-        fontrenderer.func_238416_a_(ireorderingprocessor, f3, (float) (k1 * 10 - 20), i1, false, matrixStackIn.getLast().getMatrix(), bufferIn, false, 0, combinedLightIn);
+        fontrenderer.drawEntityText(ireorderingprocessor, f3, (float) (k1 * 10 - 20), i1, false, matrixStackIn.getLast().getMatrix(), bufferIn, false, 0, combinedLightIn);
       }
     }
 
