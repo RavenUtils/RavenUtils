@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.data_generation.builders.RightClickInWorldRecipeBuilder;
-import com.sasnos.ravenutils.api.utils.blockingridient.BlockIngredient;
+import com.sasnos.raven_api.utils.blockingridient.BlockIngredient;
+import com.sasnos.ravenutils.datagen.builder.RightClickInWorldRecipeBuilder;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.advancements.ICriterionInstance;
 import net.minecraft.block.Blocks;

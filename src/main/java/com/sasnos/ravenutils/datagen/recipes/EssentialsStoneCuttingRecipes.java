@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
+
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
 import net.minecraft.data.IFinishedRecipe;
 
 import java.util.function.Consumer;

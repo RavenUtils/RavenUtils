@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.recipes.drying_rack;
 
+import com.sasnos.raven_api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -33,4 +33,6 @@ public class DryingRackRecipe extends CommonRecipe {
   public IRecipeSerializer<?> getSerializer() {
     return ModRecipes.DRYING_RACK_RECIPE_SERIALIZER.get();
   }
+
+
 }

@@ -1,9 +1,9 @@
-package com.sasnos.ravenutils.api.datagen.builders;
+package com.sasnos.ravenutils.datagen.builder;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.datagen.recipes.FinishedRecipe;
+import com.sasnos.raven_api.datagen.recipes.FinishedRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -64,11 +64,11 @@ public class DryingRackRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id, boolean ignoreMCNames) {
     validate(id, ignoreMCNames);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("recipes/root"))
+        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
     createRecipe(consumer, id, advancementId);
   }
 

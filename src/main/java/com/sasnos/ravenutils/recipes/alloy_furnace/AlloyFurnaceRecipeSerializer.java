@@ -2,7 +2,7 @@ package com.sasnos.ravenutils.recipes.alloy_furnace;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.recipes.Material;
+import com.sasnos.raven_api.recipes.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.network.PacketBuffer;

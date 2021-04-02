@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
 import com.sasnos.ravenutils.init.ModToolItems;
@@ -14,7 +14,9 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.barks;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.knives;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
 
 public class EssentialsKnifeRecipes extends EssentialsRecipeProvider {
   public EssentialsKnifeRecipes(Consumer<IFinishedRecipe> consumer) {

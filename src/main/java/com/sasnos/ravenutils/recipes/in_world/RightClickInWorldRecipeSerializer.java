@@ -3,7 +3,7 @@ package com.sasnos.ravenutils.recipes.in_world;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.utils.blockingridient.BlockIngredient;
+import com.sasnos.raven_api.utils.blockingridient.BlockIngredient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;

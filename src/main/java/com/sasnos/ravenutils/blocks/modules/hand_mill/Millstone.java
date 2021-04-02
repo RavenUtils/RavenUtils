@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
-import com.sasnos.ravenutils.api.blocks.EssentialsMachineBlock;
+
+import com.sasnos.raven_api.blocks.EssentialsMachineBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -48,6 +49,11 @@ public class Millstone extends EssentialsMachineBlock {
       }
     }
     return ActionResultType.SUCCESS;
+  }
+
+  @Override
+  protected boolean isItemToStartBurning(ItemStack item) {
+    return false;
   }
 
   @Override

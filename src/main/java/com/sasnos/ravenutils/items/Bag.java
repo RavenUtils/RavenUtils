@@ -14,8 +14,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fml.network.NetworkHooks;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class Bag extends Item {
 
@@ -56,6 +58,12 @@ public class Bag extends Item {
       buffer.writeEnumValue(bag);
       buffer.writeVarInt(selectedSlot);
     });
+  }
+
+  @Nullable
+  @Override
+  public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundNBT nbt) {
+    return null;
   }
 
   @Override

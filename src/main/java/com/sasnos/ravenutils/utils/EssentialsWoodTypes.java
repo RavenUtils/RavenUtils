@@ -1,6 +1,5 @@
-package com.sasnos.ravenutils.api.blocks;
+package com.sasnos.ravenutils.utils;
 
-import com.sasnos.ravenutils.utils.RenderMaterials;
 import it.unimi.dsi.fastutil.objects.ObjectArraySet;
 import net.minecraft.block.WoodType;
 import net.minecraft.client.renderer.model.RenderMaterial;

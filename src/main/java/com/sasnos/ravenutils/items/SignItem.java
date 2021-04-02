@@ -9,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.WallOrFloorItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.DistExecutor;
 
 import javax.annotation.Nullable;
 
@@ -25,7 +23,7 @@ public class SignItem extends WallOrFloorItem {
     SignTileEntity tile = (SignTileEntity) worldIn.getTileEntity(pos);
     tile.setPlayer(player);
     if (worldIn.isRemote && !flag) {
-      DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> new SignScreenCaller(tile));
+      SignScreenCaller.openSignScreen(tile);
     }
 
     return flag;

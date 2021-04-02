@@ -44,7 +44,7 @@ public class Reeds extends Block implements net.minecraftforge.common.IPlantable
   public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
     if (worldIn.isAirBlock(pos.up())) {
       int i;
-      for (i = 1; worldIn.getBlockState(pos.down(i)).isIn(this); ++i) {
+      for (i = 1; worldIn.getBlockState(pos.down(i)).matchesBlock(this); ++i) {
       }
 
       if (i < 3) {
@@ -76,13 +76,13 @@ public class Reeds extends Block implements net.minecraftforge.common.IPlantable
     if (blockstate.getBlock() == this) {
       return true;
     } else {
-      if (blockstate.isIn(Blocks.GRASS_BLOCK) || blockstate.isIn(Blocks.DIRT) || blockstate.isIn(ModBlocks.MUD_BLOCK.get())) {
+      if (blockstate.matchesBlock(Blocks.GRASS_BLOCK) || blockstate.matchesBlock(Blocks.DIRT) || blockstate.matchesBlock(ModBlocks.MUD_BLOCK.get())) {
         BlockPos blockpos = pos.down();
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {
           BlockState blockstate1 = worldIn.getBlockState(blockpos.offset(direction));
           FluidState fluidstate = worldIn.getFluidState(blockpos.offset(direction));
-          if (fluidstate.isTagged(FluidTags.WATER) || blockstate1.isIn(Blocks.FROSTED_ICE)) {
+          if (fluidstate.isTagged(FluidTags.WATER) || blockstate1.matchesBlock(Blocks.FROSTED_ICE)) {
             return true;
           }
         }

@@ -147,7 +147,7 @@ public class FeatureRegister {
                         filler,
                         defaultState,
                         veinSize))
-                .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight))).square().func_242731_b(veinsPerChunk);
+                .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(minHeight, 0, maxHeight))).square().count(veinsPerChunk);
         ores.put(rl, ORE);
 
         return ORE;

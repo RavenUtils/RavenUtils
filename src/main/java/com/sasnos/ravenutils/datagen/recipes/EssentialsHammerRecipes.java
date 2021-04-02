@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModItems;
@@ -14,7 +14,10 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.chisels;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.hammers;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.rods_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.tongs;
 
 public class EssentialsHammerRecipes extends EssentialsRecipeProvider {
   public EssentialsHammerRecipes(Consumer<IFinishedRecipe> consumer) {

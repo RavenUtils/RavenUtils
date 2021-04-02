@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.builders.BarrelRecipeBuilder;
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
+import com.sasnos.ravenutils.datagen.builder.BarrelRecipeBuilder;
 import com.sasnos.ravenutils.init.ModFluids;
 import com.sasnos.ravenutils.init.ModItems;
 import net.minecraft.data.IFinishedRecipe;
