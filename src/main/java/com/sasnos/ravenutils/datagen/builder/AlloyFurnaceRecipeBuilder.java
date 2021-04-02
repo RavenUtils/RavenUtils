@@ -1,9 +1,9 @@
-package com.sasnos.ravenutils.api.datagen.builders;
+package com.sasnos.ravenutils.datagen.builder;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.recipes.Material;
+import com.sasnos.raven_api.recipes.Material;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -86,12 +86,12 @@ public class AlloyFurnaceRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("recipes/root"))
+        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
     assert this.result.getGroup() != null;
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getGroup().getPath() + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + this.result.getGroup().getPath() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.result, this.count, this.materials, timer, this.advancementBuilder, advancementId, additionalResult, additionalCount, additionalChance));
   }
 

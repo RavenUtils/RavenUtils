@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.recipes.alloy_furnace;
 
+import com.sasnos.raven_api.recipes.CommonRecipe;
+import com.sasnos.raven_api.recipes.Material;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.recipes.CommonRecipe;
-import com.sasnos.ravenutils.api.recipes.Material;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;

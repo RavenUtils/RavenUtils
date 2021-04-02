@@ -1,15 +1,10 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.builders.EssentialsSmithingRecipeBuilder;
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
-import com.sasnos.ravenutils.init.ModItems;
-import com.sasnos.ravenutils.init.ModToolItems;
+
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Items;
 
 import java.util.function.Consumer;
-
-import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 
 public class EssentialsSmithingRecipes extends EssentialsRecipeProvider {
   public EssentialsSmithingRecipes(Consumer<IFinishedRecipe> consumer) {

@@ -1,8 +1,8 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.sasnos.raven_api.screens.EssentialsCommonMachineScreen;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.screens.EssentialsCommonMachineScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;

@@ -2,9 +2,14 @@ package com.sasnos.ravenutils.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.sasnos.ravenutils.api.blocks.EssentialsWoodTypes;
+import com.sasnos.ravenutils.utils.EssentialsWoodTypes;
 import com.sasnos.ravenutils.tile_entities.SignTileEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractSignBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.StandingSignBlock;
+import net.minecraft.block.WallSignBlock;
+import net.minecraft.block.WoodType;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -19,6 +24,7 @@ import net.minecraft.util.IReorderingProcessor;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -34,7 +40,7 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
   }
 
   @Override
-  public void render(SignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
+  public void render(SignTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, @NotNull IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
     BlockState blockstate = tileEntityIn.getBlockState();
     matrixStackIn.push();
     float f = 0.6666667F;
@@ -52,7 +58,7 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
     }
 
     matrixStackIn.push();
-    matrixStackIn.scale(0.6666667F, -0.6666667F, -0.6666667F);
+    matrixStackIn.scale(f, -f, -f);
     RenderMaterial rendermaterial = getMaterial(blockstate.getBlock());
     IVertexBuilder ivertexbuilder = rendermaterial.getBuffer(bufferIn, this.model::getRenderType);
     this.model.signBoard.render(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
@@ -60,15 +66,14 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
     matrixStackIn.pop();
     FontRenderer fontrenderer = this.renderDispatcher.getFontRenderer();
     float f2 = 0.010416667F;
-    matrixStackIn.translate(0.0D, (double) 0.33333334F, (double) 0.046666667F);
-    matrixStackIn.scale(0.010416667F, -0.010416667F, 0.010416667F);
+    matrixStackIn.translate(0.0D, 0.33333334F, 0.046666667F);
+    matrixStackIn.scale(f2, -f2, f2);
     int i = tileEntityIn.getTextColor().getTextColor();
     double d0 = 0.4D;
-    int j = (int) ((double) NativeImage.getRed(i) * 0.4D);
-    int k = (int) ((double) NativeImage.getGreen(i) * 0.4D);
-    int l = (int) ((double) NativeImage.getBlue(i) * 0.4D);
+    int j = (int) ((double) NativeImage.getRed(i) * d0);
+    int k = (int) ((double) NativeImage.getGreen(i) * d0);
+    int l = (int) ((double) NativeImage.getBlue(i) * d0);
     int i1 = NativeImage.getCombined(0, l, k, j);
-    int j1 = 20;
 
     for (int k1 = 0; k1 < 4; ++k1) {
       IReorderingProcessor ireorderingprocessor = tileEntityIn.reorderText(k1, (p_243502_1_) -> {
@@ -111,7 +116,7 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
       this.signStick.addBox(-1.0F, -2.0F, -1.0F, 2.0F, 14.0F, 2.0F, 0.0F);
     }
 
-    public void render(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+    public void render(@NotNull MatrixStack matrixStackIn, @NotNull IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
       this.signBoard.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
       this.signStick.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
     }

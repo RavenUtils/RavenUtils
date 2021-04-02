@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.tile_entities;
 
-import com.sasnos.ravenutils.api.tile_entities.EssentialsRecipeTileEntity;
+import com.sasnos.raven_api.tile_entities.EssentialsRecipeTileEntity;
 import com.sasnos.ravenutils.blocks.Barrel;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
@@ -47,7 +47,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (getAllRecipeInputsAsItems(type, world).contains(stack.getItem())) return true;
+        if (getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem())) return true;
 
         return super.isItemValid(slot, stack);
       }
@@ -55,7 +55,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if (!getAllRecipeInputsAsItems(type, world).contains(stack.getItem())) {
+        if (!getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem())) {
           return stack;
         }
         return super.insertItem(slot, stack, simulate);
@@ -185,7 +185,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
   @Override
   public BarrelRecipe getRecipe(ItemStack stack) {
-    Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
     BlockState blockState = world.getBlockState(pos);
     boolean open = blockState.get(Barrel.HAS_LID);
     for (IRecipe<?> recipe : recipes) {
@@ -203,7 +203,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
   @Override
   public BarrelRecipe getRecipeFromOutput(ItemStack result) {
-    Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
     BlockState blockState = world.getBlockState(pos);
     boolean open = blockState.get(Barrel.HAS_LID);
     for (IRecipe<?> recipe : recipes) {

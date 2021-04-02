@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.sasnos.ravenutils.api.screens.EssentialsCommonScreen;
+import com.sasnos.raven_api.screens.EssentialsCommonScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;

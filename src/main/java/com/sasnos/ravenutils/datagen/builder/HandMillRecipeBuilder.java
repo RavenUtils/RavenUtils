@@ -1,4 +1,4 @@
-package com.sasnos.ravenutils.api.datagen.builders;
+package com.sasnos.ravenutils.datagen.builder;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -70,11 +70,11 @@ public class HandMillRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("recipes/root"))
+        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
         .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
         .withRewards(AdvancementRewards.Builder.recipe(id))
         .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(
         id,
         this.group == null ? "" : this.group,

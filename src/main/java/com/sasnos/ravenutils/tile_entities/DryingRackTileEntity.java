@@ -1,6 +1,6 @@
 package com.sasnos.ravenutils.tile_entities;
 
-import com.sasnos.ravenutils.api.tile_entities.EssentialsRecipeTileEntity;
+import com.sasnos.raven_api.tile_entities.EssentialsRecipeTileEntity;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import com.sasnos.ravenutils.recipes.drying_rack.DryingRackRecipe;
 import net.minecraft.block.BlockState;
@@ -39,7 +39,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (getAllRecipeInputsAsItems(type, world).contains(stack.getItem()) || getAllRecipeOutputAsItems(type, world).contains(stack.getItem()))
+        if (getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem()) || getAllRecipeOutputAsItems(recipeType, world).contains(stack.getItem()))
           return true;
         return super.isItemValid(slot, stack);
       }
@@ -84,7 +84,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
 
   @Override
   protected DryingRackRecipe getRecipe(ItemStack stack) {
-    Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof DryingRackRecipe)) continue;
       DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;
@@ -97,7 +97,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
 
   @Override
   public DryingRackRecipe getRecipeFromOutput(ItemStack result) {
-    Set<IRecipe<?>> recipes = findRecipeByType(type, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof DryingRackRecipe)) continue;
       DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;

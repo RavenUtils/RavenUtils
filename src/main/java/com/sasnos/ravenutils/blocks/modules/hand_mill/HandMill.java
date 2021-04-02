@@ -1,9 +1,10 @@
 package com.sasnos.ravenutils.blocks.modules.hand_mill;
 
-import com.sasnos.ravenutils.api.blocks.EssentialsMachineBlock;
+import com.sasnos.raven_api.blocks.EssentialsMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.ToolType;
@@ -23,5 +24,10 @@ public class HandMill extends EssentialsMachineBlock {
   @Override
   public TileEntity createTileEntity(BlockState state, IBlockReader world) {
     return new HandMillTileEntity();
+  }
+
+  @Override
+  protected boolean isItemToStartBurning(ItemStack item) {
+    return false;
   }
 }

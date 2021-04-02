@@ -8,6 +8,7 @@ import com.sasnos.ravenutils.init.ModContainer;
 import com.sasnos.ravenutils.init.ModTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
@@ -21,7 +22,7 @@ public class HandMillInit {
 
   public static final RegistryObject<Block> MILLSTONE = ModBlocks.BLOCKS.register("mill_stone", Millstone::new);
   public static final RegistryObject<Item> MILLSTONE_ITEM = ModBlockItems.ITEMS.register("mill_stone",
-      () -> new MillStoneItem(MILLSTONE.get(), new Item.Properties().group(RavenUtils.TAB).maxDamage(20)));
+      () -> new BlockItem(MILLSTONE.get(), new Item.Properties().group(RavenUtils.TAB).maxDamage(20)));
 
   public static final RegistryObject<TileEntityType<HandMillTileEntity>> HAND_MILL_TILE_ENTITY = ModTileEntities.TILE_ENTITY.register("hand_mill",
       () -> TileEntityType.Builder

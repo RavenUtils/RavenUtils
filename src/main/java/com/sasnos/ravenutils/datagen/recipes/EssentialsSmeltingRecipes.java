@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.recipes;
 
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsCookingRecipeBuilder;
-import com.sasnos.ravenutils.api.datagen.recipes.EssentialsRecipeProvider;
+import com.sasnos.raven_api.datagen.recipes.EssentialsCookingRecipeBuilder;
+import com.sasnos.raven_api.datagen.recipes.EssentialsRecipeProvider;
 import com.sasnos.ravenutils.init.ModBlockItems;
 import com.sasnos.ravenutils.init.ModFoodItems;
 import com.sasnos.ravenutils.init.ModItems;
@@ -17,7 +17,9 @@ import java.util.function.Consumer;
 
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItem;
 import static com.sasnos.ravenutils.datagen.recipes.EssentialsRecipe.hasItemTag;
-import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.*;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.grasses_tall;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.rods_wood;
+import static com.sasnos.ravenutils.utils.tags.EssentialsTags.Items.saplings;
 
 public class EssentialsSmeltingRecipes extends EssentialsRecipeProvider {
   public EssentialsSmeltingRecipes(Consumer<IFinishedRecipe> consumer) {

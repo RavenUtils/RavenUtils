@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.recipes.hand_mill_recipe;
 
+import com.sasnos.raven_api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.recipes.CommonRecipe;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;

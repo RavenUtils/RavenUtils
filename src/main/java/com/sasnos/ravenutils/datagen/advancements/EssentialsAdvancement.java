@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.datagen.advancements;
 
+import com.sasnos.raven_api.datagen.advancement.EssentialsAdvancementProvider;
 import com.sasnos.ravenutils.RavenUtils;
-import com.sasnos.ravenutils.api.datagen.advancement.EssentialsAdvancementProvider;
 import com.sasnos.ravenutils.init.ModToolItems;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;

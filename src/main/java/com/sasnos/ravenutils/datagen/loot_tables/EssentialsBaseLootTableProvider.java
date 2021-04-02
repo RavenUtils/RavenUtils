@@ -1,6 +1,7 @@
 package com.sasnos.ravenutils.datagen.loot_tables;
 
-import com.sasnos.ravenutils.api.datagen.loot_table.BaseLootTableProvider;
+import com.sasnos.raven_api.datagen.loot_table.BaseLootTableProvider;
+import com.sasnos.ravenutils.RavenUtils;
 import com.sasnos.ravenutils.blocks.modules.alloy_furnace.AlloyFurnaceInit;
 import com.sasnos.ravenutils.blocks.modules.hand_mill.HandMillInit;
 import com.sasnos.ravenutils.init.ModBlockItems;
@@ -13,9 +14,19 @@ import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
-import net.minecraft.loot.*;
+import net.minecraft.loot.ConstantRange;
+import net.minecraft.loot.DynamicLootEntry;
+import net.minecraft.loot.ItemLootEntry;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.RandomValueRange;
 import net.minecraft.loot.conditions.MatchTool;
-import net.minecraft.loot.functions.*;
+import net.minecraft.loot.functions.ApplyBonus;
+import net.minecraft.loot.functions.CopyName;
+import net.minecraft.loot.functions.CopyNbt;
+import net.minecraft.loot.functions.ExplosionDecay;
+import net.minecraft.loot.functions.SetContents;
+import net.minecraft.loot.functions.SetCount;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.HashMap;
@@ -26,7 +37,7 @@ public class EssentialsBaseLootTableProvider extends BaseLootTableProvider {
   private final Map<Block, LootTable.Builder> localLootTables = new HashMap<>();
 
   public EssentialsBaseLootTableProvider(DataGenerator dataGeneratorIn) {
-    super(dataGeneratorIn);
+    super(dataGeneratorIn, RavenUtils.MOD_ID);
   }
 
   @Override

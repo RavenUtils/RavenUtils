@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.blocks.modules.alloy_furnace;
 
-import com.sasnos.ravenutils.api.recipes.EssentialsRecipe;
-import com.sasnos.ravenutils.api.tile_entities.EssentialsMachineTileEntity;
+import com.sasnos.raven_api.recipes.EssentialsRecipe;
+import com.sasnos.raven_api.tile_entities.EssentialsMachineTileEntity;
 import com.sasnos.ravenutils.recipes.alloy_furnace.AlloyFurnaceRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

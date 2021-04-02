@@ -1,7 +1,7 @@
 package com.sasnos.ravenutils.blocks;
 
-import com.sasnos.ravenutils.api.blocks.EssentialsCommonMachineBlock;
-import com.sasnos.ravenutils.api.tile_entities.EssentialsCommonTileEntity;
+import com.sasnos.raven_api.blocks.EssentialsCommonMachineBlock;
+import com.sasnos.raven_api.tile_entities.EssentialsCommonTileEntity;
 import com.sasnos.ravenutils.tile_entities.DryingRackTileEntity;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
