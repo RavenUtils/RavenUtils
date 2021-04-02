@@ -3,10 +3,10 @@ buildscript {
         maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
-        maven {url='https://dist.creeper.host/Sponge/maven'}
+        maven {url='https://repo.spongepowered.org/maven'}
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
@@ -103,7 +103,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:1.16.4-${forgeVersion}"
+    minecraft "net.minecraftforge:forge:1.16.5-${forgeVersion}"
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -130,12 +130,26 @@ dependencies {
     // at runtime, use The One Probe jar
     runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-${top_version}")
 
+    if (findProject(':RavenApi') != null) {
+        compile project(':RavenApi')
+    } else {
+//        compile fg.deobf (project.dependencies.create("com.github.mcjty:mcjtylib:${mcjtylib_version}") {
+//            transitive = false
+//        })
+    }
+
     compile 'org.jetbrains:annotations:16.0.2'
+    annotationProcessor 'org.spongepowered:mixin:0.8.1:processor'
+
 }
+
 
 //project.afterEvaluate {
 //    minecraft.runs.data.args('--existing', configurations.minecraft.asPath.split(":").toList().find { it.contains("forge") }.split(";")[0])
 //}
+
+
+
 
 repositories {
     maven {
