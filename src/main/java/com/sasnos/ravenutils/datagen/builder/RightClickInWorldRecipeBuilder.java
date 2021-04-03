@@ -3,7 +3,7 @@ package com.sasnos.ravenutils.datagen.builder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sasnos.ravenutils.api.utils.blockingridient.BlockIngredient;
+import com.sasnos.raven_api.utils.blockingridient.BlockIngredient;
 import com.sasnos.ravenutils.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;

@@ -130,13 +130,13 @@ dependencies {
     // at runtime, use The One Probe jar
     runtimeOnly fg.deobf("mcjty.theoneprobe:TheOneProbe-${top_version}")
 
-    if (findProject(':RavenApi') != null) {
+//    if (findProject(':RavenApi') != null) {
         compile project(':RavenApi')
-    } else {
+//    } else {
 //        compile fg.deobf (project.dependencies.create("com.github.mcjty:mcjtylib:${mcjtylib_version}") {
 //            transitive = false
 //        })
-    }
+//    }
 
     compile 'org.jetbrains:annotations:16.0.2'
     annotationProcessor 'org.spongepowered:mixin:0.8.1:processor'

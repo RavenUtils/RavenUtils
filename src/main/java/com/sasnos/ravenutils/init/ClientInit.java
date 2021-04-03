@@ -9,8 +9,10 @@ import com.sasnos.ravenutils.client.render.BarrelRenderer;
 import com.sasnos.ravenutils.client.render.SignRenderer;
 import com.sasnos.ravenutils.screen.BagScreen;
 import com.sasnos.ravenutils.utils.EssentialsUtils;
+import com.sasnos.ravenutils.utils.EssentialsWoodTypes;
 import com.sasnos.ravenutils.utils.RenderMaterials;
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.Atlases;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.model.RenderMaterial;
@@ -62,6 +64,10 @@ public class ClientInit {
 
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
+
+      event.enqueueWork(() -> {
+        Atlases.addWoodType(EssentialsWoodTypes.CRIMWOOD);
+      });
     });
 
     addShieldPropertyOverrides(new ResourceLocation("blocking"),

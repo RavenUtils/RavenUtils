@@ -35,7 +35,7 @@ description='''
 This mod brings convenience, realism and several new fun and useful features to Minecraft 1.16. This is the Core Mod and may be extended with other modules later on.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.examplemod]] #optional
+[[dependencies.ravenutils]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -47,9 +47,16 @@ This mod brings convenience, realism and several new fun and useful features to 
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
-[[dependencies.examplemod]]
+[[dependencies.ravenutils]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.4,1.17.1)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.ravenutils]]
+modId="raven_api"
+mandatory=true
+versionRange="[1.16.4,1.17)"
+ordering="BEFORE"
+side="BOTH"

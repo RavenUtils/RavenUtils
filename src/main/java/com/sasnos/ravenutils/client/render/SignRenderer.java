@@ -2,7 +2,6 @@ package com.sasnos.ravenutils.client.render;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.sasnos.ravenutils.utils.EssentialsWoodTypes;
 import com.sasnos.ravenutils.tile_entities.SignTileEntity;
 import net.minecraft.block.AbstractSignBlock;
 import net.minecraft.block.Block;
@@ -95,10 +94,6 @@ public class SignRenderer extends TileEntityRenderer<SignTileEntity> {
       woodtype = ((AbstractSignBlock) blockIn).getWoodType();
     } else {
       woodtype = WoodType.OAK;
-    }
-
-    if (woodtype instanceof EssentialsWoodTypes) {
-      return ((EssentialsWoodTypes) woodtype).getMaterial();
     }
 
     return Atlases.getSignMaterial(woodtype);
