@@ -3,6 +3,7 @@ package com.sasnos.ravenutils.events;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.sasnos.ravenutils.RavenUtils;
+import com.sasnos.ravenutils.init.ModBlocks;
 import com.sasnos.ravenutils.networking.RavenUtilsPacketHandler;
 import com.sasnos.ravenutils.recipes.in_world.RightClickInWorldRecipe;
 import com.sasnos.ravenutils.utils.tags.EssentialsTags;
@@ -21,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
@@ -68,7 +70,7 @@ public class ModEvents {
 
   @SubscribeEvent
   public static void stripBlock(BlockEvent.BlockToolInteractEvent event){
-    if(event.getToolType() == ToolType.AXE && event.getState().isIn(ModBlocks.CRIMWOOD_LOG.get())){
+    if(event.getToolType() == ToolType.AXE && event.getState().matchesBlock(ModBlocks.CRIMWOOD_LOG.get())){
       event.setFinalState(ModBlocks.CRIMWOOD_LOG_STRIPPED.get().getDefaultState().with(BlockStateProperties.AXIS, event.getState().get(BlockStateProperties.AXIS)));
     }
   }

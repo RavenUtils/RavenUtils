@@ -5,7 +5,6 @@ import net.minecraft.block.WoodType;
 import net.minecraft.client.renderer.model.RenderMaterial;
 
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class EssentialsWoodTypes extends WoodType {
   private static final Set<WoodType> VALUES = new ObjectArraySet<>();
@@ -23,12 +22,4 @@ public class EssentialsWoodTypes extends WoodType {
     return material;
   }
 
-  private static WoodType register(WoodType woodTypeIn) {
-    VALUES.add(woodTypeIn);
-    return woodTypeIn;
-  }
-
-  public static Stream<WoodType> getValues() {
-    return VALUES.stream();
-  }
 }
