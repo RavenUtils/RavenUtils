@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(modid = RavenUtils.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonInit {
     @SubscribeEvent
-    public void setup(final FMLCommonSetupEvent event) {
+    public static void setup(final FMLCommonSetupEvent event) {
         RavenUtilsPacketHandler.registerNetworkMessages();
 
         event.enqueueWork(() -> {
@@ -51,7 +51,7 @@ public class CommonInit {
         });
     }
 
-    private void makeLeavesWalkable() throws IllegalAccessException {
+    private static void makeLeavesWalkable() throws IllegalAccessException {
         Field isSolid = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235707_k_");
         Field canCollide = ObfuscationReflectionHelper.findField(AbstractBlock.class, "field_235688_at_");
 
@@ -66,7 +66,7 @@ public class CommonInit {
         }
     }
 
-    private void setRequiredTool() throws IllegalAccessException {
+    private static void setRequiredTool() throws IllegalAccessException {
         Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235706_j_");
         requireTool.setAccessible(true);
         for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()) {
@@ -74,7 +74,7 @@ public class CommonInit {
         }
     }
 
-    private void changeBucketDamage() throws IllegalAccessException {
+    private static void changeBucketDamage() throws IllegalAccessException {
         Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "field_77699_b");
         maxDamage.setAccessible(true);
         maxDamage.setInt(Items.BUCKET, 512);
@@ -86,7 +86,7 @@ public class CommonInit {
         maxDamage.setAccessible(false);
     }
 
-    private void changeFood() throws IllegalAccessException {
+    private static void changeFood() throws IllegalAccessException {
         Field saturation = ObfuscationReflectionHelper.findField(Food.class, "field_221471_b");
         Field effect = ObfuscationReflectionHelper.findField(Food.class, "field_221475_f");
         List<Pair<Supplier<EffectInstance>, Float>> effects = Lists.newArrayList();
