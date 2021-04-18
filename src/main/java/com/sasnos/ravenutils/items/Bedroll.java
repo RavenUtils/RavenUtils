@@ -1,5 +1,7 @@
 package com.sasnos.ravenutils.items;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -12,6 +14,11 @@ public class Bedroll extends BaseItemDamageable {
         .maxStackSize(1)
         .maxDamage(maxDamage)
         .setNoRepair());
+  }
+
+  @Override
+  public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+    return enchantment == Enchantments.UNBREAKING;
   }
 
   @Override

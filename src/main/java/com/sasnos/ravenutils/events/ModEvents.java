@@ -17,6 +17,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -127,7 +128,9 @@ public class ModEvents {
 
   @SubscribeEvent
   public static void onWakeUp(PlayerWakeUpEvent event){
-    ItemStack item = event.getPlayer().getHeldItem(event.getPlayer().getActiveHand());
+    Hand hand = event.getPlayer().getActiveHand();
+    if(hand != Hand.MAIN_HAND && hand != Hand.OFF_HAND) return;
+    ItemStack item = event.getPlayer().getHeldItem(hand);
     if(item.getItem() == ModToolItems.BEDROLL.get()){
       item.attemptDamageItem(1, event.getPlayer().getRNG(), (ServerPlayerEntity) event.getPlayer());
     }
