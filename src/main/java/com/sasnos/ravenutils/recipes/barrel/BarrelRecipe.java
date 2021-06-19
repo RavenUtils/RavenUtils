@@ -24,7 +24,7 @@ public class BarrelRecipe extends CommonRecipe {
   private final boolean lidClosed;
 
   public BarrelRecipe(ResourceLocation recipeId, Ingredient itemInput, FluidStack fluidInput, ItemStack itemOutput, Fluid fluidOutput, boolean lidClosed, int timer) {
-    super(recipeId, BARREL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, itemInput), timer, NonNullList.from(ItemStack.EMPTY, itemOutput), 0);
+    super(recipeId, BARREL_RECIPE_TYPE, NonNullList.of(Ingredient.EMPTY, itemInput), timer, NonNullList.of(ItemStack.EMPTY, itemOutput), 0);
     this.fluidOutput = fluidOutput;
     this.fluidInput = fluidInput;
     this.lidClosed = lidClosed;
@@ -44,7 +44,7 @@ public class BarrelRecipe extends CommonRecipe {
 
   @Override
   public boolean matches(RecipeWrapper inv, World worldIn) {
-    return ingredients.get(0).test(inv.getStackInSlot(0));
+    return ingredients.get(0).test(inv.getItem(0));
   }
 
   @Override

@@ -19,8 +19,8 @@ public class EssentialsAdvancement extends EssentialsAdvancementProvider {
 
   @Override
   protected void registerAdvancement(Consumer<Advancement> consumer) {
-    Advancement.Builder.builder()
-        .withDisplay(ModToolItems.BUCKET_WOOD.get(),
+    Advancement.Builder.advancement()
+        .display(ModToolItems.BUCKET_WOOD.get(),
             new TranslationTextComponent("wood_clay_bucket_advancement"),
             new TranslationTextComponent("wood_clay_bucket_advancement_description"),
             null,
@@ -28,10 +28,10 @@ public class EssentialsAdvancement extends EssentialsAdvancementProvider {
             true,
             true,
             false)
-        .withCriterion("has_wood_clay_bucket",
-            InventoryChangeTrigger.Instance.forItems(ModToolItems.BUCKET_CLAY.get(),
+        .addCriterion("has_wood_clay_bucket",
+            InventoryChangeTrigger.Instance.hasItems(ModToolItems.BUCKET_CLAY.get(),
                 ModToolItems.BUCKET_WOOD.get()))
-        .register(consumer, "wood_clay_bucket");
+        .save(consumer, "wood_clay_bucket");
   }
 
   @Override

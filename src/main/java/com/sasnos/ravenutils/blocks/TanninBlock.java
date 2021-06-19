@@ -10,9 +10,9 @@ public class TanninBlock extends FlowingFluidBlock {
 
   public TanninBlock() {
     super(ModFluids.TANNIN,
-        Properties.create(Material.WATER)
-            .doesNotBlockMovement()
-            .hardnessAndResistance(100.0F)
+        Properties.of(Material.WATER)
+            .noCollission()
+            .strength(100.0F)
             .noDrops()
 
     );

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class TreeBark extends Item {
 
   public TreeBark() {
-    super(new Item.Properties().group(RavenUtils.TAB));
+    super(new Item.Properties().tab(RavenUtils.TAB));
   }
 
   @Override

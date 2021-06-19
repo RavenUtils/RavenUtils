@@ -7,8 +7,8 @@ import net.minecraft.item.Item.Properties;
 public class Knife extends BaseItemDamageable {
   public Knife(int maxDamage, Rarity rarity) {
     super(new Properties()
-        .maxStackSize(1)
-        .maxDamage(maxDamage)
+        .stacksTo(1)
+        .durability(maxDamage)
         .rarity(rarity)
         .setNoRepair());
   }

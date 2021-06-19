@@ -10,10 +10,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class Crimwood extends RotatedPillarBlock {
 
   public Crimwood() {
-    super(Properties.create(Material.WOOD)
-        .hardnessAndResistance(2.0F)
+    super(Properties.of(Material.WOOD)
+        .strength(2.0F)
         .sound(SoundType.WOOD)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
     );
   }

@@ -33,16 +33,16 @@ public class FacingBlockStateProvider extends BlockStateProvider {
   }
 
   @Override
-  protected BlockStateProviderType<?> getProviderType() {
+  protected BlockStateProviderType<?> type() {
     return UtilInit.FACING_PROVIDER.get();
   }
 
   @Override
-  public BlockState getBlockState(Random randomIn, BlockPos blockPosIn) {
-    Direction direction = Direction.getRandomDirection(randomIn);
+  public BlockState getState(Random randomIn, BlockPos blockPosIn) {
+    Direction direction = Direction.getRandom(randomIn);
     while (direction == Direction.UP || direction == Direction.DOWN) {
-      direction = Direction.getRandomDirection(randomIn);
+      direction = Direction.getRandom(randomIn);
     }
-    return block.getDefaultState().with(BlockStateProperties.HORIZONTAL_FACING, direction);
+    return block.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
   }
 }

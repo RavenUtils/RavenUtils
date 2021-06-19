@@ -10,8 +10,8 @@ import net.minecraftforge.common.ToolType;
 public class QuicksandBlock extends SandBlock {
 
   public QuicksandBlock() {
-    super(14406560, AbstractBlock.Properties.create(Material.SAND, MaterialColor.SAND)
-        .hardnessAndResistance(0.5F)
+    super(14406560, AbstractBlock.Properties.of(Material.SAND, MaterialColor.SAND)
+        .strength(0.5F)
         .sound(SoundType.SAND)
         .harvestTool(ToolType.SHOVEL)
     );

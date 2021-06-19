@@ -25,19 +25,19 @@ public class MilkBucket extends BaseBucketItem {
 
   public MilkBucket(Item containerItemIn, int maxDamage) {
     super(new Properties()
-        .containerItem(containerItemIn)
-        .maxDamage(maxDamage)
+        .craftRemainder(containerItemIn)
+        .durability(maxDamage)
         .setNoRepair(), null);
   }
 
   @Override
-  public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity player, Hand hand) {
-    player.setActiveHand(hand);
-    return new ActionResult<>(ActionResultType.SUCCESS, player.getHeldItem(hand));
+  public ActionResult<ItemStack> use(World worldIn, PlayerEntity player, Hand hand) {
+    player.startUsingItem(hand);
+    return new ActionResult<>(ActionResultType.SUCCESS, player.getItemInHand(hand));
   }
 
   @Override
-  public UseAction getUseAction(ItemStack stack) {
+  public UseAction getUseAnimation(ItemStack stack) {
     return UseAction.DRINK;
   }
 
@@ -47,8 +47,8 @@ public class MilkBucket extends BaseBucketItem {
   }
 
   @Override
-  public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entity) {
-    if (!worldIn.isRemote()) {
+  public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entity) {
+    if (!worldIn.isClientSide()) {
       // TODO: this is a hack until I find a better way to make it cure the same as milk
       entity.curePotionEffects(MILK_STACK);
     }
@@ -56,7 +56,7 @@ public class MilkBucket extends BaseBucketItem {
     if (entity instanceof ServerPlayerEntity) {
       ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) entity;
       CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-      serverplayerentity.addStat(Stats.ITEM_USED.get(this));
+      serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
     }
     // if a player, empty a bucket
     if (entity instanceof PlayerEntity) {
@@ -96,8 +96,8 @@ public class MilkBucket extends BaseBucketItem {
   }
 
   @Override
-  public void fillItemGroup(ItemGroup tab, NonNullList<ItemStack> subItems) {
-    if (/*Config.bucketEnabled && */this.isInGroup(tab)) {
+  public void fillItemCategory(ItemGroup tab, NonNullList<ItemStack> subItems) {
+    if (/*Config.bucketEnabled && */this.allowdedIn(tab)) {
       subItems.add(new ItemStack(this));
     }
   }

@@ -22,11 +22,11 @@ public class EssentialsUtils {
   }
 
   public static boolean isObstructed(PlayerEntity player, BlockPos pos, Direction direction){
-    return !isNormalCube(player, pos) || !isNormalCube(player, pos.offset(direction.getOpposite()));
+    return !isNormalCube(player, pos) || !isNormalCube(player, pos.relative(direction.getOpposite()));
   }
 
   public static boolean isNormalCube(PlayerEntity player, BlockPos pos) {
-    return !player.world.getBlockState(pos).isSuffocating(player.world, pos);
+    return !player.level.getBlockState(pos).isSuffocating(player.level, pos);
   }
 
 }

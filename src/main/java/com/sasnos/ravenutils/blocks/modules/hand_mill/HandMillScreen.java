@@ -14,15 +14,15 @@ public class HandMillScreen extends EssentialsCommonScreen<HandMillContainer> {
   }
 
   @Override
-  protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
-    this.minecraft.getTextureManager().bindTexture(getGUI());
-    this.blit(matrixStack, guiLeft, guiTop, 0, 0, this.xSize, this.ySize + 30);
+  protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {
+    this.minecraft.getTextureManager().bind(getGUI());
+    this.blit(matrixStack, leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight + 30);
   }
 
   @Override
-  protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
-    this.font.drawText(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);
-    this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 72, 4210752);
+  protected void renderLabels(MatrixStack matrixStack, int x, int y) {
+    this.font.draw(matrixStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, 4210752);
+    this.font.draw(matrixStack, this.inventory.getDisplayName(), (float) this.inventoryLabelX, (float) this.imageHeight - 72, 4210752);
   }
 
   @Override

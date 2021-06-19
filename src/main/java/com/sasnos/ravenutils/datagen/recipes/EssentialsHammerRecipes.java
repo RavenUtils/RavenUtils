@@ -27,99 +27,99 @@ public class EssentialsHammerRecipes extends EssentialsRecipeProvider {
   @Override
   public void init() {
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.FLINT_SHARD.get(), 2)
-        .addIngredient(Items.FLINT)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer, "flint_shard_with_hammer");
+    ShapelessRecipeBuilder.shapeless(ModItems.FLINT_SHARD.get(), 2)
+        .requires(Items.FLINT)
+        .requires(hammers)
+        .unlockedBy("has_hammer", hasItemTag(hammers))
+        .save(consumer, "flint_shard_with_hammer");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.COBBLESTONE)
-        .addIngredient(Items.STONE)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer, "cobblestone_with_hammer");
+    ShapelessRecipeBuilder.shapeless(Items.COBBLESTONE)
+        .requires(Items.STONE)
+        .requires(hammers)
+        .unlockedBy("has_hammer", hasItemTag(hammers))
+        .save(consumer, "cobblestone_with_hammer");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.GRAVEL)
-        .addIngredient(Items.COBBLESTONE)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.GRAVEL)
+        .requires(Items.COBBLESTONE)
+        .requires(hammers)
+        .unlockedBy("has_hammer", hasItemTag(hammers))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.SAND)
-        .addIngredient(Items.GRAVEL)
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.SAND)
+        .requires(Items.GRAVEL)
+        .requires(hammers)
+        .unlockedBy("has_hammer", hasItemTag(hammers))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LIME.get(), 4)
-        .addIngredient(ModBlockItems.LIMESTONE_BLOCK_ITEM.get())
-        .addIngredient(hammers)
-        .addCriterion("has_hammer", hasItemTag(hammers))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.LIME.get(), 4)
+        .requires(ModBlockItems.LIMESTONE_BLOCK_ITEM.get())
+        .requires(hammers)
+        .unlockedBy("has_hammer", hasItemTag(hammers))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(Items.GLASS_PANE, 8)
-        .patternLine(" ch")
-        .patternLine(" # ")
-        .key('c', chisels)
-        .key('h', hammers)
-        .key('#', Items.GLASS)
-        .addCriterion("has_glass", hasItem(Items.GLASS))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(Items.GLASS_PANE, 8)
+        .pattern(" ch")
+        .pattern(" # ")
+        .define('c', chisels)
+        .define('h', hammers)
+        .define('#', Items.GLASS)
+        .unlockedBy("has_glass", hasItem(Items.GLASS))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_IRON.get())
-        .patternLine("ih")
-        .key('h', hammers)
-        .key('i', Items.IRON_NUGGET)
-        .addCriterion("has_iron_nugget", hasItem(Items.IRON_NUGGET))
-        .setGroup("sewing_needles")
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SEWING_NEEDLE_IRON.get())
+        .pattern("ih")
+        .define('h', hammers)
+        .define('i', Items.IRON_NUGGET)
+        .unlockedBy("has_iron_nugget", hasItem(Items.IRON_NUGGET))
+        .group("sewing_needles")
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_STEEL.get())
-        .patternLine("ih")
-        .key('h', hammers)
-        .key('i', ModItems.STEEL_NUGGET.get())
-        .addCriterion("has_steel_nugget", hasItem(ModItems.STEEL_NUGGET.get()))
-        .setGroup("sewing_needles")
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SEWING_NEEDLE_STEEL.get())
+        .pattern("ih")
+        .define('h', hammers)
+        .define('i', ModItems.STEEL_NUGGET.get())
+        .unlockedBy("has_steel_nugget", hasItem(ModItems.STEEL_NUGGET.get()))
+        .group("sewing_needles")
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.METAL_ROD_IRON.get())
-        .patternLine("th")
-        .patternLine("i ")
-        .key('t', tongs)
-        .key('h', hammers)
-        .key('i', Items.IRON_INGOT)
-        .addCriterion("has_iron_ingot", hasItem(Items.IRON_INGOT))
-        .setGroup("metal_rods")
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.METAL_ROD_IRON.get())
+        .pattern("th")
+        .pattern("i ")
+        .define('t', tongs)
+        .define('h', hammers)
+        .define('i', Items.IRON_INGOT)
+        .unlockedBy("has_iron_ingot", hasItem(Items.IRON_INGOT))
+        .group("metal_rods")
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.METAL_ROD_STEEL.get())
-        .patternLine("th")
-        .patternLine("i ")
-        .key('t', tongs)
-        .key('h', hammers)
-        .key('i', ModItems.STEEL_INGOT.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .setGroup("metal_rods")
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.METAL_ROD_STEEL.get())
+        .pattern("th")
+        .pattern("i ")
+        .define('t', tongs)
+        .define('h', hammers)
+        .define('i', ModItems.STEEL_INGOT.get())
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .group("metal_rods")
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(HandMillInit.MILLSTONE_ITEM.get(), 1)
-        .addIngredient(Items.STONE_SLAB)
-        .addIngredient(rods_wood)
-        .addIngredient(hammers)
-        .addIngredient(chisels)
-        .addCriterion("has_stone_slab", hasItem(Items.STONE_SLAB))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(HandMillInit.MILLSTONE_ITEM.get(), 1)
+        .requires(Items.STONE_SLAB)
+        .requires(rods_wood)
+        .requires(hammers)
+        .requires(chisels)
+        .unlockedBy("has_stone_slab", hasItem(Items.STONE_SLAB))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(HandMillInit.HAND_MILL_ITEM.get())
-        .patternLine("hSc")
-        .patternLine("s s")
-        .patternLine("sss")
-        .key('h', hammers)
-        .key('c', chisels)
-        .key('s', Items.COBBLESTONE)
-        .key('S', rods_wood)
-        .addCriterion("has_cobblestone", hasItem(Items.COBBLESTONE))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(HandMillInit.HAND_MILL_ITEM.get())
+        .pattern("hSc")
+        .pattern("s s")
+        .pattern("sss")
+        .define('h', hammers)
+        .define('c', chisels)
+        .define('s', Items.COBBLESTONE)
+        .define('S', rods_wood)
+        .unlockedBy("has_cobblestone", hasItem(Items.COBBLESTONE))
+        .save(consumer);
 
   }
 }

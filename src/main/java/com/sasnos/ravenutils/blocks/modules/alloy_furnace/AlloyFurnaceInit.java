@@ -20,13 +20,13 @@ public class AlloyFurnaceInit {
   public static final RegistryObject<Item> ALLOY_FURNACE_ITEM =
       ModBlockItems.ITEMS.register("alloy_furnace", () -> new BlockItem(
           ALLOY_FURNACE.get(),
-          new Item.Properties().group(RavenUtils.TAB)
+          new Item.Properties().tab(RavenUtils.TAB)
       ));
 
   public static final RegistryObject<TileEntityType<AlloyFurnaceTileEntity>> ALLOY_FURNACE_TILE_ENTITY =
       ModTileEntities.TILE_ENTITY.register("alloy_furnace",
           () -> TileEntityType.Builder
-              .create(AlloyFurnaceTileEntity::new, ALLOY_FURNACE.get())
+              .of(AlloyFurnaceTileEntity::new, ALLOY_FURNACE.get())
               .build(null));
 
   public static final RegistryObject<ContainerType<AlloyFurnaceContainer>> ALLOY_FURNACE_CONTAINER =

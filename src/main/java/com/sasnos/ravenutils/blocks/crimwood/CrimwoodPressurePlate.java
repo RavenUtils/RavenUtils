@@ -11,10 +11,10 @@ import net.minecraft.block.PressurePlateBlock.Sensitivity;
 public class CrimwoodPressurePlate extends PressurePlateBlock {
 
   public CrimwoodPressurePlate() {
-    super(Sensitivity.EVERYTHING, Properties.create(Material.WOOD)
-        .doesNotBlockMovement()
-        .hardnessAndResistance(0.5F)
-        .setRequiresTool()
+    super(Sensitivity.EVERYTHING, Properties.of(Material.WOOD)
+        .noCollission()
+        .strength(0.5F)
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
         .sound(SoundType.WOOD));
   }

@@ -9,8 +9,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class PottedCrimleaf extends FlowerPotBlock {
 
   public PottedCrimleaf() {
-    super(null, ModBlocks.CRIMLEAF, Properties.create(Material.MISCELLANEOUS)
-        .zeroHardnessAndResistance()
-        .notSolid());
+    super(null, ModBlocks.CRIMLEAF, Properties.of(Material.DECORATION)
+        .instabreak()
+        .noOcclusion());
   }
 }

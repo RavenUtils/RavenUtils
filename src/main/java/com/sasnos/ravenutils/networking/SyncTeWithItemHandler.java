@@ -21,7 +21,7 @@ public class SyncTeWithItemHandler {
   private final BlockPos pos;
 
   public SyncTeWithItemHandler(PacketBuffer buf) {
-    item = buf.readItemStack();
+    item = buf.readItem();
     fluid = buf.readFluidStack();
     pos = buf.readBlockPos();
 
@@ -37,7 +37,7 @@ public class SyncTeWithItemHandler {
   public static boolean handle(SyncTeWithItemHandler syncTeWithItemHandler, Supplier<NetworkEvent.Context> ctx) {
     ctx.get().enqueueWork(() -> {
       World world = DistExecutor.safeCallWhenOn(Dist.CLIENT, () -> SafeClientCall::getClientWorld);
-      TileEntity te = world.getTileEntity(syncTeWithItemHandler.pos);
+      TileEntity te = world.getBlockEntity(syncTeWithItemHandler.pos);
       if (te instanceof BarrelTileEntity) {
         ((BarrelTileEntity) te).update(syncTeWithItemHandler.item, syncTeWithItemHandler.fluid);
 
@@ -47,7 +47,7 @@ public class SyncTeWithItemHandler {
   }
 
   public void toBuf(PacketBuffer packetBuffer) {
-    packetBuffer.writeItemStack(item);
+    packetBuffer.writeItem(item);
     packetBuffer.writeFluidStack(fluid);
     packetBuffer.writeBlockPos(pos);
   }

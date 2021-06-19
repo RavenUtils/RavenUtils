@@ -42,12 +42,12 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
     return new ItemStackHandler(1) {
       @Override
       protected void onContentsChanged(int slot) {
-        markDirty();
+        setChanged();
       }
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem())) return true;
+        if (getAllRecipeInputsAsItems(recipeType, level).contains(stack.getItem())) return true;
 
         return super.isItemValid(slot, stack);
       }
@@ -55,7 +55,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if (!getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem())) {
+        if (!getAllRecipeInputsAsItems(recipeType, level).contains(stack.getItem())) {
           return stack;
         }
         return super.insertItem(slot, stack, simulate);
@@ -86,24 +86,24 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
   }
 
   @Override
-  public void read(BlockState state, CompoundNBT nbt) {
-    super.read(state, nbt);
+  public void load(BlockState state, CompoundNBT nbt) {
+    super.load(state, nbt);
     fluidTank.readFromNBT(nbt);
     cookingTime = nbt.getInt("cookingTime");
     cookingTimeTotal = nbt.getInt("cookingTimeTotal");
   }
 
   @Override
-  public CompoundNBT write(CompoundNBT compound) {
+  public CompoundNBT save(CompoundNBT compound) {
     fluidTank.writeToNBT(compound);
     compound.putInt("cookingTime", cookingTime);
     compound.putInt("cookingTimeTotal", cookingTimeTotal);
-    return super.write(compound);
+    return super.save(compound);
   }
 
   @Override
-  public void remove() {
-    super.remove();
+  public void setRemoved() {
+    super.setRemoved();
     fluidHandler.invalidate();
   }
 
@@ -116,7 +116,7 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
       itemHandler.extractItem(0, itemHandler.getStackInSlot(0).getCount(), false);
     }
 
-    if (!world.isRemote) {
+    if (!level.isClientSide) {
       BarrelRecipe recipe = getRecipe(itemHandler.getStackInSlot(0));
       if (hasRecipe(recipe)) {
         ++cookingTime;
@@ -132,20 +132,20 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
       }
     }
     if (isDirty) {
-      markDirty();
+      setChanged();
     }
   }
 
   public void updateClient() {
-    markDirty();
-    RavenUtilsPacketHandler.INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> world.getChunkAt(pos)),
-        new SyncTeWithItemHandler(itemHandler.getStackInSlot(0), fluidTank.getFluid(), pos));
+    setChanged();
+    RavenUtilsPacketHandler.INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> level.getChunkAt(worldPosition)),
+        new SyncTeWithItemHandler(itemHandler.getStackInSlot(0), fluidTank.getFluid(), worldPosition));
   }
 
   private void handleRecipe(BarrelRecipe recipe) {
     if (hasRecipe(recipe)) {
       if (!recipe.getIngredients().get(0).test(ItemStack.EMPTY)) {
-        itemHandler.getStackInSlot(0).shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+        itemHandler.getStackInSlot(0).shrink(recipe.getIngredients().get(0).getItems()[0].getCount());
       }
 
       if (recipe.getFluidInput() != FluidStack.EMPTY) {
@@ -185,9 +185,9 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
   @Override
   public BarrelRecipe getRecipe(ItemStack stack) {
-    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
-    BlockState blockState = world.getBlockState(pos);
-    boolean open = blockState.get(Barrel.HAS_LID);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.level);
+    BlockState blockState = level.getBlockState(worldPosition);
+    boolean open = blockState.getValue(Barrel.HAS_LID);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof BarrelRecipe)) continue;
       BarrelRecipe barrelRecipe = (BarrelRecipe) recipe;
@@ -203,16 +203,16 @@ public class BarrelTileEntity extends EssentialsRecipeTileEntity<BarrelRecipe> i
 
   @Override
   public BarrelRecipe getRecipeFromOutput(ItemStack result) {
-    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
-    BlockState blockState = world.getBlockState(pos);
-    boolean open = blockState.get(Barrel.HAS_LID);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.level);
+    BlockState blockState = level.getBlockState(worldPosition);
+    boolean open = blockState.getValue(Barrel.HAS_LID);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof BarrelRecipe)) continue;
       BarrelRecipe barrelRecipe = (BarrelRecipe) recipe;
       if (barrelRecipe.isLidClosed() == open &&
           barrelRecipe.getFluidInput().getFluid() == fluidTank.getFluid().getFluid() &&
           barrelRecipe.getFluidInput().getAmount() <= fluidTank.getFluidAmount() &&
-          ItemStack.areItemStackTagsEqual(barrelRecipe.getOutput().get(0), result)) {
+          ItemStack.tagMatches(barrelRecipe.getOutput().get(0), result)) {
         return barrelRecipe;
       }
     }

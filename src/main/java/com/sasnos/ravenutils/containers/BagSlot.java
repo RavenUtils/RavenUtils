@@ -12,7 +12,7 @@ public class BagSlot extends Slot {
   }
 
   @Override
-  public boolean isItemValid(ItemStack stack) {
+  public boolean mayPlace(ItemStack stack) {
     return !(stack.getItem() == ModToolItems.BAG_CLOTH.get() || stack.getItem() == ModToolItems.BAG_LEATHER.get());
   }
 }

@@ -27,7 +27,7 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
     /*
     add("cat_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
-            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
+            EntityHasProperty.hasProperties(LootContext.EntityTarget.THIS,
                 EntityPredicate.Builder.create().type(EntityType.CAT).build()).build()
         },
         new RandomValueRange(0, 2),
@@ -48,7 +48,7 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
 
     add("chicken_modifier", ModLootTables.FRESH_HIDE.get(), new PassiveEntityLootModifier(
         new ILootCondition[]{
-            EntityHasProperty.func_237477_a_(LootContext.EntityTarget.THIS,
+            EntityHasProperty.hasProperties(LootContext.EntityTarget.THIS,
                 EntityPredicate.Builder.create().type(EntityType.CHICKEN).build()).build()
         },
         new RandomValueRange(0),
@@ -65,79 +65,79 @@ public class EssentialsLootModifiers extends GlobalLootModifierProvider {
     */
 
     add("quartz_from_stone_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.GRANITE),
-            BlockStateProperty.builder(Blocks.ANDESITE),
-            BlockStateProperty.builder(Blocks.DIORITE)
-        ).build(), RandomChanceWithLooting.builder(0.1f, 0.5f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.QUARTZ_SAND.get()))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.GRANITE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.ANDESITE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.DIORITE)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.1f, 0.5f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(ModItems.QUARTZ_SAND.get()))
     ));
 
     add("sulfur_from_coal_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.COAL_ORE)
-        ).build(), RandomChanceWithLooting.builder(0.03f, 0.25f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.SULFUR.get()))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.COAL_ORE)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.03f, 0.25f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(ModItems.SULFUR.get()))
     ));
 
     add("plant_fibre_from_tall_vegetation", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.TALL_GRASS),
-            BlockStateProperty.builder(Blocks.LARGE_FERN),
-            BlockStateProperty.builder(Blocks.TALL_SEAGRASS),
-            BlockStateProperty.builder(Blocks.CACTUS)
-        ).build(), RandomChanceWithLooting.builder(0.35f, 0.5f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.TALL_GRASS),
+            BlockStateProperty.hasBlockStateProperties(Blocks.LARGE_FERN),
+            BlockStateProperty.hasBlockStateProperties(Blocks.TALL_SEAGRASS),
+            BlockStateProperty.hasBlockStateProperties(Blocks.CACTUS)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.35f, 0.5f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
     ));
 
     add("plant_fibre_from_small_vegetation", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.GRASS),
-            BlockStateProperty.builder(Blocks.FERN),
-            BlockStateProperty.builder(Blocks.SEAGRASS)
-        ).build(), RandomChanceWithLooting.builder(0.25f, 0.35f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.GRASS),
+            BlockStateProperty.hasBlockStateProperties(Blocks.FERN),
+            BlockStateProperty.hasBlockStateProperties(Blocks.SEAGRASS)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.25f, 0.35f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(ModItems.PLANT_FIBRE.get()))
     ));
 
     add("small_stone_from_dirt", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.DIRT),
-            BlockStateProperty.builder(Blocks.COARSE_DIRT),
-            BlockStateProperty.builder(Blocks.GRASS_BLOCK),
-            BlockStateProperty.builder(Blocks.FARMLAND)
-        ).build(), RandomChanceWithLooting.builder(0.15f, 0.25f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(ModItems.SMALL_STONE.get()))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.DIRT),
+            BlockStateProperty.hasBlockStateProperties(Blocks.COARSE_DIRT),
+            BlockStateProperty.hasBlockStateProperties(Blocks.GRASS_BLOCK),
+            BlockStateProperty.hasBlockStateProperties(Blocks.FARMLAND)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.15f, 0.25f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(ModItems.SMALL_STONE.get()))
     ));
 
     add("stick_from_leaves_modifier", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.ACACIA_LEAVES),
-            BlockStateProperty.builder(Blocks.BIRCH_LEAVES),
-            BlockStateProperty.builder(Blocks.DARK_OAK_LEAVES),
-            BlockStateProperty.builder(Blocks.JUNGLE_LEAVES),
-            BlockStateProperty.builder(Blocks.OAK_LEAVES),
-            BlockStateProperty.builder(Blocks.SPRUCE_LEAVES)
-        ).build(), RandomChanceWithLooting.builder(0.25f, 0.25f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.STICK))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.ACACIA_LEAVES),
+            BlockStateProperty.hasBlockStateProperties(Blocks.BIRCH_LEAVES),
+            BlockStateProperty.hasBlockStateProperties(Blocks.DARK_OAK_LEAVES),
+            BlockStateProperty.hasBlockStateProperties(Blocks.JUNGLE_LEAVES),
+            BlockStateProperty.hasBlockStateProperties(Blocks.OAK_LEAVES),
+            BlockStateProperty.hasBlockStateProperties(Blocks.SPRUCE_LEAVES)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.25f, 0.25f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(Items.STICK))
     ));
 
     add("cobble_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.REDSTONE_ORE),
-            BlockStateProperty.builder(Blocks.LAPIS_ORE),
-            BlockStateProperty.builder(Blocks.EMERALD_ORE),
-            BlockStateProperty.builder(Blocks.DIAMOND_ORE),
-            BlockStateProperty.builder(Blocks.COAL_ORE)
-        ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.COBBLESTONE))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.REDSTONE_ORE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.LAPIS_ORE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.EMERALD_ORE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.DIAMOND_ORE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.COAL_ORE)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.35f, 0.05f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(Items.COBBLESTONE))
     ));
 
     add("netherrack_from_ore", ModLootTables.AdditionalDrops.get(), new AdditionalDropsForBlocks(
-        new ILootCondition[]{Alternative.builder(
-            BlockStateProperty.builder(Blocks.NETHER_GOLD_ORE),
-            BlockStateProperty.builder(Blocks.NETHER_QUARTZ_ORE)
-        ).build(), RandomChanceWithLooting.builder(0.35f, 0.05f).build()
-        }, NonNullList.from(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
+        new ILootCondition[]{Alternative.alternative(
+            BlockStateProperty.hasBlockStateProperties(Blocks.NETHER_GOLD_ORE),
+            BlockStateProperty.hasBlockStateProperties(Blocks.NETHER_QUARTZ_ORE)
+        ).build(), RandomChanceWithLooting.randomChanceAndLootingBoost(0.35f, 0.05f).build()
+        }, NonNullList.of(ItemStack.EMPTY, new ItemStack(Items.NETHERRACK))
     ));
 
   }

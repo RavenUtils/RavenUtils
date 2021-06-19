@@ -26,71 +26,71 @@ public class EssentialsKnifeRecipes extends EssentialsRecipeProvider {
   @Override
   public void init() {
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEATHER_STRIP.get(), 4)
-        .addIngredient(Items.LEATHER)
-        .addIngredient(knives)
-        .addCriterion("has_leather", hasItem(Items.LEATHER))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.LEATHER_STRIP.get(), 4)
+        .requires(Items.LEATHER)
+        .requires(knives)
+        .unlockedBy("has_leather", hasItem(Items.LEATHER))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BUCKET_CLAY_UNFIRED.get())
-        .addIngredient(Items.CLAY)
-        .addIngredient(knives)
-        .addCriterion("has_clay", hasItem(Items.CLAY))
-        .setGroup("buckets")
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.BUCKET_CLAY_UNFIRED.get())
+        .requires(Items.CLAY)
+        .requires(knives)
+        .unlockedBy("has_clay", hasItem(Items.CLAY))
+        .group("buckets")
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BUCKET_WOOD.get())
-        .addIngredient(ItemTags.LOGS_THAT_BURN)
-        .addIngredient(knives)
-        .addCriterion("has_wooden_log", hasItemTag(ItemTags.LOGS_THAT_BURN))
-        .setGroup("buckets")
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModToolItems.BUCKET_WOOD.get())
+        .requires(ItemTags.LOGS_THAT_BURN)
+        .requires(knives)
+        .unlockedBy("has_wooden_log", hasItemTag(ItemTags.LOGS_THAT_BURN))
+        .group("buckets")
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModToolItems.BUCKET_CRIMWOOD.get())
-        .addIngredient(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
-        .addIngredient(knives)
-        .addCriterion("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
-        .setGroup("buckets")
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModToolItems.BUCKET_CRIMWOOD.get())
+        .requires(ModBlockItems.CRIMWOOD_LOG_ITEM.get())
+        .requires(knives)
+        .unlockedBy("has_crimwood_log", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
+        .group("buckets")
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 3)
-        .addIngredient(saplings)
-        .addIngredient(knives)
-        .addCriterion("has_sapling", hasItemTag(saplings))
-        .build(consumer, "plant_fibre_from_saplings");
+    ShapelessRecipeBuilder.shapeless(ModItems.PLANT_FIBRE.get(), 3)
+        .requires(saplings)
+        .requires(knives)
+        .unlockedBy("has_sapling", hasItemTag(saplings))
+        .save(consumer, "plant_fibre_from_saplings");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 2)
-        .addIngredient(ModBlockItems.REEDS_ITEM.get())
-        .addIngredient(knives)
-        .addCriterion("has_reeds", hasItem(ModBlockItems.REEDS_ITEM.get()))
-        .build(consumer, "plant_fibre_from_reeds");
+    ShapelessRecipeBuilder.shapeless(ModItems.PLANT_FIBRE.get(), 2)
+        .requires(ModBlockItems.REEDS_ITEM.get())
+        .requires(knives)
+        .unlockedBy("has_reeds", hasItem(ModBlockItems.REEDS_ITEM.get()))
+        .save(consumer, "plant_fibre_from_reeds");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.PLANT_FIBRE.get(), 1)
-        .addIngredient(barks)
-        .addIngredient(knives)
-        .addCriterion("has_bark", hasItemTag(barks))
-        .build(consumer, "plant_fibre_from_barks");
+    ShapelessRecipeBuilder.shapeless(ModItems.PLANT_FIBRE.get(), 1)
+        .requires(barks)
+        .requires(knives)
+        .unlockedBy("has_bark", hasItemTag(barks))
+        .save(consumer, "plant_fibre_from_barks");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 4)
-        .addIngredient(ItemTags.WOOL)
-        .addIngredient(knives)
-        .addCriterion("has_knife", hasItemTag(knives))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.STRING, 4)
+        .requires(ItemTags.WOOL)
+        .requires(knives)
+        .unlockedBy("has_knife", hasItemTag(knives))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.STRING, 9)
-        .addIngredient(ModItems.CLOTH.get())
-        .addIngredient(knives)
-        .addCriterion("has_cloth", hasItem(ModItems.CLOTH.get()))
-        .build(consumer, "string_from_knife");
+    ShapelessRecipeBuilder.shapeless(Items.STRING, 9)
+        .requires(ModItems.CLOTH.get())
+        .requires(knives)
+        .unlockedBy("has_cloth", hasItem(ModItems.CLOTH.get()))
+        .save(consumer, "string_from_knife");
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SEWING_NEEDLE_BONE.get(), 2)
-        .patternLine("h")
-        .patternLine("i")
-        .key('h', knives)
-        .key('i', Items.BONE)
-        .addCriterion("has_knife", hasItemTag(knives))
-        .setGroup("sewing_needles")
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SEWING_NEEDLE_BONE.get(), 2)
+        .pattern("h")
+        .pattern("i")
+        .define('h', knives)
+        .define('i', Items.BONE)
+        .unlockedBy("has_knife", hasItemTag(knives))
+        .group("sewing_needles")
+        .save(consumer);
 
   }
 }

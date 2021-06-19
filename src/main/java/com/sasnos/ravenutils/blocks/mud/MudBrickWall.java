@@ -10,8 +10,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class MudBrickWall extends WallBlock {
 
   public MudBrickWall() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(2.5F)
+    super(Properties.of(Material.STONE)
+        .strength(2.5F)
         .sound(SoundType.STONE)
         .harvestTool(ToolType.PICKAXE)
     );

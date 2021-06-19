@@ -9,8 +9,8 @@ import net.minecraftforge.common.ToolType;
 public class BlackCoalBlock extends Block {
 
   public BlackCoalBlock() {
-    super(AbstractBlock.Properties.create(Material.ROCK)
-        .hardnessAndResistance(4f, 600f)
+    super(AbstractBlock.Properties.of(Material.STONE)
+        .strength(4f, 600f)
         .sound(SoundType.STONE)
         .harvestTool(ToolType.PICKAXE)
     );

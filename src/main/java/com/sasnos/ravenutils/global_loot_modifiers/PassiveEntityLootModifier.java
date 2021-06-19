@@ -67,7 +67,7 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       if (applyLootingHide) {
         item = getItemStackWithLooting(context, hideDropRange, ModItems.HIDE_FRESH.get());
       } else {
-        item = new ItemStack(ModItems.HIDE_FRESH.get(), hideDropRange.generateInt(context.getRandom()));
+        item = new ItemStack(ModItems.HIDE_FRESH.get(), hideDropRange.getInt(context.getRandom()));
       }
       generatedLoot.add(item);
     }
@@ -75,10 +75,10 @@ public class PassiveEntityLootModifier extends MobLootModifier {
     if (meat != null && meatDropRange.getMax() > 0) {
       ItemStack item;
       Item contextMeat;
-      Entity entity = context.get(LootParameters.THIS_ENTITY);
+      Entity entity = context.getParamOrNull(LootParameters.THIS_ENTITY);
 
-      if (entity != null && entity.isBurning()) {
-        contextMeat = ((Smelt) Smelt.func_215953_b().build()).doApply(new ItemStack(meat), context).getItem();
+      if (entity != null && entity.isOnFire()) {
+        contextMeat = ((Smelt) Smelt.smelted().build()).run(new ItemStack(meat), context).getItem();
       } else {
         contextMeat = meat;
       }
@@ -87,7 +87,7 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       if (applyLootingMeat) {
         item = getItemStackWithLooting(context, meatDropRange, contextMeat);
       } else {
-        item = new ItemStack(contextMeat, meatDropRange.generateInt(context.getRandom()));
+        item = new ItemStack(contextMeat, meatDropRange.getInt(context.getRandom()));
       }
       generatedLoot.add(item);
     }
@@ -97,7 +97,7 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       if (applyLootingTallow) {
         item = getItemStackWithLooting(context, tallowDropRange, ModItems.TALLOW.get());
       } else {
-        item = new ItemStack(ModItems.TALLOW.get(), tallowDropRange.generateInt(context.getRandom()));
+        item = new ItemStack(ModItems.TALLOW.get(), tallowDropRange.getInt(context.getRandom()));
       }
       generatedLoot.add(item);
     }
@@ -107,7 +107,7 @@ public class PassiveEntityLootModifier extends MobLootModifier {
       if (applyLootingBone) {
         item = getItemStackWithLooting(context, boneDropRange, Items.BONE);
       } else {
-        item = new ItemStack(Items.BONE, boneDropRange.generateInt(context.getRandom()));
+        item = new ItemStack(Items.BONE, boneDropRange.getInt(context.getRandom()));
       }
       generatedLoot.add(item);
     }
@@ -132,20 +132,20 @@ public class PassiveEntityLootModifier extends MobLootModifier {
 
     @Override
     public PassiveEntityLootModifier read(ResourceLocation location, JsonObject json, ILootCondition[] ailootcondition) {
-      int minHide = JSONUtils.getInt(json, "minHide");
-      int maxHide = JSONUtils.getInt(json, "maxHide");
-      boolean applyLootHide = JSONUtils.getBoolean(json, "applyLootHide");
-      int minTallow = JSONUtils.getInt(json, "minTallow");
-      int maxTallow = JSONUtils.getInt(json, "maxTallow");
-      boolean applyLootTallow = JSONUtils.getBoolean(json, "applyLootTallow");
-      int minMeat = JSONUtils.getInt(json, "minMeat");
-      int maxMeat = JSONUtils.getInt(json, "maxMeat");
-      Item meat = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getString(json, "meat")));
-      boolean applyLootMeat = JSONUtils.getBoolean(json, "applyLootMeat");
-      int minBone = JSONUtils.getInt(json, "minBone");
-      int maxBone = JSONUtils.getInt(json, "maxBone");
-      boolean applyLootBone = JSONUtils.getBoolean(json, "applyLootBone");
-      JsonArray additionalJson = JSONUtils.getJsonArray(json, "additional");
+      int minHide = JSONUtils.getAsInt(json, "minHide");
+      int maxHide = JSONUtils.getAsInt(json, "maxHide");
+      boolean applyLootHide = JSONUtils.getAsBoolean(json, "applyLootHide");
+      int minTallow = JSONUtils.getAsInt(json, "minTallow");
+      int maxTallow = JSONUtils.getAsInt(json, "maxTallow");
+      boolean applyLootTallow = JSONUtils.getAsBoolean(json, "applyLootTallow");
+      int minMeat = JSONUtils.getAsInt(json, "minMeat");
+      int maxMeat = JSONUtils.getAsInt(json, "maxMeat");
+      Item meat = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getAsString(json, "meat")));
+      boolean applyLootMeat = JSONUtils.getAsBoolean(json, "applyLootMeat");
+      int minBone = JSONUtils.getAsInt(json, "minBone");
+      int maxBone = JSONUtils.getAsInt(json, "maxBone");
+      boolean applyLootBone = JSONUtils.getAsBoolean(json, "applyLootBone");
+      JsonArray additionalJson = JSONUtils.getAsJsonArray(json, "additional");
       NonNullList<AdditionalItems> additional = NonNullList.create();
 
       RandomValueRange hideRange = new RandomValueRange(minHide, maxHide);
@@ -155,16 +155,16 @@ public class PassiveEntityLootModifier extends MobLootModifier {
 
       for (int i = 0; i < additionalJson.size() - 1; i++) {
         JsonObject itemStack = additionalJson.get(i).getAsJsonObject();
-        RandomValueRange range = new RandomValueRange(JSONUtils.getInt(itemStack, "minItem"), JSONUtils.getInt(itemStack, "maxItem"));
+        RandomValueRange range = new RandomValueRange(JSONUtils.getAsInt(itemStack, "minItem"), JSONUtils.getAsInt(itemStack, "maxItem"));
         additional.add(
             new AdditionalItems(
                 ForgeRegistries.ITEMS.getValue(
                     new ResourceLocation(
-                        JSONUtils.getString(itemStack, "item"))
+                        JSONUtils.getAsString(itemStack, "item"))
                 ),
                 range,
-                JSONUtils.getInt(itemStack, "change"),
-                JSONUtils.getBoolean(itemStack, "useLooting")
+                JSONUtils.getAsInt(itemStack, "change"),
+                JSONUtils.getAsBoolean(itemStack, "useLooting")
             )
         );
       }

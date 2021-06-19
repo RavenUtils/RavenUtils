@@ -10,9 +10,9 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodFence extends FenceBlock {
 
   public CrimwoodFence() {
-    super(Properties.create(Material.WOOD)
-        .hardnessAndResistance(2.0F, 3.0F)
-        .setRequiresTool()
+    super(Properties.of(Material.WOOD)
+        .strength(2.0F, 3.0F)
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
         .sound(SoundType.WOOD));
   }

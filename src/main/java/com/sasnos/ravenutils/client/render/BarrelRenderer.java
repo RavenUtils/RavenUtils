@@ -31,10 +31,10 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
   }
 
   private void add(IVertexBuilder renderer, MatrixStack stack, float x, float y, float z, float u, float v, float red, float green, float blue, float alpha) {
-    renderer.pos(stack.getLast().getMatrix(), x, y, z)
+    renderer.vertex(stack.last().pose(), x, y, z)
         .color(red, green, blue, alpha)
-        .tex(u, v)
-        .lightmap(240, 0)
+        .uv(u, v)
+        .uv2(240, 0)
         .normal(1, 0, 0)
         .endVertex();
   }
@@ -42,11 +42,11 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
   @Override
   public void render(BarrelTileEntity tileEntityIn, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int combinedLightIn, int combinedOverlayIn) {
 
-    if (tileEntityIn.getBlockState().get(Barrel.HAS_LID)) return;
+    if (tileEntityIn.getBlockState().getValue(Barrel.HAS_LID)) return;
     AtomicReference<FluidStack> fluidRef = new AtomicReference<>();
     AtomicReference<ItemStack> item = new AtomicReference<>();
     AtomicReference<Integer> maxValue = new AtomicReference<>();
-    BlockPos pos = tileEntityIn.getPos();
+    BlockPos pos = tileEntityIn.getBlockPos();
 
     tileEntityIn.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY).ifPresent(iFluidHandler -> {
       fluidRef.set(iFluidHandler.getFluidInTank(0));
@@ -57,7 +57,7 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
             item.set(iItemHandler.getStackInSlot(0)));
 
     FluidStack fluid = fluidRef.get();
-    IVertexBuilder builder = bufferIn.getBuffer(RenderType.getTranslucent());
+    IVertexBuilder builder = bufferIn.getBuffer(RenderType.translucent());
 
     double height = (((double) fluid.getAmount()) * .85) / ((double) maxValue.get());
     if (height == 0.0) height += .1;
@@ -68,7 +68,7 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
 
     if (!fluid.isEmpty()) {
 
-      TextureAtlasSprite fluidShape = Minecraft.getInstance().getAtlasSpriteGetter(AtlasTexture.LOCATION_BLOCKS_TEXTURE)
+      TextureAtlasSprite fluidShape = Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS)
           .apply(fluid.getFluid().getAttributes().getStillTexture(fluid));
 
 
@@ -85,31 +85,31 @@ public class BarrelRenderer extends TileEntityRenderer<BarrelTileEntity> {
         alpha = getAlpha(color);
       }
 
-      matrixStackIn.push();
-      matrixStackIn.rotate(new Quaternion(0, 0, 0, true));
-      add(builder, matrixStackIn, 0, floatHeight, 0, fluidShape.getMinU(), fluidShape.getMinV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 1, floatHeight, 0, fluidShape.getMaxU(), fluidShape.getMinV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 1, floatHeight, 1, fluidShape.getMaxU(), fluidShape.getMaxV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 0, floatHeight, 1, fluidShape.getMinU(), fluidShape.getMaxV(), red, green, blue, alpha);
+      matrixStackIn.pushPose();
+      matrixStackIn.mulPose(new Quaternion(0, 0, 0, true));
+      add(builder, matrixStackIn, 0, floatHeight, 0, fluidShape.getU0(), fluidShape.getV0(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 1, floatHeight, 0, fluidShape.getU1(), fluidShape.getV0(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 1, floatHeight, 1, fluidShape.getU1(), fluidShape.getV1(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 0, floatHeight, 1, fluidShape.getU0(), fluidShape.getV1(), red, green, blue, alpha);
 
-      add(builder, matrixStackIn, 0, floatHeight, 1, fluidShape.getMinU(), fluidShape.getMaxV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 1, floatHeight, 1, fluidShape.getMaxU(), fluidShape.getMaxV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 1, floatHeight, 0, fluidShape.getMaxU(), fluidShape.getMinV(), red, green, blue, alpha);
-      add(builder, matrixStackIn, 0, floatHeight, 0, fluidShape.getMinU(), fluidShape.getMinV(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 0, floatHeight, 1, fluidShape.getU0(), fluidShape.getV1(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 1, floatHeight, 1, fluidShape.getU1(), fluidShape.getV1(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 1, floatHeight, 0, fluidShape.getU1(), fluidShape.getV0(), red, green, blue, alpha);
+      add(builder, matrixStackIn, 0, floatHeight, 0, fluidShape.getU0(), fluidShape.getV0(), red, green, blue, alpha);
 
-      matrixStackIn.pop();
+      matrixStackIn.popPose();
     }
 
 
-    matrixStackIn.push();
+    matrixStackIn.pushPose();
 
     matrixStackIn.translate(.5, height, .5);
-    matrixStackIn.rotate(new Quaternion(90f, 0, 0, true));
+    matrixStackIn.mulPose(new Quaternion(90f, 0, 0, true));
     ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-    IBakedModel bakedModel = itemRenderer.getItemModelWithOverrides(item.get(), tileEntityIn.getWorld(), null);
-    itemRenderer.renderItem(item.get(), ItemCameraTransforms.TransformType.FIXED, true,
+    IBakedModel bakedModel = itemRenderer.getModel(item.get(), tileEntityIn.getLevel(), null);
+    itemRenderer.render(item.get(), ItemCameraTransforms.TransformType.FIXED, true,
         matrixStackIn, bufferIn, 128, 0, bakedModel);
-    matrixStackIn.pop();
+    matrixStackIn.popPose();
 
 
   }

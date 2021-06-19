@@ -13,7 +13,7 @@ public class EssentialShieldItem extends ShieldItem {
   public EssentialShieldItem(Properties builder) {
     super(builder);
 
-    DispenserBlock.registerDispenseBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);
+    DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
   }
 
   @Override

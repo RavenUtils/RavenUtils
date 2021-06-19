@@ -14,42 +14,42 @@ public enum ModItemTier implements IItemTier {
       4.0F,
       1.0F,
       10, () -> {
-    return Ingredient.fromItems(ModItems.FLINT_SHARD.get());
+    return Ingredient.of(ModItems.FLINT_SHARD.get());
   }),
   COPPER(1,
       180,
       8.0F,
       1.0F,
       14, () -> {
-    return Ingredient.fromItems(ModItems.COPPER_INGOT.get());
+    return Ingredient.of(ModItems.COPPER_INGOT.get());
   }),
   BRONZE(3,
       640,
       10.0F,
       3.0F,
       18, () -> {
-    return Ingredient.fromItems(ModItems.BRONZE_INGOT.get());
+    return Ingredient.of(ModItems.BRONZE_INGOT.get());
   }),
   SILVER(2,
       210,
       6.0F,
       2.0F,
       22, () -> {
-    return Ingredient.fromItems(ModItems.SILVER_INGOT.get());
+    return Ingredient.of(ModItems.SILVER_INGOT.get());
   }),
   STEEL(4,
       1080,
       12.0F,
       4.0F,
       18, () -> {
-    return Ingredient.fromItems(ModItems.STEEL_INGOT.get());
+    return Ingredient.of(ModItems.STEEL_INGOT.get());
   }),
   MYTHERINE(7,
       16000,
       24.0F,
       6.0F,
       66, () -> {
-    return Ingredient.fromItems(ModItems.MYTHERINE_INGOT.get());
+    return Ingredient.of(ModItems.MYTHERINE_INGOT.get());
   });
 
   private final int harvestLevel;
@@ -69,32 +69,32 @@ public enum ModItemTier implements IItemTier {
   }
 
   @Override
-  public int getMaxUses() {
+  public int getUses() {
     return maxUses;
   }
 
   @Override
-  public float getEfficiency() {
+  public float getSpeed() {
     return efficiency;
   }
 
   @Override
-  public float getAttackDamage() {
+  public float getAttackDamageBonus() {
     return attackDamage;
   }
 
   @Override
-  public int getHarvestLevel() {
+  public int getLevel() {
     return harvestLevel;
   }
 
   @Override
-  public int getEnchantability() {
+  public int getEnchantmentValue() {
     return enchantability;
   }
 
   @Override
-  public Ingredient getRepairMaterial() {
+  public Ingredient getRepairIngredient() {
     return repairMaterial.get();
   }
 }

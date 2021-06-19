@@ -21,76 +21,76 @@ public class EssentialsBlastingRecipes extends EssentialsRecipeProvider {
 
   @Override
   public void init() {
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.COPPER_ORE_ITEM.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModBlockItems.COPPER_ORE_ITEM.get()),
         ModItems.COPPER_INGOT.get(),
         0.7f,
         100)
-        .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer, "copper_ingot_from_blasting");
+        .unlockedBy("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
+        .save(consumer, "copper_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.TIN_ORE_ITEM.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModBlockItems.TIN_ORE_ITEM.get()),
         ModItems.TIN_INGOT.get(),
         0.7f,
         80)
-        .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer, "tin_ingot_from_blasting");
+        .unlockedBy("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
+        .save(consumer, "tin_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.ZINC_ORE_ITEM.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModBlockItems.ZINC_ORE_ITEM.get()),
         ModItems.ZINC_INGOT.get(),
         0.7f,
         80)
-        .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer, "zinc_ingot_from_blasting");
+        .unlockedBy("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
+        .save(consumer, "zinc_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.SILVER_ORE_ITEM.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModBlockItems.SILVER_ORE_ITEM.get()),
         ModItems.SILVER_INGOT.get(),
         0.7f,
         100)
-        .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer, "silver_ingot_from_blasting");
+        .unlockedBy("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
+        .save(consumer, "silver_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.LEAD_ORE_ITEM.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModBlockItems.LEAD_ORE_ITEM.get()),
         ModItems.LEAD_INGOT.get(),
         0.7f,
         80)
-        .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer, "lead_ingot_from_blasting");
+        .unlockedBy("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
+        .save(consumer, "lead_ingot_from_blasting");
 
     EssentialsCookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModBlockItems.MYTHERINE_ORE_ITEM.get()),
+        Ingredient.of(ModBlockItems.MYTHERINE_ORE_ITEM.get()),
         new ItemStack(ModItems.MYTHERINE_NUGGET.get(), 2),
         1.0f,
         1000)
         .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
         .build(consumer, "mytherine_ingot_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModItems.COIN_COPPER.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModItems.COIN_COPPER.get()),
         ModItems.COPPER_NUGGET.get(),
         0.35f,
         100)
-        .addCriterion("has_copper_coin", hasItem(ModItems.COIN_COPPER.get()))
-        .build(consumer, "copper_coin_from_blasting");
+        .unlockedBy("has_copper_coin", hasItem(ModItems.COIN_COPPER.get()))
+        .save(consumer, "copper_coin_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModItems.COIN_SILVER.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModItems.COIN_SILVER.get()),
         ModItems.SILVER_NUGGET.get(),
         0.35f,
         100)
-        .addCriterion("has_silver_coin", hasItem(ModItems.COIN_SILVER.get()))
-        .build(consumer, "silver_coin_from_blasting");
+        .unlockedBy("has_silver_coin", hasItem(ModItems.COIN_SILVER.get()))
+        .save(consumer, "silver_coin_from_blasting");
 
-    CookingRecipeBuilder.blastingRecipe(
-        Ingredient.fromItems(ModItems.COIN_GOLD.get()),
+    CookingRecipeBuilder.blasting(
+        Ingredient.of(ModItems.COIN_GOLD.get()),
         Items.GOLD_NUGGET,
         0.35f,
         100)
-        .addCriterion("has_gold_coin", hasItem(ModItems.COIN_GOLD.get()))
-        .build(consumer, "gold_coin_from_blasting");
+        .unlockedBy("has_gold_coin", hasItem(ModItems.COIN_GOLD.get()))
+        .save(consumer, "gold_coin_from_blasting");
   }
 }

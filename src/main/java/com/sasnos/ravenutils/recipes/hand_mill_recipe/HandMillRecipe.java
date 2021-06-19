@@ -22,7 +22,7 @@ public class HandMillRecipe extends CommonRecipe {
   private final float additionalChance;
 
   public HandMillRecipe(ResourceLocation id, int time, Ingredient input, float additionalDropChance, ItemStack output, ItemStack additionalResult, float additionalChance) {
-    super(id, HAND_MILL_RECIPE_TYPE, NonNullList.from(Ingredient.EMPTY, input), time, NonNullList.from(ItemStack.EMPTY, output), 0);
+    super(id, HAND_MILL_RECIPE_TYPE, NonNullList.of(Ingredient.EMPTY, input), time, NonNullList.of(ItemStack.EMPTY, output), 0);
     this.change = additionalDropChance;
     this.additionalChance = additionalChance;
     this.additionalResult = additionalResult;
@@ -35,7 +35,7 @@ public class HandMillRecipe extends CommonRecipe {
 
   @Override
   public boolean matches(RecipeWrapper inv, World worldIn) {
-    return ingredients.get(0).test(inv.getStackInSlot(0));
+    return ingredients.get(0).test(inv.getItem(0));
   }
 
   @Override

@@ -22,22 +22,22 @@ import org.jetbrains.annotations.Nullable;
 public class Millstone extends EssentialsMachineBlock {
 
   public Millstone() {
-    super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE)
+    super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE)
             .harvestTool(ToolType.PICKAXE)
-            .hardnessAndResistance(1.2f)
+            .strength(1.2f)
             .harvestLevel(1));
   }
 
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (!worldIn.isRemote) {
-      TileEntity tile = worldIn.getTileEntity(pos.down());
-      TileEntity owntile = worldIn.getTileEntity(pos);
+  public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (!worldIn.isClientSide) {
+      TileEntity tile = worldIn.getBlockEntity(pos.below());
+      TileEntity owntile = worldIn.getBlockEntity(pos);
       if (tile instanceof HandMillTileEntity) {
-        if (player.getHeldItem(handIn) == ItemStack.EMPTY && ((HandMillTileEntity) tile).hasInput()) {
+        if (player.getItemInHand(handIn) == ItemStack.EMPTY && ((HandMillTileEntity) tile).hasInput()) {
           ((HandMillTileEntity) tile).addTick();
         } else {
-          worldIn.getBlockState(pos.down()).onBlockActivated(worldIn, player, handIn, hit.withPosition(pos.down()));
+          worldIn.getBlockState(pos.below()).use(worldIn, player, handIn, hit.withPosition(pos.below()));
         }
       }
 
@@ -57,12 +57,12 @@ public class Millstone extends EssentialsMachineBlock {
   }
 
   @Override
-  public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-    TileEntity te = worldIn.getTileEntity(pos);
+  public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+    TileEntity te = worldIn.getBlockEntity(pos);
     if (te instanceof MillStoneTileEntity) {
-      ((MillStoneTileEntity) te).setDamage(stack.getMaxDamage(), stack.getDamage());
+      ((MillStoneTileEntity) te).setDamage(stack.getMaxDamage(), stack.getDamageValue());
     }
-    super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+    super.setPlacedBy(worldIn, pos, state, placer, stack);
   }
 
 

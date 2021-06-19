@@ -24,44 +24,44 @@ public class CombatCraftingRecipes extends EssentialsRecipeProvider {
     // todo move these to Combat module!
 
     // copper
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_SWORD.get())
-        .patternLine("i")
-        .patternLine("i")
-        .patternLine("#")
-        .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.COPPER_SWORD.get())
+        .pattern("i")
+        .pattern("i")
+        .pattern("#")
+        .define('i', ModItems.COPPER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .save(consumer);
 
     // bronze
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_SWORD.get())
-        .patternLine("i")
-        .patternLine("i")
-        .patternLine("#")
-        .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.BRONZE_SWORD.get())
+        .pattern("i")
+        .pattern("i")
+        .pattern("#")
+        .define('i', ModItems.BRONZE_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
     // silver
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_SWORD.get())
-        .patternLine("i")
-        .patternLine("i")
-        .patternLine("#")
-        .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SILVER_SWORD.get())
+        .pattern("i")
+        .pattern("i")
+        .pattern("#")
+        .define('i', ModItems.SILVER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .save(consumer);
 
     // steel
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_SWORD.get())
-        .patternLine("i")
-        .patternLine("i")
-        .patternLine("#")
-        .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.STEEL_SWORD.get())
+        .pattern("i")
+        .pattern("i")
+        .pattern("#")
+        .define('i', ModItems.STEEL_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
     // mytherine
     // todo move to Smithing Recipes
@@ -71,59 +71,59 @@ public class CombatCraftingRecipes extends EssentialsRecipeProvider {
         .addCriterion("has_netherite_sword", hasItem(Items.NETHERITE_SWORD))
         .build(consumer); */
 
-    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_HELMET.get())
-        .patternLine("xcx")
-        .patternLine(" A ")
-        .patternLine("xgx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('A', Items.NETHERITE_HELMET)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .key('g', ModItems.RAVEN_EYE_GEM.get())
-        .addCriterion("has_netherite_helmet", hasItem(Items.NETHERITE_HELMET))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModArmorItems.MYTHERINE_HELMET.get())
+        .pattern("xcx")
+        .pattern(" A ")
+        .pattern("xgx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('A', Items.NETHERITE_HELMET)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .define('g', ModItems.RAVEN_EYE_GEM.get())
+        .unlockedBy("has_netherite_helmet", hasItem(Items.NETHERITE_HELMET))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_CHESTPLATE.get())
-        .patternLine("xcx")
-        .patternLine(" A ")
-        .patternLine("xgx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('A', Items.NETHERITE_CHESTPLATE)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .key('g', ModItems.RAVEN_EYE_GEM.get())
-        .addCriterion("has_netherite_chestplate", hasItem(Items.NETHERITE_CHESTPLATE))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModArmorItems.MYTHERINE_CHESTPLATE.get())
+        .pattern("xcx")
+        .pattern(" A ")
+        .pattern("xgx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('A', Items.NETHERITE_CHESTPLATE)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .define('g', ModItems.RAVEN_EYE_GEM.get())
+        .unlockedBy("has_netherite_chestplate", hasItem(Items.NETHERITE_CHESTPLATE))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_LEGGINGS.get())
-        .patternLine("xcx")
-        .patternLine(" A ")
-        .patternLine("xgx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('A', Items.NETHERITE_LEGGINGS)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .key('g', ModItems.RAVEN_EYE_GEM.get())
-        .addCriterion("has_netherite_leggings", hasItem(Items.NETHERITE_LEGGINGS))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModArmorItems.MYTHERINE_LEGGINGS.get())
+        .pattern("xcx")
+        .pattern(" A ")
+        .pattern("xgx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('A', Items.NETHERITE_LEGGINGS)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .define('g', ModItems.RAVEN_EYE_GEM.get())
+        .unlockedBy("has_netherite_leggings", hasItem(Items.NETHERITE_LEGGINGS))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_BOOTS.get())
-        .patternLine("xcx")
-        .patternLine(" A ")
-        .patternLine("xgx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('A', Items.NETHERITE_BOOTS)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .key('g', ModItems.RAVEN_EYE_GEM.get())
-        .addCriterion("has_netherite_boots", hasItem(Items.NETHERITE_BOOTS))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModArmorItems.MYTHERINE_BOOTS.get())
+        .pattern("xcx")
+        .pattern(" A ")
+        .pattern("xgx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('A', Items.NETHERITE_BOOTS)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .define('g', ModItems.RAVEN_EYE_GEM.get())
+        .unlockedBy("has_netherite_boots", hasItem(Items.NETHERITE_BOOTS))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModArmorItems.MYTHERINE_SHIELD.get())
-        .patternLine("xcx")
-        .patternLine("xAx")
-        .patternLine("xgx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('A', Items.SHIELD)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .key('g', ModItems.RAVEN_EYE_GEM.get())
-        .addCriterion("has_shield", hasItem(Items.SHIELD))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModArmorItems.MYTHERINE_SHIELD.get())
+        .pattern("xcx")
+        .pattern("xAx")
+        .pattern("xgx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('A', Items.SHIELD)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .define('g', ModItems.RAVEN_EYE_GEM.get())
+        .unlockedBy("has_shield", hasItem(Items.SHIELD))
+        .save(consumer);
   }
 }

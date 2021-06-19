@@ -9,7 +9,7 @@ import net.minecraft.item.Item.Properties;
 public class Peat extends Item {
 
   public Peat() {
-    super(new Properties().group(RavenUtils.TAB));
+    super(new Properties().tab(RavenUtils.TAB));
   }
 
   @Override

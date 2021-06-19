@@ -24,7 +24,7 @@ public class RightClickInWorldRecipe extends EssentialsRecipe {
 
     public RightClickInWorldRecipe(ResourceLocation id, Ingredient input, BlockIngredient blockInput, NonNullList<ItemStack> output) {
         super(id, RIGHT_CLICK_IN_WORLD_RECIPE);
-        this.input = NonNullList.from(Ingredient.EMPTY, input);
+        this.input = NonNullList.of(Ingredient.EMPTY, input);
         this.output = output;
         this.block = blockInput;
     }

@@ -9,7 +9,7 @@ import net.minecraft.item.Item.Properties;
 public class BlackCoal extends Item {
 
   public BlackCoal() {
-    super(new Properties().group(RavenUtils.TAB));
+    super(new Properties().tab(RavenUtils.TAB));
   }
 
   @Override

@@ -36,19 +36,19 @@ public class DryingRack extends EssentialsCommonMachineBlock {
 
 
   public DryingRack() {
-    super(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD)
-        .hardnessAndResistance(2.5F)
+    super(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.WOOD)
+        .strength(2.5F)
         .harvestTool(ToolType.AXE)
         .sound(SoundType.WOOD)
-        .notSolid()
+        .noOcclusion()
     );
   }
 
   @SuppressWarnings("deprecation")
   @Override
-  public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-    if (!state.matchesBlock(newState.getBlock())) {
-      TileEntity te = worldIn.getTileEntity(pos);
+  public void onRemove(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+    if (!state.is(newState.getBlock())) {
+      TileEntity te = worldIn.getBlockEntity(pos);
       if (te instanceof EssentialsCommonTileEntity) {
         LazyOptional<IItemHandler> inventory = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
         if (inventory.isPresent()) {
@@ -56,16 +56,16 @@ public class DryingRack extends EssentialsCommonMachineBlock {
         }
       }
     }
-    super.onReplaced(state, worldIn, pos, newState, isMoving);
+    super.onRemove(state, worldIn, pos, newState, isMoving);
   }
 
   @SuppressWarnings("deprecation")
   @Override
-  public @NotNull ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (!worldIn.isRemote) {
-      if (hit.getFace() != Direction.UP) return ActionResultType.CONSUME;
+  public @NotNull ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (!worldIn.isClientSide) {
+      if (hit.getDirection() != Direction.UP) return ActionResultType.CONSUME;
 
-      TileEntity tile = worldIn.getTileEntity(pos);
+      TileEntity tile = worldIn.getBlockEntity(pos);
 
       if (!(tile instanceof DryingRackTileEntity)) return ActionResultType.FAIL;
 
@@ -77,12 +77,12 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       @SuppressWarnings("OptionalGetWithoutIsPresent")
       IItemHandler handler = cap.resolve().get();
 
-      double x = Math.floor(hit.getHitVec().x);
-      double z = Math.floor(hit.getHitVec().z);
+      double x = Math.floor(hit.getLocation().x);
+      double z = Math.floor(hit.getLocation().z);
 
-      double bigx = hit.getHitVec().x - x;
-      double bigz = hit.getHitVec().z - z;
-      Direction facing = state.get(FACING);
+      double bigx = hit.getLocation().x - x;
+      double bigz = hit.getLocation().z - z;
+      Direction facing = state.getValue(FACING);
 
       boolean top = isTop(bigx, bigz, facing);
       boolean left = isLeft(bigz, bigx, facing);
@@ -90,18 +90,18 @@ public class DryingRack extends EssentialsCommonMachineBlock {
       int slot = getSelectedSlot(top, left);
 
       ItemStack stack = handler.getStackInSlot(slot);
-      if (player.getHeldItem(handIn) == ItemStack.EMPTY || ItemStack.areItemsEqual(stack, player.getHeldItem(handIn))) {
+      if (player.getItemInHand(handIn) == ItemStack.EMPTY || ItemStack.isSame(stack, player.getItemInHand(handIn))) {
         if (stack == ItemStack.EMPTY) return ActionResultType.CONSUME;
-        player.addItemStackToInventory(handler.extractItem(slot, 1, false));
+        player.addItem(handler.extractItem(slot, 1, false));
 
       } else {
         if (stack != ItemStack.EMPTY || !handler.isItemValid(slot, stack)) return ActionResultType.FAIL;
-        ItemStack remain = handler.insertItem(slot, player.getHeldItem(handIn), false);
+        ItemStack remain = handler.insertItem(slot, player.getItemInHand(handIn), false);
         if (!player.isCreative()) {
           if (remain == ItemStack.EMPTY) {
-            player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
+            player.inventory.setItem(player.inventory.selected, ItemStack.EMPTY);
           } else {
-            player.getHeldItem(handIn).setCount(remain.getCount());
+            player.getItemInHand(handIn).setCount(remain.getCount());
           }
         }
 
@@ -159,11 +159,11 @@ public class DryingRack extends EssentialsCommonMachineBlock {
   @Nullable
   @Override
   public BlockState getStateForPlacement(BlockItemUseContext context) {
-    return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
   }
 
   @Override
-  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+  protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(FACING);
   }
 }

@@ -21,28 +21,28 @@ public class HandMillRecipes extends EssentialsRecipeProvider {
   @Override
   public void init() {
     HandMillRecipeBuilder
-        .millRecipe(Ingredient.fromItems(Items.WHEAT),
+        .millRecipe(Ingredient.of(Items.WHEAT),
             4, 10, ModFoodItems.WHEAT_FLOUR.get(), 1.0f)
         .addCriterion("has_wheat", EssentialsRecipe.hasItem(Items.WHEAT))
         .setAdditionalOutput(new ItemStack(Items.WHEAT_SEEDS, 1), 1.0f)
         .build(consumer, new ResourceLocation("wheat_flour_from_hand_mill"));
 
     HandMillRecipeBuilder
-        .millRecipe(Ingredient.fromItems(Items.CHARCOAL),
+        .millRecipe(Ingredient.of(Items.CHARCOAL),
             2, 10, ModItems.CHARCOAL_DUST.get(), 1.0f)
         .addCriterion("has_charcoal", EssentialsRecipe.hasItem(Items.CHARCOAL))
         .setAdditionalOutput(new ItemStack(ModItems.CHARCOAL_DUST.get(), 1), 1.0f)
         .build(consumer, new ResourceLocation("charcoal_dust_from_hand_mill"));
 
     HandMillRecipeBuilder
-        .millRecipe(Ingredient.fromItems(Items.COAL),
+        .millRecipe(Ingredient.of(Items.COAL),
             2, 10, ModItems.COAL_DUST.get(), 1.0f)
         .addCriterion("has_coal", EssentialsRecipe.hasItem(Items.COAL))
         .setAdditionalOutput(new ItemStack(ModItems.COAL_DUST.get(), 1), 1.0f)
         .build(consumer, new ResourceLocation("coal_dust_from_coal_hand_mill"));
 
     HandMillRecipeBuilder
-        .millRecipe(Ingredient.fromItems(ModItems.BLACK_COAL.get()),
+        .millRecipe(Ingredient.of(ModItems.BLACK_COAL.get()),
             4, 10, ModItems.COAL_DUST.get(), 1.0f)
         .addCriterion("has_black_coal", EssentialsRecipe.hasItem(ModItems.BLACK_COAL.get()))
         .setAdditionalOutput(new ItemStack(ModItems.COAL_DUST.get(), 1), 1.0f)

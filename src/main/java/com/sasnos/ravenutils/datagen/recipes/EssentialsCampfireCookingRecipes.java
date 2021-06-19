@@ -20,20 +20,20 @@ public class EssentialsCampfireCookingRecipes extends EssentialsRecipeProvider {
 
   @Override
   public void init() {
-    CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(ModFoodItems.BUSHMEAT.get()),
+    CookingRecipeBuilder.cooking(Ingredient.of(ModFoodItems.BUSHMEAT.get()),
         ModFoodItems.COOKED_BUSHMEAT.get(),
         0.35f,
         600,
-        IRecipeSerializer.CAMPFIRE_COOKING)
-        .addCriterion("has_bushmeat", hasItem(ModFoodItems.BUSHMEAT.get()))
-        .build(consumer);
+        IRecipeSerializer.CAMPFIRE_COOKING_RECIPE)
+        .unlockedBy("has_bushmeat", hasItem(ModFoodItems.BUSHMEAT.get()))
+        .save(consumer);
 
-    CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(ModFoodItems.DOUGH.get()),
+    CookingRecipeBuilder.cooking(Ingredient.of(ModFoodItems.DOUGH.get()),
         Items.BREAD,
         0.35f,
         600,
-        IRecipeSerializer.CAMPFIRE_COOKING)
-        .addCriterion("has_dough", hasItem(ModFoodItems.DOUGH.get()))
-        .build(consumer);
+        IRecipeSerializer.CAMPFIRE_COOKING_RECIPE)
+        .unlockedBy("has_dough", hasItem(ModFoodItems.DOUGH.get()))
+        .save(consumer);
   }
 }

@@ -25,13 +25,13 @@ public class ModFoodItems {
   public static final RegistryObject<Item> DUCK_EGG = ITEMS.register("duck_egg", DuckEgg::new);
 
   public static final RegistryObject<Item> BLUEBERRIES = ITEMS.register("blueberries",
-      () -> new BlockNamedItem(ModBlocks.BLUEBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
+      () -> new BlockNamedItem(ModBlocks.BLUEBERRY_BUSH.get(), (new Item.Properties()).tab(ItemGroup.TAB_FOOD).food(Foods.SWEET_BERRIES)));
   public static final RegistryObject<Item> ELDERBERRIES = ITEMS.register("elderberries",
-      () -> new BlockNamedItem(ModBlocks.ELDERBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
+      () -> new BlockNamedItem(ModBlocks.ELDERBERRY_BUSH.get(), (new Item.Properties()).tab(ItemGroup.TAB_FOOD).food(Foods.SWEET_BERRIES)));
   public static final RegistryObject<Item> RASPBERRIES = ITEMS.register("raspberries",
-      () -> new BlockNamedItem(ModBlocks.RASPBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
+      () -> new BlockNamedItem(ModBlocks.RASPBERRY_BUSH.get(), (new Item.Properties()).tab(ItemGroup.TAB_FOOD).food(Foods.SWEET_BERRIES)));
   public static final RegistryObject<Item> BLACKBERRIES = ITEMS.register("blackberries",
-      () -> new BlockNamedItem(ModBlocks.BLACKBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
+      () -> new BlockNamedItem(ModBlocks.BLACKBERRY_BUSH.get(), (new Item.Properties()).tab(ItemGroup.TAB_FOOD).food(Foods.SWEET_BERRIES)));
   public static final RegistryObject<Item> GOOSEBERRIES = ITEMS.register("gooseberries",
-      () -> new BlockNamedItem(ModBlocks.GOOSEBERRY_BUSH.get(), (new Item.Properties()).group(ItemGroup.FOOD).food(Foods.SWEET_BERRIES)));
+      () -> new BlockNamedItem(ModBlocks.GOOSEBERRY_BUSH.get(), (new Item.Properties()).tab(ItemGroup.TAB_FOOD).food(Foods.SWEET_BERRIES)));
 }

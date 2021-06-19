@@ -80,7 +80,7 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
   @Nullable
   private static RenderMaterial getMaterial(IModelConfiguration owner, String name) {
     RenderMaterial location = owner.resolveTexture(name);
-    if (MissingTextureSprite.getLocation().equals(location.getTextureLocation())) {
+    if (MissingTextureSprite.getLocation().equals(location.texture())) {
       return null;
     }
     return location;
@@ -212,7 +212,7 @@ public final class BucketModel implements IModelGeometry<BucketModel> {
     }
 
     @Override
-    public IBakedModel getOverrideModel(IBakedModel originalModel, ItemStack stack, @Nullable ClientWorld world, @Nullable LivingEntity entity) {
+    public IBakedModel resolve(IBakedModel originalModel, ItemStack stack, @Nullable ClientWorld world, @Nullable LivingEntity entity) {
       return FluidUtil.getFluidContained(stack).map(fluidStack -> {
         BakedModel model = (BakedModel) originalModel;
 

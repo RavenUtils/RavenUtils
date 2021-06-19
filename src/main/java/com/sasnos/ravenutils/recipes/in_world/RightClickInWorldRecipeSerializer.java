@@ -17,40 +17,40 @@ import org.jetbrains.annotations.Nullable;
 public class RightClickInWorldRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<RightClickInWorldRecipe> {
 
     @Override
-    public RightClickInWorldRecipe read(ResourceLocation recipeId, JsonObject json) {
-        Ingredient input = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
-        BlockIngredient blockInput = BlockIngredient.deserialize(JSONUtils.getJsonObject(json, "blockIngredient"));
+    public RightClickInWorldRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+        Ingredient input = Ingredient.fromJson(JSONUtils.getAsJsonObject(json, "ingredient"));
+        BlockIngredient blockInput = BlockIngredient.deserialize(JSONUtils.getAsJsonObject(json, "blockIngredient"));
 
         NonNullList<ItemStack> outputs = NonNullList.create();
-        JsonArray array = JSONUtils.getJsonArray(json, "result");
+        JsonArray array = JSONUtils.getAsJsonArray(json, "result");
         for (JsonElement element : array) {
             JsonObject jsonObject = (JsonObject) element;
-            outputs.add(new ItemStack(JSONUtils.getItem(jsonObject, "item"),
-                    JSONUtils.getInt(jsonObject, "count")));
+            outputs.add(new ItemStack(JSONUtils.getAsItem(jsonObject, "item"),
+                    JSONUtils.getAsInt(jsonObject, "count")));
         }
         return new RightClickInWorldRecipe(recipeId, input, blockInput, outputs);
     }
 
     @Nullable
     @Override
-    public RightClickInWorldRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-        Ingredient input = Ingredient.read(buffer);
+    public RightClickInWorldRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        Ingredient input = Ingredient.fromNetwork(buffer);
         BlockIngredient blockInput = BlockIngredient.read(buffer);
         int size = buffer.readVarInt();
         NonNullList<ItemStack> output = NonNullList.create();
         for (int i = 0; i < size; i++) {
-            output.add(buffer.readItemStack());
+            output.add(buffer.readItem());
         }
         return new RightClickInWorldRecipe(recipeId, input, blockInput, output);
     }
 
     @Override
-    public void write(PacketBuffer buffer, RightClickInWorldRecipe recipe) {
-        recipe.getIngredients().get(0).write(buffer);
-        recipe.getBlocks().write(buffer);
+    public void toNetwork(PacketBuffer buffer, RightClickInWorldRecipe recipe) {
+        recipe.getIngredients().get(0).toNetwork(buffer);
+        recipe.getBlocks().toNetwork(buffer);
         buffer.writeVarInt(recipe.getOutput().size());
         for (ItemStack stack : recipe.getOutput()) {
-            buffer.writeItemStack(stack);
+            buffer.writeItem(stack);
         }
     }
 }

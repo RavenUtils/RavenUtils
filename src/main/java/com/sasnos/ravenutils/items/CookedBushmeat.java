@@ -12,14 +12,14 @@ public class CookedBushmeat extends Item {
 
   public CookedBushmeat() {
     super(new Properties()
-        .group(ItemGroup.FOOD)
+        .tab(ItemGroup.TAB_FOOD)
         .food(new Food.Builder()
-            .hunger(6)
-            .saturation(8.0f)
+            .nutrition(6)
+            .saturationMod(8.0f)
             .meat()
             .effect(() -> new EffectInstance(Effects.HUNGER, 400, 1), 0.5f)
             .effect(() -> new EffectInstance(Effects.POISON, 200, 1), 0.5f)
-            .effect(() -> new EffectInstance(Effects.NAUSEA, 300, 1), 0.4f)
+            .effect(() -> new EffectInstance(Effects.CONFUSION, 300, 1), 0.4f)
             .build()));
   }
 }

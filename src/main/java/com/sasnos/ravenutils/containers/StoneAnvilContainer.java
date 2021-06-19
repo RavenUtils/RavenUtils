@@ -19,40 +19,40 @@ public class StoneAnvilContainer extends RepairContainer {
   }
 
   @Override
-  protected ItemStack func_230301_a_(PlayerEntity p_230301_1_, ItemStack p_230301_2_) {
-    if (!p_230301_1_.abilities.isCreativeMode) {
-      p_230301_1_.addExperienceLevel(-getMaximumCost());
+  protected ItemStack onTake(PlayerEntity p_230301_1_, ItemStack p_230301_2_) {
+    if (!p_230301_1_.abilities.instabuild) {
+      p_230301_1_.giveExperienceLevels(-getCost());
     }
 
     float breakChance = 0.24f;
 
-    this.field_234643_d_.setInventorySlotContents(0, ItemStack.EMPTY);
-    if (this.materialCost > 0) {
-      ItemStack itemstack = this.field_234643_d_.getStackInSlot(1);
-      if (!itemstack.isEmpty() && itemstack.getCount() > this.materialCost) {
-        itemstack.shrink(this.materialCost);
-        this.field_234643_d_.setInventorySlotContents(1, itemstack);
+    this.inputSlots.setItem(0, ItemStack.EMPTY);
+    if (this.repairItemCountCost > 0) {
+      ItemStack itemstack = this.inputSlots.getItem(1);
+      if (!itemstack.isEmpty() && itemstack.getCount() > this.repairItemCountCost) {
+        itemstack.shrink(this.repairItemCountCost);
+        this.inputSlots.setItem(1, itemstack);
       } else {
-        this.field_234643_d_.setInventorySlotContents(1, ItemStack.EMPTY);
+        this.inputSlots.setItem(1, ItemStack.EMPTY);
       }
     } else {
-      this.field_234643_d_.setInventorySlotContents(1, ItemStack.EMPTY);
+      this.inputSlots.setItem(1, ItemStack.EMPTY);
     }
 
     this.setMaximumCost(0);
-    this.field_234644_e_.consume((p_234633_1_, p_234633_2_) -> {
+    this.access.execute((p_234633_1_, p_234633_2_) -> {
       BlockState blockstate = p_234633_1_.getBlockState(p_234633_2_);
-      if (!p_230301_1_.abilities.isCreativeMode && blockstate.isIn(BlockTags.ANVIL) && p_230301_1_.getRNG().nextFloat() < breakChance) {
+      if (!p_230301_1_.abilities.instabuild && blockstate.is(BlockTags.ANVIL) && p_230301_1_.getRandom().nextFloat() < breakChance) {
         BlockState blockstate1 = StoneAnvil.damage(blockstate);
         if (blockstate1 == null) {
           p_234633_1_.removeBlock(p_234633_2_, false);
-          p_234633_1_.playEvent(1029, p_234633_2_, 0);
+          p_234633_1_.levelEvent(1029, p_234633_2_, 0);
         } else {
-          p_234633_1_.setBlockState(p_234633_2_, blockstate1, 2);
-          p_234633_1_.playEvent(1030, p_234633_2_, 0);
+          p_234633_1_.setBlock(p_234633_2_, blockstate1, 2);
+          p_234633_1_.levelEvent(1030, p_234633_2_, 0);
         }
       } else {
-        p_234633_1_.playEvent(1030, p_234633_2_, 0);
+        p_234633_1_.levelEvent(1030, p_234633_2_, 0);
       }
 
     });

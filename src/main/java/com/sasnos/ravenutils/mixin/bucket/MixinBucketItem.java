@@ -20,7 +20,7 @@ public abstract class MixinBucketItem extends Item {
 
   @Final
   @Shadow
-  private Fluid containedBlock;
+  private Fluid content;
 
   public MixinBucketItem(Properties properties) {
     super(properties);
@@ -32,12 +32,12 @@ public abstract class MixinBucketItem extends Item {
   }
 
 
-  @Inject(method = "emptyBucket",at = @At("RETURN"), cancellable = true)
+  @Inject(method = "getEmptySuccessItem",at = @At("RETURN"), cancellable = true)
   protected void onEmptyBucket(ItemStack stack, PlayerEntity player, CallbackInfoReturnable<ItemStack> cir) {
     if (cir.getReturnValue().getItem() == Items.BUCKET){
       ItemStack newBucket = cir.getReturnValue();
-      newBucket.damageItem(stack.getDamage()+1, player,
-              (playerEntity) -> playerEntity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1, 1));
+      newBucket.hurtAndBreak(stack.getDamageValue()+1, player,
+              (playerEntity) -> playerEntity.playSound(SoundEvents.ITEM_BREAK, 1, 1));
     }
   }
 }

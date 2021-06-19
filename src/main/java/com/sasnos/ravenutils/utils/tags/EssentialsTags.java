@@ -35,27 +35,27 @@ public class EssentialsTags {
     public static void init() {
     }
 
-    public static final ITag.INamedTag<Block> ores = BlockTags.makeWrapperTag("forge:ore");
-    public static final ITag.INamedTag<Block> non_flammable_wood = BlockTags.makeWrapperTag("forge:non_flammable_wood");
-    public static final ITag.INamedTag<Block> fence_gates = BlockTags.makeWrapperTag("forge:fence_gates");
-    public static final ITag.INamedTag<Block> flower_pots = BlockTags.makeWrapperTag("forge:flower_pots");
-    public static final ITag.INamedTag<Block> infiniburn_overworld = BlockTags.makeWrapperTag("forge:infiniburn_overworld");
-    public static final ITag.INamedTag<Block> crimwood_logs = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":crimwood");
-    public static final ITag.INamedTag<Block> leaves = BlockTags.makeWrapperTag("forge:leaves");
-    public static final ITag.INamedTag<Block> planks = BlockTags.makeWrapperTag("forge:planks");
-    public static final ITag.INamedTag<Block> saplings = BlockTags.makeWrapperTag("forge:saplings");
-    public static final ITag.INamedTag<Block> small_flowers = BlockTags.makeWrapperTag("forge:small_flowers");
-    public static final ITag.INamedTag<Block> wooden_buttons = BlockTags.makeWrapperTag("forge:wooden_buttons");
-    public static final ITag.INamedTag<Block> wooden_doors = BlockTags.makeWrapperTag("forge:wooden_doors");
-    public static final ITag.INamedTag<Block> wooden_fences = BlockTags.makeWrapperTag("forge:wooden_fences");
-    public static final ITag.INamedTag<Block> wooden_pressure_plates = BlockTags.makeWrapperTag("forge:wooden_pressure_plates");
-    public static final ITag.INamedTag<Block> wooden_slabs = BlockTags.makeWrapperTag("forge:wooden_slabs");
-    public static final ITag.INamedTag<Block> wooden_stairs = BlockTags.makeWrapperTag("forge:wooden_stairs");
-    public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.makeWrapperTag("forge:wooden_trapdoors");
+    public static final ITag.INamedTag<Block> ores = BlockTags.bind("forge:ore");
+    public static final ITag.INamedTag<Block> non_flammable_wood = BlockTags.bind("forge:non_flammable_wood");
+    public static final ITag.INamedTag<Block> fence_gates = BlockTags.bind("forge:fence_gates");
+    public static final ITag.INamedTag<Block> flower_pots = BlockTags.bind("forge:flower_pots");
+    public static final ITag.INamedTag<Block> infiniburn_overworld = BlockTags.bind("forge:infiniburn_overworld");
+    public static final ITag.INamedTag<Block> crimwood_logs = BlockTags.bind(RavenUtils.MOD_ID + ":crimwood");
+    public static final ITag.INamedTag<Block> leaves = BlockTags.bind("forge:leaves");
+    public static final ITag.INamedTag<Block> planks = BlockTags.bind("forge:planks");
+    public static final ITag.INamedTag<Block> saplings = BlockTags.bind("forge:saplings");
+    public static final ITag.INamedTag<Block> small_flowers = BlockTags.bind("forge:small_flowers");
+    public static final ITag.INamedTag<Block> wooden_buttons = BlockTags.bind("forge:wooden_buttons");
+    public static final ITag.INamedTag<Block> wooden_doors = BlockTags.bind("forge:wooden_doors");
+    public static final ITag.INamedTag<Block> wooden_fences = BlockTags.bind("forge:wooden_fences");
+    public static final ITag.INamedTag<Block> wooden_pressure_plates = BlockTags.bind("forge:wooden_pressure_plates");
+    public static final ITag.INamedTag<Block> wooden_slabs = BlockTags.bind("forge:wooden_slabs");
+    public static final ITag.INamedTag<Block> wooden_stairs = BlockTags.bind("forge:wooden_stairs");
+    public static final ITag.INamedTag<Block> wooden_trapdoors = BlockTags.bind("forge:wooden_trapdoors");
 
     //public static final ITag.INamedTag<Block> mud_wall = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":mud_wall");
 
-    public static final ITag.INamedTag<Block> requireTool = BlockTags.makeWrapperTag(RavenUtils.MOD_ID + ":require_tool");
+    public static final ITag.INamedTag<Block> requireTool = BlockTags.bind(RavenUtils.MOD_ID + ":require_tool");
   }
 
   public static class Items {
@@ -63,56 +63,56 @@ public class EssentialsTags {
     }
 
     // blockitems
-    public static final ITag.INamedTag<Item> ores = ItemTags.makeWrapperTag("forge:ore");
-    public static final ITag.INamedTag<Item> non_flammable_wood = ItemTags.makeWrapperTag("forge:non_flammable_wood");
-    public static final ITag.INamedTag<Item> crimwood_logs = ItemTags.makeWrapperTag("ravenutils:crimwood_logs");
-    public static final ITag.INamedTag<Item> fence_gates = ItemTags.makeWrapperTag("forge:fence_gates");
-    public static final ITag.INamedTag<Item> leaves = ItemTags.makeWrapperTag("forge:leaves");
-    public static final ITag.INamedTag<Item> planks = ItemTags.makeWrapperTag("forge:planks");
-    public static final ITag.INamedTag<Item> saplings = ItemTags.makeWrapperTag("forge:saplings");
-    public static final ITag.INamedTag<Item> small_flowers = ItemTags.makeWrapperTag("forge:small_flowers");
-    public static final ITag.INamedTag<Item> wooden_buttons = ItemTags.makeWrapperTag("forge:wooden_buttons");
-    public static final ITag.INamedTag<Item> wooden_doors = ItemTags.makeWrapperTag("forge:wooden_doors");
-    public static final ITag.INamedTag<Item> wooden_fences = ItemTags.makeWrapperTag("forge:wooden_fences");
-    public static final ITag.INamedTag<Item> wooden_pressure_plates = ItemTags.makeWrapperTag("forge:wooden_pressure_plates");
-    public static final ITag.INamedTag<Item> wooden_slabs = ItemTags.makeWrapperTag("forge:wooden_slabs");
-    public static final ITag.INamedTag<Item> wooden_stairs = ItemTags.makeWrapperTag("forge:wooden_stairs");
-    public static final ITag.INamedTag<Item> wooden_trapdoors = ItemTags.makeWrapperTag("forge:wooden_trapdoors");
+    public static final ITag.INamedTag<Item> ores = ItemTags.bind("forge:ore");
+    public static final ITag.INamedTag<Item> non_flammable_wood = ItemTags.bind("forge:non_flammable_wood");
+    public static final ITag.INamedTag<Item> crimwood_logs = ItemTags.bind("ravenutils:crimwood_logs");
+    public static final ITag.INamedTag<Item> fence_gates = ItemTags.bind("forge:fence_gates");
+    public static final ITag.INamedTag<Item> leaves = ItemTags.bind("forge:leaves");
+    public static final ITag.INamedTag<Item> planks = ItemTags.bind("forge:planks");
+    public static final ITag.INamedTag<Item> saplings = ItemTags.bind("forge:saplings");
+    public static final ITag.INamedTag<Item> small_flowers = ItemTags.bind("forge:small_flowers");
+    public static final ITag.INamedTag<Item> wooden_buttons = ItemTags.bind("forge:wooden_buttons");
+    public static final ITag.INamedTag<Item> wooden_doors = ItemTags.bind("forge:wooden_doors");
+    public static final ITag.INamedTag<Item> wooden_fences = ItemTags.bind("forge:wooden_fences");
+    public static final ITag.INamedTag<Item> wooden_pressure_plates = ItemTags.bind("forge:wooden_pressure_plates");
+    public static final ITag.INamedTag<Item> wooden_slabs = ItemTags.bind("forge:wooden_slabs");
+    public static final ITag.INamedTag<Item> wooden_stairs = ItemTags.bind("forge:wooden_stairs");
+    public static final ITag.INamedTag<Item> wooden_trapdoors = ItemTags.bind("forge:wooden_trapdoors");
 
     // items
-    public static final ITag.INamedTag<Item> hammers = ItemTags.makeWrapperTag("forge:tools/hammers");
-    public static final ITag.INamedTag<Item> tongs = ItemTags.makeWrapperTag("forge:tools/tongs");
-    public static final ITag.INamedTag<Item> handsaws = ItemTags.makeWrapperTag("forge:tools/handsaws");
-    public static final ITag.INamedTag<Item> chisels = ItemTags.makeWrapperTag("forge:tools/chisels");
-    public static final ITag.INamedTag<Item> knives = ItemTags.makeWrapperTag("forge:tools/knives");
-    public static final ITag.INamedTag<Item> mortars = ItemTags.makeWrapperTag("forge:tools/mortars");
-    public static final ITag.INamedTag<Item> sewing_needles = ItemTags.makeWrapperTag("forge:tools/sewing_needles");
-    public static final ITag.INamedTag<Item> axes = ItemTags.makeWrapperTag("forge:tools/axes");
-    public static final ITag.INamedTag<Item> fishing_rods = ItemTags.makeWrapperTag("forge:tools/fishing_rods");
-    public static final ITag.INamedTag<Item> books = ItemTags.makeWrapperTag("forge:books");
-    public static final ITag.INamedTag<Item> grasses_tall = ItemTags.makeWrapperTag("forge:grasses/tall");
-    public static final ITag.INamedTag<Item> slimeballs = ItemTags.makeWrapperTag("forge:slimeballs");
-    public static final ITag.INamedTag<Item> raw_meat = ItemTags.makeWrapperTag("forge:meat/raw");
-    public static final ITag.INamedTag<Item> flours = ItemTags.makeWrapperTag("forge:flours");
-    public static final ITag.INamedTag<Item> salts = ItemTags.makeWrapperTag("forge:salts");
-    public static final ITag.INamedTag<Item> boats = ItemTags.makeWrapperTag("forge:boats");
-    public static final ITag.INamedTag<Item> coals = ItemTags.makeWrapperTag("minecraft:coals");
-    public static final ITag.INamedTag<Item> coals_stone = ItemTags.makeWrapperTag("forge:coals/stone");
-    public static final ITag.INamedTag<Item> coals_wood = ItemTags.makeWrapperTag("forge:coals/wood");
-    public static final ITag.INamedTag<Item> strings = ItemTags.makeWrapperTag("forge:string");
-    public static final ITag.INamedTag<Item> barks = ItemTags.makeWrapperTag("forge:barks");
-    public static final ITag.INamedTag<Item> rods_metal = ItemTags.makeWrapperTag("forge:rods/metal");
-    public static final ITag.INamedTag<Item> rods_wood = ItemTags.makeWrapperTag("forge:rods/wooden");
+    public static final ITag.INamedTag<Item> hammers = ItemTags.bind("forge:tools/hammers");
+    public static final ITag.INamedTag<Item> tongs = ItemTags.bind("forge:tools/tongs");
+    public static final ITag.INamedTag<Item> handsaws = ItemTags.bind("forge:tools/handsaws");
+    public static final ITag.INamedTag<Item> chisels = ItemTags.bind("forge:tools/chisels");
+    public static final ITag.INamedTag<Item> knives = ItemTags.bind("forge:tools/knives");
+    public static final ITag.INamedTag<Item> mortars = ItemTags.bind("forge:tools/mortars");
+    public static final ITag.INamedTag<Item> sewing_needles = ItemTags.bind("forge:tools/sewing_needles");
+    public static final ITag.INamedTag<Item> axes = ItemTags.bind("forge:tools/axes");
+    public static final ITag.INamedTag<Item> fishing_rods = ItemTags.bind("forge:tools/fishing_rods");
+    public static final ITag.INamedTag<Item> books = ItemTags.bind("forge:books");
+    public static final ITag.INamedTag<Item> grasses_tall = ItemTags.bind("forge:grasses/tall");
+    public static final ITag.INamedTag<Item> slimeballs = ItemTags.bind("forge:slimeballs");
+    public static final ITag.INamedTag<Item> raw_meat = ItemTags.bind("forge:meat/raw");
+    public static final ITag.INamedTag<Item> flours = ItemTags.bind("forge:flours");
+    public static final ITag.INamedTag<Item> salts = ItemTags.bind("forge:salts");
+    public static final ITag.INamedTag<Item> boats = ItemTags.bind("forge:boats");
+    public static final ITag.INamedTag<Item> coals = ItemTags.bind("minecraft:coals");
+    public static final ITag.INamedTag<Item> coals_stone = ItemTags.bind("forge:coals/stone");
+    public static final ITag.INamedTag<Item> coals_wood = ItemTags.bind("forge:coals/wood");
+    public static final ITag.INamedTag<Item> strings = ItemTags.bind("forge:string");
+    public static final ITag.INamedTag<Item> barks = ItemTags.bind("forge:barks");
+    public static final ITag.INamedTag<Item> rods_metal = ItemTags.bind("forge:rods/metal");
+    public static final ITag.INamedTag<Item> rods_wood = ItemTags.bind("forge:rods/wooden");
 
-    public static ITag.INamedTag<Item> buckets = ItemTags.makeWrapperTag("forge:buckets");
-    public static ITag.INamedTag<Item> buckets_water = ItemTags.makeWrapperTag("forge:buckets/water");
-    public static ITag.INamedTag<Item> buckets_lava = ItemTags.makeWrapperTag("forge:buckets/lava");
-    public static ITag.INamedTag<Item> buckets_milk = ItemTags.makeWrapperTag("forge:buckets/milk");
-    public static ITag.INamedTag<Item> buckets_limewater = ItemTags.makeWrapperTag("forge:buckets/limewater");
-    public static ITag.INamedTag<Item> buckets_tannin = ItemTags.makeWrapperTag("forge:buckets/tannin");
+    public static ITag.INamedTag<Item> buckets = ItemTags.bind("forge:buckets");
+    public static ITag.INamedTag<Item> buckets_water = ItemTags.bind("forge:buckets/water");
+    public static ITag.INamedTag<Item> buckets_lava = ItemTags.bind("forge:buckets/lava");
+    public static ITag.INamedTag<Item> buckets_milk = ItemTags.bind("forge:buckets/milk");
+    public static ITag.INamedTag<Item> buckets_limewater = ItemTags.bind("forge:buckets/limewater");
+    public static ITag.INamedTag<Item> buckets_tannin = ItemTags.bind("forge:buckets/tannin");
 
-    public static final ITag.INamedTag<Item> buckets_burnable = ItemTags.makeWrapperTag("buckets_burnable");
-    public static final ITag.INamedTag<Item> fireStarter = ItemTags.makeWrapperTag(RavenUtils.MOD_ID + ":fire_starter");
+    public static final ITag.INamedTag<Item> buckets_burnable = ItemTags.bind("buckets_burnable");
+    public static final ITag.INamedTag<Item> fireStarter = ItemTags.bind(RavenUtils.MOD_ID + ":fire_starter");
   }
 
   public static class Fluids {

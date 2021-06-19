@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class SilverOre extends OreBlock {
 
   public SilverOre() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(3f, 3f)
+    super(Properties.of(Material.STONE)
+        .strength(3f, 3f)
         .sound(SoundType.STONE)
         .harvestLevel(2)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import net.minecraft.item.Item.Properties;
+
 public abstract class BaseBucketItem extends Item {
 
   /**
@@ -28,7 +30,7 @@ public abstract class BaseBucketItem extends Item {
   protected Supplier<Item> milkBucket;
 
   public BaseBucketItem(Properties properties, @org.jetbrains.annotations.Nullable Supplier<Item> milkBucket) {
-    super(properties.group(RavenUtils.TAB));
+    super(properties.tab(RavenUtils.TAB));
     this.milkBucket = milkBucket;
   }
 
@@ -70,9 +72,9 @@ public abstract class BaseBucketItem extends Item {
    */
   protected static ItemStack emptyBucket(ItemStack stack, PlayerEntity player) {
     ItemStack emptyBucket = ((BaseBucketItem) stack.getItem()).withFluid(stack, Fluids.EMPTY);
-    if (emptyBucket.isDamageable())
-      emptyBucket.damageItem(stack.getDamage() + 1, player,
-          playerEntity -> playerEntity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f));
+    if (emptyBucket.isDamageableItem())
+      emptyBucket.hurtAndBreak(stack.getDamageValue() + 1, player,
+          playerEntity -> playerEntity.playSound(SoundEvents.ITEM_BREAK, 1f, 1f));
     return !player.isCreative() ? emptyBucket : stack;
   }
 
@@ -90,8 +92,8 @@ public abstract class BaseBucketItem extends Item {
       return originalStack;
     }
 
-    if (newBucket.isDamageable())
-      newBucket.setDamage(originalStack.getDamage());
+    if (newBucket.isDamageableItem())
+      newBucket.setDamageValue(originalStack.getDamageValue());
 
     originalStack.shrink(1);
     // fill with fluid
@@ -110,8 +112,8 @@ public abstract class BaseBucketItem extends Item {
    * @param stack  Stack to add
    */
   protected static void addItem(PlayerEntity player, ItemStack stack) {
-    if (!player.inventory.addItemStackToInventory(stack)) {
-      player.dropItem(stack, false);
+    if (!player.inventory.add(stack)) {
+      player.drop(stack, false);
     }
   }
 

@@ -25,9 +25,9 @@ public class ModBlockItems {
   public static final RegistryObject<Item> BLACK_COAL_ORE_ITEM = ITEMS.register("black_coal_ore",
       () -> new BlockItemBase(ModBlocks.BLACK_COAL_ORE.get()));
   public static final RegistryObject<Item> BLACK_COAL_BLOCK_ITEM = ITEMS.register("black_coal_block",
-      () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
+      () -> new BlackCoalBlockItem(ModBlocks.BLACK_COAL_BLOCK.get(), new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<Item> PEAT_BLOCK_ITEM = ITEMS.register("peat_block",
-      () -> new BlackCoalBlockItem(ModBlocks.PEAT_BLOCK.get(), new Item.Properties().group(RavenUtils.TAB)));
+      () -> new BlackCoalBlockItem(ModBlocks.PEAT_BLOCK.get(), new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<Item> QUICKSAND_BLOCK_ITEM = ITEMS.register("quicksand_block",
       () -> new BlockItemBase(ModBlocks.QUICKSAND_BLOCK.get()));
   public static final RegistryObject<Item> LIMESTONE_BLOCK_ITEM = ITEMS.register("limestone_block",

@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class LeadOre extends OreBlock {
 
   public LeadOre() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(5f, 10f)
+    super(Properties.of(Material.STONE)
+        .strength(5f, 10f)
         .sound(SoundType.STONE)
         .harvestLevel(2)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

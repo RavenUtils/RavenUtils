@@ -19,7 +19,7 @@ public class RenderMaterials {
   @SuppressWarnings("deprecation")
   private static RenderMaterial material(String path) {
     RenderMaterial material = new RenderMaterial(
-        AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation(path));
+        AtlasTexture.LOCATION_BLOCKS, EssentialsUtils.resourceLocation(path));
     materials.add(material);
     return material;
   }

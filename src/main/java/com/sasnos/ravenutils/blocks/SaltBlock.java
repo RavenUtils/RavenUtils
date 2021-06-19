@@ -10,8 +10,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class SaltBlock extends Block {
 
   public SaltBlock() {
-    super(Properties.create(Material.SAND)
-        .hardnessAndResistance(0.5F)
+    super(Properties.of(Material.SAND)
+        .strength(0.5F)
         .sound(SoundType.SAND)
         .harvestTool(ToolType.SHOVEL)
     );

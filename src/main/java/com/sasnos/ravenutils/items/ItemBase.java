@@ -10,10 +10,10 @@ public class ItemBase extends Item {
   private int burnTime;
 
   public ItemBase() {
-    super(new Properties().group(RavenUtils.TAB));
+    super(new Properties().tab(RavenUtils.TAB));
   }
 
   public ItemBase(Properties properties) {
-    super(properties.group(RavenUtils.TAB));
+    super(properties.tab(RavenUtils.TAB));
   }
 }

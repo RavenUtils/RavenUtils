@@ -33,7 +33,7 @@ public class AlloyFurnaceRecipeBuilder {
   private final int timer;
   private String group;
   private final List<Material> materials = Lists.newArrayList();
-  private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+  private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 
   public static AlloyFurnaceRecipeBuilder alloyRecipe(Item result, int count, int timer) {
     return new AlloyFurnaceRecipeBuilder(result, count, timer);
@@ -70,7 +70,7 @@ public class AlloyFurnaceRecipeBuilder {
   }
 
   public AlloyFurnaceRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
-    this.advancementBuilder.withCriterion(name, criterionIn);
+    this.advancementBuilder.addCriterion(name, criterionIn);
     return this;
   }
 
@@ -86,12 +86,12 @@ public class AlloyFurnaceRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
-        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-        .withRewards(AdvancementRewards.Builder.recipe(id))
-        .withRequirementsStrategy(IRequirementsStrategy.OR);
-    assert this.result.getGroup() != null;
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + this.result.getGroup().getPath() + "/" + id.getPath());
+        .parent(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
+        .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+        .rewards(AdvancementRewards.Builder.recipe(id))
+        .requirements(IRequirementsStrategy.OR);
+    assert this.result.getItemCategory() != null;
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.result, this.count, this.materials, timer, this.advancementBuilder, advancementId, additionalResult, additionalCount, additionalChance));
   }
 
@@ -159,7 +159,7 @@ public class AlloyFurnaceRecipeBuilder {
     }
 
     @Override
-    public void serialize(@NotNull JsonObject json) {
+    public void serializeRecipeData(@NotNull JsonObject json) {
 
       JsonArray jsonarray = new JsonArray();
       for (Material material : this.materials) {
@@ -186,24 +186,24 @@ public class AlloyFurnaceRecipeBuilder {
     }
 
     @Override
-    public @NotNull ResourceLocation getID() {
+    public @NotNull ResourceLocation getId() {
       return id;
     }
 
     @Override
-    public @NotNull IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getType() {
       return ModRecipes.ALLOY_FURNACE_RECIPE_SERIALIZER.get();
     }
 
     @Nullable
     @Override
-    public JsonObject getAdvancementJson() {
-      return advBuilder.serialize();
+    public JsonObject serializeAdvancement() {
+      return advBuilder.serializeToJson();
     }
 
     @Nullable
     @Override
-    public ResourceLocation getAdvancementID() {
+    public ResourceLocation getAdvancementId() {
       return advancementId;
     }
   }

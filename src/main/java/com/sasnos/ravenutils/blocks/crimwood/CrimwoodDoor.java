@@ -10,12 +10,12 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodDoor extends DoorBlock {
 
   public CrimwoodDoor() {
-    super(Properties.create(Material.WOOD)
+    super(Properties.of(Material.WOOD)
         .sound(SoundType.WOOD)
-        .hardnessAndResistance(3.0F)
-        .setRequiresTool()
+        .strength(3.0F)
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
-        .notSolid()
+        .noOcclusion()
     );
   }
 }

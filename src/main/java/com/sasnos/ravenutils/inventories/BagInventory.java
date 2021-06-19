@@ -28,24 +28,24 @@ public class BagInventory extends Inventory {
 
   public void writeItemStack() {
     if (isEmpty()) {
-      stack.removeChildTag("Items");
+      stack.removeTagKey("Items");
     } else {
       writeNBT(stack.getOrCreateTag());
     }
   }
 
   private void readNBT(CompoundNBT compound) {
-    final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
+    final NonNullList<ItemStack> list = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
     ItemStackHelper.loadAllItems(compound, list);
     for (int index = 0; index < list.size(); index++) {
-      setInventorySlotContents(index, list.get(index));
+      setItem(index, list.get(index));
     }
   }
 
   private void writeNBT(CompoundNBT compound) {
-    final NonNullList<ItemStack> list = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
+    final NonNullList<ItemStack> list = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
     for (int index = 0; index < list.size(); index++) {
-      list.set(index, getStackInSlot(index));
+      list.set(index, getItem(index));
     }
     ItemStackHelper.saveAllItems(compound, list, false);
   }

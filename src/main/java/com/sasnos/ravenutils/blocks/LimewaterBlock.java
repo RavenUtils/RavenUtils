@@ -10,9 +10,9 @@ public class LimewaterBlock extends FlowingFluidBlock {
 
   public LimewaterBlock() {
     super(ModFluids.LIMEWATER,
-        Properties.create(Material.WATER)
-            .doesNotBlockMovement()
-            .hardnessAndResistance(100.0F)
+        Properties.of(Material.WATER)
+            .noCollission()
+            .strength(100.0F)
             .noDrops()
     );
   }

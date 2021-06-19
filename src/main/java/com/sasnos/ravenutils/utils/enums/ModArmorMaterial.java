@@ -56,9 +56,9 @@ public enum ModArmorMaterial implements IArmorMaterial {
       14000,
       new int[]{5, 10, 8, 5},
       100,
-      SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+      SoundEvents.ARMOR_EQUIP_GENERIC,
       4.0F, () -> {
-    return Ingredient.fromItems(ModItems.MYTHERINE_INGOT.get());
+    return Ingredient.of(ModItems.MYTHERINE_INGOT.get());
   },
       0.5F);
 
@@ -84,27 +84,27 @@ public enum ModArmorMaterial implements IArmorMaterial {
   }
 
   @Override
-  public int getDurability(EquipmentSlotType slotIn) {
+  public int getDurabilityForSlot(EquipmentSlotType slotIn) {
     return MAX_DAMAGE_ARRAY[slotIn.getIndex()] + this.maxDamageFactor;
   }
 
   @Override
-  public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+  public int getDefenseForSlot(EquipmentSlotType slotIn) {
     return this.damageReductionAmountArray[slotIn.getIndex()];
   }
 
   @Override
-  public int getEnchantability() {
+  public int getEnchantmentValue() {
     return this.enchantability;
   }
 
   @Override
-  public SoundEvent getSoundEvent() {
+  public SoundEvent getEquipSound() {
     return this.soundEvent;
   }
 
   @Override
-  public Ingredient getRepairMaterial() {
+  public Ingredient getRepairIngredient() {
     return this.repairMaterial.get();
   }
 

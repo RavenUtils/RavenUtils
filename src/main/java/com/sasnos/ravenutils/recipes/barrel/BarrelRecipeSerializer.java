@@ -18,44 +18,44 @@ import org.jetbrains.annotations.Nullable;
 
 public class BarrelRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<BarrelRecipe> {
   @Override
-  public BarrelRecipe read(ResourceLocation recipeId, JsonObject json) {
-    JsonArray outputs = JSONUtils.getJsonArray(json, "outputs");
+  public BarrelRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+    JsonArray outputs = JSONUtils.getAsJsonArray(json, "outputs");
     ItemStack itemOutput = ItemStack.EMPTY;
     Fluid fluidOutput = Fluids.EMPTY;
     for (JsonElement element : outputs) {
-      if (JSONUtils.hasField((JsonObject) element, "item")) {
-        itemOutput = new ItemStack(JSONUtils.getItem((JsonObject) element, "item"), JSONUtils.getInt((JsonObject) element, "count"));
+      if (JSONUtils.isValidNode((JsonObject) element, "item")) {
+        itemOutput = new ItemStack(JSONUtils.getAsItem((JsonObject) element, "item"), JSONUtils.getAsInt((JsonObject) element, "count"));
       }
 
-      if (JSONUtils.hasField((JsonObject) element, "fluid")) {
-        fluidOutput = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(JSONUtils.getString((JsonObject) element, "fluid")));
+      if (JSONUtils.isValidNode((JsonObject) element, "fluid")) {
+        fluidOutput = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(JSONUtils.getAsString((JsonObject) element, "fluid")));
       }
     }
 
     FluidStack fluidInput = FluidStack.EMPTY;
     Ingredient itemInput = Ingredient.EMPTY;
-    JsonArray inputs = JSONUtils.getJsonArray(json, "inputs");
+    JsonArray inputs = JSONUtils.getAsJsonArray(json, "inputs");
     for (JsonElement element : inputs) {
-      if (JSONUtils.hasField((JsonObject) element, "fluid")) {
-        Fluid fluid = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(JSONUtils.getString((JsonObject) element, "fluid")));
-        fluidInput = new FluidStack(fluid, JSONUtils.getInt((JsonObject) element, "count"));
+      if (JSONUtils.isValidNode((JsonObject) element, "fluid")) {
+        Fluid fluid = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(JSONUtils.getAsString((JsonObject) element, "fluid")));
+        fluidInput = new FluidStack(fluid, JSONUtils.getAsInt((JsonObject) element, "count"));
       } else {
-        itemInput = Ingredient.deserialize(element);
+        itemInput = Ingredient.fromJson(element);
       }
     }
 
-    boolean lidClosed = JSONUtils.getBoolean(json, "litClosed");
-    int timer = JSONUtils.getInt(json, "timer");
+    boolean lidClosed = JSONUtils.getAsBoolean(json, "litClosed");
+    int timer = JSONUtils.getAsInt(json, "timer");
 
     return new BarrelRecipe(recipeId, itemInput, fluidInput, itemOutput, fluidOutput, lidClosed, timer);
   }
 
     @Nullable
     @Override
-    public BarrelRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-        ItemStack output = buffer.readItemStack();
+    public BarrelRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+        ItemStack output = buffer.readItem();
         Fluid outputFluid = buffer.readFluidStack().getFluid();
-        Ingredient input = Ingredient.read(buffer);
+        Ingredient input = Ingredient.fromNetwork(buffer);
         FluidStack inputFluid = buffer.readFluidStack();
         boolean lid = buffer.readBoolean();
         int timer = buffer.readVarInt();
@@ -63,10 +63,10 @@ public class BarrelRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer
     }
 
     @Override
-    public void write(PacketBuffer buffer, BarrelRecipe recipe) {
-        buffer.writeItemStack(recipe.getOutput().get(0));
+    public void toNetwork(PacketBuffer buffer, BarrelRecipe recipe) {
+        buffer.writeItem(recipe.getOutput().get(0));
         buffer.writeFluidStack(new FluidStack(recipe.getFluidOutput(), 2));
-        recipe.getIngredients().get(0).write(buffer);
+        recipe.getIngredients().get(0).toNetwork(buffer);
         buffer.writeFluidStack(recipe.getFluidInput());
         buffer.writeBoolean(recipe.isLidClosed());
         buffer.writeVarInt(recipe.getTimer());

@@ -23,7 +23,7 @@ import net.minecraft.block.AbstractBlock.Properties;
 
 public class StickAndStoneBlock extends Block {
 
-  protected static final Property<Direction> FACING = HorizontalBlock.HORIZONTAL_FACING;
+  protected static final Property<Direction> FACING = HorizontalBlock.FACING;
   private final Supplier<Item> dropItem;
 
   public StickAndStoneBlock(Properties properties, Supplier<Item> dropItemIn) {
@@ -33,17 +33,17 @@ public class StickAndStoneBlock extends Block {
 
   @SuppressWarnings("deprecation")
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (!worldIn.isRemote && player.getHeldItem(handIn) == ItemStack.EMPTY) {
-      InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY() + 1, pos.getZ(), new ItemStack(dropItem.get()));
-      worldIn.setBlockState(pos, Blocks.AIR.getDefaultState());
+  public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (!worldIn.isClientSide && player.getItemInHand(handIn) == ItemStack.EMPTY) {
+      InventoryHelper.dropItemStack(worldIn, pos.getX(), pos.getY() + 1, pos.getZ(), new ItemStack(dropItem.get()));
+      worldIn.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
       return ActionResultType.SUCCESS;
     }
     return ActionResultType.PASS;
   }
 
   @Override
-  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+  protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(FACING);
   }
 }

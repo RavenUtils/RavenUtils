@@ -8,6 +8,6 @@ import net.minecraft.item.Item.Properties;
 public class Ash extends BoneMealItem {
   public Ash() {
     super(new Properties()
-        .group(RavenUtils.TAB));
+        .tab(RavenUtils.TAB));
   }
 }

@@ -23,10 +23,10 @@ public class Hammer extends ToolItem {
   public Hammer(int maxDamage, Rarity rarity, float attackDamage, float attackSpeed, IItemTier hammerTier) {
     super(attackDamage, attackSpeed, hammerTier, new HashSet<>(),
         new Properties()
-            .maxStackSize(1)
-            .maxDamage(maxDamage)
+            .stacksTo(1)
+            .durability(maxDamage)
             .rarity(rarity)
-            .group(RavenUtils.TAB));
+            .tab(RavenUtils.TAB));
   }
 
   @Override
@@ -40,15 +40,15 @@ public class Hammer extends ToolItem {
   }
 
   @Override
-  public boolean hitEntity(ItemStack stack, LivingEntity entity, LivingEntity player) {
+  public boolean hurtEnemy(ItemStack stack, LivingEntity entity, LivingEntity player) {
     IItemTier tier = ((Hammer) stack.getItem()).getTier();
     int knockBack = getKnockBackLevel(tier);
 
-    entity.applyKnockback((float) knockBack * 0.5F, (double) MathHelper.sin(player.rotationYaw * ((float) Math.PI / 180F)), (double) (-MathHelper.cos(player.rotationYaw * ((float) Math.PI / 180F))));
+    entity.knockback((float) knockBack * 0.5F, (double) MathHelper.sin(player.yRot * ((float) Math.PI / 180F)), (double) (-MathHelper.cos(player.yRot * ((float) Math.PI / 180F))));
 
-    player.setMotion(player.getMotion().mul(0.6D, 1.0D, 0.6D));
+    player.setDeltaMovement(player.getDeltaMovement().multiply(0.6D, 1.0D, 0.6D));
     player.setSprinting(false);
-    return super.hitEntity(stack, entity, player);
+    return super.hurtEnemy(stack, entity, player);
   }
 
   private int getKnockBackLevel(IItemTier tier) {
@@ -65,10 +65,10 @@ public class Hammer extends ToolItem {
 
   @ParametersAreNonnullByDefault
   @Override
-  public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    super.addInformation(stack, worldIn, tooltip, flagIn);
+  public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    super.appendHoverText(stack, worldIn, tooltip, flagIn);
     ItemStack dummyStack = new ItemStack(stack.getItem());
-    dummyStack.addEnchantment(Enchantments.KNOCKBACK, getKnockBackLevel(((Hammer) stack.getItem()).getTier()));
-    ItemStack.addEnchantmentTooltips(tooltip, dummyStack.getEnchantmentTagList());
+    dummyStack.enchant(Enchantments.KNOCKBACK, getKnockBackLevel(((Hammer) stack.getItem()).getTier()));
+    ItemStack.appendEnchantmentNames(tooltip, dummyStack.getEnchantmentTags());
   }
 }

@@ -52,8 +52,8 @@ public class CommonInit {
     }
 
     private static void makeLeavesWalkable() throws IllegalAccessException {
-        Field isSolid = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235707_k_");
-        Field canCollide = ObfuscationReflectionHelper.findField(AbstractBlock.class, "field_235688_at_");
+        Field isSolid = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "canOcclude");
+        Field canCollide = ObfuscationReflectionHelper.findField(AbstractBlock.class, "hasCollision");
 
         isSolid.setAccessible(true);
         canCollide.setAccessible(true);
@@ -67,28 +67,28 @@ public class CommonInit {
     }
 
     private static void setRequiredTool() throws IllegalAccessException {
-        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "field_235706_j_");
+        Field requireTool = ObfuscationReflectionHelper.findField(AbstractBlock.AbstractBlockState.class, "requiresCorrectToolForDrops");
         requireTool.setAccessible(true);
-        for (Block block : EssentialsTags.Blocks.requireTool.getAllElements()) {
+        for (Block block : EssentialsTags.Blocks.requireTool.getValues()) {
             requireTool.setBoolean(block, true);
         }
     }
 
     private static void changeBucketDamage() throws IllegalAccessException {
-        Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "field_77699_b");
+        Field maxDamage = ObfuscationReflectionHelper.findField(Item.class, "maxDamage");
         maxDamage.setAccessible(true);
         maxDamage.setInt(Items.BUCKET, 512);
         maxDamage.setInt(Items.MILK_BUCKET, 512);
         for (Fluid fluid : ForgeRegistries.FLUIDS.getValues()) {
-            if (fluid.getFilledBucket() == Items.AIR) continue;
-            maxDamage.setInt(fluid.getFilledBucket(), 512);
+            if (fluid.getBucket() == Items.AIR) continue;
+            maxDamage.setInt(fluid.getBucket(), 512);
         }
         maxDamage.setAccessible(false);
     }
 
     private static void changeFood() throws IllegalAccessException {
-        Field saturation = ObfuscationReflectionHelper.findField(Food.class, "field_221471_b");
-        Field effect = ObfuscationReflectionHelper.findField(Food.class, "field_221475_f");
+        Field saturation = ObfuscationReflectionHelper.findField(Food.class, "saturationModifier");
+        Field effect = ObfuscationReflectionHelper.findField(Food.class, "effects");
         List<Pair<Supplier<EffectInstance>, Float>> effects = Lists.newArrayList();
         saturation.setAccessible(true);
 
@@ -100,30 +100,30 @@ public class CommonInit {
 
         effects.add(Pair.of(() -> new EffectInstance(Effects.HUNGER, 400, 2), 1.0f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.2f));
-        effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.7f));
+        effects.add(Pair.of(() -> new EffectInstance(Effects.CONFUSION, 300, 2), 0.7f));
         effect.set(Foods.MUTTON, effects);
         effects.clear();
 
         effects.add(Pair.of(() -> new EffectInstance(Effects.HUNGER, 400, 2), 1.0f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.2f));
-        effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.7f));
+        effects.add(Pair.of(() -> new EffectInstance(Effects.CONFUSION, 300, 2), 0.7f));
         effect.set(Foods.RABBIT, effects);
         effects.clear();
 
         effects.add(Pair.of(() -> new EffectInstance(Effects.HUNGER, 200, 2), 1.0f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 100, 1), 0.8f));
-        effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 200, 2), 0.7f));
+        effects.add(Pair.of(() -> new EffectInstance(Effects.CONFUSION, 200, 2), 0.7f));
         effect.set(Foods.CHICKEN, effects);
         effects.clear();
 
         effects.add(Pair.of(() -> new EffectInstance(Effects.HUNGER, 400, 2), 1.0f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.5f));
-        effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.6f));
+        effects.add(Pair.of(() -> new EffectInstance(Effects.CONFUSION, 300, 2), 0.6f));
         effect.set(Foods.PORKCHOP, effects);
         effects.clear();
 
         effects.add(Pair.of(() -> new EffectInstance(Effects.HUNGER, 400, 2), 0.5f));
         effects.add(Pair.of(() -> new EffectInstance(Effects.POISON, 200, 1), 0.1f));
-        effects.add(Pair.of(() -> new EffectInstance(Effects.NAUSEA, 300, 2), 0.3f));
+        effects.add(Pair.of(() -> new EffectInstance(Effects.CONFUSION, 300, 2), 0.3f));
     }
 }

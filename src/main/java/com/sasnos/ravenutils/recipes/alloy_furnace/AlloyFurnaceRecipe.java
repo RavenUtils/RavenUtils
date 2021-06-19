@@ -24,7 +24,7 @@ public class AlloyFurnaceRecipe extends CommonRecipe {
 
 
   public AlloyFurnaceRecipe(ResourceLocation id, NonNullList<Material> input, ItemStack output, int time, ItemStack additional, float change) {
-    super(id, ALLOY_FURNACE_RECIPE_TYPE, null, time, NonNullList.from(ItemStack.EMPTY, output), 0);
+    super(id, ALLOY_FURNACE_RECIPE_TYPE, null, time, NonNullList.of(ItemStack.EMPTY, output), 0);
     this.input = input;
     this.additionalResult = additional;
     this.additionalChance = change;
@@ -42,7 +42,7 @@ public class AlloyFurnaceRecipe extends CommonRecipe {
   @Override
   public boolean matches(RecipeWrapper inv, @NotNull World worldIn) {
     for (Material material : input) {
-      if (!(material.test(inv.getStackInSlot(0)) || material.test(inv.getStackInSlot(1)))) {
+      if (!(material.test(inv.getItem(0)) || material.test(inv.getItem(1)))) {
         return false;
       }
     }
@@ -59,8 +59,8 @@ public class AlloyFurnaceRecipe extends CommonRecipe {
 
   @NotNull
   @Override
-  public ItemStack getCraftingResult(@NotNull RecipeWrapper inv) {
-    return getRecipeOutput().copy();
+  public ItemStack assemble(@NotNull RecipeWrapper inv) {
+    return getResultItem().copy();
   }
 
   public ItemStack getAdditionalResult() {

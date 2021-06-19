@@ -15,9 +15,9 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class HandMill extends EssentialsMachineBlock {
 
   public HandMill() {
-    super(Properties.create(Material.ROCK, MaterialColor.STONE)
+    super(Properties.of(Material.STONE, MaterialColor.STONE)
         .harvestTool(ToolType.PICKAXE)
-        .hardnessAndResistance(1.2f));
+        .strength(1.2f));
   }
 
   @Nullable

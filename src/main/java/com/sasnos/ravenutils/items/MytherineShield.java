@@ -15,11 +15,11 @@ import java.util.concurrent.Callable;
 public class MytherineShield extends ShieldItem {
   public MytherineShield() {
     super(new Item.Properties()
-        .group(RavenUtils.TAB)
-        .maxStackSize(1)
-        .maxDamage(9999)
+        .tab(RavenUtils.TAB)
+        .stacksTo(1)
+        .durability(9999)
         .setISTER(() -> getISTER()));
-    DispenserBlock.registerDispenseBehavior(this, ArmorItem.DISPENSER_BEHAVIOR);
+    DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
   }
 
   private static Callable<ItemStackTileEntityRenderer> getISTER() {

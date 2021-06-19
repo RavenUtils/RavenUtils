@@ -10,10 +10,10 @@ public class CookedSquidMeat extends Item {
 
   public CookedSquidMeat() {
     super(new Properties()
-        .group(ItemGroup.FOOD)
+        .tab(ItemGroup.TAB_FOOD)
         .food(new Food.Builder()
-            .hunger(5)
-            .saturation(6.0f)
+            .nutrition(5)
+            .saturationMod(6.0f)
             .build()));
   }
 }

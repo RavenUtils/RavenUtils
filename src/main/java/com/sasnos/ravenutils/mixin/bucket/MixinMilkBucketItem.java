@@ -25,13 +25,13 @@ public abstract class MixinMilkBucketItem extends Item {
     return false;
   }
 
-  @Inject(method = "onItemUseFinish", at = @At("RETURN"), cancellable = true)
+  @Inject(method = "finishUsingItem", at = @At("RETURN"), cancellable = true)
   public void onOnItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving, CallbackInfoReturnable<ItemStack> cir) {
     ItemStack bucket = cir.getReturnValue();
     if(bucket.getItem() == Items.BUCKET){
       CompoundNBT tag = stack.getTag();
       int damage = tag == null ? 0 : tag.getInt("Damage");
-      bucket.damageItem(damage + 1, entityLiving, (entity) -> entity.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1, 1));
+      bucket.hurtAndBreak(damage + 1, entityLiving, (entity) -> entity.playSound(SoundEvents.ITEM_BREAK, 1, 1));
     }
   }
 }

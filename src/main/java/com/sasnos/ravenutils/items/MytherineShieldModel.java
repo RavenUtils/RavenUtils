@@ -14,25 +14,25 @@ public class MytherineShieldModel extends Model {
   private final ModelRenderer handle;
 
   public MytherineShieldModel() {
-    super(RenderType::getEntitySolid);
-    this.textureWidth = 64;
-    this.textureHeight = 64;
+    super(RenderType::entitySolid);
+    this.texWidth = 64;
+    this.texHeight = 64;
     this.plate = new ModelRenderer(this, 0, 0);
     this.plate.addBox(-6.0F, -11.0F, -2.0F, 12.0F, 22.0F, 1.0F, 0.0F);
     this.handle = new ModelRenderer(this, 26, 0);
     this.handle.addBox(-1.0F, -3.0F, -1.0F, 2.0F, 6.0F, 6.0F, 0.0F);
   }
 
-  public ModelRenderer func_228293_a_() {
+  public ModelRenderer plate() {
     return this.plate;
   }
 
-  public ModelRenderer func_228294_b_() {
+  public ModelRenderer handle() {
     return this.handle;
   }
 
   @Override
-  public void render(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+  public void renderToBuffer(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
     this.plate.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
     this.handle.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
   }

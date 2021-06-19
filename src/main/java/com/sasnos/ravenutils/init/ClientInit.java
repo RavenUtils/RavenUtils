@@ -37,30 +37,30 @@ public class ClientInit {
   @SubscribeEvent
   public static void clientStartup(final FMLClientSetupEvent event) {
     event.enqueueWork(() -> {
-      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMLEAF.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMLEAF.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_SAPLING.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.POTTED_CRIMWOOD_SAPLING.get(), RenderType.cutout());
 
-      RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.ELDERBERRY_BUSH.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.BLACKBERRY_BUSH.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.GOOSEBERRY_BUSH.get(), RenderType.getCutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.ELDERBERRY_BUSH.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.RASPBERRY_BUSH.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.BLACKBERRY_BUSH.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.GOOSEBERRY_BUSH.get(), RenderType.cutout());
 
-      RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.getCutout());
-      RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.getTranslucent());
-      RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.getTranslucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.RESIN_BLOCK.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.GELATIN_BLOCK.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_DOOR.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CRIMWOOD_TRAPDOOR.get(), RenderType.cutout());
+      RenderTypeLookup.setRenderLayer(ModBlocks.CANDLE.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.DRYING_RACK.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.FISH_TRAP.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.STICK_GROUND.get(), RenderType.translucent());
+      RenderTypeLookup.setRenderLayer(ModBlocks.STONE_GROUND.get(), RenderType.translucent());
 
-      ScreenManager.registerFactory(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
-      ScreenManager.registerFactory(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
-      ScreenManager.registerFactory(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
+      ScreenManager.register(AlloyFurnaceInit.ALLOY_FURNACE_CONTAINER.get(), AlloyFurnaceScreen::new);
+      ScreenManager.register(ModContainer.BAG_CONTAINER.get(), BagScreen::new);
+      ScreenManager.register(HandMillInit.HAND_MILL_CONTAINER.get(), HandMillScreen::new);
 
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.SIGN_TILE_ENTITIES.get(), SignRenderer::new);
       ClientRegistry.bindTileEntityRenderer(ModTileEntities.BARREL_TILE_ENTITIES.get(), BarrelRenderer::new);
@@ -71,8 +71,8 @@ public class ClientInit {
     });
 
     addShieldPropertyOverrides(new ResourceLocation("blocking"),
-        (stack, world, entity) -> entity != null && entity.isHandActive()
-            && entity.getActiveItemStack() == stack ? 1.0F : 0.0F,
+        (stack, world, entity) -> entity != null && entity.isUsingItem()
+            && entity.getUseItem() == stack ? 1.0F : 0.0F,
         ModArmorItems.MYTHERINE_SHIELD.get());
   }
 
@@ -84,16 +84,16 @@ public class ClientInit {
   private static void addShieldPropertyOverrides(ResourceLocation override, IItemPropertyGetter propertyGetter,
                                                  IItemProvider... shields) {
     for (IItemProvider shield : shields) {
-      ItemModelsProperties.registerProperty(shield.asItem(), override, propertyGetter);
+      ItemModelsProperties.register(shield.asItem(), override, propertyGetter);
     }
   }
 
   @SuppressWarnings("deprecation")
   @SubscribeEvent
   public static void onStitch(TextureStitchEvent.Pre event) {
-    if (event.getMap().getTextureLocation().equals(AtlasTexture.LOCATION_BLOCKS_TEXTURE)) {
+    if (event.getMap().location().equals(AtlasTexture.LOCATION_BLOCKS)) {
       for (RenderMaterial textures : RenderMaterials.materials) {
-        event.addSprite(textures.getTextureLocation());
+        event.addSprite(textures.texture());
       }
     }
   }

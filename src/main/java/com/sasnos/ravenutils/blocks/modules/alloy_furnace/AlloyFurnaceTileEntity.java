@@ -34,19 +34,19 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
     return new ItemStackHandler(5) {
       @Override
       protected void onContentsChanged(int slot) {
-        markDirty();
+        setChanged();
       }
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
         if (slot == 0 || slot == 1) {
-          return getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem());
+          return getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, level).contains(stack.getItem());
         }
         if (slot == 2) {
           return ForgeHooks.getBurnTime(stack) > 0;
         }
         if (slot == 3 || slot == 4) {
-          List<IRecipe<?>> recipes = findRecipeByType(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).stream().filter(iRecipe -> {
+          List<IRecipe<?>> recipes = findRecipeByType(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, level).stream().filter(iRecipe -> {
             return ((AlloyFurnaceRecipe) iRecipe).getOutput().get(0).getItem() == stack.getItem()
                 || ((AlloyFurnaceRecipe) iRecipe).getAdditionalResult().getItem() == stack.getItem();
           }).collect(Collectors.toList());
@@ -58,7 +58,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
       @NotNull
       @Override
       public ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, world).contains(stack.getItem())) {
+        if ((slot == 0 || slot == 1) && !getAllRecipeInputsAsItems(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, level).contains(stack.getItem())) {
           return stack;
         }
         if (slot == 2 && !(ForgeHooks.getBurnTime(stack) > 0)) {
@@ -81,7 +81,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
         ItemStack additionalSlot = this.itemHandler.getStackInSlot(4);
         if (outputSlot.isEmpty() && additionalSlot.isEmpty()) {
           return true;
-        } else if (!outputSlot.isItemEqual(output) && !(additionalOutput != ItemStack.EMPTY && additionalSlot.isItemEqual(additionalOutput))) {
+        } else if (!outputSlot.sameItem(output) && !(additionalOutput != ItemStack.EMPTY && additionalSlot.sameItem(additionalOutput))) {
           return false;
         } else {
           boolean regularOutput = itemHandler.insertItem(3, output, true) == ItemStack.EMPTY;
@@ -143,7 +143,7 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
     for (IRecipe<?> iRecipe : recipes) {
       if (!(iRecipe instanceof AlloyFurnaceRecipe)) continue;
       AlloyFurnaceRecipe recipe = (AlloyFurnaceRecipe) iRecipe;
-      if (ItemStack.areItemStacksEqual(recipe.getOutput().get(0), result)) {
+      if (ItemStack.matches(recipe.getOutput().get(0), result)) {
         return recipe;
       }
     }
@@ -170,8 +170,8 @@ public class AlloyFurnaceTileEntity extends EssentialsMachineTileEntity<AlloyFur
   @Nullable
   @Override
   public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-    assert world != null;
-    return new AlloyFurnaceContainer(p_createMenu_1_, world, pos, p_createMenu_2_, p_createMenu_3_, teData);
+    assert level != null;
+    return new AlloyFurnaceContainer(p_createMenu_1_, level, worldPosition, p_createMenu_2_, p_createMenu_3_, teData);
   }
 
 }

@@ -10,10 +10,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class RavenEyeOre extends OreBlock {
 
   public RavenEyeOre() {
-    super(Properties.create(Material.IRON)
-        .hardnessAndResistance(4f, 300f)
+    super(Properties.of(Material.METAL)
+        .strength(4f, 300f)
         .sound(SoundType.STONE)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

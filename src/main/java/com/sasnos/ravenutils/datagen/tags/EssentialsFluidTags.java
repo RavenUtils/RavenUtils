@@ -15,8 +15,8 @@ public class EssentialsFluidTags extends FluidTagsProvider {
   }
 
   @Override
-  protected void registerTags() {
-    getOrCreateBuilder(FluidTags.makeWrapperTag(FluidTags.WATER.getName().getPath()))
+  protected void addTags() {
+    tag(FluidTags.bind(FluidTags.WATER.getName().getPath()))
         .add(ModFluids.LIMEWATER.get(), ModFluids.TANNIN.get());
   }
 }

@@ -10,9 +10,9 @@ import net.minecraft.item.Item.Properties;
 public class Handsaw extends Item {
   public Handsaw(int maxDamage, Rarity rarity) {
     super(new Properties()
-        .group(RavenUtils.TAB)
-        .maxStackSize(1)
-        .maxDamage(maxDamage)
+        .tab(RavenUtils.TAB)
+        .stacksTo(1)
+        .durability(maxDamage)
         .rarity(rarity)
         .setNoRepair());
   }
@@ -25,10 +25,10 @@ public class Handsaw extends Item {
   @Override
   public ItemStack getContainerItem(ItemStack itemstack) {
     ItemStack stack = itemstack.copy();
-    if (stack.getMaxDamage() - stack.getDamage() <= 1) {
+    if (stack.getMaxDamage() - stack.getDamageValue() <= 1) {
       stack.shrink(1);
     } else {
-      stack.attemptDamageItem(1, random, null);
+      stack.hurt(1, random, null);
     }
     return stack;
   }

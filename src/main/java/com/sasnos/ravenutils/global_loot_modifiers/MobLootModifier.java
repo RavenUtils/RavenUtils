@@ -23,8 +23,8 @@ public abstract class MobLootModifier extends LootModifier {
 
   @NotNull
   protected static ItemStack getItemStackWithLooting(LootContext context, RandomValueRange hideDropRange, Item loot) {
-    LootingEnchantBonus leb = (LootingEnchantBonus) new LootingEnchantBonus.Builder(hideDropRange).func_216072_a((int) hideDropRange.getMax()).build();
-    ItemStack item = leb.doApply(new ItemStack(loot), context);
+    LootingEnchantBonus leb = (LootingEnchantBonus) new LootingEnchantBonus.Builder(hideDropRange).setLimit((int) hideDropRange.getMax()).build();
+    ItemStack item = leb.run(new ItemStack(loot), context);
     return item;
   }
 

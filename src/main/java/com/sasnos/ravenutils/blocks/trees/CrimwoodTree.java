@@ -17,17 +17,17 @@ import java.util.Random;
 public class CrimwoodTree extends Tree {
 
   @Override
-  protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean largeHive) {
-    return Feature.TREE.withConfiguration(new BaseTreeFeatureConfig.Builder(
-        new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LOG.get().getDefaultState()),
-        new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LEAVES.get().getDefaultState()),
-        new FancyFoliagePlacer(FeatureSpread.create(2), FeatureSpread.create(3), 4),
+  protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
+    return Feature.TREE.configured(new BaseTreeFeatureConfig.Builder(
+        new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LOG.get().defaultBlockState()),
+        new SimpleBlockStateProvider(ModBlocks.CRIMWOOD_LEAVES.get().defaultBlockState()),
+        new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(3), 4),
         new FancyTrunkPlacer(3, 14, 1),
         new TwoLayerFeature(1, 0, 0, OptionalInt.of(4)))
-        .setDecorators(ImmutableList.of(
+        .decorators(ImmutableList.of(
             TrunkVineTreeDecorator.INSTANCE,
-            LeaveVineTreeDecorator.field_236871_b_
+            LeaveVineTreeDecorator.INSTANCE
         ))
-        .setHeightmap(Heightmap.Type.MOTION_BLOCKING).build());
+        .heightmap(Heightmap.Type.MOTION_BLOCKING).build());
   }
 }

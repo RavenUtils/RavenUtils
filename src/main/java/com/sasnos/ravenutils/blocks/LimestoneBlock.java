@@ -9,11 +9,11 @@ import net.minecraftforge.common.ToolType;
 public class LimestoneBlock extends OreBlock {
 
   public LimestoneBlock() {
-    super(AbstractBlock.Properties.create(Material.ROCK)
-        .hardnessAndResistance(2f, 3f)
+    super(AbstractBlock.Properties.of(Material.STONE)
+        .strength(2f, 3f)
         .sound(SoundType.STONE)
         .harvestLevel(1)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

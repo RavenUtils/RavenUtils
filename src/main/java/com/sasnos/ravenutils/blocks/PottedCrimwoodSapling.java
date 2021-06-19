@@ -9,8 +9,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class PottedCrimwoodSapling extends FlowerPotBlock {
 
   public PottedCrimwoodSapling() {
-    super(null, ModBlocks.CRIMWOOD_SAPLING, Properties.create(Material.MISCELLANEOUS)
-        .zeroHardnessAndResistance()
-        .notSolid());
+    super(null, ModBlocks.CRIMWOOD_SAPLING, Properties.of(Material.DECORATION)
+        .instabreak()
+        .noOcclusion());
   }
 }

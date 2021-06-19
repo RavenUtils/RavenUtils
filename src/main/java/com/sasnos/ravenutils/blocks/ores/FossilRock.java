@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class FossilRock extends OreBlock {
 
   public FossilRock() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(2.5f, 8f)
+    super(Properties.of(Material.STONE)
+        .strength(2.5f, 8f)
         .sound(SoundType.STONE)
         .harvestLevel(2)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

@@ -19,12 +19,12 @@ public class EssentialsSmokingRecipes extends EssentialsRecipeProvider {
 
   @Override
   public void init() {
-    CookingRecipeBuilder.cookingRecipe(Ingredient.fromItems(ModFoodItems.BUSHMEAT.get()),
+    CookingRecipeBuilder.cooking(Ingredient.of(ModFoodItems.BUSHMEAT.get()),
         ModFoodItems.COOKED_BUSHMEAT.get(),
         0.35f,
         100,
-        IRecipeSerializer.SMOKING)
-        .addCriterion("has_bushmeat", hasItem(ModFoodItems.BUSHMEAT.get()))
-        .build(consumer, "cooked_bushmeat_from_smoking");
+        IRecipeSerializer.SMOKING_RECIPE)
+        .unlockedBy("has_bushmeat", hasItem(ModFoodItems.BUSHMEAT.get()))
+        .save(consumer, "cooked_bushmeat_from_smoking");
   }
 }

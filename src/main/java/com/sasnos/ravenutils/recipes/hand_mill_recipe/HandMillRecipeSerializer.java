@@ -14,41 +14,41 @@ import org.jetbrains.annotations.Nullable;
 public class HandMillRecipeSerializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<HandMillRecipe> {
 
   @Override
-  public HandMillRecipe read(ResourceLocation recipeId, JsonObject json) {
-    ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
-    Ingredient inputs = Ingredient.deserialize(JSONUtils.getJsonObject(json, "ingredient"));
-    int timer = JSONUtils.getInt(json, "timer");
-    float additionalDropChance = JSONUtils.getFloat(json, "additionalDropChance");
+  public HandMillRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+    ItemStack output = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "result"), true);
+    Ingredient inputs = Ingredient.fromJson(JSONUtils.getAsJsonObject(json, "ingredient"));
+    int timer = JSONUtils.getAsInt(json, "timer");
+    float additionalDropChance = JSONUtils.getAsFloat(json, "additionalDropChance");
     ItemStack additionalOutput = ItemStack.EMPTY;
     float change = 0;
     if (json.has("additional")) {
-      JsonObject additional = JSONUtils.getJsonObject(json, "additional");
+      JsonObject additional = JSONUtils.getAsJsonObject(json, "additional");
       additionalOutput = CraftingHelper.getItemStack(additional, true);
-      change = JSONUtils.getFloat(additional, "change");
+      change = JSONUtils.getAsFloat(additional, "change");
     }
 
     return new HandMillRecipe(recipeId, timer, inputs, additionalDropChance, output, additionalOutput, change);
   }
 
   @Override
-  public void write(PacketBuffer buffer, HandMillRecipe recipe) {
+  public void toNetwork(PacketBuffer buffer, HandMillRecipe recipe) {
     buffer.writeVarInt(recipe.getIngredients().size());
-    recipe.getIngredients().get(0).write(buffer);
-    buffer.writeItemStack(recipe.getRecipeOutput());
+    recipe.getIngredients().get(0).toNetwork(buffer);
+    buffer.writeItem(recipe.getResultItem());
     buffer.writeFloat(recipe.getAdditionalDropChange());
     buffer.writeVarInt(recipe.getTimer());
-    buffer.writeItemStack(recipe.getAdditionalResult());
+    buffer.writeItem(recipe.getAdditionalResult());
     buffer.writeFloat(recipe.getAdditionalChance());
   }
 
   @Nullable
   @Override
-  public HandMillRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
-    Ingredient input = Ingredient.read(buffer);
-    ItemStack output = buffer.readItemStack();
+  public HandMillRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+    Ingredient input = Ingredient.fromNetwork(buffer);
+    ItemStack output = buffer.readItem();
     float additionalDropChance = buffer.readFloat();
     int time = buffer.readVarInt();
-    ItemStack additionalOutput = buffer.readItemStack();
+    ItemStack additionalOutput = buffer.readItem();
     float change = buffer.readFloat();
     return new HandMillRecipe(recipeId, time, input, additionalDropChance, output, additionalOutput, change);
   }

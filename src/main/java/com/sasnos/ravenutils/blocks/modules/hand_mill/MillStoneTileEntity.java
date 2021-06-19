@@ -29,16 +29,16 @@ public class MillStoneTileEntity extends TileEntity {
   }
 
   @Override
-  public CompoundNBT write(CompoundNBT compound) {
+  public CompoundNBT save(CompoundNBT compound) {
     compound.putInt("maxDamage", maxDamage);
     compound.putInt("damage", damage);
-    return super.write(compound);
+    return super.save(compound);
   }
 
   @Override
-  public void read(BlockState state, CompoundNBT nbt) {
+  public void load(BlockState state, CompoundNBT nbt) {
     maxDamage = nbt.getInt("maxDamage");
     damage = nbt.getInt("damage");
-    super.read(state, nbt);
+    super.load(state, nbt);
   }
 }

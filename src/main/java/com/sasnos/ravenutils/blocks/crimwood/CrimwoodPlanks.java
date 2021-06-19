@@ -10,10 +10,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodPlanks extends Block {
 
   public CrimwoodPlanks() {
-    super(Properties.create(Material.WOOD)
-        .hardnessAndResistance(2.0F, 3.0F)
+    super(Properties.of(Material.WOOD)
+        .strength(2.0F, 3.0F)
         .sound(SoundType.WOOD)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
     );
   }

@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class Crimleaf extends FlowerBlock {
 
   public Crimleaf() {
-    super(Effects.ABSORPTION, 5, Properties.create(Material.PLANTS)
+    super(Effects.ABSORPTION, 5, Properties.of(Material.PLANT)
         .sound(SoundType.CROP)
-        .zeroHardnessAndResistance()
-        .doesNotBlockMovement()
-        .setLightLevel((state) -> {
+        .instabreak()
+        .noCollission()
+        .lightLevel((state) -> {
           return 5;
         })
     );

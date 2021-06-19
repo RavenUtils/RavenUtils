@@ -20,12 +20,14 @@ import net.minecraftforge.items.IItemHandler;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.item.Item.Properties;
+
 public class Bag extends Item {
 
   private BagTypes bag;
 
   public Bag(Properties properties, BagTypes bag) {
-    super(properties.group(RavenUtils.TAB));
+    super(properties.tab(RavenUtils.TAB));
     this.bag = bag;
   }
 
@@ -48,15 +50,15 @@ public class Bag extends Item {
   }
 
   @Override
-  public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-    final ItemStack stack = player.getHeldItem(hand);
-    if (!world.isRemote) {
+  public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+    final ItemStack stack = player.getItemInHand(hand);
+    if (!world.isClientSide) {
       LazyOptional<IItemHandler> bagItem = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
-      int selectedSlot = hand == Hand.MAIN_HAND ? player.inventory.currentItem : -1;
+      int selectedSlot = hand == Hand.MAIN_HAND ? player.inventory.selected : -1;
       bagItem.ifPresent(iItemHandler -> {
         NetworkHooks.openGui((ServerPlayerEntity) player, new SimpleNamedContainerProvider(
                 (id, playerInventory, openPlayer) -> new BagContainer(id, playerInventory, selectedSlot),
-                        stack.getDisplayName()),
+                        stack.getHoverName()),
                 buffer -> {
           buffer.writeVarInt(selectedSlot);
         });
@@ -68,11 +70,11 @@ public class Bag extends Item {
 
   @Override
   public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-    return !ItemStack.areItemsEqual(oldStack, newStack);
+    return !ItemStack.isSame(oldStack, newStack);
   }
 
   @Override
   public boolean onDroppedByPlayer(ItemStack item, PlayerEntity player) {
-    return !(player.openContainer instanceof BagContainer);
+    return !(player.containerMenu instanceof BagContainer);
   }
 }

@@ -46,9 +46,9 @@ public class ModEvents {
   @SubscribeEvent
   public static void stopDrop(PlayerEvent.HarvestCheck event) {
     BlockState state = event.getTargetBlock();
-    if (state.isIn(EssentialsTags.Blocks.requireTool)) {
+    if (state.is(EssentialsTags.Blocks.requireTool)) {
       PlayerEntity player = event.getPlayer();
-      ItemStack stack = player.getHeldItemMainhand();
+      ItemStack stack = player.getMainHandItem();
       ToolType tool = state.getHarvestTool();
       if (stack.isEmpty() || tool == null)
         event.setCanHarvest(false);
@@ -63,15 +63,15 @@ public class ModEvents {
   @SubscribeEvent
   public static void stopDestroy(BlockEvent.BreakEvent event) {
     BlockState state = event.getState();
-    if (state.isIn(EssentialsTags.Blocks.requireTool)) {
+    if (state.is(EssentialsTags.Blocks.requireTool)) {
       event.setCanceled(!state.canHarvestBlock(event.getWorld(), event.getPos(), event.getPlayer()));
     }
   }
 
   @SubscribeEvent
   public static void stripBlock(BlockEvent.BlockToolInteractEvent event){
-    if(event.getToolType() == ToolType.AXE && event.getState().matchesBlock(ModBlocks.CRIMWOOD_LOG.get())){
-      event.setFinalState(ModBlocks.CRIMWOOD_LOG_STRIPPED.get().getDefaultState().with(BlockStateProperties.AXIS, event.getState().get(BlockStateProperties.AXIS)));
+    if(event.getToolType() == ToolType.AXE && event.getState().is(ModBlocks.CRIMWOOD_LOG.get())){
+      event.setFinalState(ModBlocks.CRIMWOOD_LOG_STRIPPED.get().defaultBlockState().setValue(BlockStateProperties.AXIS, event.getState().getValue(BlockStateProperties.AXIS)));
     }
   }
 
@@ -79,32 +79,32 @@ public class ModEvents {
   public static void onSleepEvent(PlayerSleepInBedEvent event){
     if(!(event.getPlayer() instanceof ServerPlayerEntity)) return;
     ServerPlayerEntity player = (ServerPlayerEntity) event.getPlayer();
-    if(player.getHeldItemMainhand().getItem() == ModToolItems.BEDROLL.get()){
+    if(player.getMainHandItem().getItem() == ModToolItems.BEDROLL.get()){
       BlockPos at = event.getPos();
-      Direction direction = player.getHorizontalFacing();
+      Direction direction = player.getDirection();
       if (!player.isSleeping() && player.isAlive()) {
-        if (!player.world.getDimensionType().isNatural()) {
+        if (!player.level.dimensionType().natural()) {
           event.setResult(PlayerEntity.SleepResult.NOT_POSSIBLE_HERE);
         } else if (EssentialsUtils.isObstructed(player, at, direction)) {
           event.setResult(PlayerEntity.SleepResult.OBSTRUCTED);
         } else {
-          player.func_242111_a(player.world.getDimensionKey(), at, player.rotationYaw, false, true);
+          player.setRespawnPosition(player.level.dimension(), at, player.yRot, false, true);
           if (!net.minecraftforge.event.ForgeEventFactory.fireSleepingTimeCheck(player, event.getOptionalPos())) {
             event.setResult(PlayerEntity.SleepResult.NOT_POSSIBLE_NOW);
           } else {
             if (!player.isCreative()) {
               double d0 = 8.0D;
               double d1 = 5.0D;
-              Vector3d vector3d = Vector3d.copyCenteredHorizontally(at);
-              List<MonsterEntity> list = player.world.getEntitiesWithinAABB(MonsterEntity.class, new AxisAlignedBB(vector3d.getX() - 8.0D, vector3d.getY() - 5.0D, vector3d.getZ() - 8.0D, vector3d.getX() + 8.0D, vector3d.getY() + 5.0D, vector3d.getZ() + 8.0D), (p_241146_1_) -> {
-                return p_241146_1_.func_230292_f_(player);
+              Vector3d vector3d = Vector3d.atBottomCenterOf(at);
+              List<MonsterEntity> list = player.level.getEntitiesOfClass(MonsterEntity.class, new AxisAlignedBB(vector3d.x() - 8.0D, vector3d.y() - 5.0D, vector3d.z() - 8.0D, vector3d.x() + 8.0D, vector3d.y() + 5.0D, vector3d.z() + 8.0D), (p_241146_1_) -> {
+                return p_241146_1_.isPreventingPlayerRest(player);
               });
               if (!list.isEmpty()) {
                 event.setResult(PlayerEntity.SleepResult.NOT_SAFE);
               }
             }
             player.startSleeping(at);
-            ((ServerWorld) player.world).updateAllPlayersSleepingFlag();
+            ((ServerWorld) player.level).updateSleepingPlayerList();
             event.setResult(PlayerEntity.SleepResult.OTHER_PROBLEM);
           }
         }
@@ -116,10 +116,10 @@ public class ModEvents {
   public static void isValidBed(SleepingLocationCheckEvent event){
     if(event.getEntityLiving() instanceof PlayerEntity){
       PlayerEntity entity = (PlayerEntity) event.getEntityLiving();
-      Optional<BlockPos> pos = entity.getBedPosition();
+      Optional<BlockPos> pos = entity.getSleepingPos();
       if(pos.isPresent()){
         if(pos.get().equals(event.getSleepingLocation()) &&
-                entity.getHeldItemMainhand().getItem() == ModToolItems.BEDROLL.get()){
+                entity.getMainHandItem().getItem() == ModToolItems.BEDROLL.get()){
           event.setResult(Event.Result.ALLOW);
         }
       }
@@ -128,39 +128,39 @@ public class ModEvents {
 
   @SubscribeEvent
   public static void onWakeUp(PlayerWakeUpEvent event){
-    Hand hand = event.getPlayer().getActiveHand();
+    Hand hand = event.getPlayer().getUsedItemHand();
     if(hand != Hand.MAIN_HAND && hand != Hand.OFF_HAND) return;
-    ItemStack item = event.getPlayer().getHeldItem(hand);
+    ItemStack item = event.getPlayer().getItemInHand(hand);
     if(item.getItem() == ModToolItems.BEDROLL.get()){
-      item.attemptDamageItem(1, event.getPlayer().getRNG(), (ServerPlayerEntity) event.getPlayer());
+      item.hurt(1, event.getPlayer().getRandom(), (ServerPlayerEntity) event.getPlayer());
     }
   }
   
   @SubscribeEvent
   public static void smackFlintIntoShards(PlayerInteractEvent.RightClickBlock useFlint) {
     World world = useFlint.getWorld();
-    if (world.isRemote) return;
+    if (world.isClientSide) return;
     BlockState blockState = world.getBlockState(useFlint.getPos());
     Block block = blockState.getBlock();
 
     PlayerEntity player = useFlint.getPlayer();
-    ItemStack item = player.getHeldItem(useFlint.getHand());
+    ItemStack item = player.getItemInHand(useFlint.getHand());
 
-    List<RightClickInWorldRecipe> recipes = world.getRecipeManager().getRecipesForType(RightClickInWorldRecipe.RIGHT_CLICK_IN_WORLD_RECIPE).stream()
+    List<RightClickInWorldRecipe> recipes = world.getRecipeManager().getAllRecipesFor(RightClickInWorldRecipe.RIGHT_CLICK_IN_WORLD_RECIPE).stream()
             .filter(rightClickInWorldRecipe -> rightClickInWorldRecipe.matches(block, item))
             .collect(Collectors.toList());
 
 
     for (RightClickInWorldRecipe recipe : recipes) {
-      if (item.isDamageable()) {
-        item.attemptDamageItem(1, useFlint.getPlayer().getRNG(), (ServerPlayerEntity) player);
+      if (item.isDamageableItem()) {
+        item.hurt(1, useFlint.getPlayer().getRandom(), (ServerPlayerEntity) player);
       } else {
-        item.shrink(recipe.getIngredients().get(0).getMatchingStacks()[0].getCount());
+        item.shrink(recipe.getIngredients().get(0).getItems()[0].getCount());
       }
 
-      BlockPos pos = useFlint.getPos().offset(player.getHorizontalFacing().getOpposite());
+      BlockPos pos = useFlint.getPos().relative(player.getDirection().getOpposite());
       for (ItemStack stack : recipe.getOutput())
-        InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+        InventoryHelper.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
     }
   }
 

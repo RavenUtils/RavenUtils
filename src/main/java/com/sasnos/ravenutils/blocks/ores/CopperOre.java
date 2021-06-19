@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CopperOre extends OreBlock {
 
   public CopperOre() {
-    super(Properties.create(Material.ROCK)
-            .hardnessAndResistance(3f, 3f)
+    super(Properties.of(Material.STONE)
+            .strength(3f, 3f)
             .sound(SoundType.STONE)
             .harvestLevel(1)
-            .setRequiresTool()
+            .requiresCorrectToolForDrops()
             .harvestTool(ToolType.AXE)
         // todo make harvestabke by axe (stone+) and pickaxe (iron+) only
         // .harvestTool(ToolType.PICKAXE)

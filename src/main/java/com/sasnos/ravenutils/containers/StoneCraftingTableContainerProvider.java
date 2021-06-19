@@ -32,6 +32,6 @@ public class StoneCraftingTableContainerProvider implements INamedContainerProvi
   @Nullable
   @Override
   public Container createMenu(int p_createMenu_1_, PlayerInventory p_createMenu_2_, PlayerEntity p_createMenu_3_) {
-    return new StoneCraftingTableContainer(p_createMenu_1_, p_createMenu_2_, IWorldPosCallable.of(world, pos));
+    return new StoneCraftingTableContainer(p_createMenu_1_, p_createMenu_2_, IWorldPosCallable.create(world, pos));
   }
 }

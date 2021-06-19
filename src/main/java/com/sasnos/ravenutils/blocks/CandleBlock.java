@@ -24,61 +24,61 @@ import java.util.stream.Stream;
 
 public class CandleBlock extends TorchBlock {
 
-  private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+  private static final DirectionProperty FACING = HorizontalBlock.FACING;
 
   protected static final VoxelShape SHAPE_N = Stream.of(
-      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
-      Block.makeCuboidShape(5, 1, 5, 11, 2, 6),
-      Block.makeCuboidShape(5, 1, 10, 11, 2, 11),
-      Block.makeCuboidShape(10, 1, 6, 11, 2, 10),
-      Block.makeCuboidShape(5, 1, 6, 6, 2, 10),
-      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
-      Block.makeCuboidShape(7.8, 6, 8, 8.200000000000001, 6.7, 8)
+      Block.box(6, 0, 6, 10, 1, 10),
+      Block.box(5, 1, 5, 11, 2, 6),
+      Block.box(5, 1, 10, 11, 2, 11),
+      Block.box(10, 1, 6, 11, 2, 10),
+      Block.box(5, 1, 6, 6, 2, 10),
+      Block.box(7, 1, 7, 9, 6, 9),
+      Block.box(7.8, 6, 8, 8.200000000000001, 6.7, 8)
   ).reduce((v1, v2) -> {
-    return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+    return VoxelShapes.join(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_E = Stream.of(
-      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
-      Block.makeCuboidShape(10, 1, 5, 11, 2, 11),
-      Block.makeCuboidShape(5, 1, 5, 6, 2, 11),
-      Block.makeCuboidShape(6, 1, 10, 10, 2, 11),
-      Block.makeCuboidShape(6, 1, 5, 10, 2, 6),
-      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
-      Block.makeCuboidShape(8, 6, 7.8, 8, 6.7, 8.200000000000001)
+      Block.box(6, 0, 6, 10, 1, 10),
+      Block.box(10, 1, 5, 11, 2, 11),
+      Block.box(5, 1, 5, 6, 2, 11),
+      Block.box(6, 1, 10, 10, 2, 11),
+      Block.box(6, 1, 5, 10, 2, 6),
+      Block.box(7, 1, 7, 9, 6, 9),
+      Block.box(8, 6, 7.8, 8, 6.7, 8.200000000000001)
   ).reduce((v1, v2) -> {
-    return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+    return VoxelShapes.join(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_S = Stream.of(
-      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
-      Block.makeCuboidShape(5, 1, 10, 11, 2, 11),
-      Block.makeCuboidShape(5, 1, 5, 11, 2, 6),
-      Block.makeCuboidShape(5, 1, 6, 6, 2, 10),
-      Block.makeCuboidShape(10, 1, 6, 11, 2, 10),
-      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
-      Block.makeCuboidShape(7.799999999999999, 6, 8, 8.2, 6.7, 8)
+      Block.box(6, 0, 6, 10, 1, 10),
+      Block.box(5, 1, 10, 11, 2, 11),
+      Block.box(5, 1, 5, 11, 2, 6),
+      Block.box(5, 1, 6, 6, 2, 10),
+      Block.box(10, 1, 6, 11, 2, 10),
+      Block.box(7, 1, 7, 9, 6, 9),
+      Block.box(7.799999999999999, 6, 8, 8.2, 6.7, 8)
   ).reduce((v1, v2) -> {
-    return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+    return VoxelShapes.join(v1, v2, IBooleanFunction.OR);
   }).get();
 
   protected static final VoxelShape SHAPE_W = Stream.of(
-      Block.makeCuboidShape(6, 0, 6, 10, 1, 10),
-      Block.makeCuboidShape(5, 1, 5, 6, 2, 11),
-      Block.makeCuboidShape(10, 1, 5, 11, 2, 11),
-      Block.makeCuboidShape(6, 1, 5, 10, 2, 6),
-      Block.makeCuboidShape(6, 1, 10, 10, 2, 11),
-      Block.makeCuboidShape(7, 1, 7, 9, 6, 9),
-      Block.makeCuboidShape(8, 6, 7.799999999999999, 8, 6.7, 8.2)
+      Block.box(6, 0, 6, 10, 1, 10),
+      Block.box(5, 1, 5, 6, 2, 11),
+      Block.box(10, 1, 5, 11, 2, 11),
+      Block.box(6, 1, 5, 10, 2, 6),
+      Block.box(6, 1, 10, 10, 2, 11),
+      Block.box(7, 1, 7, 9, 6, 9),
+      Block.box(8, 6, 7.799999999999999, 8, 6.7, 8.2)
   ).reduce((v1, v2) -> {
-    return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
+    return VoxelShapes.join(v1, v2, IBooleanFunction.OR);
   }).get();
 
   public CandleBlock() {
-    super(AbstractBlock.Properties.create(Material.MISCELLANEOUS)
-            .doesNotBlockMovement()
-            .zeroHardnessAndResistance()
-            .setLightLevel((state) -> {
+    super(AbstractBlock.Properties.of(Material.DECORATION)
+            .noCollission()
+            .instabreak()
+            .lightLevel((state) -> {
               return 10;
             })
             .sound(SoundType.WOOD),
@@ -87,7 +87,7 @@ public class CandleBlock extends TorchBlock {
 
   @Override
   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-    switch (state.get(FACING)) {
+    switch (state.getValue(FACING)) {
       case NORTH:
         return SHAPE_N;
       case EAST:
@@ -104,21 +104,21 @@ public class CandleBlock extends TorchBlock {
   @Nullable
   @Override
   public BlockState getStateForPlacement(BlockItemUseContext context) {
-    return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
   }
 
   @Override
   public BlockState rotate(BlockState state, Rotation rot) {
-    return state.with(FACING, rot.rotate(state.get(FACING)));
+    return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
   }
 
   @Override
   public BlockState mirror(BlockState state, Mirror mirrorIn) {
-    return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+    return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
   }
 
   @Override
-  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+  protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(FACING);
   }
 
@@ -128,6 +128,6 @@ public class CandleBlock extends TorchBlock {
     double d1 = (double) pos.getY() + 0.57D;
     double d2 = (double) pos.getZ() + 0.5D;
     worldIn.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-    worldIn.addParticle(this.particleData, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+    worldIn.addParticle(this.flameParticle, d0, d1, d2, 0.0D, 0.0D, 0.0D);
   }
 }

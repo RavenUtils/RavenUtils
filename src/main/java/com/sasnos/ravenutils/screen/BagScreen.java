@@ -16,20 +16,20 @@ public class BagScreen extends EssentialsCommonScreen<BagContainer> {
   }
 
   @Override
-  protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
-    this.minecraft.getTextureManager().bindTexture(getGUI());
-    this.blit(matrixStack, guiLeft, guiTop, 0, 0, this.xSize, this.ySize + 80);
+  protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {
+    this.minecraft.getTextureManager().bind(getGUI());
+    this.blit(matrixStack, leftPos, topPos, 0, 0, this.imageWidth, this.imageHeight + 80);
   }
 
   @Override
-  protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
-    this.font.drawText(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);
-    switch (container.getBag()) {
+  protected void renderLabels(MatrixStack matrixStack, int x, int y) {
+    this.font.draw(matrixStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, 4210752);
+    switch (menu.getBag()) {
       case CLOTH:
-        this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 110, 4210752);
+        this.font.draw(matrixStack, this.inventory.getDisplayName(), (float) this.inventoryLabelX, (float) this.imageHeight - 110, 4210752);
         break;
       case LEATHER:
-        this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 75, 4210752);
+        this.font.draw(matrixStack, this.inventory.getDisplayName(), (float) this.inventoryLabelX, (float) this.imageHeight - 75, 4210752);
         break;
     }
 
@@ -37,6 +37,6 @@ public class BagScreen extends EssentialsCommonScreen<BagContainer> {
 
   @Override
   protected ResourceLocation getGUI() {
-    return EssentialsUtils.resourceLocation("textures/gui/container/" + container.getBag().getGuiName() + ".png");
+    return EssentialsUtils.resourceLocation("textures/gui/container/" + menu.getBag().getGuiName() + ".png");
   }
 }

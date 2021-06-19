@@ -22,435 +22,435 @@ public class EssentialsMetalCraftingRecipes extends EssentialsRecipeProvider {
   @Override
   public void init() {
     // nuggets to ingot
-    ShapedRecipeBuilder.shapedRecipe(ModItems.COPPER_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.COPPER_NUGGET.get())
-        .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.COPPER_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.COPPER_NUGGET.get())
+        .unlockedBy("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.TIN_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.TIN_NUGGET.get())
-        .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.TIN_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.TIN_NUGGET.get())
+        .unlockedBy("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.ZINC_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.ZINC_NUGGET.get())
-        .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.ZINC_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.ZINC_NUGGET.get())
+        .unlockedBy("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.SILVER_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.SILVER_NUGGET.get())
-        .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.SILVER_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.SILVER_NUGGET.get())
+        .unlockedBy("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.LEAD_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.LEAD_NUGGET.get())
-        .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.LEAD_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.LEAD_NUGGET.get())
+        .unlockedBy("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.BRONZE_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.BRONZE_NUGGET.get())
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer, "bronze_ingot_from_nuggets");
+    ShapedRecipeBuilder.shaped(ModItems.BRONZE_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.BRONZE_NUGGET.get())
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer, "bronze_ingot_from_nuggets");
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.BRASS_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.BRASS_NUGGET.get())
-        .addCriterion("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.BRASS_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.BRASS_NUGGET.get())
+        .unlockedBy("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.STEEL_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.STEEL_NUGGET.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.STEEL_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.STEEL_NUGGET.get())
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModItems.MYTHERINE_INGOT.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.MYTHERINE_NUGGET.get())
-        .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModItems.MYTHERINE_INGOT.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.MYTHERINE_NUGGET.get())
+        .unlockedBy("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
+        .save(consumer);
 
     // ingot to nuggets
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.COPPER_NUGGET.get(), 9)
-        .addIngredient(ModItems.COPPER_INGOT.get())
-        .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer, "copper_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.COPPER_NUGGET.get(), 9)
+        .requires(ModItems.COPPER_INGOT.get())
+        .unlockedBy("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
+        .save(consumer, "copper_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.TIN_NUGGET.get(), 9)
-        .addIngredient(ModItems.TIN_INGOT.get())
-        .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer, "tin_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.TIN_NUGGET.get(), 9)
+        .requires(ModItems.TIN_INGOT.get())
+        .unlockedBy("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
+        .save(consumer, "tin_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.ZINC_NUGGET.get(), 9)
-        .addIngredient(ModItems.ZINC_INGOT.get())
-        .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.ZINC_NUGGET.get(), 9)
+        .requires(ModItems.ZINC_INGOT.get())
+        .unlockedBy("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SILVER_NUGGET.get(), 9)
-        .addIngredient(ModItems.SILVER_INGOT.get())
-        .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer, "silver_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.SILVER_NUGGET.get(), 9)
+        .requires(ModItems.SILVER_INGOT.get())
+        .unlockedBy("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
+        .save(consumer, "silver_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEAD_NUGGET.get(), 9)
-        .addIngredient(ModItems.LEAD_INGOT.get())
-        .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer, "lead_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.LEAD_NUGGET.get(), 9)
+        .requires(ModItems.LEAD_INGOT.get())
+        .unlockedBy("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
+        .save(consumer, "lead_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRONZE_NUGGET.get(), 9)
-        .addIngredient(ModItems.BRONZE_INGOT.get())
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer, "bronze_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.BRONZE_NUGGET.get(), 9)
+        .requires(ModItems.BRONZE_INGOT.get())
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer, "bronze_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRASS_NUGGET.get(), 9)
-        .addIngredient(ModItems.BRASS_INGOT.get())
-        .addCriterion("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
-        .build(consumer, "brass_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.BRASS_NUGGET.get(), 9)
+        .requires(ModItems.BRASS_INGOT.get())
+        .unlockedBy("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
+        .save(consumer, "brass_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.STEEL_NUGGET.get(), 9)
-        .addIngredient(ModItems.STEEL_INGOT.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer, "steel_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.STEEL_NUGGET.get(), 9)
+        .requires(ModItems.STEEL_INGOT.get())
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer, "steel_nuggets_from_ingot");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.MYTHERINE_NUGGET.get(), 9)
-        .addIngredient(ModItems.MYTHERINE_INGOT.get())
-        .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer, "mytherine_nuggets_from_ingot");
+    ShapelessRecipeBuilder.shapeless(ModItems.MYTHERINE_NUGGET.get(), 9)
+        .requires(ModItems.MYTHERINE_INGOT.get())
+        .unlockedBy("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
+        .save(consumer, "mytherine_nuggets_from_ingot");
 
     // ingots to block
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.COPPER_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.COPPER_INGOT.get())
-        .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.COPPER_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.COPPER_INGOT.get())
+        .unlockedBy("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.TIN_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.TIN_INGOT.get())
-        .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.TIN_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.TIN_INGOT.get())
+        .unlockedBy("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.ZINC_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.ZINC_INGOT.get())
-        .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.ZINC_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.ZINC_INGOT.get())
+        .unlockedBy("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.SILVER_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.SILVER_INGOT.get())
-        .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.SILVER_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.SILVER_INGOT.get())
+        .unlockedBy("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.LEAD_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.LEAD_INGOT.get())
-        .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.LEAD_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.LEAD_INGOT.get())
+        .unlockedBy("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.BRONZE_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.BRONZE_INGOT.get())
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.BRONZE_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.BRONZE_INGOT.get())
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.BRASS_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.BRASS_INGOT.get())
-        .addCriterion("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.BRASS_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.BRASS_INGOT.get())
+        .unlockedBy("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.STEEL_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.STEEL_INGOT.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.STEEL_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.STEEL_INGOT.get())
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MYTHERINE_BLOCK_ITEM.get())
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .patternLine("xxx")
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.MYTHERINE_BLOCK_ITEM.get())
+        .pattern("xxx")
+        .pattern("xxx")
+        .pattern("xxx")
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .unlockedBy("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
+        .save(consumer);
 
     // block to ingots
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.COPPER_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.COPPER_BLOCK_ITEM.get())
-        .addCriterion("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
-        .build(consumer, "copper_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.COPPER_INGOT.get(), 9)
+        .requires(ModBlockItems.COPPER_BLOCK_ITEM.get())
+        .unlockedBy("has_copper_ore", hasItem(ModBlockItems.COPPER_ORE_ITEM.get()))
+        .save(consumer, "copper_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.TIN_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.TIN_BLOCK_ITEM.get())
-        .addCriterion("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
-        .build(consumer, "tin_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.TIN_INGOT.get(), 9)
+        .requires(ModBlockItems.TIN_BLOCK_ITEM.get())
+        .unlockedBy("has_tin_ore", hasItem(ModBlockItems.TIN_ORE_ITEM.get()))
+        .save(consumer, "tin_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.ZINC_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.ZINC_BLOCK_ITEM.get())
-        .addCriterion("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
-        .build(consumer, "zinc_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.ZINC_INGOT.get(), 9)
+        .requires(ModBlockItems.ZINC_BLOCK_ITEM.get())
+        .unlockedBy("has_zinc_ore", hasItem(ModBlockItems.ZINC_ORE_ITEM.get()))
+        .save(consumer, "zinc_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SILVER_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.SILVER_BLOCK_ITEM.get())
-        .addCriterion("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
-        .build(consumer, "silver_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.SILVER_INGOT.get(), 9)
+        .requires(ModBlockItems.SILVER_BLOCK_ITEM.get())
+        .unlockedBy("has_silver_ore", hasItem(ModBlockItems.SILVER_ORE_ITEM.get()))
+        .save(consumer, "silver_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.LEAD_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.LEAD_BLOCK_ITEM.get())
-        .addCriterion("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
-        .build(consumer, "lead_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.LEAD_INGOT.get(), 9)
+        .requires(ModBlockItems.LEAD_BLOCK_ITEM.get())
+        .unlockedBy("has_lead_ore", hasItem(ModBlockItems.LEAD_ORE_ITEM.get()))
+        .save(consumer, "lead_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRONZE_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.BRONZE_BLOCK_ITEM.get())
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer, "bronze_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.BRONZE_INGOT.get(), 9)
+        .requires(ModBlockItems.BRONZE_BLOCK_ITEM.get())
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer, "bronze_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.BRASS_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.BRASS_BLOCK_ITEM.get())
-        .addCriterion("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
-        .build(consumer, "brass_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.BRASS_INGOT.get(), 9)
+        .requires(ModBlockItems.BRASS_BLOCK_ITEM.get())
+        .unlockedBy("has_brass_ingot", hasItem(ModItems.BRASS_INGOT.get()))
+        .save(consumer, "brass_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.STEEL_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.STEEL_BLOCK_ITEM.get())
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer, "steel_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.STEEL_INGOT.get(), 9)
+        .requires(ModBlockItems.STEEL_BLOCK_ITEM.get())
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer, "steel_ingots_from_block");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.MYTHERINE_INGOT.get(), 9)
-        .addIngredient(ModBlockItems.MYTHERINE_BLOCK_ITEM.get())
-        .addCriterion("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
-        .build(consumer, "mytherine_ingots_from_block");
+    ShapelessRecipeBuilder.shapeless(ModItems.MYTHERINE_INGOT.get(), 9)
+        .requires(ModBlockItems.MYTHERINE_BLOCK_ITEM.get())
+        .unlockedBy("has_mytherine_ore", hasItem(ModBlockItems.MYTHERINE_ORE_ITEM.get()))
+        .save(consumer, "mytherine_ingots_from_block");
 
     // custom tools
     // copper
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_SHOVEL.get())
-        .patternLine("i")
-        .patternLine("#")
-        .patternLine("#")
-        .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.COPPER_SHOVEL.get())
+        .pattern("i")
+        .pattern("#")
+        .pattern("#")
+        .define('i', ModItems.COPPER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_AXE.get())
-        .patternLine("ii")
-        .patternLine("i#")
-        .patternLine(" #")
-        .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.COPPER_AXE.get())
+        .pattern("ii")
+        .pattern("i#")
+        .pattern(" #")
+        .define('i', ModItems.COPPER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_PICKAXE.get())
-        .patternLine("iii")
-        .patternLine(" # ")
-        .patternLine(" # ")
-        .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.COPPER_PICKAXE.get())
+        .pattern("iii")
+        .pattern(" # ")
+        .pattern(" # ")
+        .define('i', ModItems.COPPER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.COPPER_HOE.get())
-        .patternLine("ii")
-        .patternLine(" #")
-        .patternLine(" #")
-        .key('i', ModItems.COPPER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.COPPER_HOE.get())
+        .pattern("ii")
+        .pattern(" #")
+        .pattern(" #")
+        .define('i', ModItems.COPPER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_copper_ingot", hasItem(ModItems.COPPER_INGOT.get()))
+        .save(consumer);
 
     // bronze
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_SHOVEL.get())
-        .patternLine("i")
-        .patternLine("#")
-        .patternLine("#")
-        .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.BRONZE_SHOVEL.get())
+        .pattern("i")
+        .pattern("#")
+        .pattern("#")
+        .define('i', ModItems.BRONZE_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_AXE.get())
-        .patternLine("ii")
-        .patternLine("i#")
-        .patternLine(" #")
-        .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.BRONZE_AXE.get())
+        .pattern("ii")
+        .pattern("i#")
+        .pattern(" #")
+        .define('i', ModItems.BRONZE_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_PICKAXE.get())
-        .patternLine("iii")
-        .patternLine(" # ")
-        .patternLine(" # ")
-        .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.BRONZE_PICKAXE.get())
+        .pattern("iii")
+        .pattern(" # ")
+        .pattern(" # ")
+        .define('i', ModItems.BRONZE_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.BRONZE_HOE.get())
-        .patternLine("ii")
-        .patternLine(" #")
-        .patternLine(" #")
-        .key('i', ModItems.BRONZE_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.BRONZE_HOE.get())
+        .pattern("ii")
+        .pattern(" #")
+        .pattern(" #")
+        .define('i', ModItems.BRONZE_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_bronze_ingot", hasItem(ModItems.BRONZE_INGOT.get()))
+        .save(consumer);
 
     // silver
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_SHOVEL.get())
-        .patternLine("i")
-        .patternLine("#")
-        .patternLine("#")
-        .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SILVER_SHOVEL.get())
+        .pattern("i")
+        .pattern("#")
+        .pattern("#")
+        .define('i', ModItems.SILVER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_AXE.get())
-        .patternLine("ii")
-        .patternLine("i#")
-        .patternLine(" #")
-        .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SILVER_AXE.get())
+        .pattern("ii")
+        .pattern("i#")
+        .pattern(" #")
+        .define('i', ModItems.SILVER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_PICKAXE.get())
-        .patternLine("iii")
-        .patternLine(" # ")
-        .patternLine(" # ")
-        .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SILVER_PICKAXE.get())
+        .pattern("iii")
+        .pattern(" # ")
+        .pattern(" # ")
+        .define('i', ModItems.SILVER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.SILVER_HOE.get())
-        .patternLine("ii")
-        .patternLine(" #")
-        .patternLine(" #")
-        .key('i', ModItems.SILVER_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.SILVER_HOE.get())
+        .pattern("ii")
+        .pattern(" #")
+        .pattern(" #")
+        .define('i', ModItems.SILVER_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_silver_ingot", hasItem(ModItems.SILVER_INGOT.get()))
+        .save(consumer);
 
     // steel
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_SHOVEL.get())
-        .patternLine("i")
-        .patternLine("#")
-        .patternLine("#")
-        .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.STEEL_SHOVEL.get())
+        .pattern("i")
+        .pattern("#")
+        .pattern("#")
+        .define('i', ModItems.STEEL_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_AXE.get())
-        .patternLine("ii")
-        .patternLine("i#")
-        .patternLine(" #")
-        .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.STEEL_AXE.get())
+        .pattern("ii")
+        .pattern("i#")
+        .pattern(" #")
+        .define('i', ModItems.STEEL_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_PICKAXE.get())
-        .patternLine("iii")
-        .patternLine(" # ")
-        .patternLine(" # ")
-        .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.STEEL_PICKAXE.get())
+        .pattern("iii")
+        .pattern(" # ")
+        .pattern(" # ")
+        .define('i', ModItems.STEEL_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.STEEL_HOE.get())
-        .patternLine("ii")
-        .patternLine(" #")
-        .patternLine(" #")
-        .key('i', ModItems.STEEL_INGOT.get())
-        .key('#', rods_wood)
-        .addCriterion("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.STEEL_HOE.get())
+        .pattern("ii")
+        .pattern(" #")
+        .pattern(" #")
+        .define('i', ModItems.STEEL_INGOT.get())
+        .define('#', rods_wood)
+        .unlockedBy("has_steel_ingot", hasItem(ModItems.STEEL_INGOT.get()))
+        .save(consumer);
 
     // mytherine
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_SHOVEL.get())
-        .patternLine("oco")
-        .patternLine("xtx")
-        .patternLine("oxo")
-        .key('o', Items.OBSIDIAN)
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('t', Items.NETHERITE_SHOVEL)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.MYTHERINE_SHOVEL.get())
+        .pattern("oco")
+        .pattern("xtx")
+        .pattern("oxo")
+        .define('o', Items.OBSIDIAN)
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('t', Items.NETHERITE_SHOVEL)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .unlockedBy("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_AXE.get())
-        .patternLine("oco")
-        .patternLine("xtx")
-        .patternLine("oxo")
-        .key('o', Items.OBSIDIAN)
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('t', Items.NETHERITE_AXE)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.MYTHERINE_AXE.get())
+        .pattern("oco")
+        .pattern("xtx")
+        .pattern("oxo")
+        .define('o', Items.OBSIDIAN)
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('t', Items.NETHERITE_AXE)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .unlockedBy("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_PICKAXE.get())
-        .patternLine("oco")
-        .patternLine("xtx")
-        .patternLine("oxo")
-        .key('o', Items.OBSIDIAN)
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('t', Items.NETHERITE_PICKAXE)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.MYTHERINE_PICKAXE.get())
+        .pattern("oco")
+        .pattern("xtx")
+        .pattern("oxo")
+        .define('o', Items.OBSIDIAN)
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('t', Items.NETHERITE_PICKAXE)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .unlockedBy("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModToolItems.MYTHERINE_HOE.get())
-        .patternLine("oco")
-        .patternLine("xtx")
-        .patternLine("oxo")
-        .key('o', Items.OBSIDIAN)
-        .key('x', ModItems.MYTHERINE_INGOT.get())
-        .key('t', Items.NETHERITE_HOE)
-        .key('c', ModBlockItems.CRIMLEAF_ITEM.get())
-        .addCriterion("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModToolItems.MYTHERINE_HOE.get())
+        .pattern("oco")
+        .pattern("xtx")
+        .pattern("oxo")
+        .define('o', Items.OBSIDIAN)
+        .define('x', ModItems.MYTHERINE_INGOT.get())
+        .define('t', Items.NETHERITE_HOE)
+        .define('c', ModBlockItems.CRIMLEAF_ITEM.get())
+        .unlockedBy("has_mytherine_ingot", hasItem(ModItems.MYTHERINE_INGOT.get()))
+        .save(consumer);
   }
 }

@@ -14,24 +14,24 @@ import net.minecraft.block.AbstractBlock.Properties;
 
 public class StoneGroundBlock extends StickAndStoneBlock {
 
-  protected static final VoxelShape SHAPE_N = VoxelShapes.combineAndSimplify(
-      Block.makeCuboidShape(6, 0, 7, 10, 2, 10),
-      Block.makeCuboidShape(5, 0, 6, 7, 1, 7),
+  protected static final VoxelShape SHAPE_N = VoxelShapes.join(
+      Block.box(6, 0, 7, 10, 2, 10),
+      Block.box(5, 0, 6, 7, 1, 7),
       IBooleanFunction.OR);
 
-  protected static final VoxelShape SHAPE_E = VoxelShapes.combineAndSimplify(
-      Block.makeCuboidShape(4.5, 0, 6.5, 7.5, 2, 10.5),
-      Block.makeCuboidShape(7.5, 0, 5.5, 8.5, 1, 7.5),
+  protected static final VoxelShape SHAPE_E = VoxelShapes.join(
+      Block.box(4.5, 0, 6.5, 7.5, 2, 10.5),
+      Block.box(7.5, 0, 5.5, 8.5, 1, 7.5),
       IBooleanFunction.OR);
 
-  protected static final VoxelShape SHAPE_S = VoxelShapes.combineAndSimplify(
-      Block.makeCuboidShape(4, 0, 5, 8, 2, 8),
-      Block.makeCuboidShape(7, 0, 8, 9, 1, 9),
+  protected static final VoxelShape SHAPE_S = VoxelShapes.join(
+      Block.box(4, 0, 5, 8, 2, 8),
+      Block.box(7, 0, 8, 9, 1, 9),
       IBooleanFunction.OR);
 
-  protected static final VoxelShape SHAPE_W = VoxelShapes.combineAndSimplify(
-      Block.makeCuboidShape(6.5, 0, 4.5, 9.5, 2, 8.5),
-      Block.makeCuboidShape(5.5, 0, 7.5, 6.5, 1, 9.5),
+  protected static final VoxelShape SHAPE_W = VoxelShapes.join(
+      Block.box(6.5, 0, 4.5, 9.5, 2, 8.5),
+      Block.box(5.5, 0, 7.5, 6.5, 1, 9.5),
       IBooleanFunction.OR);
 
   public StoneGroundBlock(Properties properties) {
@@ -40,7 +40,7 @@ public class StoneGroundBlock extends StickAndStoneBlock {
 
   @Override
   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-    switch (state.get(FACING)) {
+    switch (state.getValue(FACING)) {
       case NORTH:
         return SHAPE_N;
       case EAST:

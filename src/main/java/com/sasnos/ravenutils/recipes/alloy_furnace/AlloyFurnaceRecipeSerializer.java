@@ -21,51 +21,51 @@ public class AlloyFurnaceRecipeSerializer extends ForgeRegistryEntry<IRecipeSeri
   }
 
   @Override
-  public AlloyFurnaceRecipe read(ResourceLocation recipeId, JsonObject json) {
+  public AlloyFurnaceRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
 
-    ItemStack output = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, "result"), true);
-    JsonArray inputs = JSONUtils.getJsonArray(json, "materials");
+    ItemStack output = CraftingHelper.getItemStack(JSONUtils.getAsJsonObject(json, "result"), true);
+    JsonArray inputs = JSONUtils.getAsJsonArray(json, "materials");
     NonNullList<Material> input = NonNullList.create();
     for (int i = 0; i < inputs.size(); i++) {
       input.add(Material.deserialize(inputs.get(i).getAsJsonObject()));
     }
-    int time = JSONUtils.getInt(json, "cookingtime");
+    int time = JSONUtils.getAsInt(json, "cookingtime");
     ItemStack additionalOutput = ItemStack.EMPTY;
     float change = 0;
     if (json.has("additional")) {
-      JsonObject additional = JSONUtils.getJsonObject(json, "additional");
+      JsonObject additional = JSONUtils.getAsJsonObject(json, "additional");
       additionalOutput = CraftingHelper.getItemStack(additional, true);
-      change = JSONUtils.getFloat(additional, "change");
+      change = JSONUtils.getAsFloat(additional, "change");
     }
     return createRecipe(recipeId, input, output, time, additionalOutput, change);
   }
 
   @Nullable
   @Override
-  public AlloyFurnaceRecipe read(ResourceLocation recipeId, PacketBuffer buffer) {
+  public AlloyFurnaceRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
 
     int numMaterials = buffer.readVarInt();
     NonNullList<Material> input = NonNullList.create();
     for (int i = 0; i < numMaterials; i++) {
       input.add(Material.read(buffer));
     }
-    ItemStack output = buffer.readItemStack();
+    ItemStack output = buffer.readItem();
     int time = buffer.readVarInt();
-    ItemStack additionalOutput = buffer.readItemStack();
+    ItemStack additionalOutput = buffer.readItem();
     float change = buffer.readFloat();
     return createRecipe(recipeId, input, output, time, additionalOutput, change);
   }
 
   @Override
-  public void write(PacketBuffer buffer, AlloyFurnaceRecipe recipe) {
+  public void toNetwork(PacketBuffer buffer, AlloyFurnaceRecipe recipe) {
 
     buffer.writeVarInt(recipe.getIngredients().size());
     for (Material input : recipe.getInput()) {
       input.write(buffer);
     }
-    buffer.writeItemStack(recipe.getRecipeOutput());
+    buffer.writeItem(recipe.getResultItem());
     buffer.writeVarInt(recipe.getTimer());
-    buffer.writeItemStack(recipe.getAdditionalResult());
+    buffer.writeItem(recipe.getAdditionalResult());
     buffer.writeFloat(recipe.getAdditionalChance());
   }
 }

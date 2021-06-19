@@ -17,24 +17,24 @@ public class AlloyFurnaceScreen extends EssentialsCommonMachineScreen<AlloyFurna
   }
 
   @Override
-  protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int x, int y) {
-    this.minecraft.getTextureManager().bindTexture(getGUI());
-    int left = this.guiLeft;
-    int right = this.guiTop;
-    this.blit(matrixStack, left, right, 0, 0, this.xSize, this.ySize);
-    if (this.container.isBurning()) {
-      int k = this.container.getBurnLeftScaled();
+  protected void renderBg(MatrixStack matrixStack, float partialTicks, int x, int y) {
+    this.minecraft.getTextureManager().bind(getGUI());
+    int left = this.leftPos;
+    int right = this.topPos;
+    this.blit(matrixStack, left, right, 0, 0, this.imageWidth, this.imageHeight);
+    if (this.menu.isBurning()) {
+      int k = this.menu.getBurnLeftScaled();
       this.blit(matrixStack, left + 45, right + 36 + 12 - k, 176, 12 - k, 14, k + 1);
     }
 
-    int l = this.container.getCookProgressionScaled();
+    int l = this.menu.getCookProgressionScaled();
     this.blit(matrixStack, left + 84, right + 34, 176, 14, l + 1, 16);
   }
 
   @Override
-  protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
-    this.font.drawText(matrixStack, this.title, (float) this.titleX, (float) this.titleY, 4210752);
-    this.font.drawText(matrixStack, this.playerInventory.getDisplayName(), (float) this.playerInventoryTitleX, (float) this.ySize - 94, 4210752);
+  protected void renderLabels(MatrixStack matrixStack, int x, int y) {
+    this.font.draw(matrixStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, 4210752);
+    this.font.draw(matrixStack, this.inventory.getDisplayName(), (float) this.inventoryLabelX, (float) this.imageHeight - 94, 4210752);
   }
 
   @NotNull

@@ -10,10 +10,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodSapling extends SaplingBlock {
 
   public CrimwoodSapling() {
-    super(new CrimwoodTree(), Properties.create(Material.PLANTS)
-        .doesNotBlockMovement()
-        .tickRandomly()
-        .zeroHardnessAndResistance()
-        .sound(SoundType.PLANT));
+    super(new CrimwoodTree(), Properties.of(Material.PLANT)
+        .noCollission()
+        .randomTicks()
+        .instabreak()
+        .sound(SoundType.GRASS));
   }
 }

@@ -60,13 +60,13 @@ public class ModArmorItems {
 
   // mytherine
   public static final RegistryObject<ArmorItem> MYTHERINE_HELMET = ITEMS.register("mytherine_helmet",
-      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.HEAD, new Item.Properties().group(RavenUtils.TAB)));
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.HEAD, new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<ArmorItem> MYTHERINE_CHESTPLATE = ITEMS.register("mytherine_chestplate",
-      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.CHEST, new Item.Properties().group(RavenUtils.TAB)));
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.CHEST, new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<ArmorItem> MYTHERINE_LEGGINGS = ITEMS.register("mytherine_leggings",
-      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.LEGS, new Item.Properties().group(RavenUtils.TAB)));
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.LEGS, new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<ArmorItem> MYTHERINE_BOOTS = ITEMS.register("mytherine_boots",
-      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.FEET, new Item.Properties().group(RavenUtils.TAB)));
+      () -> new ArmorItem(ModArmorMaterial.MYTHERINE, EquipmentSlotType.FEET, new Item.Properties().tab(RavenUtils.TAB)));
   public static final RegistryObject<ShieldItem> MYTHERINE_SHIELD = ITEMS.register("mytherine_shield",
-      () -> new EssentialShieldItem(new Item.Properties().defaultMaxDamage(24000).group(RavenUtils.TAB).setISTER(() -> ShieldRenderer::new)));
+      () -> new EssentialShieldItem(new Item.Properties().defaultDurability(24000).tab(RavenUtils.TAB).setISTER(() -> ShieldRenderer::new)));
 }

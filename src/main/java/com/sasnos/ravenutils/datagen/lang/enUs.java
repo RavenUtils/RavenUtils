@@ -18,7 +18,7 @@ public class enUs extends LanguageProvider {
 
   @Override
   protected void addTranslations() {
-    add(RavenUtils.TAB.getGroupName().getString(), "Raven Utils");
+    add(RavenUtils.TAB.getDisplayName().getString(), "Raven Utils");
 
     // fluids
     add(ModFluids.LIMEWATER.get().getFluid().getAttributes().getTranslationKey(), "Limewater");
@@ -224,11 +224,11 @@ public class enUs extends LanguageProvider {
     add(ModToolItems.KNIFE_STEEL.get(), "Steel Knife");
 
     add(ModToolItems.BUCKET_WOOD.get(), "Wooden Bucket");
-    add(ModToolItems.BUCKET_WOOD.get().getTranslationKey() + ".filled", "%s Wooden Bucket");
+    add(ModToolItems.BUCKET_WOOD.get().getDescriptionId() + ".filled", "%s Wooden Bucket");
     add(ModToolItems.BUCKET_CLAY.get(), "Clay Bucket");
-    add(ModToolItems.BUCKET_CLAY.get().getTranslationKey() + ".filled", "%s Clay Bucket");
+    add(ModToolItems.BUCKET_CLAY.get().getDescriptionId() + ".filled", "%s Clay Bucket");
     add(ModToolItems.BUCKET_CRIMWOOD.get(), "Crimwood Bucket");
-    add(ModToolItems.BUCKET_CRIMWOOD.get().getTranslationKey() + ".filled", "%s Crimwood Bucket");
+    add(ModToolItems.BUCKET_CRIMWOOD.get().getDescriptionId() + ".filled", "%s Crimwood Bucket");
     // add(ModToolItems.BUCKET_IRON.get().getTranslationKey() + ".filled", "%s Iron Bucket");
     add(ModToolItems.BUCKET_IRON_LIMEWATER.get(), "Iron Limewater Bucket");
     add(ModToolItems.BUCKET_IRON_TANNIN.get(), "Iron Tannin Bucket");

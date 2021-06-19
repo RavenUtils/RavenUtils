@@ -27,27 +27,27 @@ public class ModItemStackTileEntityRenderer extends ItemStackTileEntityRenderer 
   private final MytherineShieldModel modelShield = new MytherineShieldModel();
 
   @Override
-  public void func_239207_a_(ItemStack stack, TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+  public void renderByItem(ItemStack stack, TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
     Item item = stack.getItem();
     if (item instanceof BlockItem) {
       Block block = ((BlockItem) item).getBlock();
       if (item == ModArmorItems.MYTHERINE_SHIELD.get().getItem()) {
-        boolean flag = stack.getChildTag("BlockEntityTag") != null;
-        matrixStack.push();
+        boolean flag = stack.getTagElement("BlockEntityTag") != null;
+        matrixStack.pushPose();
         matrixStack.scale(1.0F, -1.0F, -1.0F);
         RenderMaterial rendermaterial = flag
-            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base"))
-            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base_nopattern"));
-        IVertexBuilder ivertexbuilder = rendermaterial.getSprite().wrapBuffer(ItemRenderer.getEntityGlintVertexBuilder(buffer, this.modelShield.getRenderType(rendermaterial.getAtlasLocation()), true, stack.hasEffect()));
-        this.modelShield.func_228294_b_().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+            ? new RenderMaterial(AtlasTexture.LOCATION_BLOCKS, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base"))
+            : new RenderMaterial(AtlasTexture.LOCATION_BLOCKS, EssentialsUtils.resourceLocation("entity/shields/mytherine_shield_base_nopattern"));
+        IVertexBuilder ivertexbuilder = rendermaterial.sprite().wrap(ItemRenderer.getFoilBufferDirect(buffer, this.modelShield.renderType(rendermaterial.atlasLocation()), true, stack.hasFoil()));
+        this.modelShield.handle().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         if (flag) {
-          List<Pair<BannerPattern, DyeColor>> list = BannerTileEntity.getPatternColorData(ShieldItem.getColor(stack), BannerTileEntity.getPatternData(stack));
-          BannerTileEntityRenderer.func_241717_a_(matrixStack, buffer, combinedLight, combinedOverlay, this.modelShield.func_228293_a_(), rendermaterial, false, list, stack.hasEffect());
+          List<Pair<BannerPattern, DyeColor>> list = BannerTileEntity.createPatterns(ShieldItem.getColor(stack), BannerTileEntity.getItemPatterns(stack));
+          BannerTileEntityRenderer.renderPatterns(matrixStack, buffer, combinedLight, combinedOverlay, this.modelShield.plate(), rendermaterial, false, list, stack.hasFoil());
         } else {
-          this.modelShield.func_228293_a_().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+          this.modelShield.plate().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         }
 
-        matrixStack.pop();
+        matrixStack.popPose();
       }
     }
   }

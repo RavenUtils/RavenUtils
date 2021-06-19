@@ -9,10 +9,10 @@ import net.minecraftforge.common.ToolType;
 public class MudBlock extends Block {
 
   public MudBlock() {
-    super(AbstractBlock.Properties.create(Material.EARTH)
-        .hardnessAndResistance(2F)
-        .sound(SoundType.GROUND)
-        .setRequiresTool()
+    super(AbstractBlock.Properties.of(Material.DIRT)
+        .strength(2F)
+        .sound(SoundType.GRAVEL)
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.SHOVEL)
     );
   }

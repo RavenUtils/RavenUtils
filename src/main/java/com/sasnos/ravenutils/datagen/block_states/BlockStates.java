@@ -27,7 +27,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blueberryBush2 = models().cross("blueberry_bush2", modLoc("blocks/bush_blueberry_stage2"));
     BlockModelBuilder blueberryBush3 = models().cross("blueberry_bush3", modLoc("blocks/bush_blueberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLUEBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+      switch (blockState.getValue(BlockStateProperties.AGE_3)) {
         case 1:
           return blueberryBush1;
         case 2:
@@ -44,7 +44,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder elderberryBush2 = models().cross("elderberry_bush2", modLoc("blocks/bush_elderberry_stage2"));
     BlockModelBuilder elderberryBush3 = models().cross("elderberry_bush3", modLoc("blocks/bush_elderberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.ELDERBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+      switch (blockState.getValue(BlockStateProperties.AGE_3)) {
         case 1:
           return elderberryBush1;
         case 2:
@@ -61,7 +61,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder raspberryBush2 = models().cross("raspberry_bush2", modLoc("blocks/bush_raspberry_stage2"));
     BlockModelBuilder raspberryBush3 = models().cross("raspberry_bush3", modLoc("blocks/bush_raspberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.RASPBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+      switch (blockState.getValue(BlockStateProperties.AGE_3)) {
         case 1:
           return raspberryBush1;
         case 2:
@@ -78,7 +78,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder blackberryBush2 = models().cross("blackberry_bush2", modLoc("blocks/bush_blackberry_stage2"));
     BlockModelBuilder blackberryBush3 = models().cross("blackberry_bush3", modLoc("blocks/bush_blackberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.BLACKBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+      switch (blockState.getValue(BlockStateProperties.AGE_3)) {
         case 1:
           return blackberryBush1;
         case 2:
@@ -95,7 +95,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder gooseberryBush2 = models().cross("gooseberry_bush2", modLoc("blocks/bush_gooseberry_stage2"));
     BlockModelBuilder gooseberryBush3 = models().cross("gooseberry_bush3", modLoc("blocks/bush_gooseberry_stage3"));
     generateBlockStatesForBlock(ModBlocks.GOOSEBERRY_BUSH.get(), blockState -> {
-      switch (blockState.get(BlockStateProperties.AGE_0_3)) {
+      switch (blockState.getValue(BlockStateProperties.AGE_3)) {
         case 1:
           return gooseberryBush1;
         case 2:
@@ -128,7 +128,7 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
     horizontalFaceBlock(ModBlocks.CRIMWOOD_BUTTON.get(), blockState
-        -> (blockState.get(BlockStateProperties.POWERED)) ? crimwoodButtonPressed : crimwoodButton, 180);
+        -> (blockState.getValue(BlockStateProperties.POWERED)) ? crimwoodButtonPressed : crimwoodButton, 180);
 
     doorBlock(ModBlocks.CRIMWOOD_DOOR.get(),
         modLoc("blocks/crimwood_door_bottom"),
@@ -155,7 +155,7 @@ public class BlockStates extends EssentialsBlockStates {
         .texture("texture", modLoc("blocks/crimwood_planks"));
 
     generateBlockStatesForBlock(ModBlocks.CRIMWOOD_PRESSURE_PLATE.get(), blockState
-        -> (blockState.get(BlockStateProperties.POWERED)) ? crimwoodPressurePlateDown : crimwoodPressurePlate);
+        -> (blockState.getValue(BlockStateProperties.POWERED)) ? crimwoodPressurePlateDown : crimwoodPressurePlate);
 
     BlockModelBuilder crimwoodTrapDoor = models().trapdoorOrientableBottom("crimwood_trap_door", modLoc("blocks/crimwood_trapdoor"));
 
@@ -309,7 +309,7 @@ public class BlockStates extends EssentialsBlockStates {
     BlockModelBuilder alloyFurnaceOn = models().withExistingParent("alloy_furnace_on", EssentialsUtils.resourceLocation("block/alloy_furnace"))
         .texture("3", "blocks/alloy_furnace_lit");
 
-    orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.get(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
+    orientedBlock(AlloyFurnaceInit.ALLOY_FURNACE.get(), blockState -> blockState.getValue(BlockStateProperties.LIT) ? alloyFurnaceOn : alloyFurnace);
 
     // todo adjust!
     /*

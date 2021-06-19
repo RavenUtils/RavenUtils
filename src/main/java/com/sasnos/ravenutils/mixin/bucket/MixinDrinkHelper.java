@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(DrinkHelper.class)
 public abstract class MixinDrinkHelper {
 
-  @Inject(method = "fill(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;",
+  @Inject(method = "createFilledResult(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;",
           at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isEmpty()Z"), cancellable = true)
   private static void onFill(ItemStack empty, PlayerEntity player, ItemStack filled, boolean preventDuplicates,
                             CallbackInfoReturnable<ItemStack> cir) {
@@ -19,10 +19,10 @@ public abstract class MixinDrinkHelper {
     if(empty.getTag() != null)
       damage = empty.getTag().getInt("Damage");
 
-    if (filled.isDamageable() && damage + 1 > filled.getMaxDamage()) {
+    if (filled.isDamageableItem() && damage + 1 > filled.getMaxDamage()) {
       cir.setReturnValue(empty);
-    } else if (filled.isDamageable()) {
-      filled.setDamage(damage + 1);
+    } else if (filled.isDamageableItem()) {
+      filled.setDamageValue(damage + 1);
     }
   }
 

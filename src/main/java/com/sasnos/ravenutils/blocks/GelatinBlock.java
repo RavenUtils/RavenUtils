@@ -10,12 +10,12 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class GelatinBlock extends Block {
 
   public GelatinBlock() {
-    super(Properties.create(Material.SPONGE)
-        .hardnessAndResistance(2f, 3f)
-        .sound(SoundType.SLIME)
+    super(Properties.of(Material.SPONGE)
+        .strength(2f, 3f)
+        .sound(SoundType.SLIME_BLOCK)
         .speedFactor(0.01F)
         .harvestTool(ToolType.SHOVEL)
-        .notSolid()
+        .noOcclusion()
     );
   }
 }

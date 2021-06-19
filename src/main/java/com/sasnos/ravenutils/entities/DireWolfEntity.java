@@ -21,10 +21,10 @@ public class DireWolfEntity extends WolfEntity {
 
   public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
     return MobEntity
-        .func_233666_p_()
-        .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3F)
-        .createMutableAttribute(Attributes.MAX_HEALTH, 8.0D)
-        .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+        .createMobAttributes()
+        .add(Attributes.MOVEMENT_SPEED, 0.3F)
+        .add(Attributes.MAX_HEALTH, 8.0D)
+        .add(Attributes.ATTACK_DAMAGE, 2.0D);
   }
 
   @Override
@@ -39,18 +39,18 @@ public class DireWolfEntity extends WolfEntity {
     this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
     this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 8.0F));
     this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
-    this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp());
+    this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers());
     this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractSkeletonEntity.class, false));
-    this.targetSelector.addGoal(3, new NonTamedTargetGoal<>(this, AnimalEntity.class, false, TARGET_ENTITIES));
+    this.targetSelector.addGoal(3, new NonTamedTargetGoal<>(this, AnimalEntity.class, false, PREY_SELECTOR));
     this.targetSelector.addGoal(4, new HurtByTargetGoal(this));
   }
 
   @Override
   protected SoundEvent getAmbientSound() {
-    if (this.rand.nextInt(3) == 0) {
-      return this.isTamed() && this.getHealth() < 10.0F ? SoundEvents.ENTITY_WOLF_WHINE : SoundEvents.ENTITY_WOLF_PANT;
+    if (this.random.nextInt(3) == 0) {
+      return this.isTame() && this.getHealth() < 10.0F ? SoundEvents.WOLF_WHINE : SoundEvents.WOLF_PANT;
     } else {
-      return SoundEvents.ENTITY_WOLF_GROWL;
+      return SoundEvents.WOLF_GROWL;
     }
   }
 

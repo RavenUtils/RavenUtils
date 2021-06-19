@@ -9,11 +9,11 @@ import net.minecraftforge.common.ToolType;
 public class MytherineOre extends OreBlock {
 
   public MytherineOre() {
-    super(AbstractBlock.Properties.create(Material.ROCK)
-        .hardnessAndResistance(40f, 1200f)
+    super(AbstractBlock.Properties.of(Material.STONE)
+        .strength(40f, 1200f)
         .sound(SoundType.STONE)
         .harvestLevel(3)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

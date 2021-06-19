@@ -10,11 +10,11 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class BlackCoalOre extends OreBlock {
 
   public BlackCoalOre() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(20f, 600f)
+    super(Properties.of(Material.STONE)
+        .strength(20f, 600f)
         .sound(SoundType.STONE)
         .harvestLevel(2)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
     );
   }

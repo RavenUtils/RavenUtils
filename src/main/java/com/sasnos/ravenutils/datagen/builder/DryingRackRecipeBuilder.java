@@ -28,14 +28,14 @@ public class DryingRackRecipeBuilder {
   private final int count;
   private final int timer;
   private final IItemProvider output;
-  private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+  private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
   private final float xp;
 
   public DryingRackRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float xp) {
-    if (input.hasNoMatchingItems()) throw new IllegalArgumentException("Input must not be empty");
+    if (input.isEmpty()) throw new IllegalArgumentException("Input must not be empty");
     if (timer < 1) throw new IllegalArgumentException("Timer must not be smaller than 1");
-    if (input.getMatchingStacks().length > 1) throw new IllegalStateException("Max 1 ingredient can be used");
-    if (input.getMatchingStacks()[0].getCount() > 1) throw new IllegalStateException("Max amount for input is 1");
+    if (input.getItems().length > 1) throw new IllegalStateException("Max 1 ingredient can be used");
+    if (input.getItems()[0].getCount() > 1) throw new IllegalStateException("Max amount for input is 1");
     this.input = input;
     if (count > 1) throw new IllegalArgumentException("Output cannot be greater than 1");
     this.count = count;
@@ -45,7 +45,7 @@ public class DryingRackRecipeBuilder {
   }
 
   public DryingRackRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
-    this.advancementBuilder.withCriterion(name, criterionIn);
+    this.advancementBuilder.addCriterion(name, criterionIn);
     return this;
   }
 
@@ -64,11 +64,11 @@ public class DryingRackRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id, boolean ignoreMCNames) {
     validate(id, ignoreMCNames);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
-        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-        .withRewards(AdvancementRewards.Builder.recipe(id))
-        .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
+        .parent(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
+        .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+        .rewards(AdvancementRewards.Builder.recipe(id))
+        .requirements(IRequirementsStrategy.OR);
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getItemCategory()).getRecipeFolderName() + "/" + id.getPath());
     createRecipe(consumer, id, advancementId);
   }
 
@@ -111,13 +111,13 @@ public class DryingRackRecipeBuilder {
     }
 
     @Override
-    public void serialize(@NotNull JsonObject json) {
-      JsonElement ingredients = this.input.serialize();
+    public void serializeRecipeData(@NotNull JsonObject json) {
+      JsonElement ingredients = this.input.toJson();
       if (ingredients.isJsonArray()) {
-        JsonArray ingredientArray = JSONUtils.getJsonArray(ingredients, null);
+        JsonArray ingredientArray = JSONUtils.convertToJsonArray(ingredients, null);
         final int[] i = {0};
         ingredientArray.forEach(jsonElement -> {
-          jsonElement.getAsJsonObject().addProperty("count", this.input.getMatchingStacks()[i[0]].getCount());
+          jsonElement.getAsJsonObject().addProperty("count", this.input.getItems()[i[0]].getCount());
           i[0]++;
         });
       }
@@ -135,7 +135,7 @@ public class DryingRackRecipeBuilder {
     }
 
     @Override
-    public @NotNull IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getType() {
       return ModRecipes.DRYING_RACK_RECIPE_SERIALIZER.get();
     }
   }

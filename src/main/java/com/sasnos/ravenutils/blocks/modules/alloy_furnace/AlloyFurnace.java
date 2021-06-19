@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 public class AlloyFurnace extends EssentialsMachineBlock {
 
   public AlloyFurnace() {
-    super(AbstractBlock.Properties.from(Blocks.FURNACE));
+    super(AbstractBlock.Properties.copy(Blocks.FURNACE));
   }
 
   @Nullable
@@ -24,6 +24,6 @@ public class AlloyFurnace extends EssentialsMachineBlock {
 
   @Override
   protected boolean isItemToStartBurning(ItemStack item) {
-    return item.getItem().isIn(EssentialsTags.Items.fireStarter);
+    return item.getItem().is(EssentialsTags.Items.fireStarter);
   }
 }

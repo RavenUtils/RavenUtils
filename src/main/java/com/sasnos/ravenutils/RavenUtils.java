@@ -68,7 +68,7 @@ public class RavenUtils {
 
   public static final ItemGroup TAB = new ItemGroup("ravenutils") {
     @Override
-    public ItemStack createIcon() {
+    public ItemStack makeIcon() {
       // todo adjust later
       return new ItemStack(ModBlockItems.CRIMLEAF_ITEM.get());
     }

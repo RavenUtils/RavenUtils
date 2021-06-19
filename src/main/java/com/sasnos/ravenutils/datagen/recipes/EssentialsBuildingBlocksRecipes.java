@@ -22,111 +22,111 @@ public class EssentialsBuildingBlocksRecipes extends EssentialsRecipeProvider {
   @Override
   public void init() {
     // crimwood blocks
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_ITEM.get(), 3)
-        .patternLine("##")
-        .patternLine("##")
-        .key('#', ModBlockItems.CRIMWOOD_LOG_ITEM.get())
-        .addCriterion("has_crimwood", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_ITEM.get(), 3)
+        .pattern("##")
+        .pattern("##")
+        .define('#', ModBlockItems.CRIMWOOD_LOG_ITEM.get())
+        .unlockedBy("has_crimwood", hasItem(ModBlockItems.CRIMWOOD_LOG_ITEM.get()))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModBlockItems.CRIMWOOD_BUTTON_ITEM.get())
-        .addIngredient(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModBlockItems.CRIMWOOD_BUTTON_ITEM.get())
+        .requires(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_DOOR_ITEM.get(), 3)
-        .patternLine("##")
-        .patternLine("##")
-        .patternLine("##")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_DOOR_ITEM.get(), 3)
+        .pattern("##")
+        .pattern("##")
+        .pattern("##")
+        .define('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_FENCE_ITEM.get(), 3)
-        .patternLine("W#W")
-        .patternLine("W#W")
-        .key('#', rods_wood)
-        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_FENCE_ITEM.get(), 3)
+        .pattern("W#W")
+        .pattern("W#W")
+        .define('#', rods_wood)
+        .define('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get())
-        .patternLine("#W#")
-        .patternLine("#W#")
-        .key('#', rods_wood)
-        .key('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_FENCE_GATE_ITEM.get())
+        .pattern("#W#")
+        .pattern("#W#")
+        .define('#', rods_wood)
+        .define('W', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get())
-        .patternLine("##")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_PRESSURE_PLATE_ITEM.get())
+        .pattern("##")
+        .define('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(), 4)
-        .patternLine("#  ")
-        .patternLine("## ")
-        .patternLine("###")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_STAIRS_ITEM.get(), 4)
+        .pattern("#  ")
+        .pattern("## ")
+        .pattern("###")
+        .define('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get(), 2)
-        .patternLine("###")
-        .patternLine("###")
-        .key('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
-        .addCriterion("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.CRIMWOOD_TRAPDOOR_ITEM.get(), 2)
+        .pattern("###")
+        .pattern("###")
+        .define('#', ModBlockItems.CRIMWOOD_PLANKS_ITEM.get())
+        .unlockedBy("has_crimwood_plank", hasItem(ModBlockItems.CRIMWOOD_PLANKS_ITEM.get()))
+        .save(consumer);
 
     // mud
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICKS_ITEM.get())
-        .patternLine(" m ")
-        .patternLine("mcm")
-        .patternLine(" m ")
-        .key('m', ModItems.MUD_BRICK_DRIED.get())
-        .key('c', Items.CLAY_BALL)
-        .addCriterion("has_mud_brick_dried", hasItem(ModItems.MUD_BRICK_DRIED.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.MUD_BRICKS_ITEM.get())
+        .pattern(" m ")
+        .pattern("mcm")
+        .pattern(" m ")
+        .define('m', ModItems.MUD_BRICK_DRIED.get())
+        .define('c', Items.CLAY_BALL)
+        .unlockedBy("has_mud_brick_dried", hasItem(ModItems.MUD_BRICK_DRIED.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_SLAB_ITEM.get(), 6)
-        .patternLine("###")
-        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
-        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.MUD_BRICK_SLAB_ITEM.get(), 6)
+        .pattern("###")
+        .define('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .unlockedBy("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_STAIRS_ITEM.get(), 4)
-        .patternLine("#  ")
-        .patternLine("## ")
-        .patternLine("###")
-        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
-        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.MUD_BRICK_STAIRS_ITEM.get(), 4)
+        .pattern("#  ")
+        .pattern("## ")
+        .pattern("###")
+        .define('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .unlockedBy("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(ModBlockItems.MUD_BRICK_WALL_ITEM.get(), 6)
-        .patternLine("###")
-        .patternLine("###")
-        .key('#', ModBlockItems.MUD_BRICKS_ITEM.get())
-        .addCriterion("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(ModBlockItems.MUD_BRICK_WALL_ITEM.get(), 6)
+        .pattern("###")
+        .pattern("###")
+        .define('#', ModBlockItems.MUD_BRICKS_ITEM.get())
+        .unlockedBy("has_mud_bricks", hasItem(ModBlockItems.MUD_BRICKS_ITEM.get()))
+        .save(consumer);
 
     // miscellaneous
-    ShapedRecipeBuilder.shapedRecipe(Blocks.BRICKS, 4)
-        .patternLine(" b ")
-        .patternLine("bgb")
-        .patternLine(" b ")
-        .key('b', Items.BRICK)
-        .key('g', ModItems.GROUT.get())
-        .addCriterion("has_brick", hasItem(Items.BRICK))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(Blocks.BRICKS, 4)
+        .pattern(" b ")
+        .pattern("bgb")
+        .pattern(" b ")
+        .define('b', Items.BRICK)
+        .define('g', ModItems.GROUT.get())
+        .unlockedBy("has_brick", hasItem(Items.BRICK))
+        .save(consumer);
 
-    ShapedRecipeBuilder.shapedRecipe(Blocks.STONE_BRICKS, 4)
-        .patternLine(" s ")
-        .patternLine("sgs")
-        .patternLine(" s ")
-        .key('s', Items.STONE)
-        .key('g', ModItems.GROUT.get())
-        .addCriterion("has_stone", hasItem(Items.STONE))
-        .build(consumer);
+    ShapedRecipeBuilder.shaped(Blocks.STONE_BRICKS, 4)
+        .pattern(" s ")
+        .pattern("sgs")
+        .pattern(" s ")
+        .define('s', Items.STONE)
+        .define('g', ModItems.GROUT.get())
+        .unlockedBy("has_stone", hasItem(Items.STONE))
+        .save(consumer);
   }
 }

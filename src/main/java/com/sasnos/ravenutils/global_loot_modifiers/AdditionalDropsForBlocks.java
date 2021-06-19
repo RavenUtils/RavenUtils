@@ -42,13 +42,13 @@ public class AdditionalDropsForBlocks extends LootModifier {
     @Override
     public AdditionalDropsForBlocks read(ResourceLocation location, JsonObject object, ILootCondition[] condition) {
 
-      JsonArray array = JSONUtils.getJsonArray(object, "items");
+      JsonArray array = JSONUtils.getAsJsonArray(object, "items");
 
       NonNullList<ItemStack> list = NonNullList.create();
 
       for (JsonElement json : array) {
         JsonObject jsonObject = (JsonObject) json;
-        list.add(new ItemStack(JSONUtils.getItem(jsonObject, "item"), JSONUtils.getInt(jsonObject, "count")));
+        list.add(new ItemStack(JSONUtils.getAsItem(jsonObject, "item"), JSONUtils.getAsInt(jsonObject, "count")));
       }
 
       return new AdditionalDropsForBlocks(condition, list);

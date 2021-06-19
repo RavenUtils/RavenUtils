@@ -16,20 +16,20 @@ public class ModTileEntities {
   public static RegistryObject<TileEntityType<SignTileEntity>> SIGN_TILE_ENTITIES = TILE_ENTITY.register(
       "crimwood_sign",
       () -> TileEntityType.Builder
-          .create(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
+          .of(SignTileEntity::new, ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get())
           .build(null));
 
   public static RegistryObject<TileEntityType<BarrelTileEntity>> BARREL_TILE_ENTITIES = TILE_ENTITY.register(
       "barrel",
       () -> TileEntityType.Builder
-          .create(BarrelTileEntity::new, ModBlocks.BARREL.get())
+          .of(BarrelTileEntity::new, ModBlocks.BARREL.get())
           .build(null)
   );
 
   public static RegistryObject<TileEntityType<DryingRackTileEntity>> DRYING_RACK_TILE_ENTITIES = TILE_ENTITY.register(
       "drying_rack",
       () -> TileEntityType.Builder
-          .create(DryingRackTileEntity::new, ModBlocks.DRYING_RACK.get())
+          .of(DryingRackTileEntity::new, ModBlocks.DRYING_RACK.get())
           .build(null)
   );
 

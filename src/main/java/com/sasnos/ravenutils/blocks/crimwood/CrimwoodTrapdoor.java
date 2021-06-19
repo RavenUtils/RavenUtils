@@ -10,13 +10,13 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodTrapdoor extends TrapDoorBlock {
 
   public CrimwoodTrapdoor() {
-    super(Properties.create(Material.WOOD)
+    super(Properties.of(Material.WOOD)
         .sound(SoundType.WOOD)
-        .hardnessAndResistance(3.0F)
+        .strength(3.0F)
         .sound(SoundType.WOOD)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
-        .notSolid()
+        .noOcclusion()
     );
   }
 }

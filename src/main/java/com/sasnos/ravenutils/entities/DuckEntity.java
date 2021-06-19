@@ -12,7 +12,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.world.World;
 
 public class DuckEntity extends ChickenEntity {
-  private static final Ingredient TEMPTATION_ITEMS = Ingredient.fromItems(Items.BREAD);
+  private static final Ingredient TEMPTATION_ITEMS = Ingredient.of(Items.BREAD);
   public boolean chickenJockey = false;
 
   public DuckEntity(EntityType<? extends ChickenEntity> type, World worldIn) {
@@ -21,10 +21,10 @@ public class DuckEntity extends ChickenEntity {
 
   public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
     return MobEntity
-        .func_233666_p_()
-        .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.3F)
-        .createMutableAttribute(Attributes.MAX_HEALTH, 8.0D)
-        .createMutableAttribute(Attributes.ATTACK_DAMAGE, 2.0D);
+        .createMobAttributes()
+        .add(Attributes.MOVEMENT_SPEED, 0.3F)
+        .add(Attributes.MAX_HEALTH, 8.0D)
+        .add(Attributes.ATTACK_DAMAGE, 2.0D);
   }
 
   @Override

@@ -29,9 +29,9 @@ public class StoneAnvil extends AnvilBlock {
   private static final Field name = ObfuscationReflectionHelper.findField(AnvilBlock.class, "containerName");
 
   public StoneAnvil() {
-    super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE)
-        .hardnessAndResistance(2.5F, 600.0F)
-        .setRequiresTool()
+    super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE)
+        .strength(2.5F, 600.0F)
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.PICKAXE)
         .sound(SoundType.STONE)
     );
@@ -40,35 +40,35 @@ public class StoneAnvil extends AnvilBlock {
 
   @Nullable
   public static BlockState damage(BlockState state) {
-    if (state.matchesBlock(ModBlocks.STONE_ANVIL_STONE.get())) {
-      return ModBlocks.CHIPPED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
-    } else if (state.matchesBlock(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get())) {
-      return ModBlocks.DAMAGED_STONE_ANVIL_STONE.get().getDefaultState().with(FACING, state.get(FACING));
+    if (state.is(ModBlocks.STONE_ANVIL_STONE.get())) {
+      return ModBlocks.CHIPPED_STONE_ANVIL_STONE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
+    } else if (state.is(ModBlocks.CHIPPED_STONE_ANVIL_STONE.get())) {
+      return ModBlocks.DAMAGED_STONE_ANVIL_STONE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
     }
 
-    if (state.matchesBlock(ModBlocks.STONE_ANVIL_ANDESITE.get())) {
-      return ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
-    } else if (state.matchesBlock(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get())) {
-      return ModBlocks.DAMAGED_STONE_ANVIL_ANDESITE.get().getDefaultState().with(FACING, state.get(FACING));
+    if (state.is(ModBlocks.STONE_ANVIL_ANDESITE.get())) {
+      return ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
+    } else if (state.is(ModBlocks.CHIPPED_STONE_ANVIL_ANDESITE.get())) {
+      return ModBlocks.DAMAGED_STONE_ANVIL_ANDESITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
     }
 
-    if (state.matchesBlock(ModBlocks.STONE_ANVIL_DIORITE.get())) {
-      return ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
-    } else if (state.matchesBlock(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get())) {
-      return ModBlocks.DAMAGED_STONE_ANVIL_DIORITE.get().getDefaultState().with(FACING, state.get(FACING));
+    if (state.is(ModBlocks.STONE_ANVIL_DIORITE.get())) {
+      return ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
+    } else if (state.is(ModBlocks.CHIPPED_STONE_ANVIL_DIORITE.get())) {
+      return ModBlocks.DAMAGED_STONE_ANVIL_DIORITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
     }
 
-    if (state.matchesBlock(ModBlocks.STONE_ANVIL_GRANITE.get())) {
-      return ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
-    } else if (state.matchesBlock(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get())) {
-      return ModBlocks.DAMAGED_STONE_ANVIL_GRANITE.get().getDefaultState().with(FACING, state.get(FACING));
+    if (state.is(ModBlocks.STONE_ANVIL_GRANITE.get())) {
+      return ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
+    } else if (state.is(ModBlocks.CHIPPED_STONE_ANVIL_GRANITE.get())) {
+      return ModBlocks.DAMAGED_STONE_ANVIL_GRANITE.get().defaultBlockState().setValue(FACING, state.getValue(FACING));
     }
     return null;
   }
 
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (worldIn.isRemote) {
+  public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (worldIn.isClientSide) {
       return ActionResultType.SUCCESS;
     } else {
       ITextComponent containerName = null;
@@ -78,7 +78,7 @@ public class StoneAnvil extends AnvilBlock {
         e.printStackTrace();
       }
       NetworkHooks.openGui((ServerPlayerEntity) player, new AnvilContainerProvider(containerName));
-      player.addStat(Stats.INTERACT_WITH_ANVIL);
+      player.awardStat(Stats.INTERACT_WITH_ANVIL);
       return ActionResultType.CONSUME;
     }
   }

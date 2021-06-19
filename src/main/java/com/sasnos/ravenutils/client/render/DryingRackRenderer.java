@@ -29,23 +29,23 @@ public class DryingRackRenderer extends TileEntityRenderer<DryingRackTileEntity>
     LazyOptional<IItemHandler> cap = tileEntityIn.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY);
     if (cap.resolve().isPresent()) {
       IItemHandler itemHandler = cap.resolve().get();
-      Direction facing = tileEntityIn.getBlockState().get(BlockStateProperties.FACING);
+      Direction facing = tileEntityIn.getBlockState().getValue(BlockStateProperties.FACING);
 
       int slots = itemHandler.getSlots();
 
       for (int i = 0; i < slots; i++) {
         ItemStack item = itemHandler.getStackInSlot(i);
-        matrixStackIn.push();
+        matrixStackIn.pushPose();
 
         matrixStackIn.translate(getXForPosition(facing, i), 1.02f, getZForPosition(facing, i));
 
         matrixStackIn.scale(0.5f, 0.5f, 0.5f);
-        matrixStackIn.rotate(new Quaternion(90f, 0, getRotationForFace(facing), true));
+        matrixStackIn.mulPose(new Quaternion(90f, 0, getRotationForFace(facing), true));
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
-        IBakedModel bakedModel = itemRenderer.getItemModelWithOverrides(item, tileEntityIn.getWorld(), null);
-        itemRenderer.renderItem(item, ItemCameraTransforms.TransformType.FIXED, true,
+        IBakedModel bakedModel = itemRenderer.getModel(item, tileEntityIn.getLevel(), null);
+        itemRenderer.render(item, ItemCameraTransforms.TransformType.FIXED, true,
             matrixStackIn, bufferIn, combinedLightIn, combinedOverlayIn, bakedModel);
-        matrixStackIn.pop();
+        matrixStackIn.popPose();
       }
     }
   }

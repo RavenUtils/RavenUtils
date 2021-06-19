@@ -24,7 +24,7 @@ import java.util.Set;
 public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
 
   public AlloyFurnaceContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
-    this(windowId, playerInventory.player.world, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
+    this(windowId, playerInventory.player.level, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
   }
 
   protected AlloyFurnaceContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray furnaceData) {
@@ -44,24 +44,24 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
   }
 
   @Override
-  public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+  public ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
     ItemStack itemStack = ItemStack.EMPTY;
-    Slot slot = inventorySlots.get(index);
-    if (slot != null && slot.getHasStack()) {
-      ItemStack stack = slot.getStack();
+    Slot slot = slots.get(index);
+    if (slot != null && slot.hasItem()) {
+      ItemStack stack = slot.getItem();
       itemStack = stack.copy();
 
       if (Arrays.asList(0, 1, 2, 3, 4).contains(index)) {
-        if (!this.mergeItemStack(stack, 5, 38, true)) {
+        if (!this.moveItemStackTo(stack, 5, 38, true)) {
           return ItemStack.EMPTY;
         }
-        slot.onSlotChange(stack, itemStack);
+        slot.onQuickCraft(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(AlloyFurnaceRecipe.ALLOY_FURNACE_RECIPE_TYPE, this.tileEntity.getLevel());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if (inputs.contains(stack.getItem())) {
-          if (!this.mergeItemStack(stack, 0, 2, false)) {
+          if (!this.moveItemStackTo(stack, 0, 2, false)) {
             return ItemStack.EMPTY;
           }
           int timer = 0;
@@ -69,22 +69,22 @@ public class AlloyFurnaceContainer extends EssentialsMachineBlockContainer {
           if (recipe != null) timer = recipe.getTimer();
           ((AlloyFurnaceTileEntity) tileEntity).setCookingTimeTotal(timer);
         } else if (ForgeHooks.getBurnTime(stack) > 0) {
-          if (!this.mergeItemStack(stack, 2, 3, false)) {
+          if (!this.moveItemStackTo(stack, 2, 3, false)) {
             return ItemStack.EMPTY;
           }
         } else if (index < 28) {
-          if (!this.mergeItemStack(stack, 28, 37, false)) {
+          if (!this.moveItemStackTo(stack, 28, 37, false)) {
             return ItemStack.EMPTY;
           }
-        } else if (index < 37 && !this.mergeItemStack(stack, 1, 37, false)) {
+        } else if (index < 37 && !this.moveItemStackTo(stack, 1, 37, false)) {
           return ItemStack.EMPTY;
         }
       }
 
       if (itemStack.isEmpty()) {
-        slot.putStack(ItemStack.EMPTY);
+        slot.set(ItemStack.EMPTY);
       } else {
-        slot.onSlotChanged();
+        slot.setChanged();
       }
 
       if (stack.getCount() == itemStack.getCount()) {

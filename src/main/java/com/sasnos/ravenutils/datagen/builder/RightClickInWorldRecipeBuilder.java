@@ -28,7 +28,7 @@ public class RightClickInWorldRecipeBuilder {
     private NonNullList<ItemStack> output = NonNullList.create();
     private BlockIngredient block;
 
-    private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+    private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
     private String group;
 
 
@@ -51,7 +51,7 @@ public class RightClickInWorldRecipeBuilder {
     }
 
     public RightClickInWorldRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
-        this.advancementBuilder.withCriterion(name, criterionIn);
+        this.advancementBuilder.addCriterion(name, criterionIn);
         return this;
     }
 
@@ -71,11 +71,11 @@ public class RightClickInWorldRecipeBuilder {
     public void build(Consumer<IFinishedRecipe> consumer, ResourceLocation id) {
         this.validate(id);
         this.advancementBuilder
-                .withParentId(new ResourceLocation("recipes/root"))
-                .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-                .withRewards(AdvancementRewards.Builder.recipe(id))
-                .withRequirementsStrategy(IRequirementsStrategy.OR);
-        ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.output.get(0).getItem().getGroup().getPath() + "/" + id.getPath());
+                .parent(new ResourceLocation("recipes/root"))
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+                .rewards(AdvancementRewards.Builder.recipe(id))
+                .requirements(IRequirementsStrategy.OR);
+        ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "recipes/" + this.output.get(0).getItem().getItemCategory().getRecipeFolderName() + "/" + id.getPath());
         consumer.accept(createFinishedRecipe(
                 id,
                 this.group == null ? "" : this.group,
@@ -117,24 +117,24 @@ public class RightClickInWorldRecipeBuilder {
         }
 
         @Override
-        public void serialize(JsonObject json) {
+        public void serializeRecipeData(JsonObject json) {
             if (!this.group.isEmpty()) {
                 json.addProperty("group", this.group);
             }
 
-            JsonElement ingredients = this.input.serialize();
+            JsonElement ingredients = this.input.toJson();
             if (ingredients.isJsonArray()) {
-                JsonArray ingredientArray = JSONUtils.getJsonArray(ingredients, null);
+                JsonArray ingredientArray = JSONUtils.convertToJsonArray(ingredients, null);
                 final int[] i = {0};
                 ingredientArray.forEach(jsonElement -> {
-                    jsonElement.getAsJsonObject().addProperty("count", this.input.getMatchingStacks()[i[0]].getCount());
+                    jsonElement.getAsJsonObject().addProperty("count", this.input.getItems()[i[0]].getCount());
                     i[0]++;
                 });
             }
 
             json.add("ingredient", ingredients);
 
-            JsonElement blockIngredients = this.block.serialize();
+            JsonElement blockIngredients = this.block.toJson();
             json.add("blockIngredient", blockIngredients);
 
             JsonArray array = new JsonArray();
@@ -149,24 +149,24 @@ public class RightClickInWorldRecipeBuilder {
         }
 
         @Override
-        public ResourceLocation getID() {
+        public ResourceLocation getId() {
             return id;
         }
 
         @Override
-        public IRecipeSerializer<?> getSerializer() {
+        public IRecipeSerializer<?> getType() {
             return ModRecipes.RIGHT_CLICK_IN_WORLD_RECIPE_SERIALIZER.get();
         }
 
         @Nullable
         @Override
-        public JsonObject getAdvancementJson() {
-            return advBuilder.serialize();
+        public JsonObject serializeAdvancement() {
+            return advBuilder.serializeToJson();
         }
 
         @Nullable
         @Override
-        public ResourceLocation getAdvancementID() {
+        public ResourceLocation getAdvancementId() {
             return advancementId;
         }
     }

@@ -8,6 +8,6 @@ import net.minecraft.item.Item.Properties;
 public class Slag extends BoneMealItem {
   public Slag() {
     super(new Properties()
-        .group(RavenUtils.TAB));
+        .tab(RavenUtils.TAB));
   }
 }

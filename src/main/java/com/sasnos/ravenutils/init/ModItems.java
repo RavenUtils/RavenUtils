@@ -14,7 +14,7 @@ public class ModItems {
 
   // Material
   public static final RegistryObject<Item> INK_BOTTLE = ITEMS.register("ink_bottle",
-      () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
+      () -> new Item(new Item.Properties().tab(RavenUtils.TAB).stacksTo(16)));
   public static final RegistryObject<Item> ASH = ITEMS.register("ash", Ash::new);
   public static final RegistryObject<Item> SLAG = ITEMS.register("slag", Slag::new);
   public static final RegistryObject<Item> MYTHERINE_INGOT = ITEMS.register("mytherine_ingot", ItemBase::new);
@@ -91,7 +91,7 @@ public class ModItems {
 
   // miscellaneous
   public static final RegistryObject<Item> BUCKET_CLAY_UNFIRED = ITEMS.register("bucket_clay_unfired",
-      () -> new Item(new Item.Properties().maxStackSize(16).group(RavenUtils.TAB)));
+      () -> new Item(new Item.Properties().stacksTo(16).tab(RavenUtils.TAB)));
   public static final RegistryObject<Item> BARREL_LID = ITEMS.register("barrel_lid", ItemBase::new);
 
   public static final RegistryObject<Item> COIN_COPPER = ITEMS.register("coin_copper", ItemBase::new);
@@ -100,9 +100,9 @@ public class ModItems {
 
   public static final RegistryObject<Item> CRIMWOOD_SIGN = ITEMS.register("crimwood_sign",
       () -> new SignItem((new Item.Properties())
-          .group(RavenUtils.TAB).isImmuneToFire(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
+          .tab(RavenUtils.TAB).fireResistant(), ModBlocks.CRIMWOOD_SIGN.get(), ModBlocks.CRIMWOOD_WALL_SIGN.get()));
 
   // todo move to Magic module
   public static final RegistryObject<Item> BLOOD_BOTTLE = ITEMS.register("blood_bottle",
-      () -> new Item(new Item.Properties().group(RavenUtils.TAB).maxStackSize(16)));
+      () -> new Item(new Item.Properties().tab(RavenUtils.TAB).stacksTo(16)));
 }

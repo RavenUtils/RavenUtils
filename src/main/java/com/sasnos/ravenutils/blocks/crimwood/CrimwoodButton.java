@@ -10,9 +10,9 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodButton extends WoodButtonBlock {
 
   public CrimwoodButton() {
-    super(Properties.create(Material.MISCELLANEOUS)
-        .doesNotBlockMovement()
-        .hardnessAndResistance(0.5F)
+    super(Properties.of(Material.DECORATION)
+        .noCollission()
+        .strength(0.5F)
         .harvestTool(ToolType.AXE)
         .sound(SoundType.WOOD)
     );

@@ -10,12 +10,12 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class ResinBlock extends Block {
 
   public ResinBlock() {
-    super(Properties.create(Material.ROCK)
-        .hardnessAndResistance(5f, 50f)
-        .sound(SoundType.SLIME)
+    super(Properties.of(Material.STONE)
+        .strength(5f, 50f)
+        .sound(SoundType.SLIME_BLOCK)
         .speedFactor(0.1F)
         .harvestTool(ToolType.PICKAXE)
-        .notSolid()
+        .noOcclusion()
     );
   }
 }

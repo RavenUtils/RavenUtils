@@ -22,11 +22,11 @@ public class DryingRackRecipe extends CommonRecipe {
 
   @Override
   public boolean matches(RecipeWrapper inv, World worldIn) {
-    return getIngredients().get(0).test(inv.getStackInSlot(0));
+    return getIngredients().get(0).test(inv.getItem(0));
   }
 
   public boolean matches(RecipeWrapper inv, int slot) {
-    return getIngredients().get(0).test(inv.getStackInSlot(slot));
+    return getIngredients().get(0).test(inv.getItem(slot));
   }
 
   @Override

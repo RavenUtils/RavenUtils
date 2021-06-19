@@ -10,8 +10,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class LeadBlock extends Block {
 
   public LeadBlock() {
-    super(Properties.create(Material.IRON)
-        .hardnessAndResistance(7f, 12f)
+    super(Properties.of(Material.METAL)
+        .strength(7f, 12f)
         .sound(SoundType.METAL)
         .harvestTool(ToolType.PICKAXE)
     );

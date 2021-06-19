@@ -10,8 +10,8 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class RavenEyeBlock extends Block {
 
   public RavenEyeBlock() {
-    super(Properties.create(Material.IRON)
-        .hardnessAndResistance(4f, 300f)
+    super(Properties.of(Material.METAL)
+        .strength(4f, 300f)
         .sound(SoundType.STONE)
         .harvestTool(ToolType.PICKAXE)
     );

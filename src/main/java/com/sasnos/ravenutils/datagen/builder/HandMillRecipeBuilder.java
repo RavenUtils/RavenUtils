@@ -32,7 +32,7 @@ public class HandMillRecipeBuilder {
   private final int timer;
   private ItemStack additionalResult;
   private float additionalChance;
-  private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+  private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
   private String group;
 
   private HandMillRecipeBuilder(Ingredient input, int count, int timer, IItemProvider output, float additionalDropChance) {
@@ -54,7 +54,7 @@ public class HandMillRecipeBuilder {
   }
 
   public HandMillRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
-    this.advancementBuilder.withCriterion(name, criterionIn);
+    this.advancementBuilder.addCriterion(name, criterionIn);
     return this;
   }
 
@@ -70,11 +70,11 @@ public class HandMillRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
-        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-        .withRewards(AdvancementRewards.Builder.recipe(id))
-        .withRequirementsStrategy(IRequirementsStrategy.OR);
-    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getGroup()).getPath() + "/" + id.getPath());
+        .parent(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
+        .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+        .rewards(AdvancementRewards.Builder.recipe(id))
+        .requirements(IRequirementsStrategy.OR);
+    ResourceLocation advancementId = new ResourceLocation(id.getNamespace(), "RavenApi/src/main/java/com/sasnos/raven_api/recipes/" + Objects.requireNonNull(this.output.asItem().getItemCategory()).getRecipeFolderName() + "/" + id.getPath());
     consumerIn.accept(createFinishedRecipe(
         id,
         this.group == null ? "" : this.group,
@@ -149,18 +149,18 @@ public class HandMillRecipeBuilder {
     }
 
     @Override
-    public void serialize(@NotNull JsonObject json) {
+    public void serializeRecipeData(@NotNull JsonObject json) {
 
       if (!this.group.isEmpty()) {
         json.addProperty("group", this.group);
       }
 
-      JsonElement ingredients = this.input.serialize();
+      JsonElement ingredients = this.input.toJson();
       if (ingredients.isJsonArray()) {
-        JsonArray ingredientArray = JSONUtils.getJsonArray(ingredients, null);
+        JsonArray ingredientArray = JSONUtils.convertToJsonArray(ingredients, null);
         final int[] i = {0};
         ingredientArray.forEach(jsonElement -> {
-          jsonElement.getAsJsonObject().addProperty("count", this.input.getMatchingStacks()[i[0]].getCount());
+          jsonElement.getAsJsonObject().addProperty("count", this.input.getItems()[i[0]].getCount());
           i[0]++;
         });
       }
@@ -187,24 +187,24 @@ public class HandMillRecipeBuilder {
     }
 
     @Override
-    public @NotNull ResourceLocation getID() {
+    public @NotNull ResourceLocation getId() {
       return id;
     }
 
     @Override
-    public @NotNull IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getType() {
       return ModRecipes.HAND_MILL_RECIPE_SERIALIZER.get();
     }
 
     @Nullable
     @Override
-    public JsonObject getAdvancementJson() {
-      return advBuilder.serialize();
+    public JsonObject serializeAdvancement() {
+      return advBuilder.serializeToJson();
     }
 
     @Nullable
     @Override
-    public ResourceLocation getAdvancementID() {
+    public ResourceLocation getAdvancementId() {
       return advancementId;
     }
   }

@@ -12,7 +12,7 @@ public class BlockItemBase extends BlockItem {
   private int burnTime;
 
   public BlockItemBase(Block block) {
-    super(block, new Properties().group(RavenUtils.TAB));
+    super(block, new Properties().tab(RavenUtils.TAB));
     this.burnTime = -1;
   }
 

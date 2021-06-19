@@ -23,7 +23,7 @@ import java.util.Set;
 public class HandMillContainer extends EssentialsMachineBlockContainer {
 
   public HandMillContainer(int windowId, PlayerInventory playerInventory, PacketBuffer extraData) {
-    this(windowId, playerInventory.player.world, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
+    this(windowId, playerInventory.player.level, extraData.readBlockPos(), playerInventory, playerInventory.player, new IntArray(4));
   }
 
   public HandMillContainer(int id, World world, BlockPos pos, PlayerInventory playerInventoryIn, PlayerEntity player, IIntArray data) {
@@ -41,32 +41,32 @@ public class HandMillContainer extends EssentialsMachineBlockContainer {
   }
 
   @Override
-  public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
+  public ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
     ItemStack itemStack = ItemStack.EMPTY;
-    Slot slot = inventorySlots.get(index);
-    if (slot != null && slot.getHasStack()) {
-      ItemStack stack = slot.getStack();
+    Slot slot = slots.get(index);
+    if (slot != null && slot.hasItem()) {
+      ItemStack stack = slot.getItem();
       itemStack = stack.copy();
 
       if (Arrays.asList(0, 1, 2, 3, 4).contains(index)) {
-        if (!this.mergeItemStack(stack, 5, 38, true)) {
+        if (!this.moveItemStackTo(stack, 5, 38, true)) {
           return ItemStack.EMPTY;
         }
-        slot.onSlotChange(stack, itemStack);
+        slot.onQuickCraft(stack, itemStack);
       } else {
         ArrayList<Item> inputs = new ArrayList<>();
-        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(HandMillRecipe.HAND_MILL_RECIPE_TYPE, this.tileEntity.getWorld());
+        Set<ItemStack> inputsStacks = EssentialsMachineTileEntity.getAllRecipeInputs(HandMillRecipe.HAND_MILL_RECIPE_TYPE, this.tileEntity.getLevel());
         inputsStacks.forEach(itemStack1 -> inputs.add(itemStack1.getItem()));
         if (inputs.contains(stack.getItem())) {
-          if (!this.mergeItemStack(stack, 0, 1, false)) {
+          if (!this.moveItemStackTo(stack, 0, 1, false)) {
             return ItemStack.EMPTY;
           }
           ((HandMillTileEntity) tileEntity).setCookingTimeTotal(((HandMillTileEntity) tileEntity).getRecipe(stack).getTimer());
         } else if (index < 28) {
-          if (!this.mergeItemStack(stack, 28, 37, false)) {
+          if (!this.moveItemStackTo(stack, 28, 37, false)) {
             return ItemStack.EMPTY;
           }
-        } else if (index < 37 && !this.mergeItemStack(stack, 1, 37, false)) {
+        } else if (index < 37 && !this.moveItemStackTo(stack, 1, 37, false)) {
           return ItemStack.EMPTY;
         }
       }

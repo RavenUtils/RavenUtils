@@ -12,7 +12,7 @@ public class StoneCraftingTableContainer extends WorkbenchContainer {
 
   public StoneCraftingTableContainer(int id, PlayerInventory playerInventory) {
     super(id, playerInventory);
-    this.callablePos = IWorldPosCallable.DUMMY;
+    this.callablePos = IWorldPosCallable.NULL;
   }
 
   public StoneCraftingTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
@@ -21,8 +21,8 @@ public class StoneCraftingTableContainer extends WorkbenchContainer {
   }
 
   @Override
-  public boolean canInteractWith(PlayerEntity playerIn) {
-    return isWithinUsableDistance(callablePos,
+  public boolean stillValid(PlayerEntity playerIn) {
+    return stillValid(callablePos,
         playerIn,
         ModBlocks.STONE_CRAFTING_TABLE.get());
   }

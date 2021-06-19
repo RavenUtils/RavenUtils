@@ -34,12 +34,12 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
       @Override
       protected void onContentsChanged(int slot) {
         slotTimer.put(slot, null);
-        markDirty();
+        setChanged();
       }
 
       @Override
       public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (getAllRecipeInputsAsItems(recipeType, world).contains(stack.getItem()) || getAllRecipeOutputAsItems(recipeType, world).contains(stack.getItem()))
+        if (getAllRecipeInputsAsItems(recipeType, level).contains(stack.getItem()) || getAllRecipeOutputAsItems(recipeType, level).contains(stack.getItem()))
           return true;
         return super.isItemValid(slot, stack);
       }
@@ -63,8 +63,8 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
           float xp = recipe.getXp();
           int resultCount = result.getCount();
           int count = resultCount / recipeResult;
-          BlockPos pos = DryingRackTileEntity.this.pos;
-          splitAndSpawnExperience(DryingRackTileEntity.this.world, pos, count, xp);
+          BlockPos pos = DryingRackTileEntity.this.worldPosition;
+          splitAndSpawnExperience(DryingRackTileEntity.this.level, pos, count, xp);
         }
         return result;
       }
@@ -77,14 +77,14 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
   }
 
   private void handleUpdate() {
-    if (world != null) {
-      world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+    if (level != null) {
+      level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
     }
   }
 
   @Override
   protected DryingRackRecipe getRecipe(ItemStack stack) {
-    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.level);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof DryingRackRecipe)) continue;
       DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;
@@ -97,11 +97,11 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
 
   @Override
   public DryingRackRecipe getRecipeFromOutput(ItemStack result) {
-    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.world);
+    Set<IRecipe<?>> recipes = findRecipeByType(recipeType, this.level);
     for (IRecipe<?> recipe : recipes) {
       if (!(recipe instanceof DryingRackRecipe)) continue;
       DryingRackRecipe barrelRecipe = (DryingRackRecipe) recipe;
-      if (ItemStack.areItemsEqual(barrelRecipe.getOutput().get(0), result)) {
+      if (ItemStack.isSame(barrelRecipe.getOutput().get(0), result)) {
         return barrelRecipe;
       }
     }
@@ -109,17 +109,17 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
   }
 
   @Override
-  public void read(BlockState state, CompoundNBT nbt) {
+  public void load(BlockState state, CompoundNBT nbt) {
     ListNBT tagList = nbt.getList("slots", Constants.NBT.TAG_COMPOUND);
     tagList.forEach(inbt -> {
       CompoundNBT nbti = ((CompoundNBT) inbt);
       slotTimer.put(nbti.getInt("Slot"), DryingObject.deserialize(nbti));
     });
-    super.read(state, nbt);
+    super.load(state, nbt);
   }
 
   @Override
-  public CompoundNBT write(CompoundNBT compound) {
+  public CompoundNBT save(CompoundNBT compound) {
     Set<Integer> keys = slotTimer.keySet();
     ListNBT nbtTagList = new ListNBT();
     for (Integer slot : keys) {
@@ -128,7 +128,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
       obj.serialize(nbtTagList, slot);
     }
     compound.put("slots", nbtTagList);
-    return super.write(compound);
+    return super.save(compound);
   }
 
   @Override
@@ -146,38 +146,38 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
   @Nullable
   @Override
   public SUpdateTileEntityPacket getUpdatePacket() {
-    return new SUpdateTileEntityPacket(pos, -1, itemHandler.serializeNBT());
+    return new SUpdateTileEntityPacket(worldPosition, -1, itemHandler.serializeNBT());
   }
 
   @Override
   public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-    itemHandler.deserializeNBT(pkt.getNbtCompound());
+    itemHandler.deserializeNBT(pkt.getTag());
   }
 
   @Override
   public void tick() {
 
-    assert world != null;
-    if (!world.isRemote) {
+    assert level != null;
+    if (!level.isClientSide) {
       slotTimer.forEach((integer, dryingObject) -> {
         DryingRackRecipe recipe = getRecipe(itemHandler.getStackInSlot(integer));
         if (recipe == null) return;
         if (dryingObject == null) {
           slotTimer.put(integer, new DryingObject(itemHandler.getStackInSlot(0), 0, recipe.getTimer()));
-          markDirty();
+          setChanged();
           return;
         }
         if (dryingObject.tick()) {
           handleRecipeForSlot(integer, recipe);
-          markDirty();
+          setChanged();
         }
       });
     }
   }
 
   @Override
-  public void markDirty() {
-    super.markDirty();
+  public void setChanged() {
+    super.setChanged();
     handleUpdate();
   }
 
@@ -199,7 +199,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
     }
 
     public static DryingObject deserialize(CompoundNBT nbt) {
-      ItemStack item = ItemStack.read(nbt);
+      ItemStack item = ItemStack.of(nbt);
       int cookingTime = nbt.getInt("cookingTime");
       int cookingTimeTotal = nbt.getInt("cookingTimeTotal");
       return new DryingObject(item, cookingTime, cookingTimeTotal);
@@ -213,7 +213,7 @@ public class DryingRackTileEntity extends EssentialsRecipeTileEntity<DryingRackR
     public void serialize(ListNBT nbt, int slot) {
       CompoundNBT itemTag = new CompoundNBT();
       itemTag.putInt("Slot", slot);
-      item.write(itemTag);
+      item.save(itemTag);
       itemTag.putInt("cookingTime", cookingTime);
       itemTag.putInt("cookingTimeTotal", cookingTimeTotal);
       nbt.add(itemTag);

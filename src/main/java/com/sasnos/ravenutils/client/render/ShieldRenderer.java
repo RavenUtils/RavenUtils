@@ -26,30 +26,30 @@ public class ShieldRenderer extends ItemStackTileEntityRenderer {
   private final MytherineShieldModel modelShield = new MytherineShieldModel();
 
   @Override
-  public void func_239207_a_(ItemStack stack, TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
-    matrixStack.push();
+  public void renderByItem(ItemStack stack, TransformType p_239207_2_, MatrixStack matrixStack, IRenderTypeBuffer buffer, int combinedLight, int combinedOverlay) {
+    matrixStack.pushPose();
     matrixStack.scale(1, -1, -1);
-    boolean flag = stack.getChildTag("BlockEntityTag") != null;
+    boolean flag = stack.getTagElement("BlockEntityTag") != null;
     RenderMaterial rendermaterial = flag
         ? RenderMaterials.MYTHERINE_SHIELD_BASE
         : RenderMaterials.MYTHERINE_SHIELD_BASE_NOPATTERN;
-    IVertexBuilder ivertexbuilder = rendermaterial.getSprite()
-        .wrapBuffer(ItemRenderer
-            .getEntityGlintVertexBuilder(buffer,
-                this.modelShield.getRenderType(rendermaterial.getAtlasLocation()),
-                true, stack.hasEffect()));
+    IVertexBuilder ivertexbuilder = rendermaterial.sprite()
+        .wrap(ItemRenderer
+            .getFoilBufferDirect(buffer,
+                this.modelShield.renderType(rendermaterial.atlasLocation()),
+                true, stack.hasFoil()));
 
-    this.modelShield.func_228294_b_()
+    this.modelShield.handle()
         .render(matrixStack, ivertexbuilder, combinedLight,
             combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
 
     if (flag) {
-      List<Pair<BannerPattern, DyeColor>> list = BannerTileEntity.getPatternColorData(ShieldItem.getColor(stack), BannerTileEntity.getPatternData(stack));
-      BannerTileEntityRenderer.func_241717_a_(matrixStack, buffer, combinedLight, combinedOverlay, this.modelShield.func_228293_a_(), rendermaterial, false, list, stack.hasEffect());
+      List<Pair<BannerPattern, DyeColor>> list = BannerTileEntity.createPatterns(ShieldItem.getColor(stack), BannerTileEntity.getItemPatterns(stack));
+      BannerTileEntityRenderer.renderPatterns(matrixStack, buffer, combinedLight, combinedOverlay, this.modelShield.plate(), rendermaterial, false, list, stack.hasFoil());
     } else {
-      this.modelShield.func_228293_a_().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+      this.modelShield.plate().render(matrixStack, ivertexbuilder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    matrixStack.pop();
+    matrixStack.popPose();
   }
 }

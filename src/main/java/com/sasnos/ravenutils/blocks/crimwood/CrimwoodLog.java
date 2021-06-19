@@ -20,13 +20,13 @@ public class CrimwoodLog extends RotatedPillarBlock {
   public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
 
   public CrimwoodLog() {
-    super(Properties.create(Material.WOOD)
-        .hardnessAndResistance(2.0F)
+    super(Properties.of(Material.WOOD)
+        .strength(2.0F)
         .sound(SoundType.WOOD)
-        .setRequiresTool()
+        .requiresCorrectToolForDrops()
         .harvestTool(ToolType.AXE)
     );
-    this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y));
+    this.registerDefaultState(this.defaultBlockState().setValue(AXIS, Direction.Axis.Y));
   }
 
   @Override
@@ -34,11 +34,11 @@ public class CrimwoodLog extends RotatedPillarBlock {
     switch (rot) {
       case COUNTERCLOCKWISE_90:
       case CLOCKWISE_90:
-        switch ((Direction.Axis) state.get(AXIS)) {
+        switch ((Direction.Axis) state.getValue(AXIS)) {
           case X:
-            return state.with(AXIS, Direction.Axis.Z);
+            return state.setValue(AXIS, Direction.Axis.Z);
           case Z:
-            return state.with(AXIS, Direction.Axis.X);
+            return state.setValue(AXIS, Direction.Axis.X);
           default:
             return state;
         }
@@ -48,12 +48,12 @@ public class CrimwoodLog extends RotatedPillarBlock {
   }
 
   @Override
-  protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+  protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
     builder.add(AXIS);
   }
 
   @Override
   public BlockState getStateForPlacement(BlockItemUseContext context) {
-    return this.getDefaultState().with(AXIS, context.getFace().getAxis());
+    return this.defaultBlockState().setValue(AXIS, context.getClickedFace().getAxis());
   }
 }

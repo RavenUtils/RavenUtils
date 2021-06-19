@@ -18,7 +18,7 @@ public class OreBlocksLootTable extends EssentialsLootTableProvider<Block> {
 
   public static final Consumer<Map<Block, LootTable.Builder>> CONSUMER = blockBuilderMap -> {
     for (Map.Entry<Block, LootTable.Builder> entry : blockBuilderMap.entrySet()) {
-      BaseLootTableProvider.tables.put(entry.getKey().getLootTable(), entry.getValue().setParameterSet(LootParameterSets.BLOCK).build());
+      BaseLootTableProvider.tables.put(entry.getKey().getLootTable(), entry.getValue().setParamSet(LootParameterSets.BLOCK).build());
     }
   };
 

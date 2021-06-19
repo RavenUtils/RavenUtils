@@ -20,148 +20,148 @@ public class EssentialsMortarRecipes extends EssentialsRecipeProvider {
 
   @Override
   public void init() {
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.CHARCOAL_DUST.get())
-        .addIngredient(Items.CHARCOAL)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.CHARCOAL_DUST.get())
+        .requires(Items.CHARCOAL)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.COAL_DUST.get())
-        .addIngredient(Items.COAL)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.COAL_DUST.get())
+        .requires(Items.COAL)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.COAL_DUST.get(), 2)
-        .addIngredient(ModItems.BLACK_COAL.get())
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "coal_dust_from_black_coal");
+    ShapelessRecipeBuilder.shapeless(ModItems.COAL_DUST.get(), 2)
+        .requires(ModItems.BLACK_COAL.get())
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "coal_dust_from_black_coal");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.RAVEN_EYE_DUST.get())
-        .addIngredient(ModItems.RAVEN_EYE_GEM.get())
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.RAVEN_EYE_DUST.get())
+        .requires(ModItems.RAVEN_EYE_GEM.get())
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.QUARTZ_SAND.get())
-        .addIngredient(Items.QUARTZ)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModItems.QUARTZ_SAND.get())
+        .requires(Items.QUARTZ)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.SUGAR, 2)
-        .addIngredient(Items.SUGAR_CANE)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.SUGAR, 2)
+        .requires(Items.SUGAR_CANE)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModItems.SALT.get())
-        .addIngredient(ModItems.COARSE_SALT.get())
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "salt_from_mortar");
+    ShapelessRecipeBuilder.shapeless(ModItems.SALT.get())
+        .requires(ModItems.COARSE_SALT.get())
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "salt_from_mortar");
 
-    ShapelessRecipeBuilder.shapelessRecipe(ModFoodItems.WHEAT_FLOUR.get(), 2)
-        .addIngredient(Items.WHEAT)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(ModFoodItems.WHEAT_FLOUR.get(), 2)
+        .requires(Items.WHEAT)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.BLACK_DYE, 2)
-        .addIngredient(Items.WITHER_ROSE)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.BLACK_DYE, 2)
+        .requires(Items.WITHER_ROSE)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.BLUE_DYE, 2)
-        .addIngredient(Items.CORNFLOWER)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.BLUE_DYE, 2)
+        .requires(Items.CORNFLOWER)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.LIGHT_BLUE_DYE, 2)
-        .addIngredient(Items.BLUE_ORCHID)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.LIGHT_BLUE_DYE, 2)
+        .requires(Items.BLUE_ORCHID)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.LIGHT_GRAY_DYE, 2)
-        .addIngredient(Items.AZURE_BLUET)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.LIGHT_GRAY_DYE, 2)
+        .requires(Items.AZURE_BLUET)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.LIGHT_GRAY_DYE, 2)
-        .addIngredient(Items.OXEYE_DAISY)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "gray_dye_from_daisy");
+    ShapelessRecipeBuilder.shapeless(Items.LIGHT_GRAY_DYE, 2)
+        .requires(Items.OXEYE_DAISY)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "gray_dye_from_daisy");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.LIGHT_GRAY_DYE, 2)
-        .addIngredient(Items.WHITE_TULIP)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "gray_dye_from_tulip");
+    ShapelessRecipeBuilder.shapeless(Items.LIGHT_GRAY_DYE, 2)
+        .requires(Items.WHITE_TULIP)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "gray_dye_from_tulip");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.MAGENTA_DYE, 2)
-        .addIngredient(Items.ALLIUM)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.MAGENTA_DYE, 2)
+        .requires(Items.ALLIUM)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.MAGENTA_DYE, 4)
-        .addIngredient(Items.LILAC)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "magenta_dye_lilac");
+    ShapelessRecipeBuilder.shapeless(Items.MAGENTA_DYE, 4)
+        .requires(Items.LILAC)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "magenta_dye_lilac");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.ORANGE_DYE, 2)
-        .addIngredient(Items.ORANGE_TULIP)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.ORANGE_DYE, 2)
+        .requires(Items.ORANGE_TULIP)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.PINK_DYE, 4)
-        .addIngredient(Items.PEONY)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.PINK_DYE, 4)
+        .requires(Items.PEONY)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.PINK_DYE, 2)
-        .addIngredient(Items.PINK_TULIP)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "pink_dye_from_tulip");
+    ShapelessRecipeBuilder.shapeless(Items.PINK_DYE, 2)
+        .requires(Items.PINK_TULIP)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "pink_dye_from_tulip");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.RED_DYE, 2)
-        .addIngredient(Items.POPPY)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.RED_DYE, 2)
+        .requires(Items.POPPY)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.RED_DYE, 4)
-        .addIngredient(Items.ROSE_BUSH)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "red_dye_from_rose");
+    ShapelessRecipeBuilder.shapeless(Items.RED_DYE, 4)
+        .requires(Items.ROSE_BUSH)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "red_dye_from_rose");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.RED_DYE, 2)
-        .addIngredient(Items.RED_TULIP)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer, "red_dye_from_tulip");
+    ShapelessRecipeBuilder.shapeless(Items.RED_DYE, 2)
+        .requires(Items.RED_TULIP)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer, "red_dye_from_tulip");
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.WHITE_DYE, 2)
-        .addIngredient(Items.LILY_OF_THE_VALLEY)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.WHITE_DYE, 2)
+        .requires(Items.LILY_OF_THE_VALLEY)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
 
-    ShapelessRecipeBuilder.shapelessRecipe(Items.YELLOW_DYE, 2)
-        .addIngredient(Items.DANDELION)
-        .addIngredient(mortars)
-        .addCriterion("has_mortar", hasItemTag(mortars))
-        .build(consumer);
+    ShapelessRecipeBuilder.shapeless(Items.YELLOW_DYE, 2)
+        .requires(Items.DANDELION)
+        .requires(mortars)
+        .unlockedBy("has_mortar", hasItemTag(mortars))
+        .save(consumer);
   }
 }

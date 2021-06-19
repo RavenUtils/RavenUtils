@@ -21,26 +21,26 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class StoneCraftingTable extends CraftingTableBlock {
   public StoneCraftingTable() {
-    super(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE)
-        .hardnessAndResistance(2.5F)
+    super(AbstractBlock.Properties.of(Material.STONE, MaterialColor.STONE)
+        .strength(2.5F)
         .harvestTool(ToolType.PICKAXE)
         .sound(SoundType.STONE)
     );
   }
 
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-    if (worldIn.isRemote) {
+  public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    if (worldIn.isClientSide) {
       return ActionResultType.SUCCESS;
     } else {
-      NetworkHooks.openGui((ServerPlayerEntity) player, getContainer(state, worldIn, pos));
-      player.addStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+      NetworkHooks.openGui((ServerPlayerEntity) player, getMenuProvider(state, worldIn, pos));
+      player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
       return ActionResultType.CONSUME;
     }
   }
 
   @Override
-  public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
+  public INamedContainerProvider getMenuProvider(BlockState state, World worldIn, BlockPos pos) {
     return new StoneCraftingTableContainerProvider(state, worldIn, pos);
   }
 }

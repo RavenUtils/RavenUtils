@@ -23,7 +23,7 @@ public class EssentialsRecipe extends RecipeProvider {
   }
 
   @Override
-  protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+  protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
     new EssentialsCraftingRecipes(consumer);
     new EssentialsSmeltingRecipes(consumer);
     new EssentialsBlastingRecipes(consumer);
@@ -44,13 +44,13 @@ public class EssentialsRecipe extends RecipeProvider {
     new BarrelRecipes(consumer);
     new DryingRackRecipes(consumer);
 
-    new RightClickInWorldRecipeBuilder(Ingredient.fromItems(Items.FLINT),
+    new RightClickInWorldRecipeBuilder(Ingredient.of(Items.FLINT),
             new ItemStack(ModItems.FLINT_SHARD.get(), 2),
             BlockIngredient.fromBlockTag(BlockTags.BASE_STONE_OVERWORLD))
             .addCriterion("has_flint", hasItem(Items.FLINT))
             .build(consumer);
 
-    new RightClickInWorldRecipeBuilder(Ingredient.fromItems(Items.STONE_AXE),
+    new RightClickInWorldRecipeBuilder(Ingredient.of(Items.STONE_AXE),
             new ItemStack(ModItems.BARK_SPRUCE.get(), 1),
             BlockIngredient.fromBlocks(Blocks.SPRUCE_LOG))
             .addOutput(new ItemStack(ModItems.RESIN_DROP.get(), 2))
@@ -60,10 +60,10 @@ public class EssentialsRecipe extends RecipeProvider {
 
   // expose the protected internal methods so i can use tem in external classes
   public static ICriterionInstance hasItem(Item item) {
-    return RecipeProvider.hasItem(item);
+    return RecipeProvider.has(item);
   }
 
   public static ICriterionInstance hasItemTag(ITag<Item> tagItem) {
-    return RecipeProvider.hasItem(tagItem);
+    return RecipeProvider.has(tagItem);
   }
 }

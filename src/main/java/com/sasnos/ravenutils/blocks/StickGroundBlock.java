@@ -12,10 +12,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 
 public class StickGroundBlock extends StickAndStoneBlock {
 
-  protected static final VoxelShape SHAPE_N = Block.makeCuboidShape(8, 0, 4, 9, 1, 12);
-  protected static final VoxelShape SHAPE_E = Block.makeCuboidShape(4.5, 0, 7.5, 12.5, 1, 8.5);
-  protected static final VoxelShape SHAPE_S = Block.makeCuboidShape(8, 0, 4, 9, 1, 12);
-  protected static final VoxelShape SHAPE_W = Block.makeCuboidShape(4.5, 0, 7.5, 12.5, 1, 8.5);
+  protected static final VoxelShape SHAPE_N = Block.box(8, 0, 4, 9, 1, 12);
+  protected static final VoxelShape SHAPE_E = Block.box(4.5, 0, 7.5, 12.5, 1, 8.5);
+  protected static final VoxelShape SHAPE_S = Block.box(8, 0, 4, 9, 1, 12);
+  protected static final VoxelShape SHAPE_W = Block.box(4.5, 0, 7.5, 12.5, 1, 8.5);
 
   public StickGroundBlock(Properties properties) {
     super(properties, () -> Items.STICK);
@@ -23,7 +23,7 @@ public class StickGroundBlock extends StickAndStoneBlock {
 
   @Override
   public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-    switch (state.get(FACING)) {
+    switch (state.getValue(FACING)) {
       case NORTH:
         return SHAPE_N;
       case EAST:

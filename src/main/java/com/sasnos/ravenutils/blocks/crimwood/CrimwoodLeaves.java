@@ -9,10 +9,10 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class CrimwoodLeaves extends LeavesBlock {
 
   public CrimwoodLeaves() {
-    super(Properties.create(Material.LEAVES)
-        .hardnessAndResistance(0.2F)
-        .tickRandomly()
-        .sound(SoundType.PLANT)
-        .notSolid());
+    super(Properties.of(Material.LEAVES)
+        .strength(0.2F)
+        .randomTicks()
+        .sound(SoundType.GRASS)
+        .noOcclusion());
   }
 }

@@ -30,7 +30,7 @@ public class BarrelRecipeBuilder {
 
   private FluidStack fluid;
   private Ingredient input;
-  private final Advancement.Builder advancementBuilder = Advancement.Builder.builder();
+  private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
   private String group;
   private boolean closedLit = false;
 
@@ -49,7 +49,7 @@ public class BarrelRecipeBuilder {
   }
 
   public BarrelRecipeBuilder addItemIntake(ItemStack input) {
-    this.input = Ingredient.fromStacks(input);
+    this.input = Ingredient.of(input);
     return this;
   }
 
@@ -59,7 +59,7 @@ public class BarrelRecipeBuilder {
   }
 
   public BarrelRecipeBuilder addCriterion(String name, ICriterionInstance criterionIn) {
-    this.advancementBuilder.withCriterion(name, criterionIn);
+    this.advancementBuilder.addCriterion(name, criterionIn);
     return this;
   }
 
@@ -86,13 +86,13 @@ public class BarrelRecipeBuilder {
   public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
     this.validate(id);
     this.advancementBuilder
-        .withParentId(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
-        .withCriterion("has_the_recipe", RecipeUnlockedTrigger.create(id))
-        .withRewards(AdvancementRewards.Builder.recipe(id))
-        .withRequirementsStrategy(IRequirementsStrategy.OR);
+        .parent(new ResourceLocation("RavenApi/src/main/java/com/sasnos/raven_api/recipes/root"))
+        .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+        .rewards(AdvancementRewards.Builder.recipe(id))
+        .requirements(IRequirementsStrategy.OR);
     ResourceLocation advancementId;
     advancementId = (itemOutput != null)
-        ? new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getGroup()).getPath())
+        ? new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.itemOutput.getItem().getItemCategory()).getRecipeFolderName())
         : new ResourceLocation(id.getNamespace(), Objects.requireNonNull(this.fluidOutput.getFluid().getRegistryName()).getPath());
     consumerIn.accept(createFinishedRecipe(id, this.group == null ? "" : this.group, this.itemOutput, this.fluidOutput, this.fluid, this.input, closedLit, timer, this.advancementBuilder, advancementId));
   }
@@ -143,7 +143,7 @@ public class BarrelRecipeBuilder {
     }
 
     @Override
-    public void serialize(@NotNull JsonObject json) {
+    public void serializeRecipeData(@NotNull JsonObject json) {
       JsonArray array = new JsonArray();
       JsonObject object = new JsonObject();
       if (this.output != null) {
@@ -165,7 +165,7 @@ public class BarrelRecipeBuilder {
         array.add(object);
       }
       if (input != null) {
-        array.add(input.serialize());
+        array.add(input.toJson());
       }
       json.add("inputs", array);
       json.addProperty("litClosed", closedLit);
@@ -174,24 +174,24 @@ public class BarrelRecipeBuilder {
     }
 
     @Override
-    public @NotNull ResourceLocation getID() {
+    public @NotNull ResourceLocation getId() {
       return id;
     }
 
     @Override
-    public @NotNull IRecipeSerializer<?> getSerializer() {
+    public @NotNull IRecipeSerializer<?> getType() {
       return ModRecipes.BARREL_RECIPE_SERIALIZER.get();
     }
 
     @Nullable
     @Override
-    public JsonObject getAdvancementJson() {
-      return advBuilder.serialize();
+    public JsonObject serializeAdvancement() {
+      return advBuilder.serializeToJson();
     }
 
     @Nullable
     @Override
-    public ResourceLocation getAdvancementID() {
+    public ResourceLocation getAdvancementId() {
       return advancementId;
     }
   }

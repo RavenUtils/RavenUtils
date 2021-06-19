@@ -10,9 +10,9 @@ import net.minecraft.block.AbstractBlock.Properties;
 public class FossilDirt extends OreBlock {
 
   public FossilDirt() {
-    super(Properties.create(Material.EARTH)
-        .hardnessAndResistance(2f, 5f)
-        .sound(SoundType.GROUND)
+    super(Properties.of(Material.DIRT)
+        .strength(2f, 5f)
+        .sound(SoundType.GRAVEL)
         .harvestLevel(2)
         .harvestTool(ToolType.SHOVEL)
     );

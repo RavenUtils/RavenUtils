@@ -126,13 +126,13 @@ public class ModBlocks {
   public static final RegistryObject<Block> GELATIN_BLOCK = BLOCKS.register("gelatin_block", GelatinBlock::new);
   public static final RegistryObject<Block> CANDLE = BLOCKS.register("candle", CandleBlock::new);
   public static final RegistryObject<Block> STONE_GROUND = BLOCKS.register("ground_stone",
-      () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.ROCK)
-          .hardnessAndResistance(0.25F).sound(SoundType.STONE)
-          .doesNotBlockMovement().notSolid(), ModItems.SMALL_STONE));
+      () -> new StickAndStoneBlock(AbstractBlock.Properties.of(Material.STONE)
+          .strength(0.25F).sound(SoundType.STONE)
+          .noCollission().noOcclusion(), ModItems.SMALL_STONE));
   public static final RegistryObject<Block> STICK_GROUND = BLOCKS.register("ground_stick",
-      () -> new StickAndStoneBlock(AbstractBlock.Properties.create(Material.WOOD)
-          .hardnessAndResistance(0.25F).sound(SoundType.WOOD)
-          .notSolid().doesNotBlockMovement(), () -> Items.STICK));
+      () -> new StickAndStoneBlock(AbstractBlock.Properties.of(Material.WOOD)
+          .strength(0.25F).sound(SoundType.WOOD)
+          .noOcclusion().noCollission(), () -> Items.STICK));
 
   // fluid blocks
   public static final RegistryObject<Block> LIMEWATER_BLOCK = BLOCKS.register("limewater_block", LimewaterBlock::new);
@@ -140,28 +140,28 @@ public class ModBlocks {
 
   // vegetation
   public static final RegistryObject<Block> REEDS = BLOCKS.register("reeds",
-      () -> new Reeds(AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
+      () -> new Reeds(AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
 
   // crimleaf
   public static final RegistryObject<Block> CRIMLEAF = BLOCKS.register("crimleaf", Crimleaf::new);
   public static final RegistryObject<Block> POTTED_CRIMLEAF = BLOCKS.register("potted_crimleaf",
       () -> new FlowerPotBlock(
-          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMLEAF, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
+          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMLEAF, AbstractBlock.Properties.copy(Blocks.FLOWER_POT)
       )
   );
 
   // crimwood
   public static final RegistryObject<Block> CRIMWOOD_SIGN = BLOCKS.register("crimwood_sign",
-      () -> new CrimwoodSignStanding(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
+      () -> new CrimwoodSignStanding(AbstractBlock.Properties.of(Material.WOOD).noCollission()
+          .strength(1.0F).sound(SoundType.WOOD), EssentialsWoodTypes.CRIMWOOD));
   public static final RegistryObject<Block> CRIMWOOD_WALL_SIGN = BLOCKS.register("crimwood_wall_sign",
-      () -> new CrimwoodSignWall(AbstractBlock.Properties.create(Material.WOOD).doesNotBlockMovement()
-          .hardnessAndResistance(1.0F).sound(SoundType.WOOD).lootFrom(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
+      () -> new CrimwoodSignWall(AbstractBlock.Properties.of(Material.WOOD).noCollission()
+          .strength(1.0F).sound(SoundType.WOOD).dropsLike(ModBlocks.CRIMWOOD_SIGN.get()), EssentialsWoodTypes.CRIMWOOD));
 
   public static final RegistryObject<Block> CRIMWOOD_SAPLING = BLOCKS.register("crimwood_sapling", CrimwoodSapling::new);
   public static final RegistryObject<Block> POTTED_CRIMWOOD_SAPLING = BLOCKS.register("potted_crimwood_sapling",
       () -> new FlowerPotBlock(
-          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMWOOD_SAPLING, AbstractBlock.Properties.from(Blocks.FLOWER_POT)
+          () -> (FlowerPotBlock) Blocks.FLOWER_POT, CRIMWOOD_SAPLING, AbstractBlock.Properties.copy(Blocks.FLOWER_POT)
       )
   );
   public static final RegistryObject<Block> CRIMWOOD = BLOCKS.register("crimwood", Crimwood::new);

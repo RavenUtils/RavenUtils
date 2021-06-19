@@ -24,7 +24,7 @@ public class FeatureGen {
       // do nothing
     } else {
       for (ConfiguredFeature<?, ?> modOreFeature : FeatureRegister.ores.values()) {
-        event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
+        event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, modOreFeature);
       }
       if (event.getCategory() != Biome.Category.DESERT &&
               event.getCategory() != Biome.Category.ICY &&
@@ -32,8 +32,8 @@ public class FeatureGen {
               event.getCategory() != Biome.Category.OCEAN
       ) {
         event.getGeneration()
-                .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
-                .withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
+                .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STICK_GROUND)
+                .addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, STONE_GROUND);
         // todo add spawning of Fossil Dirt (Grass and Dirt blocks only)
       }
     }

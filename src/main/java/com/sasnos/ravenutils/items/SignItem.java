@@ -20,11 +20,11 @@ public class SignItem extends WallOrFloorItem {
     super(floorBlockIn, wallBlockIn, propertiesIn);
   }
 
-  protected boolean onBlockPlaced(BlockPos pos, World worldIn, @Nullable PlayerEntity player, ItemStack stack, BlockState state) {
-    boolean flag = super.onBlockPlaced(pos, worldIn, player, stack, state);
-    SignTileEntity tile = (SignTileEntity) worldIn.getTileEntity(pos);
-    tile.setPlayer(player);
-    if (worldIn.isRemote && !flag) {
+  protected boolean updateCustomBlockEntityTag(BlockPos pos, World worldIn, @Nullable PlayerEntity player, ItemStack stack, BlockState state) {
+    boolean flag = super.updateCustomBlockEntityTag(pos, worldIn, player, stack, state);
+    SignTileEntity tile = (SignTileEntity) worldIn.getBlockEntity(pos);
+    tile.setAllowedPlayerEditor(player);
+    if (worldIn.isClientSide && !flag) {
       SignScreenCaller.openSignScreen(tile);
     }
 
@@ -32,7 +32,7 @@ public class SignItem extends WallOrFloorItem {
   }
 
   @Override
-  public String getTranslationKey() {
-    return getDefaultTranslationKey();
+  public String getDescriptionId() {
+    return getOrCreateDescriptionId();
   }
 }

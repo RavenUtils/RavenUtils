@@ -22,10 +22,10 @@ public class BaseItemDamageable extends ItemBase {
   @Override
   public ItemStack getContainerItem(ItemStack itemstack) {
     ItemStack stack = itemstack.copy();
-    if (stack.getMaxDamage() - stack.getDamage() <= 0) {
+    if (stack.getMaxDamage() - stack.getDamageValue() <= 0) {
       stack.shrink(1);
     } else {
-      if (stack.attemptDamageItem(1, random, null)) {
+      if (stack.hurt(1, random, null)) {
         stack.shrink(1);
       }
     }
